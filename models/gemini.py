@@ -6,7 +6,8 @@ import os
 import time
 import asyncio
 from typing import Optional
-
+from google.genai import types
+MAX_NEW_TOKENS = 1024
 dotenv.load_dotenv()
 PROJECT_ID = "crack-battery-473522-r9"
 client = genai.Client(project=PROJECT_ID,
@@ -25,6 +26,9 @@ async def generate_content_from_image(png_uri, prompt="models/prompt.txt", model
         Response object, or None if an error occurs
     """
     prompt_text = open(prompt, 'r').read()
+    generate_content_config = types.GenerateContentConfig(
+    temperature = 0.7,
+    max_output_tokens = MAX_NEW_TOKENS,)
     try:
         # Run the synchronous API call in a thread pool to make it non-blocking
         response = await asyncio.to_thread(
@@ -37,6 +41,7 @@ async def generate_content_from_image(png_uri, prompt="models/prompt.txt", model
                     mime_type="image/png",
                 ),
             ],
+            config=generate_content_config
         )
         return response
     except Exception as e:
