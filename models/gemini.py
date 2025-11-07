@@ -12,6 +12,7 @@ dotenv.load_dotenv()
 PROJECT_ID = "crack-battery-473522-r9"
 client = genai.Client(project=PROJECT_ID,
     http_options=HttpOptions(api_version="v1"))
+predictions_dir = "models/gemini_predictions"
 
 async def generate_content_from_image(png_uri, prompt="models/prompt.txt", model="gemini-2.5-flash"):
     """
@@ -70,6 +71,9 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
     
     if response is not None:
         # Store result
+        if response.text is not None:
+            with open(os.path.join(predictions_dir, png_uri.split("/")[-1].replace(".png", ".html")), "w", encoding='utf-8') as f:
+                f.write(response.text)
         return {
             'png_uri': png_uri,
             'html_uri': html_uri,
