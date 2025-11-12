@@ -19,13 +19,18 @@ If you don't have gcloud CLI installed:
 ### 2. Authenticate with Google Cloud
 
 ```bash
-gcloud auth login
+#gcloud auth login
+gcloud auth application-default login
 ```
 
 ### 3. Set Project Configuration
 
 ```bash
-gcloud config set project crack-battery-473522-r9
+gcloud auth application-default set-quota-project crack-battery-473522-r9
+
+.env file
+GOOGLE_GENAI_USE_VERTEXAI=True
+GOOGLE_CLOUD_PROJECT=crack-battery-473522-r9
 ```
 
 ### 4. Verify Configuration
@@ -201,4 +206,5 @@ For generating the dataURI.txt file (reference only, not needed if file exists):
 ```bash
 gcloud storage ls --recursive gs://dataset_design2code/ | findstr /R "\.png$ \.html$" | findstr /V /C:"Design2Code/" | findstr /V /C:".cache/" > dataURI.txt
 ```
+
 

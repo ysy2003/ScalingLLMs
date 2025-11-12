@@ -9,7 +9,7 @@ from google.genai import types
 from dotenv import load_dotenv
 load_dotenv()
 MAX_NEW_TOKENS = 9000
-PROJECT_ID = "crack-battery-473522-r9"
+PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
 client = genai.Client(project=PROJECT_ID,
     http_options=HttpOptions(api_version="v1"))
 predictions_dir = "models/gemini_predictions"
