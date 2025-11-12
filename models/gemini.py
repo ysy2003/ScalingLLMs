@@ -1,14 +1,14 @@
 from google import genai
 from google.genai.types import HttpOptions, Part
-import dotenv
 import pandas as pd
 import os
 import time
 import asyncio
 from typing import Optional
 from google.genai import types
-MAX_NEW_TOKENS = 1024
-dotenv.load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
+MAX_NEW_TOKENS = 9000
 PROJECT_ID = "crack-battery-473522-r9"
 client = genai.Client(project=PROJECT_ID,
     http_options=HttpOptions(api_version="v1"))
@@ -74,7 +74,8 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
         if response.text is not None:
             with open(os.path.join(predictions_dir, png_uri.split("/")[-1].replace(".png", ".html")), "w", encoding='utf-8') as f:
                 f.write(response.text)
-        return {
+           
+        result= {
             'png_uri': png_uri,
             'html_uri': html_uri,
             'response_text': response.text if response.text else None,
@@ -85,6 +86,21 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'total_token_count': response.usage_metadata.total_token_count if response.usage_metadata and response.usage_metadata.total_token_count else None,
             'latency': latency
         }
+        # write result to txt file
+        write_result={
+            'png_uri': png_uri,
+            'html_uri': html_uri,
+            'number': number,
+            'prompt_token_count': response.usage_metadata.prompt_token_count if response.usage_metadata and response.usage_metadata.prompt_token_count else None,
+            'candidates_token_count': response.usage_metadata.candidates_token_count if response.usage_metadata and response.usage_metadata.candidates_token_count else None,
+            'thoughts_token_count': response.usage_metadata.thoughts_token_count if response.usage_metadata and response.usage_metadata.thoughts_token_count else None,
+            'total_token_count': response.usage_metadata.total_token_count if response.usage_metadata and response.usage_metadata.total_token_count else None,
+            'latency': latency
+        }
+
+        with open('models/gemini_results.txt', 'a', encoding='utf-8') as f:
+            f.write(f"{str(write_result)}\n")
+        return result
     else:
         # API call failed
         return {
@@ -137,8 +153,10 @@ async def process_images_from_file(file_path="models/dataURI.txt", n_images=None
     
     # Limit number of images if specified
     if n_images is not None:
+
         png_uris = {k: v for k, v in list(png_uris.items())[:n_images]}
-    
+    else:
+        png_uris = {k: v for k, v in list(png_uris.items())}
     # Create semaphore to limit concurrent requests
     semaphore = asyncio.Semaphore(max_concurrent)
     completed_count = 0
@@ -172,7 +190,7 @@ async def process_images_from_file(file_path="models/dataURI.txt", n_images=None
 
 # Execute processing
 if __name__ == "__main__":
-    df = asyncio.run(process_images_from_file(n_images=2))
+    df = asyncio.run(process_images_from_file())
     df.to_excel("models/gemini_results.xlsx", index=False)
     print(f"\nProcessed {len(df)} images")
     print(df.head())
