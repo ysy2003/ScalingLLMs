@@ -12,9 +12,11 @@ MAX_NEW_TOKENS = 9000
 PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
 client = genai.Client(project=PROJECT_ID,
     http_options=HttpOptions(api_version="v1"))
-predictions_dir = "models/gemini_predictions"
+predictions_dir = "gemini/results/gemini_predictions3" # results directory folder for html files
+if not os.path.exists(predictions_dir):
+    os.makedirs(predictions_dir)
 
-async def generate_content_from_image(png_uri, prompt="models/prompt.txt", model="gemini-2.5-flash"):
+async def generate_content_from_image(png_uri, prompt="gemini/prompt.txt", model="gemini-2.5-flash"):
     """
     Generate content using Gemini API (async)
     
@@ -49,7 +51,7 @@ async def generate_content_from_image(png_uri, prompt="models/prompt.txt", model
         print(f"Error calling API for {png_uri}: {str(e)}")
         return None
 
-async def process_single_image(number: str, png_uri: str, html_uri: Optional[str], prompt: str = "models/prompt.txt"):
+async def process_single_image(number: str, png_uri: str, html_uri: Optional[str], prompt: str = "gemini/prompt.txt", logs_file: str = "gemini/gemini_results.txt"):
     """
     Process a single image asynchronously
     
@@ -98,7 +100,7 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'latency': latency
         }
 
-        with open('models/gemini_results.txt', 'a', encoding='utf-8') as f:
+        with open(logs_file, 'a', encoding='utf-8') as f:
             f.write(f"{str(write_result)}\n")
         return result
     else:
@@ -116,7 +118,7 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'latency': None
         }
 
-async def process_images_from_file(file_path="models/dataURI.txt", n_images=None, max_concurrent=10, prompt="models/prompt.txt"):
+async def process_images_from_file(file_path="gemini/dataURI.txt", n_images=None, max_concurrent=10, prompt="gemini/prompt.txt", logs_file: str = "gemini/gemini_results.txt"):
     """
     Read dataURI.txt file, process all PNG images asynchronously, and return a DataFrame containing response.text and corresponding HTML URIs
     
@@ -167,7 +169,7 @@ async def process_images_from_file(file_path="models/dataURI.txt", n_images=None
         """Process image with semaphore to limit concurrency"""
         nonlocal completed_count
         async with semaphore:
-            result = await process_single_image(number, png_uri, html_uri, prompt)
+            result = await process_single_image(number, png_uri, html_uri, prompt, logs_file)
             async with completed_lock:
                 completed_count += 1
                 remaining = total_count - completed_count
@@ -190,7 +192,9 @@ async def process_images_from_file(file_path="models/dataURI.txt", n_images=None
 
 # Execute processing
 if __name__ == "__main__":
-    df = asyncio.run(process_images_from_file())
-    df.to_excel("models/gemini_results.xlsx", index=False)
-    print(f"\nProcessed {len(df)} images")
+    logs_file = "gemini/gemini_results3.txt"
+    excel_file = "gemini/gemini_results3.xlsx"
+    df = asyncio.run(process_images_from_file(logs_file=logs_file)) # logs file for results incase of error
+    df.to_excel(excel_file, index=False) # results file for excel
+    print(f"\nProcessed {len(df)} images, files saved in {predictions_dir} and logs saved in {logs_file} and excel saved in {excel_file}")
     print(df.head())

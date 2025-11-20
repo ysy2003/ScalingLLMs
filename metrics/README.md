@@ -28,3 +28,4 @@ run correctness.py
 #### 3. Critical Error Count
    Total Critical Errors Found: 0
    Average Critical Errors per File: 0.00
+#### 4. pass@k

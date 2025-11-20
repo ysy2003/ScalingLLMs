@@ -15,11 +15,8 @@ import pandas as pd
 # --- Configuration ---
 
 # The path to your predictions folder.
-# Path('...').resolve() makes it an absolute path based on your current working directory.
-# You can also replace this with a hardcoded absolute path:
-# PREDICTIONS_FOLDER = Path(r"C:\your\absolute\path\to\models\gemini_predictions").resolve()
 
-PREDICTIONS_FOLDER = Path('models/gemini_predictions').resolve()
+PREDICTIONS_FOLDER = Path('gemini/results/gemini_predictions').resolve()
 
 # The name of the output CSV file.
 OUTPUT_FILE = "metrics/correctness_metrics_report.xlsx"
