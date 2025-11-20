@@ -1,187 +1,245 @@
 # Required packages: 
-# pip install playwright
-# pip install pandas
+# pip install playwright pandas openpyxl
 #
-# Also requires browser binaries to be installed:
+# Also requires browser binaries:
 # playwright install
 
 import asyncio
 from playwright.async_api import async_playwright
 from pathlib import Path
-import os
-import sys
 import pandas as pd
+import os
 
 # --- Configuration ---
 
-# The path to your predictions folder.
+# Define the list of folders containing the 3 predictions
+# Assumes folders are named 'gemini_predictions1', 'gemini_predictions2', etc.
+BASE_DIR = Path('gemini/results').resolve()
+PREDICTION_FOLDERS = [
+    BASE_DIR / 'gemini_predictions1',
+    BASE_DIR / 'gemini_predictions2',
+    BASE_DIR / 'gemini_predictions3'
+]
 
-PREDICTIONS_FOLDER = Path('gemini/results/gemini_predictions').resolve()
+# Path to dataURI.txt file containing all test cases
+DATAURI_FILE = Path('gemini/dataURI.txt')
 
-# The name of the output CSV file.
-OUTPUT_FILE = "metrics/correctness_metrics_report.xlsx"
+# The name of the output Excel file.
+OUTPUT_FILE = "metrics/evaluation/pass_k_metrics_report_gemini.xlsx"
 
 # -------------
 
-async def check_file(browser, file_path: Path):
+async def check_file(browser, file_path: Path, sample_id: int):
     """
     Checks a single HTML file for rendering success and console errors.
-    
-    Args:
-        browser: The Playwright browser instance.
-        file_path: The Path object pointing to the HTML file.
-
-    Returns:
-        A dictionary containing the analysis results for the file.
+    Now takes 'sample_id' to track which prediction batch it belongs to.
     """
     file_name = file_path.name
     context = None
     try:
-        # Create a new, isolated browser context and page for each file.
+        # Create a new, isolated browser context and page
         context = await browser.new_context()
         page = await context.new_page()
 
         errors = []
-        render_success = False # Default to False
+        render_success = False 
 
-        # --- CRITICAL: Set up listeners *before* loading the page ---
-        
-        # 1. Listen for 'console' events (e.g., console.error)
+        # 1. Listen for 'console' events
         def handle_console(msg):
             if msg.type.lower() == 'error':
                 errors.append(f"[Console Error]: {msg.text}")
         
         page.on('console', handle_console)
 
-        # 2. Listen for 'pageerror' events (e.g., unhandled JavaScript exceptions)
+        # 2. Listen for 'pageerror' events
         def handle_page_error(err):
             errors.append(f"[Page Error]: {err.message}")
 
         page.on('pageerror', handle_page_error)
 
-
-        # Load the HTML file using the file:// protocol
+        # Load the HTML file
         file_url = f'file://{file_path.resolve()}'
-        await page.goto(file_url, wait_until='load') # Wait for the 'load' event
+        # Reduced timeout to 5s to speed up 3x processing if files are simple
+        await page.goto(file_url, wait_until='load', timeout=10000) 
 
-        # --- Metric 1: Render Success ---
-        # Our definition: The page loaded and the <body> tag is not empty.
+        # --- Metric: Render Success ---
         body_content = await page.evaluate("() => document.body.innerHTML")
         if body_content and len(body_content.strip()) > 0:
             render_success = True
 
-        # Clean up the context and page
         await context.close()
 
         return {
             "fileName": file_name,
+            "sample_id": sample_id,  # Track which folder (1, 2, or 3)
             "renderSuccess": render_success,
             "errorCount": len(errors),
             "criticalErrorCount": 0,
-            "errors": errors
+            "errors": str(errors) # Convert list to string for Excel
         }
 
     except Exception as e:
-        # This catches critical load errors (e.g., completely broken HTML)
         if context:
-            await context.close() # Ensure cleanup
+            await context.close()
         return {
             "fileName": file_name,
-            "renderSuccess": False, # Explicit render failure
-            "errorCount": 1,        # Count this as one critical error
+            "sample_id": sample_id,
+            "renderSuccess": False,
+            "errorCount": 1,
             "criticalErrorCount": 1,
-            "errors": [f"[Critical Load Error]: {e}"]
+            "errors": f"[Critical Load Error]: {e}"
         }
 
+def load_test_cases_from_datauri(datauri_file: Path):
+    """
+    Load all HTML test case IDs from dataURI.txt file.
+    Returns a set of file IDs (without .html extension).
+    """
+    test_cases = set()
+    
+    if not datauri_file.exists():
+        print(f"❌ Error: dataURI.txt file not found at {datauri_file}")
+        return test_cases
+    
+    with open(datauri_file, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            
+            # Extract HTML file names (e.g., "gs://dataset_design2code/10473.html" -> "10473")
+            if line.endswith('.html'):
+                file_name = os.path.basename(line)
+                file_id = file_name.replace('.html', '')
+                test_cases.add(file_id)
+    
+    return test_cases
+
 async def main():
-    """
-    Main function to run the analysis.
-    """
+    print('📋 Loading test cases from dataURI.txt...')
+    test_cases = load_test_cases_from_datauri(DATAURI_FILE)
+    
+    if not test_cases:
+        print("❌ No test cases found in dataURI.txt. Exiting.")
+        return
+    
+    print(f"✅ Found {len(test_cases)} test cases in dataURI.txt")
+    
     print('🚀 Launching headless browser (Playwright)...')
     
     async with async_playwright() as p:
-        # Launch the Chromium browser
         browser = await p.chromium.launch(headless=True)
-
-
-
-        # 2. Find all .html files in the folder
-        print(f"📂 Reading files from: {PREDICTIONS_FOLDER}")
-        files = list(PREDICTIONS_FOLDER.glob('*.html'))
-
-        if not files:
-            print(f"❌ Error: No .html files found in the specified folder.")
-            await browser.close()
-            return
-
-        print(f"🔍 Found {len(files)} HTML files. Starting analysis...")
-
-        # 3. Run the analysis for all files concurrently
-        tasks = [check_file(browser, file) for file in files]
-        results = await asyncio.gather(*tasks)
         
-        print("...analysis complete.")
+        all_results = []
 
+        # --- Loop through each prediction folder ---
+        for i, folder in enumerate(PREDICTION_FOLDERS):
+            sample_id = i + 1 # 1, 2, 3
+            print(f"\n📂 Processing Batch {sample_id}/3: {folder}")
+            
+            if not folder.exists():
+                print(f"   ❌ Warning: Folder not found: {folder}")
+                continue
+
+            # Check each test case from dataURI.txt
+            for file_id in test_cases:
+                html_file = folder / f"{file_id}.html"
+                
+                if html_file.exists():
+                    # File exists, check it with browser
+                    result = await check_file(browser, html_file, sample_id)
+                    all_results.append(result)
+                else:
+                    # File doesn't exist, mark as failed
+                    all_results.append({
+                        "fileName": f"{file_id}.html",
+                        "sample_id": sample_id,
+                        "renderSuccess": False,
+                        "errorCount": 1,
+                        "criticalErrorCount": 1,
+                        "errors": f"[File Not Found]: {html_file.name} not found in {folder.name}"
+                    })
+            
+            # Count how many files were found vs missing
+            found_count = sum(1 for file_id in test_cases if (folder / f"{file_id}.html").exists())
+            missing_count = len(test_cases) - found_count
+            print(f"   📊 Found: {found_count}, Missing: {missing_count}")
+            
         await browser.close()
-        print('✅ Browser closed.')
+        print('\n✅ Browser closed. Calculation complete.')
 
-        # --- 4. Convert results to DataFrame ---
-        if not results:
-            print("No results to process.")
-            return
 
-        df = pd.DataFrame(results)
+        df = pd.DataFrame(all_results)
 
-        # Rename columns to be more descriptive (as requested)
+        # Renaming for clarity
         df = df.rename(columns={
-            'fileName': 'fileName',
-            'renderSuccess': 'Render Success',
-            'errorCount': 'DOM/Console Error Count',
+            'fileName': 'File Name',
+            'sample_id': 'Sample ID',
+            'renderSuccess': 'Passed',
+            'errorCount': 'Error Count',
             'criticalErrorCount': 'Critical Error Count',
-            'errors': 'Errors Report'
+            'errors': 'Error Details'
         })
 
+        # Ensure 'Passed' is boolean
+        df['Passed'] = df['Passed'].astype(bool)
 
+        # --- Calculate Pass@k Metrics ---
+        print('\n--- 📊 Design2Code Pass@k Report ---')
 
-        # Re-order columns
-        df = df[['fileName', 'Render Success', 'DOM/Console Error Count', 'Critical Error Count', 'Errors Report']]
+        # 1. Pass@1: The global average accuracy across all predictions
+        # Formula: Total Successes / Total Predictions
+        pass_at_1 = df['Passed'].mean()
 
-        # --- 5. Print Summary and DataFrame ---
-        print('\n--- 📊 Aggregate Metrics Report ---')
-
-        total_files = len(df)
+        # 2. Pass@3: For each unique file, did AT LEAST ONE sample pass?
+        # Group by File Name, check if any sample in the group is True
+        grouped = df.groupby('File Name')['Passed']
         
-        # Metric 1: Render Success Rate (Aggregate)
-        successful_renders = df['Render Success'].sum()
-        render_success_rate = (successful_renders / total_files) * 100
-        print(f"\n## 1. Render Success Rate")
-        print(f"   {successful_renders} / {total_files} files rendered successfully (<body> not empty)")
-        print(f"   Rate: {render_success_rate:.2f}%")
+        # .max() on boolean acts as OR (True if any are True)
+        file_level_pass = grouped.max() 
+        
+        total_unique_files = len(file_level_pass)
+        passed_files_at_3 = file_level_pass.sum()
+        pass_at_3 = passed_files_at_3 / total_unique_files if total_unique_files > 0 else 0.0
 
-        # Metric 2: DOM/Console Error Count (Aggregate)
-        total_errors = df['DOM/Console Error Count'].sum()
-        avg_errors = df['DOM/Console Error Count'].mean()
-        print(f"\n## 2. DOM/Console Error Count")
-        print(f"   Total Errors Found: {total_errors}")
-        print(f"   Average Errors per File: {avg_errors:.2f}")
+        
+        # --- Display Metrics ---
+        print(f"\n## Summary Statistics")
+        print(f"   Total Unique Test Cases (from dataURI.txt): {total_unique_files}")
+        print(f"   Total Predictions Evaluated:   {len(df)}")
+        
+        
+        print(f"\n## 🏆 Metrics")
+        print(f"   Pass@1 (Avg Accuracy):   {pass_at_1:.2%}")
+        print(f"   Pass@3 (Best of 3):      {pass_at_3:.2%}")
+        
+        print(f"\n   (Pass@3 means {passed_files_at_3} out of {total_unique_files} UI designs rendered correctly at least once across all 3 batches.)")
 
-        # Metric 3: Critical Error Count (Aggregate)
-        total_critical_errors = df['Critical Error Count'].sum()
-        avg_critical_errors = df['Critical Error Count'].mean()
-        print(f"\n## 3. Critical Error Count")
-        print(f"   Total Critical Errors Found: {total_critical_errors}")
-        print(f"   Average Critical Errors per File: {avg_critical_errors:.2f}")
-
-        # --- 6. Save to excel ---
+        # --- Save Detailed Report ---
         try:
-            df.to_excel(OUTPUT_FILE, index=False)
-            print(f"\n✅ Report successfully saved to:")
-            print(f"   {OUTPUT_FILE}")
+            # Create a directory for metrics if it doesn't exist
+            Path("metrics").mkdir(exist_ok=True)
+            
+            # We will save two sheets: Summary and Details
+            with pd.ExcelWriter(OUTPUT_FILE) as writer:
+                # Sheet 1: Raw Details (All rows)
+                # Sort by Filename then Sample ID for readability
+                df.sort_values(by=['File Name', 'Sample ID']).to_excel(writer, sheet_name='All Predictions', index=False)
+                
+                # Sheet 2: File Level Summary (Did file X pass at 3?)
+                summary_df = df.groupby('File Name').agg({
+                    'Passed': ['count', 'sum', 'max'], # Total runs, success count, did any pass
+                    'Error Count': 'mean'
+                }).reset_index()
+                
+                # Flatten MultiIndex columns
+                summary_df.columns = ['File Name', 'Total Attempts', 'Successful Attempts', 'Pass@3 (Bool)', 'Avg Errors']
+                summary_df.to_excel(writer, sheet_name='File Level Summary', index=False)
+
+            print(f"\n✅ Detailed report saved to: {OUTPUT_FILE}")
+            
         except Exception as e:
-            print(f"\n❌ Error saving report to CSV: {e}")
+            print(f"\n❌ Error saving Excel: {e}")
 
-
-# --- Main execution block ---
 if __name__ == "__main__":
-        
     asyncio.run(main())

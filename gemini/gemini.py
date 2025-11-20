@@ -86,7 +86,8 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'candidates_token_count': response.usage_metadata.candidates_token_count if response.usage_metadata and response.usage_metadata.candidates_token_count else None,
             'thoughts_token_count': response.usage_metadata.thoughts_token_count if response.usage_metadata and response.usage_metadata.thoughts_token_count else None,
             'total_token_count': response.usage_metadata.total_token_count if response.usage_metadata and response.usage_metadata.total_token_count else None,
-            'latency': latency
+            'latency': latency,
+            'raw_response': response
         }
         # write result to txt file
         write_result={
@@ -97,7 +98,8 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'candidates_token_count': response.usage_metadata.candidates_token_count if response.usage_metadata and response.usage_metadata.candidates_token_count else None,
             'thoughts_token_count': response.usage_metadata.thoughts_token_count if response.usage_metadata and response.usage_metadata.thoughts_token_count else None,
             'total_token_count': response.usage_metadata.total_token_count if response.usage_metadata and response.usage_metadata.total_token_count else None,
-            'latency': latency
+            'latency': latency,
+            'raw_response': response
         }
 
         with open(logs_file, 'a', encoding='utf-8') as f:
@@ -110,12 +112,12 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'html_uri': html_uri,
             'response_text': None,
             'number': number,
-            'error': 'API call failed',
             'prompt_token_count': None,
             'candidates_token_count': None,
             'thoughts_token_count': None,
             'total_token_count': None,
-            'latency': None
+            'latency': None,
+            'raw_response': response
         }
 
 async def process_images_from_file(file_path="gemini/dataURI.txt", n_images=None, max_concurrent=10, prompt="gemini/prompt.txt", logs_file: str = "gemini/gemini_results.txt"):
