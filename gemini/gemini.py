@@ -12,9 +12,7 @@ MAX_NEW_TOKENS = 9000
 PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
 client = genai.Client(project=PROJECT_ID,
     http_options=HttpOptions(api_version="v1"))
-predictions_dir = "gemini/results/gemini_predictions3" # results directory folder for html files
-if not os.path.exists(predictions_dir):
-    os.makedirs(predictions_dir)
+
 
 async def generate_content_from_image(png_uri, prompt="gemini/prompt.txt", model="gemini-2.5-flash"):
     """
@@ -30,7 +28,7 @@ async def generate_content_from_image(png_uri, prompt="gemini/prompt.txt", model
     """
     prompt_text = open(prompt, 'r').read()
     generate_content_config = types.GenerateContentConfig(
-    temperature = 0.7,
+    temperature = 0,
     max_output_tokens = MAX_NEW_TOKENS,)
     try:
         # Run the synchronous API call in a thread pool to make it non-blocking
@@ -194,9 +192,13 @@ async def process_images_from_file(file_path="gemini/dataURI.txt", n_images=None
 
 # Execute processing
 if __name__ == "__main__":
-    logs_file = "gemini/gemini_results3.txt"
-    excel_file = "gemini/gemini_results3.xlsx"
-    df = asyncio.run(process_images_from_file(logs_file=logs_file)) # logs file for results incase of error
-    df.to_excel(excel_file, index=False) # results file for excel
-    print(f"\nProcessed {len(df)} images, files saved in {predictions_dir} and logs saved in {logs_file} and excel saved in {excel_file}")
-    print(df.head())
+    for i in range(1, 3):
+        predictions_dir = f"gemini/results/gemini_predictions{i}" # results directory folder for html files
+        if not os.path.exists(predictions_dir):
+            os.makedirs(predictions_dir)
+        logs_file = f"gemini/gemini_results{i}.txt"
+        excel_file = f"gemini/gemini_results{i}.xlsx"
+        df = asyncio.run(process_images_from_file(logs_file=logs_file)) # logs file for results incase of error
+        df.to_excel(excel_file, index=False) # results file for excel
+        print(f"\nProcessed {len(df)} images, files saved in {predictions_dir} and logs saved in {logs_file} and excel saved in {excel_file}")
+        # print(df.head())
