@@ -12,7 +12,6 @@ import os
 
 # --- Configuration ---
 
-# Define the list of folders containing the 3 predictions
 # Assumes folders are named 'gemini_predictions1', 'gemini_predictions2', etc.
 BASE_DIR = Path('gemini/results').resolve()
 PREDICTION_FOLDERS = [
@@ -24,7 +23,7 @@ PREDICTION_FOLDERS = [
 DATAURI_FILE = Path('gemini/dataURI.txt')
 
 # The name of the output Excel file.
-OUTPUT_FILE = "metrics/evaluation/pass_k_metrics_report_gemini.xlsx"
+OUTPUT_FILE = "metrics/evaluation/gemini_correctness_report.xlsx"
 
 # -------------
 
@@ -84,7 +83,7 @@ async def check_file(browser, file_path: Path, sample_id: int):
             "fileName": file_name,
             "sample_id": sample_id,
             "renderSuccess": False,
-            "errorCount": 1,
+            "errorCount": 0,
             "criticalErrorCount": 1,
             "errors": f"[Critical Load Error]: {e}"
         }
@@ -96,9 +95,7 @@ def load_test_cases_from_datauri(datauri_file: Path):
     """
     test_cases = set()
     
-    if not datauri_file.exists():
-        print(f"❌ Error: dataURI.txt file not found at {datauri_file}")
-        return test_cases
+
     
     with open(datauri_file, 'r', encoding='utf-8') as f:
         for line in f:
@@ -134,7 +131,7 @@ async def main():
         # --- Loop through each prediction folder ---
         for i, folder in enumerate(PREDICTION_FOLDERS):
             sample_id = i + 1 # 1, 2, 3
-            print(f"\n📂 Processing Batch {sample_id}/3: {folder}")
+            print(f"\n📂 Processing Batch {sample_id}: {folder}")
             
             if not folder.exists():
                 print(f"   ❌ Warning: Folder not found: {folder}")
@@ -209,11 +206,22 @@ async def main():
         print(f"\n## 🏆 Metrics")
         print(f"   Pass@1 (Avg Accuracy):   {pass_at_1:.2%}")
         
+        # --- Error Statistics ---
+        print(f"\n## 📊 Error Statistics")
+        print(f"   Error Count:")
+        print(f"      Total:                 {df['Error Count'].sum()}")
+        print(f"      Average:               {df['Error Count'].mean():.2f}")
+        print(f"      Max:                    {df['Error Count'].max()}")
+        print(f"      Files with errors:     {(df['Error Count'] > 0).sum()}")
+        
+        print(f"\n   Critical Error Count:")
+        print(f"      Total:                 {df['Critical Error Count'].sum()}")
+        print(f"      Average:               {df['Critical Error Count'].mean():.2f}")
+        print(f"      Max:                    {df['Critical Error Count'].max()}")
+        print(f"      Files with critical errors: {(df['Critical Error Count'] > 0).sum()}")
 
         # --- Save Detailed Report ---
         try:
-            # Create a directory for metrics if it doesn't exist
-            Path("metrics").mkdir(exist_ok=True)
             
             # We will save two sheets: Summary and Details
             with pd.ExcelWriter(OUTPUT_FILE) as writer:

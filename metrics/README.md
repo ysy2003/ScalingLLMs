@@ -16,6 +16,30 @@ run correctness.py
 ## 📊 Gemini Design2Code Pass@1 Report
 
 
+### Summary Statistics
+   Total Unique Test Cases (from dataURI.txt): 484
+
+   Total Predictions Evaluated:   484
+
+### 🏆 Metrics
+   Pass@1 (Avg Accuracy):   96.69%
+
+### 📊 Error Statistics
+   ```
+   Error Count:
+      Total:                 17
+      Average:               0.04
+      Max:                    1
+      Files with errors:     17
+
+   Critical Error Count:
+      Total:                 16
+      Average:               0.03
+      Max:                    1
+      Files with critical errors: 16
+   ```
+
+✅ Detailed report saved to: [metrics/evaluation/gemini_correctness_report.xlsx](metrics/evaluation/gemini_correctness_report.xlsx)
 
 # 2. Visual Fidelity
 ## 2.1 CLIP
@@ -51,3 +75,4 @@ run correctness.py
 
    Low (<0.5):                          11 (2.4%)
    ```
+✅ Detailed report saved to: [metrics\evaluation\gemini_clip_scores.xlsx](metrics\evaluation\gemini_clip_scores.xlsx)
