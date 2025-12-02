@@ -1,24 +1,5 @@
-# Metrics
-# 1. Correctness
-Code Correctness:
-Render Success Rate: Percentage of generated code that renders without critical errors.
-
-Pass@k: Code validity measured by repeated sampling (for models with stochastic decoding).
-
-DOM/Console Error Count: Number of errors logged by the browser's developer tools upon rendering.
-## environment setup and running
-```
-pip install playwright
-playwright install
-```
-run correctness.py
-
-## 📊 Gemini Design2Code Pass@1 Report
-
-
-
-# 2. Visual Fidelity
-## 2.1 CLIP
+# Visual Fidelity
+## CLIP
 ### Gemini 📊 CLIP Score Summary
 
 #### Summary Statistics

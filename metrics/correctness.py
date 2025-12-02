@@ -17,8 +17,7 @@ import os
 BASE_DIR = Path('gemini/results').resolve()
 PREDICTION_FOLDERS = [
     BASE_DIR / 'gemini_predictions1',
-    BASE_DIR / 'gemini_predictions2',
-    BASE_DIR / 'gemini_predictions3'
+    # BASE_DIR / 'gemini_predictions2',
 ]
 
 # Path to dataURI.txt file containing all test cases
@@ -199,8 +198,6 @@ async def main():
         file_level_pass = grouped.max() 
         
         total_unique_files = len(file_level_pass)
-        passed_files_at_3 = file_level_pass.sum()
-        pass_at_3 = passed_files_at_3 / total_unique_files if total_unique_files > 0 else 0.0
 
         
         # --- Display Metrics ---
@@ -211,9 +208,7 @@ async def main():
         
         print(f"\n## 🏆 Metrics")
         print(f"   Pass@1 (Avg Accuracy):   {pass_at_1:.2%}")
-        print(f"   Pass@3 (Best of 3):      {pass_at_3:.2%}")
         
-        print(f"\n   (Pass@3 means {passed_files_at_3} out of {total_unique_files} UI designs rendered correctly at least once across all 3 batches.)")
 
         # --- Save Detailed Report ---
         try:
