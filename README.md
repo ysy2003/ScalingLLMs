@@ -47,7 +47,7 @@
 | MLLM-Based UI2Code Automation Guided by UI Layout Information (often called LayoutCoder) | ISSTA 2025 | UI screenshot + layout tree → code | Layout-guided UI2Code with explicit layout representation | https://arxiv.org/abs/2506.10376 |
 | UICopilot: Automating UI Synthesis via Hierarchical Code Generation from Webpage Designs | WWW / arXiv 2025 | Webpage design → hierarchical HTML/CSS | Two-stage (structure-first) UI2Code system | https://arxiv.org/abs/2505.09904 |
 | LaTCoder: Converting Webpage Design to Code with Layout-as-Thought | KDD / arXiv 2025 | Webpage design → code via block-wise reasoning | Layout-as-Thought (LaT), block-by-block generation | https://arxiv.org/abs/2508.03560 |
-| ViT-DtC: Vision Transformer-based Design-to-Code Framework for Generated UI Designs and Hand-drawn Sketches | Neural Computing & Applications 2025 | Generated UI / sketch → multi-platform code | ViT-based design-to-code for web + mobile | *(journal DOI / link as available)* |
+| ViT-DtC: Vision Transformer-based Design-to-Code Framework for Generated UI Designs and Hand-drawn Sketches | Neural Computing & Applications 2025 | Generated UI / sketch → multi-platform code | ViT-based design-to-code for web + mobile | https://doi.org/10.1007/s00521-025-11565-z
 | UIGEN-T2: UI Generation Model Fine-tuned from Qwen2.5-Coder-7B-Instruct | Model card 2025 | Text / UI spec → front-end code | HF model for UI/UX generation tasks | https://huggingface.co/Tesslate/UIGEN-T2-7B |
 
 ---

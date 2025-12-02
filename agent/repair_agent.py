@@ -14,6 +14,7 @@ from metrics import correctness, efficiency, robustness, structural_alignment
 from metrics.structural_alignment import compute_structural_alignment_scores
 from google import genai
 from google.genai.types import HttpOptions, Part
+from google.cloud import storage
 
 class GeminiModel:
     def __init__(self, project_id, location, model_name):
@@ -26,7 +27,6 @@ class GeminiModel:
         self.model_name = model_name
 
     def generate_content(self, contents):
-        # contents 可以是 str 或 list
         if isinstance(contents, str):
             contents = [contents]
 
@@ -58,7 +58,6 @@ def generate_html_css(model, file_path, row_index: int = 0, html_column: Optiona
 
     ext = os.path.splitext(file_path)[1].lower()
 
-    # 新增：图片输入分支
     if ext in [".png", ".jpg", ".jpeg", ".webp"]:
         with open(file_path, "rb") as f:
             img_bytes = f.read()
@@ -67,7 +66,6 @@ def generate_html_css(model, file_path, row_index: int = 0, html_column: Optiona
         prompt = "You are a design-to-code engine. Generate clean, responsive HTML+CSS for this landing page."
 
         response = model.generate_content([image_part, prompt])
-        # 根据 genai 返回结构取文本，这里简单处理：
         text = response.text if hasattr(response, "text") else str(response)
         return text
 
@@ -191,7 +189,7 @@ def render_and_capture(html, output_path):
 
     return render_success, errors
 
-def is_html_valid(html: str, render_success: bool, captured_errors: list, metrics: Optional[dict] = None) -> bool:
+def is_html_valid(html, render_success, captured_errors, metrics=None):
     """
     Basic HTML validity check:
     - Playwright rendering must succeed
@@ -199,28 +197,18 @@ def is_html_valid(html: str, render_success: bool, captured_errors: list, metric
     - HTML itself has a certain length
     - Contains basic structure like <html> and <body>
     """
-    if not render_success:
-        return False
-
-    if captured_errors:
-        return False
-
-    if not html or len(html.strip()) < 10:
-        # Content that is too short is considered invalid
+    if not render_success or captured_errors:
         return False
 
     lower = html.lower()
     if "<html" not in lower or "<body" not in lower:
-        # Missing basic structure tags means it's not valid HTML
         return False
 
     if metrics:
-        # 这里阈值你可以调
-        if metrics.get("tree_edit_similarity", 0.0) < 0.4:
+        if metrics.get("tree_edit_similarity", 0.0) < 0.9:
             return False
         if metrics.get("semantic_html_ratio", 0.0) < 0.05:
             return False
-        # accessibility 可以不硬卡死，只做 log
 
     return True
 
@@ -258,18 +246,40 @@ def compute_semantic_ratio(dom):
     """
     Compute the ratio of semantic tags.
     """
-    semantic_tags = {"header", "footer", "article", "section", "nav", "aside"}
-    total_tags = len(dom.find_all())
-    semantic_tags_count = len([tag for tag in dom.find_all() if tag.name in semantic_tags])
+    semantic_tags = {
+        "header", "footer", "article", "section", "nav", "aside",
+        "main", "h1", "h2", "h3"
+    }
+    body = dom.body or dom
+    total_tags = len(body.find_all())
+    semantic_tags_count = len([tag for tag in body.find_all() if tag.name in semantic_tags])
     return semantic_tags_count / total_tags if total_tags > 0 else 0.0
 
 def compute_accessibility_score(dom):
     """
-    Compute accessibility score.
+    Compute accessibility score based on multiple factors:
+    - <img> tags with alt attributes
+    - <form> tags with associated <label>
+    - <a> tags with aria-label or title attributes
     """
-    alt_tags = len(dom.find_all("img", alt=True))
-    total_images = len(dom.find_all("img"))
-    return alt_tags / total_images if total_images > 0 else 1.0
+    # Check <img> tags for alt attributes
+    img_tags = dom.find_all("img")
+    img_with_alt = len([img for img in img_tags if img.has_attr("alt")])
+    img_score = img_with_alt / len(img_tags) if img_tags else 1.0
+
+    # Check <form> tags for associated <label>
+    form_tags = dom.find_all("form")
+    labels = dom.find_all("label")
+    form_score = len(labels) / len(form_tags) if form_tags else 1.0
+
+    # Check <a> tags for aria-label or title attributes
+    a_tags = dom.find_all("a")
+    a_with_labels = len([a for a in a_tags if a.has_attr("aria-label") or a.has_attr("title")])
+    a_score = a_with_labels / len(a_tags) if a_tags else 1.0
+
+    # Combine scores (weighted average or simple average)
+    total_score = (img_score + form_score + a_score) / 3
+    return total_score
 
 from bs4 import BeautifulSoup
 
@@ -364,118 +374,38 @@ Now return the complete corrected HTML file:
     return repaired_code.strip().removeprefix("```html").removesuffix("```")
 
 def extract_html_from_response(cell_value: str) -> str:
-    """
-    从 Excel 的 response_text 单元格里抽出纯 HTML：
-    - 去掉最外层的引号
-    - 截取 ```html ... ``` 代码块
-    """
     if not isinstance(cell_value, str):
         cell_value = str(cell_value or "")
 
     text = cell_value.strip()
 
-    # 去掉最外层一对引号（有些导出会带一层双引号）
     if len(text) >= 2 and text[0] == text[-1] == '"':
         text = text[1:-1]
 
-    # 找 ```html 代码块
     lower = text.lower()
     if "```html" in lower:
         start = lower.index("```html") + len("```html")
         text = text[start:]
-        # 截到后面的第一个 ```
         end_idx = text.find("```")
         if end_idx != -1:
             text = text[:end_idx]
 
     return text.strip()
 
-def repair_loop(model, html_file_path, max_attempts: int = 3):
-    # Create a unique folder for this file's repair attempts
-    base_output_dir = "agent/output"
-    file_name = os.path.splitext(os.path.basename(html_file_path))[0]
-    output_dir = os.path.join(base_output_dir, file_name)
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Load the initial HTML (can be .html or .xlsx)
-    html = generate_html_css(model, html_file_path)
-
-    # Print a snippet of the HTML for debugging purposes
-    print("Initial HTML snippet (first 300 chars):")
-    print(html[:300].replace("\n", "\\n"))
-
-    logs = []
-    metrics = {}
-
-    for attempt in range(max_attempts + 1):  # attempt = 0 is the initial version
-        print(f"\n--- Attempt {attempt}/{max_attempts} ---")
-
-        # 1) 把当前 html 写到一个 .html 文件里，供 metrics 使用
-        html_attempt_path = os.path.join(output_dir, f"output_attempt_{attempt}.html")
-        with open(html_attempt_path, "w", encoding="utf-8") as f:
-            f.write(html)
-
-        # 2) 渲染成 PNG（只是为了看效果和抓 JS 错误）
-        screenshot_path = os.path.join(output_dir, f"output_attempt_{attempt}.png")
-        render_success, captured_errors = render_and_capture(html, screenshot_path)
-        print(f"Render Success: {render_success}, Errors Found: {len(captured_errors)}")
-
-        # 3) 用 “当前 html vs 初始 html_file_path” 算 metrics
-        metrics = evaluate_metrics(
-            screenshot_path=html_attempt_path,
-            ground_truth_path=html_file_path,
-        )
-
-        logs.append(
-            {
-                "attempt": attempt,
-                "render_success": render_success,
-                "errors": captured_errors,
-                "metrics": metrics,
-                "html_content": html,
-            }
-        )
-
-        if is_html_valid(html, render_success, captured_errors, metrics):
-            print("\n✅ HTML passes validity checks. Exiting repair loop.")
-            break
-
-        if attempt >= max_attempts:
-            print("\n⚠️ Reached maximum attempts without obtaining valid HTML.")
-            break
-
-        html = call_model_for_repair(model, html, captured_errors, metrics)
-        print(f"Length of repaired HTML: {len(html)}")
-
-    # Save logs to the output directory
-    log_path = os.path.join(output_dir, "repair_log.json")
-    with open(log_path, "w", encoding="utf-8") as log_file:
-        json.dump(logs, log_file, indent=4)
-
-    return metrics, logs
-
-def process_multiple_files(model, file_paths, max_attempts: int = 3):
+def download_html_from_gcs(gcs_uri: str, local_path: str):
     """
-    Process multiple HTML files for repair.
-
-    Args:
-        model: The model used for repairing HTML.
-        file_paths: List of file paths to process.
-        max_attempts: Maximum number of repair attempts per file.
+    Download an HTML file from Google Cloud Storage to a local path.
     """
-    for i, file_path in enumerate(file_paths):
-        print(f"\n=== Processing File {i + 1}/{len(file_paths)}: {file_path} ===")
-        metrics, logs = repair_loop(model, file_path, max_attempts=max_attempts)
-        print(f"\n--- Metrics for File {i + 1} ---")
-        print(metrics)
-        print(f"Total attempts made: {len(logs)}")
-        print(f"Detailed logs saved to agent/repair_log_{i + 1}.json")
+    try:
+        client = storage.Client()
+        bucket_name, blob_name = gcs_uri.replace("gs://", "").split("/", 1)
+        bucket = client.bucket(bucket_name)
+        blob = bucket.blob(blob_name)
+        blob.download_to_filename(local_path)
+        print(f"Downloaded {gcs_uri} to {local_path}")
+    except Exception as e:
+        print(f"❌ Error downloading {gcs_uri}: {e}")
 
-        # Save logs for each file
-        with open(f"agent/repair_log_{i + 1}.json", "w", encoding="utf-8") as log_file:
-            json.dump(logs, log_file, indent=4)
-
-# Update process_multiple_files to handle rows in an Excel file
 def process_excel_file(model, excel_path, max_files, max_attempts=3):
     """
     Process rows in an Excel file for repair.
@@ -510,27 +440,34 @@ def process_excel_file(model, excel_path, max_files, max_attempts=3):
             row = df.iloc[i]
             print(f"\n=== Processing Row {i + 1}/{rows_to_process} ===")
 
-            # 1) 取出各列
+            # Extract columns
             png_uri = str(row[PNG_COL]) if PNG_COL in df.columns else None
             html_uri = str(row[HTML_URI_COL]) if HTML_URI_COL in df.columns else None
             raw_response = row[RESP_COL] if RESP_COL in df.columns else ""
 
-            # 2) 用 response_text 抽出“初始 HTML”
+            # Extract initial HTML from response_text
             html_content = extract_html_from_response(raw_response)
 
-            # 3) 写到一个临时 html 文件里（作为本行的起点版本）
+            # Write the initial HTML to a temporary file
             temp_html_path = os.path.join(output_dir, f"temp_row_{i + 1}.html")
             with open(temp_html_path, "w", encoding="utf-8") as temp_file:
                 temp_file.write(html_content)
 
-            # 4) 暂时用这个 temp_html 作为 ground truth（后面可以再换成真正的 html_uri）
+            # Download html_uri as ground truth
+            ground_truth_path = None
+            if html_uri:
+                ground_truth_path = os.path.join(output_dir, f"gt_row_{i + 1}.html")
+                download_html_from_gcs(html_uri, ground_truth_path)
+
+            # Use temp_html as the starting point and ground_truth_path as the reference
             metrics, logs = repair_loop(
                 model,
                 temp_html_path,
+                ground_truth_html_path=ground_truth_path,
                 max_attempts=max_attempts,
             )
 
-            # 5) 保存 log
+            # Save logs
             log_path = os.path.join(output_dir, f"repair_log_row_{i + 1}.json")
             with open(log_path, "w", encoding="utf-8") as log_file:
                 json.dump(logs, log_file, indent=4)
@@ -539,6 +476,79 @@ def process_excel_file(model, excel_path, max_files, max_attempts=3):
 
     except Exception as e:
         print(f"❌ Error processing Excel file: {e}")
+
+def repair_loop(model, html_file_path, ground_truth_html_path=None, max_attempts: int = 3):
+    """
+    Perform the repair loop for a given HTML file.
+
+    Args:
+        model: The model used for repairing HTML.
+        html_file_path: Path to the initial HTML file.
+        ground_truth_html_path: Path to the ground truth HTML file.
+        max_attempts: Maximum number of repair attempts.
+    """
+    # Create a unique folder for this file's repair attempts
+    base_output_dir = "agent/output"
+    file_name = os.path.splitext(os.path.basename(html_file_path))[0]
+    output_dir = os.path.join(base_output_dir, file_name)
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Load the initial HTML (can be .html or .xlsx)
+    html = generate_html_css(model, html_file_path)
+
+    # Print a snippet of the HTML for debugging purposes
+    print("Initial HTML snippet (first 300 chars):")
+    print(html[:300].replace("\n", "\\n"))
+
+    logs = []
+    metrics = {}
+
+    for attempt in range(max_attempts + 1):  # attempt = 0 is the initial version
+        print(f"\n--- Attempt {attempt}/{max_attempts} ---")
+
+        # Write the current HTML to a .html file for metrics evaluation
+        html_attempt_path = os.path.join(output_dir, f"output_attempt_{attempt}.html")
+        with open(html_attempt_path, "w", encoding="utf-8") as f:
+            f.write(html)
+
+        # Render the HTML to a PNG (for visual debugging and JS error capture)
+        screenshot_path = os.path.join(output_dir, f"output_attempt_{attempt}.png")
+        render_success, captured_errors = render_and_capture(html, screenshot_path)
+        print(f"Render Success: {render_success}, Errors Found: {len(captured_errors)}")
+
+        # Evaluate metrics using the ground truth HTML
+        metrics = evaluate_metrics(
+            screenshot_path=html_attempt_path,
+            ground_truth_path=ground_truth_html_path or html_file_path,
+        )
+
+        logs.append(
+            {
+                "attempt": attempt,
+                "render_success": render_success,
+                "errors": captured_errors,
+                "metrics": metrics,
+                "html_content": html,
+            }
+        )
+
+        if is_html_valid(html, render_success, captured_errors, metrics):
+            print("\n✅ HTML passes validity checks. Exiting repair loop.")
+            break
+
+        if attempt >= max_attempts:
+            print("\n⚠️ Reached maximum attempts without obtaining valid HTML.")
+            break
+
+        html = call_model_for_repair(model, html, captured_errors, metrics)
+        print(f"Length of repaired HTML: {len(html)}")
+
+    # Save logs to the output directory
+    log_path = os.path.join(output_dir, "repair_log.json")
+    with open(log_path, "w", encoding="utf-8") as log_file:
+        json.dump(logs, log_file, indent=4)
+
+    return metrics, logs
 
 if __name__ == "__main__":
     # --- Load configuration from YAML file ---
