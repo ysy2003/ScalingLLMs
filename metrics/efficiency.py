@@ -13,7 +13,6 @@ from typing import Optional
 class EfficiencyScores:
     """Computational efficiency metrics."""
     tokens_per_second: Optional[float] = None   # for local models
-    peak_vram_gb: Optional[float] = None        # for local models
     latency_seconds: Optional[float] = None     # for both local & API
     cost_per_1k_tokens: Optional[float] = None  # for API models
 
@@ -21,7 +20,6 @@ class EfficiencyScores:
 def compute_efficiency_local(
     generated_tokens: int,
     wall_time_sec: float,
-    peak_vram_bytes: int,
     latency_sec: Optional[float] = None,
 ) -> EfficiencyScores:
     """
@@ -36,11 +34,9 @@ def compute_efficiency_local(
     else:
         tps = generated_tokens / wall_time_sec
 
-    peak_vram_gb = peak_vram_bytes / (1024 ** 3)
 
     return EfficiencyScores(
         tokens_per_second=tps,
-        peak_vram_gb=peak_vram_gb,
         latency_seconds=latency_sec if latency_sec is not None else wall_time_sec,
         cost_per_1k_tokens=None,
     )
@@ -61,7 +57,6 @@ def compute_efficiency_api(
 
     return EfficiencyScores(
         tokens_per_second=None,
-        peak_vram_gb=None,
         latency_seconds=latency_sec,
         cost_per_1k_tokens=cost,
     )
