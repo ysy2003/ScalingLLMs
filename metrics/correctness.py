@@ -5,6 +5,7 @@
 # playwright install
 
 import asyncio
+from operator import is_
 from playwright.async_api import async_playwright
 from pathlib import Path
 import pandas as pd
@@ -44,12 +45,13 @@ async def check_file(browser, file_path: Path, sample_id: int):
 
         # 1. Listen for 'console' events
         def handle_console(msg):
+            # Only track errors, ignore warnings/logs to reduce noise
             if msg.type.lower() == 'error':
                 errors.append(f"[Console Error]: {msg.text}")
         
         page.on('console', handle_console)
 
-        # 2. Listen for 'pageerror' events
+        # 2. Listen for 'pageerror' events (Uncaught exceptions)
         def handle_page_error(err):
             errors.append(f"[Page Error]: {err.message}")
 
@@ -57,13 +59,47 @@ async def check_file(browser, file_path: Path, sample_id: int):
 
         # Load the HTML file
         file_url = f'file://{file_path.resolve()}'
-        # Reduced timeout to 5s to speed up 3x processing if files are simple
-        await page.goto(file_url, wait_until='load', timeout=10000) 
+        
+        try:
+            # Wait for load event
+            await page.goto(file_url, wait_until='load', timeout=10000) 
+        except Exception as e:
+            # If load fails (e.g. timeout), record it but don't crash script
+            errors.append(f"[Load Error]: {str(e)}")
 
-        # --- Metric: Render Success ---
-        body_content = await page.evaluate("() => document.body.innerHTML")
-        if body_content and len(body_content.strip()) > 0:
+        # check if the page is visually empty
+        is_visually_empty = await page.evaluate("""() => {
+            const body = document.body;
+            if (!body) return true; // No body = empty
+
+            // 1. check if there is any visible text (remove whitespace)
+            if (body.innerText.trim().length > 0) return false;
+
+            // 2. check if there is any visible media/UI element (Image, Input, Canvas, SVG)
+            // or a simple Div with background color (check element size)
+            const allElements = body.querySelectorAll('*');
+            for (const el of allElements) {
+                // ignore script, style, meta, etc. non-visual tags
+                if (['SCRIPT', 'STYLE', 'META', 'LINK', 'HEAD', 'TITLE'].includes(el.tagName)) continue;
+
+                const rect = el.getBoundingClientRect();
+                // if the element has actual rendering size (width>0 and height>0)
+                if (rect.width > 0 && rect.height > 0) {
+                    // further check if it is hidden by CSS
+                    const style = window.getComputedStyle(el);
+                    if (style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0') {
+                        return false; // Found something visible! Page is NOT empty.
+                    }
+                }
+            }
+
+            // if there is no visible text and no visible elements with size, then it is visually empty
+            return true;
+        }""")
+        # if not visually empty, then render success
+        if not is_visually_empty:
             render_success = True
+        
 
         await context.close()
 
@@ -72,7 +108,7 @@ async def check_file(browser, file_path: Path, sample_id: int):
             "sample_id": sample_id,  # Track which folder (1, 2, or 3)
             "renderSuccess": render_success,
             "errorCount": len(errors),
-            "criticalErrorCount": 0,
+            "criticalErrorCount": 0 if not is_visually_empty else 1,
             "errors": str(errors) # Convert list to string for Excel
         }
 

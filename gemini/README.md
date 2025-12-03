@@ -126,6 +126,27 @@ The script will:
 2. Save results to `models/gemini_results.xlsx`
 3. Display summary statistics
 
+### Post-Processing: HTML File Cleaning
+
+After generating predictions, you may need to clean the HTML files to remove Markdown code block markers that might have been included in the generated output. Use `html_cleaner.py` for this purpose:
+
+```bash
+python gemini/html_cleaner.py
+```
+
+**Purpose**: The `html_cleaner.py` script removes Markdown code block markers from the beginning and end of HTML files in the prediction folders. For example, it removes opening markers like "```html" and closing markers like "```". This is necessary because some models may include these markers in their output, which would cause rendering errors during evaluation.
+
+**When to use**: Run this script after generating predictions but before running evaluation scripts (e.g., `metrics/correctness.py`).
+
+**Configuration**: Edit the `PREDICTION_FOLDERS` list in `html_cleaner.py` to specify which prediction folders should be cleaned:
+
+```python
+PREDICTION_FOLDERS: List[Path] = [
+    BASE_DIR / 'gemini_predictions1',
+    BASE_DIR / 'gemini_predictions2',  # Add more folders as needed
+]
+```
+
 ## Configuration
 
 ### Environment Variables
@@ -187,17 +208,6 @@ Ensure your Google Cloud account has access to:
 - The storage bucket: `gs://dataset_design2code`
 - Gemini API access
 
-
-## File Structure
-
-```
-models/
-├── README.md           # This file
-├── gemini.py           # Main processing script
-├── prompt.txt          # Prompt template for API
-├── dataURI.txt         # List of dataset URIs
-└── gemini_results.xlsx # Output results (generated)
-```
 
 ## Reference
 
