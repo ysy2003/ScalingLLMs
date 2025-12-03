@@ -1,43 +1,78 @@
 # Metrics
-## Correctness
+# 1. Correctness
 Code Correctness:
 Render Success Rate: Percentage of generated code that renders without critical errors.
 
 Pass@k: Code validity measured by repeated sampling (for models with stochastic decoding).
 
 DOM/Console Error Count: Number of errors logged by the browser's developer tools upon rendering.
-### environment setup and running
+## environment setup and running
 ```
 pip install playwright
 playwright install
 ```
 run correctness.py
 
-### performance
+## 📊 Gemini Design2Code Pass@1 Report
 
-🚀 Launching headless browser (Playwright)...
 
-📂 Processing Batch 1/3: E:\code\Columbia\ScallingLLMsProject\ScalingLLMs\gemini\results\gemini_predictions1
-   📊 Found: 483, Missing: 1
+### Summary Statistics
+   Total Unique Test Cases (from dataURI.txt): 484
 
-📂 Processing Batch 2/3: E:\code\Columbia\ScallingLLMsProject\ScalingLLMs\gemini\results\gemini_predictions2
-   📊 Found: 443, Missing: 41
+   Total Predictions Evaluated:   484
 
-📂 Processing Batch 3/3: E:\code\Columbia\ScallingLLMsProject\ScalingLLMs\gemini\results\gemini_predictions3
-   📊 Found: 435, Missing: 49
+### 🏆 Metrics
+   Pass@1 (Avg Accuracy):   96.69%
 
-✅ Browser closed. Calculation complete.
+### 📊 Error Statistics
+   ```
+   Error Count:
+      Total:                 17
+      Average:               0.04
+      Max:                    1
+      Files with errors:     17
 
-### 📊 Gemini Design2Code Pass@3 Report
+   Critical Error Count:
+      Total:                 16
+      Average:               0.03
+      Max:                    1
+      Files with critical errors: 16
+   ```
+
+✅ Detailed report saved to: [metrics/evaluation/gemini_correctness_report.xlsx](metrics/evaluation/gemini_correctness_report.xlsx)
+
+# 2. Visual Fidelity
+## 2.1 CLIP
+### Gemini 📊 CLIP Score Summary
 
 #### Summary Statistics
-   Total Unique Test Cases (from dataURI.txt): 484
-   Total Predictions Evaluated:   1452
+   ```
+   Total Test Cases (from Design2Code): 484
 
-#### 🏆 Metrics
-   Pass@1 (Avg Accuracy):   93.73%
-   Pass@3 (Best of 3):      99.79%
+   Successfully Processed:              468
 
-   (Pass@3 means 483 out of 484 UI designs rendered correctly at least once across all 3 batches.)
+   Skipped (file not found):            16
 
-✅ Detailed report saved to: metrics/evaluation/pass_k_metrics_report_gemini.xlsx
+   Errors:                              0
+
+   Missing HTML files:                  16
+   ```
+
+#### 🏆 CLIP Score Metrics (for valid scores only)
+   ```
+   Average CLIP Score:                  0.8173
+
+   Minimum CLIP Score:                  0.3564
+
+   Maximum CLIP Score:                  0.9753
+   ```
+
+#### Score Distribution
+   ```
+   High (≥0.8):                        302 (64.5%)
+
+   Medium (0.5-0.8):                    155 (33.1%)
+
+   Low (<0.5):                          11 (2.4%)
+   ```
+✅ Detailed report saved to: [metrics\evaluation\gemini_clip_scores.xlsx](metrics\evaluation\gemini_clip_scores.xlsx)
