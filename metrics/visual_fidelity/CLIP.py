@@ -19,7 +19,7 @@ PREDICTION_FOLDER = Path('gemini/results/gemini_predictions1')
 DESIGN2CODE_DIR = Path('Design2Code')
 
 # Path to save rendered images
-RENDERED_IMGS_DIR = Path('metrics/visual_fidelity/rendered_imgs')
+RENDERED_IMGS_DIR = Path('gemini/rendered_imgs')
 RENDERED_IMGS_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- CLIP Initialization ---
