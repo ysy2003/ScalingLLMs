@@ -158,6 +158,14 @@ def image_to_bytes(img: Image.Image, fmt: str = "PNG") -> bytes:
     return buf.getvalue()
 
 
+def fix_base64_padding(data: str) -> str:
+    """修复 Base64 数据的填充问题"""
+    missing_padding = len(data) % 4
+    if missing_padding:
+        data += "=" * (4 - missing_padding)
+    return data
+
+
 async def generate_html_from_image_bytes_qwen(
     img_bytes: bytes,
     prompt_text: str,
@@ -173,40 +181,53 @@ async def generate_html_from_image_bytes_qwen(
       }
     """
 
-    # 把图像 bytes 编成 base64 data URI，符合官方示例格式
-    b64 = base64.b64encode(img_bytes).decode("utf-8")
-    data_uri = f"data:image;base64,{b64}"
-
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {"type": "image", "image": data_uri},
-                {"type": "text", "text": prompt_text},
-            ],
-        }
-    ]
+    # 先把 bytes 重新变回 PIL.Image
+    img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
 
     def _run_sync() -> str:
-        # 准备输入
-        inputs = processor.apply_chat_template(
+        # 1. 按 Qwen3-VL 官方格式构造 messages：image 放 PIL.Image
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image", "image": img},
+                    {"type": "text", "text": prompt_text},
+                ],
+            }
+        ]
+
+        # 2. 先用 chat_template 得到纯文本 prompt（不 tokenize）
+        text = processor.apply_chat_template(
             messages,
-            tokenize=True,
+            tokenize=False,
             add_generation_prompt=True,
-            return_dict=True,
+        )
+
+        # 3. 用 processor 统一处理 text + images，得到张量输入
+        inputs = processor(
+            text=[text],
+            images=[img],
             return_tensors="pt",
         )
-        # 移动到模型设备
-        inputs = inputs.to(model.device)
 
-        # 生成
-        generated_ids = model.generate(**inputs, max_new_tokens=MAX_NEW_TOKENS)
+        # 4. 把所有 Tensor 移到模型所在设备
+        inputs = {
+            k: (v.to(model.device) if isinstance(v, torch.Tensor) else v)
+            for k, v in inputs.items()
+        }
 
-        # 截掉 prompt 部分，只保留新生成 token
+        # 5. 生成
+        generated_ids = model.generate(
+            **inputs,
+            max_new_tokens=MAX_NEW_TOKENS,
+        )
+
+        # 6. 截掉 prompt 部分，只保留新生成 token（和你原来的逻辑一致）
         input_ids = inputs["input_ids"]
         generated_ids_trimmed = [
             out_ids[len(in_ids):] for in_ids, out_ids in zip(input_ids, generated_ids)
         ]
+
         outputs = processor.batch_decode(
             generated_ids_trimmed,
             skip_special_tokens=True,
@@ -227,6 +248,7 @@ async def generate_html_from_image_bytes_qwen(
         "total_token_count": None,
     }
     return {"html": html, "usage": usage}
+
 
 
 def read_html_from_uri(html_uri: Optional[str]) -> str:
@@ -472,18 +494,21 @@ async def run_robustness_eval(
 
 def load_qwen_model():
     """
-    加载 Qwen3-VL-2B-Instruct 模型和 processor。
-    用官方推荐的 device_map='auto'，让它自己放到可用设备上。
+    在 Cloud TPU VM 上，用 CPU 跑 Qwen3-VL-2B-Instruct。
+    不用 device_map='auto'，直接强制放 CPU。
     """
-    print("Loading Qwen3-VL-2B-Instruct ...")
+    print("Loading Qwen3-VL-2B-Instruct on CPU ...")
     model = Qwen3VLForConditionalGeneration.from_pretrained(
         MODEL_NAME,
-        dtype="auto",
-        device_map="auto",  # 需要 accelerate
+        torch_dtype="bfloat16",  # 或者 "auto" / torch.float16，看你环境
+        device_map="cpu",        # 关键：强制走 CPU
+        low_cpu_mem_usage=True,  # 减少加载时峰值内存
     )
     processor = AutoProcessor.from_pretrained(MODEL_NAME)
     model.eval()
+    print(model.device)
     return model, processor
+
 
 
 if __name__ == "__main__":
@@ -534,6 +559,7 @@ if __name__ == "__main__":
             processor=processor,
             logs_file=logs_file,
             perturb_strength=args.perturb_strength,
+            n_images=1  # 限制只跑5个数据
         )
     )
 
