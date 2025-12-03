@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to fix thunar missing icons</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#">← Home</a>
+    <h1>How to fix thunar missing icons</h1>
+    <div class="meta">Nov 2, 2017 • #unix #desktop</div>
+  </header>
+
+  <main>
+    <section class="tl-dr">
+      <h2>tl;dr</h2>
+      <p>Edit ~/.gtkrc-2.0 with something like:</p>
+      <pre><code>gtk-icon-theme-name = "Tango"</code></pre>
+      <p>And that is it :)</p>
+    </section>
+
+    <div class="image-placeholder" style="background-color: #00f; height: 200px; width: 100%; margin: 20px 0;"></div>
+
+    <section>
+      <p>I'm still looking for a perfect filebrowser, nautilus is good I wish I could use it, but nautilus has so many dependencies that I always give up installing.</p>
+      <p>I tried thunar in a docker image (it is <a href="#">here</a> if you want to use it), but you know we don't get many integrations in this way.</p>
+      <p>Like I said I tried first to use it in a Docker image, fixed this problem but I could not create the habit of using it. Then I moved to install it in my desktop.</p>
+    </section>
+
+    <h2>Fix it!</h2>
+    <p>This "missing icons" problem happens only when there is no icons in your system (which is a rare case) or when your system is not configured properly.</p>
+
+    <h2>If you don't have a icon theme</h2>
+    <p>In the first case you will have to install a icon pac to find "instalables" pacs type:</p>
+    <pre><code>$ apt-cache search icon-theme</code></pre>
+    <p>In Ubuntu, or</p>
+    <pre><code>$ pacman -Ss icon-theme</code></pre>
+    <p>In Arch.</p>
+    <p>Install it using <code>apt-get install ICON-THEME</code> or <code>pacman -S ICON-THEME</code>.</p>
+
+    <h2>Configure it</h2>
+    <p>If you had installed or you already had a icon theme in order to fix this problem you have to create or edit this file: ~/.gtkrc-2.0 to something like:</p>
+    <pre><code>gtk-icon-theme-name="ICON-THEME"</code></pre>
+    <p>And that is it!</p>
+
+    <h2>Reference</h2>
+    <ul>
+      <li>"Icons for Thunar file manager"<br>
+      <a href="https://www.linuxquestions.org/questions/slackware-14/icons-for-thunar-file-manager-773501/">https://www.linuxquestions.org/questions/slackware-14/icons-for-thunar-file-manager-773501/</a>. Accessed Nov 2, 2017.</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>github.com/dmitryrck<br>
+    linkedin.com/in/dmitryrck<br>
+    speakerdeck.com/dmitryrck<br>
+    twitter.com/dmitryrck</p>
+  </footer>
+</body>
+</html>

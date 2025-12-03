@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+   .header-left h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+   .header-left h2 {
+      font-size: 14px;
+      margin: 5px 0 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    main h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 0 0 10px;
+    }
+
+    main p {
+      margin: 0 0 15px;
+    }
+
+   .tags {
+      font-size: 14px;
+      color: #666;
+    }
+
+   .quote-block {
+      border-left: 1px solid #ccc;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+   .quote-block p {
+      margin: 0 0 5px;
+    }
+
+   .quote-block p:last-child {
+      margin: 0;
+    }
+
+   .date {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+   .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+   .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>David Simpson</h1>
+      <h2>deliver. iterate.</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Apps</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Update your user macros on<br>Confluence 5.5.1 and atlassian-xwork-core-1.17</h1>
+    <p>Posted by David Simpson on May 22, 2014. Return to index.</p>
+    <p>Tags:</p>
+    <p>Following yesterdays Atlassian security advisory for Confluence, it looks like there are some added steps required for people who have user macros. Be careful folks.</p>
+    <p>@BergerofLondon spotted this first:</p>
+    <div class="quote-block">
+      <p>Following upgrade to Confluence 5.5.1 the values of parameters in user macros cannot be evaluated the same way. Discovered this the hard way</p>
+      <p>— Berger (@BergerofLondon) <span class="date">May 22, 2014</span></p>
+    </div>
+    <div class="quote-block">
+      <p>You can't use the same shorthand you use for standard variables. #if ($paramistrue) will always evaluate as true.</p>
+      <p>— Berger (@BergerofLondon) <span class="date">May 22, 2014</span></p>
+    </div>
+    <div class="quote-block">
+      <p>You now have to use things like #if ($paramistrue == true) or #if ($paramistrue == false).</p>
+      <p>— Berger (@BergerofLondon) <span class="date">May 22, 2014</span></p>
+    </div>
+    <div class="quote-block">
+      <p>@baitman For strings I can no longer do #if ($paramfoo), I have to do #if ($paramfoo).length() > 0. Which is crazy.</p>
+      <p>— Berger (@BergerofLondon) <span class="date">May 22, 2014</span></p>
+    </div>
+    <div class="quote-block">
+      <p>@baitman Also, if you're upgrading to 5.5.1 to fix the security vulnerability double-check that it's upgraded xwork to 1.17. Ours wasn't.</p>
+      <p>— Berger (@BergerofLondon) <span class="date">May 22, 2014</span></p>
+    </div>
+    <p>The update to atlassian-xwork-core-1.17.jar means you have to be more specific with your coding. Thanks to @BergerofLondon for the heads up.</p>
+  </main>
+
+  <footer>
+    <div class="social-icons">
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+    </div>
+  </footer>
+</body>
+</html>

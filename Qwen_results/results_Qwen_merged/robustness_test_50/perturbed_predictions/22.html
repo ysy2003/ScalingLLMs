@@ -1,0 +1,817 @@
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Looking at the image:
+
+- The top has a header with "Dr Emma Ostroukaya BSc, DCouns" in red, underlined. Then below that, "Counselling Psychology & Existential Therapy" and "Adults, Couples & Children" in smaller text.
+- Then a navigation bar with links: Welcome, Therapy, About Emma, Issues, Fees, Contact. The "Issues" link is underlined, indicating it's the active page.
+- The main content area is mostly empty (white background).
+- At the bottom, there's a footer with "Issues" and "Contact" in red, aligned left and right respectively.
+
+Let's break down each part:
+
+1. **Header Section**:
+   - The main title: "Dr Emma Ostroukaya BSc, DCouns" – should be red, underlined. Let's check the font size. The image shows it's a larger font, maybe bold.
+   - Subtitle: "Counselling Psychology & Existential Therapy" – smaller, maybe italic?
+   - Third line: "Adults, Couples & Children" – even smaller.
+
+2. **Navigation Bar**:
+   - A maroon (dark red) background bar with white text. The links are "Welcome", "Therapy", "About Emma", "Issues", "Fees", "Contact". "Issues" is underlined, so it's the active link.
+
+3. **Main Content**:
+   - The area below the nav bar is empty, so just a div with some padding.
+
+4. **Footer**:
+   - Two links: "Issues" and "Contact", in red, aligned left and right. The footer has a maroon line above it.
+
+Now, let's think about the structure:
+
+- HTML structure: <header>, <nav>, <main>, <footer>
+- CSS: need to style each part.
+
+Let's outline the HTML:
+
+- <html>
+  - <head>
+    - <title> (maybe not necessary, but the image doesn't show a title, but the task says to recreate the design, so maybe include a title like "Dr Emma Ostroukaya - Counselling Psychology")
+    - <style> block with all CSS
+  - <body>
+    - <header> with the title and subtitle
+    - <nav> with the navigation links
+    - <main> (empty, but maybe a div with padding)
+    - <footer> with the two links
+
+Now, CSS details:
+
+- Header:
+  - The main title: color red, underline, maybe font-size 24px or so. Let's check the image. The title is "Dr Emma Ostroukaya BSc, DCouns" – the "DCouns" might be a typo, but in the image it's "DCouns" (probably DCouns as in Diploma in Counselling). The text is red, underlined.
+  - Subtitle: "Counselling Psychology & Existential Therapy" – smaller, maybe italic, color dark gray.
+  - Third line: "Adults, Couples & Children" – even smaller, same color.
+
+- Navigation bar:
+  - Background color: maroon (let's use #8B0000 for dark red)
+  - Text color: white
+  - Links: list-style none, display inline-block, padding, margin, text-decoration none. The active link ("Issues") has underline.
+
+- Main content:
+  - Padding, maybe min-height to take up space.
+
+- Footer:
+  - Background: white, but the image shows a maroon line above it. Wait, the image has a maroon line at the bottom of the main content, then the footer. Wait, the image shows a maroon line (horizontal) above the footer. Wait, looking at the image: the main content is white, then a maroon line, then the footer. Wait, the image's bottom part: there's a maroon line, then "Issues" on left, "Contact" on right.
+
+Wait, the image shows:
+
+- Top: header
+- Then nav bar (maroon)
+- Then a large white area (main content)
+- Then a maroon line (horizontal)
+- Then footer with "Issues" and "Contact" in red.
+
+So the footer is below the maroon line.
+
+So the structure:
+
+<header>
+  <h1>Dr Emma Ostroukaya BSc, DCouns</h1>
+  <p>Counselling Psychology & Existential Therapy</p>
+  <p>Adults, Couples & Children</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">Welcome</a></li>
+    <li><a href="#">Therapy</a></li>
+    <li><a href="#">About Emma</a></li>
+    <li><a href="#">Issues</a></li>
+    <li><a href="#">Fees</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <!-- empty -->
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="#">Issues</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+Wait, but the image shows the footer has "Issues" on the left and "Contact" on the right. So the footer links are aligned left and right.
+
+Also, the maroon line is a horizontal rule (hr) or a div with a border. The image shows a solid maroon line, so maybe a div with a border-top.
+
+Wait, the image's main content area is white, then a maroon line (so maybe a div with a border-top), then the footer.
+
+Wait, looking at the image:
+
+- The main content area is white, then a maroon line (horizontal), then the footer.
+
+So the structure would be:
+
+<main>
+  <!-- empty -->
+</main>
+
+<div class="footer-divider"></div>
+
+<footer>
+  ...
+</footer>
+
+But the image shows the maroon line is part of the footer's top. Wait, the image's bottom part: the footer has "Issues" and "Contact" in red, and above them is a maroon line.
+
+So the footer's top has a maroon line, then the links.
+
+So the footer could have:
+
+<div class="footer-divider"></div>
+<div class="footer-content">
+  <a href="#">Issues</a>
+  <a href="#">Contact</a>
+</div>
+
+But the image shows the maroon line is a horizontal line, so maybe a border-top on the footer.
+
+Wait, the image's footer area: the maroon line is above the "Issues" and "Contact" text. So the footer's top is a maroon line, then the text.
+
+So the footer could be:
+
+<footer>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <a href="#">Issues</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+But the image shows the maroon line is a solid line, so maybe a div with a border-top.
+
+Alternatively, the maroon line is a horizontal rule (hr) with a maroon color.
+
+Wait, the image shows the main content area is white, then a maroon line (so the main content ends, then a line, then the footer). So the main content is a div with padding, then a hr, then the footer.
+
+But the image's main content is empty, so the main content div is just a container.
+
+Let's check the image again:
+
+- The top part: header (title, subtitle, third line)
+- Then a maroon nav bar
+- Then a large white area (main content)
+- Then a maroon line (horizontal)
+- Then the footer with "Issues" and "Contact" in red.
+
+So the structure:
+
+<header>...</header>
+<nav>...</nav>
+<main class="content"></main>
+<div class="footer-divider"></div>
+<footer>...</footer>
+
+But the image shows the maroon line is part of the footer's top. Wait, the image's footer is below the maroon line, so the maroon line is a separator between main content and footer.
+
+So the main content is a div with padding, then a hr (maroon), then the footer.
+
+But the image's main content is white, so the main content div is white, then the hr, then the footer.
+
+Now, let's get the colors:
+
+- Header title: red (let's use #c00 for dark red)
+- Subtitle: dark gray (maybe #333)
+- Third line: same as subtitle
+- Nav bar: maroon (let's use #8B0000)
+- Footer links: red (#c00)
+- Footer divider: maroon (#8B0000)
+
+Font sizes:
+
+- Header title: larger, maybe 24px
+- Subtitle: 16px
+- Third line: 14px
+- Nav links: 16px
+- Footer links: 16px
+
+Let's outline the CSS:
+
+- body: font-family Arial, sans-serif; margin: 0; padding: 0; background: white;
+- header: padding: 10px; text-align: center;
+- h1: color: #c00; text-decoration: underline; font-size: 24px; margin: 0;
+- p: margin: 5px 0; font-size: 16px; color: #333;
+- nav: background: #8B0000; padding: 10px; text-align: center;
+- nav ul: list-style: none; margin: 0; padding: 0;
+- nav li: display: inline-block; margin: 0 10px;
+- nav a: color: white; text-decoration: none; font-size: 16px;
+- nav a:hover: text-decoration: underline;
+- nav a.active: text-decoration: underline; (but in the image, "Issues" is underlined, so maybe the active link has underline)
+- main: min-height: 500px; padding: 20px; background: white;
+- .footer-divider: height: 1px; background: #8B0000; margin: 20px 0;
+- footer: padding: 10px; text-align: center;
+- .footer-links: display: flex; justify-content: space-between; width: 100%;
+- .footer-links a: color: #c00; text-decoration: none; font-size: 16px;
+
+Wait, but the image shows the footer has "Issues" on the left and "Contact" on the right. So the footer links should be aligned left and right. So using flex with justify-content: space-between.
+
+Now, let's check the image's footer: "Issues" is on the left, "Contact" on the right. So the footer links are in a container that's flex, with two items.
+
+Now, let's code the HTML structure.
+
+First, the header:
+
+<h1>Dr Emma Ostroukaya BSc, DCouns</h1>
+<p>Counselling Psychology & Existential Therapy</p>
+<p>Adults, Couples & Children</p>
+
+Then the nav:
+
+<ul>
+  <li><a href="#">Welcome</a></li>
+  <li><a href="#">Therapy</a></li>
+  <li><a href="#">About Emma</a></li>
+  <li><a href="#">Issues</a></li>
+  <li><a href="#">Fees</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+The main content is empty, so just a div with class "content".
+
+Then the footer divider: a div with class "footer-divider".
+
+Then the footer:
+
+<div class="footer-links">
+  <a href="#">Issues</a>
+  <a href="#">Contact</a>
+</div>
+
+Now, the CSS:
+
+- body: margin: 0; padding: 0; font-family: Arial, sans-serif;
+- header: text-align: center; padding: 10px;
+- h1: color: #c00; text-decoration: underline; font-size: 24px; margin: 0;
+- p: margin: 5px 0; font-size: 16px; color: #333;
+- nav: background: #8B0000; padding: 10px; text-align: center;
+- nav ul: list-style: none; margin: 0; padding: 0;
+- nav li: display: inline-block; margin: 0 10px;
+- nav a: color: white; text-decoration: none; font-size: 16px;
+- nav a:hover: text-decoration: underline;
+- nav a.active: text-decoration: underline; (but in the image, "Issues" is underlined, so maybe the active link has underline. But how to set active? Maybe the image shows "Issues" as the current page, so the link is underlined. So in the HTML, the "Issues" link has a class "active", but the image doesn't show a class, but the design shows it underlined. So in the CSS, the active link has underline. But since the task is to recreate the visual design, we need to have the "Issues" link underlined. So in the HTML, the "Issues" link is styled with text-decoration: underline.
+
+Wait, the image shows the "Issues" link in the nav bar is underlined. So in the nav bar, the "Issues" link has an underline. So in CSS, we can set:
+
+nav a: text-decoration: none;
+nav a.active: text-decoration: underline;
+
+But in the HTML, the "Issues" link should have a class "active". But the image doesn't show a class, but the design shows it underlined. So perhaps the design has the "Issues" link underlined, so in the CSS, we can set the active link to have underline. But since the task is to recreate the visual design, we need to have the "Issues" link underlined. So in the HTML, the "Issues" link is styled with text-decoration: underline.
+
+Alternatively, maybe the design has the "Issues" link underlined by default, but that's not typical. Usually, active links are underlined. So perhaps the design shows that "Issues" is the current page, so it's underlined.
+
+So in the CSS, we can set:
+
+nav a: text-decoration: none;
+nav a:hover, nav a.active: text-decoration: underline;
+
+But in the image, it's not a hover, it's the current page. So maybe the "Issues" link has a class "active", but the image doesn't show a class. However, the task is to recreate the visual design, so we need to have the "Issues" link underlined. So in the HTML, the "Issues" link is styled with text-decoration: underline.
+
+Wait, but the image shows the nav bar with "Issues" underlined. So in the CSS, we can set:
+
+nav a { text-decoration: none; }
+nav a.active { text-decoration: underline; }
+
+But in the HTML, the "Issues" link should have the class "active". However, the image doesn't show a class, but the design shows it underlined. So perhaps the design has the "Issues" link underlined, so we can set the "Issues" link to have text-decoration: underline.
+
+Alternatively, maybe the design uses a different approach. Let's check the image again: the nav bar has "Issues" underlined, while others are not. So in the CSS, the "Issues" link has text-decoration: underline.
+
+So in the HTML, the "Issues" link is:
+
+<li><a href="#" class="active">Issues</a></li>
+
+But the task says to recreate the visual design, so we need to have the "Issues" link underlined. So the CSS would be:
+
+nav a { text-decoration: none; }
+nav a.active { text-decoration: underline; }
+
+But the image doesn't show a class, but the design shows it underlined. So perhaps the design has the "Issues" link underlined, so we can set the "Issues" link to have text-decoration: underline.
+
+Alternatively, maybe the design uses a different method, like the active link is underlined by default. But in standard web design, active links are underlined. So perhaps the "Issues" link is the active one, so it's underlined.
+
+So in the CSS, we can set:
+
+nav a { text-decoration: none; }
+nav a:hover, nav a.active { text-decoration: underline; }
+
+But since the image shows it's the current page, we can set the "Issues" link to have the active class.
+
+But the task is to recreate the visual design, so we need to have the "Issues" link underlined. So in the HTML, the "Issues" link is styled with text-decoration: underline.
+
+Wait, but the image shows the nav bar with "Issues" underlined. So in the CSS, we can set:
+
+nav a { text-decoration: none; }
+nav a.active { text-decoration: underline; }
+
+And in the HTML, the "Issues" link has the class "active".
+
+But the image doesn't show a class, but the design shows it underlined. So perhaps the design has the "Issues" link underlined, so we can set the "Issues" link to have text-decoration: underline.
+
+Alternatively, maybe the design uses a different approach. Let's proceed.
+
+Now, the footer:
+
+The footer has "Issues" on the left and "Contact" on the right. So the footer links are in a container that's flex, with justify-content: space-between.
+
+So the CSS for the footer:
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-links a {
+  color: #c00;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+Now, the maroon line (footer divider):
+
+.footer-divider {
+  height: 1px;
+  background: #8B0000;
+  margin: 20px 0;
+}
+
+Now, let's put it all together.
+
+HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dr Emma Ostroukaya - Counselling Psychology</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr Emma Ostroukaya BSc, DCouns</h1>
+    <p>Counselling Psychology & Existential Therapy</p>
+    <p>Adults, Couples & Children</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Welcome</a></li>
+      <li><a href="#">Therapy</a></li>
+      <li><a href="#">About Emma</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">Fees</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="content"></main>
+  <div class="footer-divider"></div>
+  <footer>
+    <div class="footer-links">
+      <a href="#">Issues</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- body: margin: 0; padding: 0; font-family: Arial, sans-serif;
+- header: text-align: center; padding: 10px;
+- h1: color: #c00; text-decoration: underline; font-size: 24px; margin: 0;
+- p: margin: 5px 0; font-size: 16px; color: #333;
+- nav: background: #8B0000; padding: 10px; text-align: center;
+- nav ul: list-style: none; margin: 0; padding: 0;
+- nav li: display: inline-block; margin: 0 10px;
+- nav a: color: white; text-decoration: none; font-size: 16px;
+- nav a.active: text-decoration: underline; /* but in the image, "Issues" is underlined, so we need to set the "Issues" link to have text-decoration: underline. So maybe the "Issues" link has a class "active" */
+- main.content: min-height: 500px; padding: 20px; background: white;
+- .footer-divider: height: 1px; background: #8B0000; margin: 20px 0;
+- footer: padding: 10px; text-align: center;
+- .footer-links: display: flex; justify-content: space-between; width: 100%;
+- .footer-links a: color: #c00; text-decoration: none; font-size: 16px;
+
+Wait, but in the HTML, the "Issues" link in the nav bar is not given a class. So how to make it underlined? The image shows it's underlined, so perhaps the design has the "Issues" link underlined by default. But that's not standard. Alternatively, maybe the design uses a different approach, like the active link is underlined, so we can set the "Issues" link to have text-decoration: underline.
+
+But the task is to recreate the visual design, so we need to have the "Issues" link underlined. So in the CSS, we can set:
+
+nav a { text-decoration: none; }
+nav a.active { text-decoration: underline; }
+
+But in the HTML, the "Issues" link should have the class "active". However, the image doesn't show a class, but the design shows it underlined. So perhaps the design has the "Issues" link underlined, so we can set the "Issues" link to have text-decoration: underline.
+
+Alternatively, maybe the design uses a different method, like the active link is underlined by default. But in standard web design, active links are underlined. So perhaps the "Issues" link is the active one, so it's underlined.
+
+So in the HTML, the "Issues" link is:
+
+<li><a href="#" class="active">Issues</a></li>
+
+Then in the CSS:
+
+nav a { text-decoration: none; }
+nav a.active { text-decoration: underline; }
+
+But the image doesn't show a class, but the design shows it underlined. So we need to include the class in the HTML.
+
+Wait, the task says to strictly and accurately recreate the visual design. The visual design shows the "Issues" link underlined. So we need to have the "Issues" link underlined. So in the HTML, the "Issues" link is styled with text-decoration: underline.
+
+But how? Either by adding a class or by setting it directly.
+
+Alternatively, maybe the design uses a different approach, like the active link is underlined, so we can set the "Issues" link to have text-decoration: underline.
+
+Let's check the image again: the nav bar has "Issues" underlined, while others are not. So in the CSS, the "Issues" link has text-decoration: underline.
+
+So in the CSS:
+
+nav a { text-decoration: none; }
+nav a[href="#issues"] { text-decoration: underline; }
+
+But that's not standard. Alternatively, the "Issues" link is the active one, so it's underlined.
+
+But the task is to recreate the visual design, so we need to have the "Issues" link underlined. So in the HTML, the "Issues" link is styled with text-decoration: underline.
+
+But the image doesn't show a class, so perhaps the design has the "Issues" link underlined by default. But that's not typical. Alternatively, maybe the design uses a different method.
+
+Alternatively, maybe the design has the "Issues" link underlined because it's the current page, so in the CSS, the active link is underlined.
+
+So in the HTML, the "Issues" link has a class "active", and in the CSS, the active link has text-decoration: underline.
+
+So the HTML:
+
+<li><a href="#" class="active">Issues</a></li>
+
+CSS:
+
+nav a { text-decoration: none; }
+nav a.active { text-decoration: underline; }
+
+This is the standard way to style active links.
+
+So let's include that.
+
+Now, let's check the colors:
+
+- Header title: red (#c00)
+- Subtitle: dark gray (#333)
+- Nav bar: maroon (#8B0000)
+- Footer links: red (#c00)
+
+Font sizes:
+
+- Header title: 24px
+- Subtitle: 16px
+- Third line: 14px
+- Nav links: 16px
+- Footer links: 16px
+
+Now, let's write the CSS.
+
+Also, the main content area should have some padding, and the footer should be at the bottom.
+
+Now, let's code the CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+}
+
+h1 {
+  color: #c00;
+  text-decoration: underline;
+  font-size: 24px;
+  margin: 0;
+}
+
+p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+nav {
+  background-color: #8B0000;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+main.content {
+  min-height: 500px;
+  padding: 20px;
+  background-color: white;
+}
+
+.footer-divider {
+  height: 1px;
+  background-color: #8B0000;
+  margin: 20px 0;
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-links a {
+  color: #c00;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+Now, check if this matches the image.
+
+- Header: title underlined, red; subtitle and third line in dark gray.
+- Nav bar: maroon background, white text, "Issues" underlined (active).
+- Main content: white, with padding.
+- Footer divider: maroon line.
+- Footer: "Issues" and "Contact" in red, left and right.
+
+Yes, this should match.
+
+Now, let's write the HTML.
+
+The HTML should have:
+
+- The header with h1, two p tags.
+- Nav with ul, li, a (with "Issues" having class active).
+- Main content div.
+- Footer divider div.
+- Footer with footer-links div containing two a tags.
+
+Now, the code:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dr Emma Ostroukaya - Counselling Psychology</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+    header {
+      text-align: center;
+      padding: 10px;
+    }
+    h1 {
+      color: #c00;
+      text-decoration: underline;
+      font-size: 24px;
+      margin: 0;
+    }
+    p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #333;
+    }
+    nav {
+      background-color: #8B0000;
+      padding: 10px;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    nav a.active {
+      text-decoration: underline;
+    }
+    main.content {
+      min-height: 500px;
+      padding: 20px;
+      background-color: white;
+    }
+    .footer-divider {
+      height: 1px;
+      background-color: #8B0000;
+      margin: 20px 0;
+    }
+    footer {
+      padding: 10px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .footer-links a {
+      color: #c00;
+      text-decoration: none;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr Emma Ostroukaya BSc, DCouns</h1>
+    <p>Counselling Psychology & Existential Therapy</p>
+    <p>Adults, Couples & Children</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Welcome</a></li>
+      <li><a href="#">Therapy</a></li>
+      <li><a href="#">About Emma</a></li>
+      <li><a href="#" class="active">Issues</a></li>
+      <li><a href="#">Fees</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="content"></main>
+  <div class="footer-divider"></div>
+  <footer>
+    <div class="footer-links">
+      <a href="#">Issues</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
+```
+
+Wait, but the image shows the "Issues" link in the nav bar is underlined, which we have with the active class. The footer has "Issues" and "Contact" in red, which we have.
+
+Now, check if the colors are correct:
+
+- #c00 is a dark red, which matches the header title and footer links.
+- #8B0000 is a darker maroon for the nav bar and footer divider.
+
+Yes.
+
+Also, the font sizes:
+
+- h1: 24px
+- p: 16px
+- nav a: 16px
+- footer links: 16px
+
+Yes.
+
+The main content has min-height: 500px, which is to make it take up space.
+
+The footer divider is a 1px line.
+
+The footer links are aligned left and right.
+
+This should match the visual design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dr Emma Ostroukaya - Counselling Psychology</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+    header {
+      text-align: center;
+      padding: 10px;
+    }
+    h1 {
+      color: #c00;
+      text-decoration: underline;
+      font-size: 24px;
+      margin: 0;
+    }
+    p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #333;
+    }
+    nav {
+      background-color: #8B0000;
+      padding: 10px;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    nav a.active {
+      text-decoration: underline;
+    }
+    main.content {
+      min-height: 500px;
+      padding: 20px;
+      background-color: white;
+    }
+    .footer-divider {
+      height: 1px;
+      background-color: #8B0000;
+      margin: 20px 0;
+    }
+    footer {
+      padding: 10px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .footer-links a {
+      color: #c00;
+      text-decoration: none;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr Emma Ostroukaya BSc, DCouns</h1>
+    <p>Counselling Psychology & Existential Therapy</p>
+    <p>Adults, Couples & Children</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Welcome</a></li>
+      <li><a href="#">Therapy</a></li>
+      <li><a href="#">About Emma</a></li>
+      <li><a href="#" class="active">Issues</a></li>
+      <li><a href="#">Fees</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="content"></main>
+  <div class="footer-divider"></div>
+  <footer>
+    <div class="footer-links">
+      <a href="#">Issues</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
+```

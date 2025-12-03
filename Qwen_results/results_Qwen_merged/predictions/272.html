@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansel for Craft CMS and ExpressionEngine</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+   .top-bar {
+      background-color: #e0f7fa;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d0e8ff;
+    }
+
+   .top-bar nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+   .top-bar nav a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+   .top-bar.login-btn {
+      background-color: #e0f7fa;
+      color: #2c3e50;
+      border: 1px solid #2c3e50;
+      padding: 5px 15px;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+   .top-bar.login-btn:hover {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+   .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+   .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #0056b3;
+      line-height: 1.1;
+    }
+
+   .hero h1 span {
+      color: #008000;
+    }
+
+   .hero p {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+   .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+   .btn {
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+   .btn-primary {
+      background-color: #e0f7fa;
+      color: #2c3e50;
+      border: 1px solid #2c3e50;
+    }
+
+   .btn-primary:hover {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+   .blue-block {
+      height: 400px;
+      background-color: #0056b3;
+      margin: 20px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+   .pricing-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+   .card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+   .card:hover {
+      transform: translateY(-5px);
+    }
+
+   .card-header {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #eee;
+    }
+
+   .card-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+   .card-price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0056b3;
+      margin: 10px 0;
+    }
+
+   .card-description {
+      padding: 0 20px 20px;
+    }
+
+   .card-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+   .card-list li {
+      padding: 8px 0;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+   .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px 20px;
+      border-top: 1px solid #eee;
+    }
+
+   .flagship-label {
+      background-color: #008000;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      text-align: center;
+      display: block;
+    }
+
+   .about-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+   .about-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+   .about-content {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+   .about-content p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+   .blue-block-about {
+      height: 400px;
+      background-color: #0056b3;
+      margin: 20px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+   .about-text {
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+   .about-text p {
+      margin-bottom: 15px;
+    }
+
+   .footer {
+      background-color: #333;
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+    }
+
+   .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 15px;
+    }
+
+   .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+   .footer-links a:hover {
+      color: white;
+    }
+
+   .copyright {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+     .hero h1 {
+        font-size: 2.5rem;
+      }
+
+     .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+     .pricing-section {
+        grid-template-columns: 1fr;
+      }
+
+     .blue-block {
+        height: 300px;
+      }
+
+     .blue-block-about {
+        height: 300px;
+      }
+
+     .about-section h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+     .hero h1 {
+        font-size: 2rem;
+      }
+
+     .hero p {
+        font-size: 1rem;
+      }
+
+     .card-price {
+        font-size: 1.8rem;
+      }
+
+     .top-bar {
+        padding: 8px 15px;
+      }
+
+     .top-bar nav ul {
+        gap: 15px;
+      }
+
+     .btn {
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <nav>
+      <ul>
+        <li><a href="#">Software</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="login-btn">Log in</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Ansel<span> for Craft CMS and ExpressionEngine</span></h1>
+      <p>Ansel puts the power of image manipulation in your hands. You can define constraints, widths, heights, aspect ratios, and more for each field so that anyone can edit images in entries with confidence all while using the manipulation tools to bring out the best in your site's images!</p>
+      <div class="btn-group">
+        <a href="#" class="btn btn-primary">Ansel for EE</a>
+        <a href="#" class="btn btn-primary">Ansel for Craft</a>
+      </div>
+    </section>
+
+    <section class="blue-block"></section>
+
+    <section class="pricing-section">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Treasury</h3>
+          <div class="card-price">$79</div>
+        </div>
+        <div class="card-description">
+          <ul class="card-list">
+            <li>Store files on S3 or any (S)FTP location</li>
+            <li>Simple, easy to use field type</li>
+            <li>Integration with Ansel</li>
+          </ul>
+        </div>
+        <div class="card-buttons">
+          <a href="#" class="btn btn-primary">Treasury for EE</a>
+        </div>
+      </div>
+
+      <div class="card flagship">
+        <div class="flagship-label">FLAGSHIP ADD-ON</div>
+        <div class="card-header">
+          <h3 class="card-title">Ansel</h3>
+          <div class="card-price">$79</div>
+        </div>
+        <div class="card-description">
+          <ul class="card-list">
+            <li>Drag and drop uploading</li>
+            <li>User-friendly, non-destructive image manipulation</li>
+            <li>Min and max image size constraints</li>
+            <li>Aspect ratio constraints</li>
+          </ul>
+        </div>
+        <div class="card-buttons">
+          <a href="#" class="btn btn-primary">Ansel for EE</a>
+          <a href="#" class="btn btn-primary">Ansel for Craft</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Construct</h3>
+          <div class="card-price">$40</div>
+        </div>
+        <div class="card-description">
+          <ul class="card-list">
+            <li>Unlimited number of "trees" for menus and pages</li>
+            <li>Easy to use template tags</li>
+            <li>Easy custom configuration</li>
+          </ul>
+        </div>
+        <div class="card-buttons">
+          <a href="#" class="btn btn-primary">Construct for EE</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>ABOUT BuzzingPixel</h2>
+      <div class="about-content">
+        <p>BuzzingPixel is me, TJ Draper. This is where you'll find my work, add-ons, and more.</p>
+      </div>
+      <div class="blue-block-about"></div>
+      <div class="about-text">
+        <p>Rare photo of TJ captured in his unnatural habitat: the outdoors</p>
+        <p>I write HTML, CSS, JavaScript, PHP, and C# to make great software and great websites. I also create great content management experiences and write great add-ons for great CMSes.</p>
+        <p>When I'm not developing software, I'm probably spending time with my 4 children and/or my beautiful wife, watching a movie or TV show, or podcasting.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Cookie Policy</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <div class="copyright">
+      © 2023 BuzzingPixel, LLC. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

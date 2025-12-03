@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCC Event Blog</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #ffffff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 3px solid #FF6600;
+    }
+
+   .logo {
+      width: 100px;
+      height: 100px;
+      background-color: #0000FF;
+      margin-right: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+   .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: #333333;
+      border-bottom: 3px solid #FF6600;
+    }
+
+   .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+   .nav-links li {
+      margin-right: 1rem;
+    }
+
+   .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+   .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+   .search-bar input {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      width: 200px;
+    }
+
+   .search-bar button {
+      background-color: #FF6600;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+   .container {
+      display: flex;
+      margin: 1rem;
+      gap: 1rem;
+    }
+
+   .content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+   .content h2 {
+      border-bottom: 2px solid #000;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+   .content article {
+      background-color: #F5F5F5;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
+   .content h3 {
+      margin-bottom: 0.5rem;
+    }
+
+   .content time {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+   .content p {
+      margin-bottom: 1rem;
+    }
+
+   .content button {
+      background-color: #333333;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+   .sidebar {
+      flex: 0 0 300px;
+      min-width: 300px;
+    }
+
+   .sidebar h3 {
+      border-bottom: 2px solid #FF6600;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+   .upcoming-events {
+      background-color: #0000FF;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+   .event-item {
+      margin: 0.5rem 0;
+      color: white;
+    }
+
+   .event-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+   .event-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background-color: #333333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-top: 1px solid #666;
+    }
+
+    @media (max-width: 768px) {
+     .container {
+        flex-direction: column;
+      }
+     .content,.sidebar {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <h1>CCC EVENT BLOG</h1>
+  </header>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#">ABOUT</a></li>
+      <li><a href="#">CCC</a></li>
+      <li><a href="#">ORGA-TEAMS</a></li>
+      <li><a href="#">RECORDINGS</a></li>
+    </ul>
+    <div class="search-bar">
+      <input type="text" placeholder="Search Blog...">
+      <button type="submit">Search</button>
+    </div>
+  </nav>
+  <main class="container">
+    <section class="content">
+      <h2>interpretation English</h2>
+      <article>
+        <h3>Lost in Interpretation...</h3>
+        <time>December 27, 2008</time>
+        <p>This year, we will continue a tradition started last year with the "spontaneous simultaneous" interpretation of the Hacker Jeopardy. As of tomorrow, we will interpret one event in Saal 1 each day.</p>
+        <button>Read more...</button>
+      </article>
+    </section>
+    <aside class="sidebar">
+      <h3>UPCOMING EVENTS</h3>
+      <div class="upcoming-events">
+        <div class="event-item">37C3: Unlocked</div>
+        <div class="event-item">Fireshonks</div>
+      </div>
+      <h3>CONGRESS</h3>
+      <ul class="event-list">
+        <li>37C3: Unlocked (2023)</li>
+        <li>36C3: Resource Exhaustion (2019)</li>
+        <li>35C3: Refreshing Memories (2018)</li>
+        <li>34C3: tuwat (2017)</li>
+      </ul>
+      <h3>CAMP</h3>
+      <ul class="event-list">
+        <li>Chaos Communication Camp 2023</li>
+        <li>Chaos Communication Camp 2019</li>
+        <li>Chaos Communication Camp 2015</li>
+        <li>Chaos Communication Camp 2011</li>
+      </ul>
+      <h3>REMOTE CHAOS EXPERIENCE</h3>
+      <ul class="event-list">
+        <li>rC3: NOWHERE (2021)</li>
+        <li>rC3 (2020)</li>
+      </ul>
+      <h3>OTHER EVENTS</h3>
+      <ul class="event-list">
+        <li>Datenspuren</li>
+        <li>DiVOC</li>
+        <li>Easterhegg</li>
+        <li>GPN</li>
+      </ul>
+      <h3>SUBSCRIBE</h3>
+    </aside>
+  </main>
+  <footer>
+    <p>Impressum und Datenschutzerklärung</p>
+  </footer>
+</body>
+</html>
