@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyRobotLab Forum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+       .logo {
+            display: flex;
+            align-items: center;
+        }
+       .logo-square {
+            width: 40px;
+            height: 40px;
+            background-color: #0066ff;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+       .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066ff;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav li {
+            margin-left: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+       .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #f5f5f5;
+            padding: 20px 0;
+            z-index: 90;
+        }
+       .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+        }
+       .sidebar-icon {
+            width: 15px;
+            height: 15px;
+            background-color: #0066ff;
+            border-radius: 2px;
+            margin-right: 10px;
+        }
+       .sidebar-item span {
+            color: #333;
+        }
+       .container {
+            margin-left: 220px;
+            padding: 20px;
+        }
+       .breadcrumb {
+            margin-bottom: 20px;
+            color: #0066ff;
+            font-weight: bold;
+        }
+       .breadcrumb a {
+            text-decoration: none;
+            color: #0066ff;
+        }
+       .post,.reply {
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+       .post-author,.reply-author {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+       .reply-date {
+            color: #666;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+       .reply h3 {
+            color: #0066ff;
+            margin-top: 0;
+        }
+       .reply-content {
+            margin-top: 5px;
+        }
+       .replies {
+            margin-top: 20px;
+        }
+       .replies h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+       .footer {
+            margin-top: 20px;
+            color: #666;
+        }
+       .footer a {
+            color: #0066ff;
+            text-decoration: none;
+        }
+       .footer p {
+            margin-top: 5px;
+        }
+       .post-content,.reply-content {
+            margin-top: 5px;
+        }
+       .reply-author {
+            display: flex;
+            align-items: center;
+        }
+       .reply-author span {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-square"></div>
+            <span class="logo-text">MyRobotLab</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Download</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <div class="sidebar-icon"></div>
+            <span>Latest Version</span>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-icon"></div>
+            <span>Nixie</span>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-icon"></div>
+            <span>Discord</span>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-icon"></div>
+            <span>MyRobotLab</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Home</a> > <a href="#">Forums</a>
+        </div>
+        <div class="post">
+            <div class="post-author">Chris</div>
+            <div class="post-content">
+                <p>Hi,</p>
+                <p>When I start an Arduino runtime service in MyRobotLab I am given the option of opening it in Arduino IDE. I have an up-to-date version of Arduino IDE on my Macbook Air running MacOS Mohave 10.14.2 but MyRobotLab doesn't seem to be able to find it even when I browse to the Applications folder where it is.</p>
+                <p>Any help would be appreciated.</p>
+            </div>
+        </div>
+        <div class="reply">
+            <div class="reply-author">kwatters <span class="reply-date">4 years 9 months ago</span></div>
+            <h3>Manually Upload the sketch</h3>
+            <div class="reply-content">
+                <p>Hi Chris,</p>
+                <p>The integration from MRL to the Arduino IDE is pretty loose at this time. I recommend just opening up the Arduino IDE and loading the MrlComm.ino sketch directly to the Arduino that you are using.</p>
+                <p>Make sure to use an Arduino IDE version 1.6.8 or newer.</p>
+                <p>The MrlComm.ino should be in the MRL DIR/resource/Arduino/MrlComm directory. All you need to do is open the MrlComm.ino there and upload it.</p>
+                <p>Good luck & welcome!</p>
+                <p>-Kevin</p>
+            </div>
+        </div>
+        <div class="replies">
+            <h4>Replies -</h4>
+            <div class="reply">
+                <div class="reply-author">Chris_Weal <span class="reply-date">4 years 9 months ago</span></div>
+                <h3>Manual upload of MRLcomm.ino</h3>
+                <div class="reply-content">
+                    <p>Kevin,</p>
+                    <p>Many thanks, I have done that and it seemed to work ok - I opened the MRLcomm.ino file from Arduino IDE and then uploaded it (couple of warnings but that's all). I now need to learn enough to try and communicate with the Arduino from MyRobotLab.</p>
+                    <p>Thanks again for your help.</p>
+                    <p>Chris</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="#">Getting Started</a>
+            <p><a href="#">Log in</a> or <a href="#">register</a> to post comments</p>
+        </div>
+    </div>
+</body>
+</html>
