@@ -13,13 +13,13 @@ MODEL_NAME = "openai/clip-vit-base-patch32"
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Path to prediction folder
-PREDICTION_FOLDER = Path('gemini/results/gemini_predictions1')
+PREDICTION_FOLDER = Path('design2code-18b-v0/predictions')
 
 # Path to reference images
 DESIGN2CODE_DIR = Path('Design2Code')
 
 # Path to save rendered images
-RENDERED_IMGS_DIR = Path('gemini/rendered_imgs')
+RENDERED_IMGS_DIR = Path('design2code-18b-v0/rendered_imgs')
 RENDERED_IMGS_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- CLIP Initialization ---
@@ -198,12 +198,11 @@ async def main():
     df = pd.DataFrame(all_scores)
     
     # Create output directory if it doesn't exist
-    output_dir = Path('metrics/visual_fidelity')
+    output_dir = Path('design2code-18b-v0/visual_fidelity')
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Generate filename with timestamp
-    timestamp = datetime.now().strftime("%Y%m%dT%H%M%S")
-    excel_filename = output_dir / f"clip_scores_{timestamp}.xlsx"
+    excel_filename = output_dir / f"clip_scores.xlsx"
     
     # Save to Excel
     df.to_excel(excel_filename, index=False)

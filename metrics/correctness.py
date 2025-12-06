@@ -14,9 +14,9 @@ import os
 # --- Configuration ---
 
 # Assumes folders are named 'gemini_predictions1', 'gemini_predictions2', etc.
-BASE_DIR = Path('gemini/results').resolve()
+BASE_DIR = Path('design2code-18b-v0').resolve()
 PREDICTION_FOLDERS = [
-    BASE_DIR / 'gemini_predictions1',
+    BASE_DIR / 'predictions',
     # BASE_DIR / 'gemini_predictions2',
 ]
 
@@ -24,7 +24,7 @@ PREDICTION_FOLDERS = [
 DATAURI_FILE = Path('gemini/dataURI.txt')
 
 # The name of the output Excel file.
-OUTPUT_FILE = "metrics/evaluation/gemini_correctness_report.xlsx"
+OUTPUT_FILE = "design2code-18b-v0/predictions/design2code-18b-v0_correctness_report.xlsx"
 
 # -------------
 
