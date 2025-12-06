@@ -5,6 +5,7 @@ import pandas as pd
 
 # --- Configuration ---
 # Path to prediction folder
+# PREDICTION_FOLDER = Path('design2code-18b-v0/predictions')
 PREDICTION_FOLDER = Path('gemini/results/gemini_predictions1')
 
 # Path to reference HTML files (ground truth)
@@ -13,7 +14,8 @@ DESIGN2CODE_DIR = Path('Design2Code')
 # Path to save results
 OUTPUT_DIR = Path('gemini/evaluation_results')
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
+DEBUG_DIR = OUTPUT_DIR / "debug_screenshots"
+DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
 class LayoutBenchmark:
     def __init__(self):
@@ -33,45 +35,47 @@ class LayoutBenchmark:
             await self.playwright.stop()
 
 
-    async def get_element_bboxes(self, html_content):
+    async def get_element_bboxes(self, html_content, file_id, type_prefix):
         """
-        Renders HTML content and extracts bounding boxes for visible leaf elements.
-        
-        Returns format: { 'unique_text_content': {x, y, width, height}, ... }
-        The key is based on element text content for correspondence matching.
+        Extracts bounding boxes. 
+        1. Returns a LIST instead of Dict to prevent overwriting duplicate text.
+        2. Takes screenshots for debugging.
         """
         page = await self.browser.new_page()
-        # Set a fixed viewport for consistent layout calculation
         await page.set_viewport_size({"width": 1280, "height": 800})
-        await page.set_content(html_content)
         
+
+        try:
+            await page.set_content(html_content, wait_until='networkidle', timeout=5000)
+        except Exception:
+            pass
+
+        await page.add_style_tag(content="body { margin: 0; padding: 0; }")
+
+        # await page.screenshot(path=DEBUG_DIR / f"{file_id}_{type_prefix}.png", full_page=True)
+
         elements_data = await page.evaluate('''() => {
-            const results = {};
+            const results = [];
             
-            // This function is for demonstration; usually a injected data-id is better.
-            // Here we use text content as the key for matching.
             const allElements = document.querySelectorAll('*');
             allElements.forEach((el) => {
-                // Filter: only keep elements that are visible, have text, and are "leaf" nodes (no children)
                 const isVisible = el.offsetWidth > 0 && el.offsetHeight > 0;
                 const hasText = el.innerText && el.innerText.trim().length > 0;
+                
+                const validTag = !['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(el.tagName);
+                
+
                 const isLeaf = el.children.length === 0;
 
-                if (isVisible && hasText && isLeaf) {
+                if (isVisible && hasText && isLeaf && validTag) {
                     const rect = el.getBoundingClientRect();
-                    // Use text content as the unique key for correspondence matching
-                    const key = el.innerText.trim(); 
-                    
-                    // Add scroll offset to get absolute document coordinates
-                    const absolute_x = rect.x + window.scrollX;
-                    const absolute_y = rect.y + window.scrollY;
-
-                    results[key] = {
-                        x: absolute_x,
-                        y: absolute_y,
+                    results.push({
+                        text: el.innerText.trim(),
+                        x: rect.x + window.scrollX,
+                        y: rect.y + window.scrollY,
                         width: rect.width,
                         height: rect.height
-                    };
+                    });
                 }
             });
             return results;
@@ -110,38 +114,30 @@ class LayoutBenchmark:
         if union_area == 0: return 0.0
         return inter_area / union_area
 
-    def compare_layouts(self, gt_boxes, pred_boxes):
+    def compare_layouts(self, gt_list, pred_list):
         """
         Robust Layout Similarity: Spatial Greedy Matching.
         For each GT box, find the Pred box with the highest IoU.
         """
-        if not gt_boxes:
-            return 0.0
-            
+        if not gt_list: return 0.0
+        if not pred_list: return 0.0
+
         total_max_iou = 0.0
         
-        # Convert dictionaries to lists of values for iteration
-        # We discard the keys (text) and only look at geometry
-        gt_list = list(gt_boxes.values())
-        pred_list = list(pred_boxes.values())
 
-        if not pred_list:
-            return 0.0
-
-        # For every box in Ground Truth...
+        
         for gt_box in gt_list:
             max_iou_for_this_element = 0.0
             
-            # ...check against ALL boxes in Prediction to find the best overlap
             for pred_box in pred_list:
+
+                
                 iou = self.compute_iou(gt_box, pred_box)
                 if iou > max_iou_for_this_element:
                     max_iou_for_this_element = iou
             
-            # Accumulate the best IoU found for this GT element
             total_max_iou += max_iou_for_this_element
 
-        # Average IoU over all expected GT elements
         return total_max_iou / len(gt_list)
 
 
@@ -223,8 +219,8 @@ async def main():
                 gt_html_content = f.read()
             
             # Extract bounding boxes from both HTML files
-            gt_boxes = await benchmark.get_element_bboxes(gt_html_content)
-            pred_boxes = await benchmark.get_element_bboxes(pred_html_content)
+            gt_boxes = await benchmark.get_element_bboxes(gt_html_content, file_id, "GT")
+            pred_boxes = await benchmark.get_element_bboxes(pred_html_content, file_id, "PRED")
             
             # Calculate IOU score
             iou_score = benchmark.compare_layouts(gt_boxes, pred_boxes)

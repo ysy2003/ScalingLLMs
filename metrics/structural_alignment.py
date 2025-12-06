@@ -10,7 +10,7 @@ predicted/rendered DOM, including:
 
 from dataclasses import dataclass
 from typing import Any, Tuple
-
+from zss import simple_distance, Node
 
 @dataclass
 class StructuralAlignmentScores:
@@ -89,19 +89,37 @@ def _count_nodes(node: Any) -> int:
 
 
 def tree_edit_similarity(ref_dom: Any, pred_dom: Any) -> float:
-    """
-    Similarity score in [0, 1] derived from tree edit distance.
-    1.0 = identical trees, 0.0 = completely different.
-    """
-    if ref_dom is None and pred_dom is None:
-        return 1.0
+    
 
-    distance = tree_edit_distance(ref_dom, pred_dom)
-    max_nodes = max(_count_nodes(ref_dom), _count_nodes(pred_dom))
-    if max_nodes == 0:
-        return 1.0
-    # normalize: similarity = 1 - (distance / max_nodes)
-    return max(0.0, 1.0 - distance / max_nodes)
+    """
+    Compute structural similarity between two DOM trees using tree edit distance.
+    """
+
+    
+
+    def build_tree(dom):
+        """Recursively build tree structure for edit distance calculation"""
+        if not dom.name:
+            return None
+        root = Node(dom.name)
+        for child in dom.find_all(recursive=False):
+            child_node = build_tree(child)
+            if child_node:
+                root.addkid(child_node)
+        return root
+
+    ref_tree = build_tree(ref_dom)
+    pred_tree = build_tree(pred_dom)
+
+    if not ref_tree or not pred_tree:
+        return 0.0  # Return 0 if either DOM tree is empty
+
+    # Compute tree edit distance
+    distance = simple_distance(ref_tree, pred_tree)
+    max_size = max(len(ref_dom.find_all()), len(pred_dom.find_all()))
+    similarity = 1 - (distance / max_size) if max_size > 0 else 0.0
+
+    return abs(similarity)
 
 
 def semantic_html_usage(root: Any) -> float:

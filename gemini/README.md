@@ -280,16 +280,9 @@ gcloud storage ls --recursive gs://dataset_design2code/ | findstr /R "\.png$ \.h
    ```
 ✅ Detailed report saved to: [metrics\evaluation\gemini_clip_scores.xlsx](metrics\evaluation\gemini_clip_scores.xlsx)
 ## 2.2 IOU
-## Summary Statistics
-   ```
-   Total Test Cases (from Design2Code): 484
-   Successfully Processed:              468
-   Skipped (file not found):            16
-   Errors:                              0
-```
 ## 🏆 IOU Score Metrics (for valid scores only)
 ```
-   Average IOU Score:                  0.0783
+   Average IOU Score:                  0.0780
    Minimum IOU Score:                  0.0000
    Maximum IOU Score:                  0.4888
 ```
@@ -339,3 +332,24 @@ gcloud storage ls --recursive gs://dataset_design2code/ | findstr /R "\.png$ \.h
   latency_seconds: 34.2259
   cost_per_1k_tokens: $0.002032
 ```
+# Structural Alignment Score Summary
+## Summary Statistics
+   Total Test Cases (from Design2Code): 484
+   Successfully Processed:              468
+   Skipped (file not found):            16
+   Errors:                              0
+
+## 🏆 Tree Edit Similarity Metrics (1.0 = identical)
+   Average:                            0.2099
+   Minimum:                            0.0000
+   Maximum:                            0.8235
+
+## 🏆 Semantic HTML Ratio Metrics (Higher is better)
+   Average:                            0.2325
+   Minimum:                            0.0000
+   Maximum:                            1.0000
+
+## 🏆 Accessibility Score Metrics (Higher is better)
+   Average:                            0.0017
+   Minimum:                            0.0000
+   Maximum:                            0.5000
