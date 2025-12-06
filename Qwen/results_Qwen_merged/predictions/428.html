@@ -1,0 +1,205 @@
+<!DOCTYPE html>, then <html>, <head> with <style>, then <body> with the container.
+
+In the style, set up the container to have a dashed border, padding, maybe a max-width. The content inside should be left-aligned, and the blue square on the right.
+
+Wait, the image shows the blue square as a solid blue rectangle. Let's check the image: the blue square is a rectangle, not a square. Wait, in the image, the blue area is a rectangle. Let's see the proportions. The recipe card has the title, then the blue square is on the right. So maybe the blue square is a div with a fixed width and height, say 100px by 150px, but in the image, it's a rectangle. Wait, the image shows the blue square as a rectangle. Let's check the original image: the blue area is a rectangle, so maybe 100px width and 150px height.
+
+But in the image, the blue square is on the right side, so the container is a flex container with two parts: content (left) and blue square (right).
+
+So:
+
+.recipe-card {
+  border: 1px dashed #000;
+  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.blue-square {
+  width: 100px;
+  height: 150px;
+  background-color: #0000ff;
+  margin-left: 10px;
+}
+
+Wait, but in the image, the blue square is a solid blue rectangle. Let's check the image: the blue area is a rectangle, so the height is more than the width. Let's see the image: the blue square is on the right, and the text is on the left. So the blue square's height should be such that it's aligned with the content.
+
+Alternatively, maybe the blue square is a background element, but in the image, it's a separate rectangle. So the HTML should have a div for the blue square.
+
+Now, the text elements:
+
+Title: <h1>Easy Sesame Noodles</h1>
+
+Author: <p><strong>Author:</strong> Nikki</p>
+
+Description: <p>These Easy Sesame Noodles are a wonderful side dish. For such a simple side dish, they have a lot of delicious flavor packed in and are sure to be a hit at the dinner table!</p>
+
+Ingredients: <h2>Ingredients</h2> followed by an unordered list.
+
+Instructions: <h2>Instructions</h2> followed by an ordered list.
+
+Notes: <h2>Notes</h2> followed by the text.
+
+Now, let's check the image for the exact text:
+
+Ingredients list:
+
+- 12 ounce stir fry noodles, cooked and drained
+
+- 3/4 cup Soy Sauce, I prefer reduced sodium
+
+- 2 1/2 Tablespoons sugar
+
+- 2 Tablespoons Rice Vinegar
+
+Instructions:
+
+1. In a small mixing bowl, combine Soy Sauce, sugar, vinegar, sesame oil, Hot Chili Oil and vegetable oil. Whisk until will combined.
+
+Wait, "will combined" is probably a typo, but we have to copy exactly as in the image.
+
+2. Pour over noodles and top with green onions and toasted sesame seeds.
+
+Notes:
+
+Adapted from Pioneer Woman
+
+Recipe by Chef In Training at https://www.chef-in-training.com/easy-sesame-noodles/
+
+Now, the HTML structure:
+
+- The container (recipe-card) has the dashed border.
+
+- Inside, the title, author, description, then the sections.
+
+- The blue square is a div inside the container, to the right of the content.
+
+Let's code the HTML:
+
+Start with the doctype, html, head, style, body.
+
+In the style, set up the container to have a dashed border, padding, and the blue square.
+
+Wait, the image shows the dashed border around the entire content. So the container should have a border, and the blue square is inside the container.
+
+So the container is a div with class "recipe-card", which has the dashed border.
+
+Inside the recipe-card, there's the content (title, author, description, sections) and the blue square.
+
+So:
+
+<div class="recipe-card">
+  <div class="content">
+    <h1>Easy Sesame Noodles</h1>
+    <p><strong>Author:</strong> Nikki</p>
+    <p>These Easy Sesame Noodles are a wonderful side dish. For such a simple side dish, they have a lot of delicious flavor packed in and are sure to be a hit at the dinner table!</p>
+    <h2>Ingredients</h2>
+    <ul>
+      <li>12 ounce stir fry noodles, cooked and drained</li>
+      <li>3/4 cup Soy Sauce, I prefer reduced sodium</li>
+      <li>2 1/2 Tablespoons sugar</li>
+      <li>2 Tablespoons Rice Vinegar</li>
+    </ul>
+    <h2>Instructions</h2>
+    <ol>
+      <li>In a small mixing bowl, combine Soy Sauce, sugar, vinegar, sesame oil, Hot Chili Oil and vegetable oil. Whisk until will combined.</li>
+      <li>Pour over noodles and top with green onions and toasted sesame seeds.</li>
+    </ol>
+    <h2>Notes</h2>
+    <p>Adapted from Pioneer Woman</p>
+    <p>Recipe by <strong>Chef In Training</strong> at <a href="https://www.chef-in-training.com/easy-sesame-noodles/">https://www.chef-in-training.com/easy-sesame-noodles/</a></p>
+  </div>
+  <div class="blue-square"></div>
+</div>
+
+Now, the CSS:
+
+.recipe-card {
+  border: 1px dashed #000;
+  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.blue-square {
+  width: 100px;
+  height: 150px;
+  background-color: #0000ff;
+  margin-left: 10px;
+}
+
+Wait, but in the image, the blue square is a solid blue rectangle. Let's check the image: the blue area is a rectangle, so the height is more than the width. Let's see the image: the blue square is on the right, and the text is on the left. So the blue square's height should be such that it's aligned with the content.
+
+Alternatively, maybe the blue square is a background element, but in the image, it's a separate rectangle. So the HTML should have a div for the blue square.
+
+Now, check the image for the exact layout. The title is at the top, then author, then description. Then the sections. The blue square is on the right side, so the container is a flex container with the content on the left and the blue square on the right.
+
+Let's adjust the CSS to make sure the blue square is positioned correctly.
+
+Also, the text should be styled as in the image: the title is bold, larger font. The author is smaller. The description is a paragraph. The sections (Ingredients, Instructions, Notes) are headings.
+
+Let's set the font-family to something like Arial, sans-serif.
+
+Also, the blue square should have a solid blue background.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows the dashed border around the entire content. So the container (recipe-card) has the dashed border.
+
+The blue square is inside the container, so the container's width is the sum of the content width and the blue square width.
+
+Let's set the content to flex: 1, so it takes up the remaining space, and the blue square has a fixed width.
+
+Now, let's write the code.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="recipe-card">
+    <div class="content">
+      <h1>Easy Sesame Noodles</h1>
+      <p><strong>Author:</strong> Nikki</p>
+      <p>These Easy Sesame Noodles are a wonderful side dish. For such a simple side dish, they have a lot of delicious flavor packed in and are sure to be a hit at the dinner table!</p>
+      <h2>Ingredients</h2>
+      <ul>
+        <li>12 ounce stir fry noodles, cooked and drained</li>
+        <li>3/4 cup Soy Sauce, I prefer reduced sodium</li>
+        <li>2 1/2 Tablespoons sugar</li>
+        <li>2 Tablespoons Rice Vinegar</li>
+      </ul>
+      <h2>Instructions</h2>
+      <ol>
+        <li>In a small mixing bowl, combine Soy Sauce, sugar, vinegar, sesame oil, Hot Chili Oil and vegetable oil. Whisk until will combined.</li>
+        <li>Pour over noodles and top with green onions and toasted sesame seeds.</li>
+      </ol>
+      <h2>Notes</h2>
+      <p>Adapted from Pioneer Woman</p>
+      <p>Recipe by <strong>Chef In Training</strong> at <a href="https://www.chef-in-training.com/easy-sesame-noodles/">https://www.chef-in-training.com/easy-sesame-noodles/</a></p>
+    </div>
+    <div class="blue-square"></div>
+  </div>
+</body>
+</html>

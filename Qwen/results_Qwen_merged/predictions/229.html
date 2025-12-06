@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earthly Pursuits, Inc. - Product Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+   .top-bar {
+      background-color: #4CAF50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+
+   .search-container {
+      position: relative;
+    }
+
+   .search-input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+
+   .top-bar-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+   .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: white;
+    }
+
+   .logo {
+      font-size: 1.5rem;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 1rem;
+    }
+
+    nav ul li a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+   .breadcrumb {
+      display: flex;
+      padding: 1rem;
+      background-color: white;
+    }
+
+   .breadcrumb a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+   .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+   .breadcrumb span {
+      color: #666;
+    }
+
+   .product-container {
+      display: flex;
+      padding: 2rem;
+      background-color: white;
+    }
+
+   .product-image {
+      width: 300px;
+      height: 300px;
+      background-color: #0000FF;
+      margin-right: 2rem;
+    }
+
+   .product-details {
+      flex: 1;
+    }
+
+   .product-details h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+   .product-details.company {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+
+   .product-details.price {
+      font-size: 1.5rem;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+
+   .product-details.size {
+      margin-bottom: 1rem;
+    }
+
+   .add-to-cart {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+   .product-details.details {
+      margin-bottom: 1rem;
+    }
+
+   .product-details.description {
+      margin-bottom: 1rem;
+    }
+
+   .share-buttons {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+
+   .share-buttons a {
+      display: inline-block;
+      margin-right: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+   .share-buttons.facebook {
+      background-color: #3B5998;
+      color: white;
+    }
+
+   .share-buttons.twitter {
+      background-color: #1DA1F2;
+      color: white;
+    }
+
+   .share-buttons.google-plus {
+      background-color: #DD4B39;
+      color: white;
+    }
+
+   .more-collection {
+      text-align: center;
+      margin: 2rem 0;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+   .collection-items {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+   .collection-item {
+      text-align: center;
+      width: 20%;
+    }
+
+   .collection-item img {
+      width: 100%;
+      height: 150px;
+      background-color: #0000FF;
+      margin-bottom: 0.5rem;
+    }
+
+   .collection-item h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+   .collection-item.price {
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+   .footer {
+      background-color: #4CAF50;
+      color: white;
+      padding: 2rem;
+    }
+
+   .footer-content {
+      display: flex;
+      justify-content: space-between;
+    }
+
+   .footer-section {
+      flex: 1;
+      margin-right: 1rem;
+    }
+
+   .footer-section h3 {
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+   .footer-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+   .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+   .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+   .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+   .follow-us {
+      display: flex;
+      align-items: center;
+    }
+
+   .follow-us-icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+   .newsletter {
+      margin-top: 1rem;
+    }
+
+   .newsletter h3 {
+      margin-bottom: 0.5rem;
+    }
+
+   .newsletter-form {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+
+   .newsletter-form input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+   .newsletter-form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+   .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      color: white;
+    }
+
+   .footer-bottom {
+      text-align: center;
+      margin-top: 1rem;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="search-container">
+      <input type="text" placeholder="s Search" class="search-input">
+    </div>
+    <div class="top-bar-links">
+      <a href="#">Log in</a>
+      <a href="#">[ Cart ]</a>
+    </div>
+  </div>
+  <div class="header">
+    <div class="logo">Earthly Pursuits, Inc.</div>
+    <nav>
+      <ul>
+        <li><a href="#">Shop by Plant 4</a></li>
+        <li><a href="#">Shop by Zone 4</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="breadcrumb">
+    <a href="#">Home</a> > <a href="#">Zone 5</a> > <span>Monarda fistulosa Raspberry Wine' Wine-red Bee Balm</span>
+  </div>
+  <div class="product-container">
+    <div class="product-image"></div>
+    <div class="product-details">
+      <div class="company">Earthly Pursuits, Inc.</div>
+      <h1>Monarda fistulosa Raspberry Wine' Wine-red Bee Balm</h1>
+      <div class="price">$8.00</div>
+      <div class="size">SIZE<br>Size based on availability</div>
+      <button class="add-to-cart">Add to Cart</button>
+      <div class="details">
+        Monarda fistulosa Raspberry Wine' | Wine-red Bee Balm | Zone: 4-9 | Size: 3-4' | Sun: Y | Shade/Partial Sun: N | Tolerance(s): | Season(s): Summer | Native: Y | Ground Cover: N
+      </div>
+      <div class="description">
+        DESCRIPTION: Clear -red-wine flowers with buds resembling raspberries and very mildew resistant. Attracts Hummingbirds and Butterflies.
+      </div>
+      <div class="share-buttons">
+        <a href="#" class="facebook">Share</a>
+        <a href="#" class="twitter">Tweet</a>
+        <a href="#" class="google-plus">+1</a>
+      </div>
+    </div>
+  </div>
+  <div class="more-collection">More from this collection</div>
+  <div class="collection-items">
+    <div class="collection-item">
+      <div class="collection-image"></div>
+      <h3>Acanthus hungaricus Bear's Breeches</h3>
+      <div class="price">$14.50</div>
+    </div>
+    <div class="collection-item">
+      <div class="collection-image"></div>
+      <h3>Achillea clypeolata Coronation Gold' Yarrow</h3>
+      <div class="price">$8.50</div>
+    </div>
+    <div class="collection-item">
+      <div class="collection-image"></div>
+      <h3>Achillea millefolium Feuerland' Yarrow</h3>
+      <div class="price">$8.50</div>
+    </div>
+    <div class="collection-item">
+      <div class="collection-image"></div>
+      <h3>Achillea millefolium Moonshine' Yarrow</h3>
+      <div class="price">$9.50</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="#">Search</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="follow-us">
+          <span class="follow-us-icon">f</span>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <div class="newsletter">
+          <p>Sign up for the latest news, offers and styles</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      Copyright © 2023, Earthly Pursuits, Inc. <br>
+      Tel: [PHONE REDACTED]
+    </div>
+    <div class="footer-bottom">
+      A c D
+    </div>
+  </div>
+</body>
+</html>

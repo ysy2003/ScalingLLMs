@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get friendly with the Natives</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+       .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+       .logo {
+            width: 100px;
+            height: 100px;
+            background-color: #0056b3;
+            border-radius: 4px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav li {
+            margin-left: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+       .search-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+       .post-header {
+            margin: 25px 0 15px;
+        }
+        h1 {
+            color: #0056b3;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+       .meta {
+            background-color: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+       .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #0056b3;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+       .code-block {
+            background-color: #f8f8f8;
+            border-left: 4px solid #0056b3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+            overflow-x: auto;
+        }
+       .code-block pre {
+            margin: 0;
+            font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+       .code-block code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+        }
+       .usage {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+       .side-by-side {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+       .side-by-side.code-block {
+            background-color: #f9f9f9;
+            border-left: 4px solid #0056b3;
+            padding: 10px;
+            margin: 5px 0;
+        }
+       .list {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+       .list li {
+            margin-bottom: 5px;
+            list-style-type: disc;
+        }
+       .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+       .footer-col {
+            flex: 1;
+            min-width: 150px;
+        }
+       .footer-col h3 {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+       .footer-links {
+            list-style: none;
+        }
+       .footer-links li {
+            margin-bottom: 5px;
+        }
+       .footer-links a {
+            text-decoration: none;
+            color: #666;
+        }
+       .copyright {
+            text-align: center;
+            padding-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+        @media (max-width: 600px) {
+           .container {
+                padding: 0 10px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+           .footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+           .footer-col {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Core</a></li>
+                    <li><a href="#">More</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Forge</a></li>
+                    <li><input type="text" class="search-box" placeholder="Search in the site"></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="post-header">
+            <h1>Get friendly with the Natives</h1>
+            <div class="meta">Written by Ryan Florence on 24 March 2010 – Posted under all, tips</div>
+        </div>
+        
+        <div class="section">
+            <p>Have you extended a Native lately? It's an incredibly helpful thing.</p>
+        </div>
+        
+        <div class="section">
+            <h2>The Difference:</h2>
+            <p>I've seen stuff like this:</p>
+            <div class="code-block">
+                <pre>fn1(fn2(10, fn3('house')));</pre>
+            </div>
+            <p>Hard to figure out what's happening. Instead you can write code like:</p>
+            <div class="code-block">
+                <pre>fn3('house').fn2(10).fn1();</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>A Useful, Real Example, zeroPad</h2>
+            <p>I've used this in a couple scripts, it takes a number and returns a string with zeros padded in front: 123 becomes '000123'. Really handy for filenames and the like.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Functionally Based Example</h2>
+            <div class="code-block">
+                <pre>function zeroPad(num, zeros){
+    zeros = zeros || 3;
+    var str = '' + num;
+    zeros.times(function() { str = '0' + str; });
+    return str;
+}
+// usage
+doSomething(zeroPad(document.getElementById('myInput').value, 3));</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Native Extensions Based Example</h2>
+            <div class="code-block">
+                <pre>Number.implement({
+    zeroPad: function(zeros){
+        var str = '' + this;
+        zeros.times(function() { str = '0' + str; });
+        return str;
+    }
+});
+// so that it works on both numbers and strings
+String.implement({
+    zeroPad: function(zeros){
+        return this.toInt().zeroPad(zeros);
+    }
+});
+// usage
+$('#myInput').get('value').zeroPad(3).doSomething();</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Side by Side:</h2>
+            <div class="side-by-side">
+                <div class="code-block">
+                    <pre>doSomething(zeroPad(document.getElementById('myInput').value, 3));</pre>
+                </div>
+                <div class="code-block">
+                    <pre>$('#myInput').get('value').zeroPad(3).doSomething();</pre>
+                </div>
+            </div>
+            <p>Awesome? Yes.</p>
+            <ul class="list">
+                <li>Array</li>
+                <li>Function</li>
+                <li>Number</li>
+                <li>String</li>
+            </ul>
+            <p>Some say extending natives is a bad idea. Personally, I think it's awesome—but this topic is a sore spot for some.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Flippin' Sweet Array methods</h2>
+            <p>Arian Stolwijk created this amazing gem: <a href="#">Array.Math</a>. Code samples often tell the story faster:</p>
+            <div class="code-block">
+                <pre>[2,5,1,6].sum();  // 14
+[2,5,6,2].product(3);  // [6,15,18,6]
+[9,12,15].quotient(3);  // [3,4,5]</pre>
+            </div>
+            <p>This is all made possible by extending the <span style="background-color: #f0f0f0; padding: 1px 3px; border-radius: 3px;">Array</span> native, see?</p>
+            <div class="code-block">
+                <pre>Array.implement({
+    sum: function(start, length){
+        var sum = 0;
+        start = start? start : 0;
+        length = length? length : this.length;
+        for(var i=start; i<length; i++) sum += this[i];
+        return sum;
+    },
+    product: function(p){
+        var arr = $type(p) == 'array';
+        return this.map(function(entity, i){
+            return arr? (entity * p[i]) : (entity * p);
+        });
+    },
+    quotient: function(q){
+        var arr = $type(q) == 'array';
+        return this.map(function(entity, i){
+            return arr? (entity / q[i]) : (entity / q);
+        });
+    },
+    // and a whole lot more awesome...
+});</pre>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Quick Tips</h2>
+            <ul class="list">
+                <li><strong>this</strong> is the number or string, or whatever, when inside the method.</li>
+                <li>Return something that makes sense (usually <strong>this</strong>).</li>
+                <li>You can implement several methods all in the same code block.</li>
+            </ul>
+            <p>This is just one more great tool to help keep your code organized and readable.</p>
+        </div>
+        
+        <footer class="footer">
+            <div class="footer-col">
+                <h3>About</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Merchandising</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">User Group</a></li>
+                    <li><a href="#">The MooTools</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect with us</h3>
+                <ul class="footer-links">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Google+</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Documentation</h3>
+                <ul class="footer-links">
+                    <li><a href="#">MooTools Core</a></li>
+                    <li><a href="#">MooTools More</a></li>
+                </ul>
+            </div>
+        </footer>
+        <div class="copyright">
+            Copyright © 2006-2023<br>
+            Valerio Proietti & MooTools Developers
+        </div>
+    </div>
+</body>
+</html>

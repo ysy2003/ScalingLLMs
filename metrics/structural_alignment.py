@@ -28,15 +28,54 @@ SEMANTIC_TAGS = {
 
 def tree_edit_distance(ref_dom: Any, pred_dom: Any) -> int:
     """
-    Placeholder for a tree-edit distance implementation.
-    `ref_dom` and `pred_dom` should be tree objects with:
-        - .children: list of child nodes
-        - .tag: string tag name
-    You can:
-      - plug in a library such as `zss`, or
-      - implement your own recursive algorithm here.
+    A simple, heuristic tree edit distance:
+
+    - Cost 1 for:
+        * deleting an entire subtree
+        * inserting an entire subtree
+        * replacing a node whose tag differs
+    - Children are aligned by index (no reordering).
+
+    This is NOT the full Zhang–Shasha algorithm, but is often
+    good enough as a structural similarity signal for DOM trees.
     """
-    raise NotImplementedError("tree_edit_distance must be implemented or plugged in.")
+    # both None → no cost
+    if ref_dom is None and pred_dom is None:
+        return 0
+
+    # one None → cost = size of the other tree
+    if ref_dom is None:
+        return _count_nodes(pred_dom)
+    if pred_dom is None:
+        return _count_nodes(ref_dom)
+
+    # cost on the root
+    tag_a = getattr(ref_dom, "tag", "").lower()
+    tag_b = getattr(pred_dom, "tag", "").lower()
+    cost = 0 if tag_a == tag_b else 1
+
+    # children
+    children_a = list(getattr(ref_dom, "children", []))
+    children_b = list(getattr(pred_dom, "children", []))
+
+    len_a = len(children_a)
+    len_b = len(children_b)
+    common = min(len_a, len_b)
+
+    # pairwise distance for aligned children
+    for i in range(common):
+        cost += tree_edit_distance(children_a[i], children_b[i])
+
+    # remaining children in A → deletions
+    for i in range(common, len_a):
+        cost += _count_nodes(children_a[i])
+
+    # remaining children in B → insertions
+    for i in range(common, len_b):
+        cost += _count_nodes(children_b[i])
+
+    return cost
+
 
 
 def _count_nodes(node: Any) -> int:

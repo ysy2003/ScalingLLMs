@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Ireland - Product Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+       .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+       .logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+
+       .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            padding: 5px 10px;
+            width: 350px;
+        }
+
+       .search-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+       .search-button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+       .search-button:hover {
+            background-color: #0055b5;
+        }
+
+       .breadcrumb {
+            margin: 15px 0 25px;
+            color: #0066cc;
+            font-size: 14px;
+        }
+
+       .product-container {
+            display: flex;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+       .product-image {
+            flex: 0 0 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #0000ff;
+            border: 1px solid #ccc;
+            height: 200px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+       .image-number {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+       .product-details {
+            flex: 1;
+        }
+
+       .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+       .author {
+            color: #0066cc;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+       .add-to-cart {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+       .add-to-cart:hover {
+            background-color: #e6b900;
+        }
+
+       .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+       .price-note {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+       .stock {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin: 20px 0 10px;
+            font-size: 18px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li:before {
+            content: "•";
+            color: #0066cc;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+       .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+       .footer-links a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+       .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+       .footer-section {
+            margin: 15px 0;
+        }
+
+       .copyright {
+            font-size: 14px;
+            color: #666;
+            margin: 15px 0;
+        }
+
+       .disclaimer {
+            font-size: 13px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+       .affiliate {
+            font-size: 13px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+       .affiliate-note {
+            font-size: 13px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+       .footer-title {
+            font-weight: bold;
+            margin: 15px 0 10px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+           .product-container {
+                flex-direction: column;
+            }
+
+           .search-container {
+                width: 100%;
+            }
+
+           .product-image {
+                height: 150px;
+                width: 150px;
+            }
+
+           .product-title {
+                font-size: 20px;
+            }
+
+           .price {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">shop ireland.ie</div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="I'm looking for...">
+            <button class="search-button">Books</button>
+        </div>
+    </header>
+
+    <div class="breadcrumb">Home » Musical Instruments »</div>
+
+    <div class="product-container">
+        <div class="product-image">
+            <div class="image-number">1 of 13</div>
+        </div>
+        <div class="product-details">
+            <h1 class="product-title">The Beginner's Photography Guide: The Ultimate Step-by-Step Manual for Getting the Most from your Digital Camera</h1>
+            <div class="author">DK:</div>
+            <button class="add-to-cart">Add to cart</button>
+            <div class="price">€16.75 (€14.29)</div>
+            <div class="price-note">Full price: €19.91 - Save 16%</div>
+            <div class="stock">In stock Qualifies for free shipping.</div>
+            
+            <h2>Features</h2>
+            <ul>
+                <li>DORLING KINDERSLEY</li>
+                <li>It ensures you get the best usage for a longer period</li>
+                <li>It ensures you get the best usage for a longer period</li>
+            </ul>
+            
+            <h2>Product info</h2>
+            <ul>
+                <li>Contributors: DK</li>
+                <li>Binding: Flexbound</li>
+                <li>Edition: 1</li>
+                <li>Brand: DK</li>
+            </ul>
+            
+            <h2>Find more in...</h2>
+            <ul>
+                <li><a href="#">Photography Equipment</a></li>
+                <li><a href="#">Digital Photography Techniques & Tips</a></li>
+                <li><a href="#">The Hobbyist</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-section">
+        <div class="footer-links">
+            <a href="#">Books</a>
+            <a href="#">Electronics</a>
+            <a href="#">Jewellery</a>
+            <a href="#">Movies And TV</a>
+            <a href="#">See all stores</a>
+        </div>
+        <div class="footer-links">
+            <a href="#">About Shop Ireland</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Buy Gift Certificates</a>
+            <a href="#">Amazon Prime</a>
+        </div>
+        <div class="footer-title">Browse Amazon by country</div>
+        <div class="footer-links">
+            <a href="#">Amazon UK</a>
+            <a href="#">Amazon Germany</a>
+            <a href="#">Amazon Spain</a>
+            <a href="#">Amazon Italy</a>
+        </div>
+        <div class="copyright">© 2004 - 2023 Shop Ireland - All rights reserved.</div>
+        <div class="disclaimer">All prices are approximate and subject to change. All prices, except books, include VAT at 23% and are updated daily.</div>
+        <div class="affiliate">Shopireland.ie is a participant in the Amazon EU Associates Programme, an affiliate advertising programme designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.co.uk.</div>
+        <div class="affiliate-note">As an Amazon Associate I earn from qualifying purchases.</div>
+    </div>
+</body>
+</html>
