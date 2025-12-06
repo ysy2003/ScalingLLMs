@@ -5,14 +5,14 @@ import pandas as pd
 
 # --- Configuration ---
 # Path to prediction folder
-# PREDICTION_FOLDER = Path('design2code-18b-v0/predictions')
-PREDICTION_FOLDER = Path('gemini/results/gemini_predictions1')
+PREDICTION_FOLDER = Path('design2code-18b-v0/predictions')
+# PREDICTION_FOLDER = Path('gemini/results/gemini_predictions1')
 
 # Path to reference HTML files (ground truth)
 DESIGN2CODE_DIR = Path('Design2Code')
 
 # Path to save results
-OUTPUT_DIR = Path('gemini/evaluation_results')
+OUTPUT_DIR = Path('design2code-18b-v0/evaluation_results')
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 DEBUG_DIR = OUTPUT_DIR / "debug_screenshots"
 DEBUG_DIR.mkdir(parents=True, exist_ok=True)
@@ -37,16 +37,16 @@ class LayoutBenchmark:
 
     async def get_element_bboxes(self, html_content, file_id, type_prefix):
         """
-        Extracts bounding boxes. 
-        1. Returns a LIST instead of Dict to prevent overwriting duplicate text.
-        2. Takes screenshots for debugging.
+        Extracts bounding boxes.
+        Modified logic:
+        1. Captures both containers and leaves.
+        2. Captures elements if they have children OR text OR are images/inputs.
         """
         page = await self.browser.new_page()
         await page.set_viewport_size({"width": 1280, "height": 800})
         
-
         try:
-            await page.set_content(html_content, wait_until='networkidle', timeout=5000)
+            await page.set_content(html_content, wait_until='load', timeout=5000)
         except Exception:
             pass
 
@@ -57,25 +57,38 @@ class LayoutBenchmark:
         elements_data = await page.evaluate('''() => {
             const results = [];
             
-            const allElements = document.querySelectorAll('*');
+            // Get all elements under body
+            const allElements = document.querySelectorAll('body *');
+            
             allElements.forEach((el) => {
+                // 1. Basic visibility check (size > 0)
                 const isVisible = el.offsetWidth > 0 && el.offsetHeight > 0;
-                const hasText = el.innerText && el.innerText.trim().length > 0;
                 
-                const validTag = !['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(el.tagName);
+                // 2. Exclude invalid tags
+                const invalidTags = ['SCRIPT', 'STYLE', 'NOSCRIPT', 'HEAD', 'META', 'TITLE', 'LINK', 'BR'];
+                const validTag = !invalidTags.includes(el.tagName);
                 
-
-                const isLeaf = el.children.length === 0;
-
-                if (isVisible && hasText && isLeaf && validTag) {
+                if (isVisible && validTag) {
                     const rect = el.getBoundingClientRect();
-                    results.push({
-                        text: el.innerText.trim(),
-                        x: rect.x + window.scrollX,
-                        y: rect.y + window.scrollY,
-                        width: rect.width,
-                        height: rect.height
-                    });
+                    
+                    // 3. Core logic judgment
+                    const hasChildren = el.children.length > 0;
+                    const hasText = el.innerText && el.innerText.trim().length > 0;
+                    
+                    // Special handling: Some elements may have neither children nor text, but still need to be captured (e.g., images, input boxes)
+                    const isInteractiveOrMedia = ['IMG', 'INPUT', 'TEXTAREA', 'SELECT', 'BUTTON', 'IFRAME', 'CANVAS'].includes(el.tagName);
+
+                    // If it is a container (has children) OR has text content OR is a special media element, then keep it
+                    if (hasChildren || hasText || isInteractiveOrMedia) {
+                        results.push({
+                            tagName: el.tagName, // Adding tagName helps with debugging
+                            text: el.innerText ? el.innerText.trim() : "", // Prevent null
+                            x: rect.x + window.scrollX,
+                            y: rect.y + window.scrollY,
+                            width: rect.width,
+                            height: rect.height
+                        });
+                    }
                 }
             });
             return results;

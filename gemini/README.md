@@ -280,18 +280,21 @@ gcloud storage ls --recursive gs://dataset_design2code/ | findstr /R "\.png$ \.h
    ```
 ✅ Detailed report saved to: [metrics\evaluation\gemini_clip_scores.xlsx](metrics\evaluation\gemini_clip_scores.xlsx)
 ## 2.2 IOU
+## Summary Statistics
+   Total Test Cases (from Design2Code): 484
+   Successfully Processed:              468
+   Skipped (file not found):            16
+   Errors:                              0
+
 ## 🏆 IOU Score Metrics (for valid scores only)
-```
-   Average IOU Score:                  0.0780
+   Average IOU Score:                  0.1567
    Minimum IOU Score:                  0.0000
-   Maximum IOU Score:                  0.4888
-```
+   Maximum IOU Score:                  0.4717
+
 ## Score Distribution
-```
    High (≥0.8):                        0 (0.0%)
    Medium (0.5-0.8):                   0 (0.0%)
    Low (<0.5):                         468 (100.0%)
-```
 # 3. Efficiency
 ## Dataset Summary:
   Total requests: 468
