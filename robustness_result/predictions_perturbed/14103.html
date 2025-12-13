@@ -1,0 +1,420 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michel Fortin - Developer of Mac & iOS apps.</title>
+    <style>
+        :root {
+            --bg-color-light: #fcfceb; /* Very light cream/yellow */
+            --bg-color-medium: #f5f5e0; /* Slightly darker cream for header/footer */
+            --text-color-dark: #333333;
+            --text-color-green: #80c040;
+            --blue-box-color: #0000ff;
+            --separator-color: #c0e0a0; /* Light green for separators */
+            --footer-heading-color: #609030; /* Darker green for footer headings */
+            --link-color-default: #007bff; /* Standard blue for links */
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-dark);
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--text-color-dark);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background-color: var(--bg-color-medium);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-nav nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Space between nav items */
+        }
+
+        .header-nav nav a {
+            color: var(--text-color-dark);
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 5px 0;
+            white-space: nowrap; /* Prevent wrapping on smaller screens */
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 0 80px;
+        }
+
+        .blue-box {
+            width: 300px;
+            height: 200px;
+            background-color: var(--blue-box-color);
+            margin: 0 auto 30px;
+        }
+
+        .hero-text {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        /* Product Section */
+        .product-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            gap: 20px;
+            padding: 60px 0;
+            max-width: 800px; /* Constrain width for product cards */
+            margin: 0 auto;
+        }
+
+        .product-card {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+            min-width: 180px; /* Ensure cards don't get too small */
+        }
+
+        .product-card h3 {
+            color: var(--text-color-green);
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 1em;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .vertical-separator {
+            width: 1px;
+            background-color: var(--separator-color);
+            height: 100px; /* Fixed height for separator */
+            margin-top: 20px; /* Align with product card content */
+        }
+
+        /* Blog & Contact Sections */
+        .content-section {
+            padding: 60px 0;
+            max-width: 600px; /* Constrain width for blog/contact */
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            color: var(--text-color-green);
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .blog-post {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .blog-post a {
+            color: var(--text-color-dark);
+        }
+
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-post .date {
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li {
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .contact-list a {
+            color: var(--text-color-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-color-medium);
+            padding: 60px 0;
+            margin-top: 80px;
+            border-top: 1px solid var(--separator-color); /* Subtle line above footer */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow columns to wrap */
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 20px; /* Gap between columns */
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px; /* Minimum width for columns before wrapping */
+            margin-bottom: 20px; /* Space below columns on wrap */
+        }
+
+        .footer-column h4 {
+            color: var(--footer-heading-color);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .footer-column a {
+            color: var(--text-color-dark);
+        }
+
+        .footer-column a.green-link {
+            color: var(--text-color-green);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-nav nav ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .product-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px; /* More space when stacked */
+            }
+
+            .product-card {
+                width: 100%;
+                max-width: 300px; /* Limit width of stacked cards */
+                padding: 0;
+            }
+
+            .vertical-separator {
+                height: 1px;
+                width: 100px; /* Horizontal separator when stacked */
+                margin: 20px auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                width: 100%;
+                max-width: 250px; /* Constrain width for stacked columns */
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            .header-nav nav a {
+                font-size: 1em;
+            }
+
+            .hero-section {
+                padding: 40px 0 60px;
+            }
+
+            .blue-box {
+                width: 250px;
+                height: 150px;
+            }
+
+            .hero-text {
+                font-size: 1.1em;
+            }
+
+            .product-section, .content-section {
+                padding: 40px 0;
+            }
+
+            .product-card h3 {
+                font-size: 1.3em;
+            }
+
+            .content-section h2 {
+                font-size: 1.6em;
+            }
+
+            .footer {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-nav">
+        <nav>
+            <ul>
+                <li><a href="#">Software</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Store</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="blue-box"></div>
+            <p class="hero-text">Developer of Mac & iOS apps.</p>
+        </section>
+
+        <section class="product-section">
+            <div class="product-card">
+                <h3>Counterparts Lite</h3>
+                <p>The classy string table editor.</p>
+            </div>
+            <div class="vertical-separator"></div>
+            <div class="product-card">
+                <h3>Black Light Pro</h3>
+                <p>Color effects on a schedule.</p>
+            </div>
+            <div class="vertical-separator"></div>
+            <div class="product-card">
+                <h3>Gamma Control</h3>
+                <p>Calibrate your screen.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Blog</h2>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <a href="#">Brighter than White — EDR on Macs</a>
+                    <span class="date">December 5, 2020</span>
+                </div>
+                <div class="blog-post">
+                    <a href="#">macOS Big Sur and M1 Macs</a>
+                    <span class="date">November 11</span>
+                </div>
+                <div class="blog-post">
+                    <a href="#">Sim Daltonism's purple bug</a>
+                    <span class="date">June 19</span>
+                </div>
+                <div class="blog-post">
+                    <a href="#">More Hot Keys in Black Light Pro</a>
+                    <span class="date">February 13</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Contact</h2>
+            <ul class="contact-list">
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Mastodon</a></li>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">RSS</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Michel Fortin</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Archive</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Apps</h4>
+                <ul>
+                    <li><a href="#">Gamma Control</a></li>
+                    <li><a href="#">Gamma Board</a></li>
+                    <li><a href="#">Black Light</a></li>
+                    <li><a href="#">Black Light Pro</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>&nbsp;</h4> <!-- Placeholder for alignment -->
+                <ul>
+                    <li><a href="#">Counterparts Lite</a></li>
+                    <li><a href="#">Sim Daltonism</a></li>
+                    <li><a href="#">Red Stripe</a></li>
+                    <li><a href="#" class="green-link">more...</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Store</h4>
+                <ul>
+                    <li><a href="#">Trials</a></li>
+                    <li><a href="#">Lost Codes</a></li>
+                    <li><a href="#">App Store &rarr;</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Miscellaneous</h4>
+                <ul>
+                    <li><a href="#">Github &rarr;</a></li>
+                    <li><a href="#">Media Kits</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,611 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandma Necklace Locket - Olive Bites Studio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 15px; /* Adjusted to match visual scale */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .header-top .left,
+        .header-top .right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top .logo {
+            font-size: 24px;
+            font-weight: normal;
+            color: #333;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .header-top .icon {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .main-nav ul li a {
+            font-weight: normal;
+            color: #333;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Product Section */
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 0;
+            gap: 40px;
+        }
+
+        .product-section .left-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 50%;
+            display: flex;
+            gap: 15px;
+        }
+
+        .product-section .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .product-section .thumbnail {
+            width: 60px;
+            height: 60px;
+            background-color: #0000FF;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .product-section .main-image {
+            flex-grow: 1;
+            background-color: #0000FF;
+            height: 450px; /* Approximate height */
+            border: 1px solid #eee;
+        }
+
+        .product-section .right-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 45%;
+        }
+
+        .product-section .product-title {
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+            color: #333;
+        }
+
+        .product-section .price {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-section .brand-info {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .product-options {
+            margin-bottom: 20px;
+        }
+
+        .product-option-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .product-option-group label {
+            width: 60px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-option-group select,
+        .product-option-group input[type="number"] {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            width: 80px;
+            -webkit-appearance: none; /* Remove default arrow for select */
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.6c-5%200-9.3%201.8-13.2%205.4A17.6%2017.6%200%200%200%200%2082.6c0%204.8%201.8%209.3%205.4%2013.2l128%20128c3.9%203.9%208.4%205.4%2013.2%205.4s9.3-1.8%2013.2-5.4l128-128c3.9-3.9%205.4-8.4%205.4-13.2%200-4.8-1.8-9.3-5.4-13.2z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 10px;
+            padding-right: 25px; /* Make space for the arrow */
+        }
+
+        .add-to-cart-btn {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+            font-family: Georgia, serif;
+            letter-spacing: 0.5px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #222;
+        }
+
+        .product-description {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-description p {
+            margin-bottom: 1em;
+        }
+
+        .product-description ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1em;
+        }
+
+        .product-description ul li {
+            margin-bottom: 0.5em;
+            position: relative;
+            padding-left: 1.2em;
+        }
+
+        .product-description ul li::before {
+            content: '\2605'; /* Star character */
+            color: #555;
+            position: absolute;
+            left: 0;
+            font-size: 0.9em;
+            top: 0;
+        }
+
+        .product-description a {
+            color: #555;
+            text-decoration: underline;
+        }
+
+        .share-section {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .share-section .share-icon {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer-top {
+            border-top: 1px solid #eee;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-top ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .footer-top ul li a {
+            font-weight: normal;
+            color: #333;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-mid {
+            padding: 40px 0;
+            text-align: center;
+            background-color: #f8f8f8; /* Slightly different background for visual separation */
+        }
+
+        .footer-mid .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-mid .social-icon {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .footer-mid p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 3px 0 0 3px;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            width: 250px;
+        }
+
+        .newsletter-form button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+            transition: background-color 0.3s ease;
+            font-family: Georgia, serif;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #222;
+        }
+
+        .footer-bottom {
+            background-color: #0000FF;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-bottom .copyright {
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-bottom .social-icon {
+            width: 25px;
+            height: 25px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: #0000FF;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .header-top .left,
+            .header-top .right {
+                flex-basis: 100%;
+                justify-content: center;
+            }
+            .header-top .logo {
+                order: -1; /* Move logo to top */
+                flex-basis: 100%;
+                margin-bottom: 10px;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .product-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-section .left-column,
+            .product-section .right-column {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .product-section .left-column {
+                flex-direction: column-reverse; /* Thumbnails below main image */
+                align-items: center;
+            }
+
+            .product-section .thumbnails {
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .product-section .main-image {
+                width: 100%;
+                height: 300px; /* Adjust height for smaller screens */
+            }
+
+            .footer-top ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input[type="email"] {
+                width: 80%;
+                max-width: 300px;
+                border-radius: 3px 3px 0 0;
+                border-bottom: none;
+            }
+
+            .newsletter-form button {
+                width: 80%;
+                max-width: 300px;
+                border-radius: 0 0 3px 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top .logo {
+                font-size: 20px;
+            }
+            .main-nav ul li a,
+            .footer-top ul li a {
+                font-size: 14px;
+            }
+            .product-section .product-title {
+                font-size: 28px;
+            }
+            .product-section .price {
+                font-size: 20px;
+            }
+            .product-section .main-image {
+                height: 250px;
+            }
+            .product-section .thumbnail {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="left">
+                <span class="icon">&#128269;</span> <!-- Search icon -->
+            </div>
+            <div class="logo">Olive Bites Studio</div>
+            <div class="right">
+                <span class="icon">&#9724;</span> <!-- Placeholder social icon -->
+                <span class="icon">&#9724;</span> <!-- Placeholder social icon -->
+                <span class="icon">&#9724;</span> <!-- Placeholder social icon -->
+                <span class="icon">&#9724;</span> <!-- Placeholder social icon -->
+                <span class="icon">&#128722;</span> <!-- Cart icon -->
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">SHOP +</a></li>
+                <li><a href="#">Let's Chat</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <p style="margin-top: 40px; font-size: 14px; color: #555;">SEE MORE: <a href="#" style="text-decoration: underline;">UNKNOWN</a></p>
+
+        <section class="product-section">
+            <div class="left-column">
+                <div class="thumbnails">
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                    <div class="thumbnail"></div>
+                </div>
+                <div class="main-image"></div>
+            </div>
+
+            <div class="right-column">
+                <h1 class="product-title">Grandma Necklace Locket</h1>
+                <p class="price">$30.00</p>
+                <p class="brand-info">Brand <a href="#" style="text-decoration: underline;">Unique, Handmade Recycled Jewelry - Olive Bites Studio</a></p>
+
+                <div class="product-options">
+                    <div class="product-option-group">
+                        <label for="size">Size</label>
+                        <select id="size" name="size">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="product-option-group">
+                        <label for="length">Length</label>
+                        <select id="length" name="length">
+                            <option value="18">18</option>
+                            <option value="20">20</option>
+                            <option value="22">22</option>
+                        </select>
+                    </div>
+                    <div class="product-option-group">
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 80px;">
+                        <button class="add-to-cart-btn">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-description">
+                    <p>Do you have the world's best grandma? We think you should tell her how you feel!</p>
+                    <p>Polarity Lockets are the ORIGINAL magnetic necklace since 2007!</p>
+                    <p>My lockets are welded by me with love and propane from recycled steel auto parts - then I collaborate with the most amazing and talented artists from around the world to create something totally unique just for you!</p>
+                    <ul>
+                        <li>ABOUT THE LOCKET:</li>
+                        <li>Your locket is fabricated by me from a recycled steel car part</li>
+                        <li>Your locket has multiple magnet lids - 3 NECKLACES IN 1!</li>
+                        <li>Your choice of length stainless steel ballchain</li>
+                        <li>Mirror inside</li>
+                        <li>Locket shown is = 1" size (1.25" also available)</li>
+                        <li>Lids are a multi-use magnet set!</li>
+                        <li>Your satisfaction 100% guaranteed</li>
+                        <li>Your locket ships in gift tin with gift bag and always includes a FREE EXTRA LID!</li>
+                    </ul>
+                    <p>Please buy with confidence! Your Recycled Magnetic 3 in 1 LOCKET SET By Polarity is 100% SATISFACTION GUARANTEED!</p>
+                    <p>Check out my other etsy shop<br><a href="http://uncorked.etsy.com">http://uncorked.etsy.com</a></p>
+                    <p>I will gladly combine shipping fees between my two shops</p>
+                    <p>My polarity jewelry designs are &copy; 2007-2013, the images on the jewelry are copyrighted by the copyright holders and used here with permission.</p>
+                    <p>See all my Polarity Lockets HERE <a href="http://www.polarity.etsy.com">http://www.polarity.etsy.com</a></p>
+                </div>
+
+                <div class="share-section">
+                    SHARE
+                    <span class="share-icon">&#9724;</span>
+                    <span class="share-icon">&#9724;</span>
+                    <span class="share-icon">&#9724;</span>
+                    <span class="share-icon">&#9724;</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Shop +</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Let's Chat</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-mid">
+            <div class="container">
+                <div class="social-icons">
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                </div>
+                <p>SIGNUP FOR OUR NEWSLETTERS</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email Address">
+                    <button type="submit">&#10148;</button> <!-- Right arrow icon -->
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">&copy; 2023 Olive Bites Studio. Theme by Clean Themes. Ecommerce Software by Shopify</p>
+                <div class="social-icons">
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                    <span class="social-icon">&#9724;</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```

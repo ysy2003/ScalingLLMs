@@ -1,0 +1,280 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOCOL</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Global container for content width */
+        .container {
+            max-width: 1200px; /* Max width for main content areas */
+            margin: 0 auto;
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+        }
+
+        /* Section 1: Coming Soon */
+        .coming-soon-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+            gap: 40px; /* Space between blue box and text */
+        }
+
+        .coming-soon-section .blue-box {
+            background-color: #0000ff; /* Pure blue */
+            width: 400px; /* Estimated width from image */
+            height: 200px; /* Estimated height from image */
+            flex-shrink: 0; /* Prevent blue box from shrinking */
+        }
+
+        .coming-soon-section .content {
+            max-width: 500px; /* Limit text width */
+        }
+
+        .coming-soon-section h2 {
+            font-size: 2.5em; /* Large heading */
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .coming-soon-section p {
+            font-size: 1.1em;
+            margin-bottom: 0;
+        }
+
+        /* Section 2: Assembly Videos */
+        .assembly-videos-section {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+
+        .assembly-videos-section h2 {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            max-width: 800px; /* Limit heading width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .assembly-videos-section p {
+            font-size: 1.1em;
+            max-width: 700px; /* Limit paragraph width */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15px;
+        }
+        .assembly-videos-section p:last-of-type {
+            margin-bottom: 0; /* No bottom margin for the last paragraph */
+        }
+
+        /* Section 3: Subscribe */
+        .subscribe-section {
+            background-color: #f57c00; /* Orange color */
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            gap: 40px; /* Space between text and form */
+        }
+
+        .subscribe-section .subscribe-text {
+            color: #fff;
+            text-align: right; /* Align text to the right as per design */
+            flex-basis: 40%; /* Allocate width */
+            min-width: 300px; /* Minimum width before wrapping */
+        }
+
+        .subscribe-section h3 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .subscribe-section p {
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+
+        .subscribe-section .subscribe-form {
+            display: flex;
+            gap: 10px;
+            flex-basis: 40%; /* Allocate width */
+            min-width: 300px; /* Minimum width before wrapping */
+            justify-content: flex-start; /* Align form elements to the left */
+        }
+
+        .subscribe-section input[type="email"] {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 0; /* No border-radius */
+            flex-grow: 1; /* Allow input to grow */
+            font-size: 1em;
+            min-width: 150px; /* Ensure input is not too small */
+        }
+
+        .subscribe-section button {
+            background-color: #333; /* Dark button background */
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 0;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex-shrink: 0; /* Prevent button from shrinking */
+        }
+
+        .subscribe-section button:hover {
+            background-color: #555; /* Darker on hover */
+        }
+
+        /* Section 4: Password Protected */
+        .password-section {
+            background-color: #f0f0f0; /* Light gray background */
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .password-section .password-content-wrapper {
+            background-color: #fff; /* White background for inner content box */
+            padding: 40px;
+            max-width: 600px; /* Max width for the white box */
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+        .password-section .blue-box {
+            background-color: #0000ff;
+            width: 100%; /* Fill parent width */
+            height: 250px; /* Estimated height from image */
+            margin-bottom: 30px;
+        }
+
+        .password-section p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+
+        .password-section label {
+            display: block; /* Make label a block element */
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .password-section .input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .password-section input[type="password"] {
+            padding: 15px 20px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            flex-grow: 1; /* Allow input to grow */
+            font-size: 1em;
+        }
+
+        .password-section .enter-button {
+            background-color: #f57c00; /* Orange button */
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 0;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex-shrink: 0;
+            display: flex; /* For centering text and arrow */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .password-section .enter-button:hover {
+            background-color: #e65100; /* Darker orange on hover */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        footer a {
+            color: #f57c00; /* Orange link color */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .coming-soon-section {
+                flex-direction: column; /* Stack items vertically */
+                text-align: center;
+                padding: 40px 0;
+            }
+            .coming-soon-section .blue-box {
+                width: 80%; /* Make blue box wider on smaller screens */
+                max-width: 400px;
+                height: 180px;
+                margin-bottom: 30px;
+            }
+            .coming-soon-section .content {
+                max-width: 90%;
+            }
+            .coming-soon-section h2 {
+                font-size: 2em;
+            }
+            .coming-soon-section p {
+                font-size: 1em;
+            }
+
+            .assembly-videos-section {
+                padding: 60px 20px;
+            }
+            .assembly-videos-section h2 {
+                font-size: 1.8em;
+            }
+            .assembly-videos-section p {
+                font-size: 1em;
+            }
+
+            .subscribe-section {
+                flex-direction: column; /* Stack items vertically */
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .subscribe-section .subscribe-text {
+                text-align: center; /* Center text when stacked */
+                flex-basis: auto; /* Reset flex-

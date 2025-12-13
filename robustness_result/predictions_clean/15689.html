@@ -1,0 +1,337 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highland Basket Hilt Broadsword</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #222222;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #222222;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #333; /* Subtle separator */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        nav a {
+            color: #E0E0E0;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #D4AF37;
+        }
+
+        /* Main Content */
+        .product-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #D4AF37;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        h1 span {
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background-color: #0000FF; /* Blue color as in image */
+            margin: 20px auto;
+            border: 1px solid #555; /* To make it slightly visible against dark background if needed */
+        }
+
+        .text-description {
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            padding: 0 10px; /* Add some padding for text on small screens */
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #D4AF37;
+            font-size: 2em;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        h2 span {
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            width: 200px;
+            height: 150px;
+            background-color: #0000FF; /* Blue color as in image */
+            border: 1px solid #555;
+        }
+
+        .gallery-text {
+            color: #D4AF37;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        /* Get in Touch Section */
+        .contact-section {
+            background-color: #333333;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-text-area {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .contact-text-area p {
+            margin-bottom: 20px;
+        }
+
+        .contact-text-area a {
+            color: #D4AF37;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .contact-image-placeholder {
+            width: 300px;
+            height: 250px;
+            background-color: #0000FF; /* Blue color as in image */
+            border: 1px solid #555;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222222;
+            padding: 20px;
+            border-top: 1px solid #555;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        .footer-left, .footer-right {
+            flex: 1;
+            min-width: 250px; /* Ensure they don't get too small before wrapping */
+            padding: 0 10px;
+        }
+
+        .footer-left p {
+            margin: 5px 0;
+        }
+
+        .footer-right p {
+            text-align: right;
+            margin: 5px 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            nav ul {
+                gap: 20px;
+            }
+            .image-placeholder {
+                height: 300px; /* Adjust height for smaller screens */
+            }
+            .gallery-item {
+                width: 150px;
+                height: 100px;
+            }
+            .contact-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-text-area {
+                text-align: center;
+                min-width: unset;
+                width: 100%;
+            }
+            .contact-image-placeholder {
+                width: 90%; /* Make it wider on small screens */
+                max-width: 300px; /* But not too wide */
+                height: 200px;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-left, .footer-right {
+                min-width: unset;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-right p {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 1em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            .image-placeholder {
+                height: 200px;
+            }
+            .gallery-item {
+                width: 120px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">&#9633; HOME</a></li> <!-- Using a simple square character for the home icon -->
+                <li><a href="#">SWORDS</a></li>
+                <li><a href="#">JEWELLERY</a></li>
+                <li><a href="#">OCCASIONS</a></li>
+                <li><a href="#">ROB MILLER</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <h1><span>Highland Basket Hilt Broadsword</span></h1>
+
+                <div class="image-placeholder"></div>
+                <p class="text-description">This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period.</p>
+
+                <div class="image-placeholder"></div>
+                <p class="text-description">The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars.<br>The red woolen liner is an optional extra also.</p>
+
+                <div class="image-placeholder"></div>
+                <p class="text-description">The blade on this sword is around 32 inches in length and triple fullered.</p>
+
+                <div class="image-placeholder"></div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <h2><span>Gallery</span></h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                </div>
+                <p class="gallery-text">&#9633; SWORDS</p> <!-- Using a simple square character for the icon -->
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-content">
+                <div class="contact-text-area">
+                    <h2><span>Get in touch</span></h2>
+                    <p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+                    <p><a href="mailto:email@example.com">[EMAIL REDACTED]</a></p>
+                </div>
+                <div class="contact-image-placeholder"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <p>Legal Information</p>
+            <p>Site Map</p>
+        </div>
+        <div class="footer-right">
+            <p>Castle Keep, A Chuibheall, Torrin, Isle of Skye, Scotland IV49 9BA</p>
+            <p>&copy; Castle Keep 2023</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,355 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Neko</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* Default body font */
+            color: #333333;
+            background-color: #ffffff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        a:hover {
+            color: #66B2B2; /* Accent color for hover */
+        }
+
+        h1, h2 {
+            font-family: 'Georgia', serif; /* Serif font for headings */
+            color: #66B2B2; /* Accent color */
+            font-weight: normal;
+        }
+
+        /* Header Banner */
+        .header-banner {
+            width: 60%; /* Approximately 60% of the content width */
+            max-width: 600px; /* Max width based on visual estimation */
+            height: 150px; /* Fixed height */
+            background-color: #0000FF;
+            margin: 40px auto 60px auto; /* Top, right/left auto, bottom */
+        }
+
+        /* Main Layout Wrapper */
+        .main-wrapper {
+            display: flex;
+            max-width: 1200px; /* Max width for the entire content area */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding on sides for smaller screens */
+            gap: 40px; /* Space between sidebar and main content */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            width: 200px; /* Fixed width for sidebar */
+            padding-top: 10px;
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #66B2B2; /* Accent color border */
+            padding: 10px 15px;
+            margin-bottom: 40px;
+            font-size: 0.95em;
+        }
+
+        .shop-nav, .pages-nav {
+            margin-bottom: 40px;
+        }
+
+        .shop-nav h2, .pages-nav h2 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee; /* Light separator */
+        }
+
+        .pages-nav h2 {
+            margin-top: 30px; /* More space above Pages heading */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar li a {
+            font-size: 0.9em;
+            display: block;
+            padding: 2px 0;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex-grow: 1; /* Allow main content to take remaining space */
+            padding-bottom: 80px; /* Space before footer */
+        }
+
+        .main-hero-banner {
+            width: 100%;
+            height: 350px; /* Fixed height */
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #CCCCCC; /* Inactive dot color */
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #666666; /* Active dot color */
+        }
+
+        /* Featured Products Section */
+        .featured-products h1 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 30px; /* Space between product cards */
+        }
+
+        .product-card {
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            padding-bottom: 100%; /* Creates a square aspect ratio */
+            background-color: #0000FF;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .sold-out-image {
+            opacity: 0.7; /* Slightly dim the image for sold out */
+        }
+
+        .sold-out-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #0000FF; /* Blue background for badge */
+            color: #ffffff;
+            padding: 5px 10px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+
+        .product-price {
+            font-size: 0.9em;
+            color: #666666;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            color: #666666;
+            font-size: 0.85em;
+            border-top: 1px solid #eeeeee; /* Light separator */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .main-wrapper {
+                flex-direction: column; /* Stack sidebar and content */
+                gap: 20px;
+            }
+
+            .sidebar {
+                width: 100%; /* Sidebar takes full width */
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee; /* Separator below sidebar */
+            }
+
+            .shop-nav, .pages-nav {
+                margin-bottom: 20px;
+            }
+
+            .pages-nav h2 {
+                margin-top: 20px;
+            }
+
+            .header-banner {
+                width: 80%;
+                max-width: 400px;
+                height: 100px;
+                margin-bottom: 40px;
+            }
+
+            .main-hero-banner {
+                height: 250px;
+            }
+
+            .featured-products h1 {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust grid for smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-banner {
+                width: 90%;
+                height: 80px;
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+
+            .main-wrapper {
+                padding: 0 15px;
+            }
+
+            .main-hero-banner {
+                height: 180px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr; /* Single column for very small screens */
+            }
+
+            .cart-summary {
+                margin-bottom: 30px;
+            }
+
+            .shop-nav h2, .pages-nav h2 {
+                font-size: 1.1em;
+            }
+
+            .featured-products h1 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .site-footer {
+                padding: 30px 15px;
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-banner"></div>
+
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <div class="cart-summary">
+                <span>0 items</span>
+                <span>$ 0.00</span>
+            </div>
+            <nav class="shop-nav">
+                <h2>Shop</h2>
+                <ul>
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Enamel Pins</a></li>
+                    <li><a href="#">Apparel</a></li>
+                    <li><a href="#">Acrylic Charms</a></li>
+                </ul>
+            </nav>
+            <nav class="pages-nav">
+                <h2>Pages</h2>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Etsy</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Back to Site</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <div class="main-hero-banner"></div>
+            <div class="pagination-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <section class="featured-products">
+                <h1>Featured Products</h1>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <p class="product-title">Spoopy Pastel Witchy Studio Ghibli No Face Hard Enamel Pin</p>
+                        <p class="product-price">$ 11.50</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <p class="product-title">Animal Crossing New Horizons Nook Phone Hard Enamel Keychain</p>
+                        <p class="product-price">$ 15.00</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"></div>
+                        <p class="product-title">Animal Crossing New Horizons Nook Phone Hard Enamel Pins</p>
+                        <p class="product-price">$ 13.00</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image sold-out-image">
+                            <span class="sold-out-badge">SOLD OUT</span>
+                        </div>
+                        <p class="product-title">Animal Crossing New Horizons K.K. Slider iPod Hard Enamel Pins</p>
+                        <p class="product-price">$ 12.00</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2023 Kawaii Neko. Powered by Big Cartel</p>
+    </footer>
+</body>
+</html>
+```

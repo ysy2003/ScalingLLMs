@@ -1,0 +1,296 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youngblood Alternate One Font</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8; /* Slightly off-white background to match image */
+        }
+
+        .container {
+            max-width: 900px; /* Adjusted based on visual estimation */
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow to match image's perceived depth */
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            height: 50px; /* Visual estimation */
+            padding: 0 20px; /* Padding on sides */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .blue-square {
+            width: 30px; /* Visual estimation */
+            height: 30px; /* Visual estimation */
+            background-color: #0000FF;
+        }
+
+        .youworkforthem {
+            color: #fff;
+            font-size: 14px; /* Visual estimation */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            padding: 20px; /* Padding around the main content */
+        }
+
+        .main-title {
+            font-size: 28px; /* Visual estimation */
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee; /* Separator line */
+        }
+
+        .blue-block {
+            background-color: #0000FF;
+            margin-bottom: 30px; /* Spacing below blue blocks */
+        }
+
+        .large-blue-block-top {
+            height: 100px; /* Visual estimation */
+        }
+
+        .large-blue-block-bottom {
+            height: 200px; /* Visual estimation */
+        }
+
+        /* Details Section */
+        .details-section {
+            display: grid;
+            grid-template-columns: 150px 1fr; /* Fixed width for label, fluid for value */
+            gap: 10px 20px; /* Row gap, column gap */
+            margin-bottom: 30px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            text-align: right; /* Align labels to the right */
+            padding-right: 10px; /* Space between label and value */
+        }
+
+        .detail-value {
+            /* Default styling */
+        }
+
+        /* Adjust alignment for multi-line values where label is single line */
+        .detail-row.description-row .detail-label,
+        .detail-row.posted-by-row .detail-label {
+            padding-top: 3px; /* Adjust alignment for multi-line values */
+        }
+
+        /* Links */
+        a.link {
+            color: #007bff; /* Standard blue link color */
+            text-decoration: none;
+        }
+
+        a.link:hover {
+            text-decoration: underline;
+        }
+
+        .show-more-section,
+        .download-section {
+            text-align: center;
+        }
+
+        .show-more-link {
+            border: none; /* No border */
+            padding: 0; /* No padding */
+            background-color: transparent; /* No background */
+            color: #007bff; /* Blue text */
+            text-decoration: none;
+            font-size: 15px;
+            margin-bottom: 30px; /* Spacing below show more */
+            display: inline-block; /* To allow margin-bottom */
+        }
+
+        .download-link {
+            border: 1px solid #ccc; /* Light border */
+            padding: 10px 20px; /* Padding */
+            background-color: #fff; /* White background */
+            color: #007bff; /* Blue text */
+            text-decoration: none;
+            border-radius: 3px; /* Slightly rounded corners */
+            font-size: 15px;
+            margin-bottom: 40px; /* Spacing below download link */
+            display: inline-block; /* To allow margin-bottom */
+        }
+
+        .show-more-link:hover {
+            text-decoration: underline;
+            background-color: transparent; /* Ensure show more doesn't get background */
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+            background-color: #f9f9f9; /* Slight background change on hover */
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px; /* Space above footer */
+        }
+
+        .footer-text {
+            margin: 5px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0 10px; /* Add some margin on smaller screens */
+            }
+
+            .header {
+                padding: 0 10px;
+            }
+
+            .content-area {
+                padding: 15px;
+            }
+
+            .main-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .details-section {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
+                gap: 5px 0; /* Adjust gap for stacked layout */
+            }
+
+            .detail-label {
+                text-align: left; /* Align labels to left when stacked */
+                padding-right: 0; /* Remove right padding */
+                margin-bottom: 5px; /* Space below label when stacked */
+            }
+
+            /* For the empty label rows, they will just be empty blocks taking a row,
+               and the value will be in the next row, which is acceptable for stacked layout. */
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                height: 40px;
+            }
+            .blue-square {
+                width: 25px;
+                height: 25px;
+            }
+            .youworkforthem {
+                font-size: 12px;
+            }
+            .main-title {
+                font-size: 20px;
+            }
+            .large-blue-block-top {
+                height: 80px;
+            }
+            .large-blue-block-bottom {
+                height: 150px;
+            }
+            .show-more-link,
+            .download-link {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            .footer {
+                padding: 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <div class="blue-square"></div>
+            </div>
+            <div class="header-right">
+                <span class="youworkforthem">YOUWORKFORTHEM</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <h1 class="main-title">Youngblood Alternate One Font</h1>
+
+            <div class="blue-block large-blue-block-top"></div>
+
+            <div class="details-section">
+                <div class="detail-row">
+                    <div class="detail-label">Font Name</div>
+                    <div class="detail-value">Youngblood Alternate One Font</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Font Family</div>
+                    <div class="detail-value"><a href="#" class="link">Youngblood</a></div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Glyphs</div>
+                    <div class="detail-value">428</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Copyright</div>
+                    <div class="detail-value">Copyright (c) 2008 by Jeremy Dooley. All rights reserved.</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Price</div>
+                    <div class="detail-value">$24.99</div>
+                </div>
+                <div class="detail-row description-row">
+                    <div class="detail-label">Description</div>
+                    <div class="detail-value">
+                        Youngblood is a non-connected formal script with tall, sweeping ascenders and two alternates. These alternate forms can be mixed and matched for a custom look, and Youngblood is stronger in weight and is better suited for display work than most script fonts.
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">OpenType</div>
+                    <div class="detail-value">
+                        Standard, Contextual Swash, Discretionary Ligatures, Fractions, Standard Ligatures, Oldstyle Figures, Ornaments, Swash
+                    </div>
+                </div>
+                <div class="detail-row posted-by-row">
+                    <div class="detail-label">Posted by</div>
+                    <div class="detail-value">
+                        <a href="#" class="link">Insigne</a><br>
+                        Insigne Design was founded as DooleyType in 2004 with the release of the typeface Biortec.<br><br>
+                        Insigne Design is the foundry of Jeremy Dooley.
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Posted on</div>
+                    <div class="detail-value">Sep 06, 2010</div>
+                </div>
+                <div class="detail-row">
+                    <div class="

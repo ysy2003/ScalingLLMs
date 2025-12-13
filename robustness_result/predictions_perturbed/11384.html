@@ -1,0 +1,411 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke - Tandem Studio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222; /* Dark gray, almost black */
+            padding: 10px 20px;
+            height: 80px; /* Approximate height from image */
+        }
+
+        .logo-placeholder {
+            width: 150px; /* Approximate width */
+            height: 60px; /* Approximate height */
+            background-color: #0000FF; /* Blue */
+            margin-left: 20px; /* Spacing from left edge */
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 20px; /* Spacing from right edge */
+        }
+
+        .search-input {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input input {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 0; /* No border radius */
+            background-color: #e0e0e0; /* Light gray */
+            width: 250px; /* Approximate width */
+            font-size: 14px;
+            color: #555;
+        }
+
+        .search-input input::placeholder {
+            color: #888;
+        }
+
+        .search-input .search-icon {
+            position: absolute;
+            right: 10px;
+            color: #888;
+            font-size: 16px;
+        }
+
+        .cart-icon {
+            color: #fff;
+            font-size: 24px;
+            margin-left: 15px;
+        }
+
+        .header-nav {
+            background-color: #444; /* Darker gray */
+            padding: 10px 0;
+            display: flex;
+            justify-content: flex-start; /* Align items to the start */
+            align-items: center;
+            height: 40px; /* Approximate height */
+        }
+
+        .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-left: 200px; /* Align with content below */
+        }
+
+        .header-nav ul li {
+            margin-right: 30px;
+        }
+
+        .header-nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav ul li a:hover {
+            color: #ccc;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background-color: #f0f0f0; /* Light gray */
+            padding: 10px 0;
+            font-size: 13px;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumbs-container {
+            max-width: 1000px; /* Match main content width */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+        }
+
+        .breadcrumbs span {
+            margin: 0 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px; /* Content width */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .main-content h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .main-content p {
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .main-content p strong {
+            font-weight: bold;
+        }
+
+        .main-content .contact-link {
+            color: #FF0000; /* Red */
+            font-weight: bold;
+        }
+
+        .main-content .website-link {
+            color: #FF8C00; /* Orange */
+            font-weight: bold;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px; /* Large blue rectangle */
+            background-color: #0000FF; /* Blue */
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #888; /* Medium gray */
+            color: #fff;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px; /* Ensure sections don't get too narrow */
+            max-width: 400px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #eee;
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 24px; /* Larger for social icons */
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #eee;
+        }
+
+        .copyright {
+            background-color: #666; /* Slightly darker gray for copyright */
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+
+            .logo-placeholder {
+                margin: 10px 0;
+            }
+
+            .search-container {
+                margin: 10px 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-input input {
+                width: 100%;
+                max-width: 300px; /* Limit width on smaller screens */
+            }
+
+            .header-nav ul {
+                margin-left: 0;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .header-nav ul li {
+                margin-right: 0;
+            }
+
+            .breadcrumbs-container,
+            .main-content {
+                padding: 0 15px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                min-width: unset;
+                max-width: 100%;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav ul li a {
+                font-size: 12px;
+            }
+
+            .main-content h1 {
+                font-size: 28px;
+            }
+
+            .main-content h2 {
+                font-size: 18px;
+            }
+
+            .main-content p {
+                font-size: 14px;
+            }
+
+            .image-placeholder {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo-placeholder"></div>
+            <div class="search-container">
+                <div class="search-input">
+                    <input type="text" placeholder="Search all products...">
+                    <span class="search-icon">s</span>
+                </div>
+                <a href="#" class="cart-icon">[</a>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Bespoke</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div class="breadcrumbs">
+            <div class="breadcrumbs-container">
+                <a href="#">Home</a> <span>&gt;</span> <span>Bespoke</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>BESPOKE</h1>
+
+        <h2>Bespoke</h2>
+        <p>All of our furniture is built by us in our Murnau workshop in Bavaria. Much of it is made to order so we can change dimensions, finishes, colour and the types of materials used to meet your exact requirements. This could be anything from a specific RAL colour for the Tri-angle lampshade to a specific size and configuration of our low sideboard.</p>
+        <p>Many of our products have evolved from furniture commissions, so if you like our furniture but we don't have the type of product you are looking for why not ask us to design it for you.</p>
+
+        <h2>Furniture and space</h2>
+        <p>As a service based company our main area of work and expertise is interior design and bespoke fitted furniture, varying from commercial fit-outs to modern home interiors. This service fully utilizes our spatial design and furniture making skills.</p>
+        <p>For any bespoke work we ensure to keep you in close contact throughout each stage of the process to ensure you are fully engaged from concept to completion of your unique project.</p>
+        <p>If you would like to find out more feel free to <a href="#" class="contact-link">contact us</a>.</p>
+        <p>Or visit our main web site: <a href="http://tandemstudio.de" class="website-link">tandemstudio.de</a></p>
+
+        <div class="image-placeholder"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">ch</a></li>
+                <li><a href="#">t</a></li>
+                <li><a href="#">act</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Get In Touch</h3>
+            <p>Email: [EMAIL REDACTED]</p>
+            <div class="social-icons">
+                <a href="#">T</a>
+                <a href="#">f</a>
+                <a href="#">p</a>
+                <a href="#">t</a>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        &copy; 2023 Tandem Studio Shop
+    </div>
+</body>
+</html>
+```

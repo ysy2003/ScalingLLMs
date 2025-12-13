@@ -1,0 +1,425 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoetrope Animations & Praxinoscope</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+        :root {
+            --text-color: #333;
+            --light-gray: #666;
+            --border-color: #eee;
+            --accent-color: #e74c3c; /* For subscribe button */
+            --blue-block-color: #0000FF;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 15px;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            color: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 5px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .top-bar-right a {
+            color: var(--light-gray);
+        }
+
+        .top-bar-right span {
+            color: var(--light-gray);
+        }
+
+        /* Header */
+        .main-header {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 36px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .main-nav ul li a {
+            font-weight: 600;
+            color: var(--text-color);
+            padding-bottom: 5px;
+        }
+
+        .main-nav ul li a.active {
+            border-bottom: 2px solid var(--text-color);
+        }
+
+        .main-nav ul li a span {
+            font-size: 10px;
+            vertical-align: middle;
+            margin-left: 3px;
+        }
+
+        /* About Us Section */
+        .about-us-section {
+            padding-bottom: 40px;
+        }
+
+        .about-us-section h1 {
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .about-us-section p {
+            margin-bottom: 15px;
+        }
+
+        .about-us-section p strong {
+            font-weight: 700;
+        }
+
+        .about-us-section p em {
+            font-style: italic;
+        }
+
+        .blue-block {
+            width: 100%;
+            height: 400px;
+            background-color: var(--blue-block-color);
+            margin: 40px 0;
+        }
+
+        .website-link {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        .website-link a {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #fff;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            padding-right: 20px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--light-gray);
+        }
+
+        .footer-column ul li a {
+            color: var(--light-gray);
+        }
+
+        .footer-column .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .footer-column .social-icons a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #333; /* Placeholder for social icons */
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+            border-radius: 3px;
+        }
+
+        .footer-column .newsletter-form input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-column .newsletter-form button {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+
+        .footer-column .contact-info {
+            font-size: 14px;
+            color: var(--light-gray);
+        }
+
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .top-bar-right {
+                margin-top: 5px;
+                flex-wrap: wrap;
+            }
+
+            .main-header {
+                font-size: 28px;
+                padding: 30px 10px;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .about-us-section h1 {
+                font-size: 24px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                width: 100%;
+                max-width: 300px;
+                padding-right: 0;
+            }
+
+            .footer-column h4 {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .footer-column .social-icons {
+                justify-content: center;
+            }
+
+            .footer-column .newsletter-form input[type="email"] {
+                width: calc(100% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar-right {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .main-header {
+                font-size: 24px;
+            }
+            .main-nav ul li a {
+                font-size: 14px;
+            }
+            .about-us-section p {
+                font-size: 14px;
+            }
+            .blue-block {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>Ship Globally</span> | <span>Posted within 24 hours</span>
+        </div>
+        <div class="top-bar-right">
+            <a href="#">Log in</a>
+            <span>or</span>
+            <a href="#">Create account</a>
+            <a href="#">&#x1F6D2; Cart</a>
+            <a href="#">&#x1F50D; Search</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="main-header">
+            <h1>Zoetrope Animations & Praxinoscope</h1>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="active">About Us</a></li>
+                <li><a href="#">Zoetrope <span>&#x25BE;</span></a></li>
+                <li><a href="#">Praxinoscope <span>&#x25BE;</span></a></li>
+            </ul>
+        </nav>
+
+        <section class="about-us-section">
+            <h1>About Us</h1>
+            <p>Welcome to the wonderful world of <strong>Zoetrope</strong> and <strong>Praxinoscope</strong> animations!</p>
+            <p>I'm Jo & as you can see i love Zoetrope & Praxinoscope Optical Toys.</p>
+            <p>In 2012 i discovered i lived only a few miles away from the biggest historical collection of Zoetropes and the house where the inventor lived.</p>
+            <p>I hope you love these modern versions of the classic Victorian Optical Toys as much as i do.</p>
+            <p>There are a variety of sizes and colours available and i ship all over the world.</p>
+            <p>I'm always fascinated where they go. Often TV film companies, Museums & Galleries, plus eductational uses in schools and even royalty!</p>
+            <p>The Zoetrope has been featured in many films and on TV including: BBC2 TV UK and in the Hollywood film: Woman in Black with Daniel Radcliffe.</p>
+            <p>There are 9 different products available and include 2 different colour-ways available in the mid size.</p>
+            <p>As well as being a decorative product they are also educational.</p>
+            <p>They are often used by schools, museums, country estates and in the film industry, may be you have spotted one in a latest block buster movie?!</p>
+            <p>All products are shipped from the UK within 24 hours of order.</p>
+            <p>Shipped globally signed 1st class.</p>
+            <p>Gift wrap service available.</p>
+            <p><em>Perfect gift for both children and adults a like!</em></p>
+
+            <div class="blue-block"></div>
+
+            <p class="website-link">My other website is <a href="http://www.zoetrope.org">www.zoetrope.org</a></p>
+        </section>
+    </div>
+
+    <footer class="footer-section">
+        <div class="container footer">
+            <div class="footer-column">
+                <h4>Latest News</h4>
+                <ul>
+                    <li>Back in Stock November 2020</li>
+                    <li>Currently all sold out! Planning to have more stock available in November.</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Catalogue</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">&#x25A0;</a>
+                    <a href="#" aria-label="Twitter">&#x25A0;</a>
+                    <a href="#" aria-label="YouTube">&#x25A0;</a>
+                    <a href="#" aria-label="Instagram">&#x25A0;</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <div class="contact-info">
+                    <p>To contact, please ring or text: UK [PHONE REDACTED] or use the contact us form.</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Newsletter</h4>
+                <p>Sign up for the latest news, offers and styles</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                Copyright &copy; 2023, Zoetrope Animations & Praxinoscope . Powered by Shopify
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

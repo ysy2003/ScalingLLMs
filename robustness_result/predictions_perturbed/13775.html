@@ -1,0 +1,228 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Stooshinoff - Artist</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            padding: 20px; /* Padding around the entire content area */
+            background-color: #ebebeb; /* Light gray background */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #555; /* Default text color */
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        /* Main Wrapper for Centering and Layout */
+        .main-wrapper {
+            max-width: 1200px; /* Max width for the main content area */
+            margin: 0 auto; /* Center the content */
+            padding: 20px 0; /* Vertical padding inside the wrapper */
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            flex-grow: 1; /* Allow wrapper to grow and push footer down */
+        }
+
+        /* Header Styling */
+        h1 {
+            font-size: 2.2em; /* Larger font for the main title */
+            font-weight: normal; /* Appears normal weight in image */
+            margin-top: 0;
+            margin-bottom: 40px; /* Space below title */
+            color: #333; /* Darker color for heading */
+        }
+
+        /* Content Area (Sidebar + Main Content) Layout */
+        .content-area {
+            display: flex;
+            gap: 40px; /* Space between sidebar and main content */
+            flex-grow: 1; /* Allow content area to grow and push footer down */
+        }
+
+        /* Sidebar Navigation Styling */
+        .sidebar {
+            flex: 0 0 250px; /* Fixed width for sidebar */
+            padding-right: 20px; /* Some padding to separate from main content */
+        }
+
+        .sidebar ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px; /* Space between list items */
+        }
+
+        .sidebar li:last-child {
+            margin-bottom: 0; /* No extra margin for the last item */
+        }
+
+        .sidebar a {
+            text-decoration: none; /* Remove underline from links */
+            color: #555; /* Default link color */
+            font-size: 0.95em;
+            display: block; /* Make links block-level for easier clicking */
+            padding: 2px 0; /* Small padding for click area */
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        .sidebar .main-link {
+            margin-bottom: 10px; /* Extra space for main categories */
+        }
+
+        .sidebar .sub-list {
+            margin-left: 20px; /* Indent for sub-items */
+            margin-top: 5px; /* Space above sub-list */
+            margin-bottom: 10px; /* Space below sub-list */
+        }
+
+        .sidebar .sub-list li {
+            margin-bottom: 5px; /* Less space for sub-list items */
+        }
+
+        .sidebar .blue-link {
+            color: #007bff; /* Specific blue color for this link */
+        }
+
+        /* Main Content Area Styling */
+        .main-content {
+            flex-grow: 1; /* Allows main content to take remaining space */
+            max-width: 100%; /* Ensures it doesn't overflow its flex container */
+        }
+
+        /* Image Placeholder Styling */
+        .image-container {
+            width: 100%;
+            max-width: 500px; /* Max width for the image placeholder */
+            height: 500px; /* Fixed height to make it a square */
+            background-color: blue;
+            margin-bottom: 25px; /* Space below the image */
+        }
+
+        /* Artwork Description Styling */
+        .artwork-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .artwork-description {
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        /* SOLD Status Styling */
+        .sold-status {
+            display: flex;
+            align-items: center; /* Vertically align text and dot */
+            font-weight: bold;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .red-dot {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%; /* Make it a circle */
+            margin-left: 8px; /* Space between "SOLD" and the dot */
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: right;
+            font-size: 0.8em;
+            color: #888; /* Lighter gray for footer text */
+            margin-top: 50px; /* Space above the footer */
+            padding-top: 20px; /* Padding for the footer */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px; /* Reduce overall padding on smaller screens */
+            }
+
+            .main-wrapper {
+                padding: 15px 0;
+            }
+
+            h1 {
+                font-size: 1.8em; /* Smaller title on mobile */
+                margin-bottom: 30px;
+            }
+
+            .content-area {
+                flex-direction: column; /* Stack sidebar and main content vertically */
+                gap: 20px; /* Reduce gap for smaller screens */
+            }
+
+            .sidebar {
+                flex: none; /* Remove fixed width */
+                width: 100%; /* Allow sidebar to take full width */
+                padding-right: 0;
+                margin-bottom: 20px; /* Space below sidebar when stacked */
+            }
+
+            .image-container {
+                height: auto; /* Allow height to adjust */
+                padding-bottom: 100%; /* Maintain aspect ratio for square */
+                max-width: 100%; /* Ensure it doesn't exceed screen width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <h1>Harry Stooshinoff - Artist</h1>
+
+        <div class="content-area">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#" class="main-link">Join Newsletter</a></li>
+                    <li>
+                        <a href="#" class="main-link">Galleries</a>
+                        <ul class="sub-list">
+                            <li><a href="#" class="blue-link">Sold Artworks, September 2016 - August 2021</a></li>
+                            <li><a href="#">Sold Artworks, August 2021 Forward</a></li>
+                            <li><a href="#">Sold Artworks, to September 2016</a></li>
+                            <li><a href="#">Winter Landscape Paintings</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="main-link">About</a></li>
+                    <li><a href="#" class="main-link">Links</a></li>
+                </ul>
+            </nav>
+
+            <main class="main-content">
+                <div class="image-container"></div>
+                <h2 class="artwork-title">Far Stand, October 26</h2>
+                <p class="artwork-description">Acrylic, collage, on thin gessoed Masonite panel 8 x 8 inches, signed lightly in pencil. No framing on this piece is necessary!</p>
+                <div class="sold-status">
+                    <span>SOLD</span>
+                    <div class="red-dot"></div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            my artist run website
+        </footer>
+    </div>
+</body>
+</html>
+```

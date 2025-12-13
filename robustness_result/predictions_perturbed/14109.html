@@ -1,0 +1,261 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shape of Everything</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px; /* Based on visual estimation */
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 40px; /* Space from top */
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blue-square {
+            width: 100px;
+            height: 100px;
+            background-color: #0000FF;
+            margin: 0 auto 20px auto; /* Center horizontally, space below */
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
+            color: #333333;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666666;
+            margin: 5px 0 0 0;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 40px; /* Space between columns */
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            flex: 0 0 180px; /* Fixed width for sidebar */
+            padding-top: 5px; /* Align with main content's first line */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .sidebar li ul { /* Nested list for "Maybe Pizza?" */
+            padding-left: 20px; /* Indent nested list */
+            margin-top: 5px;
+        }
+
+        .sidebar li a {
+            text-decoration: none;
+            color: #666666; /* Lighter grey for sidebar links */
+        }
+
+        .sidebar li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Article */
+        .article {
+            flex: 1; /* Take remaining space */
+            min-width: 300px; /* Ensure article doesn't get too narrow */
+        }
+
+        .article h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #333333;
+        }
+
+        .article .date {
+            font-size: 15px;
+            color: #666666;
+            margin: 0 0 20px 0;
+            display: block; /* Ensure it takes its own line */
+        }
+
+        .article p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .article .quote-block {
+            border-left: 3px solid #999999;
+            padding-left: 15px;
+            margin: 20px 0;
+            color: #666666;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 60px; /* Space above copyright */
+            font-size: 14px;
+            color: #666666;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin-top: 20px;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .header p {
+                font-size: 15px;
+            }
+
+            .main-content {
+                flex-direction: column; /* Stack columns */
+                gap: 30px;
+            }
+
+            .sidebar {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                padding-top: 0;
+                text-align: center; /* Center sidebar links */
+            }
+
+            .sidebar ul {
+                display: flex; /* Make links inline for smaller screens */
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px; /* Space between inline links */
+            }
+
+            .sidebar li {
+                margin-bottom: 0;
+            }
+
+            .sidebar li ul { /* Nested list for "Maybe Pizza?" on small screens */
+                padding-left: 0; /* Remove indentation */
+                margin-top: 0;
+                width: 100%; /* Take full width */
+                display: flex; /* Make its own links inline */
+                justify-content: center;
+            }
+
+            .article {
+                min-width: unset; /* Remove min-width constraint */
+                width: 100%;
+            }
+
+            .article h2 {
+                font-size: 24px;
+            }
+
+            .article .date {
+                font-size: 14px;
+            }
+
+            .article p, .article .quote-block {
+                font-size: 15px;
+            }
+
+            .footer {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blue-square {
+                width: 80px;
+                height: 80px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .sidebar ul {
+                flex-direction: column; /* Stack sidebar links again if too many */
+                align-items: center;
+                gap: 5px;
+            }
+            .sidebar li ul {
+                flex-direction: column; /* Stack nested links too */
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="blue-square"></div>
+            <h1>The Shape of Everything</h1>
+            <p>A website mostly about Mac stuff, written by August "Gus" Mueller</p>
+        </header>
+
+        <main class="main-content">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#">» Acorn</a></li>
+                    <li><a href="#">» Retrobatch</a></li>
+                    <li><a href="#">» Mastodon</a></li>
+                    <li><a href="#">» Micro.blog</a></li>
+                    <li><a href="#">» Instagram</a></li>
+                    <li>
+                        <a href="#">» Github</a>
+                        <ul>
+                            <li><a href="#">» Maybe Pizza?</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">» Archives</a></li>
+                    <li><a href="#">» Feed</a></li>
+                    <li><a href="#">» Micro feed</a></li>
+                </ul>
+            </nav>
+
+            <article class="article">
+                <h2>NSNorth</h2>
+                <span class="date">January 12, 2013</span>
+                <p>Registration

@@ -1,0 +1,138 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCC EVENT BLOG</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit; /* Inherit color from parent by default */
+        }
+
+        /* Global Container for content alignment */
+        .container {
+            max-width: 1200px; /* Max width for main content */
+            margin: 0 auto; /* Center the container */
+            padding: 0 20px; /* Horizontal padding */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            border-bottom: 1px solid #eee; /* Subtle separator */
+            padding: 20px 0; /* Vertical padding, horizontal handled by inner container */
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            background-color: #0000FF; /* Blue square */
+            margin-right: 20px;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .header-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #333;
+            flex-grow: 1; /* Allow title to take available space */
+            margin: 0; /* Reset default h1 margin */
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 0;
+        }
+
+        .nav-bar .container {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: space-between; /* Distribute items */
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li.active a {
+            background-color: #f58220; /* Orange */
+        }
+
+        .search-bar {
+            display: flex;
+            padding: 10px 0; /* Vertical padding, horizontal handled by container */
+            box-sizing: border-box;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            padding: 8px 10px;
+            font-size: 0.9em;
+            outline: none;
+            width: 150px; /* Fixed width for desktop */
+            box-sizing: border-box;
+        }
+
+        .search-bar button {
+            background-color: #f58220; /* Orange */
+            border: none;
+            padding: 8px 15px; /* Match vertical padding of input */
+            color: #fff; /* Text color, though no text is visible */
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .search-bar button:hover {
+            background-color: #e0741a; /* Darker orange */
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            padding: 20px; /* Padding around the content */
+            max-width: 1200px; /* Constrain width */
+            margin: 0 auto; /* Center it */
+            box-sizing: border-box;
+        }
+
+        .blog-post-section {
+            flex: 2; /* Takes 2 parts of available space */
+            min-width: 300px; /* Minimum width to prevent squishing */
+            padding-

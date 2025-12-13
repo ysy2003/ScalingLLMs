@@ -1,0 +1,530 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Functions - SaltStack Documentation</title>
+    <style>
+        :root {
+            --primary-blue: #0000ff; /* Placeholder blue */
+            --text-color: #333;
+            --link-color: #007bff; /* Standard blue for links */
+            --light-gray-bg: #f8f8f8;
+            --code-bg: #f0f0f0;
+            --border-color: #eee;
+            --header-height: 60px;
+            --sidebar-width: 250px;
+            --content-max-width: 800px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 0 20px;
+            height: var(--header-height);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .header-left-placeholder {
+            width: 100px;
+            height: 30px;
+            background-color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95em;
+            flex-grow: 1;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .header-nav a {
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .header-right-placeholder {
+            width: 100px;
+            height: 30px;
+            background-color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        /* Main Content Area */
+        .main-wrapper {
+            display: flex;
+            flex: 1;
+            max-width: 1200px; /* Overall max width for content + sidebar */
+            margin: 0 auto;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 0 30px;
+            max-width: var(--content-max-width);
+            box-sizing: border-box;
+        }
+
+        .content-top-nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .content-top-nav a {
+            color: #666;
+        }
+
+        .edit-on-github {
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #444;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: normal;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 20px 0;
+            position: relative;
+            font-size: 0.9em;
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Allows long lines to wrap */
+            word-wrap: break-word;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            color: #333;
+        }
+
+        .bash-label {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ccc;
+            color: #333;
+            padding: 3px 8px;
+            font-size: 0.7em;
+            border-bottom-left-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        ul li {
+            margin-bottom: 0.5em;
+        }
+
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            color: #c7254e; /* A common color for inline code */
+        }
+
+        .content-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: var(--text-color);
+            font-size: 0.9em;
+            transition: background-color 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .button.previous::before {
+            content: "‹";
+            margin-right: 5px;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .button.next::after {
+            content: "›";
+            margin-left: 5px;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            flex-shrink: 0;
+            padding-left: 30px;
+            box-sizing: border-box;
+            position: sticky;
+            top: calc(var(--header-height) + 20px); /* Stick below header with some margin */
+            align-self: flex-start; /* Ensures it doesn't stretch */
+        }
+
+        .sidebar-top-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .version-selectors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .version-button {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            color: var(--text-color);
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .version-button:hover {
+            background-color: #f0f0f0;
+            text-decoration: none;
+        }
+
+        .version-button.active {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        .version-button.master {
+            background-color: #f0f0f0; /* Slightly different background for master */
+        }
+
+        .version-button.with-icon::after {
+            content: "▾"; /* Unicode for down arrow */
+            margin-left: 5px;
+            font-size: 0.8em;
+            line-height: 1;
+        }
+
+        .search-input-wrapper {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            height: 35px; /* Approximate height from image */
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: #999; /* Placeholder text color */
+            font-size: 0.9em;
+        }
+
+        .search-input-wrapper::before {
+            content: "🔍"; /* Search icon */
+            margin-right: 8px;
+            color: #999;
+        }
+
+        .sidebar-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-nav li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 10px 0;
+            color: var(--text-color);
+            font-size: 0.9em;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--light-gray-bg);
+            padding: 40px 20px;
+            margin-top: auto; /* Pushes footer to the bottom */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.85em;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        .footer-left {
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        .footer-left p {
+            margin: 0 0 5px 0;
+        }
+
+        .footer-left a {
+            color: var(--link-color);
+        }
+
+        .footer-right-placeholder {
+            width: 150px;
+            height: 80px;
+            background-color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .copyright {
+            margin-top: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                flex-direction: column;
+                max-width: 90%;
+                padding-top: 0;
+            }
+
+            .content {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 20px;
+                position: static; /* Remove sticky behavior */
+                border-top: 1px solid var(--border-color);
+                margin-top: 20px;
+            }
+
+            .sidebar-top-placeholder {
+                height: 100px; /* Smaller on mobile */
+            }
+
+            .header-nav {
+                gap: 15px;
+                padding-right: 10px;
+            }
+
+            .header-left-placeholder, .header-right-placeholder {
+                width: 80px;
+                height: 25px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+
+            .footer-right-placeholder {
+                margin-top: 20px;
+                width: 100px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .header-nav {
+                display: none; /* Hide main nav on very small screens */
+            }
+
+            .header {
+                justify-content: center; /* Center placeholders if nav is hidden */
+                gap: 20px;
+            }
+
+            .header-left-placeholder, .header-right-placeholder {
+                width: 60px;
+                height: 20px;
+            }
+
+            .content-top-nav {
+                flex-wrap: wrap;
+            }
+
+            .version-selectors {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left-placeholder"></div>
+            <nav class="header-nav">
+                <a href="#">Overview</a>
+                <a href="#">Salt User Guide</a>
+                <a href="#">Documentation</a>
+                <a href="#">Downloads</a>
+            </nav>
+            <div class="header-right-placeholder"></div>
+        </header>
+
+        <div class="main-wrapper">
+            <main class="content">
+                <a href="#" class="edit-on-github">Edit on GitHub</a>
+
+                <nav class="content-top-nav">
+                    <a href="#">Table of Contents</a>
+                    <a href="#">Glossary</a>
+                    <a href="#">previous</a>
+                    <a href="#">next</a>
+                </nav>
+
+                <h1>CLOUD FUNCTIONS</h1>
+
+                <p>Cloud functions work much the same way as cloud actions, except that they don't perform an operation on a specific instance, and so do not need a machine name to be specified. However, since they perform an operation on a specific cloud provider, that provider must be specified.</p>
+
+                <div class="code-block">
+                    <pre>$ salt-cloud -f show_image ec2 image=ami-fd20ad94</pre>
+                    <span class="bash-label">BASH</span>
+                </div>
+
+                <p>There are three universal salt-cloud functions that are extremely useful for gathering information about instances on a provider basis:</p>
+
+                <ul>
+                    <li><code>list_nodes</code>: Returns some general information about the instances for the given provider.</li>
+                    <li><code>list_nodes_full</code>: Returns all information about the instances for the given provider.</li>
+                    <li><code>list_nodes_select</code>: Returns select information about the instances for the given provider.</li>
+                </ul>
+
+                <div class="code-block">
+                    <pre>$ salt-cloud -f list_nodes linode
+$ salt-cloud -f list_nodes_full linode
+$ salt-cloud -f list_nodes_select linode</pre>
+                    <span class="bash-label">BASH</span>
+                </div>
+
+                <p>Another useful reference for viewing <code>salt-cloud</code> functions is the <a href="#">Salt Cloud Feature Matrix</a>.</p>
+
+                <div class="content-nav-buttons">
+                    <a href="#" class="button previous">Previous</a>
+                    <a href="#" class="button next">Next</a>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-top-placeholder"></div>
+                <div class="version-selectors">
+                    <a href="#" class="version-button">3005.4</a>
+                    <a href="#" class="version-button active with-icon">3006.4</a>
+                    <a href="#" class="version-button master">Master</a>
+                </div>
+                <div class="search-input-wrapper">
+                    <!-- Placeholder for search input -->
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#">Salt Project</a></li>
+                        <li><a href="#">Introduction to Salt</a></li>
+                        <li><a href="#">Salt system architecture</a></li>
+                        <li><a href="#">Contributing</a></li>
+                    </ul>
+                </nav>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-left">
+                <p>Generated on November 03, 2023 at 04:05:49 UTC.</p>
+                <p>You are viewing docs for the latest stable release, 3006.4. Switch to docs for the previous stable release, <a href="#">3005.4</a>, or to a recent doc build from the <a href="#">master</a> branch.</p>
+                <p><a href="#">saltproject.io</a></p>
+                <p class="copyright">© 2023 VMware, Inc. | <a href="#">Privacy Policy</a></p>
+            </div>
+            <div class="footer-right-placeholder"></div>
+        </footer>
+    </div>
+</body>
+</html>
+```

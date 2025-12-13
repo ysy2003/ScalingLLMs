@@ -1,0 +1,334 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Schools Blog</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #F5F5F5; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container for centering content */
+        .container {
+            max-width: 960px; /* Standard width for content */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding for smaller screens */
+        }
+
+        /* Green Navigation Header */
+        .header-green-nav {
+            background-color: #669900; /* Dark green */
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-green-nav .container {
+            display: flex;
+            justify-content: flex-start; /* Align items to the start */
+            align-items: center;
+            gap: 30px; /* Space between nav items */
+        }
+
+        .header-green-nav .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .header-green-nav .nav-item:hover {
+            text-decoration: underline;
+        }
+
+        .header-green-nav .nav-news {
+            color: #FFCC00; /* Orange/Yellow for NEWS */
+        }
+
+        /* Main Content Area */
+        .main-content-area {
+            display: flex;
+            gap: 30px; /* Space between sidebar and blog posts */
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 0 0 220px; /* Fixed width for sidebar */
+        }
+
+        .browse-box {
+            background-color: #808080; /* Dark gray */
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .browse-box p {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .highlight-qa,
+        .highlight-articles {
+            color: #FFCC00; /* Orange/Yellow */
+            font-size: 1.2em; /* Slightly larger */
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-nav a {
+            color: #0066CC; /* Blue link color */
+            text-decoration: none;
+            padding: 8px 0;
+            padding-left: 10px; /* Indent links */
+            border-bottom: 1px solid #eee; /* Subtle separator */
+        }
+
+        .sidebar-nav a:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-nav a:hover {
+            text-decoration: underline;
+            background-color: #e9e9e9;
+        }
+
+        /* Blog Posts Section */
+        .blog-posts {
+            flex-grow: 1; /* Takes up remaining space */
+        }
+
+        .breadcrumbs {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: #0066CC;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-post-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .blog-post-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .post-title {
+            color: #0066CC; /* Blue title */
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-content-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start; /* Align image and text at the top */
+        }
+
+        .post-image-placeholder {
+            background-color: #0000FF; /* Bright blue placeholder */
+            width: 150px; /* Fixed width for image */
+            height: 100px; /* Fixed height for image */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .post-text {
+            flex-grow: 1;
+        }
+
+        .post-text p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .post-meta {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        .read-more {
+            color: #0066CC;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Partner Listings */
+        .partner-listings {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .partner-listings p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Footer Green Bar */
+        .footer-green-nav {
+            background-color: #669900; /* Dark green */
+            padding: 20px 0;
+            color: white;
+            font-size: 0.85em;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            text-align: center;
+        }
+
+        .footer-links-top,
+        .footer-links-bottom {
+            margin-bottom: 10px;
+            line-height: 1.8; /* Spacing for links */
+            display: flex; /* Use flex for wrapping links */
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links-top a,
+        .footer-links-bottom a {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px; /* Space between links and slashes */
+            white-space: nowrap; /* Prevent wrapping of individual links */
+        }
+
+        .footer-links-top a:hover,
+        .footer-links-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 15px;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header-green-nav .container {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .main-content-area {
+                flex-direction: column; /* Stack sidebar and main content */
+                gap: 20px;
+            }
+
+            .sidebar {
+                flex: auto; /* Allow sidebar to take full width */
+                width: auto;
+            }
+
+            .browse-box {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 300px; /* Limit width of browse box on small screens */
+            }
+
+            .sidebar-nav {
+                background-color: white; /* Give sidebar nav a background */
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .post-content-wrapper {
+                flex-direction: column; /* Stack image and text in blog posts */
+                align-items: center;
+            }
+
+            .post-image-placeholder {
+                width: 100%; /* Full width for image placeholder */
+                height: 150px; /* Adjust height */
+                margin-bottom: 15px;
+            }
+
+            .post-text {
+                text-align: center; /* Center text for stacked layout */
+            }
+
+            .footer-links-top,
+            .footer-links-bottom {
+                gap: 5px; /* Smaller gap for footer links */
+            }
+
+            .footer-links-top a,
+            .footer-links-bottom a {
+                margin: 0 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-green-nav .nav-item {
+                font-size: 1em;
+            }
+
+            .post-title {
+                font-size: 1.2em;
+            }
+
+            .partner-listings p {
+                font-size: 1.2em;
+            }
+
+            .footer-links-top,
+            .footer-links-bottom {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-green-nav">
+        <nav class="container">
+            <a href="#" class="nav-item">College</a>
+            <a href="#" class="nav-item">Grad School

@@ -1,0 +1,264 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boats for Sale in City One</title>
+    <style>
+        /* General Reset & Body Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f0f0; /* Light grey background */
+            background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0),
+                              linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0);
+            background-size: 10px 10px; /* Size of the pattern squares */
+            background-position: 0 0, 5px 5px; /* Offset for brick-like pattern */
+        }
+
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* Default background for main content */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #3d3d3d; /* Dark grey */
+            padding-bottom: 50px; /* To allow h1 to overlap */
+            position: relative;
+        }
+
+        .header-top {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .blue-box {
+            width: 100px; /* Approximate width */
+            height: 60px; /* Approximate height */
+            background-color: #0000FF; /* Pure blue */
+            margin-bottom: 15px;
+        }
+
+        .purple-line {
+            width: 80%; /* Approximate width */
+            height: 3px;
+            background-color: #c060c0; /* Light purple */
+            margin-left: 20px; /* Aligns with the blue box's left edge */
+        }
+
+        header h1 {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: -30px; /* Overlap with the dark grey header */
+            font-size: 2.2em;
+            font-weight: normal;
+            color: #333;
+            position: relative; /* To ensure it's above the dark grey */
+            z-index: 1;
+        }
+
+        /* Main Content Styling */
+        main {
+            background-color: #fff;
+            padding: 20px;
+            padding-top: 0; /* h1 already has padding */
+        }
+
+        main h2 {
+            font-size: 1.8em;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        main h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        main p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        main a {
+            color: #007bff; /* Standard blue link */
+            text-decoration: none;
+        }
+
+        main a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #3d3d3d; /* Dark grey */
+            color: #ccc;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #555; /* Separator line */
+            margin-bottom: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px; /* Minimum width for columns before wrapping */
+            margin-right: 20px;
+            margin-bottom: 15px; /* For wrapped items */
+        }
+
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+
+        .footer-column div {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fff; /* Brighter for main links */
+        }
+
+        .footer-column a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .footer-news {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #555; /* Separator line */
+            margin-bottom: 20px;
+        }
+
+        .news-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #555; /* Separator between news items */
+        }
+
+        .news-item:last-child {
+            border-bottom: none; /* No border for the last news item */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-item a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+        }
+
+        .news-item a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        .footer-actions { /* Container for scroll-top and social icons */
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between scroll-top and social icons */
+            margin-bottom: 10px; /* For wrapped items */
+        }
+
+        .copyright {
+            margin-bottom: 10px; /* For wrapped items */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        .social-icon.facebook {
+            background-color: #3b5998; /* Facebook blue */
+        }
+
+        .social-icon.twitter {
+            background-color: #00acee; /* Twitter blue */
+        }
+
+        .scroll-top {
+            width: 30px;
+            height: 30px;
+            background-color: #555; /* Darker grey for the button */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #fff;
+            text-decoration: none;
+            line-height: 1; /* Adjust line-height for vertical centering of arrow */
+        }
+
+        .scroll-top::before {
+            content: '▲'; /* Up arrow character */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0 10px; /* Add some margin on smaller screens */
+            }
+
+            header h1 {
+                font-size: 1.8em;
+                margin-top: -20px;
+            }
+
+            main h2 {
+                font-size: 1.5em;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+
+            .footer-column {
+                min-width

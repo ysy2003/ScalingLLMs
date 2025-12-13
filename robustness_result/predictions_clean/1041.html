@@ -1,0 +1,244 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Got This with Mark and Hal</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px; /* Limit header width for larger screens */
+            margin: 0 auto;
+        }
+
+        .social-icons {
+            font-size: 1.2em;
+            display: flex;
+            gap: 15px; /* Space between icons */
+        }
+
+        .social-icons span {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .search-container input {
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            color: #fff;
+            font-size: 0.9em;
+            width: 150px; /* Adjust width as needed */
+        }
+
+        .search-container input::placeholder {
+            color: #bbb;
+            opacity: 1; /* Ensure placeholder is visible in Firefox */
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 50px 20px; /* Add horizontal margin for smaller screens */
+            font-weight: normal;
+        }
+
+        /* Main Content Card */
+        .content-card {
+            background-color: #fff;
+            max-width: 800px;
+            margin: 0 auto 50px auto; /* Center horizontally, add bottom margin */
+            border-radius: 10px;
+            padding: 20px;
+            color: #333;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: #666;
+            font-size: 0.95em;
+            white-space: nowrap; /* Prevent tabs from wrapping */
+        }
+
+        .tab.active {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-bottom-color: #f0f0f0; /* Hide bottom border to blend with background */
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: -1px; /* Overlap the bottom border of the tabs container */
+        }
+
+        .page-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Episode Details */
+        .episode-details h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .episode-details .date {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .episode-details p {
+            margin-bottom: 15px;
+        }
+
+        .download-link strong {
+            font-weight: bold;
+            color: #333;
+            cursor: pointer; /* Indicate it's clickable */
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 30px;
+        }
+
+        .comments-section h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .comments-section p {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Card Footer */
+        .card-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .card-footer p {
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2em;
+                margin: 30px 15px;
+            }
+            .content-card {
+                margin: 0 15px 30px 15px; /* Add side margins for smaller screens */
+                padding: 15px;
+            }
+            .header-top {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            .social-icons {
+                margin-bottom: 10px;
+            }
+            .search-container input {
+                width: 100%; /* Full width on small screens */
+                max-width: 250px; /* Limit max width */
+            }
+            .episode-details h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8em;
+            }
+            .social-icons {
+                font-size: 1em;
+                gap: 10px;
+            }
+            .tab {
+                padding: 8px 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="social-icons">
+                <span title="Info">&#x2139;</span> <!-- Information Source -->
+                <span title="Facebook">&#x1F464;</span> <!-- Bust in Silhouette (generic person) -->
+                <span title="Twitter">&#x1F426;</span> <!-- Bird -->
+                <span title="Email">&#x2709;</span> <!-- Envelope -->
+                <span title="RSS Feed">&#x1F514;</span> <!-- Bell (for notifications/feed) -->
+                <span title="Podcast">&#x1F3A7;</span> <!-- Headphone -->
+            </div>
+            <div class="search-container">
+                <input type="search" placeholder="Search">
+            </div>
+        </div>
+        <h1 class="main-title">We Got This with Mark and Hal</h1>
+    </header>
+
+    <main class="content-card">
+        <div class="tabs">
+            <span class="tab active">All Episodes</span>
+            <span class="tab">Archives</span>
+        </div>
+        <div class="page-info">Now displaying: Page 1</div>
+
+        <article class="episode-details">
+            <h2>#78 - Clean Slate III with Wil Wheaton</h2>
+            <p class="date">Aug 24, 2016</p>
+            <p>Among the 250+ topics we've received over the last one and a half years, there are always some that don't warrant a full episode. Wil Wheaton, who waxes poetic on everything from theme park ruffians to the popcorn eating style he shares with Hal.</p>
+            <p>Going to Dragon Con? So is Hal! Here's where you can find him.</p>
+            <p class="download-link"><strong>Download this Episode</strong></p>
+        </article>
+
+        <div class="comments-section">
+            <h3>0 Comments</h3>
+            <p>Adding comments is not available at this time.</p>
+        </div>
+
+        <footer class="card-footer">
+            <p>&copy;Copyright Hal Lublin and Mark Gagliardi</p>
+        </footer>
+    </main>
+</body>
+</html>
+```

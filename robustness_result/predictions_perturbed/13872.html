@@ -1,0 +1,130 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mat Hayward</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Matches the sans-serif font in the image */
+            margin: 0;
+            background-color: #fff; /* White background as per image */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: flex-start; /* Align content to the top */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            padding: 40px 20px; /* Padding around the entire content block */
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 900px; /* Max width for the main content area */
+            width: 100%;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically by default */
+            align-items: center; /* Center items horizontally when stacked */
+            gap: 30px; /* Space between title, content, and footer */
+        }
+
+        h1 {
+            font-size: 36px; /* Larger font size for the title */
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin: 0; /* Remove default margin to control spacing with gap */
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column; /* Default to column for smaller screens */
+            align-items: center; /* Center items when stacked */
+            gap: 30px; /* Space between blue box and text */
+            width: 100%;
+        }
+
+        .blue-box {
+            background-color: #0000ff; /* Blue color as per image */
+            width: 250px; /* Approximate width */
+            height: 250px; /* Approximate height, making it square */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .text-content {
+            flex-grow: 1; /* Allow text content to take available space */
+            color: #000;
+            font-size: 16px; /* Base font size for paragraphs */
+            line-height: 1.5; /* Line height for readability */
+            max-width: 550px; /* Limit text width when next to blue box */
+            text-align: left; /* Ensure text is left-aligned */
+        }
+
+        .text-content p {
+            margin-top: 0;
+            margin-bottom: 1em; /* Space between paragraphs */
+        }
+
+        .text-content p:last-child {
+            margin-bottom: 0; /* No bottom margin for the last paragraph */
+        }
+
+        .red-text {
+            color: #ff0000; /* Red color for specific text as per image */
+        }
+
+        .footer-link {
+            margin-top: 40px; /* Space above the footer link */
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-link a {
+            color: #ff0000; /* Red color for the link as per image */
+            text-decoration: none; /* No underline */
+            font-size: 16px;
+            font-weight: bold; /* Link text appears bold in the image */
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) { /* For screens wider than 767px */
+            .content-wrapper {
+                flex-direction: row; /* Side-by-side layout for larger screens */
+                align-items: flex-start; /* Align items to the top */
+                justify-content: center; /* Center the blue box and text block */
+            }
+            .text-content {
+                max-width: 550px; /* Maintain max-width for text when next to blue box */
+            }
+        }
+
+        @media (max-width: 767px) { /* For screens 767px and narrower */
+            h1 {
+                font-size: 28px; /* Smaller title on small screens */
+            }
+            .blue-box {
+                width: 200px; /* Smaller blue box on small screens */
+                height: 200px;
+            }
+            .text-content {
+                padding: 0 15px; /* Add some horizontal padding to text on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mat Hayward</h1>
+        <div class="content-wrapper">
+            <div class="blue-box"></div>
+            <div class="text-content">
+                <p>Mat Hayward started the Rocktographer group with an event in 2012 as a way to shine the spotlight on the incredibly talented group of photographers in the Seattle area. <span class="red-text">Getty Images</span> , <span class="red-text">107.7 The End</span> , and Seattle Music Insider. Mat has been passionate about music his entire life but sadly was born with virtually no rythym. As a result, he turned to his other passion...photography. Mat's work has been published in many major media outlets including an image featured by Rolling Stone Magazine as one of the <span class="red-text">Top 40 concert photos of 2013</span>.</p>
+                <p>Mat has always been a rocker at heart with his favorite bands being Jane's Addiction and Nine Inch Nails.</p>
+            </div>
+        </div>
+        <div class="footer-link">
+            <a href="http://www.mathaywardphoto.com" target="_blank" rel="noopener noreferrer">www.mathaywardphoto.com</a>
+        </div>
+    </div>
+</body>
+</html>
+```

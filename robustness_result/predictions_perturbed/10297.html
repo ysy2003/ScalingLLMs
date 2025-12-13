@@ -1,0 +1,497 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McMahon Engineering</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-purple: #7b24a7;
+            --light-purple: #f0e6f8;
+            --light-green: #e0f8e0;
+            --dark-green-text: #669966;
+            --blue-icon: #0000ff;
+            --text-dark: #333333;
+            --text-light-gray: #cccccc;
+            --link-blue: #6699cc;
+            --header-nav-text: #a8e6a8; /* Adjusted based on image */
+            --border-gray: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #f8f8f8; /* Slightly off-white background */
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .header-left {
+            width: 80px; /* Placeholder for logo */
+            height: 40px;
+            background-color: var(--blue-icon);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: var(--header-nav-text); /* This color is only for the main nav, not header */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--text-dark); /* Corrected color for header nav */
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-gray);
+            border-radius: 3px;
+            padding: 5px 10px;
+            background-color: #fff;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 0;
+            font-size: 0.9em;
+            color: var(--text-dark);
+            width: 180px; /* Adjust width as needed */
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-light-gray);
+        }
+
+        .search-icon {
+            width: 18px;
+            height: 18px;
+            background-color: var(--blue-icon);
+            margin-left: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Main Navigation Banner */
+        .main-nav-banner {
+            background-color: var(--primary-purple);
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            min-height: 50px; /* Ensure consistent height */
+        }
+
+        .main-nav-banner .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+            color: var(--header-nav-text); /* Light green text */
+        }
+
+        .main-nav-banner .nav-item::after {
+            content: '▼';
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            display: flex;
+            gap: 40px;
+            padding: 40px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .content-left {
+            flex: 2;
+        }
+
+        .content-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-left h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .content-left h2 {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .content-left p {
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background-color: var(--light-purple);
+            border: 1px solid var(--primary-purple);
+            padding: 20px;
+            border-radius: 3px;
+        }
+
+        .summary-box h3 {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .summary-item {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .summary-item strong {
+            flex-basis: 35%;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .summary-item span {
+            flex-basis: 65%;
+            color: var(--text-dark);
+        }
+
+        .summary-box a {
+            display: block;
+            margin-top: 15px;
+            color: var(--link-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .summary-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right-side Links */
+        .right-links {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .right-links a {
+            background-color: var(--light-green);
+            color: var(--dark-green-text);
+            text-decoration: none;
+            padding: 12px 15px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-radius: 3px;
+            transition: background-color 0.2s ease;
+        }
+
+        .right-links a:hover {
+            background-color: #d0f0d0; /* Slightly darker green on hover */
+        }
+
+        /* Bottom Icons */
+        .bottom-icons {
+            display: flex;
+            justify-content: flex-start; /* Align to left as per image */
+            gap: 15px;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .bottom-icons .icon-placeholder {
+            width: 30px;
+            height: 30px;
+            background-color: var(--blue-icon);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #fff;
+            padding: 20px;
+            border-top: 1px solid var(--border-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Default alignment */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left a {
+            color: var(--link-blue);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .footer-left .icon-placeholder {
+            width: 40px;
+            height: 40px;
+            background-color: var(--blue-icon);
+        }
+
+        .footer-right {
+            font-size: 0.8em;
+            color: var(--text-light-gray);
+            text-align: right;
+            margin-top: 10px; /* For wrapping */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .content-right {
+                width: 100%;
+            }
+            .header-right {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+            .header-nav {
+                order: 2; /* Move nav below search on smaller screens */
+                width: 100%;
+                text-align: right;
+            }
+            .header-nav a {
+                margin-left: 15px;
+            }
+            .search-box {
+                order: 1;
+                width: auto;
+            }
+            .search-box input {
+                width: 120px;
+            }
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-right {
+                text-align: left;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .header-nav {
+                text-align: left;
+                margin-top: 10px;
+            }
+            .header-nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .search-box input {
+                width: calc(100% - 30px); /* Adjust for icon */
+            }
+            .main-nav-banner {
+                justify-content: center;
+            }
+            .bottom-icons {
+                justify-content: center;
+            }
+            .footer-left {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            .header, .main-nav-banner, .main-content, .bottom-icons, .footer {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .content-left h1 {
+                font-size: 1.8em;
+            }
+            .content-left h2 {
+                font-size: 1.1em;
+            }
+            .header-nav a {
+                font-size: 0.8em;
+            }
+            .search-box input {
+                font-size: 0.8em;
+            }
+            .summary-item, .summary-box a, .right-links a {
+                font-size: 0.85em;
+            }
+            .footer-left .icon-placeholder {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left"></div> <!-- Blue square logo placeholder -->
+        <div class="header-right">
+            <nav class="header-nav">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT US</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="search the Rural Network">
+                <div class="search-icon"></div> <!-- Blue square search icon placeholder -->
+            </div>
+        </div>
+    </header>
+
+    <div class="main-nav-banner">
+        <div class="container">
+            <div class="nav-item">NEWS AND EVENTS</div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <div class="content-left">
+            <h1>McMahon Engineering</h1>
+
+            <h2>PROJECT SUMMARY</h2>
+            <p>To expand and develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products.</p>
+
+            <h2>BACKGROUND</h2>
+            <p>McMahon Engineering is a successful engineering works which has been established for 25 years. The business is located in a large purpose built shed beside the promoter's home.</p>
+
+            <h2>ACTIVITIES</h2>
+            <p>Funded under Axis 3, through SOAR, the promoter received funding towards an aluminium welder and aluminium shaper.</p>
+
+            <h2>BENEFITS</h2>
+            <p>The promoter had enquiries from manufacturers who specialise in the production of aluminium items and the equipment will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+        </div>
+
+        <div class="content-right">
+            <div class="summary-box">
+                <h3>SUMMARY</h3>
+                <div class="summary-item">
+                    <strong>Name:</strong>
+                    <span>McMahon Engineering</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Location:</strong>
+                    <span>Armagh</span>
+                </div>
+                <div class="summary-item">
+                    <strong>County:</strong>
+                    <span>Armagh</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Total Cost:</strong>
+                    <span>£ 9,664.00</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Axis:</strong>
+                    <span>AXIS 3 : SOAR</span>
+                </div>
+                <a href="#">Visit Web Site</a>
+            </div>
+
+            <div class="right-links">
+                <a href="#">CASE STUDIES</a>
+                <a href="#">PUBLICATIONS</a>
+                <a href="#">PROJECTS DIRECTORY</a>
+                <a href="#">THEMATIC WORKING GROUPS</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-icons container">
+        <div class="icon-placeholder"></div>
+        <div class="icon-placeholder"></div>
+        <div class="icon-placeholder"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <a href="#">privacy policy</a>
+                <div class="icon-placeholder"></div>
+                <div class="icon-placeholder"></div>
+                <div class="icon-placeholder"></div>
+            </div>
+            <div class="footer-right">
+                Web Design Belfast
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,717 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monarda fistulosa Raspberry Wine' Wine-red Bee Balm</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Top Bar */
+        .header-top {
+            background-color: #66CC33;
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-top-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            padding: 5px 10px;
+        }
+
+        .search-input-wrapper::before {
+            content: 's'; /* Placeholder for search icon */
+            font-family: sans-serif; /* Or a font that supports icons if available */
+            margin-right: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .search-input {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            padding: 0;
+            width: 100px; /* Adjust as needed */
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .header-top-right a {
+            color: white;
+            margin-left: 15px;
+        }
+
+        /* Main Header */
+        .header-main {
+            background-color: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #66CC33;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+        }
+
+        .main-nav a {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #66CC33;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background-color: #f8f8f8;
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .breadcrumbs a {
+            color: #777;
+        }
+
+        .breadcrumbs a:hover {
+            color: #66CC33;
+        }
+
+        /* Product Detail Section */
+        .product-detail-section {
+            padding: 40px 0;
+            background-color: white;
+        }
+
+        .product-detail-content {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-image-col {
+            flex: 1;
+            min-width: 300px; /* Ensure it doesn't shrink too much */
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            padding-bottom: 100%; /* Creates a square aspect ratio */
+            background-color: blue;
+            border-radius: 5px;
+        }
+
+        .product-info-col {
+            flex: 1.5;
+        }
+
+        .product-brand {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .product-price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0099FF; /* Bright blue */
+            margin-bottom: 20px;
+        }
+
+        .product-size-info {
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .product-size-info strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .add-to-cart-btn {
+            background-color: #00CCFF; /* Cyan */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 30px;
+            display: inline-block; /* To allow padding and margin */
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #00AACC;
+        }
+
+        .product-specs {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+        }
+
+        .share-product {
+            margin-top: 20px;
+        }
+
+        .share-product h4 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .social-share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-share-button {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 3px;
+            color: white;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .social-share-button.facebook {
+            background-color: #3b5998;
+        }
+
+        .social-share-button.twitter {
+            background-color: #55acee;
+        }
+
+        .social-share-button.googleplus {
+            background-color: #dd4b39;
+        }
+
+        .social-share-button span {
+            margin-left: 5px;
+        }
+
+        /* More from this collection */
+        .more-collection-section {
+            padding: 40px 0;
+            background-color: #f8f8f8;
+        }
+
+        .more-collection-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #66CC33;
+            margin-bottom: 30px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: left;
+            padding-bottom: 15px;
+        }
+
+        .product-card-image-placeholder {
+            width: 100%;
+            padding-bottom: 100%; /* Square aspect ratio */
+            background-color: blue;
+            margin-bottom: 10px;
+        }
+
+        .product-card-info {
+            padding: 0 15px;
+        }
+
+        .product-card-title {
+            font-size: 1em;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-card-price {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #66CC33;
+            color: white;
+            padding: 50px 0 30px;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social-icon {
+            font-size: 1.5em;
+            color: yellow; /* As seen in image */
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .newsletter-input::placeholder {
+            color: #777;
+        }
+
+        .subscribe-btn {
+            background-color: #00CCFF; /* Cyan */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #00AACC;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        .footer-bottom .placeholder-letters {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: yellow;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-top-content,
+            .header-main-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .header-top-right {
+                margin-top: 10px;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .main-nav li {
+                margin-left: 0;
+            }
+
+            .product-detail-content {
+                flex-direction: column;
+            }
+
+            .product-image-col,
+            .product-info-col {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .product-title {
+                font-size: 1.8em;
+            }
+
+            .product-price {
+                font-size: 1.5em;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .footer-column ul {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top-content,
+            .header-main-content,
+            .breadcrumbs .container,
+            .product-detail-content,
+            .more-collection-title,
+            .product-grid,
+            .footer-content,
+            .footer-bottom {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .search-input-wrapper {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-input {
+                width: auto;
+                flex-grow: 1;
+            }
+
+            .header-top-right {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .header-top-right a {
+                margin: 0 10px;
+            }
+
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .product-title {
+                font-size: 1.5em;
+            }
+
+            .product-price {
+                font-size: 1.3em;
+            }
+
+            .add-to-cart-btn {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+            }
+
+            .social-share-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .social-share-button {
+                flex-grow: 1;
+                justify-content: center;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="header-top-left">
+                    <div class="search-input-wrapper">
+                        <input type="text" class="search-input" placeholder="Search">
+                    </div>
+                </div>
+                <div class="header-top-right">
+                    <a href="#">Log in</a>
+                    <a href="#">[ Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-main-content">
+                <div class="logo">
+                    Earthly Pursuits, Inc.
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Shop by Plant <span>&#9662;</span></a></li>
+                        <li><a href="#">Shop by Zone <span>&#9662;</span></a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="#">Home</a> &gt; <a href="#">Zone 5</a> &gt; Monarda fistulosa Raspberry Wine' Wine-red Bee Balm
+        </div>
+    </div>
+
+    <main class="product-detail-section">
+        <div class="product-detail-content">
+            <div class="product-image-col">
+                <div class="product-image-placeholder"></div>
+            </div>
+            <div class="product-info-col">
+                <p class="product-brand">Earthly Pursuits, Inc.</p>
+                <h1 class="product-title">Monarda fistulosa Raspberry Wine'<br>Wine-red Bee Balm</h1>
+                <p class="product-price">$ 8.00</p>
+                <div class="product-size-info">
+                    <strong>SIZE</strong>
+                    <p>Size based on availability</p>
+                </div>
+                <button class="add-to-cart-btn">Add to Cart</button>
+                <p class="product-specs">
+                    Monarda fistulosa Raspberry Wine' | Wine-red Bee Balm |<br>
+                    Zone: 4-9 | Size: 3-4' | Sun: Y | Shade/Partial Sun: N |<br>
+                    Tolerance(s): | Season(s): Summer | Native: Y | Ground<br>
+                    Cover: N
+                </p>
+                <div class="product-description">
+                    <p>DESCRIPTION: Clear -red-wine flowers with buds resembling raspberries and very mildew resistant. Attracts Hummingbirds and Butterflies.</p>
+                </div>
+                <div class="share-product">
+                    <h4>Share this Product</h4>
+                    <div class="social-share-buttons">
+                        <div class="social-share-button facebook">
+                            <span style="font-family: sans-serif; font-weight: bold;">f</span> Share
+                        </div>
+                        <div class="social-share-button twitter">
+                            <span style="font-family: sans-serif; font-weight: bold;">T</span> Tweet
+                        </div>
+                        <div class="social-share-button googleplus">
+                            <span style="font-family: sans-serif; font-weight: bold;">g</span> +1
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="more-collection-section">
+        <h2 class="more-collection-title">More from this collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-card-image-placeholder"></div>
+                <div class="product-card-info">
+                    <p class="product-card-title">Acanthus hungaricus<br>Bear's Breeches</p>
+                    <p class="product-card-price">$ 14.50</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-card-image-placeholder"></div>
+                <div class="product-card-info">
+                    <p class="product-card-title">Achillea clypeolata<br>Coronation Gold' Yarrow</p>
+                    <p class="product-card-price">$ 8.50</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-card-image-placeholder"></div>
+                <div class="product-card-info">
+                    <p class="product-card-title">Achillea millefolium<br>Feuerland' Yarrow</p>
+                    <p class="product-card-price">$ 8.50</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-card-image-placeholder"></div>
+                <div class="product-card-info">
+                    <p class="product-card-title">Achillea millefolium<br>Moonshine' Yarrow</p>
+                    <p class="product-card-price">$ 9.50</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <a href="#" class="social-icon">f</a>
+            </div>
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Sign up for the latest news, offers and styles</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email">
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2023, Earthly Pursuits, Inc.</p>
+            <p>Tel: [PHONE REDACTED]</p>
+            <p class="placeholder-letters">A C D</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

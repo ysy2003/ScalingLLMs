@@ -1,0 +1,410 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - AltaLink</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #6699cc; /* Default link color */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header-top-strip {
+            background-color: #f0f0f0; /* Matches body background */
+            height: 10px; /* Small strip at the very top */
+        }
+
+        .header-main {
+            background-color: #5c6a82; /* Dark blue-gray */
+            padding: 15px 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+            padding-right: 50px; /* Matches spacing in image */
+        }
+
+        .header-nav a {
+            color: #fff;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 40px; /* Space below header */
+        }
+
+        .news-title-section {
+            flex: 0 0 100%; /* Takes full width initially */
+            margin-bottom: 30px;
+        }
+
+        .news-title {
+            font-size: 3em;
+            font-weight: normal;
+            color: #5c6a82; /* Dark blue-gray, matches header */
+            margin: 0;
+            padding-left: 50px; /* Aligns with content below */
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            background-color: #fff; /* White background for content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 40px 0; /* Vertical padding for the white box */
+        }
+
+        .article-content {
+            flex: 3; /* Takes 3 parts of available space */
+            min-width: 300px; /* Ensure it doesn't get too small */
+            padding-left: 50px;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            flex: 1; /* Takes 1 part of available space */
+            min-width: 200px; /* Ensure it doesn't get too small */
+            padding-right: 50px;
+            padding-left: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Article Specific Styles */
+        .article-content h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .article-content .date {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .article-content h3 {
+            font-size: 1.3em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .article-content p {
+            margin-bottom: 1em;
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        .article-content p strong {
+            font-weight: bold;
+        }
+
+        .article-content p em {
+            font-style: italic;
+        }
+
+        .article-content a {
+            color: #e06666; /* Reddish-pink for specific links */
+            text-decoration: underline;
+        }
+
+        .article-content a:hover {
+            text-decoration: none;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin: 0.5em 0;
+        }
+
+        .contact-info strong {
+            font-weight: bold;
+        }
+
+        .return-button {
+            display: inline-block;
+            background-color: #e06666; /* Reddish-pink */
+            color: #fff;
+            padding: 12px 25px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-weight: bold;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .return-button:hover {
+            background-color: #cc5555;
+            text-decoration: none;
+        }
+
+        /* Sidebar Specific Styles */
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid #eee; /* Top border for the list */
+        }
+
+        .sidebar li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: #666;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sidebar a:hover {
+            background-color: #f9f9f9;
+            text-decoration: none;
+        }
+
+        .sidebar .active a {
+            color: #e06666; /* Reddish-pink for active link */
+            font-weight: bold;
+            background-color: #f9f9f9; /* Slightly different background for active */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f0f0f0; /* Matches body background */
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px; /* Space above footer */
+        }
+
+        .footer-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: #e06666; /* Reddish-pink */
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-nav .employee-login {
+            border-bottom: 2px solid #e06666; /* Underline for employee login */
+            padding-bottom: 2px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #999;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .article-content {
+                padding-left: 30px;
+                padding-right: 20px;
+            }
+            .sidebar {
+                padding-right: 30px;
+                padding-left: 20px;
+            }
+            .news-title {
+                padding-left: 30px;
+            }
+            .header-nav ul {
+                padding-right: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                justify-content: center;
+            }
+            .header-nav ul {
+                padding-right: 0;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .news-title {
+                font-size: 2.5em;
+                padding-left: 20px;
+            }
+            .content-wrapper {
+                flex-direction: column; /* Stack article and sidebar */
+                padding: 20px 0;
+            }
+            .article-content, .sidebar {
+                flex: none; /* Remove flex grow/shrink */
+                width: 100%;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .sidebar {
+                margin-top: 40px; /* Space between article and stacked sidebar */
+            }
+            .footer-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .footer-nav a {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news-title {
+                font-size: 2em;
+                padding-left: 15px;
+            }
+            .article-content, .sidebar {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .header-nav ul {
+                gap: 10px;
+            }
+            .header-nav a {
+                font-size: 0.8em;
+            }
+            .return-button {
+                padding: 10px 20px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top-strip"></div>
+    <header class="header-main">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Environment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="news-title-section">
+            <h1 class="news-title">News</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="article-content">
+                <h2>NEWS RELEASES</h2>
+                <p class="date">May 6, 2015</p>
+
+                <h3>Town and residents work with AltaLink on collaborative tower solution</h3>
+                <p>CANMORE, Alberta – Feedback from Canmore residents and cooperation with the Town of Canmore has resulted in the ability for AltaLink to continue to supply reliable power to the region without adding height to the existing <a href="#">telecommunications tower</a> in the town.</p>
+                <p>Interference with the Canmore telecommunications tower's radio signal was determined to be a risk to the reliability of the electric system in the area. In January, AltaLink presented a project to Canmore residents that involved increasing the height of the existing tower, built in 2010, by approximately 20 metres in order for it to attain a clear signal.</p>
+                <p>Throughout consultation with stakeholders and at the open house AltaLink hosted on January 28, residents expressed concern about increasing the tower height.</p>
+                <p>“Our goal is always to find the best solution for a project. Working with the Town of Canmore, we determined that managing the height of the trees obstructing the telecommunications tower's signal path would allow us to ensure the reliability of the telecommunications network without increasing the tower's height,” said Jorge Gimon, project manager at AltaLink.</p>
+                <p>Nearby residents will be receiving notices informing them of the cancellation of the project. Information on the original proposed project can be found <a href="#">here</a></p>
+                <p><em>Headquartered in Calgary, with offices in Edmonton, Red Deer and Lethbridge, AltaLink is Alberta's largest electricity <a href="#">transmission</a> provider.</em></p>
+
+                <div class="contact-info">
+                    <p><strong>For more information please contact:</strong></p>
+                    <p><strong>Peter Brodsky</strong><br>
+                    Manager, External Communications<br>
+                    AltaLink<br>
+                    <strong>Phone:</strong> [PHONE REDACTED]<br>
+                    <strong>Cell:</strong> [PHONE REDACTED]<br>
+                    <strong>E-mail:</strong> <a href="mailto:redacted@example.com">[EMAIL REDACTED]</a></p>
+                </div>
+
+                <a href="#" class="return-button">Return to News Releases</a>
+            </div>
+
+            <aside class="sidebar">
+                <ul>
+                    <li class="active"><a href="#">News Releases</a></li>
+                    <li><a href="#">COVID-19 Updates</a></li>
+                    <li><a href="#">Feature Stories</a></li>
+                    <li><a href="#">Media Contact</a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="#">Privacy / Legal</a>
+            <a href="#" class="employee-login">Employee Login</a>
+            <a href="#">Contractor Safety Site</a>
+        </div>
+        <p class="copyright">&copy; 2023 ALTALINK</p>
+    </footer>
+</body>
+</html>
+```

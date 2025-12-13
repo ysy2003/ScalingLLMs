@@ -1,0 +1,486 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexiYoga - Namati Yoga Bag Giveaway</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5dc; /* Light beige background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        a {
+            color: #aa6666; /* Brownish-red link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .logo-box {
+            width: 40px;
+            height: 40px;
+            background-color: blue;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .hamburger-icon {
+            width: 25px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            height: 2px;
+            background-color: white;
+            width: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* Main Content Layout */
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .main-content {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            max-width: 960px; /* Adjusted for overall width */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .left-column {
+            flex: 2;
+            padding-right: 30px;
+            box-sizing: border-box;
+        }
+
+        .right-column {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #eee;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+            margin-left: 20px; /* Spacing between columns */
+        }
+
+        /* Left Column Specifics */
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ffcccc; /* Light pink border */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .quote-block {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 20px 30px;
+            margin: 20px 0;
+            position: relative;
+            font-style: italic;
+            color: #666;
+        }
+
+        .quote-block::before,
+        .quote-block::after {
+            font-family: Georgia, serif;
+            font-size: 60px;
+            color: #ccc;
+            position: absolute;
+            line-height: 1;
+        }
+
+        .quote-block::before {
+            content: "“";
+            top: 10px;
+            left: 10px;
+        }
+
+        .quote-block::after {
+            content: "”";
+            bottom: 0px;
+            right: 10px;
+        }
+
+        .blue-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: blue;
+            margin: 20px 0;
+        }
+
+        .left-column ul, .left-column ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .left-column li {
+            margin-bottom: 5px;
+        }
+
+        /* Right Column Specifics */
+        .sidebar-quote {
+            background-color: white;
+            border: 1px dashed #ffcccc; /* Pink dashed border */
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #aa6666; /* Brownish-red text */
+            position: relative;
+        }
+
+        .sidebar-quote::before,
+        .sidebar-quote::after {
+            font-family: Georgia, serif;
+            font-size: 40px;
+            color: #ffcccc; /* Pink quote marks */
+            position: absolute;
+            line-height: 1;
+        }
+
+        .sidebar-quote::before {
+            content: "“";
+            top: 5px;
+            left: 5px;
+        }
+
+        .sidebar-quote::after {
+            content: "”";
+            bottom: -10px; /* Adjust to match visual */
+            right: 5px;
+        }
+
+        .sidebar-links p {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .sidebar-links strong {
+            color: #aa6666;
+        }
+
+        .mailing-list label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .mailing-list input[type="email"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .mailing-list input[type="submit"] {
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f5f5dc; /* Light beige background */
+            padding: 30px 0;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #aa6666;
+            margin: 0 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 10px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: flex-end;
+                margin-right: 0;
+            }
+
+            .hamburger-icon {
+                display: none; /* Hide hamburger on smaller screens if nav is always visible */
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 10px;
+                margin-right: 20px;
+            }
+
+            .main-content {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .left-column {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .right-column {
+                margin-left: 0;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 24px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .quote-block {
+                padding: 15px 20px;
+            }
+
+            .quote-block::before,
+            .quote-block::after {
+                font-size: 40px;
+            }
+
+            .sidebar-quote {
+                padding: 10px;
+            }
+
+            .sidebar-quote::before,
+            .sidebar-quote::after {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-box"></div>
+            <span class="logo-text">LexiYoga</span>
+        </div>
+        <div class="nav-menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">YOGA VIDEOS</a></li>
+                    <li><a href="#">YOGA POSES</a></li>
+                    <li><a href="#">YOGA REVIEWS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper">
+        <div class="main-content">
+            <div class="left-column">
+                <h1>Namati Yoga Bag Giveaway</h1>
+
+                <p>I'd like to thank Namati for sending me a lovely handmade knit yoga mat bag, accessory bag and a re-grip mat wash. I think it's such a unique and creative idea to knit yoga bags, as you can choose the pattern and color of your choice.</p>
+                <p>Namati has a whole page on their website about how colors affects us. I chose the color purple, since it's my favorite.</p>
+
+                <div class="quote-block">
+                    Choosing a purple mat or wearing purple active wear stimulates imagination, promotes creativity, and is uplifting. Purple can help you to re-balance your life and remove obstacles.
+                </div>
+
+                <div class="blue-placeholder"></div>
+
+                <p>The lacey pattern of the mat bag provides proper ventilation, especially if you're taking a hot yoga class, and your mat gets soaked. <a href="#">Manduka Yoga Mat</a> inside mine. This bag is quite a fashion statement, and is 100% cotton, so it's soft to touch and is machine washable.</p>
+                <p>The accessory bag is quite useful, as you can keep you keys, wallet, water bottle, or any other items you need to take to your yoga class. It's really a nice sized bag that's perfect for all your yoga class needs.</p>
+
+                <p>Here's the Namati story, and how they started out as a yoga mat bag company:</p>
+
+                <div class="quote-block">
+                    <p>We are a Canadian family company located in Kitchener, Ontario.</p>
+                    <p>A couple of years ago my sister and I were planning to attend a retreat in Toronto held by the Chopra Center. As part of the retreat they were holding introductory yoga classes.</p>
+                    <p>We created an attractive yoga mat bag out of 100% cotton that was travel friendly. We attended the retreat, fell in love with yoga, and had people asking about our bags.</p>
+                    <p>Namati was born.</p>
+                </div>
+
+                <h2>Win a free Namati Yoga Mat Bag</h2>
+                <p>Namati would like to send a free handmade yoga mat bag, accessory bag and re-grip mat spray to one lucky winner. You get to choose the color of the bags and the scent of the spray.</p>
+                <p>In order to win a Namati yoga mat bag, accessory bag and re-grip mat wash, these are the following steps you have to take:</p>
+                <ol>
+                    <li>Add LexiYoga on <a href="#">Twitter</a>.</li>
+                    <li>Add LexiYoga on <a href="#">Pintrest</a>.</li>
+                    <li>Become a fan on <a href="#">Facebook</a>.</li>
+                    <li>Subscribe on <a href="#">YouTube</a>.</li>
+                </ol>
+                <p>The winner will be announced on <strong>Sunday August 12th</strong>.</p>
+                <p>Good luck to everyone! This is my sixth giveaway on my website.</p>
+
+                <h3>Related Links</h3>
+                <ul>
+                    <li>See more <a href="#">Reviews</a>.</li>
+                    <li><a href="#">Champion USA Shape Wear Review</a></li>
+                    <li><a href="#">The Search for the Perfect Yoga Mat</a></li>
+                    <li><a href="#">The Original Yoga Sheep Skin Mat</a></li>
+                </ul>
+            </div>
+
+            <div class="right-column">
+                <div class="sidebar-quote">
+                    "You cannot always control what goes on outside. But you can always control what goes on inside." Mr. Yoga
+                </div>
+
+                <div class="sidebar-links">
+                    <p><strong>NEW</strong> - <a href="#">Advertise Your Business</a></p>
+                    <p><strong>Daily</strong> <a href="#">Horoscope</a></p>
+                    <p><strong>Add</strong> <a href="#">horoscopes to your site</a></p>
+                    <p><strong>Add</strong> <a href="#">Live Earth & Moon</a></p>
+                </div>
+
+                <h3>Mailing List</h3>
+                <div class="mailing-list">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <input type="submit" value="Subscribe">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2009-2023 Lexii Networking Ltd.</p>
+        <p>Design by <a href="#">Albino Blacksheep</a> with LexiYoga.</p>
+        <p>
+            <a href="#">HTML5</a>
+            <a href="#">About</a>
+            <a href="#">SiteMap</a>
+            <a href="#">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>
+```

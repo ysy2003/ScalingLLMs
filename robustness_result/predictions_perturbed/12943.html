@@ -1,0 +1,245 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lady Blabla at Showroom / Roomshow</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.5;
+        }
+
+        /* Top Blue Rectangle */
+        .top-blue-rect {
+            background-color: #0000FF;
+            width: 100%;
+            height: 200px; /* Approximate height from image */
+        }
+
+        /* Main Title */
+        .main-title {
+            color: #42aaff; /* Light blue color */
+            font-size: 2.5em; /* Large font size */
+            text-align: center;
+            margin: 40px 0;
+            font-weight: bold;
+            text-transform: uppercase; /* Matches image */
+            padding: 0 20px; /* Add some padding for smaller screens */
+        }
+
+        /* Content Wrapper for main text and credits */
+        .content-wrapper {
+            max-width: 800px; /* Constrain width as in image */
+            margin: 0 auto; /* Center the content */
+            padding: 20px; /* Add padding for spacing */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* Description Text */
+        .description-text {
+            color: #337ab7; /* Muted blue color */
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* Dividers */
+        .divider {
+            border-top: 1px solid #337ab7; /* Muted blue line */
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        /* Credits Section */
+        .credits-heading {
+            color: #337ab7; /* Muted blue color */
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase; /* Matches image */
+        }
+
+        .credits-list {
+            display: grid;
+            grid-template-columns: auto 1fr; /* Two columns: auto width for label, rest for value */
+            gap: 10px 20px; /* Space between rows and columns */
+            margin-bottom: 40px;
+        }
+
+        .credit-label {
+            color: #337ab7; /* Muted blue color */
+            font-weight: bold;
+            white-space: nowrap; /* Prevent label from wrapping */
+        }
+
+        .credit-value {
+            color: #000; /* Black color for values */
+        }
+
+        /* Footer Blue Rectangle */
+        .footer-blue-rect {
+            background-color: #0000FF;
+            height: 20px;
+            width: 50px; /* Small rectangle as in image */
+            margin: 40px auto 20px auto; /* Center horizontally, add vertical margin */
+        }
+
+        /* Footer Text */
+        .footer-text {
+            text-align: center;
+            font-size: 0.8em;
+            color: #000;
+            padding-bottom: 20px;
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333; /* Dark grey background */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            z-index: 1000; /* Ensure it stays on top */
+        }
+
+        .cookie-text {
+            font-size: 0.9em;
+            line-height: 1.4;
+            max-width: calc(100% - 50px); /* Leave space for the close button */
+        }
+
+        .cookie-link {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .close-button {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            margin-left: 20px;
+            line-height: 1; /* Ensure 'X' is vertically centered */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2em;
+                margin: 30px 0;
+            }
+
+            .description-text {
+                font-size: 1em;
+            }
+
+            .credits-heading {
+                font-size: 1.1em;
+            }
+
+            .credits-list {
+                grid-template-columns: 1fr; /* Stack labels and values on small screens */
+                gap: 5px 0;
+            }
+
+            .credit-label {
+                margin-bottom: 0; /* Reduce space between label and value */
+            }
+
+            .cookie-banner {
+                flex-direction: column; /* Stack items vertically */
+                text-align: center;
+                padding: 10px;
+            }
+
+            .cookie-text {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .close-button {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8em;
+                margin: 20px 0;
+            }
+
+            .top-blue-rect {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-blue-rect"></div>
+
+    <h1 class="main-title">LADY BLABLA AT SHOWROOM / ROOMSHOW</h1>
+
+    <div class="content-wrapper">
+        <p class="description-text">
+            SCHUELLER DE WAAL stages their Spring-Summer 2017 collection in a performance art
+            presentation evolving around 'being multidimensionally normal'. The performative piece
+            'Lady Blabla' humorously depicts on the relationships of designers with their agents and
+            muses and satirically illuminates on scenarios designers have to face in order to have
+            their workbeing seen.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2 class="credits-heading">CREDITS</h2>
+
+        <div class="credits-list">
+            <span class="credit-label">Art Direction:</span>
+            <span class="credit-value">SDW STUDIO</span>
+
+            <span class="credit-label">Photography:</span>
+            <span class="credit-value">Team Peter Stigter</span>
+
+            <span class="credit-label">Script and Performance:</span>
+            <span class="credit-value">Eva Bartels & Merante Tamar van Amersvoort</span>
+
+            <span class="credit-label">Make-Up:</span>
+            <span class="credit-value">Yokaw Pat</span>
+
+            <span class="credit-label">Hair:</span>
+            <span class="credit-value">Floor Kleyne</span>
+        </div>
+
+        <div class="divider"></div>
+    </div>
+
+    <div class="footer-blue-rect"></div>
+
+    <p class="footer-text">Imprint & Privacy</p>
+
+    <div class="cookie-banner">
+        <p class="cookie-text">
+            Cookies are used to optimise and continually improve the website. Through the continued use of the Web site, you agree to our use of cookies.
+        </p>
+        <a href="#" class="cookie-link">Privacy policy</a>
+        <span class="close-button">&times;</span>
+    </div>
+
+</body>
+</html>
+```

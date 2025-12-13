@@ -1,0 +1,500 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christ versus Religion, by Witness Lee</title>
+    <style>
+        /* General Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0ebe1; /* Light beige background */
+        }
+
+        a {
+            color: #990000; /* Red link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header-top {
+            background-color: #0000ff; /* Blue background */
+            height: 200px; /* Approximate height from image */
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 20px;
+        }
+
+        .header-content {
+            color: #fff;
+            padding-left: 20px;
+        }
+
+        .header-content h1 {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 48px;
+            margin: 0;
+            line-height: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .header-content p {
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-style: italic;
+            color: #ccc;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background-color: #786450; /* Dark brown/olive */
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-list li {
+            position: relative;
+            margin-right: 25px;
+        }
+
+        .nav-list a {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            padding: 5px 0;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav-list a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-list .dropdown-arrow::after {
+            content: '▼';
+            font-size: 8px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            background-color: #fff;
+            padding: 30px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumbs {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+        }
+
+        .article-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .excerpt-select-wrapper {
+            position: relative;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 3px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px; /* Adjust as needed */
+        }
+
+        .excerpt-select-wrapper::after {
+            content: '▼';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            color: #666;
+            pointer-events: none;
+        }
+
+        .excerpt-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            background-color: transparent;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #333;
+            -webkit-appearance: none; /* Remove default arrow for Chrome/Safari */
+            -moz-appearance: none; /* Remove default arrow for Firefox */
+            appearance: none; /* Remove default arrow */
+            cursor: pointer;
+        }
+
+        .excerpt-select:focus {
+            outline: none;
+        }
+
+        .article-body h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .article-body p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        .article-body p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .article-body em {
+            font-style: italic;
+        }
+
+        .article-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .article-links p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .article-links a {
+            color: #990000;
+            text-decoration: none;
+        }
+
+        .article-links a:hover {
+            text-decoration: underline;
+        }
+
+        .url-input-wrapper {
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .url-input {
+            width: calc(100% - 22px); /* Account for padding and border */
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #555;
+            background-color: #f9f9f9;
+        }
+
+        .back-to-top {
+            text-align: right;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .back-to-top a {
+            color: #666;
+        }
+
+        /* Footer Section */
+        .footer-main {
+            background-color: #786450; /* Dark brown/olive */
+            color: #fff;
+            padding: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 280px; /* Ensure columns don't get too small */
+            margin-bottom: 20px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-column h3 {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-column li::before {
+            content: '►'; /* Right-pointing triangle */
+            color: #fff;
+            font-size: 10px;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+        .footer-column a {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .footer-column p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 1em;
+        }
+
+        .footer-bottom-nav {
+            background-color: #786450; /* Dark brown/olive */
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom-nav .nav-list {
+            justify-content: center;
+        }
+
+        .footer-bottom-nav .nav-list li {
+            margin: 0 15px;
+        }
+
+        .footer-copyright {
+            background-color: #786450; /* Dark brown/olive */
+            color: #ccc;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright .copyright-text {
+            margin-right: 20px;
+            margin-bottom: 5px;
+        }
+
+        .footer-copyright .legal-links a {
+            color: #ccc;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 36px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-list li {
+                margin: 5px 0;
+            }
+
+            .footer-column {
+                flex: 1 1 100%; /* Stack columns */
+                padding: 0 10px;
+            }
+
+            .footer-bottom-nav .nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-bottom-nav .nav-list li {
+                margin: 5px 0;
+            }
+
+            .footer-copyright {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-copyright .copyright-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-copyright .legal-links a {
+                margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top {
+                height: 150px;
+            }
+            .header-content h1 {
+                font-size: 30px;
+            }
+            .header-content p {
+                font-size: 14px;
+            }
+            .article-title {
+                font-size: 24px;
+            }
+            .excerpt-select-wrapper {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-top">
+        <div class="container header-content">
+            <h1>Living Stream Ministry</h1>
+            <p>Publisher of Watchman Nee &amp; Witness Lee</p>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="dropdown-arrow">Witness Lee Excerpts</a></li>
+                <li><a href="#">Watchman Nee Excerpts</a></li>
+                <li><a href="#">All Online Publications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="#">&laquo; BACK</a> / LIFE VS. REGULATIONS
+            </div>
+
+            <h1 class="article-title">Christ versus Religion,<br>by Witness Lee</h1>
+
+            <div class="excerpt-select-wrapper">
+                <select class="excerpt-select">
+                    <option value="">More excerpts from this title...</option>
+                    <option value="#">Excerpt 1</option>
+                    <option value="#">Excerpt 2</option>
+                    <option value="#">Excerpt 3</option>
+                </select>
+            </div>
+
+            <div class="article-body">
+                <h2>LIFE VS. REGULATIONS</h2>
+                <p>John came neither eating nor drinking. He behaved utterly contrary to religion and human culture, and because of this the Pharisees and scribes, the religious people, said that he had a demon.</p>
+                <p>If any regulation is made saying that we should not eat or drink, it becomes a heavy burden. On the other hand, if any rule is made saying that we must eat and drink large amounts of food and liquid, this also becomes a heavy burden.</p>
+                <p>Hallelujah, there are no regulations! Are you hungry?</p>
+                <p>All the regulations of religion are just the heavy burden of verse 28. This is why the Lord Jesus exclaimed, "Come unto me, all ye that labor and are heavy laden.." There is no need for you to labor.</p>
+                <p>(<em>Christ versus Religion</em>, Chapter 3, by Witness Lee)</p>
+            </div>
+
+            <div class="article-links">
+                <p><a href="#">Read from the full text of this book</a></p>
+                <p><a href="#">Share by email</a></p>
+                <p>Link to this page (copy/paste):</p>
+                <div class="url-input-wrapper">
+                    <input type="text" class="url-input" value="http://www.ministrysamples.org/excerpts/LIFE-VREGULATIONS.HTML" readonly>
+                </div>
+            </div>
+
+            <div class="back-to-top">
+                <a href="#top">back to top</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-column">
+                <h3>Other Reading Online</h3>
+                <ul>
+                    <li><a href="#">Online Publications</a></li>
+                    <li><a href="#">Create a Scheduled Reading Plan</a></li>
+                    <li><a href="#">Electronic Publications (Kindle, EPUB, iSilo)</a></li>
+                    <li><a href="#">Online Recovery Version</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About Living Stream Ministry</h3>
+                <p>Living Stream Ministry publishes the works of Watchman Nee and Witness Lee, providing the authoritative and definitive collections of treasures from these two servants of the Lord Jesus Christ. The writings of Watchman Nee and Witness Lee focus on the enjoyment of the divine life, which all the believers possess, and on the building up of the church, the goal of God's work with man in this age.</p>
+            </div>
+        </div>
+    </footer>
+
+    <nav class="footer-bottom-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Witness Lee Excerpts</a></li>
+                <li><a href="#">Watchman Nee Excerpts</a></li>
+                <li><a href="#">All Online Publications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <span class="copyright-text">&copy; 2014 Living Stream Ministry. All rights reserved.</span>
+            <div class="legal-links">
+                <a href="#">Contact Us</a> | <a href="#">Sitemap</a> | <a href="#">Copyright Policy</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```

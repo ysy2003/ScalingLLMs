@@ -1,0 +1,308 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap');
+
+        :root {
+            --primary-red: #A8202D; /* Estimated from image */
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --footer-bg: #000000;
+            --line-gray: #CCCCCC;
+            --menu-text-color: #666666; /* Lighter gray for menu text */
+        }
+
+        /* Universal box-sizing and reset margins/paddings */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FFFFFF; /* Main background is white */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures footer sticks to bottom */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header/Menu Section */
+        .header-menu {
+            position: absolute; /* Position relative to body */
+            top: 40px; /* Spacing from top */
+            left: 50px; /* Spacing from left */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            color: var(--menu-text-color);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-icon {
+            width: 25px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distributes lines vertically */
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 2px;
+            background-color: var(--text-dark);
+            width: 100%;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1; /* Allows it to take up available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center content */
+            align-items: center; /* Horizontally center content */
+            padding: 100px 20px; /* Add some padding around content */
+            text-align: center;
+        }
+
+        .error-heading {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem); /* Responsive font size */
+            color: var(--primary-red);
+            text-transform: uppercase;
+            line-height: 0.9; /* Tighter line height */
+            margin-bottom: 30px; /* Space before the line */
+            max-width: 800px; /* Limit width for very large screens */
+            word-break: break-word; /* Ensure long words break */
+        }
+
+        .error-heading span {
+            display: block; /* Force "NOT EXIST" to new line */
+            margin-top: 20px; /* Space between "THIS PAGE DOES" and "NOT EXIST" */
+        }
+
+        .separator-line {
+            width: clamp(200px, 70vw, 600px); /* Responsive width for the line */
+            border-bottom: 1px solid var(--line-gray);
+            margin-bottom: 30px; /* Space after the line */
+        }
+
+        .error-message {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-dark);
+            max-width: 400px;
+            margin-bottom: 100px; /* Space before back to top */
+        }
+
+        .back-to-top {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-top: auto; /* Pushes it to the bottom of the main-content */
+            margin-bottom: 50px; /* Space above footer */
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--text-light);
+            padding: 60px 50px; /* Adjust padding */
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px; /* Gap between columns */
+            font-size: 0.85rem;
+        }
+
+        .footer-section {
+            flex: 1; /* Allow sections to grow */
+            min-width: 200px; /* Minimum width before wrapping */
+            max-width: 300px; /* Max width for columns */
+        }
+
+        .footer-section h4 {
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .footer-copyright {
+            text-align: right;
+            flex-basis: 100%; /* Takes full width on its own line */
+            margin-top: 40px; /* Space above copyright */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Aligns text to the right */
+            gap: 5px;
+        }
+
+        .footer-copyright a {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-menu {
+                top: 20px;
+                left: 20px;
+            }
+
+            .main-content {
+                padding: 80px 20px 50px;
+            }
+
+            .error-heading {
+                margin-bottom: 20px;
+            }
+
+            .error-heading span {
+                margin-top: 15px;
+            }
+
+            .separator-line {
+                margin-bottom: 20px;
+            }
+
+            .error-message {
+                margin-bottom: 60px;
+            }
+
+            .footer {
+                flex-direction: column; /* Stack footer sections */
+                align-items: center; /* Center items when stacked */
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .footer-section {
+                min-width: unset; /* Remove min-width for stacking */
+                max-width: 100%;
+            }
+
+            .footer-copyright {
+                text-align: center;
+                align-items: center; /* Center copyright text when stacked */
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-menu {
+                top: 15px;
+                left: 15px;
+            }
+
+            .main-content {
+                padding: 60px 15px 40px;
+            }
+
+            .error-heading {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+
+            .error-heading span {
+                margin-top: 10px;
+            }
+
+            .error-message {
+                font-size: 0.85rem;
+                margin-bottom: 40px;
+            }
+
+            .back-to-top {
+                font-size: 0.8rem;
+                margin-bottom: 30px;
+            }
+
+            .footer {
+                padding: 30px 15px;
+                gap: 30px;
+            }
+
+            .footer-section h4 {
+                font-size: 0.85rem;
+            }
+
+            .footer-section p {
+                font-size: 0.8rem;
+            }
+
+            .footer-copyright {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-menu">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        MENU
+    </div>
+
+    <main class="main-content">
+        <h1 class="error-heading">
+            THIS PAGE DOES <span>NOT EXIST</span>
+        </h1>
+        <div class="separator-line"></div>
+        <p class="error-message">
+            Please use the menu above to find what you were looking for.
+        </p>
+        <a href="#" class="back-to-top">BACK TO TOP</a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>LOCATION</h4>
+            <p>112 E. HARGETT STREET</p>
+            <p>RALEIGH, NC 27601</p>
+        </div>
+        <div class="footer-section">
+            <h4>CONTACT</h4>
+            <p>[PHONE REDACTED]</p>
+            <p>[EMAIL REDACTED]</p>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; FWV 2023</p>
+            <a href="#">PRIVACY POLICY</a>
+        </div>
+    </footer>
+</body>
+</html>
+```

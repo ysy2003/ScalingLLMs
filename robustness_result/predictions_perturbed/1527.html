@@ -1,0 +1,370 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Supply Co.</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* Top Right Blue Box - positioned absolutely to match image */
+        .top-right-blue-box {
+            background-color: #0000FF;
+            width: 150px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        /* Header Section */
+        .header {
+            padding-top: 15px; /* Space from top edge */
+            max-width: 960px;
+            margin: 0 auto;
+            padding-left: 15px; /* Align with main content */
+            padding-right: 15px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow navigation items to wrap */
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            padding-top: 20px; /* Space below header */
+            max-width: 960px;
+            margin: 0 auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            box-sizing: border-box;
+        }
+
+        .left-column {
+            flex: 2; /* Takes more space */
+            min-width: 300px; /* Minimum width before wrapping */
+            padding-right: 30px; /* Space between columns */
+            box-sizing: border-box;
+        }
+
+        .right-column {
+            flex: 1; /* Takes less space */
+            min-width: 200px; /* Minimum width before wrapping */
+            padding-left: 30px; /* Space between columns */
+            box-sizing: border-box;
+        }
+
+        /* Blue Boxes in Main Content */
+        .blue-box {
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+        .blue-box.small {
+            width: 100px;
+            height: 30px;
+            display: inline-block; /* For side-by-side */
+            vertical-align: middle;
+        }
+        .blue-box.medium {
+            width: 150px;
+            height: 30px;
+            display: inline-block; /* For side-by-side */
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .blue-box.large {
+            width: 100%;
+            height: 50px;
+        }
+        .blue-box.right-column-large {
+            width: 150px; /* Approximate width */
+            height: 150px; /* Approximate height */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        /* Typography and specific elements */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .model-info {
+            font-size: 18px;
+            font-weight: normal; /* Overall normal, specific parts bold */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .model-info .model-name,
+        .model-info .bold-text {
+            font-weight: bold;
+        }
+
+        .red-text {
+            color: #FF0000;
+        }
+        .bold-text {
+            font-weight: bold;
+        }
+
+        .product-description p {
+            margin-bottom: 15px;
+        }
+
+        .specifications h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .specifications ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .specifications ul li {
+            margin-bottom: 5px;
+        }
+
+        .buy-confidence, .need-help {
+            margin-bottom: 20px;
+        }
+        .buy-confidence h3, .need-help h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FF0000;
+            margin-bottom: 5px;
+        }
+        .need-help p {
+            margin-top: 0;
+        }
+        .need-help .contact-info {
+            font-weight: bold;
+        }
+
+        .right-column-links ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .right-column-links ul li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .right-column-links a {
+            text-decoration: none;
+            color: #000;
+        }
+        .contact-email {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            margin-top: 40px;
+            font-size: 12px;
+        }
+
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px; /* Adjusted min-width for better distribution */
+            margin-bottom: 20px;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+        .footer-column:last-child {
+            padding-right: 0;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            box-sizing: border-box;
+        }
+        .footer-bottom a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .header-nav {
+                padding-top: 10px;
+            }
+            .top-right-blue-box {
+                width: 100px;
+                height: 30px;
+            }
+
+            .main-content {
+                flex-direction: column;
+            }
+
+            .left-column, .right-column {
+                padding-right: 0;
+                padding-left: 0;
+                width: 100%;
+                flex: none; /* Remove flex sizing */
+            }
+            .right-column {
+                margin-top: 30px; /* Add space when stacked */
+            }
+            .blue-box.right-column-large {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-column {
+                width: 100%;
+                text-align: center;
+                padding-right: 0;
+            }
+            .footer-column ul {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+            .header-nav a {
+                font-size: 13px;
+            }
+            .model-info {
+                font-size: 16px;
+            }
+            .red-text {
+                font-size: 13px;
+            }
+            .contact-email {
+                font-size: 14px;
+            }
+            .footer-column h4 {
+                font-size: 13px;
+            }
+            .footer-bottom {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right-blue-box"></div>
+
+    <header class="header">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Guarantee</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Sale</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="left-column">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <div class="blue-box small"></div>
+                <div class="blue-box medium"></div>
+            </div>
+
+            <p class="model-info">
+                Model: <span class="model-name">BE350C</span> <span class="bold-text">RBC 35</span> COMPATIBLE
+            </p>
+
+            <p class="red-text">
+                Please look at the MODEL Number on your unit to make sure this is the<br>
+                RIGHT battery. Many people order the wrong battery on this model!!!
+            </p>
+
+            <div class="blue-box large" style="margin-top: 20px;"></div>
+
+            <div class="product-description">
+                <p>
+                    Brand new replacement battery cartridge for a APC BE350C. Consist of (1) 12CE3 battery.
+                    <span class="bold-text">Ship weight for <span class="red-text">APC Back-

@@ -1,0 +1,153 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Parker Family</title>
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #333333; /* Overall dark background */
+            display: flex; /* For sidebar and main content */
+            min-height: 100vh; /* Ensure body takes full height */
+        }
+
+        .sidebar {
+            width: 200px; /* Fixed width for sidebar */
+            background-color: #222222; /* Darker background for sidebar */
+            color: #cccccc;
+            padding-top: 20px; /* Top padding for the sidebar content */
+            position: fixed; /* Keep sidebar fixed */
+            height: 100vh; /* Full height */
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar nav a {
+            color: #cccccc;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            display: block;
+            padding: 5px 0 5px 20px; /* Indent the links */
+            letter-spacing: 0.05em;
+        }
+
+        .sidebar nav a:hover {
+            color: #ffffff;
+        }
+
+        .main-content-area {
+            flex-grow: 1; /* Take remaining space */
+            margin-left: 200px; /* Offset for fixed sidebar */
+            display: flex;
+            flex-direction: column; /* Stack header, blog, footer vertically */
+        }
+
+        .top-section, .bottom-section {
+            background-color: #333333; /* Dark background */
+            color: #cccccc;
+            padding: 60px 0; /* Vertical padding only */
+            text-align: left;
+        }
+
+        .top-section h1 {
+            font-family: Georgia, serif;
+            font-size: 36px; /* Large font size */
+            line-height: 1.2;
+            font-weight: normal; /* Image text doesn't look bold */
+            max-width: 740px; /* Content width */
+            margin: 0 auto; /* Center the text */
+            padding: 0 80px; /* Horizontal padding to align with blog content */
+        }
+
+        .bottom-section {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .bottom-section .footer-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin: 0 auto 10px auto; /* Center and add bottom margin */
+            color: #cccccc;
+            font-family: Arial, Helvetica, sans-serif; /* Footer title is sans-serif */
+            max-width: 740px; /* Align with content width */
+            padding: 0 80px; /* Horizontal padding */
+        }
+
+        .bottom-section .footer-tagline {
+            font-family: Arial, Helvetica, sans-serif; /* Sans-serif, regular */
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: normal;
+            max-width: 740px; /* Align with content width */
+            margin: 0 auto; /* Center the text */
+            padding: 0 80px; /* Horizontal padding */
+        }
+
+        .blog-section-wrapper {
+            background-color: #ffffff; /* White background for blog content */
+            max-width: 900px; /* Max width of the white content block */
+            margin: 0 auto; /* Center the white content block */
+            padding: 60px 80px; /* Padding inside the white block */
+            width: 100%; /* Ensure it takes full width up to max-width */
+        }
+
+        .post {
+            margin-bottom: 40px; /* Space between posts */
+        }
+
+        .post:last-child {
+            margin-bottom: 0; /* No margin after the last post */
+        }
+
+        .post h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            color: #333333;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .post .post-meta {
+            font-size: 12px;
+            color: #666666;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .post p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .post a {
+            color: #0000ff; /* Blue links */
+            text-decoration: none;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+        

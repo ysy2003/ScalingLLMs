@@ -1,0 +1,323 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locksmith Services</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark gray background */
+            color: #333; /* Default text color for main content */
+            line-height: 1.6;
+            font-size: 14px; /* Base font size */
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto; /* Center the container */
+            background-color: #ccc; /* Lighter gray background for content area */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: subtle shadow */
+            padding-bottom: 20px; /* Space above footer */
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background-color: #ccc; /* Same as container background */
+            padding: 10px 20px;
+            text-align: right; /* Align links to the right */
+            border-bottom: 1px solid #bbb; /* Subtle separator */
+        }
+
+        .header-nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 13px;
+            white-space: nowrap; /* Prevent links from wrapping */
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            padding: 20px;
+            gap: 20px; /* Space between columns */
+        }
+
+        .main-column {
+            flex: 2; /* Takes 2 parts of available space */
+            min-width: 300px; /* Minimum width before wrapping */
+        }
+
+        .sidebar {
+            flex: 1; /* Takes 1 part of available space */
+            min-width: 250px; /* Minimum width before wrapping */
+        }
+
+        /* Emergency Service Section */
+        .emergency-service {
+            background-color: #000;
+            color: #f00; /* Red text */
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Blue Box Placeholder */
+        .blue-box {
+            background-color: #0000FF;
+            width: 100%; /* Fills available width */
+            height: 250px; /* Fixed height as per image */
+            margin-bottom: 20px;
+        }
+
+        /* Text Paragraphs */
+        .main-column p {
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        /* Sidebar Sections */
+        .sidebar-section {
+            margin-bottom: 20px;
+            background-color: #fff; /* White background for content */
+            border: 1px solid #bbb; /* Subtle border */
+        }
+
+        .sidebar-section-header {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .sidebar-section-content {
+            padding: 10px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .sidebar-section-content p {
+            margin: 0 0 10px 0;
+        }
+
+        .sidebar-section-content ul {
+            list-style-type: none; /* Remove default bullet */
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-section-content ul li {
+            margin-bottom: 5px;
+            padding-left: 15px; /* Indent for custom bullet */
+            position: relative;
+        }
+
+        .sidebar-section-content ul li::before {
+            content: '*'; /* Custom bullet */
+            position: absolute;
+            left: 0;
+            color: #333; /* Bullet color */
+            font-weight: bold;
+        }
+
+        /* Specific sidebar elements */
+        .sidebar-services-blue-box {
+            background-color: #0000FF;
+            width: 100px; /* Smaller blue box */
+            height: 80px;
+            float: right; /* Position to the right */
+            margin-left: 10px;
+            margin-bottom: 10px; /* Clear float below */
+        }
+
+        .sidebar-services-content::after {
+            content: "";
+            display: table;
+            clear: both; /* Clear float after content */
+        }
+
+        .sidebar-section-content a {
+            color: #0000FF; /* Blue link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sidebar-section-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333; /* Dark gray, same as body */
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            border-top: 1px solid #444; /* Subtle separator */
+        }
+
+        /* Specific text bolding */
+        .bold-text { font-weight: bold; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column; /* Stack columns vertically */
+                padding: 15px;
+            }
+
+            .main-column, .sidebar {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                min-width: unset; /* Remove min-width constraint */
+            }
+
+            .header-nav {
+                text-align: center; /* Center nav links */
+                padding: 10px;
+            }
+
+            .header-nav a {
+                margin: 0 10px; /* Adjust spacing */
+                display: inline-block; /* Allow wrapping if needed */
+            }
+
+            .emergency-service {
+                font-size: 16px;
+            }
+
+            .blue-box {
+                height: 180px; /* Adjust height for smaller screens */
+            }
+
+            .sidebar-services-blue-box {
+                float: none; /* Remove float */
+                margin: 10px auto; /* Center the box */
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+            .container {
+                padding-bottom: 10px;
+            }
+            .header-nav a {
+                font-size: 12px;
+                margin: 0 5px;
+            }
+            .emergency-service {
+                font-size: 14px;
+                padding: 8px;
+            }
+            .blue-box {
+                height: 120px;
+            }
+            .main-column p, .sidebar-section-content {
+                font-size: 12px;
+            }
+            .sidebar-section-header {
+                font-size: 13px;
+                padding: 6px 8px;
+            }
+            .footer {
+                font-size: 10px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-nav">
+            <a href="#">Home</a>
+            <a href="#">Services/Testimonials</a>
+            <a href="#">Trusted Trades</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="main-column">
+                <div class="emergency-service">
+                    24/7 Emergency Service - [PHONE REDACTED]
+                </div>
+                <div class="blue-box"></div>
+
+                <p>A complete Mobile Locksmith and Security service available to you <span class="bold-text">24 hours a day, 7 days a week and 365 days a year</span>. As a local <span class="bold-text">independent</span> business we operate within a 25 mile radius of Lisburn but can and will travel province wide under prior arrangement. We do not charge <span class="bold-text">'call out' fees</span> and we do not charge <span class="bold-text">by the hour</span>.</p>
+
+                <p>We have over 28 years experience in the Security Industry and a proven track record. Our Locksmiths are <span class="bold-text">City & Guilds acredited</span> in all Locksmith disciplines including <span class="bold-text">Advanced Automotive</span>.</p>
+
+                <p>We are bound by <span class="bold-text">ethical work practices</span>, are <span class="bold-text">security cleared</span>, <span class="bold-text">vetted</span> and carry <span class="bold-text">Identity Cards</span>. We also carry extensive <span class="bold-text">public liability</span> and <span class="bold-text">trade</span> insurance.</p>
+
+                <p>We are passionate about our work and trade therefore can afford to deliver you a <span class="bold-text">reliable</span>, <span class="bold-text">prompt</span>, <span class="bold-text">professional</span> and <span class="bold-text">courteous</span> service which is second to none at a price you can afford. We are <span class="bold-text">big enough to cope but small enough to care</span>. <span class="bold-text">Honesty</span>, <span class="bold-text">Integrity</span> and <span class="bold-text">Discretion</span> are not just words to us, they are our fundimental beliefs.</p>
+
+                <p>We can assist you whether you are an <span class="bold-text">Automotive</span>, <span class="bold-text">Commercial</span>, <span class="bold-text">Industrial</span>, <span class="bold-text">Private</span> or <span class="bold-text">Residential</span> customer. We use <span class="bold-text">non-destructive</span> entry techniques wherever possible, our materials are <span class="bold-text">British Standard</span> and conform to <span class="bold-text">Insurance Company requirements</span>. All materials and work carried out by us is <span class="bold-text">guaranteed</span>.</p>
+            </div>
+
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">Services</div>
+                    <div class="sidebar-section-content sidebar-services-content">
+                        <div class="sidebar-services-blue-box"></div>
+                        <p>We offer many, varied services...</p>
+                        <p><a href="#">Click to Find out more</a></p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">Get In Touch...</div>
+                    <div class="sidebar-section-content">
+                        <p>The best way to get in touch is to ring us on:</p>
+                        <p><span class="bold-text">24 Hour Mobile - [PHONE REDACTED]</span><br>
+                        or <a href="#">click here to email us</a></p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">What We Don't Do ...</div>
+                    <div class="sidebar-section-content">
+                        <ul>
+                            <li>Charge call-out fees</li>
+                            <li>Charge rip-off prices</li>
+                            <li>Have uncertified locksmiths</li>
+                            <li>Use cheap and budget locks</li>
+                            <li>Have a catchy business name with a confusing website</li>
+                            <li>Appear on rogue trader tv programs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">We are...</div>
+                    <div class="sidebar-section-content">
+                        <p>We are a good, honest locksmith business providing support to the whole community 24 hours a day, 7 days a week.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2010 <span class="bold-text">Unit 50 Design</span> All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
+```

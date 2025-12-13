@@ -1,0 +1,355 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dart News & Updates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            color: #1a73e8; /* A common blue for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px; /* Based on visual estimation */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 40px 20px;
+            max-width: 960px; /* Constrain header content width */
+            margin: 0 auto;
+        }
+
+        .header-left {
+            flex-grow: 1;
+            padding-right: 20px; /* Space between text and search */
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 15px;
+            margin: 0;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .header-right {
+            text-align: right;
+            padding-top: 5px; /* Align search link visually */
+        }
+
+        .header-right a {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1a73e8;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            display: flex;
+            flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+            margin-top: 20px;
+        }
+
+        .featured-left {
+            flex: 1;
+            background-color: #346789; /* Dark blue/teal */
+            color: #fff;
+            padding: 60px 40px;
+            min-width: 300px; /* Ensure it doesn't get too small before stacking */
+        }
+
+        .featured-left h2 {
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 20px 0;
+        }
+
+        .featured-left p {
+            font-size: 15px;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .featured-right {
+            flex: 1.5; /* Visually, the right column is wider */
+            background-color: #e0ebf2; /* Light blue/gray */
+            padding: 60px 40px;
+            display: flex;
+            align-items: center;
+            min-width: 300px; /* Ensure it doesn't get too small before stacking */
+        }
+
+        .featured-right .dropcap-f {
+            font-family: 'Georgia', serif;
+            font-size: 70px; /* Large F */
+            font-weight: 400;
+            line-height: 1;
+            float: left; /* To make text wrap around it */
+            margin-right: 10px;
+            color: #346789; /* Dark blue/teal */
+        }
+
+        .featured-right p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            background-color: #346789; /* Dark blue/teal */
+            color: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 40px; /* Space from previous section */
+        }
+
+        .banner-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            max-width: 960px; /* Constrain banner text width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .main-content .date {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .main-content .dropcap-d {
+            font-family: 'Georgia', serif;
+            font-size: 60px; /* Large D */
+            font-weight: 400;
+            line-height: 1;
+            float: left;
+            margin-right: 10px;
+            margin-top: 5px; /* Adjust vertical alignment */
+            color: #333;
+        }
+
+        .main-content p {
+            margin-bottom: 1em;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .main-content p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .main-content strong {
+            display: block; /* Make bold titles stand out */
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .main-content em {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Tags Section */
+        .tags {
+            margin-top: 50px;
+            font-size: 13px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tags span {
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .footer a {
+            color: #1a73e8;
+            font-weight: 700;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .header-left {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            .header-right {
+                padding-top: 0;
+            }
+
+            .featured-section {
+                flex-direction: column; /* Stack columns */
+            }
+            .featured-left, .featured-right {
+                flex: none; /* Remove flex grow/shrink */
+                width: 100%; /* Take full width */
+                padding: 40px 20px;
+            }
+            .featured-left h2 {
+                font-size: 32px;
+            }
+            .featured-right .dropcap-f {
+                font-size: 60px;
+            }
+            .featured-right p {
+                font-size: 16px;
+            }
+
+            .banner-section {
+                padding: 60px 20px;
+            }
+            .banner-section h2 {
+                font-size: 36px;
+            }
+
+            .main-content {
+                padding: 40px 0;
+            }
+            .main-content .dropcap-d {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+            .featured-left h2 {
+                font-size: 28px;
+            }
+            .banner-section h2 {
+                font-size: 30px;
+            }
+            .main-content p, .main-content .date {
+                font-size: 14px;
+            }
+            .main-content strong {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <h1>DART NEWS & UPDATES</h1>
+            <p>Dart is an open-source, scalable programming language, with robust libraries and runtimes, for building web, server, and mobile apps.</p>
+        </div>
+        <div class="header-right">
+            <a href="#">SEARCH</a>
+        </div>
+    </header>
+
+    <section class="featured-section">
+        <div class="featured-left">
+            <h2>New site for Dart news and articles</h2>
+            <p>September 10, 2019</p>
+        </div>
+        <div class="featured-right">
+            <span class="dropcap-f">F</span>
+            <p>or the latest Dart news, visit our new blog at <a href="https://medium.com/dartlang">https://medium.com/dartlang</a> .</p>
+        </div>
+    </section>
+
+    <section class="banner-section">
+        <h2>Notes from January 7 language meeting</h2>
+    </section>
+
+    <main class="main-content container">
+        <p class="date">January 11, 2013</p>
+
+        <p>
+            <span class="dropcap-d">D</span>art engineer <a href="#">Bob Nystrom</a> has <a href="#">posted the notes</a> from the January 7th language design meeting. He writes:
+        </p>
+
+        <p>Here's my notes from this week's meeting:</p>
+
+        <strong>call() versus operator()</strong>
+        <p>Gilad brought up the perennial discussion of how classes that emulate functions should define that operation: as a method named call() or using an operator syntax.</p>
+        <p>Lars: What are problems with making it an operator?<br>Gilad: At this point I think we could. It's an incompatible change, but not a big deal.</p>
+
+        <strong>Configuration-specific code</strong>
+        <p>Gilad has a rough proposal he's working on for this.</p>
+
+        <strong>Method cascade grammar</strong>
+        <p><em>[Bob: I think the Dart implementations and spec are out of sync regarding how they handle precedence of method cascades in particular with respect to the ternary operator.]</em></p>
+        <p>Gilad: The grammar for cascades makes sense from perspective of someone looking at the grammar, but not as much for someone trying to program using them.</p>
+        <p>Kasper: There are a couple of corners of the grammar that are confusing and there have been bugs filed. Maybe we should take a look at moving some things around.</p>
+
+        <strong>Lazy loading libraries</strong>
+        <p>Lars: Something to move up on the list is lazy loading. Aarhus has started working on this.</p>
+        <p>Kasper: Should be able to compile into multiple specific files that are loaded somehow on demand and can be stitched together.</p>
+        <p>Gilad: This and configuration-specific code are somehow related.</p>
+
+        <p>Cheers!</p>
+        <p>As always, we invite you to join our <a href="#">Dart mailing list</a>, ask questions on <a href="#">Stack Overflow</a>, or file feature requests on <a href="#">dartbug.com</a>.</p>
+
+        <p class="tags">
+            <span>LIBRARY</span> , <span>NEWS</span>
+        </p>
+    </main>
+
+    <footer class="footer">
+        <a href="#">Powered by Blogger</a>
+    </footer>
+</body>
+</html>
+```

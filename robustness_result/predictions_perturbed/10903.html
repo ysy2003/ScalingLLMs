@@ -1,0 +1,228 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #444; /* Dark gray for general text */
+            line-height: 1.5;
+            font-size: 15px;
+            background-color: #fff; /* Ensure white background */
+        }
+
+        a {
+            color: #0066cc; /* Blue for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-end; /* Align nav items to the bottom of the blue box */
+            padding-left: 20px; /* Padding for the blue box */
+            padding-bottom: 10px; /* Padding below the nav items */
+            margin-bottom: 30px; /* Space below header */
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .blue-box {
+            width: 100px; /* Approximate width */
+            height: 80px; /* Approximate height */
+            background-color: #0000ff; /* Solid blue */
+            margin-right: 50px; /* Space between blue box and nav */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px; /* Space between nav items */
+        }
+
+        .nav-menu li a {
+            color: #444; /* Default nav link color */
+            font-size: 16px; /* Slightly larger for nav */
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: block; /* Make the whole padding area clickable */
+        }
+
+        .nav-menu li.active a {
+            background-color: #e0e0e0; /* Light gray background for active */
+            color: #666; /* Darker gray for active text */
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center; /* Center content if it wraps */
+            padding: 0 20px; /* Horizontal padding for content */
+            max-width: 1200px; /* Max width for content */
+            margin: 0 auto; /* Center content */
+            box-sizing: border-box;
+        }
+
+        .column {
+            flex: 1; /* Allow columns to grow */
+            min-width: 300px; /* Minimum width before wrapping */
+            padding: 0 20px; /* Padding between columns */
+            box-sizing: border-box;
+        }
+
+        /* Adjust padding for the first column to align with the left edge of the content wrapper */
+        .content-wrapper > .column:first-child {
+            padding-left: 0;
+        }
+
+        /* Adjust padding for the last column to align with the right edge of the content wrapper */
+        .content-wrapper > .column:last-of-type {
+            padding-right: 0;
+        }
+
+        .section {
+            margin-bottom: 30px; /* Space between sections */
+        }
+
+        .section p {
+            margin: 0; /* Remove default paragraph margin */
+            padding-bottom: 5px; /* Small space between lines */
+        }
+
+        .master-students h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333; /* Slightly darker for heading */
+        }
+
+        .bottom-section {
+            width: 100%; /* Full width for the bottom section */
+            padding: 30px 0; /* Vertical padding, horizontal handled by content-wrapper */
+            box-sizing: border-box;
+            margin-top: 30px; /* Space above this section */
+        }
+
+        .bottom-section p {
+            margin: 0;
+            padding-bottom: 8px; /* Space between paper entries */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 20px;
+                padding-left: 15px; /* Adjust header padding for smaller screens */
+            }
+
+            .blue-box {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                padding: 0 15px; /* Adjust content wrapper padding */
+            }
+
+            .column {
+                min-width: unset; /* Remove min-width for single column layout */
+                padding: 0; /* Remove column padding */
+                width: 100%; /* Full width */
+            }
+
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .bottom-section {
+                padding: 20px 0; /* Adjust padding */
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="blue-box"></div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="#">Members</a></li>
+                <li><a href="#">Papers</a></li>
+                <li><a href="#">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="column">
+            <div class="section">
+                <p><a href="#">Pietro Manzoni</a> [coordinator]</p>
+                <p><a href="#">Juan Carlos Cano</a></p>
+                <p><a href="#">Carlos Tavares Calafate</a></p>
+                <p><a href="#">Enrique Hernández</a></p>
+            </div>
+
+            <div class="section">
+                <p><a href="#">C.K. Toh</a> (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)</p>
+                <p><a href="#">Edjair Mota</a> (Institute of Computing at the Federal University of Amazonas - UFAM, BRASIL)</p>
+                <p><a href="#">Francisco Martínez</a> (Universidad de Zaragoza, SPAIN)</p>
+                <p>Piedad Garrido (Universidad de Zaragoza, SPAIN)</p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="section">
+                <p>Alicia Sepulveda Muñoz</p>
+                <p>(Advisor: José M. Cecilia, Carlos Periñán-Pascual)</p>
+                <p>Daniel Hernández</p>
+                <p>(Advisor: José María Cecilia)</p>
+                <p>Jamie Wubben</p>
+                <p>(Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</p>
+                <p>Juan José Franco Peñaranda</p>
+                <p>(Advisor: José M. Cecilia, Joaquín Lasheras)</p>
+            </div>
+
+            <div class="section master-students">
+                <h2>Master Students</h2>
+                <p>Cristian Villarroya</p>
+                <p>(Advisor: Juan Carlos Cano, Carlos Calafate)</p>
+                <p>José Daniel Padrón</p>
+                <p>(Advisor: Carlos Calafate, Juan Carlos Cano)</p>
+                <p>Julio José Fernández</p>
+                <p>(Advisor: José María Cecilia, Pietro Manzoni)</p>
+                <p>Pedro Garcia</p>
+                <p>(Advisor: José María Cecilia, Pietro Manzoni)</p>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <p>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</p>
+            <p>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</p>
+            <p>Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019</p>
+            <p>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</p>
+        </div>
+    </main>
+</body>
+</html>
+```

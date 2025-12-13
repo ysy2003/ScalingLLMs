@@ -1,0 +1,376 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Network Encyclopedia</title>
+    <style>
+        /* General Resets */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            font-weight: normal; /* Override default bold for headings */
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056b3; /* Dark blue */
+            color: white;
+            padding: 15px 5%;
+            height: 60px;
+            box-sizing: border-box;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .blue-square {
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .bar {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #6c757d; /* Dark gray */
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .sponsor {
+            font-size: 0.9em;
+        }
+
+        .sponsor-link {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+        }
+
+        .sponsor-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .main-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .resource-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .diamond-icon {
+            width: 12px;
+            height: 12px;
+            background-color: #007bff; /* Blue */
+            transform: rotate(45deg);
+            margin-right: 15px;
+            margin-top: 5px; /* Adjust to align with text baseline */
+            flex-shrink: 0;
+        }
+
+        .resource-list li p {
+            margin: 0; /* Reset paragraph margin inside list item */
+        }
+
+        /* Search Section */
+        .search-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .search-input {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 1em;
+            width: 250px;
+            margin-right: 10px;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 1em;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search-button:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #343a40; /* Very dark gray */
+            color: #adb5bd; /* Light gray */
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 3%;
+                height: auto;
+            }
+            .navbar-brand {
+                font-size: 1.2em;
+            }
+            .blue-square {
+                width: 20px;
+                height: 20px;
+            }
+            .hamburger-menu {
+                width: 25px;
+                height: 20px;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero-subtitle {
+                font-size: 1em;
+            }
+
+            .main-content {
+                padding: 30px 15px;
+            }
+            .main-content h2 {
+                font-size: 1.7em;
+            }
+            .resource-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .diamond-icon {
+                margin-bottom: 10px;
+                margin-top: 0;
+            }
+
+            .search-section {
+                flex-direction: column;
+                padding: 30px 15px;
+            }
+            .search-input {
+                width: 80%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .search-button {
+                width: 80%;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 40px 15px;
+            }
+            .footer-column {
+                margin-bottom: 30px;
+                min-width: unset;
+                width: 100%;
+            }
+            .footer-column:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-left">
+            <div class="blue-square"></div>
+            <span class="navbar-brand">The Network Encyclopedia</span>
+        </div>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>resource on a<br>network</h1>
+            <p class="hero-subtitle">Definition of resource on a network in The Network Encyclopedia.</p>
+            <p class="sponsor">Sponsor: <a href="#" class="sponsor-link">Geeky T-Shirt: No, I Will Not Fix Your Computer (Amazon)</a></p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <h2>What is Resource on a Network?</h2>
+        <p>Any files, applications, or devices on a network that users need access to. Examples of network resources include the following:</p>
+        <ul class="resource-list">
+            <li>
+                <span class="diamond-icon"></span>
+                <p><strong>Shared folders and volumes:</strong><br>Contain files that users need to access.</p>
+            </li>
+            <li>
+                <span class="diamond-icon"></span>
+                <p><strong>Shared printers:</strong><br>Allow many users to print to a single print device. You can control access to the printer by using print permissions and by setting priorities and times for accessing printers.</p>
+            </li>
+            <li>
+                <span class="diamond-icon"></span>
+                <p><strong>Applications:</strong><br>Allow users to access back-end applications (such as databases) using front-end clients. These applications can be standard .exe executables or scripted Web server applications such as those developed using Microsoft Active Server Pages (ASP) technology.</p>
+            </li>
+            <li>
+                <span class="diamond-icon"></span>
+                <p><strong>Web servers:</strong><br>Allow HTML-based documents and applications to be shared and accessed from any platform by using a standard Web browser such as Microsoft Internet Explorer.</p>
+            </li>
+        </ul>
+    </main>
+
+    <section class="search-section">
+        <input type="text" placeholder="Search The Encyclopedia" class="search-input">
+        <button class="search-button">Search</button>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>Encyclopedia</h3>
+            <ul>
+                <li><a href="#">About Us and Contact Info</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Manufacturers</h3>
+            <ul>
+                <li><a href="#">Cisco products</a></li>
+                <li><a href="#">HP</a></li>
+                <li><a href="#">D-Link</a></li>
+                <li><a href="#">DELL</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Technology Trends</h3>
+            <ul>
+                <li><a href="#">Cloud</a></li>
+                <li><a href="#">Virtualization</a></li>
+                <li><a href="#">IPv6</a></li>
+                <li><a href="#">Open Network Environment</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+```

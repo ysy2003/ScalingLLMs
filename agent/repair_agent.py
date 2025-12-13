@@ -7,39 +7,13 @@ import importlib.metadata
 import asyncio
 import time
 import json
-import vertexai
 from playwright.sync_api import sync_playwright
-from vertexai.generative_models import GenerativeModel, Part
 from metrics import correctness, efficiency, robustness, structural_alignment
 from metrics.structural_alignment import compute_structural_alignment_scores
-from google import genai
-from google.genai.types import HttpOptions, Part
 from google.cloud import storage
 
-class GeminiModel:
-    def __init__(self, project_id, location, model_name):
-        self.client = genai.Client(
-            vertexai=True,
-            location=location,  
-            project=project_id,
-            http_options=HttpOptions(api_version="v1")
-        )
-        self.model_name = model_name
+from agent.langchain_agent import AgentConfig, LangChainRepairAgent
 
-    def generate_content(self, contents):
-        if isinstance(contents, str):
-            contents = [contents]
-
-        generate_content_config = genai.types.GenerateContentConfig(
-            temperature=0,
-            max_output_tokens=9000
-        )
-        response = self.client.models.generate_content(
-            model=self.model_name,
-            contents=contents,
-            config=generate_content_config
-        )
-        return response
 
 
 # If 'packages_distributions' is unavailable, provide a fallback or handle the error gracefully
@@ -47,7 +21,7 @@ if not hasattr(importlib.metadata, 'packages_distributions'):
     print("⚠️ Warning: 'packages_distributions' is not available in 'importlib.metadata'.")
     # Add fallback logic here if necessary
 
-def generate_html_css(model, file_path, row_index: int = 0, html_column: Optional[str] = None):
+def generate_html_css(agent, file_path, row_index: int = 0, html_column: Optional[str] = None):
     """
     Load initial HTML based on file type:
     - .html / .htm: Read as UTF-8 text
@@ -62,12 +36,11 @@ def generate_html_css(model, file_path, row_index: int = 0, html_column: Optiona
         with open(file_path, "rb") as f:
             img_bytes = f.read()
 
-        image_part = Part.from_bytes(data=img_bytes, mime_type="image/png")
+        image_part = agent.build_multimodal_part(data=img_bytes, mime_type="image/png")
         prompt = "You are a design-to-code engine. Generate clean, responsive HTML+CSS for this landing page."
 
-        response = model.generate_content([image_part, prompt])
-        text = response.text if hasattr(response, "text") else str(response)
-        return text
+        response = agent.generate_content([image_part, prompt])
+        return response if isinstance(response, str) else str(response)
 
     # 1) Pure HTML files, keep original logic
     if ext in [".html", ".htm"]:
@@ -325,53 +298,6 @@ def evaluate_metrics(screenshot_path, ground_truth_path):
             "accessibility_score": 0.0,
         }
 
-# Repair local errors in HTML/CSS
-def call_model_for_repair(model, broken_html: str, errors: list, metrics: Optional[dict] = None) -> str:
-    """
-    Construct a prompt to call the Gemini model to repair broken HTML.
-    """
-    print("🤖 Calling Gemini model for code repair...")
-    error_summary = "\n".join(f"- {e}" for e in errors) or "No runtime errors, but structural/semantic metrics are low."
-
-    metrics_summary = ""
-    if metrics:
-        metrics_summary = (
-            f"\nCurrent metrics:\n"
-            f"- tree_edit_similarity: {metrics.get('tree_edit_similarity', 0.0):.3f}\n"
-            f"- semantic_html_ratio: {metrics.get('semantic_html_ratio', 0.0):.3f}\n"
-            f"- accessibility_score: {metrics.get('accessibility_score', 0.0):.3f}\n"
-            "Your goal is to increase structural similarity and semantic ratio while preserving the overall layout intent.\n"
-        )
-
-    prompt = f"""
-You are an expert front-end engineer.
-
-Your task is to **incrementally repair** the provided HTML code based on the browser error logs and the current quality metrics.
-
-Rules:
-1. Preserve the overall layout and high-level structure whenever possible; prefer minimal edits instead of rewriting everything.
-2. Fix syntax issues (unclosed tags, wrong nesting, missing <html>/<body>/<head> etc.) so that the page renders without errors.
-3. Improve semantic structure: use <header>, <nav>, <main>, <section>, <footer> etc. where appropriate.
-4. Do not remove existing IDs/classes unless they are clearly broken.
-5. Output **only** the full corrected HTML file, no explanations, no comments, no markdown.
-
-Current browser errors:
-{error_summary}
-{metrics_summary}
-
-BROKEN HTML CODE:
-```html
-{broken_html}
-
-
-Now return the complete corrected HTML file:
-"""
-
-    repaired_code = model.generate_content(prompt)
-    if not isinstance(repaired_code, str):
-        repaired_code = repaired_code.text
-
-    return repaired_code.strip().removeprefix("```html").removesuffix("```")
 
 def extract_html_from_response(cell_value: str) -> str:
     if not isinstance(cell_value, str):
@@ -406,7 +332,7 @@ def download_html_from_gcs(gcs_uri: str, local_path: str):
     except Exception as e:
         print(f"❌ Error downloading {gcs_uri}: {e}")
 
-def process_excel_file(model, excel_path, max_files, max_attempts=3):
+def process_excel_file(agent, excel_path, max_files, max_attempts=3):
     """
     Process rows in an Excel file for repair.
 
@@ -461,7 +387,7 @@ def process_excel_file(model, excel_path, max_files, max_attempts=3):
 
             # Use temp_html as the starting point and ground_truth_path as the reference
             metrics, logs = repair_loop(
-                model,
+                agent,
                 temp_html_path,
                 ground_truth_html_path=ground_truth_path,
                 max_attempts=max_attempts,
@@ -477,7 +403,7 @@ def process_excel_file(model, excel_path, max_files, max_attempts=3):
     except Exception as e:
         print(f"❌ Error processing Excel file: {e}")
 
-def repair_loop(model, html_file_path, ground_truth_html_path=None, max_attempts: int = 3):
+def repair_loop(agent, html_file_path, ground_truth_html_path=None, max_attempts: int = 3):
     """
     Perform the repair loop for a given HTML file.
 
@@ -494,7 +420,7 @@ def repair_loop(model, html_file_path, ground_truth_html_path=None, max_attempts
     os.makedirs(output_dir, exist_ok=True)
 
     # Load the initial HTML (can be .html or .xlsx)
-    html = generate_html_css(model, html_file_path)
+    html = generate_html_css(agent, html_file_path)
 
     # Print a snippet of the HTML for debugging purposes
     print("Initial HTML snippet (first 300 chars):")
@@ -540,7 +466,7 @@ def repair_loop(model, html_file_path, ground_truth_html_path=None, max_attempts
             print("\n⚠️ Reached maximum attempts without obtaining valid HTML.")
             break
 
-        html = call_model_for_repair(model, html, captured_errors, metrics)
+        html = agent.repair_html(html, captured_errors, metrics)
         print(f"Length of repaired HTML: {len(html)}")
 
     # Save logs to the output directory
@@ -580,7 +506,8 @@ if __name__ == "__main__":
     print(f"Max Files: {MAX_FILES}")
     print(f"----------------------------")
 
-    model = GeminiModel(project_id=GCP_PROJECT_ID, location=GCP_REGION, model_name=MODEL_ID)
+    agent_config = AgentConfig.from_yaml(config)
+    agent = LangChainRepairAgent(agent_config)
 
     # Process the Excel file
-    process_excel_file(model, TEST_FILE_PATH, MAX_FILES)
+    process_excel_file(agent, TEST_FILE_PATH, MAX_FILES)

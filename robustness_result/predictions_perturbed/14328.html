@@ -1,0 +1,389 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embrace The Suck</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        a {
+            color: #1a73e8; /* Google's blue, common for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 30px;
+        }
+
+        .blog-title {
+            font-size: 28px;
+            color: #1a73e8;
+            margin: 0 0 5px 0;
+            font-weight: normal;
+        }
+
+        .blog-subtitle {
+            font-size: 14px;
+            color: #777;
+            margin: 0;
+        }
+
+        /* Main Blog Post */
+        .blog-post {
+            padding-bottom: 30px;
+        }
+
+        .post-title {
+            font-size: 22px;
+            margin: 0 0 5px 0;
+            font-weight: normal;
+        }
+
+        .post-date {
+            font-size: 12px;
+            color: #777;
+            margin: 0 0 20px 0;
+        }
+
+        .blog-post p {
+            margin-bottom: 15px;
+        }
+
+        .blog-post p.indent {
+            text-align: right;
+            margin-left: 10%; /* Adjust as needed for visual match */
+        }
+
+        .blog-post ul {
+            margin: 0 0 15px 20px;
+            padding: 0;
+            list-style-type: disc;
+        }
+
+        .blog-post ul li {
+            margin-bottom: 5px;
+        }
+
+        .blue-box {
+            width: 120px;
+            height: 80px;
+            background-color: #0000FF;
+            margin: 20px auto;
+        }
+
+        /* Comment Section */
+        .comment-section {
+            background-color: #f8f8f8;
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #1a73e8;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .comment-header p {
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #1a73e8;
+        }
+
+        .comment-section p {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .comment-section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .comment-date {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .post-comment-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        /* Popular Posts */
+        .popular-posts {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .popular-posts-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 0 20px 0;
+        }
+
+        .popular-post-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .popular-post-item:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .popular-post-heading {
+            font-size: 16px;
+            margin: 0 0 5px 0;
+            font-weight: normal;
+        }
+
+        .popular-post-date {
+            font-size: 12px;
+            color: #777;
+            margin: 0 0 10px 0;
+        }
+
+        .popular-post-content {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .popular-post-thumbnail {
+            width: 60px;
+            height: 60px;
+            background-color: #0000FF;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .popular-post-content p {
+            flex-grow: 1;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .ellipsis {
+            color: #333; /* Ensure ellipsis color matches text */
+        }
+
+        .read-more-link {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #1a73e8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .blog-title {
+                font-size: 24px;
+            }
+
+            .post-title {
+                font-size: 20px;
+            }
+
+            .popular-post-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .popular-post-thumbnail {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .read-more-link {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+
+            .blog-title {
+                font-size: 22px;
+            }
+
+            .post-title {
+                font-size: 18px;
+            }
+
+            .comment-section p, .popular-post-content p, .post-comment-link {
+                font-size: 12px;
+            }
+
+            .popular-post-heading {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="blog-title">Embrace The Suck</h1>
+            <p class="blog-subtitle">My thoughts on caring for people I love</p>
+        </header>
+
+        <main class="blog-post">
+            <h2 class="post-title">Low Key Christmas</h2>
+            <p class="post-date">December 27, 2013</p>
+
+            <p class="indent">I'm dreaming of a low-key Christmas.<br>Just like the ones I never had.</p>
+
+            <p>I've been overwhelmed by the holidays for years. "<em>There's nothing sadder in this world than to awake Christmas morning and not be a child.</em>" Being an adult at Christmas is hard work. Hard work makes it difficult to see the magic and feel the wonder.</p>
+
+            <p>One Christmas when my children were young and my then-husband had worked them into a let's-see-who-has-the-most-presents-under-the-tree-frenzy I committed what I still think of as a parenting mortal sin.</p>
+
+            <p>For all my talk about down-sizing Christmas, I have yet to make it happen.</p>
+
+            <p>"Yeh, Yeh," nodded my family as they inhaled gravy smothered potatoes.</p>
+
+            <p>Even I was a little surprised when my annual prophecy came true.</p>
+
+            <p>Suddenly low key Christmas took on new meaning.</p>
+
+            <p>A low-key Christmas starts with the idea.</p>
+
+            <p>At home, by the twinkling lights on my $10.00 tree, I read a note from my daughter tucked inside her Christmas care.</p>
+
+            <p>Here's what my low-key Christmas looked like:</p>
+            <ul>
+                <li>Seeing the look of wonder on children's faces as they sit on Santa's, aka Sweetie, lap.</li>
+                <li>Sharing blessings with strangers on the street, and a child's drawing of the peace symbol.</li>
+            </ul>
+
+            <div class="blue-box"></div>
+
+            <ul>
+                <li>The smile on Bella's face when she saw me for the first time in two weeks, and dancing to Christmas carols with Sweet Caroline.</li>
+                <li>Seeing 25 foster kids get a home for Christmas</li>
+                <li>Letting Sweetie vacuum to his heart's content and not saying anything about the new living room arrangement.</li>
+                <li>Giving up deadlines.</li>
+            </ul>
+
+            <div class="comment-section">
+                <div class="comment-header">
+                    <div class="comment-avatar"></div>
+                    <p><span class="comment-author">AkasaWolfSong</span> said...</p>
+                </div>
+                <p>Sounds absolutely perfect to me Miss Merry...so glad you are feeling better! :)</p>
+                <p>Mine was as low-key as you can possibly get and mine was perfect too...now if I could just get into my blog to post it'd be awesome but it just won't let me post anything!</p>
+                <p>I've been wanting to thank all of you beautiful lights for the awesome prayer cards and thoughts sent my way. It was a slow healing but I'm on the mend and and every mindful of the Bible Verse that says..."My grace is sufficient for thee..."</p>
+                <p>Profoundly so.</p>
+                <p>Happy New Year Sister of my Heart!<br><span class="comment-date">December 30, 2013 at 12:00 PM</span></p>
+            </div>
+            <a href="#" class="post-comment-link">Post a Comment</a>
+        </main>
+
+        <aside class="popular-posts">
+            <p class="popular-posts-title">Popular posts from this blog</p>
+
+            <div class="popular-post-item">
+                <h3 class="popular-post-heading">An Easter Miracle</h3>
+                <p class="popular-post-date">October 23, 2017</p>
+                <div class="popular-post-content">
+                    <div class="popular-post-thumbnail"></div>
+                    <p>How is it that after someone you love dies, time moves on even when it feel like its standing still? Philosophers, poets and writers have tried to answer that question since time began. <span class="ellipsis">...</span></p>
+                    <a href="#" class="read-more-link">READ MORE</a>
+                </div>
+            </div>
+
+            <div class="popular-post-item">
+                <h3 class="popular-post-heading">Holy Moly</h3>
+                <p class="popular-post-date">August 01, 2017</p>
+                <div class="popular-post-content">
+                    <div class="popular-post-thumbnail"></div>
+                    <p>I knew it had been quite some time since I'd posted anything here, but had no idea it had been since December. Where does the time go? <span class="ellipsis">...</span></p>
+                    <a href="#" class="read-more-link">READ MORE</a>
+                </div>
+            </div>
+
+            <div class="popular-post-item">
+                <h3 class="popular-post-heading">Book Review</h3>
+                <p class="popular-post-date">August 08, 2016</p>
+                <div class="popular-post-content">
+                    <div class="popular-post-thumbnail"></div>
+                    <p>Misadventures of a Happy Heart A Memoir of Life Beyond Disabilities by Amy Quincy When E-books first came out, I was of the I'll-never-buy-one-because-I-like-the-feel-of-a-book-in-my-hand school of <span class="ellipsis">...</span></p>
+                    <a href="#" class="read-more-link">READ MORE</a>
+                </div>
+            </div>
+        </aside>
+
+        <footer>
+            <p class="footer-link"><a href="#">Powered by Blogger</a></p>
+            <p class="footer-text">Mary R. Ellington</p>
+            <p class="footer-link"><a href="#">Report Abuse</a></p>
+        </footer>
+    </div>
+</body>
+</html>
+```

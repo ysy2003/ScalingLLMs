@@ -1,0 +1,409 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Upload Videos to YouTube if Access to Website is Blocked</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Using Open Sans as a close match */
+            margin: 0;
+            padding: 0;
+            color: #444;
+            line-height: 1.6;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Global Link Styles */
+        a {
+            color: #28a796;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding for smaller screens */
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* Align 'Tips and Tricks' with 'SEARCH' baseline */
+            padding: 30px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-left h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #333;
+        }
+
+        .header-left p {
+            margin: 0;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .header-right a {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #888; /* SEARCH link is gray */
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #28a796;
+            padding: 80px 20px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 700px; /* To match the line breaks in the image */
+        }
+
+        /* Main Article Content */
+        .article-content {
+            padding: 40px 0;
+            max-width: 700px; /* Content width narrower than container */
+            margin: 0 auto;
+            padding-left: 20px; /* Add padding for smaller screens */
+            padding-right: 20px; /* Add padding for smaller screens */
+        }
+
+        .article-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .dropcap {
+            float: left;
+            font-size: 70px; /* Large size for drop cap */
+            line-height: 50px; /* Adjust line height to align with first line */
+            font-weight: 700;
+            color: #28a796;
+            margin-right: 8px;
+            margin-top: 4px; /* Fine-tune vertical alignment */
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .article-content p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .article-content .related-link {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .article-content .share-link {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Popular Posts Section */
+        .popular-posts {
+            background-color: #f9f9f9; /* Slightly off-white background */
+            padding: 60px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .popular-posts h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 40px;
+            padding: 0 20px; /* Match container padding */
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 0 20px; /* Match container padding */
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: flex-start; /* Align content to top */
+        }
+
+        .post-item-content {
+            flex: 1;
+        }
+
+        .post-item h4 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #28a796;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .post-item .post-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .post-item p {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .post-item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .post-item-actions .share-link,
+        .post-item-actions .read-more {
+            color: #28a796;
+        }
+
+        .post-item-thumbnail {
+            flex-shrink: 0;
+            width: 150px; /* Fixed width for thumbnail */
+            height: 100px; /* Fixed height for thumbnail */
+            background-color: #000; /* Black box as per image */
+            margin-top: 5px; /* Adjust alignment with text */
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            font-size: 13px;
+            color: #888;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #28a796;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 20px;
+            }
+
+            .header-right {
+                margin-top: 15px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .article-content {
+                padding: 30px 20px;
+            }
+
+            .dropcap {
+                font-size: 60px;
+                line-height: 45px;
+            }
+
+            .article-content .share-link {
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+
+            .popular-posts h3 {
+                text-align: center;
+            }
+
+            .post-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .post-item-thumbnail {
+                width: 100%; /* Full width on small screens */
+                max-width: 200px; /* Max width for the thumbnail */
+                height: 120px;
+                margin-top: 20px;
+            }
+
+            .post-item-actions {
+                width: 100%;
+                justify-content: space-around;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-left h1 {
+                font-size: 20px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .article-content p,
+            .post-item p,
+            .post-item .post-date {
+                font-size: 14px;
+            }
+
+            .post-item h4 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <h1>DIGITAL INSPIRATION</h1>
+            <p>Tips and Tricks for Google Workspace users</p>
+        </div>
+        <div class="header-right">
+            <a href="#">SEARCH</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>How to Upload Videos to YouTube if Access to Website is Blocked</h2>
+        </div>
+    </section>
+
+    <main class="article-content">
+        <p class="article-date">July 25, 2007</p>
+
+        <p>
+            <span class="dropcap">R</span>ichard, who works for a large Fortune 100 company, recently
+            wrote on Facebook that he cannot upload screencast video
+            clips to YouTube since the company he works for has blocked access to
+            YouTube and other video sharing websites though the firewall.
+        </p>
+
+        <p>
+            One of the available options is to use your <a href="#">mobile phone</a> for uploading
+            videos on YouTube - just create a mobile profile on YouTube from a
+            computer outside the organization's firewall and then email the video to
+            YouTube as an MMS message.
+        </p>
+
+        <p class="related-link">
+            Related: <a href="#">How to Access Blocked Websites</a>
+        </p>
+
+        <p>
+            The second more versatile option is the one-to-many <a href="#">Hey!Spread</a> - this
+            is an online service to help you upload a video clip to multiple video
+            sharing websites in one go.
+        </p>
+
+        <p>
+            You upload the video to Hey!Spread servers and they in turn upload it to
+            the various other video sites including YouTube, MySpace, PhotoBucket,
+            MetaCafe, Google, Yahoo! video, DailyMotion, etc.
+        </p>
+
+        <p>
+            Chances are high that access to Hey!Spread is open in your company -
+            they'll send you an email confirmation as soon as your video is uploaded
+            successfully to the different sites.
+        </p>
+
+        <a href="#" class="share-link">SHARE</a>
+    </main>
+
+    <section class="popular-posts">
+        <div class="container">
+            <h3>Popular posts from this blog</h3>
+
+            <div class="post-item">
+                <div class="post-item-content">
+                    <h4><a href="#">How to Download Contacts from Facebook To Outlook Address Book</a></h4>
+                    <p class="post-date">October 15, 2007</p>
+                    <p>
+                        Facebook users are not too pleased with the "walled garden"
+                        approach of Facebook. The reason is simple - while you can
+                        easily import your Outlook address book and GMail contacts into
+                        Facebook, the reverse path is closed.
+                    </p>
+                    <div class="post-item-actions">
+                        <a href="#" class="share-link">SHARE</a>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-item">
+                <div class="post-item-content">
+                    <h4><a href="#">Learn to Create a Firefox Search Plugin in Less Than 2 Minutes</a></h4>
+                    <p class="post-date">September 23, 2006</p>
+                    <p>
+                        Almost every blog has a site search form where you just type in
+                        the search query and press enter to digg through the archives of
+                        that blog. The only drawback here is that

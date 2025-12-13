@@ -1,0 +1,449 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Supply Co</title>
+    <style>
+        /* General Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 960px; /* Based on typical fixed-width designs */
+            margin: 0 auto;
+            padding: 0 15px; /* Small padding for edges on smaller screens */
+        }
+
+        /* Header Styles */
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .header-top a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .header-logo-placeholder {
+            width: 100%;
+            height: 60px; /* Estimated height */
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: flex-start; /* Align left as in image */
+            gap: 20px; /* Spacing between nav items */
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee; /* Separator line */
+            margin-bottom: 20px;
+        }
+
+        .main-nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Main Content Layout */
+        .main-content-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .main-content {
+            flex: 1; /* Takes up available space */
+            min-width: 300px; /* Minimum width before wrapping */
+        }
+
+        .sidebar {
+            width: 250px; /* Fixed width for sidebar */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Product Info Section */
+        .product-model-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap; /* Allow items to wrap if space is limited */
+        }
+
+        .model-placeholder {
+            width: 150px; /* Estimated width */
+            height: 40px; /* Estimated height */
+            background-color: #0000FF;
+        }
+
+        .model-text {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .model-text .red {
+            color: #FF0000;
+        }
+
+        .warning-text {
+            color: #FF0000;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .product-image-placeholder {
+            width: 100%;
+            height: 150px; /* Estimated height */
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .product-description strong {
+            font-weight: bold;
+        }
+
+        .product-description .red {
+            color: #FF0000;
+        }
+
+        /* Specifications Section */
+        .specifications h3, .buy-confidence h3, .need-help h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .specifications ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 13px;
+        }
+
+        .specifications ul li {
+            margin-bottom: 5px;
+        }
+
+        .buy-confidence h3, .need-help h3 {
+            color: #FF0000;
+        }
+
+        .buy-confidence p, .need-help p {
+            font-size: 13px;
+        }
+
+        .need-help .red {
+            color: #FF0000;
+            font-weight: bold;
+        }
+
+        /* Sidebar Styles */
+        .sidebar-placeholder {
+            width: 100%;
+            height: 150px; /* Estimated height */
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold; /* As seen in image */
+            margin-bottom: 20px;
+        }
+
+        .sidebar-list ul li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-contact {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333; /* Dark gray */
+            color: #ccc;
+            padding: 40px 0 20px;
+            font-size: 12px;
+        }
+
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px; /* Minimum width for columns before stacking */
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            font-size: 14px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #555;
+            padding-top: 20px;
+        }
+
+        .footer-bottom a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-content-wrapper {
+                flex-direction: column; /* Stack main content and sidebar */
+            }
+
+            .sidebar {
+                width: 100%; /* Sidebar takes full width */
+            }
+
+            .footer-columns {
+                flex-direction: column; /* Stack footer columns */
+                align-items: center;
+            }
+
+            .footer-column {
+                min-width: unset; /* Remove min-width for stacking */
+                width: 100%;
+                text-align: center;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+            .header-top {
+                justify-content: center;
+                text-align: center;
+            }
+            .main-nav {
+                align-items: center;
+            }
+            .product-model-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .model-placeholder {
+                width: 100%; /* Full width for placeholders on small screens */
+                max-width: 150px; /* Keep original max width */
+                margin: 0 auto 10px; /* Center and add space */
+            }
+            .model-text {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            .warning-text {
+                text-align: center;
+            }
+            .specifications h3, .buy-confidence h3, .need-help h3 {
+                text-align: center;
+            }
+            .specifications ul, .buy-confidence p, .need-help p {
+                text-align: center;
+            }
+            .footer-column h4 {
+                text-align: center;
+            }
+            .footer-column ul {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <span>[PHONE REDACTED] | <a href="#">Contact Us</a></span>
+            </div>
+            <div class="header-logo-placeholder"></div>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <a href="#">Guarantee</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Sale</a>
+            </nav>
+        </header>
+
+        <main class="main-content-wrapper">
+            <section class="main-content">
+                <div class="product-model-info">
+                    <div class="model-placeholder"></div>
+                    <div class="model-text">Model: <span class="red">BE350C</span></div>
+                    <div class="model-placeholder"></div>
+                    <div class="model-text">RBC 35 COMPATIBLE</div>
+                </div>
+                <p class="warning-text">
+                    Please look at the MODEL Number on your unit to make sure this is the<br>
+                    RIGHT battery. Many people order the wrong battery on this model!!!
+                </p>
+                <div class="product-image-placeholder"></div>
+                <p class="product-description">
+                    Brand new replacement battery cartridge for a APC BE350C. Consist of (1)<br>
+                    12CE3 battery. <strong>Ship weight for <span class="red">APC Back-UPS ES 350VA Battery : 3.17<br>
+                    lbs.</span></strong>
+                </p>
+                <p class="product-description">
+                    APC Back-UPS BE350 Battery is specifically designed for high rate UPS<br>
+                    discharge applications, where high power output is required. All APC Back-<br>
+                    UPS BE350 Batteries meet or exceed OEM manufacturer specifications. This<br>
+                    APC Back-UPS BE350 Battery is professionally tested and packaged. Our<br>
+                    APC Back-UPS BE350 Battery is a proven solution, backed by our extensive<br>
+                    UPS replacement battery experience. If you have any questions on this APC<br>
+                    Back-UPS BE350Battery, please feel free to contact us.
+                </p>
+
+                <div class="specifications">
+                    <h3>Specifications:</h3>
+                    <ul>
+                        <li>2 Year Warranty</li>
+                        <li>Performance Guaranteed</li>
+                        <li>Brand New, Factory Fresh</li>
+                        <li>Must use your existing hardware to connect batteries</li>
+                    </ul>
+                </div>
+
+                <div class="buy-confidence">
+                    <h3>Buy With Confidence</h3>
+                    <p>
+                        This Battery is professionally tested and packaged. The<br>
+                        Battery is a proven solution, backed by our extensive UPS<br>
+                        replacement battery experience.
+                    </p>
+                </div>
+
+                <div class="need-help">
+                    <h3>Need help? Speak with a Battery Specialist</h3>
+                    <p>
+                        Call us at: <span class="red">[PHONE REDACTED]</span> or email us at: <span class="red">[EMAIL<br>
+                        REDACTED]</span>
+                    </p>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-placeholder"></div>
+                <div class="sidebar-list">
+                    <ul>
+                        <li>APC UPS Batteries</li>
+                        <li>APC UPS Units</li>
+                        <li>Belkin UPS Batteries</li>
+                        <li>CSB Batteries</li>
+                    </ul>
+                </div>
+                <div class="sidebar-placeholder"></div>
+                <div class="sidebar-contact">
+                    Contact Us Via<br>
+                    Email
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h4>UPS Battery Replacement</h4>
+                    <ul>
+                        <li><a href="#">APC UPS Battery</a></li>
+                        <li><a href="#">Belkin UPS Battery</a></li>
+                        <li><a href="#">CSB Batteries</a></li>
+                        <li><a href="#">Deltec Batteries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>UPS Refurbished Units</h4>
+                    <ul>
+                        <li><a href="#">APC UPS Units</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Quality Guarantee</h4>
+                    <ul>
+                        <li><a href="#">2 - Year Warranty</a></li>
+                        <li><a href="#">90 Days for Units</a></li>
+                        <li><a href="#">Pre-Tested Batteries</a></li>
+                        <li><a href="#">No Old/Reused Batteries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact via Email</a></li>
+                        <li><a href="#">Return a Shipment</a></li>
+                        <li><a href="#">Damaged Shipment</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Copyright © 2013 BatterySupplyCo.com All Rights Reserved.</span>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Sale</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

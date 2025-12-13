@@ -1,0 +1,262 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grumpy Website</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif; /* Common sans-serif font */
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.6;
+            font-size: 16px; /* Base font size for better scaling */
+        }
+
+        .container {
+            max-width: 800px; /* Content width as seen in the image */
+            margin: 20px auto; /* Center the container with vertical margin */
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+        }
+
+        /* Header */
+        .header h1 {
+            font-size: 2.8em; /* Large title */
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 0.9em; /* Smaller subtitle */
+            margin-top: 0;
+            margin-bottom: 25px; /* Space before navigation */
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            display: flex;
+            align-items: flex-end; /* Align items to the bottom for border effect */
+            margin-bottom: 30px; /* Space after navigation */
+            border-bottom: 1px solid #000; /* The main horizontal line */
+        }
+
+        .nav-item {
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #000;
+            font-size: 0.9em;
+            white-space: nowrap; /* Prevent text wrapping */
+            border: 1px solid transparent; /* Default transparent border */
+            border-bottom: none; /* Remove bottom border to allow overlap with main line */
+            margin-bottom: -1px; /* Pull up to perfectly overlap the main border-bottom */
+            position: relative; /* Ensure z-index works if needed */
+            background-color: transparent; /* Default background */
+        }
+
+        .nav-item.active {
+            border-color: #000; /* Visible border for active item */
+            background-color: #fff; /* White background for active item */
+            font-weight: normal; /* Ensure no extra bolding */
+        }
+
+        .nav-item:hover:not(.active) {
+            background-color: #f5f5f5; /* Subtle hover effect */
+        }
+
+        .nav-spacer {
+            flex-grow: 1; /* Pushes nav items to the left and fills remaining space */
+            /* The border-bottom on .nav-wrapper handles the line extension */
+        }
+
+        /* Content - Blue boxes */
+        .content-visuals {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+            gap: 20px; /* Space between the boxes */
+            margin-bottom: 30px; /* Space before text content */
+        }
+
+        .blue-square {
+            width: 50px; /* Fixed width */
+            height: 50px; /* Fixed height */
+            background-color: #0000FF;
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .blue-rectangle {
+            width: 100%; /* Take remaining space */
+            height: 250px; /* Fixed height */
+            background-color: #0000FF;
+            flex-grow: 1; /* Allow growing to fill space */
+        }
+
+        /* Content - Text */
+        .post-content {
+            /* Aligns with the start of the large blue rectangle (50px square + 20px gap) */
+            margin-left: calc(50px + 20px); 
+            padding-right: 20px; /* Small padding to prevent text from touching edge on very small screens */
+        }
+
+        .post-content p {
+            margin-bottom: 1em;
+            font-size: 0.95em; /* Slightly smaller text for body */
+        }
+
+        .post-content strong {
+            font-weight: bold;
+        }
+
+        .post-meta {
+            font-size: 0.85em; /* Smaller font for meta info */
+            color: #555; /* Slightly lighter color */
+            margin-top: 25px; /* Space above meta info */
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px; /* Space above footer line */
+            padding-top: 20px; /* Space below footer line */
+            border-top: 1px solid #000; /* Footer horizontal line */
+            font-size: 0.8em;
+            color: #333;
+            text-align: left; /* Align with content */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .header p {
+                margin-bottom: 20px;
+            }
+
+            .nav-wrapper {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                border-bottom: none; /* Remove the main line when wrapped */
+                margin-bottom: 20px;
+            }
+
+            .nav-item {
+                border: 1px solid #000; /* Add border back for each item */
+                border-bottom: 1px solid #000; /* Ensure bottom border is present */
+                margin-bottom: 5px; /* Space between wrapped items */
+                margin-right: 5px; /* Space between items on the same line */
+            }
+
+            .nav-item.active {
+                margin-bottom: 5px; /* Keep consistent margin */
+            }
+
+            .nav-spacer {
+                display: none; /* Hide spacer when nav items wrap */
+            }
+
+            .content-visuals {
+                flex-direction: column; /* Stack blue boxes vertically */
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .blue-square {
+                width: 100%; /* Full width */
+                height: 60px; /* Adjust height */
+            }
+
+            .blue-rectangle {
+                width: 100%;
+                height: 180px; /* Adjust height */
+            }
+
+            .post-content {
+                margin-left: 0; /* Remove left margin when stacked */
+                padding-right: 0;
+            }
+
+            .post-content p {
+                font-size: 1em; /* Slightly larger for readability on small screens */
+            }
+
+            .footer {
+                margin-top: 40px;
+                padding-top: 15px;
+                text-align: center; /* Center footer text */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-item {
+                padding: 6px 10px;
+                font-size: 0.85em;
+            }
+
+            .blue-square {
+                height: 40px;
+            }
+
+            .blue-rectangle {
+                height: 120px;
+            }
+
+            .post-content p {
+                font-size: 0.95em;
+            }
+
+            .footer {
+                font-size: 0.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Grumpy Website</h1>
+            <p>Would you like to save this file?</p>
+        </header>
+
+        <nav class="nav-wrapper">
+            <a href="#" class="nav-item active">Home</a>
+            <a href="#" class="nav-item">Search</a>
+            <a href="#" class="nav-item">Subscribe</a>
+            <a href="#" class="nav-item">Suggest</a>
+            <a href="#" class="nav-item">About</a>
+            <div class="nav-spacer"></div> <!-- Spacer to extend the line -->
+        </nav>
+
+        <main>
+            <div class="content-visuals">
+                <div class="blue-square"></div>
+                <div class="blue-rectangle"></div>
+            </div>
+
+            <div class="post-content">
+                <p><strong>nikitonsky:</strong> organising stuff is a burden.</p>
+                <p>In the case above I wanted to add a place to the bookmarks so it'll be easier to find. But instead of just marking it with a small heart icon, app asks me if I want to create a new collection.</p>
+                <p>So I roll with it and now I have to invent a name! What name should I choose?</p>
+                <p>It's not all that bad though. There were times when they asked you to create an account before you can create any marks.</p>
+                <p class="post-meta">December 27, 2017 // Permalink</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Nikita Prokopov , Dmitrii Dimandt , Rakhim Davletkaliyev & contributors.</p>
+        </footer>
+    </div>
+</body>
+</html>
+```

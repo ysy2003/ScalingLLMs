@@ -1,0 +1,460 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef4f8; /* Light blue/grey background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout for larger screens */
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 1fr 2fr; /* Two columns: 1/3 and 2/3 */
+            }
+            .main-content-right {
+                grid-column: 2 / 3; /* Place right content in the second column */
+            }
+            .main-content-left {
+                grid-column: 1 / 2; /* Place left content in the first column */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                grid-template-columns: 1fr 3fr; /* Adjust column ratio for wider screens */
+            }
+            .main-content-right {
+                display: grid;
+                grid-template-columns: 2fr 1fr; /* Inner grid for right section: main content and word of the day */
+                gap: 20px;
+            }
+            .main-content-right .card:nth-child(1) { /* Type your word */
+                grid-column: 1 / 3; /* Spans both columns */
+            }
+            .main-content-right .card:nth-child(2) { /* Word of the day */
+                grid-column: 2 / 3; /* Second column */
+                grid-row: 2 / 3; /* Second row */
+            }
+            .main-content-right .card:nth-child(3) { /* What does the word mean */
+                grid-column: 1 / 2; /* First column */
+                grid-row: 2 / 3; /* Second row */
+            }
+            .main-content-right .card:nth-child(4) { /* Usage examples */
+                grid-column: 1 / 3; /* Spans both columns */
+                grid-row: 3 / 4; /* Third row */
+            }
+        }
+
+
+        /* Nearby words section */
+        .nearby-words h2 {
+            font-size: 1.5em;
+            color: #555;
+        }
+
+        .nearby-words ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nearby-words li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .nearby-words li:last-child {
+            border-bottom: none;
+        }
+
+        .nearby-words li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .nearby-words li span {
+            color: #777;
+            font-weight: bold;
+        }
+
+        /* Type your word section */
+        .type-word h2 {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .type-word input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .type-word a {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Word of the day section */
+        .word-of-day h2 {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .word-of-day h3 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .word-of-day p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .word-of-day a {
+            display: inline-block;
+            color: #007bff;
+            font-size: 0.9em;
+        }
+
+        /* What does the word mean section */
+        .word-meaning h2 {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .word-meaning h2 span {
+            color: #333; /* Darker color for "From" */
+            font-weight: normal;
+        }
+
+        .word-meaning .buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .word-meaning .button {
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: none;
+        }
+
+        .word-meaning .button.tweet {
+            background-color: #1DA1F2; /* Twitter blue */
+        }
+
+        .word-meaning .button.share {
+            background-color: #007bff; /* Facebook blue or similar */
+        }
+
+        .word-meaning .definition-group {
+            margin-bottom: 20px;
+        }
+
+        .word-meaning .part-of-speech {
+            font-style: italic;
+            color: #007bff; /* Blue for part of speech */
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .word-meaning .part-of-speech strong {
+            font-weight: normal; /* Override default strong bold */
+            font-style: normal;
+            color: #333; /* Darker for "Part of speech:" */
+        }
+
+        .word-meaning ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .word-meaning ul li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .word-meaning ul li strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Usage examples section */
+        .usage-examples h2 {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .usage-examples h2 span {
+            color: #007bff; /* Blue for "From" */
+        }
+
+        .usage-examples ol {
+            list-style: decimal;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .usage-examples ol li {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .usage-examples ol li strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .usage-examples ol li .source {
+            display: block;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            padding-left: 20px; /* Indent source */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #eef4f8; /* Same as body background */
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-left, .footer-right {
+            flex: 1;
+            min-width: 280px; /* Ensure they don't get too small */
+            margin-bottom: 15px;
+        }
+
+        .footer-left p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .footer-social {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social .icon-box {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right .links a {
+            margin-left: 15px;
+            color: #777;
+        }
+
+        .footer-right p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 767px) {
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-left, .footer-right {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .footer-right .links {
+                margin-bottom: 10px;
+            }
+            .footer-right .links a {
+                margin: 0 8px;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content-left">
+            <div class="card nearby-words">
+                <h2>Nearby words</h2>
+                <ul>
+                    <li>Fro <span>&gt;</span></li>
+                    <li>frock <span>&gt;</span></li>
+                    <li>frog <span>&gt;</span></li>
+                    <li>frolic <span>&gt;</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content-right">
+            <div class="card type-word">
+                <h2>Type your word below and <a href="#">click here</a></h2>
+                <input type="text" placeholder="">
+            </div>
+
+            <div class="card word-of-day">
+                <h2>Word of the day</h2>
+                <h3>wishful</h3>
+                <p>Full of longing (for).</p>
+                <a href="#">View More</a>
+            </div>
+
+            <div class="card word-meaning">
+                <h2>What does the word <span style="color: #333;">From</span> mean?</h2>
+                <div class="buttons">
+                    <button class="button tweet"><span>&#x1F426;</span> Tweet</button> <!-- Bird icon -->
+                    <button class="button share"><span>&#x1F4E2;</span> Share</button> <!-- Megaphone icon -->
+                </div>
+
+                <div class="definition-group">
+                    <span class="part-of-speech"><strong>Part of speech:</strong> preposition</span>
+                    <ul>
+                        <li>Out of; <strong>starting at</strong>; beginning with; after.</li>
+                    </ul>
+                </div>
+
+                <div class="definition-group">
+                    <span class="part-of-speech"><strong>Part of speech:</strong> preposition</span>
+                    <ul>
+                        <li>In a relation of contrast with; as <strong>from grave to gay</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="definition-group">
+                    <span class="part-of-speech"><strong>Part of speech:</strong> preposition</span>
+                    <ul>
+                        <li>Having as a cause or origin; by <strong>means of</strong>; due to.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card usage-examples">
+                <h2>Usage examples for <span style="color: #007bff;">From</span></h2>
+                <ol>
+                    <li>
+                        Where he had come <strong>from</strong>, I don't know.
+                        <span class="source">
+                            &acirc;&euro;&rdquo; The-Burgess-Animal-Book-for-Children by Burgess, Thornton W.<br>
+                            (Thornton Waldo)
+                        </span>
+                    </li>
+                    <li>
+                        Levens is <strong>from</strong> Leofwin.
+                        <span class="source">
+                            &acirc;&euro;&rdquo; Story of My Life, volumes 1-3 by Augustus J. C. Hare
+                        </span>
+                    </li>
+                    <li>
+                        But it got away <strong>from</strong> him.
+                        <span class="source">
+                            &acirc;&euro;&rdquo; Angel Island by Inez Haynes Gillmore
+                        </span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p>DomainOptions, Inc., 7260 W Azure Dr Ste 140-829, Las Vegas, NV 89130 USA.</p>
+            <p>email: [EMAIL REDACTED]</p>
+            <div class="footer-social">
+                <div class="icon-box"></div>
+                <div class="icon-box"></div>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="links">
+                <a href="#">Home</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p>&copy; 2012-2023 DomainOptions, Inc.</p>
+            <p>Trademarks belong to their respective owners. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

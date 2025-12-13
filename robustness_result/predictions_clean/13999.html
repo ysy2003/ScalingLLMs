@@ -1,0 +1,244 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namati Yoga Bag Giveaway - LexiYoga</title>
+    <style>
+        /* General Body and Typography */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        a {
+            color: #e06666; /* Reddish link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout Containers */
+        .container {
+            max-width: 1000px; /* Max width for content */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            gap: 20px; /* Space between columns */
+            padding-top: 20px;
+        }
+
+        .main-article {
+            flex: 3; /* Main article takes more space */
+            min-width: 300px; /* Minimum width before wrapping */
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar {
+            flex: 1; /* Sidebar takes less space */
+            min-width: 250px; /* Minimum width before wrapping */
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo-square {
+            width: 40px;
+            height: 40px;
+            background-color: #0000FF; /* Blue square */
+            margin-right: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: bold;
+        }
+
+        .hamburger-icon {
+            display: none; /* Hidden by default on desktop */
+            cursor: pointer;
+            font-size: 24px;
+            color: #666;
+        }
+
+        /* Main Article Specifics */
+        .giveaway-title {
+            background-color: #fcecec; /* Light pink background */
+            border: 1px solid #f0dada; /* Darker pink border */
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .giveaway-title h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #8b4545; /* Brownish-red color */
+            font-weight: normal;
+        }
+
+        .purple-quote {
+            background-color: #f0e6f7; /* Light purple */
+            border: 1px solid #d8c1e8; /* Darker purple border */
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 5px;
+            position: relative;
+            color: #5c3a7a; /* Dark purple text */
+            font-size: 16px;
+        }
+
+        .purple-quote::before,
+        .purple-quote::after {
+            font-family: Arial, sans-serif;
+            font-size: 5em;
+            color: #d8c1e8; /* Purple color for quotes */
+            position: absolute;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .purple-quote::before {
+            content: '“';
+            left: 10px;
+            top: -10px;
+        }
+
+        .purple-quote::after {
+            content: '”';
+            right: 10px;
+            bottom: -30px;
+        }
+
+        .blue-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #0000FF; /* Blue box */
+            margin: 25px 0;
+        }
+
+        .namati-story-quote {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 5px;
+            position: relative;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .namati-story-quote::before,
+        .namati-story-quote::after {
+            font-family: Arial, sans-serif;
+            font-size: 5em;
+            color: #ccc;
+            position: absolute;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .namati-story-quote::before {
+            content: '“';
+            left: 10px;
+            top: -10px;
+        }
+
+        .namati-story-quote::after {
+            content: '”';
+            right: 10px;
+            bottom: -30px;
+        }
+
+        .namati-story-quote p {
+            margin-bottom: 10px;
+        }
+
+        .namati-story-quote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .win-section h2, .related-links h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .win-section ol, .related-links ul {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .related-links ul {
+            list-style-type: disc;
+        }
+
+        .win-section li, .related-links li {
+            margin-bottom: 8px;
+        }
+
+        /* Sidebar Specifics */
+        .sidebar-quote {
+            background-color: #fcecec; /* Light pink background */
+            border: 1px solid #f0dada; /* Darker pink border */
+            padding: 

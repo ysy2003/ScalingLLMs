@@ -1,0 +1,219 @@
+```html
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSSOLA</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif; /* Default sans-serif for general text */
+            background-color: #ffffff; /* White background as per image */
+            color: #333333; /* Dark grey for general text */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Container for overall layout centering and width */
+        .container {
+            max-width: 1000px; /* Approximate width from image */
+            margin: 0 auto; /* Center the container */
+            padding: 20px; /* Padding around the content */
+        }
+
+        /* Header Layout */
+        .site-header {
+            display: flex;
+            justify-content: space-between; /* Pushes left and right parts to edges */
+            align-items: flex-start; /* Align items to the top */
+            margin-bottom: 40px; /* Space below header */
+            padding-top: 20px; /* Space from top of page */
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Site Title */
+        .site-title {
+            font-family: 'Arial Black', Gadget, sans-serif; /* Strong sans-serif */
+            font-size: 36px; /* Adjust size to match image */
+            font-weight: 900; /* Extra bold */
+            color: #000000; /* Pure black */
+            margin: 0;
+            padding: 0;
+            letter-spacing: -0.5px; /* Slight adjustment to match visual */
+        }
+
+        /* Site Subtitle */
+        .site-subtitle {
+            font-family: Georgia, 'Times New Roman', Times, serif; /* Italic serif */
+            font-style: italic;
+            font-size: 14px; /* Adjust size */
+            color: #777777; /* Lighter grey */
+            margin: 5px 0 20px 0; /* Space below subtitle */
+            padding: 0;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            margin-top: 10px; /* Space between subtitle and nav */
+        }
+
+        .nav-link {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000080; /* Dark blue */
+            text-decoration: none;
+            margin-right: 25px; /* Space between nav links */
+            white-space: nowrap; /* Prevent links from breaking */
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Right (Search Link) */
+        .header-right {
+            padding-top: 10px; /* Align 'CERCA' with 'MUSSOLA' visually */
+        }
+
+        .search-link {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000080; /* Dark blue */
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .search-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .site-content {
+            margin-top: 40px; /* Space below navigation */
+            padding-bottom: 100px; /* Space above footer, ensures content doesn't touch footer */
+        }
+
+        /* Error Message */
+        .error-message {
+            font-family: Georgia, 'Times New Roman', Times, serif; /* Serif font */
+            font-size: 16px;
+            color: #000000; /* Pure black */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            margin-top: 100px; /* Push footer to bottom, adjust as needed for content height */
+            padding-bottom: 20px; /* Space from bottom of page */
+        }
+
+        .footer-text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #333333; /* Dark grey */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column; /* Stack header elements */
+                align-items: center; /* Center align when stacked */
+                text-align: center;
+            }
+
+            .header-left, .header-right {
+                width: 100%;
+                text-align: center;
+            }
+
+            .header-right {
+                margin-top: 20px; /* Space between nav and search */
+                padding-top: 0; /* Reset padding */
+            }
+
+            .main-nav {
+                margin-top: 15px;
+            }
+
+            .nav-link {
+                display: block; /* Stack nav links */
+                margin: 10px 0; /* Vertical spacing */
+            }
+
+            .site-title {
+                font-size: 30px;
+            }
+
+            .site-subtitle {
+                font-size: 13px;
+            }
+
+            .error-message {
+                text-align: center;
+                padding: 0 15px; /* Add horizontal padding */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .site-title {
+                font-size: 28px;
+            }
+            .site-subtitle {
+                font-size: 12px;
+            }
+            .nav-link, .search-link {
+                font-size: 13px;
+            }
+            .error-message {
+                font-size: 15px;
+            }
+            .footer-text {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <div class="header-left">
+                <h1 class="site-title">MUSSOLA</h1>
+                <p class="site-subtitle">Recursos per a la cerca de feina</p>
+                <nav class="main-nav">
+                    <a href="#" class="nav-link">Cerca de feina</a>
+                    <a href="#" class="nav-link">Biblioteca</a>
+                    <a href="#" class="nav-link">Contacte</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <a href="#" class="search-link">CERCA</a>
+            </div>
+        </header>
+
+        <main class="site-content">
+            <p class="error-message">La pàgina que cercàveu en aquest blog no existeix.</p>
+        </main>
+
+        <footer class="site-footer">
+            <p class="footer-text">Amb la tecnologia de Blogger</p>
+        </footer>
+    </div>
+</body>
+</html>
+```

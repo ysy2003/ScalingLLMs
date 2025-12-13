@@ -1,0 +1,450 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hargreaves Home Sales Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0000FF; /* For logo and footer icons */
+            --accent-teal: #4A9088; /* For active button and view job button */
+            --text-dark: #333333;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --bg-light-gray: #F0F0F0; /* For inactive button */
+            --bg-off-white: #F8F8F8; /* For footer background */
+            --border-light: #E0E0E0;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-medium);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-light); /* Added for visual separation */
+        }
+
+        .header-logo {
+            width: 60px;
+            height: 30px;
+            background-color: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* Section: Be part of our story */
+        .story-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .story-section h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .story-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-medium);
+        }
+
+        /* Section: We're hiring! */
+        .hiring-section {
+            padding: 80px 20px 60px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .hiring-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hiring-section p {
+            font-size: 18px;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+        }
+
+        .location-filters {
+            display: inline-flex;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            border: 1px solid var(--border-light); /* Added for subtle separation */
+        }
+
+        .location-filters button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .location-filters button.active {
+            background-color: var(--accent-teal);
+            color: #fff;
+        }
+
+        .location-filters button:not(.active) {
+            background-color: #fff;
+            color: var(--text-dark);
+        }
+
+        .location-filters button:not(.active):hover {
+            background-color: var(--bg-light-gray);
+        }
+
+        /* Job Card */
+        .job-card-wrapper {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 100px;
+        }
+
+        .job-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .job-details {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .job-details h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .job-details .location {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .job-details .description {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .view-job-button {
+            background-color: var(--accent-teal);
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            align-self: center; /* Align button vertically in the middle */
+            transition: background-color 0.3s ease;
+        }
+
+        .view-job-button:hover {
+            background-color: #3a7a72; /* Slightly darker teal */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-off-white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 16px;
+            color: var(--text-medium);
+            margin-bottom: 25px;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .footer-logo-item {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            border-radius: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 15px;
+            }
+
+            .story-section {
+                padding: 60px 20px;
+            }
+
+            .story-section h1 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .story-section p {
+                font-size: 16px;
+            }
+
+            .hiring-section {
+                padding: 60px 20px 40px;
+            }
+
+            .hiring-section h2 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .hiring-section p {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .location-filters {
+                flex-direction: column;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 40px;
+            }
+
+            .location-filters button {
+                width: 100%;
+                border-radius: 0;
+            }
+            .location-filters button:first-child {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+            .location-filters button:last-child {
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+
+            .job-card {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 25px;
+            }
+
+            .job-details {
+                margin-bottom: 20px;
+            }
+
+            .job-details h3 {
+                font-size: 20px;
+            }
+
+            .job-details .location {
+                font-size: 15px;
+            }
+
+            .job-details .description {
+                font-size: 14px;
+            }
+
+            .view-job-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer {
+                padding: 40px 20px;
+            }
+
+            .footer-logos {
+                gap: 15px;
+            }
+
+            .footer-logo-item {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo {
+                width: 50px;
+                height: 25px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .story-section h1 {
+                font-size: 28px;
+            }
+
+            .story-section p {
+                font-size: 15px;
+            }
+
+            .hiring-section h2 {
+                font-size: 24px;
+            }
+
+            .hiring-section p {
+                font-size: 15px;
+            }
+
+            .location-filters button {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            .job-card {
+                padding: 20px;
+            }
+
+            .job-details h3 {
+                font-size: 18px;
+            }
+
+            .job-details .location {
+                font-size: 14px;
+            }
+
+            .job-details .description {
+                font-size: 13px;
+            }
+
+            .view-job-button {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+
+            .footer p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"></div>
+        <nav class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Jobs</a>
+            <a href="#">Company Site</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="story-section">
+            <h1>Be part of our story</h1>
+            <p>The mission of the Hargreaves Home Sales Team is to provide the premier customer service experience for each home seller and home buyer we work with. Knowledge we've gained through years of working in the local market empowers us to provide our home buyers and sellers with the advice they need to make informed decisions.</p>
+        </section>
+
+        <section class="hiring-section">
+            <h2>We're hiring!</h2>
+            <p>We're always looking for great talent. Check out our open jobs below.</p>
+            <div class="location-filters">
+                <button class="active">All Locations</button>
+                <button>Ellicott City, MD</button>
+            </div>
+            <div class="job-card-wrapper">
+                <div class="job-card">
+                    <div class="job-details">
+                        <h3>Real Estate Sales Buyer's Agent</h3>
+                        <p class="location">Ellicott City, MD, US</p>
+                        <p class="description">The Buyer Agent is an individual who is highly sociable, draws energy from working with people, and is optimistic and outgoing. They have a strong sense of urgency, but not at the expense of quality.</p>
+                    </div>
+                    <a href="#" class="view-job-button">View Job</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Hiring with</p>
+        <div class="footer-logos">
+            <div class="footer-logo-item"></div>
+            <div class="footer-logo-item"></div>
+            <div class="footer-logo-item"></div>
+        </div>
+    </footer>
+</body>
+</html>
+```

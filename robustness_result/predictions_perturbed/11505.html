@@ -1,0 +1,414 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BY THE LIGHT OF GRACE . .</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container for overall layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .site-title {
+            font-family: 'Times New Roman', Times, serif; /* Approximating the display font */
+            font-size: 3em;
+            color: #333;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: normal;
+        }
+
+        .search-link {
+            color: #993399;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .site-description {
+            font-size: 0.9em;
+            color: #666;
+            max-width: 700px;
+            margin: 10px auto 20px auto;
+            line-height: 1.5;
+        }
+
+        .main-nav {
+            margin-top: 20px;
+        }
+
+        .main-nav a {
+            color: #993399;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* Main Content Area (Flexbox for two columns) */
+        .content-area {
+            display: flex;
+            flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+            gap: 30px; /* Space between sidebar and main content */
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            flex: 0 0 200px; /* Fixed width for sidebar */
+            padding-right: 0; /* Gap handled by content-area gap */
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-link {
+            display: block;
+            color: #993399;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .sidebar-heading {
+            font-size: 1.1em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Main Post Content Styles */
+        .main-post {
+            flex: 1; /* Takes up remaining space */
+            min-width: 0; /* Allows content to shrink */
+        }
+
+        .post-date {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .post-title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 2em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .post-separator {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+            width: 50px; /* Short line as in the design */
+            text-align: left;
+            margin-left: 0;
+        }
+
+        .blue-box {
+            width: 100%;
+            max-width: 600px; /* Max width for the blue box */
+            height: 300px;
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+
+        .main-post p {
+            margin-bottom: 1em;
+            color: #333;
+        }
+
+        .red-text {
+            color: #CC0000;
+            font-weight: bold;
+        }
+
+        .red-link {
+            color: #CC0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .post-meta {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .post-meta a {
+            color: #993399;
+            text-decoration: none;
+        }
+
+        .post-meta .labels-text {
+            margin-top: 10px; /* Separate line as in design */
+            display: block;
+        }
+
+        .section-heading {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+
+        /* Popular Posts Styles */
+        .popular-posts-container {
+            margin-top: 20px;
+        }
+
+        .popular-post-card {
+            background-color: #F0E6F5; /* Light lavender background */
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-date {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .card-title {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.3em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: normal;
+        }
+
+        .card-meta {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .card-meta a {
+            color: #993399;
+            text-decoration: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .site-title {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+
+            .search-link {
+                margin-top: 10px;
+            }
+
+            .main-nav {
+                margin-top: 15px;
+            }
+
+            .main-nav a {
+                margin: 0 5px;
+                font-size: 0.85em;
+            }
+
+            .content-area {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .sidebar {
+                flex: none;
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 0; /* Gap handled by content-area gap */
+            }
+
+            .main-post {
+                flex: none;
+                width: 100%;
+            }
+
+            .blue-box {
+                height: 200px; /* Adjust height for smaller screens */
+            }
+
+            .post-title {
+                font-size: 1.8em;
+            }
+
+            .section-heading {
+                font-size: 1.1em;
+                margin-top: 30px;
+            }
+
+            .popular-post-card {
+                padding: 15px;
+            }
+
+            .card-title {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+            .site-description {
+                font-size: 0.85em;
+            }
+            .main-nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            .blue-box {
+                height: 150px;
+            }
+            .post-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <h1 class="site-title">BY THE LIGHT OF GRACE . .</h1>
+                <a href="#" class="search-link">SEARCH</a>
+            </div>
+            <p class="site-description">Bearing solemn witness of the saving grace of our Savior, Jesus Christ, and His power to free those captured in sexual addiction.</p>
+            <nav class="main-nav">
+                <a href="#">HOME</a>
+                <a href="#">MY STORY</a>
+                <a href="#">THE RESCUE</a>
+                <a href="#">RECOVERY TUNES</a>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <a href="#" class="sidebar-link">Share</a>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-heading">Labels</h3>
+                    <ul>
+                        <li><a href="#" class="sidebar-link">Book</a></li>
+                        <li><a href="#" class="sidebar-link">By the Light of Grace</a></li>
+                        <li><a href="#" class="sidebar-link">promotion</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <article class="main-post">
+                <p class="post-date">July 24, 2014</p>
+                <h2 class="post-title">GET MY BOOK TODAY, FOR FREE!!!!</h2>
+                <hr class="post-separator">
+                <div class="blue-box"></div>
+                <p>It is pioneer day today, and in celebration of the pioneering movement of sexual addiction awareness, I am offering my book for free.Tell everyone!</p>
+                <p>Remember, the promotion is TODAY ONLY!! So don't wait!</p>
+                <p>And, if you are willing, please share on your Facebook walls and forward via email. <span class="red-text">21</span> so lets keep the ball rolling!</p>
+                <p>Click <a href="#" class="red-link">HERE</a> to get your copy now!</p>
+
+                <div class="post-meta">
+                    <a href="#" class="meta-link">Share</a>
+                    <span class="labels-text">Labels: <a href="#" class="meta-link">Book</a> , <a href="#" class="meta-link">By the Light of Grace</a> , <a href="#" class="meta-link">promotion</a></span>
+                </div>
+
+                <h3 class="section-heading">COMMENTS</h3>
+
+                <h3 class="section-heading">POPULAR POSTS</h3>
+                <div class="popular-posts-container">
+                    <div class="popular-post-card">
+                        <p class="card-date">September 18, 2012</p>
+                        <h4 class="card-title">GOD ORDAINED MARITAL INTIMACY VS. WORLDLY SEX</h4>
+                        <p class="card-meta"><a href="#" class="meta-link">Share</a> 14 comments</p>
+                    </div>
+                    <div class="popular-post-card">
+                        <p class="card-date">November 29, 2015</p>
+                        <h4 class="card-title">A RIGID HAG?</h4>
+                        <p class="card-meta"><a href="#" class="meta-link">Share</a> 3 comments</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer>
+            <p>Powered by Blogger</p>
+            <p>(C) 2018 Sidreis Agla</p>
+        </footer>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,356 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Switch Demos</title>
+    <style>
+        :root {
+            --header-bg: #336633;
+            --text-color: #333;
+            --link-color: #0000EE;
+            --code-bg: #EEE;
+            --switch-track-off: #CCC;
+            --switch-track-on: #66BB66; /* A guess for a green-ish color */
+            --switch-thumb: #FFF;
+            --switch-onoff-bg: #333;
+            --switch-onoff-text-off: #FFF;
+            --switch-onoff-text-on: #FFF;
+            --switch-onoff-active-bg: #66BB66; /* A guess for active state */
+            --switch-onoff-inactive-bg: #555;
+            --switch-onoff-inactive-text: #AAA;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #F8F8F8; /* Light gray background for the whole page */
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .header-bar {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .header-bar a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        .date-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .pattern-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-left: 20px; /* Indent for pattern items */
+        }
+
+        .pattern-item > span {
+            flex-grow: 1;
+            margin-right: 15px;
+        }
+
+        /* Screen reader only class */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Circular Switch Styling */
+        .switch-toggle {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: var(--switch-track-off);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .switch-toggle::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--switch-thumb);
+            top: 2px;
+            left: 2px;
+            transition: transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        input[type="checkbox"]:checked + .switch-toggle {
+            background-color: var(--switch-track-on);
+        }
+
+        input[type="checkbox"]:checked + .switch-toggle::before {
+            transform: translateX(20px);
+        }
+
+        /* Disabled state for circular switch */
+        input[type="checkbox"]:disabled + .switch-toggle {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* "Off" / "On" Switch Styling */
+        .switch-onoff {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 70px; /* Adjusted width to fit "Off" and "On" */
+            height: 28px;
+            background-color: var(--switch-onoff-bg);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: var(--switch-onoff-text-off);
+            overflow: hidden;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .switch-onoff::before,
+        .switch-onoff::after {
+            content: attr(data-off-text); /* "Off" */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .switch-onoff::before {
+            content: "Off";
+            background-color: var(--switch-onoff-active-bg);
+            color: var(--switch-onoff-text-on);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .switch-onoff::after {
+            content: "On";
+            background-color: var(--switch-onoff-inactive-bg);
+            color: var(--switch-onoff-inactive-text);
+            border-radius: 0 4px 4px 0;
+        }
+
+        input[type="checkbox"]:checked + .switch-onoff::before {
+            background-color: var(--switch-onoff-inactive-bg);
+            color: var(--switch-onoff-inactive-text);
+        }
+
+        input[type="checkbox"]:checked + .switch-onoff::after {
+            background-color: var(--switch-onoff-active-bg);
+            color: var(--switch-onoff-text-on);
+        }
+
+        /* Disabled state for "Off" / "On" switch */
+        input[type="checkbox"]:disabled + .switch-onoff {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .pattern-details ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        .pattern-details ul li {
+            margin-bottom: 5px;
+            padding-left: 1.2em;
+            position: relative;
+        }
+
+        .pattern-details ul li::before {
+            content: '►'; /* Unicode right-pointing triangle */
+            position: absolute;
+            left: 0;
+            color: var(--text-color);
+            font-size: 0.8em;
+            top: 0.2em;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            .pattern-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 0;
+            }
+            .pattern-item > span {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        Accessible Styled Form Controls<br>
+        <a href="#">See source on GitHub</a> , <a href="#">Index of styled form controls</a>
+    </div>
+
+    <div class="container">
+        <h1>ARIA Switch Demos</h1>
+        <p class="date-info">Published: March 20, 2017</p>
+        <p class="date-info">Last updated: January 23, 2022</p>
+
+        <h2>Pattern Demos</h2>
+
+        <div class="pattern-item">
+            <span><code>&lt;button&gt;</code> base</span>
+            <input type="checkbox" id="switch1" class="sr-only">
+            <label for="switch1" class="switch-toggle"></label>
+        </div>
+        <div class="pattern-item">
+            <span>Enable dark mode</span>
+            <input type="checkbox" id="switch2" class="sr-only" checked>
+            <label for="switch2" class="switch-toggle"></label>
+        </div>
+
+        <div class="pattern-item">
+            <span><code>&lt;span&gt;</code> base</span>
+            <input type="checkbox" id="switch3" class="sr-only">
+            <label for="switch3" class="switch-toggle"></label>
+        </div>
+        <div class="pattern-item">
+            <span>Enable dark mode (no visible state labels)</span>
+            <input type="checkbox" id="switch4" class="sr-only" checked>
+            <label for="switch4" class="switch-toggle"></label>
+        </div>
+
+        <div class="pattern-item">
+            <span><code>&lt;input type=checkbox&gt;</code> base</span>
+            <input type="checkbox" id="switch5" class="sr-only">
+            <label for="switch5" class="switch-toggle"></label>
+        </div>
+        <div class="pattern-item">
+            <span>Enable dark mode (disabled example)</span>
+            <input type="checkbox" id="switch6" class="sr-only" disabled>
+            <label for="switch6" class="switch-toggle"></label>
+        </div>
+
+        <div class="pattern-item">
+            <span><code>&lt;div&gt;</code> base</span>
+            <input type="checkbox" id="switch7" class="sr-only">
+            <label for="switch7" class="switch-onoff"></label>
+        </div>
+        <div class="pattern-item">
+            <span>Enable the next switch</span>
+            <input type="checkbox" id="switch8" class="sr-only" checked>
+            <label for="switch8" class="switch-onoff"></label>
+        </div>
+
+        <div class="pattern-item">
+            <span><code>&lt;a&gt;</code> base</span>
+            <input type="checkbox" id="switch9" class="sr-only">
+            <label for="switch9" class="switch-onoff"></label>
+        </div>
+        <div class="pattern-item">
+            <span>Enable something else</span>
+            <input type="checkbox" id="switch10" class="sr-only" checked>
+            <label for="switch10" class="switch-onoff"></label>
+        </div>
+
+        <h2>Pattern Details</h2>
+        <div class="pattern-details">
+            <ul>
+                <li>Pattern Markup (before script runs)</li>
+                <li>Pattern Markup (after script runs)</li>
+            </ul>
+            <p>A switch is meant to function similarly to a checkbox or toggle button, but assistive technologies are meant to announce it in a manner that is consistent with its on-screen appearance as an on/off sort of UI component.</p>
+            <p>This particular pattern uses a <code>&lt;button&gt;</code> as the base element that is then modified into a <span class="bold-text">role="switch"</span> with JavaScript. When a <code>&lt;button&gt;</code> is modified to be exposed as a <span class="bold-text">switch</span>, the <span class="bold-text">aria-checked</span> attribute needs to be added, and managed, to appropriately convey the current state to assistive technologies (AT).</p>
+            <p>For more information about switches and how AT, such as screen readers, interpret them, please review <a href="#">the checkbox switch pattern</a>.</p>
+            <p>For more information on the JavaScript and markup used, please see the <a href="#">ReadMe on the GitHub repo for this pattern</a>.</p>
+        </div>
+
+        <h2>Usage note</h2>
+        <p>Presently there are <a href="#">inconsistencies with screen readers and ARIA switches</a>. Please review them to understand how the role is treated depending on screen reader and browser pairings, and if there are any gaps you may need to consider when considering the use of this role.</p>
+
+        <h2>Continue reading</h2>
+        <p>For more information about switches, please read the <a href="#">ARIA specification for the switch role</a>. <a href="#">Inclusive Components Toggle Buttons, by Heydon Pickering</a>.</p>
+    </div>
+</body>
+</html>
+```

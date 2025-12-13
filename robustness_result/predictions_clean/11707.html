@@ -1,0 +1,159 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #4446B2; /* Main background color */
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            justify-content: space-between; /* Push main content and footer to ends */
+            align-items: center; /* Center horizontally */
+            min-height: 100vh; /* Full viewport height */
+            color: #C0C0C0; /* Default text color for lighter elements */
+            padding: 20px; /* Add some padding for smaller screens */
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1; /* Allow container to grow and push footer down */
+            width: 100%; /* Take full width */
+            max-width: 380px; /* Max width for the form elements */
+            margin-top: auto; /* Push content towards center if body has space-between */
+            margin-bottom: auto; /* Push content towards center if body has space-between */
+        }
+
+        .logo-placeholder {
+            width: 280px; /* Approximate width from image */
+            height: 150px; /* Approximate height from image */
+            background-color: #0000FF; /* Blue rectangle */
+            margin-bottom: 40px; /* Space below logo */
+            /* No border-radius for the logo placeholder as per image */
+        }
+
+        .input-group {
+            width: 100%;
+            margin-bottom: 15px; /* Space between input fields */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px; /* Rounded corners for inputs */
+            font-size: 16px;
+            color: #333;
+            background-color: #FFFFFF;
+            outline: none; /* Remove outline on focus */
+        }
+
+        .input-field::placeholder {
+            color: #888;
+        }
+
+        .sign-in-button {
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #4DD0A8; /* Teal/green button color */
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px; /* Rounded corners for button */
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px; /* Space above button */
+            transition: background-color 0.3s ease;
+        }
+
+        .sign-in-button:hover {
+            background-color: #3CBF97; /* Slightly darker on hover */
+        }
+
+        .reset-password {
+            margin-top: 25px; /* Space below button */
+            font-size: 15px;
+            text-decoration: none;
+            color: #C0C0C0; /* Lighter gray for link */
+            transition: color 0.3s ease;
+        }
+
+        .reset-password:hover {
+            color: #FFFFFF;
+        }
+
+        .footer-text {
+            /* margin-top: auto; This is handled by body's justify-content: space-between */
+            padding-top: 40px; /* Space above footer text */
+            font-size: 14px;
+            color: #C0C0C0; /* Lighter gray for footer */
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .logo-placeholder {
+                width: 200px; /* Smaller logo on small screens */
+                height: 100px;
+                margin-bottom: 30px;
+            }
+
+            .input-field, .sign-in-button {
+                padding: 12px 15px;
+                font-size: 15px;
+            }
+
+            .sign-in-button {
+                margin-top: 10px;
+            }
+
+            .reset-password {
+                margin-top: 20px;
+                font-size: 14px;
+            }
+
+            .footer-text {
+                padding-top: 30px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-placeholder"></div>
+
+        <div class="input-group">
+            <input type="email" class="input-field" placeholder="Email address">
+        </div>
+        <div class="input-group">
+            <input type="password" class="input-field" placeholder="Password">
+        </div>
+
+        <button type="submit" class="sign-in-button">Sign In</button>
+
+        <a href="#" class="reset-password">Reset password</a>
+    </div>
+
+    <div class="footer-text">
+        About Medallia Journey Analytics
+    </div>
+</body>
+</html>
+```

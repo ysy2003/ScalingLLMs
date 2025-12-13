@@ -1,0 +1,172 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Got This with Mark and Hal</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000; /* Black background */
+            color: #333; /* Default text color for content box */
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #000; /* Ensure it's black */
+            color: #fff;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar-left .icon {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 1.2em;
+            font-weight: bold; /* For 'f' and other characters */
+        }
+
+        .top-bar-right input[type="search"] {
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: #fff;
+            width: 150px; /* Adjust as needed */
+            outline: none; /* Remove default outline */
+            font-size: 0.9em; /* Match visual size */
+        }
+
+        .top-bar-right input[type="search"]::placeholder {
+            color: #bbb;
+        }
+
+        /* Main Title */
+        .main-title {
+            color: #fff;
+            text-align: center;
+            font-size: 3em; /* Large size */
+            margin: 80px 0 50px 0; /* Adjust spacing */
+            font-weight: bold;
+            letter-spacing: -0.02em; /* Slight letter spacing adjustment for visual match */
+        }
+
+        /* Container for content box */
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px; /* Horizontal padding, no vertical padding here */
+        }
+
+        /* Content Box */
+        .content-box {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px; /* Max width for the content */
+            margin-bottom: 50px; /* Space before footer */
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd; /* This is the line below the tabs */
+            border-top-left-radius: 10px; /* Apply to the container */
+            border-top-right-radius: 10px; /* Apply to the container */
+            overflow: hidden; /* Crucial for rounded corners with border-bottom */
+        }
+
+        .tab {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #555;
+            background-color: #f0f0f0; /* Inactive tab background */
+            border-right: 1px solid #ddd; /* Separator between tabs */
+            position: relative; /* For z-index */
+            z-index: 1;
+            font-size: 0.95em; /* Slightly smaller text */
+        }
+
+        .tab:last-child {
+            border-right: none;
+        }
+
+        .tab.active {
+            background-color: #fff; /* Active tab background */
+            color: #333;
+            border-bottom: 1px solid #fff; /* Covers the .tabs border-bottom */
+            z-index: 2;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            padding: 20px;
+        }
+
+        .displaying-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .separator {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+
+        .episode-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .episode-date {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .episode-description {
+            margin-bottom: 1em;
+            font-size: 0.95em; /* Slightly smaller text */
+        }
+
+        .download-link {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        .comments-title {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 5px; /* Closer to the info text */
+            font-weight: bold;
+        }
+
+        .comments-info {
+            font-size: 

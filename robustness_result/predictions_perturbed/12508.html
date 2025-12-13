@@ -1,0 +1,208 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughtwax</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            color: #333; /* Dark grey for main text */
+            background-color: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit; /* Links inherit text color */
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 700px; /* Max width for content */
+            margin: 0 auto; /* Center the container */
+            padding: 40px 20px; /* Vertical padding, horizontal padding for smaller screens */
+        }
+
+        /* Header Section */
+        header {
+            margin-bottom: 80px; /* Space between header and main content */
+        }
+
+        .site-title {
+            font-size: 1.1rem; /* Slightly larger than body text */
+            font-weight: 600; /* Bolder */
+            letter-spacing: 0.1em; /* Spaced out */
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #222; /* Slightly darker for emphasis */
+        }
+
+        .site-description,
+        .follow-link {
+            font-size: 0.9rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #666; /* Lighter grey for secondary text */
+        }
+
+        .follow-link {
+            margin-top: 1.5rem; /* More space above this link */
+        }
+
+        /* Main Content Section */
+        main {
+            margin-bottom: 100px; /* Space between main content and footer */
+        }
+
+        .article-title {
+            font-family: Georgia, serif; /* Serif font for title */
+            font-size: 3.2rem; /* Large font size */
+            font-style: italic;
+            font-weight: normal; /* Georgia italic often looks good with normal weight */
+            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 2.5rem; /* Space below title */
+            color: #222; /* Slightly darker for emphasis */
+        }
+
+        main p {
+            margin-top: 0;
+            margin-bottom: 1.5rem; /* Space between paragraphs */
+            font-size: 1rem;
+            color: #333;
+        }
+
+        main p:last-of-type {
+            margin-bottom: 0; /* No margin after the last paragraph in main */
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 3rem; /* Space above date */
+        }
+
+        /* Footer Section */
+        footer {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer hr {
+            border: none; /* Remove default border */
+            border-top: 1px solid #eee; /* Add a thin top border */
+            margin-top: 0; /* No margin above the hr itself */
+            margin-bottom: 40px; /* Space between hr and first footer text */
+            width: 100%; /* Ensure it spans full width */
+        }
+
+        footer p {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        footer p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
+
+            .article-title {
+                font-size: 2.5rem; /* Adjust for smaller screens */
+            }
+
+            header {
+                margin-bottom: 60px;
+            }
+
+            main {
+                margin-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .site-title {
+                font-size: 1rem;
+            }
+
+            .site-description,
+            .follow-link,
+            main p,
+            .date,
+            footer p {
+                font-size: 0.85rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            header {
+                margin-bottom: 40px;
+            }
+
+            main {
+                margin-bottom: 60px;
+            }
+
+            footer hr {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="site-title">THOUGHTWAX</p>
+            <p class="site-description">A blog by <a href="#">Emmet Connolly</a></p>
+            <p class="follow-link"><a href="#">Follow me on Twitter →</a></p>
+        </header>
+
+        <main>
+            <h1 class="article-title">When Dublin developers roll, they roll big</h1>
+
+            <p>In more Dublin urban development news, this is quite odd: <a href="#">Dublin Coastal Development</a>, "a new vision for Dublin". I must embarrassingly admit that I was a couple of minutes into the video before the penny dropped.</p>
+
+            <p>It's very slickly produced, sporting just the right amount of cheesiness. It also touches enough contemporary points to be almost believeable; Dublin's unstoppable urban sprawl and tremendously stupid developments given the green light thanks to planning corruption have resulted in worse travesties than this.</p>
+
+            <p>(On a meta note, that's the first time I've embedded a YouTube in my site, and I found myself wondering if I wanted to, you know, take my blog in that direction <span class="italic">stylistically</span>.</p>
+
+            <p class="date">- 26 Sep 2006</p>
+        </main>
+
+        <footer>
+            <hr>
+            <p class="footer-name">Emmet Connolly</p>
+            <p class="footer-email">[EMAIL REDACTED]</p>
+            <p class="footer-links-top">
+                <a href="#">About me</a> - <a href="#">Archive</a> - <a href="#">RSS feed</a>
+            </p>
+            <p class="footer-links-bottom">
+                <a href="#">@thoughtwax</a> - <a href="#">instagram</a> - <a href="#">tumblr</a> - <a href="#">vimeo</a> - <a href="#">pinboard</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+```

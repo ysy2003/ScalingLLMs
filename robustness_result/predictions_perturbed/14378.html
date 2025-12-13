@@ -1,0 +1,363 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dalglish Family 22q Clinic</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f8f8; /* Light background for the whole page */
+        }
+
+        a {
+            color: #0000EE; /* Standard link blue */
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px; /* Approximate width from image */
+            margin: 0 auto;
+            background-color: #fff; /* White background for the main content area */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-banner {
+            background-color: blue;
+            height: 120px; /* Approximate height */
+            width: 100%;
+        }
+
+        .header-nav {
+            background-color: #f0f0f0; /* Light gray background for nav */
+            padding: 0 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-nav-top {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 0.9em;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-nav-top a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        .header-nav-top a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .header-nav-main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 1px; /* Small gap for borders */
+            background-color: #ddd; /* To simulate borders between items */
+        }
+
+        .header-nav-main a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9; /* Background for each nav item */
+            border-bottom: 1px solid #ddd; /* Bottom border for all */
+            font-size: 0.95em;
+            white-space: nowrap; /* Prevent wrapping for nav items */
+        }
+
+        .header-nav-main a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .header-nav-main a.active {
+            background-color: #e0e0e0; /* Active/selected item background */
+            border-bottom: 1px solid #a0a0a0; /* Darker border for active */
+        }
+
+        /* Main Content Layout */
+        .main-content-wrapper {
+            display: flex;
+            padding: 20px 0; /* Vertical padding for the whole content area */
+        }
+
+        .sidebar {
+            flex: 0 0 250px; /* Fixed width for sidebar */
+            padding: 0 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .sidebar ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #0000EE;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+
+        .content-area h1 {
+            font-family: Georgia, serif; /* Serif font for main heading */
+            font-size: 1.8em;
+            font-weight: normal; /* Looks like normal weight */
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .content-area h2 {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            color: #333;
+        }
+
+        .content-area p {
+            margin-bottom: 15px;
+        }
+
+        .content-area .return-link {
+            text-align: right;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #f0f0f0; /* Light gray background for footer */
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-top p {
+            margin: 0;
+            max-width: 600px; /* Limit width for readability */
+        }
+
+        .footer-banner {
+            background-color: blue;
+            height: 100px; /* Approximate height */
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .footer-contact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) 1.5fr; /* 3 equal columns, 4th wider for address/website */
+            gap: 10px;
+            margin-top: 20px;
+            padding: 0 20px; /* Padding to align with content */
+            text-align: left;
+        }
+
+        .footer-contact div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-contact strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .footer-contact a {
+            text-decoration: none;
+            color: #0000EE;
+        }
+
+        .footer-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-address-block span {
+            display: block; /* Make each line of address a block */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-content-wrapper {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                flex: none;
+                width: auto;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+
+            .header-nav-main {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+            }
+
+            .footer-contact {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for contact info */
+            }
+            .footer-address-block {
+                grid-column: span 2; /* Span 2 columns on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav-main {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+            .footer-contact {
+                grid-template-columns: 1fr; /* Single column for contact info */
+            }
+            .footer-address-block {
+                grid-column: span 1; /* Span 1 column on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-banner"></div>
+            <nav class="header-nav">
+                <div class="header-nav-top">
+                    <a href="#">Home</a>
+                    <a href="#">22q11.2DS Quick Facts</a>
+                </div>
+                <div class="header-nav-main">
+                    <a href="#" class="active">Info for Patients and Families</a>
+                    <a href="#">Info for Medical Professionals</a>
+                    <a href="#">Info for Educators</a>
+                    <a href="#">Info for Police Officers</a>
+                    <a href="#">About the Clinic</a>
+                    <a href="#">Our Research</a>
+                    <a href="#">Same Name Campaign</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Donate</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-content-wrapper">
+            <aside class="sidebar">
+                <h2>In This Section...</h2>
+                <ul>
+                    <li><a href="#">Info for Patients and Families</a></li>
+                    <li><a href="#">COVID-19 Information</a></li>
+                    <li><a href="#">What is 22q? Genetics Q&A</a></li>
+                    <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+                </ul>
+            </aside>
+
+            <section class="content-area">
+                <h1>Healthy Sexuality And Pregnancy</h1>
+
+                <h2>Websites on Healthy Sexuality</h2>
+                <p><a href="http://www.sexandu.ca" target="_blank">www.sexandu.ca</a></p>
+                <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+                <p><a href="http://www.teenhealthsource.com" target="_blank">www.teenhealthsource.com</a></p>
+                <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+                <div class="return-link">
+                    <a href="#">[Return to Top]</a>
+                </div>
+
+                <h2>Websites on Pregnancy</h2>
+                <p><a href="http://www.toronto.ca/health/pregnancy" target="_blank">www.toronto.ca/health/pregnancy</a></p>
+                <p>The Pregnancy section of Toronto Public Health's website can answer many health-related questions for pregnant women.</p>
+                <p><a href="http://www.marchofdimes.com" target="_blank">www.marchofdimes.com</a></p>
+                <p>Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.</p>
+                <div class="return-link">
+                    <a href="#">[Return to Top]</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-top">
+                <p>&copy;2012-2023 The Dalglish Family 22q Clinic. All rights reserved.<br>
+                The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+                <div class="footer-banner"></div>
+            </div>
+            <div class="footer-contact">
+                <div>
+                    <strong>Email</strong>
+                    <a href="mailto:redacted@example.com">[EMAIL REDACTED]</a>
+                </div>
+                <div>
+                    <strong>Phone</strong>
+                    <span>[PHONE REDACTED]</span>
+                </div>
+                <div>
+                    <strong>Fax</strong>
+                    <span>[PHONE REDACTED]</span>
+                </div>
+                <div class="footer-address-block">
+                    <strong>Website</strong>
+                    <a href="https://22q.ca/" target="_blank">https://22q.ca/</a>
+                    <br>
+                    <span>The Dalglish Family 22q Clinic</span>
+                    <span>[ADDRESS REDACTED]</span>
+                    <span>[ADDRESS REDACTED]</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+```

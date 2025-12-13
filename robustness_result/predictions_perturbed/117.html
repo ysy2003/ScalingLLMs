@@ -1,0 +1,131 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Area</title>
+    <style>
+        /* Universal box-sizing for easier layout */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            padding: 20px; /* Add some padding for very small screens */
+        }
+
+        .password-protection-box {
+            background-color: #333333; /* Dark gray background */
+            padding: 30px;
+            width: 100%;
+            max-width: 450px; /* Max width for the box */
+            color: #ffffff; /* White text color */
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        .password-protection-box h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .divider {
+            border-bottom: 1px solid #666666; /* Thin light gray line */
+            margin-bottom: 20px;
+            width: 100%; /* Ensure it spans the full width */
+        }
+
+        .password-protection-box p {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px; /* Space between input and button */
+            align-items: center;
+        }
+
+        .password-input {
+            flex-grow: 1; /* Input takes up available space */
+            padding: 10px;
+            border: 1px solid #000000; /* Black border */
+            background-color: #ffffff; /* White background */
+            color: #333333; /* Dark text inside input */
+            font-size: 16px;
+            outline: none; /* Remove default outline */
+        }
+
+        .password-input:focus {
+            border-color: #007bff; /* Highlight border on focus */
+        }
+
+        .login-button {
+            padding: 10px 20px;
+            background-color: #464646; /* Slightly lighter dark gray for button */
+            color: #ffffff;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap; /* Prevent button text from wrapping */
+            transition: background-color 0.2s ease;
+        }
+
+        .login-button:hover {
+            background-color: #555555; /* Darker on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .password-protection-box {
+                padding: 20px;
+            }
+
+            .password-protection-box h2 {
+                font-size: 20px;
+            }
+
+            .password-protection-box p,
+            .password-input,
+            .login-button {
+                font-size: 14px;
+            }
+
+            .input-group {
+                flex-direction: column; /* Stack input and button on small screens */
+                gap: 10px;
+            }
+
+            .password-input,
+            .login-button {
+                width: 100%; /* Full width when stacked */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="password-protection-box">
+        <h2>This area is password protected</h2>
+        <div class="divider"></div>
+        <p>Please enter the password below</p>
+        <div class="input-group">
+            <input type="password" class="password-input" placeholder="">
+            <button type="submit" class="login-button">Login</button>
+        </div>
+    </div>
+</body>
+</html>
+```

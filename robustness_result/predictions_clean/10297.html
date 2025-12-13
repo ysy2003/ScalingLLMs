@@ -1,0 +1,454 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McMahon Engineering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #fff;
+            flex-wrap: wrap;
+            max-width: 1200px; /* Match main content width */
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 100px;
+            height: 50px;
+            background-color: #0000ff;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        header nav {
+            display: flex;
+            gap: 25px;
+            flex-grow: 1;
+            justify-content: flex-start;
+            margin-left: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #646464; /* Dark gray */
+            font-weight: bold;
+            font-size: 0.9em;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .search-container input {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            width: 180px;
+            outline: none;
+        }
+
+        .search-container input::placeholder {
+            color: #aaa;
+        }
+
+        .search-button {
+            width: 30px;
+            height: 30px;
+            background-color: #0000ff;
+            border: none;
+            margin-left: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* News and Events Banner */
+        .news-events-banner {
+            background-color: #663399; /* Purple */
+            color: #fff;
+            padding: 12px 5%;
+            font-weight: bold;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            max-width: 1200px; /* Match main content width */
+            margin: 0 auto;
+        }
+
+        .dropdown-arrow {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #fff;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Main Content Layout */
+        .container {
+            display: flex;
+            padding: 30px 5%;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-left {
+            flex: 2;
+            min-width: 0;
+        }
+
+        .content-left h1 {
+            font-size: 2.2em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .content-left h2 {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .content-left p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-right {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* Summary Box */
+        .summary-box {
+            background-color: #e6d2f0; /* Light purple */
+            border: 1px solid #663399; /* Purple border */
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            color: #663399; /* Purple */
+            font-size: 1.1em;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .summary-box dl {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 5px 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .summary-box dt {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .summary-box dd {
+            margin-left: 0;
+        }
+
+        .web-site-link {
+            color: #663399; /* Purple */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: 15px;
+            display: block;
+        }
+
+        .web-site-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Navigation Links */
+        .sidebar-nav a {
+            display: block;
+            background-color: #dcf0dc; /* Light green */
+            color: #3c7864; /* Darker green/blue */
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar-nav a:hover {
+            background-color: #cce0cc;
+        }
+
+        /* Small Blue Squares */
+        .small-blue-squares-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        .small-blue-square {
+            width: 30px;
+            height: 30px;
+            background-color: #0000ff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px; /* Space between items when wrapping */
+        }
+
+        .privacy-policy {
+            color: #663399; /* Purple */
+            text-decoration: none;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .privacy-policy:hover {
+            text-decoration: underline;
+        }
+
+        .footer-blue-squares {
+            display: flex;
+            gap: 15px;
+            flex-grow: 1; /* Allow squares to take available space */
+            justify-content: center; /* Center them if space allows */
+        }
+
+        .large-blue-square {
+            width: 80px;
+            height: 50px;
+            background-color: #0000ff;
+        }
+
+        .web-design-belfast {
+            color: #b4b4c8; /* Light purple/gray */
+            font-size: 0.8em;
+            text-align: right;
+            white-space: nowrap;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            header nav {
+                margin-left: 0;
+                justify-content: center;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .search-container {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-container input {
+                width: calc(100% - 40px);
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .content-left, .sidebar-right {
+                flex: none;
+                width: 100%;
+                min-width: unset;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .footer-blue-squares {
+                justify-content: center;
+                width: 100%; /* Allow squares to take full width for centering */
+            }
+
+            .web-design-belfast {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .logo {
+                width: 80px;
+                height: 40px;
+            }
+            header nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .large-blue-square {
+                width: 60px;
+                height: 40px;
+            }
+            .footer-blue-squares {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT US</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="search the Rural Network">
+            <button class="search-button"></button>
+        </div>
+    </header>
+
+    <div class="news-events-banner">
+        NEWS AND EVENTS <span class="dropdown-arrow"></span>
+    </div>
+
+    <main class="container">
+        <div class="content-left">
+            <h1>McMahon Engineering</h1>
+
+            <section>
+                <h2>PROJECT SUMMARY</h2>
+                <p>To expand and develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products.</p>
+            </section>
+
+            <section>
+                <h2>BACKGROUND</h2>
+                <p>McMahon Engineering is a successful engineering works which has been established for 25 years. The business is located in a large purpose built shed beside the promoter's home.</p>
+            </section>
+
+            <section>
+                <h2>ACTIVITIES</h2>
+                <p>Funded under Axis 3, through SOAR, the promoter received funding towards an aluminium welder and aluminium shaper.</p>
+            </section>
+
+            <section>
+                <h2>BENEFITS</h2>
+                <p>The promoter had enquiries from manufacturers who specialise in the production of aluminium items and the equipment will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+            </section>
+        </div>
+
+        <aside class="sidebar-right">
+            <div class="summary-box">
+                <h3>SUMMARY</h3>
+                <dl>
+                    <dt>Name:</dt>
+                    <dd>McMahon Engineering</dd>
+                    <dt>Location:</dt>
+                    <dd>Armagh</dd>
+                    <dt>County:</dt>
+                    <dd>Armagh</dd>
+                    <dt>Total Cost:</dt>
+                    <dd>£ 9,664.00</dd>
+                    <dt>Axis:</dt>
+                    <dd>AXIS 3 : SOAR</dd>
+                </dl>
+                <a href="#" class="web-site-link">Visit Web Site</a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link">CASE STUDIES</a>
+                <a href="#" class="sidebar-link">PUBLICATIONS</a>
+                <a href="#" class="sidebar-link">PROJECTS DIRECTORY</a>
+                <a href="#" class="sidebar-link">THEMATIC WORKING GROUPS</a>
+            </nav>
+        </aside>
+    </main>
+
+    <div class="small-blue-squares-container">
+        <div class="small-blue-square"></div>
+        <div class="small-blue-square"></div>
+        <div class="small-blue-square"></div>
+    </div>
+
+    <footer>
+        <hr>
+        <div class="footer-content">
+            <a href="#" class="privacy-policy">privacy policy</a>
+            <div class="footer-blue-squares">
+                <div class="large-blue-square"></div>
+                <div class="large-blue-square"></div>
+                <div class="large-blue-square"></div>
+            </div>
+            <span class="web-design-belfast">Web Design Belfast</span>
+        </div>
+    </footer>
+</body>
+</html>
+```

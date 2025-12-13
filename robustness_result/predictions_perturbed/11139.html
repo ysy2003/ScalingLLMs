@@ -1,0 +1,441 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLC6X: system environment/base: pki-selinux</title>
+    <style>
+        :root {
+            --cern-blue: #00264C;
+            --cern-light-blue: #003366;
+            --cern-text-blue: #0055AA;
+            --cern-gray-text: #333;
+            --cern-light-gray-bg: #F0F0F0;
+            --cern-border-gray: #CCC;
+            --cern-link-blue: #0000CC;
+            --cern-link-hover: #0000FF;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: var(--cern-light-gray-bg);
+            color: var(--cern-gray-text);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        a {
+            color: var(--cern-link-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--cern-link-hover);
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: var(--cern-blue);
+            color: #FFF;
+            padding: 20px 0;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .sidebar h1 {
+            font-size: 18px;
+            margin: 0 20px 20px 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--cern-light-blue);
+            font-weight: normal;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 5px;
+            padding: 0 20px;
+        }
+
+        .sidebar nav a {
+            color: #FFF;
+            text-decoration: none;
+            display: block;
+            padding: 2px 0;
+        }
+
+        .sidebar nav a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar nav strong {
+            font-weight: bold;
+            color: #FFF; /* Ensure bold items are also white */
+        }
+
+        .main-content {
+            flex-grow: 1;
+            background-color: #FFF;
+            padding: 20px 30px;
+            box-sizing: border-box;
+        }
+
+        .main-content h2 {
+            font-size: 24px;
+            color: var(--cern-text-blue);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .main-content h3 {
+            font-size: 18px;
+            color: var(--cern-text-blue);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .main-content h4 {
+            font-size: 16px;
+            color: var(--cern-text-blue);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .back-to-group {
+            margin-bottom: 15px;
+        }
+
+        .jump-letters {
+            margin-bottom: 20px;
+        }
+
+        .jump-letters a {
+            margin-right: 5px;
+            font-weight: bold;
+            color: var(--cern-link-blue);
+        }
+
+        .info-table {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px; /* To match the image's width */
+        }
+
+        .info-table .info-row {
+            display: flex;
+            padding: 5px 0;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .info-table .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-table .info-label {
+            width: 80px;
+            font-weight: bold;
+            flex-shrink: 0;
+            padding-right: 10px;
+        }
+
+        .info-table .info-value {
+            flex-grow: 1;
+        }
+
+        pre {
+            background-color: #F8F8F8;
+            border: 1px solid #DDD;
+            padding: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 13px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        ul li::before {
+            content: "*";
+            position: absolute;
+            left: -15px;
+            color: var(--cern-gray-text);
+        }
+
+        .packages-list {
+            margin-top: 20px;
+        }
+
+        .package-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .package-item:last-child {
+            border-bottom: none;
+        }
+
+        .package-name {
+            width: 200px; /* Adjust as needed */
+            flex-shrink: 0;
+            padding-right: 20px;
+        }
+
+        .package-name a {
+            display: block;
+            color: var(--cern-link-blue);
+            text-decoration: none;
+            margin-bottom: 3px;
+        }
+
+        .package-name a:hover {
+            text-decoration: underline;
+        }
+
+        .package-name span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .package-changelog {
+            flex-grow: 1;
+        }
+
+        .changelog-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .changelog-details {
+            margin-top: 5px;
+            white-space: pre-wrap; /* Preserve line breaks in changelog details */
+        }
+
+        .footer-link {
+            margin-top: 30px;
+            font-size: 13px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 15px 0;
+            }
+
+            .sidebar h1 {
+                margin: 0 15px 15px 15px;
+            }
+
+            .sidebar nav li {
+                padding: 0 15px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .info-table .info-row {
+                flex-direction: column;
+            }
+
+            .info-table .info-label {
+                width: auto;
+                margin-bottom: 5px;
+            }
+
+            .package-item {
+                flex-direction: column;
+            }
+
+            .package-name {
+                width: auto;
+                padding-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Linux @ CERN</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Introduction</a></li>
+                    <li><a href="#">Which distribution should I use?</a></li>
+                    <li><strong><a href="#">CERN Linux</a></strong></li>
+                    <li><a href="#">Red Hat Enterprise Linux (RHEL)</a></li>
+                    <li><a href="#">CentOS</a></li>
+                    <li><a href="#">Deprecated Linux Distributions</a></li>
+                    <li><a href="#">Installation</a></li>
+                    <li><a href="#">Updates</a></li>
+                    <li><a href="#">Configuration</a></li>
+                    <li><a href="#">Virtual machine images</a></li>
+                    <li><a href="#">OpenStack images</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Software Building</a></li>
+                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Survival Kit training</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <h2>"SLC6X: system environment/base: pki-selinux</h2>
+            <p class="back-to-group"><a href="#">&laquo; Back to group</a></p>
+            <p class="jump-letters">Jump to letter: [ <a href="#">3</a> <a href="#">A</a> <a href="#">B</a> <a href="#">C</a> <a href="#">D</a> <a href="#">E</a> <a href="#">F</a> <a href="#">G</a> <a href="#">H</a> <a href="#">I</a> <a href="#">J</a> <a href="#">K</a> <a href="#">L</a> <a href="#">M</a> <a href="#">N</a> <a href="#">O</a> <a href="#">P</a> <a href="#">Q</a> <a href="#">R</a> <a href="#">S</a> <a href="#">T</a> <a href="#">U</a> <a href="#">V</a> <a href="#">W</a> <a href="#">X</a> <a href="#">Y</a> <a href="#">Z</a> ]</p>
+
+            <h3>pki-selinux - Certificate System - PKI Selinux Policies</h3>
+
+            <div class="info-table">
+                <div class="info-row">
+                    <div class="info-label">Website:</div>
+                    <div class="info-value"><a href="http://pki.fedoraproject.org/">http://pki.fedoraproject.org/</a></div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">License:</div>
+                    <div class="info-value">GPLv2</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Vendor:</div>
+                    <div class="info-value">Scientific Linux CERN, <a href="http://cern.ch/linux">http://cern.ch/linux</a></div>
+                </div>
+            </div>
+
+            <h4>Description:</h4>
+            <p>Selinux policies for the PKI components.</p>
+            <p>This package is a part of the PKI Core used by the Certificate System.</p>
+
+            <pre>
+==================================
+|| ABOUT "CERTIFICATE SYSTEM" ||
+==================================</pre>
+
+            <p>Certificate System (CS) is an enterprise software system designed
+to manage enterprise Public Key Infrastructure (PKI) deployments.</p>
+
+            <p>PKI Core contains fundamental packages required by Certificate System,
+and consists of the following components:</p>
+            <ul>
+                <li>pki-setup</li>
+                <li>pki-symkey</li>
+                <li>pki-native-tools</li>
+                <li>pki-util</li>
+                <li>pki-util-javadoc</li>
+                <li>pki-java-tools</li>
+                <li>pki-java-tools-javadoc</li>
+                <li>pki-common</li>
+                <li>pki-common-javadoc</li>
+                <li>pki-selinux</li>
+                <li>pki-ca</li>
+                <li>pki-silent</li>
+            </ul>
+
+            <p>which comprise the following PKI subsystems:</p>
+            <ul>
+                <li>Certificate Authority (CA)</li>
+            </ul>
+
+            <p>For deployment purposes, Certificate System requires ONE AND ONLY ONE
+of the following "Mutually-Exclusive" PKI Theme packages:</p>
+            <ul>
+                <li>ipa-pki-theme (IPA deployments)</li>
+                <li>dogtag-pki-theme (Dogtag Certificate System deployments)</li>
+                <li>redhat-pki-theme (Red Hat Certificate System deployments)</li>
+            </ul>
+
+            <h3>Packages</h3>
+            <div class="packages-list">
+                <div class="package-item">
+                    <div class="package-name">
+                        <a href="#">pki-selinux-9.0.3-53.el6.noarch</a><br>
+                        <span>[65 KiB]</span>
+                    </div>
+                    <div class="package-changelog">
+                        <div class="changelog-title">Changelog by Endi S. Dewata (2017-02-08):</div>
+                        <div class="changelog-details">
+                            - Resolves #1403943 - Replica install fails with failed to configure ca on
+                              "White spaces are required between publicId and systemId"
+                              (contains the additional changes required to work with the latest HTTPD)
+                        </div>
+                    </div>
+                </div>
+                <div class="package-item">
+                    <div class="package-name">
+                        <a href="#">pki-selinux-9.0.3-50.el6_8.noarch</a><br>
+                        <span>[64 KiB]</span>
+                    </div>
+                    <div class="package-changelog">
+                        <div class="changelog-title">Changelog by Matthew Harmsen (2016-07-13):</div>
+                        <div class="changelog-details">
+                            - Resolves #1355963 - installing pki-common causes mode 0755 on /usr/sbin
+                        </div>
+                    </div>
+                </div>
+                <div class="package-item">
+                    <div class="package-name">
+                        <a href="#">pki-selinux-9.0.3-49.el6.noarch</a><br>
+                        <span>[64 KiB]</span>
+                    </div>
+                    <div class="package-changelog">
+                        <div class="changelog-title">Changelog by Ade Lee (2016-03-14):</div>
+                        <div class="changelog-details">
+                            - Resolves #1290535 - Check for incompatible Java at startup (pkisilent)
+                        </div>
+                    </div>
+                </div>
+                <div class="package-item">
+                    <div class="package-name">
+                        <a href="#">pki-selinux-9.0.3-45.el6_7.noarch</a><br>
+                        <span>[64 KiB]</span>
+                    </div>
+                    <div class="package-changelog">
+                        <div class="changelog-title">Changelog by Endi S. Dewata (2016-01-27):</div>
+                        <div class="changelog-details">
+                            - Resolves #1291747 - Fixed incorrect patch for fixing missing subsystem user on external CA ca
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="footer-link">Listing created by <a href="#">repoview</a></p>
+        </div>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,319 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christiaan Conover - My First Time-Lapse</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-blue-box {
+            width: 30px;
+            height: 30px;
+            background-color: #0000FF; /* Bright blue */
+            margin-right: 10px;
+        }
+
+        .site-title {
+            font-size: 1.2em;
+            font-weight: normal;
+            color: #333;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+
+        .header-nav a {
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+
+        .header-nav a:hover {
+            color: #000;
+        }
+
+        .header-nav a .icon {
+            margin-right: 5px;
+            font-size: 0.8em; /* Adjust icon size */
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .category-heading {
+            font-size: 2.5em;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-heading .icon {
+            margin-right: 10px;
+            font-size: 0.8em; /* Adjust icon size */
+        }
+
+        .feed-link {
+            display: flex;
+            align-items: center;
+            color: #0000FF; /* Blue */
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+
+        .feed-link .icon {
+            margin-right: 5px;
+            font-size: 0.8em; /* Adjust icon size */
+        }
+
+        .post-title {
+            font-size: 2.5em;
+            color: #0000FF; /* Blue */
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .post-meta {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 30px; /* Space between columns */
+            font-size: 0.9em;
+        }
+
+        .footer-section {
+            flex: 1; /* Distribute space */
+            min-width: 180px; /* Minimum width before wrapping */
+        }
+
+        .footer-section h4 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            display: flex;
+            align-items: center;
+            color: #ccc;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-section ul li .icon {
+            margin-right: 8px;
+            font-size: 0.8em; /* Adjust icon size */
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px; /* Space from other footer content */
+        }
+
+        .footer-social-icons .icon {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .site-title {
+                font-size: 1.1em;
+            }
+
+            .header-nav {
+                gap: 15px;
+                font-size: 0.85em;
+            }
+
+            .main-content {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .category-heading {
+                font-size: 2em;
+            }
+
+            .post-title {
+                font-size: 2em;
+            }
+
+            .post-content p {
+                font-size: 1em;
+            }
+
+            .footer {
+                padding: 30px 20px;
+                flex-direction: column; /* Stack columns */
+                gap: 20px;
+            }
+
+            .footer-section {
+                min-width: unset; /* Remove min-width when stacked */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .header-nav {
+                width: 100%;
+                justify-content: space-around;
+                margin-top: 10px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .category-heading {
+                font-size: 1.8em;
+            }
+
+            .post-title {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="header-blue-box"></div>
+            <div class="site-title">Christiaan Conover</div>
+        </div>
+        <nav class="header-nav">
+            <a href="#"><span class="icon">&#x25A1;</span> Blog</a>
+            <a href="#"><span class="icon">&#x25A1;</span> About</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2 class="category-heading"><span class="icon">&#x25A1;</span> time lapse</h2>
+        <a href="#" class="feed-link"><span class="icon">&#x25A1;</span> "time lapse" feed</a>
+
+        <h1 class="post-title">My First Time-Lapse</h1>
+        <p class="post-meta">May 3, 2013 &middot; 0 minute read</p>
+
+        <div class="post-content">
+            <p>The camera in Android 4.0 introduced a very cool feature: time-lapse video. Despite how awesome I think it is, I've never actually used it - until today.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-section footer-copyright">
+            <p>&copy; Copyright 2007-2019 Christiaan Conover. All rights reserved.</p>
+        </div>
+        <div class="footer-section">
+            <h4></h4> <!-- Empty heading for layout as per image -->
+            <ul>
+                <li><a href="#"><span class="icon">&#x25A1;</span> Blog</a></li>
+                <li><a href="#"><span class="icon">&#x25A1;</span> About</a></li>
+                <li><a href="#"><span class="icon">&#x25A1;</span> Code Projects</a></li>
+                <li><a href="#"><span class="icon">&#x25A1;</span> W3RTX</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Feeds</h4>
+            <ul>
+                <li><a href="#"><span class="icon">&#x25A1;</span> Blog</a></li>
+                <li><a href="#"><span class="icon">&#x25A1;</span> Everything</a></li>
+            </ul>
+        </div>
+        <div class="footer-section footer-social">
+            <h4></h4> <!-- Empty heading for layout as per image -->
+            <div class="footer-social-icons">
+                <a href="#" class="icon">&#x25A1;</a>
+                <a href="#" class="icon">&#x25A1;</a>
+                <a href="#" class="icon">&#x25A1;</a>
+                <a href="#" class="icon">&#x25A1;</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

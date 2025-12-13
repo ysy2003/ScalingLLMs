@@ -1,0 +1,173 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura Fisher Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Modern sans-serif stack */
+            background-color: #1a1a1a; /* Dark background */
+            color: white;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px; /* Adjust padding as needed */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 20px; /* Space between nav and title if they wrap */
+        }
+
+        header nav {
+            display: flex;
+            gap: 25px; /* Spacing between nav links */
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: opacity 0.3s ease;
+        }
+
+        header nav a:hover {
+            opacity: 0.7;
+        }
+
+        .site-title {
+            font-family: 'Dancing Script', cursive; /* Script font for the name */
+            font-size: 3.5em; /* Large font size */
+            line-height: 1;
+            margin: 0; /* Remove default h1 margin */
+            text-align: right; /* Align to the right within its flex item */
+            white-space: nowrap; /* Prevent name from breaking into multiple lines */
+        }
+
+        /* Main Content Grid */
+        main {
+            flex-grow: 1; /* Allow main content to take available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 50px; /* Padding around the grid */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 20px; /* Spacing between grid items */
+            max-width: 1200px; /* Max width for the grid */
+            width: 100%;
+        }
+
+        .grid-item {
+            background-color: blue;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio for the blue boxes */
+            position: relative; /* For positioning the circle */
+        }
+
+        .grid-item.with-circle .circle {
+            position: absolute;
+            bottom: 20px; /* Distance from bottom */
+            right: 20px; /* Distance from right */
+            width: 40px; /* Size of the circle */
+            height: 40px;
+            background-color: rgba(173, 216, 230, 0.5); /* Light blue with transparency */
+            border-radius: 50%;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            color: #bbb; /* Slightly lighter than white for footer text */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stack header items */
+                align-items: flex-start; /* Align to left */
+                padding: 20px 20px;
+            }
+
+            header nav {
+                margin-bottom: 15px; /* Space between nav and title */
+                gap: 20px;
+            }
+
+            .site-title {
+                font-size: 2.8em; /* Smaller font for title */
+                text-align: left; /* Align to left when stacked */
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+
+            .grid-item.with-circle .circle {
+                bottom: 15px;
+                right: 15px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header nav {
+                flex-wrap: wrap; /* Allow nav links to wrap */
+                gap: 15px;
+            }
+
+            header nav a {
+                font-size: 1em;
+            }
+
+            .site-title {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Work</a>
+            <a href="#">Info</a>
+            <a href="#">Contact</a>
+        </nav>
+        <h1 class="site-title">Laura Fisher</h1>
+    </header>
+
+    <main>
+        <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item with-circle">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Powered by Adobe Portfolio</p>
+    </footer>
+</body>
+</html>
+```

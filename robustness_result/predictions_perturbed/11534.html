@@ -1,0 +1,319 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe P. Perez & Associates</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Top Bar */
+        .header-top-bar {
+            background-color: #cc0000; /* Red color */
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9em;
+        }
+
+        /* Header Contact Info */
+        .header-contact-info {
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .header-contact-info span {
+            margin: 0 5px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            padding: 20px 20px;
+            gap: 30px;
+            font-weight: bold;
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+        .main-nav a {
+            color: #333;
+            white-space: nowrap; /* Prevent nav items from breaking */
+        }
+        .main-nav a:hover {
+            color: #cc0000;
+        }
+
+        /* Logo Placeholder */
+        .logo-placeholder {
+            width: 150px;
+            height: 70px;
+            background-color: #0000ff; /* Blue color */
+            margin: 30px auto;
+        }
+
+        /* Serving Text */
+        .serving-text {
+            text-align: center;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            margin-bottom: 60px;
+            color: #555;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .profile-card {
+            text-align: center;
+            width: 250px; /* Fixed width for desktop */
+        }
+
+        .profile-image-placeholder {
+            width: 200px; /* Diameter of the circle */
+            height: 200px;
+            background-color: #0000ff; /* Blue color */
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+        }
+
+        .profile-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .profile-title {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .profile-dre {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .profile-phone {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        /* Social Section */
+        .social-section {
+            margin-top: 60px;
+            padding: 0 20px; /* Ensure padding for container */
+        }
+
+        .social-section h2 {
+            font-size: 1.5em;
+            font-weight: normal; /* As per visual */
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .social-divider {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 60px;
+        }
+
+        /* About Section */
+        .about-section {
+            text-align: center;
+            padding: 0 20px; /* Ensure padding for container */
+            margin-bottom: 80px;
+        }
+
+        .about-section h2 {
+            font-size: 1.5em;
+            font-weight: normal; /* As per visual */
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-section p {
+            max-width: 700px; /* Limit paragraph width for readability */
+            margin: 0 auto;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #cc0000; /* Red color */
+            color: #fff;
+            padding: 20px;
+            font-size: 0.85em;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow items to wrap */
+            align-items: center;
+            gap: 10px 20px; /* Gap for wrapping items */
+        }
+
+        .footer-left, .footer-right {
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-nav {
+                gap: 20px;
+                padding: 15px 10px;
+            }
+
+            .profile-section {
+                flex-direction: column; /* Stack profile cards vertically */
+                align-items: center;
+                gap: 40px;
+            }
+
+            .profile-card {
+                width: 80%; /* Allow cards to take more width on smaller screens */
+                max-width: 300px; /* But not too wide */
+            }
+
+            .footer {
+                flex-direction: column; /* Stack footer items vertically */
+                text-align: center;
+            }
+            .footer-left, .footer-right {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top-bar, .header-contact-info {
+                font-size: 0.8em;
+            }
+            .main-nav {
+                font-size: 0.9em;
+                gap: 15px;
+            }
+            .logo-placeholder {
+                width: 120px;
+                height: 60px;
+            }
+            .serving-text {
+                font-size: 0.8em;
+            }
+            .profile-image-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+            .profile-name {
+                font-size: 1.1em;
+            }
+            .profile-title, .profile-dre, .profile-phone {
+                font-size: 0.8em;
+            }
+            .social-section h2, .about-section h2 {
+                font-size: 1.3em;
+            }
+            .about-section p {
+                font-size: 0.85em;
+            }
+            .footer {
+                font-size: 0.75em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top-bar">
+            Buy a home with Joe P. Perez & Associates; get a FREE home warranty!
+        </div>
+        <div class="header-contact-info">
+            <span>[PHONE REDACTED]</span> • <span>[PHONE REDACTED]</span>
+        </div>
+        <nav class="main-nav">
+            <a href="#">HOME</a>
+            <a href="#">Properties</a>
+            <a href="#">Resources</a>
+            <a href="#">REVIEWS & TESTIMONIALS</a>
+        </nav>
+        <div class="logo-placeholder"></div>
+        <div class="serving-text">
+            SERVING THE BAY AREA & CENTRAL VALLEY
+        </div>
+    </header>
+
+    <main>
+        <section class="profile-section container">
+            <div class="profile-card">
+                <div class="profile-image-placeholder"></div>
+                <div class="profile-name">Joe P. Perez</div>
+                <div class="profile-title">Team Leader, REALTOR®</div>
+                <div class="profile-dre">CalDRE 01968414</div>
+                <div class="profile-title">Notary Public</div>
+                <div class="profile-phone">[PHONE REDACTED]</div>
+            </div>
+            <div class="profile-card">
+                <div class="profile-image-placeholder"></div>
+                <div class="profile-name">David H. DeMott</div>
+                <div class="profile-title">Broker Associate/REALTOR®</div>
+                <div class="profile-dre">CalDRE 01522984</div>
+                <div class="profile-title">Certified Transaction Coordinator</div>
+                <div class="profile-phone">[PHONE REDACTED]</div>
+            </div>
+        </section>
+
+        <section class="social-section container">
+            <h2>SOCIAL</h2>
+            <div class="social-divider"></div>
+        </section>
+
+        <section class="about-section">
+            <h2>About Joe P. Perez & Associates</h2>
+            <p>
+                Joe started his journey in 2011 becoming a Notary Public. He originally saw himself in the
+                legal field but found out early his passion was for real estate.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-left">
+            Copyright © 2023 • HomeSmart PVA • DRE 01400749 • All Rights
+        </div>
+        <div class="footer-right">
+            Joe P. Perez & Associates • CalDRE 01968414
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,313 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boats for sale in City One</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px; /* Standard content width */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* White background for main content */
+            box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Subtle shadow to lift it from body background */
+        }
+
+        /* Header */
+        .header {
+            background-color: #444; /* Dark gray */
+            height: 150px; /* Approximate height */
+            position: relative;
+            overflow: hidden; /* To contain the absolute positioned elements */
+        }
+
+        .header-blue-box {
+            background-color: #0000FF; /* Blue */
+            width: 100px; /* Approximate width */
+            height: 100px; /* Approximate height */
+            position: absolute;
+            top: 25px; /* Centered vertically within the header */
+            left: 20px; /* From the left edge */
+        }
+
+        .header-purple-line {
+            background-color: #9933CC; /* Purple */
+            height: 10px; /* Line thickness */
+            width: 100%; /* Full width */
+            position: absolute;
+            bottom: 0; /* At the bottom of the header */
+        }
+
+        /* Main Content */
+        h1 {
+            font-size: 2.2em;
+            color: #555;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd; /* Light gray separator */
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #555;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .highlight-link {
+            color: #007bff; /* Blue for the link */
+            text-decoration: none;
+            font-weight: bold; /* Looks bold in the image */
+        }
+
+        .highlight-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #222; /* Darker gray */
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1; /* Distribute space evenly */
+            min-width: 200px; /* Minimum width before wrapping */
+            margin-right: 20px; /* Space between columns */
+        }
+
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            border-bottom: 1px solid #444; /* Subtle border */
+            padding-bottom: 2px;
+            display: inline-block; /* To make border-bottom work correctly */
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+            border-bottom-color: #ccc;
+        }
+
+        .footer-news {
+            margin-top: 30px;
+            border-top: 1px solid #444; /* Separator for news section */
+            padding-top: 20px;
+        }
+
+        .footer-news p {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444; /* Separator for each news item */
+            font-size: 0.95em;
+        }
+
+        .footer-news p:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #555; /* Placeholder color */
+            border-radius: 5px; /* Rounded square */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold; /* For F and T */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .footer-links {
+                flex-direction: column; /* Stack columns on smaller screens */
+            }
+
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 20px; /* Space between stacked columns */
+                min-width: unset; /* Remove min-width constraint */
+            }
+
+            .footer-column:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .header-blue-box {
+                width: 80px;
+                height: 80px;
+                top: 35px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-blue-box"></div>
+        <div class="header-purple-line"></div>
+    </div>
+
+    <div class="container">
+        <h1>Boats for sale in City One</h1>
+
+        <h2>Do you have a boat for sale in City One you would like to advertise?</h2>
+
+        <p>We would love to see your boat for sale listings here, so would our website visitors! <a href="#" class="highlight-link">advertise for free</a> your boat for sale in City One with Property Pages Hong Kong and your listing(s) will receive a marketing boost, at no cost!</p>
+
+        <p>If you have many listings and a data feed available for your listings, we can work with you to get them listed quickly and easily. If you don't already have a suitable feed we can assist you with preparing a data feed for your listings, direct from your own website.</p>
+
+        <h3>Here's a few daily quotes</h3>
+
+        <p>I hope for my children, and for all Mexicans, that they can be proud to be Mexican, proud of their heritage, and proud that they have a peaceful, inclusive, vibrant country that is playing a role in the world. - Enrique Pena Nieto</p>
+
+        <p>I compose most of my tweets with care, as if they were aphorisms - they are not usually dashed-off. Sometimes I'm surprised by the high, poetic quality of Twitter - it lends itself to a surreal sort of self-expression.</p>
+
+        <p>Your smile will give you a positive countenance that will make people feel comfortable around you. - Les Brown</p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Hong Kong Real estate</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">List your property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Boats for sale in Cheung Sha Wan</a></li>
+                        <li><a href="#">Boats for sale in Chi Ma Wan</a></li>
+                        <li><a href="#">Boats for sale in Choi Hung Estate</a></li>
+                        <li><a href="#">Boats for sale in Choi Wan Estate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li><a href="#">Boats for sale in Clear Water Bay</a></li>
+                        <li><a href="#">Boats for sale in Cyberport</a></li>
+                        <li><a href="#">Boats for sale in Deep Water Bay</a></li>
+                        <li><a href="#">Boats for sale in Diamond Hill</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-news">
+                <p>Hong Kong Homebuyer Optimism Rises as China Border Reopens - Bloomberg News</p>
+                <p>Hong Kong drops curbs on incoming travellers, scraps COVID app - Reuters News</p>
+                <p>Hong Kong, Thailand and Singapore will likely be the biggest beneficiaries as China drops its Covid restrictions and reopens its economy - Bloomberg News</p>
+                <p>China may drop quarantine for Hong Kong residents traveling into the mainland next month, according to local media reports - Bloomberg News</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright &copy; Property Pages Hong Kong Limited 2017 - 2023. All rights reserved</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">&#x25B2;</a> <!-- Up arrow icon -->
+                    <a href="#" class="social-icon">F</a> <!-- Placeholder for Facebook -->
+                    <a href="#" class="social-icon">T</a> <!-- Placeholder for Twitter -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```

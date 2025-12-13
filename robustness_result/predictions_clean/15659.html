@@ -1,0 +1,392 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Temperature Trends in Ottawa, Ontario</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px; /* Base font size */
+        }
+
+        /* Main Container for overall layout */
+        .container {
+            max-width: 1000px; /* Max width to match image */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+            gap: 20px; /* Space between columns */
+        }
+
+        /* Header Styles */
+        header {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            font-weight: normal;
+            margin: 0 0 10px 0;
+            padding-left: 10px; /* Align with the rest of the content */
+        }
+
+        header hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 0 0 20px 0;
+            width: calc(100% - 20px); /* Adjust width to match content */
+            margin-left: 10px;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            width: 100%;
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #DAA520; /* Goldenrod */
+            font-size: 13px;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            flex: 0 0 200px; /* Fixed width for sidebar */
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        .eminf-logo {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        .eminf-logo .main-logo {
+            font-family: Georgia, serif;
+            font-size: 36px; /* Larger font for EmInf */
+            color: #CD853F; /* Peru */
+            display: block;
+            line-height: 1;
+        }
+
+        .eminf-logo .sub-text {
+            font-size: 12px;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .sidebar h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            padding-left: 10px;
+        }
+
+        .sidebar h3.temperature-trends {
+            font-weight: normal; /* "X Temperature Trends" is not bold */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 5px;
+            padding-left: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 15px 0;
+            width: calc(100% - 10px); /* Adjust width to match content */
+            margin-left: 10px;
+        }
+
+        .sidebar .author-info {
+            font-size: 11px;
+            color: #888;
+            margin-top: 40px;
+            padding-left: 10px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1; /* Takes remaining space */
+            min-width: 400px; /* Ensure it doesn't get too small */
+            padding-left: 10px;
+        }
+
+        .main-content h3 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #DAA520; /* Goldenrod */
+            margin: 0 0 15px 0;
+        }
+
+        .main-content p {
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* Table Container */
+        .table-container {
+            border: 1px dotted #DAA520; /* Dotted orange border */
+            padding: 10px;
+            margin-top: 20px;
+            overflow-x: auto; /* Make table scrollable on small screens */
+        }
+
+        .table-header-text {
+            font-size: 11px;
+            text-align: right;
+            margin-bottom: 5px;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .table-header-text .lower-bound-label {
+            background-color: #ADD8E6; /* LightBlue */
+            padding: 2px 5px;
+            margin-right: 5px;
+        }
+
+        .table-header-text .upper-bound-label {
+            background-color: #FFDAB9; /* PeachPuff */
+            padding: 2px 5px;
+            margin-left: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 5px 3px; /* Adjusted padding */
+            white-space: nowrap; /* Prevent numbers from wrapping */
+        }
+
+        table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            color: #DAA520; /* Goldenrod */
+        }
+
+        table td {
+            vertical-align: top; /* Align numbers to top if they wrap */
+        }
+
+        table td span {
+            display: inline-block; /* Allow background on individual numbers */
+            padding: 0 2px; /* Small padding for background */
+            margin: 0 1px; /* Small margin between numbers */
+        }
+
+        table td .lower-bound {
+            background-color: #ADD8E6; /* LightBlue */
+        }
+
+        table td .upper-bound {
+            background-color: #FFDAB9; /* PeachPuff */
+        }
+
+        /* Footer Styles */
+        footer {
+            width: 100%;
+            margin-top: 40px;
+            text-align: right;
+            font-size: 11px;
+            color: #888;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack columns on smaller screens */
+            }
+
+            .sidebar {
+                flex: 0 0 auto; /* Allow sidebar to take full width */
+                width: 100%;
+                padding-right: 0;
+            }
+
+            .main-content {
+                min-width: unset; /* Remove min-width constraint */
+                width: 100%;
+                padding-left: 0;
+            }
+
+            header h1,
+            header hr,
+            .top-nav,
+            .eminf-logo,
+            .sidebar h3,
+            .sidebar li,
+            .sidebar hr,
+            .sidebar .author-info,
+            .main-content h3,
+            .main-content p,
+            .table-container,
+            footer {
+                padding-left: 10px;
+                padding-right: 10px;
+                box-sizing: border-box;
+            }
+
+            .top-nav ul {
+                flex-direction: column; /* Stack top nav links */
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+            header h1 {
+                font-size: 24px;
+            }
+            .eminf-logo .main-logo {
+                font-size: 30px;
+            }
+            .table-header-text {
+                font-size: 10px;
+            }
+            table {
+                font-size: 10px;
+            }
+            table th, table td {
+                padding: 3px 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recent Temperature Trends in Ottawa, Ontario</h1>
+            <hr>
+        </header>
+
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#">Extrema</a></li>
+                <li><a href="#">Summary</a></li>
+                <li><a href="#">Monthly Summary</a></li>
+                <li><a href="#">Warming Trends</a></li>
+                <li><a href="#">Day Counts</a></li>
+                <li><a href="#">To Fahrenheit</a></li>
+            </ul>
+        </nav>
+
+        <aside class="sidebar">
+            <div class="eminf-logo">
+                <span class="main-logo">EmInf</span>
+                <span class="sub-text">Empirical and Inferential<br>Interpretations</span>
+            </div>
+
+            <h3 class="temperature-trends">X Temperature Trends</h3>
+            <ul>
+                <li><a href="#">Recent Data</a></li>
+                <li><a href="#">Historical Data for USA</a></li>
+            </ul>
+            <hr>
+
+            <h3>Sitemap</h3>
+            <ul>
+                <li><a href="#">HTML in a Nutshell</a></li>
+                <li><a href="#">CSS Overview</a></li>
+                <li><a href="#">JavaScript Examples</a></li>
+                <li><a href="#">Environmental Data Notes</a></li>
+                <li><a href="#">Statistics Notes</a></li>
+                <li><a href="#">Trips from Waterloo</a></li>
+                <li><a href="#">The Mennonite Country</a></li>
+                <li><a href="#">Archive</a></li>
+            </ul>
+
+            <p class="author-info">DANA & JAROSLAV MOHAPL</p>
+        </aside>
+
+        <main class="main-content">
+            <h3>Temperature Trends in Ottawa, Ontario</h3>
+            <p>Average daily temperatures in Ottawa, Ontario, including the lower and upper bounds of the 95% confidence interval. Due to the possibility of missing data, the actual day counts used in the average and confidence interval calculations are provided. The table is also offered in degrees of Fahrenheit.</p>
+
+            <div class="table-container">
+                <p class="table-header-text">AVERAGE DAILY TEMPERATURES (C) FOR OTTAWA, ONTARIO<br>
+                    <span class="lower-bound-label">LOWER BOUND</span> AVERAGE TEMPERATURE <span class="upper-bound-label">UPPER BOUND</span>
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th> <!-- Empty cell for row numbers -->
+                            <th>January</th>
+                            <th>February</th>
+                            <th>March</th>
+                            <th>April</th>
+                            <th>May</th>
+                            <th>June</th>
+                            <th>July</th>
+                            <th>August</th>
+                            <th>September</th>
+                            <th>October</th>
+                            <th>November</th>
+                            <th>December</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><span class="lower-bound">-12</span> <span class="average">-8</span> <span class="upper-bound">-4</span></td>
+                            <td><span class="lower-bound">-11</span> <span class="average">-8</span> <span class="upper-bound">-6</span></td>
+                            <td><span class="lower-bound">-7</span> <span class="average">-5</span> <span class="upper-bound">-2</span></td>
+                            <td><span class="lower-bound">2</span> <span class="average">4</span> <span class="upper-bound">6</span></td>
+                            <td><span class="lower-bound">10</span> <span class="average">12</span> <span class="upper-bound">15</span></td>
+                            <td><span class="lower-bound">15</span> <span class="average">17</span> <span class="upper-bound">19</span></td>
+                            <td><span class="lower-bound">19</span> <span class="average">20</span> <span class="upper-bound">22</span></td>
+                            <td><span class="lower-bound">21</span> <span class="average">22</span> <span class="upper-bound">24</span></td>
+                            <td><span class="lower-bound">18</span> <span class="average">19</span> <span class="upper-bound">21</span></td>
+                            <td><span class="lower-bound">10</span> <span class="average">12</span> <span class="upper

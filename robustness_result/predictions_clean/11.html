@@ -1,0 +1,708 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monarda fistulosa Raspberry Wine' Wine-red Bee Balm - Earthly Pursuits, Inc.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #66cc66; /* Light green */
+            --primary-blue: #0099cc; /* Light blue */
+            --text-dark: #333;
+            --text-medium: #666;
+            --text-light: #999;
+            --bg-light-gray: #f8f8f8;
+            --border-color: #eee;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        a:hover {
+            color: var(--primary-green);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Top */
+        .header-top {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-top-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .header-top-left .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 3px;
+            padding: 5px 10px;
+        }
+
+        .header-top-left .search-box input {
+            border: none;
+            outline: none;
+            padding: 0;
+            font-size: 0.9em;
+            width: 100px; /* Adjust width as needed */
+        }
+
+        .header-top-left .search-box i {
+            color: var(--text-medium);
+            margin-right: 5px;
+        }
+
+        .header-top-right {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+
+        .header-top-right a {
+            color: #fff;
+        }
+
+        .header-top-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 10px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background-color: var(--bg-light-gray);
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: var(--text-medium);
+        }
+
+        .breadcrumbs a {
+            color: var(--text-medium);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--primary-green);
+        }
+
+        .breadcrumbs span {
+            margin: 0 5px;
+        }
+
+        /* Product Detail */
+        .product-detail {
+            display: flex;
+            gap: 40px;
+            padding: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: #00f; /* Blue placeholder */
+            height: 400px; /* Fixed height for placeholder */
+            border-radius: 5px;
+        }
+
+        .product-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .product-info .brand {
+            font-size: 1.1em;
+            color: var(--text-medium);
+            margin-bottom: 5px;
+        }
+
+        .product-info .title {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .product-info .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .product-info .size-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-info .size-text {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #007bb5; /* Darker blue */
+        }
+
+        .product-specs,
+        .product-description {
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .product-specs strong {
+            font-weight: bold;
+        }
+
+        .share-product {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .share-product p {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .share-buttons button {
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .share-buttons .facebook { background-color: #3b5998; }
+        .share-buttons .twitter { background-color: #55acee; }
+        .share-buttons .google-plus { background-color: #dd4b39; }
+        .share-buttons .plus-one { background-color: #666; } /* Generic for +1 */
+
+        /* Related Products */
+        .related-products {
+            padding: 40px 0;
+            background-color: var(--bg-light-gray);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .related-products h2 {
+            font-size: 1.5em;
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .product-card .image-placeholder {
+            background-color: #00f; /* Blue placeholder */
+            height: 180px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .product-card .details {
+            padding: 0 15px 15px;
+        }
+
+        .product-card .name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .product-card .price {
+            color: var(--text-medium);
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 40px 0;
+            font-size: 0.9em;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: #fff;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            font-size: 1.5em;
+        }
+
+        .social-icons a {
+            color: #fff;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: var(--text-dark);
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #007bb5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        .payment-methods {
+            margin-top: 15px;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .payment-methods span {
+            color: var(--primary-green);
+            background-color: #fff;
+            padding: 5px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .product-detail {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-image,
+            .product-info {
+                width: 100%;
+                max-width: 600px; /* Limit width on larger mobile/tablet */
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+            .product-info .title {
+                font-size: 1.8em;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .footer .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .footer-column ul {
+                margin-bottom: 20px;
+            }
+
+            .social-icons {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top .container,
+            .main-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-top-left,
+            .header-top-right {
+                margin-bottom: 10px;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .product-image {
+                height: 300px;
+            }
+
+            .product-info .title {
+                font-size: 1.6em;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header-top-left .search-box input {
+                width: 80px;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .product-info .title {
+                font-size: 1.4em;
+            }
+
+            .product-info .price {
+                font-size: 1.5em;
+            }
+
+            .add-to-cart-btn {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+            }
+
+            .share-buttons button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <div class="header-top-right">
+                    <a href="#">Log in</a>
+                    <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    Earthly Pursuits, Inc.
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Shop by Plant <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="#">Shop by Zone <i class="fas fa-caret-down"></i></a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="#">Home</a> <span>&gt;</span>
+            <a href="#">Zone 5</a> <span>&gt;</span>
+            <span>Monarda fistulosa Raspberry Wine' Wine-red Bee Balm</span>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="product-detail">
+            <div class="product-image">
+                <!-- Placeholder for product image -->
+            </div>
+            <div class="product-info">
+                <p class="brand">Earthly Pursuits, Inc.</p>
+                <h1 class="title">Monarda fistulosa Raspberry Wine'<br>Wine-red Bee Balm</h1>
+                <p class="price">$8.00</p>
+
+                <span class="size-label">SIZE</span>
+                <span class="size-text">Size based on availability</span>
+
+                <button class="add-to-cart-btn">Add to Cart</button>
+
+                <p class="product-specs">
+                    Monarda fistulosa Raspberry Wine' | Wine-red Bee Balm | Zone: 4-9 | Size: 3-4' | Sun: Y | Shade/Partial Sun: N | Tolerance(s): | Season(s): Summer | Native: Y | Ground Cover: N
+                </p>
+                <p class="product-description">
+                    DESCRIPTION: Clear -red-wine flowers with buds resembling raspberries and very mildew resistant. Attracts Hummingbirds and Butterflies.
+                </p>
+
+                <div class="share-product">
+                    <p>Share this Product</p>
+                    <div class="share-buttons">
+                        <button class="facebook"><i class="fab fa-facebook-f"></i> Share</button>
+                        <button class="twitter"><i class="fab fa-twitter"></i> Tweet</button>
+                        <button class="google-plus"><i class="fab fa-google-plus-g"></i></button>
+                        <button class="plus-one">+1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="related-products">
+        <div class="container">
+            <h2>More from this collection</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="image-placeholder"></div>
+                    <div class="details">
+                        <p class="name">Acanthus hungaricus<br>Bear's Breeches</p>
+                        <p class="price">$ 14.50</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="image-placeholder"></div>
+                    <div class="details">
+                        <p class="name">Achillea clypeolata<br>Coronation Gold' Yarrow</p>
+                        <p class="price">$ 8.50</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="image-placeholder"></div>
+                    <div class="details">
+                        <p class="name">Achillea millefolium<br>Feuerland' Yarrow</p>
+                        <p class="price">$ 8.50</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="image-placeholder"></div>
+                    <div class="details">
+                        <p class="name">Achillea millefolium<br>Moonshine' Yarrow</p>
+                        <p class="price">$ 9.50</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Sign up for the latest news, offers and styles</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2023, Earthly Pursuits, Inc.</p>
+            <p>Tel: [PHONE REDACTED]</p>
+            <div class="payment-methods">
+                <span>A</span>
+                <span>c</span>
+                <span>D</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```

@@ -1,0 +1,170 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        body {
+            background-color: #dcdcdc; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            padding: 20px; /* Add some padding for very small screens */
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            width: 90%; /* Responsive width */
+            max-width: 600px; /* Max width for larger screens */
+            padding: 30px;
+            box-sizing: border-box;
+            position: relative; /* For positioning window controls */
+        }
+
+        .window-controls-wrapper {
+            position: absolute;
+            top: 20px; /* Position relative to container's top */
+            right: 20px; /* Position relative to container's right */
+            display: flex;
+            gap: 8px; /* Space between control boxes */
+        }
+
+        .control-box {
+            width: 15px;
+            height: 15px;
+            background-color: #0066ff; /* Blue color for controls */
+            border-radius: 3px;
+        }
+
+        h1 {
+            color: #0066ff; /* Blue color for title */
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 20px; /* Space below controls, relative to container padding */
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        p {
+            color: #333; /* Dark gray text */
+            font-size: 1em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        p:last-of-type {
+            margin-bottom: 0; /* No bottom margin for the last paragraph before the blue rectangle */
+        }
+
+        .blue-rectangle {
+            width: 100px;
+            height: 40px;
+            background-color: #0000ff; /* Solid blue rectangle */
+            margin: 30px auto 0 auto; /* Center horizontally, space from top */
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #888; /* Lighter gray for footer text */
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 25px;
+                border-radius: 12px;
+            }
+            .window-controls-wrapper {
+                top: 18px;
+                right: 18px;
+                gap: 7px;
+            }
+            .control-box {
+                width: 14px;
+                height: 14px;
+            }
+            h1 {
+                font-size: 1.6em;
+                margin-top: 18px;
+                margin-bottom: 18px;
+            }
+            p {
+                font-size: 0.95em;
+                margin-bottom: 12px;
+            }
+            .blue-rectangle {
+                width: 90px;
+                height: 35px;
+                margin-top: 25px;
+            }
+            .footer {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+                padding: 20px;
+            }
+            .window-controls-wrapper {
+                top: 15px;
+                right: 15px;
+                gap: 6px;
+            }
+            .control-box {
+                width: 12px;
+                height: 12px;
+            }
+            h1 {
+                font-size: 1.4em;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+            .blue-rectangle {
+                width: 80px;
+                height: 30px;
+                margin-top: 20px;
+            }
+            .footer {
+                font-size: 0.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="window-controls-wrapper">
+            <div class="control-box"></div>
+            <div class="control-box"></div>
+            <div class="control-box"></div>
+        </div>
+        <div class="content">
+            <h1>permafrost.today is not found</h1>
+            <p>permafrost.today is not found in the configuration on this server. It might be because of a newly changed or wrong DNS pointer, or a reconfiguration of the server.</p>
+            <p>Please contact customer support if the problem persists.</p>
+            <div class="blue-rectangle"></div>
+        </div>
+    </div>
+    <div class="footer">
+        Domeneshop AS &copy; 2023
+    </div>
+</body>
+</html>
+```

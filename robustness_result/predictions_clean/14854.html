@@ -1,0 +1,168 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mildly Clever</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #daccae; /* Light brown/tan from image */
+            color: #333333; /* Dark gray text */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column; /* Arrange children vertically */
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #222222; /* Dark gray/black */
+            height: 40px; /* Fixed height */
+            width: 100%;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 800px; /* Max width for content */
+            margin: 0 auto; /* Center the container */
+            padding: 40px 20px; /* Vertical and horizontal padding */
+            flex-grow: 1; /* Allow main content to grow and push footer down */
+            display: flex;
+            flex-direction: column; /* Stack header and main vertically */
+            justify-content: center; /* Vertically center content within the container */
+        }
+
+        /* Header - Mildly Clever */
+        .site-title {
+            font-size: 3em; /* Large font size */
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 60px; /* Space below title */
+            text-align: right; /* Right-align as per image */
+            line-height: 1.2;
+        }
+
+        /* Quote Text */
+        .quote-text {
+            font-size: 1.8em; /* Large font size for quote */
+            line-height: 1.5; /* Good readability */
+            margin-bottom: 60px; /* Space below quote */
+            text-align: left; /* Left-align as per image */
+        }
+
+        /* Navigation Links */
+        .navigation {
+            display: flex;
+            justify-content: space-between; /* Distribute items evenly */
+            align-items: center;
+            margin-top: 20px; /* Space above navigation */
+            font-size: 1em;
+        }
+
+        .navigation a {
+            color: #333333; /* Dark gray text */
+            text-decoration: none; /* No underline */
+            padding: 5px 10px; /* Small padding for clickable area */
+            transition: color 0.2s ease;
+        }
+
+        .navigation a:hover {
+            color: #000000; /* Slightly darker on hover */
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator line */
+            font-size: 0.9em;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .footer-content {
+            max-width: 800px; /* Match main content width */
+            margin: 0 auto; /* Center footer content */
+            padding: 0 20px; /* Horizontal padding */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2.5em;
+                margin-bottom: 40px;
+            }
+
+            .quote-text {
+                font-size: 1.5em;
+                margin-bottom: 40px;
+            }
+
+            .navigation {
+                flex-direction: column; /* Stack links on small screens */
+                align-items: flex-start; /* Align stacked links to the left */
+            }
+
+            .navigation a {
+                margin-bottom: 10px; /* Space between stacked links */
+            }
+
+            .container, .footer-content {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 2em;
+                text-align: center; /* Center title on very small screens */
+                margin-bottom: 30px;
+            }
+
+            .quote-text {
+                font-size: 1.3em;
+                margin-bottom: 30px;
+            }
+
+            .navigation {
+                align-items: center; /* Center stacked links */
+            }
+
+            .footer-content {
+                text-align: center; /* Center footer text on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="site-title">Mildly Clever</h1>
+        </header>
+
+        <main>
+            <p class="quote-text">I would like to shake the hand of the person who invented the gift bag. They really hated wrapping presents.</p>
+
+            <nav class="navigation">
+                <a href="#">&laquo; Previous</a>
+                <a href="#">Random</a>
+                <a href="#">Next &raquo;</a>
+            </nav>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Tony Mann</p>
+            <p>[EMAIL REDACTED]</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

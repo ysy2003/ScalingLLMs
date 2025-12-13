@@ -1,0 +1,205 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Foundation</title>
+    <style>
+        /* Basic Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, serif;
+            color: #333; /* Dark gray for general text */
+            line-height: 1.6;
+            background-color: #fff; /* Ensure white background */
+        }
+
+        /* Header */
+        .header {
+            background-color: #6d8236; /* Olive green */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px; /* Top/bottom padding, left/right padding */
+            min-height: 80px; /* Ensure a minimum height for the header */
+            box-sizing: border-box; /* Include padding in height */
+        }
+
+        .logo-placeholder {
+            width: 100px; /* Estimated width from image */
+            height: 50px; /* Estimated height from image */
+            background-color: blue;
+            margin-left: 20px; /* Aligns with the content below */
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; /* Spacing between nav items */
+            margin-right: 20px; /* Aligns with the content below */
+            flex-wrap: wrap; /* Allow nav items to wrap */
+            justify-content: flex-end; /* Keep items to the right if they wrap */
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em; /* Adjust font size */
+            font-weight: normal;
+            white-space: nowrap; /* Prevent nav items from breaking words */
+        }
+
+        /* Main Content Area */
+        .main-content-wrapper {
+            padding: 20px; /* Overall padding for the main content */
+            max-width: 1200px; /* Max width for the content area */
+            margin: 0 auto; /* Center the content wrapper */
+        }
+
+        .unauthorized-message {
+            font-size: 0.9em;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .large-blue-box {
+            width: 300px; /* Estimated width from image */
+            height: 200px; /* Estimated height from image */
+            background-color: blue;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase; /* As seen in image */
+            letter-spacing: 1px; /* Looks slightly spaced */
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+        }
+
+        .contact-link {
+            color: #6d8236; /* Green color for links */
+            text-decoration: none;
+            font-weight: normal;
+            display: inline-block; /* Allows margin-top */
+            margin-top: 5px; /* Small space below phone number */
+        }
+
+        .connect-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-top: 15px; /* Space below heading */
+        }
+
+        .connect-links li {
+            margin-bottom: 5px;
+        }
+
+        .connect-links li a {
+            color: #6d8236; /* Green color for links */
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px; /* Reduce padding on smaller screens */
+            }
+
+            .logo-placeholder {
+                margin-left: 10px; /* Adjust for smaller padding */
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 15px;
+                margin-left: 10px; /* Align with logo */
+                margin-right: 10px;
+                align-items: flex-start; /* Align nav items to the left */
+            }
+
+            .nav-links li a {
+                font-size: 1em;
+            }
+
+            .main-content-wrapper {
+                padding: 10px; /* Reduce padding on smaller screens */
+            }
+
+            .large-blue-box {
+                width: 90%; /* Make it more fluid */
+                height: 150px; /* Adjust height */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .large-blue-box {
+                height: 100px;
+            }
+            .header {
+                min-height: auto; /* Allow header to shrink if content wraps */
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-placeholder"></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Giving</a></li>
+                <li><a href="#">Grantmaking</a></li>
+                <li><a href="#">Community Leadership</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content-wrapper">
+        <p class="unauthorized-message">You are not authorized to access this page.</p>
+
+        <div class="large-blue-box"></div>
+
+        <h2 class="section-heading">Contact</h2>
+        <div class="contact-info">
+            <p>The Community Foundation</p>
+            <p>of Westmoreland County</p>
+            <p>[ADDRESS REDACTED]</p>
+            <p>[ADDRESS REDACTED]</p>
+            <p>Phone: [PHONE REDACTED]</p>
+            <a href="#" class="contact-link">Contact Us</a>
+        </div>
+
+        <h2 class="section-heading">Connect</h2>
+        <ul class="connect-links">
+            <li><a href="#">Donor Login</a></li>
+            <li><a href="#">Grantee Login</a></li>
+            <li><a href="#">Professional Advisors</a></li>
+            <li><a href="#">Scholarships</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,373 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hannah's Heaven - A Passionate Entrepreneur With A Vision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            background-color: #fdfaf5; /* Off-white/cream background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px; /* Adjusted for visual match */
+        }
+
+        a {
+            color: #a0522d; /* Sienna-like color for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px; /* Based on visual width */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-family: 'Lora', serif; /* More elegant serif for title */
+            font-size: 36px; /* Adjusted for visual match */
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .search-link {
+            position: absolute;
+            top: 50px; /* Adjusted to align with title */
+            right: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #a0522d;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+            gap: 40px; /* Space between sidebar and main posts */
+            padding-top: 30px;
+        }
+
+        .sidebar {
+            flex: 0 0 200px; /* Fixed width for sidebar */
+            padding-right: 20px;
+        }
+
+        .sidebar h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #a0522d; /* Matching link color */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar ul li a {
+            font-size: 14px;
+            color: #a0522d;
+        }
+
+        .posts-area {
+            flex: 1; /* Takes remaining space */
+            min-width: 300px; /* Ensures posts don't get too narrow */
+        }
+
+        /* Blog Post Styles */
+        .blog-post, .popular-post {
+            margin-bottom: 40px;
+        }
+
+        .post-date {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            font-family: 'Lora', serif;
+            font-size: 24px; /* Adjusted for visual match */
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .post-content {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-content .image-wrapper {
+            flex: 0 0 250px; /* Fixed width for the image placeholder */
+            background-color: #0000ff;
+            height: 200px; /* Example height */
+        }
+
+        .post-content .text-wrapper {
+            flex: 1;
+        }
+
+        .post-content p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .post-meta {
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post-meta a {
+            color: #a0522d;
+            margin-right: 10px;
+        }
+
+        .post-meta span {
+            margin-right: 5px;
+        }
+
+        .comments-section {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .comments-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .comments-section a {
+            font-size: 14px;
+            font-weight: bold;
+            color: #a0522d;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        /* Popular Posts */
+        .popular-posts-section {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .popular-posts-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .popular-post .post-image-placeholder {
+            background-color: #0000ff; /* Blue placeholder */
+            width: 100%;
+            height: 180px; /* Slightly smaller for popular posts */
+            margin-bottom: 15px;
+        }
+
+        .popular-post .post-title {
+            font-size: 20px; /* Slightly smaller for popular posts */
+            margin-bottom: 10px;
+        }
+
+        .popular-post .post-meta {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 12px;
+            color: #999;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .search-link {
+                position: static; /* Remove absolute positioning */
+                display: block;
+                text-align: right;
+                margin-top: 10px;
+            }
+
+            .main-content {
+                flex-direction: column; /* Stack columns */
+                gap: 20px;
+            }
+
+            .sidebar {
+                flex: 0 0 auto; /* Allow sidebar to take full width */
+                padding-right: 0;
+                border-bottom: 1px solid #eee; /* Separator */
+                padding-bottom: 20px;
+            }
+
+            .posts-area {
+                min-width: unset; /* Remove min-width constraint */
+            }
+
+            .post-content {
+                flex-direction: column; /* Stack image and text */
+            }
+
+            .post-content .image-wrapper {
+                width: 100%;
+                flex: none;
+                height: 150px; /* Adjust height for mobile */
+            }
+
+            .popular-post .post-image-placeholder {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .header p {
+                font-size: 13px;
+            }
+            .post-title {
+                font-size: 20px;
+            }
+            .popular-post .post-title {
+                font-size: 18px;
+            }
+            body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>HANNAH'S HEAVEN - A PASSIONATE ENTREPRENEUR WITH A VISION</h1>
+            <p>Everything about my dreams, my vision in life are recorded...</p>
+            <a href="#" class="search-link">SEARCH</a>
+        </header>
+
+        <main class="main-content">
+            <aside class="sidebar">
+                <h3>Share</h3>
+                <h3>Labels</h3>
+                <ul>
+                    <li><a href="#">About Weddings</a></li>
+                    <li><a href="#">Couple</a></li>
+                    <li><a href="#">Wedding Planner</a></li>
+                </ul>
+            </aside>
+
+            <section class="posts-area">
+                <article class="blog-post">
+                    <div class="post-date">March 15, 2009</div>
+                    <h2 class="post-title">IT IS HEAVEN'S GIFT...</h2>
+                    <div class="post-content">
+                        <div class="image-wrapper"></div>
+                        <div class="text-wrapper">
+                            <p>Today is another amazing wedding..</p>
+                            <p>One could imagine the extent of the setup.</p>
+                            <p>According to weather report, it was supposed to rain in the morning, but it didn't.</p>
+                            <p>What can I say, God did it again.. it's another Heaven's Gift to me and my couples.. And the truth is all our guests witness the miracle, esp my couple and my team. Everyone had fun, I have mine as well simply watching the transformation of His wonders.</p>
+                        </div>
+                    </div>
+                    <div class="post-meta">
+                        <a href="#">Share</a>
+                        <a href="#">Email Post</a>
+                        <span>Labels:</span>
+                        <a href="#">About Weddings</a>,
+                        <a href="#">Couple</a>,
+                        <a href="#">Wedding Planner</a>
+                    </div>
+
+                    <div class="comments-section">
+                        <h3>COMMENTS</h3>
+                        <a href="#">POST A COMMENT</a>
+                    </div>
+                </article>
+
+                <section class="popular-posts-section">
+                    <h3>POPULAR POSTS</h3>
+                    <article class="popular-post">
+                        <div class="post-date">July 03, 2021</div>
+                        <div class="post-image-placeholder"></div>
+                        <h2 class="post-title">DIVINELY AWOKEN BY MY DREAM, AND MY PASSION TO BLOG IS BIRTHED ONCE AGAIN!</h2>
+                        <div class="post-meta">
+                            <a href="#">Share</a>
+                            <a href="#">Post a Comment</a>
+                        </div>
+                    </article>
+
+                    <article class="popular-post">
+                        <div class="post-date">May 05, 2018</div>
+                        <div class="post-image-placeholder"></div>
+                        <h2 class="post-title">EMPOWERING THE NEXT GENERATION TO SUCCESS!</h2>
+                        <div class="post-meta">
+                            <a href="#">Share</a>
+                            <a href="#">Post a Comment</a>
+                        </div>
+                    </article>
+                </section>
+            </section>
+        </main>
+
+        <footer class="footer">
+            Powered by Blogger
+        </footer>
+    </div>
+</body>
+</html>
+```

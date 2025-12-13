@@ -1,0 +1,444 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratchings - Revenge</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5; /* Light gray background for the whole page */
+            font-size: 16px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        .header {
+            background-color: #333;
+            color: #ccc;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #eee;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #555;
+            font-weight: bold;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #333;
+            border-color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links li:first-child a {
+            color: #333; /* "Blog" is darker */
+            border-color: #333;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Pushes search to the right */
+        }
+
+        .search-box input[type="text"] {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            width: 180px;
+            outline: none;
+        }
+
+        /* Main Content Layout */
+        .main-container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+        }
+
+        .main-post-content {
+            flex: 3; /* Takes 3 parts of available space */
+            min-width: 300px; /* Minimum width to prevent squishing */
+            background-color: #fff;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        .sidebar {
+            flex: 1; /* Takes 1 part of available space */
+            min-width: 250px; /* Minimum width for sidebar */
+            background-color: #fff;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        /* Post Content Styling */
+        .post-date {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .post-separator {
+            font-size: 30px;
+            color: #ccc;
+            text-align: center;
+            margin: 20px 0;
+            border-bottom: 1px dotted #ccc;
+            line-height: 0.1em;
+        }
+
+        .post-separator span {
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .post-title {
+            font-family: Georgia, serif;
+            font-size: 36px;
+            font-weight: normal;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            color: #888;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dotted #ccc;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dotted #ccc;
+        }
+
+        .pagination a {
+            color: #007bff;
+            font-size: 15px;
+        }
+
+        .pagination a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styling */
+        .sidebar h2 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .sidebar ul {
+            margin-bottom: 30px;
+        }
+
+        .sidebar li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar li a {
+            color: #555;
+            display: block;
+        }
+
+        .sidebar li a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .sidebar .repo-description {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        .sidebar .github-link {
+            font-size: 14px;
+            color: #007bff;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .nav-links ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .search-box input[type="text"] {
+                width: 100%;
+            }
+
+            .main-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .main-post-content,
+            .sidebar {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                min-width: unset;
+            }
+
+            .header h1 {
+                font-size: 38px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .post-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .post-title {
+                font-size: 26px;
+            }
+
+            .post-content p {
+                font-size: 16px;
+            }
+
+            .sidebar h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Scratchings</h1>
+            <p>The randomness that spews forth from my mind</p>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Archives</a></li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <main class="main-post-content">
+            <p class="post-date">JUN 23 RD, 2013</p>
+            <div class="post-separator"><span>∞</span></div>
+            <h1 class="post-title">Revenge</h1>
+
+            <div class="post-content">
+                <p>I rinse the blade in the stream. Blood clouds the water.</p>
+                <p>I always return to the stream. When His man pitched me over the bridge, so long ago, these rocks broke my fall, broke my body.</p>
+                <p>As the sunlight fades I walk the mile to the woodcutter's shed. I must sleep before mother comes.</p>
+                <p>Even before I see the shed I can hear the woodcutter hunting for the axe. It is no longer his, if it really ever was.</p>
+                <p>I shout to him: "As I tell you every night: I have your axe. I will cut the wood.</p>
+                <p>He still smells of rot. He sees the axe, grunts, and sits down next to the shed.</p>
+                <p>I go inside. I return things to their shelves, right the table and cot.</p>
+                <p>I sleep. I dream of the axe.</p>
+                <p>Rocks slip under my hands as I crawl from the stream. Bloody hair splits my vision.</p>
+                <p>His hearing must have been poor, yet he hears me crawling in the brush. He splits a final log and walks over.</p>
+                <p>I awake sometime later on the cot. In my arms is the axe.</p>
+                <p>It is daytime. When I step outside the sky is steel gray.</p>
+                <p>I do not scream. I return to the shed, find some salted fish, and eat.</p>
+                <p>I awake to my mother calling me from outside. I get up and step outside.</p>
+                <p>I begin to walk towards her but she tells me to stop. She says I must avenge her.</p>
+                <p>Something twists in my gut. Something draws me back to the shed.</p>
+                <p>I wake. The moonlight streams through the doorway again.</p>
+                <p>I feel the axe. It wants to be in my hand.</p>
+                <p>Hours later we reach Dormsmort It looks much like the other forts we have visited over the years. She leads me to an overturned cart some yards from the fort.</p>
+                <p>I follow the steps with axe in hand, blindly making my way down a long hallway. As I walk, the sounds of feasting get louder.</p>
+                <p>Ahead, a line of light slowly comes into focus, revealing itself to be a slit between two small doors. I move to the slit and peer out.</p>
+                <p>A voice shouts for a toast, tables are pounded, and legs rush past the slit. I wait, slowly open the doors, and enter the kitchen.</p>
+                <p>I walk back, pull it out, and see I was mistaken. He did not have His face.</p>
+                <p>I carry the boy deeper into the kitchen and take his uniform. After stuffing his body into a cupboard, I dump flour over the blood stains.</p>
+                <p>Somewhere, my mother is laughing.</p>
+            </div>
+
+            <p class="post-meta">Posted by Shane Liebling • Jun 23rd, 2013</p>
+
+            <div class="pagination">
+                <a href="#">&laquo; Questions</a>
+                <a href="#">Journals and Zines &raquo;</a>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <section class="recent-posts">
+                <h2>Recent Posts</h2>
+                <ul>
+                    <li><a href="#">We All Die Alone...</a></li>
+                    <li><a href="#">Limbo</a></li>
+                    <li><a href="#">Zine Reviews</a></li>
+                    <li><a href="#">Journals and Zines</a></li>
+                </ul>
+            </section>
+
+            <section class="github-repos">
+                <h2>GitHub Repos</h2>
+                <ul>
+                    <li>
+                        <a href="#">refuge</a>
+                        <p class="repo-description">A Game Scheduling Platform</p>
+                    </li>
+                    <li>
+                        <a href="#">roller</a>
+                        <p class="repo-description">Dice roller written in Go and Javascript to run on Google Appengine</p>
+                    </li>
+                    <li>
+                        <a href="#">itdr</a>
+                        <p class="repo-description">Into the Dungeon: Revived &mdash; Rules for fantastic adventure games playable with paper and pencil and polyhedral dice.</p>
+                    </li>
+                    <li>
+                        <a href="#">indigo</a>
+                        <p class="repo-description">An IndieWeb-friendly custom theme for Hugo</p>
+                    </li>
+                    <li>
+                        <a href="#" class="github-link">@shanel on GitHub</a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Copyright &copy; 2013 - Shane Liebling - Powered by Octopress</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,182 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Recreation</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            margin-bottom: 30px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #0000FF; /* Pure blue as seen in image */
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .translated-labs {
+            font-size: 0.9em;
+            color: #555;
+            margin-left: 20px; /* Space between logo and text if they were closer */
+        }
+
+        /* Main Content Wrapper */
+        .content-wrapper {
+            max-width: 800px; /* Approximate width from image */
+            margin: 0 auto; /* Center the content */
+            padding: 0 20px; /* Padding for smaller screens */
+        }
+
+        /* Input Section */
+        .input-section {
+            background-color: #F0F2F5; /* Light gray background */
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+        }
+
+        .text-input {
+            width: 100%; /* Full width within its container */
+            min-height: 80px; /* Approximate height */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+            resize: vertical; /* Allow vertical resizing as seen in image */
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            font-family: inherit; /* Inherit font from body */
+            color: #333;
+        }
+
+        /* Actions (Button and Text) */
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .find-button {
+            background-color: #007bff; /* Blue button color */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            flex-shrink: 0; /* Prevent button from shrinking */
+            transition: background-color 0.2s ease;
+        }
+
+        .find-button:hover {
+            background-color: #0056b3;
+        }
+
+        .or-text {
+            color: #6c757d; /* Gray text color */
+            font-size: 0.9em;
+            margin-left: 20px; /* Space from the button */
+            text-align: right; /* Align to the right if it wraps */
+            flex-grow: 1; /* Allow text to take available space */
+        }
+
+        /* Output Section */
+        .output-section {
+            padding: 0 20px; /* Align with the content of the input section */
+        }
+
+        .you-said-label {
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 10px;
+            margin-top: 0; /* Reset default paragraph margin */
+        }
+
+        .output-text {
+            font-size: 1.5em; /* Larger font size */
+            line-height: 1.4;
+            color: #333;
+            word-break: break-word; /* Ensure long words break to fit */
+            margin-top: 0; /* Reset default paragraph margin */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .input-section {
+                padding: 20px;
+            }
+
+            .actions {
+                flex-direction: column; /* Stack button and text vertically */
+                align-items: flex-start; /* Align items to the left */
+            }
+
+            .find-button {
+                width: 100%; /* Make button full width */
+                margin-bottom: 15px; /* Space below the button */
+            }
+
+            .or-text {
+                margin-left: 0; /* Remove left margin when stacked */
+                text-align: left; /* Align text to the left when stacked */
+                width: 100%; /* Ensure text takes full width */
+            }
+
+            .output-section {
+                padding: 0 20px; /* Maintain consistent padding */
+            }
+
+            .output-text {
+                font-size: 1.2em; /* Adjust font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-placeholder"></div>
+        <div class="translated-labs">Translated Labs</div>
+    </header>
+
+    <main class="content-wrapper">
+        <div class="input-section">
+            <textarea class="text-input" placeholder="All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy"></textarea>
+            <div class="actions">
+                <button class="find-button">Find equilibrium</button>
+                <span class="or-text">or crash someone else's party</span>
+            </div>
+        </div>
+
+        <div class="output-section">
+            <p class="you-said-label">YOU SAID:</p>
+            <p class="output-text">All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy</p>
+        </div>
+    </main>
+</body>
+</html>
+```

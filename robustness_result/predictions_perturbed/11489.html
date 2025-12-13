@@ -1,0 +1,162 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marc & André Swimwear & Lingerie</title>
+    <style>
+        /* Basic Reset */
+        body, h1, p, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            background-color: #000;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center; /* Center content horizontally initially */
+            align-items: center; /* Center content vertically */
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars if content overflows slightly */
+        }
+
+        .container {
+            max-width: 500px; /* Max width for the content block */
+            width: 90%; /* Responsive width, ensures it doesn't get too small */
+            text-align: right; /* Align text content to the right */
+            margin-left: auto; /* Pushes the container to the right within its flex context */
+            margin-right: 10%; /* Fixed right margin from the viewport edge */
+        }
+
+        h1 {
+            font-size: 3.5vw; /* Responsive font size based on viewport width */
+            line-height: 1.1;
+            text-transform: uppercase;
+            font-weight: 400; /* Matches the image's font weight */
+            letter-spacing: 0.05em; /* Subtle letter spacing */
+        }
+
+        .underline {
+            width: 80px;
+            height: 2px;
+            background-color: #b89a6a; /* Golden color sampled from image */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: auto; /* Pushes the underline to the right */
+            margin-right: 0;
+        }
+
+        p {
+            font-size: 1.2vw; /* Responsive font size */
+            margin-bottom: 40px;
+            font-weight: 300; /* Lighter weight for this text */
+            letter-spacing: 0.02em;
+        }
+
+        button {
+            background-color: #b89a6a;
+            color: #fff;
+            padding: 18px 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3vw; /* Responsive font size */
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        button:hover {
+            background-color: #a0855a; /* Slightly darker on hover */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .container {
+                margin-right: 8%; /* Reduce right margin for medium screens */
+            }
+            h1 {
+                font-size: 4vw;
+            }
+            p {
+                font-size: 1.5vw;
+            }
+            button {
+                font-size: 1.6vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                justify-content: center; /* Center content horizontally on smaller screens */
+                padding: 20px; /* Add some padding around the content */
+            }
+            .container {
+                width: 90%;
+                max-width: 400px; /* Limit max width for better readability */
+                margin-left: auto; /* Center the container */
+                margin-right: auto; /* Center the container */
+                padding-right: 0; /* Remove right padding */
+                text-align: center; /* Center text on smaller screens */
+            }
+            h1 {
+                font-size: 6vw;
+                letter-spacing: 0.03em;
+            }
+            .underline {
+                margin-left: auto;
+                margin-right: auto; /* Center underline */
+            }
+            p {
+                font-size: 2.5vw;
+            }
+            button {
+                font-size: 2.8vw;
+                padding: 12px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 8vw;
+            }
+            p {
+                font-size: 3.5vw;
+            }
+            button {
+                font-size: 4vw;
+                padding: 10px 25px;
+            }
+            .underline {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            p {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            DISCOVER A<br>
+            FASCINATING<br>
+            WORLD OF<br>
+            MARC &amp; ANDRÉ<br>
+            SWIMWEAR<br>
+            &amp; LINGERIE!
+        </h1>
+        <div class="underline"></div>
+        <p>take a deep breath and...</p>
+        <button>DIVE</button>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,266 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Recreation</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            padding: 20px; /* Add some padding around the whole content */
+        }
+
+        .container {
+            max-width: 960px; /* Adjust as needed based on image width */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Top "to impress your friends" text */
+        .impress-friends {
+            color: #dc3545; /* A common red */
+            font-size: 0.9em;
+            margin-bottom: 40px; /* Spacing below it */
+            text-align: right; /* Aligned to the right in the image */
+            padding-right: 10px; /* Small padding to match image */
+        }
+
+        /* Comment Section Layout */
+        .comment-section {
+            display: flex;
+            margin-bottom: 40px; /* Space below the comment block */
+        }
+
+        .vote-prompt {
+            flex-basis: 150px; /* Fixed width for "VOTE UP?" column */
+            text-align: right;
+            padding-right: 20px;
+            font-size: 0.9em;
+            color: #666;
+            padding-top: 5px; /* Align with the top of the comment content */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .comment-content {
+            flex-grow: 1;
+            position: relative; /* For positioning 17 December */
+            border-top: 1px solid #eee; /* The line above the comment */
+            padding-top: 20px;
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative; /* For positioning the date */
+        }
+
+        .blue-diamond {
+            width: 20px; /* Size of the square before rotation */
+            height: 20px;
+            background-color: #0000FF; /* Pure blue */
+            transform: rotate(45deg);
+            margin-right: 15px;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .author-name {
+            font-weight: bold;
+            color: #0000FF; /* Pure blue */
+            font-size: 1.1em;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .comment-date {
+            position: absolute;
+            right: 0;
+            top: 0; /* Aligned with the top of the comment-content */
+            font-size: 0.85em;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .comment-text {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px; /* Padding for the border */
+            border-bottom: 1px solid #eee; /* Line below the comment text */
+            font-size: 0.95em;
+        }
+
+        .comment-actions {
+            text-align: right;
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .comment-actions a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+        }
+
+        .comment-actions a:hover {
+            text-decoration: underline;
+        }
+
+        /* Vote Button */
+        .vote-button {
+            background-color: #dc3545; /* Red */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-left: calc(150px + 20px); /* Align with comment content, 150px for vote-prompt + 20px padding */
+            margin-top: 20px; /* Space above the button */
+            display: inline-block; /* To allow margin-left */
+        }
+
+        .vote-button:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px; /* Space above the footer */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: #666;
+            border-top: 1px solid #eee; /* Line above the footer */
+            padding-top: 20px;
+        }
+
+        .footer-links a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .footer-links a:last-child {
+            margin-right: 0;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .comment-section {
+                flex-direction: column;
+            }
+
+            .vote-prompt {
+                text-align: left;
+                padding-right: 0;
+                margin-bottom: 10px;
+                flex-basis: auto;
+                padding-top: 0;
+            }
+
+            .comment-content {
+                padding-top: 10px;
+                border-top: none; /* Remove top border on smaller screens if it looks odd */
+            }
+
+            .comment-date {
+                position: static; /* Remove absolute positioning */
+                text-align: left;
+                margin-top: 5px;
+                margin-left: 0; /* Ensure no extra margin */
+                display: block; /* Make it take its own line */
+            }
+
+            .comment-header {
+                flex-wrap: wrap; /* Allow items to wrap */
+                align-items: flex-start; /* Align items to the start when wrapped */
+            }
+
+            .author-name {
+                white-space: normal; /* Allow wrapping on smaller screens */
+            }
+
+            .vote-button {
+                margin-left: 0; /* Remove left margin */
+                width: auto; /* Adjust width */
+                display: block; /* Make it a block element */
+                text-align: center; /* Center the text */
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-links {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .impress-friends {
+                text-align: left;
+                padding-right: 0;
+            }
+            .footer-links a {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            .vote-button {
+                width: 100%; /* Full width button */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="impress-friends">to impress your friends</p>
+
+        <div class="comment-section">
+            <div class="vote-prompt">
+                <p>VOTE UP?</p>
+            </div>
+            <div class="comment-content">
+                <div class="comment-header">
+                    <div class="blue-diamond"></div>
+                    <span class="author-name">Richard Rutter</span>
+                    <span class="comment-date">17 December</span>
+                </div>
+                <p class="comment-text">Like Paul Irish commented, I too have been playing around with font-size-adjust as a way of reducing the impact of FOUT .</p>
+                <div class="comment-actions">
+                    This comment was <a href="#">helpful</a> / <a href="#">unhe</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="vote-button">VOTE</button>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#">Grab our RSS feed</a>
+                <a href="#">Follow us on Twitter</a>
+                <a href="#">Contribute on GitHub</a>
+            </div>
+            <div class="copyright">
+                &copy; 2005-2023 24 ways and our authors
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+```
