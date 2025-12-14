@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margo's Gift Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8D9B6A; /* Muted olive green */
+            --secondary-color: #EAE0D5; /* Warm beige */
+            --accent-color: #C6A9A3; /* Dusty rose */
+            --text-color-dark: #3A3A3A;
+            --text-color-light: #F5F5F5;
+            --background-color: #FDFCFB;
+            --footer-bg: #596157; /* Darker olive */
+            --footer-line: #7A8474;
+            --font-family-heading: 'Lora', serif;
+            --font-family-body: 'Montserrat', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.7;
+            color: var(--text-color-dark);
+            background-color: var(--background-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-to-content:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            display: inline-block;
+            padding: 0.5em 1em;
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            text-decoration: none;
+            margin: 0.5em;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--background-color);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color-dark);
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .header-logo svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.75rem;
+            fill: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-speed) ease-out;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a:focus::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 4rem 0;
+        }
+        
+        .promo-section {
+            text-align: center;
+        }
+
+        .promo-section h1 {
+            font-family: var(--font-family-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--text-color-dark);
+        }
+
+        .promo-section figure {
+            margin: 0 auto 2rem;
+            max-width: 800px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .promo-section img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 2 / 1;
+            object-fit: cover;
+            padding: 2rem;
+            color: var(--accent-color);
+        }
+
+        .promo-section .main-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--footer-bg);
+            color: var(--text-color-light);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color-light);
+            font-family: var(--font-family-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 0.5rem;
+            fill: var(--text-color-light);
+        }
+
+        .footer-address {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-style: normal;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-color-light);
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-column a,
+        .footer-column p {
+            color: var(--text-color-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity var(--transition-speed) ease;
+        }
+
+        .footer-column a:hover,
+        .footer-column a:focus {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--footer-line);
+            padding-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-menu {
+                gap: 1.5rem;
+                padding-top: 1rem;
+            }
+
+            .main-content {
+                padding: 3rem 0;
+            }
+            
+            .footer-top {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem 1rem;
+            }
+            
+            .promo-section img {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="/" class="header-logo" aria-label="Margo's Gift Shop Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M12 2L1 9l4 2.5V19h14v-7.5L23 9l-11-7zm9 15H4v-5.5l8 5 8-5V17zm-8-8.5L4.8 9.5 12 5.3l7.2 4.2L13 10.5v-4l-1 1v3z"/></svg>
+                Margo's Gift Shop
+            </a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-menu">
+                    <li><a href="#">Household</a></li>
+                    <li><a href="#">Gifts</a></li>
+                    <li><a href="#">Paper</a></li>
+                    <li><a href="#">Holiday</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="main-content container">
+        <section class="promo-section" aria-labelledby="promo-heading">
+            <h1 id="promo-heading">Easter Baskets</h1>
+            <figure>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23EAE0D5'/%3E%3Cg fill='none' stroke='currentColor' stroke-width='4'%3E%3Cpath d='M250 300 C 200 200, 350 200, 300 300 Z' /%3E%3Cpath d='M500 300 C 450 200, 600 200, 550 300 Z' /%3E%3Cpath d='M375 300 C 325 200, 475 200, 425 300 Z' /%3E%3Cpath d='M200,320 Q400,400 600,320' stroke-width='8' /%3E%3Cpath d='M400,150 A 150 150 0 0 1 400 350' stroke-width='8' /%3E%3C/g%3E%3Ctext x='400' y='100' font-family='Montserrat, sans-serif' font-size='24' text-anchor='middle' fill='currentColor'%3ECustom Baskets Available%3C/text%3E%3C/svg%3E" alt="Stylized illustration of Easter eggs in a basket.">
+            </figure>
+            <p class="main-text">
+                Did you know Margo's Gift Shop creates Easter Baskets to order? We have items for young and old. Stop in today and fill your basket up!
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <a href="/" class="footer-logo" aria-label="Margo's Gift Shop Home">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M12 2L1 9l4 2.5V19h14v-7.5L23 9l-11-7zm9 15H4v-5.5l8 5 8-5V17zm-8-8.5L4.8 9.5 12 5.3l7.2 4.2L13 10.5v-4l-1 1v3z"/></svg>
+                        Margo's
+                    </a>
+                    <address class="footer-address">
+                        2058 Utica Square<br>
+                        Tulsa, Oklahoma<br>
+                        [PHONE REDACTED]
+                    </address>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="#">Bridal Registry</a></li>
+                        <li><a href="#">Household</a></li>
+                        <li><a href="#">Gifts</a></li>
+                        <li><a href="#">Glassware</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Returns & Shipping</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About Margo's</h4>
+                    <p>
+                        Established in 1935, Margo's is known for its bridal registry. Brides can register for pottery, linens, home decor, and other fine gifts.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Margo's Gift Shop.</p>
+                <p>
+                    <span>Designed by Janzen Designs</span> | <span>Powered by Shopify</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

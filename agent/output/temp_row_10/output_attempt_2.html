@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy M&Ms Easter Individual Parfaits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-background: #fbfaff;
+            --color-surface: #ffffff;
+            --color-primary: #a08ee6; /* Soft, festive lavender */
+            --color-secondary: #fddc7c; /* Sunny yellow for accents */
+            --color-accent: #eef7ea; /* Soft mint green for details */
+            --color-text-primary: #3d3a4b;
+            --color-text-secondary: #6b687a;
+            --color-border: #e8e5f2;
+            --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-secondary: 'Lora', serif;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 6px 20px rgba(90, 80, 120, 0.1);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem 1rem;
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--color-surface);
+            padding: 2rem 3rem;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--border-radius);
+        }
+
+        h1, h2 {
+            line-height: 1.2;
+            color: var(--color-text-primary);
+        }
+
+        h1 {
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            font-size: 3rem;
+            margin: 0 0 0.75rem 0;
+        }
+
+        h2 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--color-primary);
+            display: inline-block;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--color-text-primary);
+            text-decoration: underline;
+        }
+
+        /* --- Controls Section --- */
+        .recipe-controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .recipe-controls fieldset {
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .recipe-controls legend {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-text-secondary);
+            padding: 0 0.5em;
+            margin-left: -0.5em;
+        }
+        
+        .control-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        input[type="checkbox"] {
+            accent-color: var(--color-primary);
+            width: 1.2em;
+            height: 1.2em;
+            cursor: pointer;
+        }
+
+        .servings-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .servings-control button,
+        .servings-control .servings-count {
+            padding: 0.5rem 0.75rem;
+            border: none;
+            background-color: var(--color-surface);
+            font-size: 1rem;
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .servings-control button {
+            cursor: pointer;
+            background-color: #f9f9fb;
+            transition: background-color 0.2s;
+        }
+        
+        .servings-control button:hover {
+            background-color: var(--color-accent);
+        }
+
+        .servings-control .servings-count {
+            border-left: 1px solid var(--color-border);
+            border-right: 1px solid var(--color-border);
+            min-width: 2.5rem;
+            text-align: center;
+        }
+
+        /* --- Recipe Header --- */
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .recipe-header p {
+            font-family: var(--font-secondary);
+            font-style: italic;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            max-width: 600px;
+            color: var(--color-text-secondary);
+        }
+
+        .rating-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star-rating svg {
+            width: 28px;
+            height: 28px;
+            color: var(--color-secondary);
+        }
+
+        .rating-info .votes {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* --- Recipe Details --- */
+        .recipe-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--color-accent);
+            border-radius: var(--border-radius);
+        }
+
+        .recipe-details dt {
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .recipe-details dd {
+            margin-left: 0;
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+        }
+        
+        /* --- Main Content Layout --- */
+        .recipe-body {
+            display: grid;
+            gap: 2rem 4rem;
+        }
+
+        @media (min-width: 800px) {
+            .recipe-body {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        /* --- Lists --- */
+        .ingredients ul, .instructions ol {
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .ingredients li, .instructions li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .ingredients li label {
+            display: block;
+            transition: opacity 0.3s, text-decoration 0.3s;
+        }
+        
+        .ingredients li input[type="checkbox"] {
+            position: absolute;
+            left: -5px;
+            top: 5px;
+        }
+        
+        .ingredients li input[type="checkbox"]:checked + label {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .ingredients ul {
+            margin-top: 0.75rem;
+            padding-left: 1rem;
+        }
+        
+        .ingredients > ul > li {
+            font-weight: 600;
+        }
+
+        .instructions ol {
+            counter-reset: instruction-counter;
+        }
+
+        .instructions li {
+            counter-increment: instruction-counter;
+            padding-left: 3rem;
+        }
+
+        .instructions li::before {
+            content: counter(instruction-counter);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            background-color: var(--color-primary);
+            color: white;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- Nutrition & Footer --- */
+        .nutrition p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+            background: #f9f9fb;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .nutrition strong {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .page-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .page-footer button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .page-footer button:hover {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(160, 142, 230, 0.4);
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.5rem; }
+            .recipe-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .instructions li {
+                padding-left: 2.5rem;
+            }
+            .instructions li::before {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <form class="recipe-controls" aria-label="Recipe display settings">
+            <fieldset>
+                <legend>Display</legend>
+                <div class="control-group">
+                    <label for="show-image">
+                        <input type="checkbox" id="show-image" checked> Show Image
+                    </label>
+                </div>
+                <div class="control-group">
+                    <label for="show-nutrition">
+                        <input type="checkbox" id="show-nutrition" checked> Show Nutrition
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Servings</legend>
+                <div class="servings-control">
+                    <button type="button" aria-label="Decrease servings">-</button>
+                    <span class="servings-count" aria-live="polite">4</span>
+                    <button type="button" aria-label="Increase servings">+</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <article>
+            <header class="recipe-header">
+                <h1>Easy M&Ms Easter Individual Parfaits</h1>
+                <p>A delicious and easy-to-make Easter dessert that's perfect for spring celebrations. Layers of chocolate, cream, and festive candies.</p>
+                <div class="rating-info">
+                    <div class="star-rating" role="img" aria-label="5 out of 5 stars">
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"></path></svg>
+                    </div>
+                    <span class="votes">(5 from 1 vote)</span>
+                </div>
+            </header>
+
+            <dl class="recipe-details">
+                <div><dt>Course</dt><dd>Dessert</dd></div>
+                <div><dt>Cuisine</dt><dd>American</dd></div>
+                <div><dt>Prep Time</dt><dd>10 minutes</dd></div>
+                <div><dt>Total Time</dt><dd>10 minutes</dd></div>
+                <div><dt>Servings</dt><dd>4 parfaits</dd></div>
+                <div><dt>Calories</dt><dd>280 kcal</dd></div>
+            </dl>
+
+            <div class="recipe-body">
+                <section class="ingredients" aria-labelledby="ingredients-heading">
+                    <h2 id="ingredients-heading">Ingredients</h2>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="ing-group-1"><label for="ing-group-1">Whipped Chocolate Ganache layer:</label>
+                            <ul>
+                                <li><input type="checkbox" id="ing-1-1"><label for="ing-1-1">½ cup chocolate chips</label></li>
+                                <li><input type="checkbox" id="ing-1-2"><label for="ing-1-2">¼ cup heavy whipping cream</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="ing-group-2"><label for="ing-group-2">Whipped cream layer:</label>
+                            <ul>
+                                <li><input type="checkbox" id="ing-2-1"><label for="ing-2-1">½ cup heavy whipping cream</label></li>
+                                <li><input type="checkbox" id="ing-2-2"><label for="ing-2-2">2 tablespoons powdered sugar</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="ing-group-3"><label for="ing-group-3">Layers:</label>
+                            <ul>
+                                <li><input type="checkbox" id="ing-3-1"><label for="ing-3-1">Graham Cracker Crumbs</label></li>
+                                <li><input type="checkbox" id="ing-3-2"><label for="ing-3-2">M&M's Speckled Eggs</label></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="instructions" aria-labelledby="instructions-heading">
+                    <h2 id="instructions-heading">Instructions</h2>
+                    <ol>
+                        <li>In a large microwave-proof bowl, heat the chocolate chips and the ¼ cup cream in 30-second increments, stirring well after each, until melted and smooth. Set aside to cool to room temperature. You can place it in the fridge, but don't let it harden.</li>
+                        <li>In a large bowl or the bowl of a stand mixer, add ½ cup whipping cream and the powdered sugar. Whip using a hand-held or stand mixer until stiff peaks form.</li>
+                        <li>Again, using the mixer, whip the cooled chocolate ganache until soft peaks form.</li>
+                        <li>Now, the layering happens! In your serving glasses, alternate layers of ganache, whipped cream, graham cracker crumbs, and M&M's. Finish with a festive topping of extra M&Ms.</li>
+                    </ol>
+                </section>
+            </div>
+
+            <section class="nutrition" aria-labelledby="nutrition-heading">
+                <h2 id="nutrition-heading">Nutrition</h2>
+                <p>Calories: <strong>280kcal</strong> | Carbohydrates: <strong>25g</strong> | Protein: <strong>3g</strong> | Fat: <strong>18g</strong> | Saturated Fat: <strong>11g</strong></p>
+            </section>
+        </article>
+
+        <footer class="page-footer">
+            <p>Enjoyed this recipe? Print it for later!</p>
+            <button onclick="window.print()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                    <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+                </svg>
+                Print Recipe
+            </button>
+            <p style="margin-top: 2rem;">Recipe by Debi from <a href="#" aria-label="Original source website">somewebsite.com</a></p>
+        </footer>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margo's Gift Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #005f73; /* Deep Teal */
+            --secondary-color: #e9d8a6; /* Pale Gold */
+            --accent-color: #ee9b00; /* Amber */
+            --accent-color-dark: #ca6702; /* Burnt Orange */
+            --text-color-dark: #0a0908; /* Near Black */
+            --text-color-light: #f8f7f4; /* Warm Off-White */
+            --background-color: #fdfcfb; /* Very Light Cream */
+            --footer-bg: #003e4d; /* Darker Teal */
+            --footer-line: #005f73;
+            --font-family-heading: 'Lora', serif;
+            --font-family-body: 'Montserrat', sans-serif;
+            --transition-speed: 0.3s;
+            --border-radius: 8px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 100%;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-to-content:focus {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            background-color: var(--accent-color);
+            color: var(--text-color-light);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: color-mix(in srgb, var(--background-color) 95%, transparent);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid color-mix(in srgb, var(--primary-color) 10%, transparent);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-family: var(--font-family-heading);
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-logo svg {
+            width: 44px;
+            height: 44px;
+            margin-right: 0.5rem;
+            fill: var(--primary-color);
+            transition: transform var(--transition-speed) cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .header-logo:hover svg,
+        .header-logo:focus svg {
+            transform: rotate(-15deg) scale(1.1);
+        }
+
+        .main-nav {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-color-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-speed) ease-out;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus-visible {
+            color: var(--primary-color);
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a:focus-visible::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+        }
+        
+        .promo-section {
+            display: grid;
+            align-items: center;
+            padding: 6rem 0;
+            min-height: 80vh;
+        }
+
+        .promo-text-content {
+            background-color: var(--background-color);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 50px rgba(0, 62, 77, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .promo-section h1 {
+            font-family: var(--font-family-heading);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .promo-section figure {
+            margin: 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            z-index: 1;
+        }
+
+        .promo-section img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: var(--secondary-color);
+            transition: transform 0.4s ease-out;
+        }
+        
+        .promo-section figure:hover img {
+            transform: scale(1.05);
+        }
+
+        .promo-section .main-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 45ch;
+            margin-bottom: 2.5rem;
+            color: color-mix(in srgb, var(--text-color-dark) 70%, transparent);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-image: linear-gradient(45deg, var(--accent-color) 0%, var(--accent-color-dark) 100%);
+            color: var(--text-color-light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(202, 103, 2, 0.3);
+        }
+
+        .cta-button:hover,
+        .cta-button:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(202, 103, 2, 0.4);
+        }
+        
+        .cta-button .arrow {
+            transition: transform var(--transition-speed) ease;
+        }
+        
+        .cta-button:hover .arrow,
+        .cta-button:focus-visible .arrow {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--footer-bg);
+            color: var(--text-color-light);
+            padding: 5rem 0 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-color-light);
+            font-family: var(--font-family-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-address {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-style: normal;
+            opacity: 0.8;
+            max-width: 35ch;
+        }
+
+        .footer-section h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary-color);
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-section a,
+        .footer-section p {
+            color: var(--text-color-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+
+        .footer-section a:hover,
+        .footer-section a:focus-visible {
+            opacity: 1;
+            color: var(--secondary-color);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-links a {
+            opacity: 0.8;
+        }
+        .social-links a:hover,
+        .social-links a:focus-visible {
+            opacity: 1;
+            transform: translateY(-2px);
+            color: var(--secondary-color);
+        }
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--footer-line);
+            padding-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 992px) {
+            .promo-section.container {
+                grid-template-columns: repeat(12, 1fr);
+                gap: 0;
+            }
+            .promo-text-content {
+                grid-column: 1 / span 7;
+                grid-row: 1;
+            }
+            .promo-section figure {
+                grid-column: 6 / span 7;
+                grid-row: 1;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .promo-section {
+                gap: 2rem;
+                padding: 4rem 0;
+                min-height: auto;
+            }
+            .promo-text-content {
+                text-align: center;
+                padding: 2rem;
+            }
+            .main-text {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .main-nav {
+                gap: 1.5rem;
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 90%;
+            }
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem 1rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-section ul, .social-links {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="/" class="header-logo" aria-label="Margo's Gift Shop Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-hidden="true" focusable="false">
+                    <path d="M50,5.3C50,5.3,50,5.3,50,5.3C38.7,5.3,28.5,12,22.9,21.7c-2.8,4.8-4.4,10.4-4.4,16.3c0,15.4,12.5,27.9,27.9,27.9 c0.8,0,1.5,0,2.3-0.1c-1.6,2.9-2.5,6.2-2.5,9.7c0,11.4,9.2,20.6,20.6,20.6c11.4,0,20.6-9.2,20.6-20.6c0-3.5-0.9-6.8-2.5-9.7 c0.8,0.1,1.5,0.1,2.3,0.1c15.4,0,27.9-12.5,27.9-27.9c0-5.9-1.6-11.5-4.4-16.3C71.5,12,61.3,5.3,50,5.3z M50,12.5 c8.8,0,16.8,5.1,20.8,12.7c2,3.7,3.1,7.9,3.1,12.3c0,11.4-9.2,20.6-20.6,20.6S32.7,48.9,32.7,37.5c0-4.4,1.1-8.6,3.1-12.3 C40.4,17.6,41.2,12.5,50,12.5z M66.8,74.4c-7.9,0-14.3-6.4-14.3-14.3c0-2.5,0.7-4.9,1.8-7c2.9,1.5,6.2,2.4,9.7,2.4 c3.5,0,6.8-0.8,9.7-2.4c1.1,2.1,1.8,4.5,1.8,7C81.1,68,74.7,74.4,66.8,74.4z"/>
+                </svg>
+                Margo's Gift Shop
+            </a>
+            <nav aria-label="Main navigation">
+                <ul class="main-nav">
+                    <li><a href="#">Household</a></li>
+                    <li><a href="#">Gifts</a></li>
+                    <li><a href="#">Paper</a></li>
+                    <li><a href="#">Holiday</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="promo-section container" aria-labelledby="promo-heading">
+            <div class="promo-text-content">
+                <h1 id="promo-heading">Easter Baskets</h1>
+                <p class="main-text">
+                    Did you know Margo's Gift Shop creates Easter Baskets to order? We have items for young and old. Stop in today and fill your basket up!
+                </p>
+                <a href="#" class="cta-button">
+                    Build a Basket
+                    <span class="arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1585183829219-b19384357032?q=80&w=1287&auto=format&fit=crop" alt="A beautiful wicker Easter basket filled with colorful eggs, a chocolate bunny, and decorative flowers, sitting on a rustic wooden surface.">
+            </figure>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <section class="footer-section" aria-labelledby="footer-about-heading">
+                    <h2 id="footer-about-heading" class="sr-only">About Margo's</h2>
+                    <a href="/" class="footer-logo" aria-label="Margo's Gift Shop Home">
+                        Margo's
+                    </a>
+                    <address class="footer-address">
+                        Established in 1935, Margo's is known for its bridal registry. Brides can register for pottery, linens, home decor, and other fine gifts.
+                        <br><br>
+                        2058 Utica Square<br>
+                        Tulsa, Oklahoma<br>
+                        [PHONE REDACTED]
+                    </address>
+                </section>
+
+                <section class="footer-section" aria-labelledby="footer-collections-heading">
+                    <h2 id="footer-collections-heading">Collections</h2>
+                    <ul>
+                        <li><a href="#">Bridal Registry</a></li>
+                        <li><a href="#">Household</a></li>
+                        <li><a href="#">Gifts</a></li>
+                        <li><a href="#">Glassware</a></li>
+                    </ul>
+                </section>
+
+                <section class="footer-section" aria-labelledby="footer-care-heading">
+                    <h2 id="footer-care-heading">Customer Care</h2>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Returns & Shipping</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </section>
+                
+                <section class="footer-section" aria-labelledby="footer-social-heading">
+                    <h2 id="footer-social-heading">Follow Us</h2>
+                    <ul class="social-links">
+                        <li>
+                            <a href="#" aria-label="Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Facebook</title><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.32 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Instagram</title><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Pinterest">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Pinterest</title><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C8.5,20.5 8.32,19.24 8.5,18.23L9.56,14.15C9.56,14.15 9.31,13.66 9.31,12.84C9.31,11.44 10.23,10.33 11.14,10.33C11.91,10.33 12.27,10.9 12.27,11.57C12.27,12.45 11.73,13.85 11.42,15.11C11.15,16.22 12,17.12 13.07,17.12C15.18,17.12 16.83,14.83 16.83,11.9C16.83,9.32 14.94,7.44 12.45,7.44C9.42,7.44 7.7,9.79 7.7,12.2C7.7,13.12 8.08,14.05 8.5,14.6C8.59,14.72 8.59,14.83 8.56,14.95L8.3,15.92C8.27,16.05 8.18,16.07 8.05,16.04C6.88,15.59 6.2,14.27 6.2,12.9C6.2,10.16 8.4,7.9 11.43,7.9C14.62,7.9 17.46,10.33

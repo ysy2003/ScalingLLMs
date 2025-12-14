@@ -60,30 +60,42 @@ class LangChainRepairAgent:
                         "system",
                         "You are an expert front-end engineer tasked with incrementally "
                         "repairing HTML+CSS artifacts so that they render faithfully while "
-                        "improving semantics and accessibility.",
+                        "improving semantics and accessibility. Whenever visuals stagnate, proactively introduce noticeable layout, color, or typography improvements that still respect the original intent. Respond with a single complete HTML document and nothing else.",
                     ),
                     (
                         "human",
                         "Browser/runtime issues:\n{error_summary}\n\n"
                         "Current quality metrics:\n{metrics_summary}\n\n"
-                        "Update the markup while preserving layout intent. Always return the full HTML document.\n"
+                        "Update the markup while preserving layout intent, but ensure the rendered UI exhibits meaningful visual changes (layout, palette, hierarchy, or interaction affordances). Do not include commentary—return only the fully updated HTML file.\n"
                         "Broken HTML snippet follows:\n```html\n{broken_html}\n```",
                     ),
                 ]
             )
             | self._llm
             | StrOutputParser()
-            | RunnableLambda(self._strip_code_fences)
+            | RunnableLambda(self._extract_html_document)
         )
 
     @staticmethod
-    def _strip_code_fences(text: str) -> str:
+    def _extract_html_document(text: str) -> str:
         cleaned = text.strip()
-        if cleaned.lower().startswith("```html"):
+        lower = cleaned.lower()
+
+        if lower.startswith("```html"):
             cleaned = cleaned[7:]
+        elif lower.startswith("```"):
+            cleaned = cleaned[3:]
+
         if cleaned.endswith("```"):
             cleaned = cleaned[:-3]
-        return cleaned.strip()
+
+        cleaned = cleaned.strip()
+        scan_source = cleaned.lower()
+        for marker in ("<!doctype", "<html"):
+            idx = scan_source.find(marker)
+            if idx != -1:
+                return cleaned[idx:].strip()
+        return cleaned
 
     @staticmethod
     def _format_errors(errors: Iterable[str]) -> str:

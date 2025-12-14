@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficlets - JLaughter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f7f3;
+            --text-color: #3d3d3d;
+            --primary-color: #e67e22;
+            --secondary-color: #3498db;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --font-serif: 'Lora', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-header .logo {
+            font-family: var(--font-sans);
+            font-size: 2em;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .site-header .logo a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .header-nav a {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 1em;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .header-nav a:hover,
+        .header-nav a:focus {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+
+        h3 {
+            font-size: 1.4em;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        a:hover, a:focus {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        .author-bio {
+            margin-bottom: 40px;
+        }
+
+        .info-section dl {
+            margin: 0;
+            padding: 0;
+        }
+
+        .info-section dt {
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
+
+        .info-section dd {
+            margin-left: 20px;
+            margin-bottom: 1em;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Story List */
+        .story-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .story-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5em;
+        }
+
+        .story-card h3 a {
+            color: var(--text-color);
+        }
+        
+        .story-card h3 a:hover,
+        .story-card h3 a:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .story-meta {
+            font-size: 0.9em;
+            color: #777;
+            font-family: var(--font-sans);
+        }
+        
+        .story-meta p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .story-meta a {
+            font-weight: 400;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 50px;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            background-color: #e8e4dd;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .site-footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-left p {
+            margin: 0;
+            max-width: 400px;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-nav a {
+            font-weight: 400;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 650px) {
+            .site-header .container,
+            .site-footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .site-header .logo {
+                margin-bottom: 15px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <p class="logo"><a href="#">Ficlets</a></p>
+            <nav class="header-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#">Authors</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="#">Tags</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <header class="author-bio">
+                <h1>JLaughter</h1>
+                <p>I've always been an avid (dare I say: <strong>OBSESSED</strong>) reader, and started writing fiction somewhere around 5th or 6th grade. I read approximately 3 or 4 books a month, so new material is always a must!</p>
+                <p>I've written for a long time now, although the novel I started in high school has never gotten past the first draft stage. Over the last four years, I've fallen out of the habit of writing and I'm looking to ramp that up again.</p>
+                <p>I'm going to insert a shameless plug for my father. Jim Laughter and Victor J. Bretthauer recently published <strong>Escape to Destiny</strong>, and his book (and oncoming series) is available on <a href="#">tatepublishing.com</a>!</p>
+            </header>
+
+            <section class="info-section" aria-labelledby="info-heading">
+                <h2 id="info-heading">Author Notes</h2>
+                
+                <h3>Music You Should Try:</h3>
+                <dl>
+                    <dt>The Dears</dt>
+                    <dd>No Cities Left</dd>
+                    <dt>Sia</dt>
+                    <dd>lots of albums...great voice.</dd>
+                </dl>
+
+                <h3>Ficlet Series' in Progress:</h3>
+                <dl>
+                    <dt>Bagman</dt>
+                    <dd>A Cyberpunk series in the first-person narrative from different points of views. This series is rated <em>Mature</em> for drug-use, language, violence and strong sexual references. <strong>30471</strong> (in progress)</dd>
+                    <dt>The Gerideon Chronicles</dt>
+                    <dd>An experiment in writing in a classical style reminiscent of Sir Thomas Malory's <em>Le Morte D'Arthur</em>. <strong>30988</strong> (in progress)</dd>
+                </dl>
+
+                <h3>Completed Ficlets</h3>
+                <p><strong>The Fog</strong>: My response to Ana Cristina's <em>Out of Order Challenge</em>. <strong>33175</strong></p>
+                <p>Also check out my bro's ficlets! <a href="#">Browncoatben</a>! He's not as good as me, but he wishes he was.</p>
+            </section>
+
+            <section aria-labelledby="stories-heading">
+                <h2 id="stories-heading">Stories (79)</h2>
+                <ul class="story-list">
+                    <li>
+                        <article class="story-card">
+                            <h3><a href="#">Bagman: A Clear Blue Spike</a></h3>
+                            <div class="story-meta">
+                                <p>Author: <a href="#">JLaughter</a></p>
+                                <p><time datetime="2008-05-14">Published May 14th, 2008</time></p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <h3><a href="#">Bagman: Fashionably Late</a></h3>
+                            <div class="story-meta">
+                                <p>Author: <a href="#">JLaughter</a></p>
+                                <p><time datetime="2008-05-17">Published May 17th, 2008</time></p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <h3><a href="#">Bagman: First Rule: Never Ask</a></h3>
+                            <div class="story-meta">
+                                <p>Author: <a href="#">JLaughter</a></p>
+                                <p><time datetime="2008-05-17">Published May 17th, 2008</time></p>
+                            </div>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="story-card">
+                            <h3><a href="#">Bagman: Shots Fired</a></h3>
+                            <div class="story-meta">
+                                <p>Author: <a href="#">JLaughter</a></p>
+                                <p><time datetime="2008-05-17">Published May 17th, 2008</time></p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-left">
+                <p>&copy; 2008 Ficlets. All stories are licensed under a Creative Commons Attribution-Share Alike 3.0 License.</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <ul>
+                    <li><a href="#">Authors</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="#">Tags</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

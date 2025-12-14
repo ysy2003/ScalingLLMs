@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy M&Ms Easter Individual Parfaits</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px; /* Adjusted base font size */
+        }
+
+        /* Container for overall layout */
+        .container {
+            max-width: 900px; /* Max width to match image */
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px 30px; /* Padding inside the main white box */
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        /* Buttons - Go Back, Print */
+        .button-group-top {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button-group-top button {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .button-group-top button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Checkboxes and Servings/Size controls */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            align-items: center;
+            gap: 20px; /* Space between groups */
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+            width: 16px; /* Standard checkbox size */
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .servings-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            overflow: hidden; /* To make borders merge */
+        }
+
+        .servings-control button,
+        .servings-control span {
+            padding: 6px 10px;
+            border: none;
+            background-color: #fff;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            min-width: 25px; /* Ensure consistent width for buttons/span */
+        }
+
+        .servings-control button {
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+        }
+        .servings-control button:first-child {
+            border-left: none;
+        }
+        .servings-control button:last-child {
+            border-right: none;
+        }
+
+        .servings-control button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .servings-control span {
+            border-right: 1px solid #ccc;
+        }
+
+        .servings-text {
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+
+        .size-buttons {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .size-buttons button {
+            padding: 6px 12px;
+            border: none;
+            background-color: #fff;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .size-buttons button:not(:last-child) {
+            border-right: 1px solid #ccc;
+        }
+
+        .size-buttons button.active {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .size-buttons button:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        /* Recipe Header */
+        .recipe-header {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .recipe-title-description {
+            flex: 1; /* Take up available space */
+            min-width: 300px; /* Ensure it doesn't get too small */
+        }
+
+        .recipe-header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .recipe-header p {
+            font-size: 15px;
+            margin: 0;
+            color: #555;
+        }
+
+        .rating-box {
+            width: 150px; /* Fixed width as per image */
+            height: 100px; /* Fixed height as per image */
+            background-color: blue;
+            color: white;
+            display: flex;
+            align-items: flex-end; /* Align text to bottom */
+            justify-content: center;
+            padding-bottom: 5px; /* Small padding from bottom */
+            font-size: 13px;
+            text-align: center;
+            margin-left: 20px; /* Space from text */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Recipe Details (Course, Cuisine, etc.) */
+        .recipe-details {
+            display: grid;
+            grid-template-columns: auto 1fr; /* Auto for label, 1fr for value */
+            gap: 5px 15px; /* Row gap, column gap */
+            margin-bottom: 30px;
+            max-width: 350px; /* Constrain width to align with image */
+        }
+
+        .recipe-details dt {
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        .recipe-details dd {
+            margin-left: 0;
+            color: #555;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            color: #333;
+        }
+
+        /* Ingredients List */
+        .ingredients ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0 0 20px 0;
+        }
+
+        .ingredients ul li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .ingredients ul li strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Instructions List */
+        .instructions ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin: 0 0 20px 0;
+        }
+
+        .instructions ol li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Nutrition Section */
+        .nutrition p {
+            font-size: 14px;
+            color: #555;
+            margin: 0;
+        }
+
+        .nutrition p strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Footer Link */
+        .footer-link {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .footer-link a {
+            color: #007bff; /* Standard link color */
+            text-decoration: none;
+        }
+
+        .footer-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .controls-row {
+                flex-direction: column; /* Stack controls vertically */
+                align-items: flex-start; /* Align to left */
+                gap: 15px;
+            }
+
+            .recipe-header {
+                flex-direction: column; /* Stack title/description and rating box */
+                align-items: center;
+            }
+
+            .rating-box {
+                margin-left: 0;
+                margin-top: 20px; /* Space between title and rating */
+            }
+
+            .recipe-title-description {
+                text-align: center;
+                min-width: unset; /* Remove min-width for smaller screens */
+            }
+
+            .recipe-details {
+                max-width: 100%; /* Allow full width */
+                grid-template-columns: 1fr; /* Stack labels and values */
+                text-align: center; /* Center align for stacked items */
+            }
+            .recipe-details dt, .recipe-details dd {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .button-group-top {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .button-group-top button {
+                width: 100%;
+            }
+            .checkbox-group {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .servings-control, .size-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            .servings-control button, .servings-control span,
+            .size-buttons button {
+                flex-grow: 1; /* Make buttons fill available width */
+            }
+            .servings-text {
+                margin-left: 0;
+                margin-right: 0;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-group-top">
+            <button>Go Back</button>
+            <button>Print</button>
+        </div>
+
+        <div class="controls-row">
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" checked> Recipe Image
+                </label>
+                <label>
+                    <input type="checkbox" checked> Nutrition Label
+                </label>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <div class="servings-control">
+                    <button>-</button>
+                    <span>4</span>
+                    <button>+</button>
+                </div>
+                <span class="servings-text">servings</span>
+            </div>
+
+            <div class="size-buttons">
+                <button>Smaller</button>
+                <button class="active">Normal</button>
+                <button>Larger</button>
+            </div>
+        </div>
+
+        <div class="recipe-header">
+            <div class="recipe-title-description">
+                <h1>Easy M&Ms Easter Individual Parfaits</h1>
+                <p>A delicious and easy to make Easter dessert</p>
+            </div>
+            <div class="rating-box">
+                5 from 1 vote
+            </div>
+        </div>
+
+        <dl class="recipe-details">
+            <dt>Course</dt>
+            <dd>Dessert</dd>
+            <dt>Cuisine</dt>
+            <dd>American</dd>
+            <dt>Keyword</dt>
+            <dd>Easter, parfait</dd>
+            <dt>Prep Time</dt>
+            <dd>10 minutes</dd>
+            <dt>Cook Time</dt>
+            <dd>0 minutes</dd>
+            <dt>Total Time</dt>
+            <dd>10 minutes</dd>
+            <dt>Servings</dt>
+            <dd>4 servings</dd>
+            <dt>Calories</dt>
+            <dd>280 kcal</dd>
+            <dt>Author</dt>
+            <dd>Debi</dd>
+        </dl>
+
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul>
+                <li><strong>Whipped Chocolate Ganache layer:</strong>
+                    <ul>
+                        <li>½ cup chocolate chips</li>
+                        <li>¼ cup heavy whipping cream</li>
+                    </ul>
+                </li>
+                <li><strong>Whipped cream layer:</strong>
+                    <ul>
+                        <li>½ cup heavy whipping cream</li>
+                        <li>2 tablespoons powdered sugar</li>
+                    </ul>
+                </li>
+                <li><strong>Layers:</strong>
+                    <ul>
+                        <li>Graham Cracker Crumbs</li>
+                        <li>M&M's Speckled Eggs</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <ol>
+                <li>In a large microwave proof bowl, heat the chocolate chips and the ¼ cup cream in 30-second increments in the microwave, stirring well after each cooking time, until the chocolate is melted and smooth. Set aside to allow to cool to room temperature, you can place the chocolate mixture in the fridge, but don't allow it to get so cold that it hardens.</li>
+                <li>In a large bowl or the bowl of a stand mixer, add ½ cup whipping cream and the powdered sugar. Whip using a hand held mixer or the stand mixer until stiff peaks form.</li>
+                <li>Again, using the hand held mixer or the stand mixer, whip the chocolate ganache until soft peaks form.</li>
+                <li>Now, the layering happens!</li>
+            </ol>
+        </div>
+
+        <div class="nutrition">
+            <h2>Nutrition</h2>
+            <p>Calories: <strong>

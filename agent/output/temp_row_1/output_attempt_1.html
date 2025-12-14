@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Oatmeal Chocolate Chip Muffins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FFFBF2;
+            --card-bg: #FFFFFF;
+            --primary-text-color: #4A2E2A;
+            --secondary-text-color: #7A6C69;
+            --accent-color: #F59E0B; /* Amber 500 */
+            --accent-dark-color: #D97706; /* Amber 600 */
+            --border-color: #EAE0D5;
+            --light-gray-bg: #F7F4EF;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 2rem 1rem;
+            background-color: var(--bg-color);
+            color: var(--primary-text-color);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* --- Controls Section --- */
+        .recipe-controls {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+        
+        .top-actions {
+            display: flex;
+            justify-content: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--card-bg);
+            color: var(--primary-text-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--light-gray-bg);
+            border-color: #D1C7BC;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--card-bg);
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark-color);
+            border-color: var(--accent-dark-color);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .control-group legend, .control-group .group-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--primary-text-color);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            height: 20px;
+            width: 20px;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .custom-checkbox input:focus-visible ~ .checkmark {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .checkmark:after {
+            content: "";
+            display: none;
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .quantity-selector {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            align-items: center;
+        }
+
+        .quantity-selector button,
+        .quantity-selector .quantity-display {
+            padding: 0.6rem;
+            border: none;
+            background-color: var(--card-bg);
+            color: var(--primary-text-color);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-selector button {
+            width: 40px;
+        }
+        
+        .quantity-selector button:hover {
+            background-color: var(--light-gray-bg);
+        }
+        
+        .quantity-selector button:focus-visible {
+            background-color: var(--light-gray-bg);
+            outline: 2px solid var(--accent-color);
+            outline-offset: -2px;
+            z-index: 1;
+        }
+
+        .quantity-selector .quantity-display {
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            min-width: 40px;
+            font-weight: 700;
+            cursor: default;
+        }
+
+        .size-selector {
+            border: none;
+            padding: 0;
+        }
+
+        .size-selector .options {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .size-selector input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .size-selector label {
+            flex-grow: 1;
+            text-align: center;
+            padding: 0.6rem 0.8rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            border-left: 1px solid var(--border-color);
+        }
+        
+        .size-selector label:first-of-type {
+            border-left: none;
+        }
+
+        .size-selector input:checked + label {
+            background-color: var(--primary-text-color);
+            color: white;
+        }
+        
+        .size-selector input:focus-visible + label {
+            outline: 2px solid var(--accent-color);
+            outline-offset: -2px;
+            z-index: 1;
+        }
+
+        .size-selector label:hover {
+            background-color: var(--light-gray-bg);
+        }
+        
+        .size-selector input:checked + label:hover {
+            background-color: var(--primary-text-color);
+        }
+
+        /* --- Recipe Card --- */
+        .recipe-card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .recipe-card h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text-color);
+        }
+
+        .recipe-card .description {
+            font-size: 1.1rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .recipe-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem 1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+            padding: 1.5rem;
+            background-color: var(--light-gray-bg);
+            border-radius: 8px;
+        }
+
+        .recipe-details dt {
+            font-weight: 700;
+            color: var(--primary-text-color);
+        }
+
+        .recipe-details dd {
+            margin: 0;
+            color: var(--secondary-text-color);
+        }
+
+        .recipe-details a {
+            color: var(--accent-dark-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .recipe-details a:hover {
+            text-decoration: underline;
+        }
+
+        .recipe-card h2 {
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .recipe-card ul, .recipe-card ol {
+            margin: 0;
+            padding-left: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--secondary-text-color);
+        }
+
+        .recipe-card li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .recipe-card li::marker {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .notes-section h3 {
+            font-size: 1.1rem;
+            color: var(--primary-text-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .notes-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 1rem;
+            color: var(--secondary-text-color);
+        }
+
+        .nutrition-list {
+            list-style-type: none;
+            padding: 0;
+            column-count: 2;
+            column-gap: 2rem;
+        }
+
+        .nutrition-list li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--secondary-text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .nutrition-list strong {
+            font-weight: 700;
+            color: var(--primary-text-color);
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--secondary-text-color);
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent-dark-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .recipe-card {
+                padding: 1.5rem;
+            }
+            .recipe-card h1 {
+                font-size: 2rem;
+            }
+            .recipe-card h2 {
+                font-size: 1.5rem;
+            }
+            .nutrition-list {
+                column-count: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-actions {
+                flex-direction: column;
+            }
+            .recipe-card h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="recipe-controls" aria-labelledby="controls-heading">
+            <h2 id="controls-heading" class="visually-hidden">Recipe Display Options</h2>
+            <div class="top-actions">
+                <button type="button" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg>
+                    Go Back
+                </button>
+                <button type="button" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3h6z"/></svg>
+                    Print
+                </button>
+            </div>
+            <div class="controls-grid">
+                <div class="control-group">
+                    <span class="group-label">Display Options</span>
+                    <div class="checkbox-group">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            Recipe Image
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            Notes
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            Nutrition Label
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <span class="group-label">Servings (12-14 muffins)</span>
+                    <div class="quantity-selector">
+                        <button type="button" aria-label="Decrease quantity">-</button>
+                        <span class="quantity-display" aria-live="polite">1</span>
+                        <button type="button" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>
+                <fieldset class="control-group size-selector">
+                    <legend>Muffin Size</legend>
+                    <div class="options">
+                        <input type="radio" id="size-smaller" name="muffin-size" value="smaller">
+                        <label for="size-smaller">Smaller</label>
+                        <input type="radio" id="size-normal" name="muffin-size" value="normal" checked>
+                        <label for="size-normal">Normal</label>
+                        <input type="radio" id="size-larger" name="muffin-size" value="larger">
+                        <label for="size-larger">Larger</label>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <article class="recipe-card">
+            <header>
+                <h1>Banana Oatmeal Chocolate Chip Muffins</h1>
+                <p class="description">Easy to make grab 'n go banana oatmeal muffins. It's oatmeal in muffin form!</p>
+                <dl class="recipe-details">
+                    <div><dt>Course</dt> <dd>Breakfast</dd></div>
+                    <div><dt>Cuisine</dt> <dd>American</dd></div>
+                    <div><dt>Prep Time</dt> <dd>10 minutes</dd></div>
+                    <div><dt>Cook Time</dt> <dd>20 minutes</dd></div>
+                    <div><dt>Total Time</dt> <dd>30 minutes</dd></div>
+                    <div><dt>Servings</dt> <dd>12 - 14 muffins</dd></div>
+                    <div><dt>Calories</dt> <dd>200 kcal</dd></div>
+                    <div><dt>Author</dt> <dd><a href="#">Linda Warren</a></dd></div>
+                </dl>
+            </header>
+
+            <section>
+                <h2>Ingredients</h2>
+                <ul>
+                    <li>3 cups old fashioned oats</li>
+                    <li>3 Tablespoons brown sugar</li>
+                    <li>½ teaspoon cinnamon</li>
+                    <li>¼ teaspoon salt</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Instructions</h2>
+                <ol>
+                    <li>Preheat oven to 350 degrees. Spray a 12-cup muffin pan with a non-stick spray.</li>
+                    <li>Combine dry ingredients in a large bowl.</li>
+                    <li>In a medium bowl, mash bananas and whisk with the remaining ingredients except for chocolate chips.</li>
+                    <li>Add the banana mixture to the dry ingredients.</li>
+                </ol>
+            </section>
+
+            <section class="notes-section" aria-labelledby="notes-heading">
+                <h2 id="notes-heading">Notes</h2>
+                <h3>STORE/FREEZE/REHEAT</h3>
+                <p><strong>To Store:</strong> Allow the muffins to cool completely. Place them in an airtight container at room temperature for up to 3 days or in the refrigerator for up to 1 week.</p>
+                <p><strong>To Freeze:</strong> Allow the muffins to cool completely.</p>
+                <p><strong>To Reheat:</strong> Microwave the muffins for about 30 seconds if thawed or 1 minute if frozen, or until heated through.</p>
+            </section>
+
+            <section aria-labelledby="nutrition-heading">
+                <h2 id="nutrition-heading">Nutrition</h2>
+                <ul class="nutrition-list">
+                    <li><strong>Calories:</strong> 200 kcal</li>
+                    <li><strong>Carbohydrates:</strong> 28 g</li>
+                    <li><strong>Protein:</strong> 6 g</li>
+                    <li><strong>Fat:</strong> 7 g</li>
+                    <li><strong>Saturated Fat:</strong> 3 g</li>
+                    <li><strong>Polyunsaturated Fat:</strong> 1 g</li>
+                    <li><strong>Monounsaturated Fat:</strong> 3 g</li>
+                    <li><strong>Trans Fat:</strong> 0.02 g</li>
+                    <li><strong>Cholesterol:</strong> 33 mg</li>
+                    <li><strong>Sodium:</strong> 82 mg</li>
+                    <li><strong>Potassium:</strong> 284 mg</li>
+                    <li><strong>Fiber:</strong> 3 g</li>
+                    <li><strong>Sugar:</strong> 12 g</li>
+                    <li><strong>Vitamin A:</strong> 135 IU</li>
+                    <li><strong>Vitamin C:</strong> 2 mg</li>
+                    <li><strong>Calcium:</strong> 107 mg</li>
+                    <li><strong>Iron:</strong> 1 mg</li>
+                </ul>
+            </section>
+        </article>
+
+        <footer>
+            <p>Source: Banana Oatmeal Chocolate Chip Muffins <a href="https://2cookinmamas.com/banana-oatmeal-muffins/">https://2cookinmamas.com/banana-oatmeal-muffins/</a></p>
+        </footer>
+    </main>
+</body>
+</html>

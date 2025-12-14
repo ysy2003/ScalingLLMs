@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - [NAME REDACTED]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #f8f9fa;
+            --color-surface: #ffffff;
+            --color-text: #495057;
+            --color-heading: #212529;
+            --color-meta: #6c757d;
+            --color-primary: #4a69bd; /* A calming, professional blue */
+            --color-primary-light: #eef2ff;
+            --color-border: #dee2e6;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        /* Global styles */
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #3b528f;
+            text-decoration: underline;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Visually hidden class for accessibility */
+        .visually-hidden {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+
+        /* Main container */
+        .resume {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--color-surface);
+            box-shadow: var(--shadow-md);
+            padding: 50px 60px;
+            box-sizing: border-box;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--color-border);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .resume:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .resume-header h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .contact-info ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--color-meta);
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            color: var(--color-primary);
+        }
+
+        .contact-info svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Experience section */
+        .experience-section {
+            margin-top: 40px;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 50px;
+            padding-bottom: 45px;
+            border-left: 3px solid var(--color-primary-light);
+        }
+
+        .experience-item:last-of-type {
+            padding-bottom: 0;
+            border-left-color: transparent;
+        }
+
+        /* Timeline dot */
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10.5px; /* (18px width + 3px border) / 2 */
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--color-surface);
+            border: 4px solid var(--color-primary);
+            z-index: 1;
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .experience-item:hover::before {
+            transform: scale(1.1);
+        }
+
+        .experience-item header {
+            margin-bottom: 16px;
+        }
+
+        .experience-item h3 {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: var(--color-heading);
+        }
+
+        .job-meta {
+            font-family: var(--font-body);
+            font-size: 16px;
+            color: var(--color-meta);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 16px; /* row-gap column-gap */
+            margin: 0;
+        }
+        
+        .job-meta .separator {
+            color: var(--color-border);
+        }
+
+        .job-meta a {
+            font-weight: 700;
+            color: var(--color-heading);
+            text-decoration: none;
+        }
+        .job-meta a:hover {
+            color: var(--color-primary);
+        }
+
+        .experience-item p {
+            margin: 0 0 12px 0;
+        }
+
+        .experience-item p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 700px) {
+            body {
+                font-size: 16px;
+            }
+            .page-wrapper {
+                padding: 20px 15px;
+            }
+            .resume {
+                padding: 30px 25px;
+            }
+
+            .resume-header h1 {
+                font-size: 42px;
+            }
+
+            .experience-item {
+                padding-left: 35px;
+                padding-bottom: 35px;
+            }
+            
+            .experience-item::before {
+                top: 6px;
+                width: 14px;
+                height: 14px;
+                left: -8.5px;
+            }
+
+            .experience-item h3 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <main class="resume">
+            <header class="resume-header">
+                <h1>[NAME REDACTED]</h1>
+                <div class="contact-info">
+                    <ul role="list">
+                        <li>
+                            <a href="mailto:email@example.com">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                                email@example.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <section class="experience-section" aria-labelledby="experience-heading">
+                <h2 id="experience-heading" class="visually-hidden">Work Experience</h2>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Engineer Manager</h3>
+                        <p class="job-meta">
+                            <a href="#">Mozilla</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">France</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2015-05">May 2015</time> &ndash; Present</span>
+                        </p>
+                    </header>
+                    <p>Managing a part of the Firefox developer tools engineering team and owner of the Inspector tool.</p>
+                </article>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Senior Development Engineer</h3>
+                        <p class="job-meta">
+                            <a href="#">Mozilla</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">France</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2013-08">August 2013</time> &ndash; <time datetime="2015-05">May 2015</time></span>
+                        </p>
+                    </header>
+                    <p>Working on the Firefox developer tools, in charge of the HTML/CSS inspector part.</p>
+                </article>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Senior Web Development Engineer</h3>
+                        <p class="job-meta">
+                            <a href="#">Amadeus</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">France</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2012-07">July 2012</time> &ndash; <time datetime="2013-08">August 2013</time></span>
+                        </p>
+                    </header>
+                    <p>Working on the next generation mission-critical HTML5 user interfaces for the Airport IT industry.</p>
+                    <p>Targetting modern browsers using HTML5, CSS3 and client-side templating.</p>
+                </article>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Team Leader</h3>
+                        <p class="job-meta">
+                            <a href="#">Amadeus</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">France</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2009-06">June 2009</time> &ndash; <time datetime="2012-07">July 2012</time></span>
+                        </p>
+                    </header>
+                    <p>In charge of the team developing the Amadeus <a href="#">aria templates</a> web user interface framework.</p>
+                    <p>Team focused on delivering a fast, reliable and scalable software that enables professional ajax-based web applications to be built.</p>
+                    <p>I helped create the team, put processes in place (introduced SCRUM methodology) and I managed it for about 3 years to make it the official Amadeus UI framework, used by hundreds within the company, and now also open sourced.</p>
+                </article>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Web Development Engineer</h3>
+                        <p class="job-meta">
+                            <a href="#">Amadeus</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">France</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2008-01">January 2008</time> &ndash; <time datetime="2009-05">May 2009</time></span>
+                        </p>
+                    </header>
+                    <p>Using a variety of technologies from Java/J2EE to Ajax, Javascript, HTML and CSS, I participated in the design/architecture, development and maintenance of the Amadeus' client/server framework.</p>
+                    <p>Helping and training other development teams using the framework to implement web applications for travel agencies and airlines.</p>
+                </article>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Web Development Engineer</h3>
+                        <p class="job-meta">
+                            <a href="#">Astek</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">France</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2006-07">July 2006</time> &ndash; <time datetime="2008-01">January 2008</time></span>
+                        </p>
+                    </header>
+                    <p>Software engineer contracting for Amadeus, working on <a href="#">aircanada.com</a>. Implemented and maintained several of the booking pages, implementing mockups provided by the customer, and especially helping on the CSS part.</p>
+                </article>
+
+                <article class="experience-item">
+                    <header>
+                        <h3>Web Designer/Developer</h3>
+                        <p class="job-meta">
+                            <a href="#">Zoe Communications</a>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span class="location">New Zealand</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <span><time datetime="2004-06">June 2004</time> &ndash; <time datetime="2006-02">February 2006</time></span>
+                        </p>
+                    </header>
+                    <p>Web developer and designer for small to medium size New Zealand companies. Responsible for the complete design phase, from early meetings with clients, to mockup proposals and final working HTML versions. Development of the site using PHP/MySQL and an internal CMS.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

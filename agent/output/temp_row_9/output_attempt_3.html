@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reorganising a Consul key-value store</title>
+    <style>
+        :root {
+            --color-bg: #f8f9fa;
+            --color-surface: #ffffff;
+            --color-text: #212529;
+            --color-text-muted: #6c757d;
+            --color-accent: #00796b;
+            --color-accent-hover: #004d40;
+            --color-heading: #1a1a1a;
+            --color-border: #dee2e6;
+            --color-code-bg: #2b303b;
+            --color-code-text: #c0c5ce;
+            --color-inline-code-bg: #e0f2f1;
+            --color-inline-code-text: #004d40;
+
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            --font-heading: "Georgia", serif;
+            
+            --spacing-unit: 1rem;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            display: block;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+        }
+
+        article {
+            background-color: var(--color-surface);
+            padding: calc(var(--spacing-unit) * 3);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-border);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            line-height: 1.2;
+            margin-top: calc(var(--spacing-unit) * 2.5);
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--color-border);
+            padding-bottom: var(--spacing-unit);
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+        }
+
+        .article-meta {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        /* Inline Code */
+        code {
+            font-family: var(--font-mono);
+            background-color: var(--color-inline-code-bg);
+            color: var(--color-inline-code-text);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: var(--color-code-bg);
+            color: var(--color-code-text);
+            font-family: var(--font-mono);
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: calc(var(--spacing-unit) * 1.5) 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: inherit;
+        }
+
+        footer {
+            text-align: center;
+            padding: calc(var(--spacing-unit) * 2);
+            margin-top: calc(var(--spacing-unit) * 2);
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <article>
+            <header>
+                <h1>Reorganising a Consul key-value store</h1>
+                <p class="article-meta">Published on <time datetime="2023-10-27">October 27, 2023</time></p>
+            </header>
+
+            <section>
+                <h2>The Challenge of a Growing KV Store</h2>
+                <p>As systems evolve, so does the data they manage. In HashiCorp Consul, the key-value (KV) store is a flexible tool for dynamic configuration, feature flags, and service discovery. However, without a clear strategy, it can quickly become a disorganized collection of keys, making maintenance and discovery difficult. This was the exact problem we faced: our initial, flat key structure was no longer scaling with our services.</p>
+            </section>
+
+            <section>
+                <h2>Our Approach: A Three-Step Migration</h2>
+                <p>We decided on a structured migration process to reorganize our keys into a more hierarchical and predictable format. The goal was to move from a flat structure like <code>service-a-db-url</code> to a nested one like <code>services/service-a/config/db_url</code>. This approach involved exporting, transforming, and re-importing the data.</p>
+
+                <h3>Step 1: Exporting the Existing Data</h3>
+                <p>The first step is to create a complete backup of the current KV store. Consul's CLI provides a simple way to export all keys and their values into a JSON file. This ensures we have a safe rollback point.</p>
+                <pre><code>consul kv export > consul-kv-backup.json</code></pre>
+                <p>This command dumps the entire KV store into a JSON array, where each object contains a key, flags, and a base64-encoded value.</p>
+
+                <h3>Step 2: Transforming the Keys with a Script</h3>
+                <p>With the data exported, we can now manipulate it offline. We wrote a small Python script to read the JSON backup, iterate through each item, and create a new key based on our desired structure. For example, a key like <code>auth_service_timeout</code> would be transformed into <code>services/auth/config/timeout</code>.</p>
+                <pre><code># transform_keys.py
+import json
+import base64
+
+with open('consul-kv-backup.json', 'r') as f:
+    data = json.load(f)
+
+transformed_data = []
+for item in data:
+    # Example transformation logic
+    old_key = item['key']
+    if old_key.startswith('legacy_prefix/'):
+        new_key = old_key.replace('legacy_prefix/', 'new_prefix/v1/', 1)
+        item['key'] = new_key
+        transformed_data.append(item)
+
+with open('transformed-data.json', 'w') as f:
+    json.dump(transformed_data, f, indent=2)
+
+print("Transformation complete!")
+</code></pre>
+                <p>This script generates a new JSON file, <code>transformed-data.json</code>, containing the reorganized key structure while preserving the original values.</p>
+
+                <h3>Step 3: Importing the New Structure</h3>
+                <p>The final step is to import the transformed data back into Consul. The <code>consul kv import</code> command can read the JSON file and populate the KV store. It's often wise to import into a new path (e.g., <code>staging/</code>) first to verify everything works as expected before replacing production data.</p>
+                <pre><code>consul kv import @transformed-data.json</code></pre>
+                <p>After verifying the new structure, we could safely delete the old keys and update our applications to point to the new, organized paths.</p>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>Reorganizing a live Consul KV store can seem daunting, but with a careful export-transform-import process, it can be done safely and efficiently. The result is a more maintainable, scalable, and understandable configuration system that will serve our teams better in the long run. Proper organization is not just an aesthetic choice; it's a critical part of operational excellence.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Modern Tech Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - [NAME REDACTED]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #f8f7f4;
+            --color-surface: #ffffff;
+            --color-text: #5c5c5c;
+            --color-heading: #1a1a1a;
+            --color-meta: #888;
+            --color-primary: #00796b; /* Teal */
+            --color-primary-light: #e0f2f1;
+            --color-border: #eaeaea;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+        }
+
+        /* Global styles */
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #004d40;
+            text-decoration: underline;
+        }
+
+        /* Visually hidden class for accessibility */
+        .visually-hidden {
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+
+        /* Main container */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--color-surface);
+            box-shadow: var(--shadow-md);
+            padding: 50px 60px;
+            box-sizing: border-box;
+            margin: 40px 20px;
+            border-radius: var(--border-radius);
+        }
+
+        /* Header */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .resume-header h1 {
+            font-family: var(--font-heading);
+            font-size: 52px;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .contact-info ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-info a {
+            display: block;
+            padding: 6px 14px;
+            border: 1px solid var(--color-border);
+            border-radius: 20px;
+            font-size: 14px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--color-meta);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            background-color: var(--color-primary);
+            color: var(--color-surface);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Experience section */
+        .experience-section {
+            margin-top: 40px;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 45px;
+            padding-bottom: 40px;
+            border-left: 2px solid var(--color-primary-light);
+        }
+
+        .experience-item:last-of-type {
+            padding-bottom: 0;
+            border-left-color: transparent;
+        }
+
+        /* Timeline dot */
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -9px; /* (16px width + 2px border) / 2 */
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--color-surface);
+            border: 3px solid var(--color-primary);
+            z-index: 1;
+        }
+
+        .experience-item h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: var(--color-heading);
+        }
+
+        .job-meta {
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: var(--color-meta);
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 12px; /* row-gap column-gap */
+        }
+        
+        .job-meta > *:not(:last-child)::after {
+            content: '•';
+            color: var(--color-border);
+            margin-left: 12px;
+            font-weight: normal;
+            display: inline-block;
+        }
+
+        .job-meta a {
+            font-weight: 700;
+            color: var(--color-heading);
+            text-decoration: none;
+        }
+        .job-meta a:hover {
+            color: var(--color-primary);
+        }
+
+        .job-description p {
+            margin: 0 0 12px 0;
+        }
+
+        .job-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 700px) {
+            body {
+                font-size: 16px;
+            }
+            .container {
+                padding: 30px 25px;
+                margin: 20px 15px;
+            }
+
+            .resume-header h1 {
+                font-size: 40px;
+            }
+
+            .experience-item {
+                padding-left: 30px;
+                padding-bottom: 30px;
+            }
+            
+            .experience-item::before {
+                top: 6px;
+                width: 12px;
+                height: 12px;
+                left: -8px;
+            }
+
+            .experience-item h3 {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header class="resume-header">
+            <h1>[NAME REDACTED]</h1>
+            <div class="contact-info">
+                <ul role="list">
+                    <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Twitter profile">Twitter</a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">GitHub</a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="View LinkedIn profile">LinkedIn</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section class="experience-section" aria-labelledby="experience-heading">
+            <h2 id="experience-heading" class="visually-hidden">Work Experience</h2>
+
+            <article class="experience-item">
+                <h3>Engineer Manager</h3>
+                <div class="job-meta">
+                    <a href="#">Mozilla</a>
+                    <span class="location">France</span>
+                    <span><time datetime="2015-05">May 2015</time> &ndash; Present</span>
+                </div>
+                <div class="job-description">
+                    <p>Managing a part of the Firefox developer tools engineering team and owner of the Inspector tool.</p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <h3>Senior Development Engineer</h3>
+                <div class="job-meta">
+                    <a href="#">Mozilla</a>
+                    <span class="location">France</span>
+                    <span><time datetime="2013-08">August 2013</time> &ndash; <time datetime="2015-05">May 2015</time></span>
+                </div>
+                <div class="job-description">
+                    <p>Working on the Firefox developer tools, in charge of the HTML/CSS inspector part.</p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <h3>Senior Web Development Engineer</h3>
+                <div class="job-meta">
+                    <a href="#">Amadeus</a>
+                    <span class="location">France</span>
+                    <span><time datetime="2012-07">July 2012</time> &ndash; <time datetime="2013-08">August 2013</time></span>
+                </div>
+                <div class="job-description">
+                    <p>Working on the next generation mission-critical HTML5 user interfaces for the Airport IT industry.</p>
+                    <p>Targetting modern browsers using HTML5, CSS3 and client-side templating.</p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <h3>Team Leader</h3>
+                <div class="job-meta">
+                    <a href="#">Amadeus</a>
+                    <span class="location">France</span>
+                    <span><time datetime="2009-06">June 2009</time> &ndash; <time datetime="2012-07">July 2012</time></span>
+                </div>
+                <div class="job-description">
+                    <p>In charge of the team developing the Amadeus <a href="#">aria templates</a> web user interface framework.</p>
+                    <p>Team focused on delivering a fast, reliable and scalable software that enables professional ajax-based web applications to be built.</p>
+                    <p>I helped create the team, put processes in place (introduced SCRUM methodology) and I managed it for about 3 years to make it the official Amadeus UI framework, used by hundreds within the company, and now also open sourced.</p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <h3>Web Development Engineer</h3>
+                <div class="job-meta">
+                    <a href="#">Amadeus</a>
+                    <span class="location">France</span>
+                    <span><time datetime="2008-01">January 2008</time> &ndash; <time datetime="2009-05">May 2009</time></span>
+                </div>
+                <div class="job-description">
+                    <p>Using a variety of technologies from Java/J2EE to Ajax, Javascript, HTML and CSS, I participated in the design/architecture, development and maintenance of the Amadeus' client/server framework.</p>
+                    <p>Helping and training other development teams using the framework to implement web applications for travel agencies and airlines.</p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <h3>Web Development Engineer</h3>
+                <div class="job-meta">
+                    <a href="#">Astek</a>
+                    <span class="location">France</span>
+                    <span><time datetime="2006-07">July 2006</time> &ndash; <time datetime="2008-01">January 2008</time></span>
+                </div>
+                <div class="job-description">
+                    <p>Software engineer contracting for Amadeus, working on <a href="#">aircanada.com</a>. Implemented and maintained several of the booking pages, implementing mockups provided by the customer, and especially helping on the CSS part.</p>
+                </div>
+            </article>
+
+            <article class="experience-item">
+                <h3>Web Designer/Developer</h3>
+                <div class="job-meta">
+                    <a href="#">Zoe Communications</a>
+                    <span class="location">New Zealand</span>
+                    <span><time datetime="2004-06">June 2004</time> &ndash; <time datetime="2006-02">February 2006</time></span>
+                </div>
+                <div class="job-description">
+                    <p>Web developer and designer for small to medium size New Zealand companies. Responsible for the complete design phase, from early meetings with clients, to mockup proposals and final working HTML versions. Development of the site using PHP/MySQL and an internal CMS.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

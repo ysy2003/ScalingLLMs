@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exciting News from Displays2go</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-primary: #0077CC;
+            --brand-primary-darker: #005FA3;
+            --brand-secondary: #EBF5FF;
+            --text-heading: #1D2939;
+            --text-body: #475467;
+            --text-light: #FFFFFF;
+            --bg-main: #F9FAFB;
+            --bg-card: #FFFFFF;
+            --border-color: #EAECF0;
+            --border-radius: 16px;
+            --shadow: 0 8px 16px -4px rgba(29, 41, 57, 0.08), 0 4px 6px -2px rgba(29, 41, 57, 0.03);
+            --shadow-hover: 0 12px 20px -4px rgba(29, 41, 57, 0.1), 0 4px 8px -2px rgba(29, 41, 57, 0.05);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main);
+            background-image: radial-gradient(circle at top, hsl(210, 60%, 98%), var(--bg-main) 40%);
+            color: var(--text-body);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 180px;
+            background-color: var(--brand-primary);
+            background-image: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-darker) 100%);
+        }
+
+        .announcement-card {
+            max-width: 720px;
+            margin: -100px auto 4rem auto;
+            padding: 3rem;
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: relative;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .announcement-header {
+            text-align: center;
+        }
+        
+        .eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--brand-primary);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .announcement-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-heading);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .announcement-body {
+            display: grid;
+            gap: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .announcement-body p {
+            margin: 0;
+            max-width: 65ch;
+        }
+        
+        .announcement-body strong {
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        .announcement-footer {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .cta-item {
+            flex-grow: 1;
+            flex-basis: 250px;
+            display: grid;
+            gap: 0.75rem;
+            text-align: center;
+        }
+
+        .cta-item p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-body);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .button-primary {
+            background-color: var(--brand-primary);
+            color: var(--text-light);
+            border-color: var(--brand-primary);
+        }
+
+        .button-primary:hover,
+        .button-primary:focus-visible {
+            background-color: var(--brand-primary-darker);
+            border-color: var(--brand-primary-darker);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .button-secondary {
+            background-color: var(--bg-card);
+            color: var(--brand-primary);
+            border-color: #D0D5DD;
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus-visible {
+            background-color: var(--brand-secondary);
+            border-color: var(--brand-primary);
+            color: var(--brand-primary-darker);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-banner {
+                height: 120px;
+            }
+
+            .announcement-card {
+                margin: -60px 1.5rem 2rem 1.5rem;
+                padding: 2rem;
+                max-width: none;
+            }
+
+            .announcement-header h1 {
+                font-size: 2.25rem;
+            }
+            
+            .announcement-body {
+                font-size: 1rem;
+            }
+
+            .announcement-footer {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+                background-image: none;
+            }
+            
+            .hero-banner {
+                height: 80px;
+            }
+
+            .announcement-card {
+                margin: 0;
+                padding: 2rem 1.5rem;
+                border-radius: 0;
+                box-shadow: none;
+                border: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .announcement-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-banner" role="banner" aria-hidden="true"></header>
+    
+    <main>
+        <article class="announcement-card">
+            <header class="announcement-header">
+                <p class="eyebrow">Company Announcement</p>
+                <h1>We Have Some Exciting News!</h1>
+            </header>
+
+            <section class="announcement-body">
+                <p><strong>DisplayCabinets2Go</strong> has joined the Displays2go family!</p>
+                <p>Displays2go has all of the same industry-leading products you'd find on this site, and much more! We will continue to put you first with our responsive and dedicated customer service.</p>
+                <p>Get to your favorite items right away by browsing a similar selection of products on Displays2go.com.</p>
+            </section>
+
+            <footer class="announcement-footer">
+                <div class="cta-item">
+                    <a href="#" class="button button-primary">Shop this Category on Displays2go.com</a>
+                </div>
+                <div class="cta-item">
+                    <p>Need more information?</p>
+                    <a href="#" class="button button-secondary">Read Our FAQs</a>
+                </div>
+            </footer>
+        </article>
+    </main>
+</body>
+</html>

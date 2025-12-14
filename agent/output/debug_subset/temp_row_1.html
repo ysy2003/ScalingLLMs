@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Oatmeal Chocolate Chip Muffins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-text-color: #333;
+            --secondary-text-color: #666;
+            --light-gray-bg: #f5f5f5;
+            --border-color: #ccc;
+            --button-bg-color: #fff;
+            --dark-button-bg: #4a4a4a;
+            --dark-button-text: #fff;
+            --link-color: #007bff;
+            --checked-bg: #4a4a4a;
+            --checked-checkmark: #fff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--light-gray-bg);
+            color: var(--primary-text-color);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: transparent;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .top-actions {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .top-actions button {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            background-color: var(--button-bg-color);
+            color: var(--primary-text-color);
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+
+        .top-actions button:hover {
+            background-color: #e9e9e9;
+        }
+
+        .top-actions button.print-button {
+            background-color: var(--dark-button-bg);
+            color: var(--dark-button-text);
+            border-color: var(--dark-button-bg);
+        }
+
+        .top-actions button.print-button:hover {
+            background-color: #333;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            user-select: none;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkmark {
+            height: 16px;
+            width: 16px;
+            background-color: var(--button-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+
+        .custom-checkbox input:checked ~ .checkmark {
+            background-color: var(--checked-bg);
+            border-color: var(--checked-bg);
+        }
+
+        .checkmark:after {
+            content: "";
+            display: none;
+            width: 5px;
+            height: 10px;
+            border: solid var(--checked-checkmark);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .quantity-selector, .size-selector {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .quantity-selector button,
+        .quantity-selector span,
+        .size-selector button {
+            padding: 8px 12px;
+            border: none;
+            background-color: var(--button-bg-color);
+            color: var(--primary-text-color);
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .quantity-selector button {
+            width: 30px; /* Fixed width for +/- buttons */
+            padding: 8px 0;
+        }
+
+        .quantity-selector span {
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .quantity-selector .muffins-text {
+            border-left: 1px solid var(--border-color);
+            border-right: none;
+            padding: 8px 10px;
+            background-color: #f9f9f9;
+            color: var(--secondary-text-color);
+        }
+
+        .size-selector button {
+            border-left: 1px solid var(--border-color);
+        }
+
+        .size-selector button:first-child {
+            border-left: none;
+        }
+
+        .size-selector button.active {
+            background-color: var(--dark-button-bg);
+            color: var(--dark-button-text);
+            border-color: var(--dark-button-bg);
+        }
+
+        .recipe-card {
+            background-color: var(--button-bg-color);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .recipe-card h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .recipe-card .description {
+            font-size: 15px;
+            color: var(--secondary-text-color);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .recipe-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px 15px;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .recipe-details strong {
+            font-weight: bold;
+            color: var(--primary-text-color);
+        }
+
+        .recipe-details span {
+            color: var(--secondary-text-color);
+        }
+
+        .recipe-details a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .recipe-details a:hover {
+            text-decoration: underline;
+        }
+
+        .recipe-card h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .recipe-card ul, .recipe-card ol {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--secondary-text-color);
+        }
+
+        .recipe-card ul li, .recipe-card ol li {
+            margin-bottom: 8px;
+        }
+
+        .recipe-card ul {
+            list-style-type: disc;
+        }
+
+        .recipe-card ol {
+            list-style-type: decimal;
+        }
+
+        .notes-section p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--secondary-text-color);
+        }
+
+        .notes-section p strong {
+            font-weight: bold;
+            color: var(--primary-text-color);
+        }
+
+        .nutrition-info {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--secondary-text-color);
+        }
+
+        .nutrition-info strong {
+            font-weight: bold;
+            color: var(--primary-text-color);
+        }
+
+        .footer-link {
+            margin-top: 30px;
+            font-size: 13px;
+            color: var(--secondary-text-color);
+        }
+
+        .footer-link a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .footer-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .top-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .checkbox-group {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .quantity-selector, .size-selector {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .quantity-selector span, .size-selector button {
+                flex-grow: 1;
+                text-align: center;
+            }
+
+            .quantity-selector .muffins-text {
+                flex-grow: 0;
+            }
+
+            .recipe-card {
+                padding: 20px;
+            }
+
+            .recipe-card h1 {
+                font-size: 24px;
+            }
+
+            .recipe-card h2 {
+                font-size: 18px;
+            }
+
+            .recipe-details,
+            .recipe-card p,
+            .recipe-card ul,
+            .recipe-card ol,
+            .nutrition-info {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-actions button {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .controls {
+                align-items: stretch;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .quantity-selector button,
+            .quantity-selector span,
+            .size-selector button {
+                padding: 6px 8px;
+                font-size: 13px;
+            }
+
+            .recipe-card h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-actions">
+            <button>Go Back</button>
+            <button class="print-button">Print</button>
+        </div>
+
+        <div class="controls">
+            <div class="checkbox-group">
+                <label class="custom-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    Recipe Image
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    Notes
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    Nutrition Label
+                </label>
+            </div>
+
+            <div class="quantity-selector">
+                <button>-</button>
+                <span>12</span>
+                <button>+</button>
+                <span class="muffins-text">14 muffins</span>
+            </div>
+
+            <div class="size-selector">
+                <button>Smaller</button>
+                <button class="active">Normal</button>
+                <button>Larger</button>
+            </div>
+        </div>
+
+        <div class="recipe-card">
+            <h1>Banana Oatmeal Chocolate Chip Muffins</h1>
+            <p class="description">Easy to make grab 'n go banana oatmeal muffins. It's oatmeal in muffin form!</p>
+
+            <div class="recipe-details">
+                <strong>Course</strong> <span>Breakfast</span>
+                <strong>Cuisine</strong> <span>American</span>
+                <strong>Prep Time</strong> <span>10 minutes</span>
+                <strong>Cook Time</strong> <span>20 minutes</span>
+                <strong>Total Time</strong> <span>30 minutes</span>
+                <strong>Servings</strong> <span>12 - 14 muffins</span>
+                <strong>Calories</strong> <span>200 kcal</span>
+                <strong>Author</strong> <a href="#">Linda Warren</a>
+            </div>
+
+            <h2>Ingredients</h2>
+            <ul>
+                <li>3 cups old fashioned oats</li>
+                <li>3 Tablespoons brown sugar</li>
+                <li>½ teaspoon cinnamon</li>
+                <li>¼ teaspoon salt</li>
+            </ul>
+
+            <h2>Instructions</h2>
+            <ol>
+                <li>Preheat oven to 350 degrees. Spray a 12-cup muffin pan with a non-stick spray.</li>
+                <li>Combine dry ingredients in a large bowl.</li>
+                <li>In a medium bowl, mash bananas and whisk with the remaining ingredients except for chocolate chips.</li>
+                <li>Add the banana mixture to the dry ingredients.</li>
+            </ol>
+
+            <h2 class="notes-section-title">Notes</h2>
+            <div class="notes-section">
+                <p><strong>STORE/FREEZE/REHEAT</strong></p>
+                <p><strong>To Store:</strong> Allow the muffins to cool completely. Place them in an airtight container at room temperature for up to 3 days or in the refrigerator for up to 1 week.</p>
+                <p><strong>To Freeze:</strong> Allow the muffins to cool completely.</p>
+                <p><strong>To Reheat:</strong> Microwave the muffins for about 30 seconds if thawed or 1 minute if frozen, or until heated through.</p>
+            </div>
+
+            <h2>Nutrition</h2>
+            <p class="nutrition-info">
+                Calories: <strong>200 kcal</strong> | Carbohydrates: <strong>28 g</strong> | Protein: <strong>6 g</strong> | Fat: <strong>7 g</strong> | Saturated Fat: <strong>3 g</strong> | Polyunsaturated Fat: <strong>1 g</strong> | Monounsaturated Fat: <strong>3 g</strong> | Trans Fat: <strong>0.02 g</strong> | Cholesterol: <strong>33 mg</strong> | Sodium: <strong>82 mg</strong> | Potassium: <strong>284 mg</strong> | Fiber: <strong>3 g</strong> | Sugar: <strong>12 g</strong> | Vitamin A: <strong>135 IU</strong> | Vitamin C: <strong>2 mg</strong> | Calcium: <strong>107 mg</strong> | Iron: <strong>1 mg</strong>
+            </p>
+        </div>
+
+        <p class="footer-link">Banana Oatmeal Chocolate Chip Muffins <a href="https://2cookinmamas.com/banana-oatmeal-muffins/">https://2cookinmamas.com/banana-oatmeal-muffins/</a></p>
+    </div>
+</body>
+</html>

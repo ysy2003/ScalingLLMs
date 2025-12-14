@@ -1,5 +1,7 @@
 import sys
 import os
+import difflib
+import re
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pandas as pd
 from typing import Optional
@@ -11,6 +13,9 @@ from playwright.sync_api import sync_playwright
 from metrics import correctness, efficiency, robustness, structural_alignment
 from metrics.structural_alignment import compute_structural_alignment_scores
 from google.cloud import storage
+
+VISUAL_HTML_SIMILARITY_THRESHOLD = 0.985
+VISUAL_CSS_SIMILARITY_THRESHOLD = 0.95
 
 from agent.langchain_agent import AgentConfig, LangChainRepairAgent
 
@@ -299,6 +304,62 @@ def evaluate_metrics(screenshot_path, ground_truth_path):
         }
 
 
+def _extract_style_blocks(html: str) -> str:
+    if not html:
+        return ""
+    blocks = re.findall(r"<style[^>]*>(.*?)</style>", html, flags=re.IGNORECASE | re.DOTALL)
+    return "\n".join(blocks)
+
+
+def _sequence_similarity(a: str, b: str) -> float:
+    if not a and not b:
+        return 1.0
+    matcher = difflib.SequenceMatcher(None, a or "", b or "")
+    return matcher.quick_ratio()
+
+
+def assess_visual_similarity(previous_html: Optional[str], new_html: Optional[str]):
+    if not previous_html:
+        return {
+            "html_ratio": 0.0,
+            "css_ratio": 0.0,
+            "changed": True,
+        }
+
+    html_ratio = _sequence_similarity(previous_html, new_html)
+    css_ratio = _sequence_similarity(
+        _extract_style_blocks(previous_html),
+        _extract_style_blocks(new_html),
+    )
+    changed = (
+        html_ratio < VISUAL_HTML_SIMILARITY_THRESHOLD
+        or css_ratio < VISUAL_CSS_SIMILARITY_THRESHOLD
+    )
+    return {
+        "html_ratio": html_ratio,
+        "css_ratio": css_ratio,
+        "changed": changed,
+    }
+
+
+def generate_repaired_html_with_visual_enforcement(agent, current_html, errors, metrics):
+    """Call the repair agent and ensure the response meaningfully updates the visuals."""
+
+    primary_html = agent.repair_html(current_html, errors, metrics)
+    similarity = assess_visual_similarity(current_html, primary_html)
+    if similarity["changed"]:
+        return primary_html, similarity, False
+
+    visual_refresh_hint = (
+        "[Design Refresh Request]: The latest repair produced only minor tag tweaks. "
+        "Please introduce noticeable changes to layout, color palette, or typographic hierarchy while honoring the original content."
+    )
+    amplified_errors = list(errors) + [visual_refresh_hint]
+    refreshed_html = agent.repair_html(current_html, amplified_errors, metrics)
+    refreshed_similarity = assess_visual_similarity(current_html, refreshed_html)
+    return refreshed_html, refreshed_similarity, True
+
+
 def extract_html_from_response(cell_value: str) -> str:
     if not isinstance(cell_value, str):
         cell_value = str(cell_value or "")
@@ -466,7 +527,23 @@ def repair_loop(agent, html_file_path, ground_truth_html_path=None, max_attempts
             print("\n⚠️ Reached maximum attempts without obtaining valid HTML.")
             break
 
-        html = agent.repair_html(html, captured_errors, metrics)
+        previous_version = html
+        next_errors = list(captured_errors)
+        html, similarity, refresh_triggered = generate_repaired_html_with_visual_enforcement(
+            agent,
+            previous_version,
+            next_errors,
+            metrics,
+        )
+        print(
+            "Similarity ratios -> HTML: {:.3f}, CSS: {:.3f}".format(
+                similarity["html_ratio"], similarity["css_ratio"]
+            )
+        )
+        if refresh_triggered and not similarity["changed"]:
+            print("Visual refresh hint was applied but output still appears similar; continuing loop.")
+        elif refresh_triggered:
+            print("Triggered additional repair call to enforce noticeable design change.")
         print(f"Length of repaired HTML: {len(html)}")
 
     # Save logs to the output directory

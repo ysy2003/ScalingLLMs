@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reorganising a Consul key-value store</title>
+    <style>
+        :root {
+            --color-bg: #f9fafb;
+            --color-text: #1f2937;
+            --color-text-muted: #6b7280;
+            --color-accent: #3b82f6;
+            --color-accent-hover: #2563eb;
+            --color-heading: #111827;
+            --color-border: #e5e7eb;
+            --color-code-bg: #1f2937;
+            --color-code-text: #d1d5db;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            font-size: 17px;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .page-header nav a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+
+        .page-header nav a:hover {
+            color: var(--color-accent);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            color: var(--color-heading);
+            margin: 0 0 1rem 0;
+            line-height: 1.15;
+            font-weight: 800;
+        }
+
+        .article-header .meta {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-header .meta a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .article-header .meta a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 0 0 1.5rem 0;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+        }
+
+        .highlight-text {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            background-color: #eef2ff;
+            color: #4338ca;
+            padding: 0.1em 0.4em;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: var(--color-code-bg);
+            color: var(--color-code-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0 0 2rem 0;
+        }
+
+        pre code {
+            display: block;
+            white-space: pre;
+        }
+
+        .code-block .comment { color: #6b7280; }
+        .code-block .keyword { color: #93c5fd; }
+        .code-block .option { color: #c4b5fd; }
+        .code-block .string { color: #a7f3d0; }
+        .code-block .number { color: #fca5a5; }
+        .code-block .variable { color: #fca5a5; }
+        .code-block .function { color: #f0abfc; }
+        .code-block .command { color: #6ee7b7; }
+        .code-block .path { color: #a7f3d0; }
+
+        sup {
+            line-height: 0;
+        }
+        
+        sup a {
+            font-weight: 600;
+        }
+
+        .footnotes {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footnotes ol {
+            padding-left: 1.25rem;
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .footnotes li::marker {
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .footnotes li p {
+            margin: 0 0 1rem 0;
+            display: inline;
+        }
+        
+        .footnotes li a {
+            font-size: 1.2em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 4rem 0;
+        }
+
+        .page-footer {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+        
+        .page-footer .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .page-footer h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .page-footer p {
+            margin: 0;
+        }
+        
+        .page-footer .footer-meta ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .page-footer .footer-copyright {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            .wrapper {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 2.25rem;
+            }
+            .page-header {
+                justify-content: center;
+                margin-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="page-header">
+            <nav aria-label="Primary">
+                <a href="#">home</a>
+                <a href="#">writing</a>
+                <a href="#">TIL</a>
+                <a href="#">now</a>
+                <a href="#">about</a>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+                <header class="article-header">
+                    <h1>Reorganising a Consul key-value store</h1>
+                    <div class="meta">
+                        <span>by <a href="#">David Winterbottom</a></span>
+                        <time datetime="2017-03-27">Monday, 27 March 2017</time>
+                    </div>
+                </header>
+
+                <div class="article-body">
+                    <p>If your Consul key-value store is structured as:</p>
+                    <pre class="code-block"><code><span class="path">/</span>
+<span class="path">A/</span>
+  <span class="variable">X</span> = <span class="number">1</span>
+  <span class="variable">Z</span> = <span class="number">2</span>
+  <span class="variable">Y</span> = <span class="number">3</span>
+<span class="path">C</span>
+<span class="path">D</span></code></pre>
+
+                    <p>but you now realise you should have namespaced everything within <span class="highlight-text">WEBSERVER/</span> (or something like that):</p>
+                    <pre class="code-block"><code><span class="path">/</span>
+<span class="path">WEBSERVER/</span>
+<span class="path">A/</span>
+  <span class="variable">X</span> = <span class="number">1</span>
+  <span class="variable">Z</span> = <span class="number">2</span>
+  <span class="variable">Y</span> = <span class="number">3</span>
+<span class="path">C</span>
+<span class="path">D</span></code></pre>
+
+                    <p>then this Bash script will help you migrate:</p>
+                    <pre class="code-block bash"><code><span class="comment">#!/bin/bash</span>
+
+<span class="keyword">set</span> <span class="option">-e</span> <span class="comment"># Exit on error</span>
+
+<span class="comment"># Emit "key value" lines for all keys in Consul's KV store</span>
+<span class="function">keys_and_values</span>() {
+  <span class="comment"># Recursively fetch all values from Consul but exclude:</span>
+  <span class="comment"># (a) those that end in / (as these are folders)</span>
+  <span class="comment"># (b) those that start with WEBSERVER/ (as that's where we are migrating</span>
+  <span class="comment">#     to).</span>
+  <span class="command">curl</span> <span class="option">-s</span> <span class="string">"localhost/v1/kv/?recurse"</span> | <span class="command">jq</span> <span class="option">-r</span> <span class="string">'
+    .[] |
+    select(
+      ( (.Key | endswith("/")) | not) and
+      (.Key | startswith("WEBSERVER") | not)
+    ) |
+    [.Key, " ", .Value] |
+    add'</span> | <span class="keyword">while</span> <span class="keyword">read</span> <span class="variable">key</span> <span class="variable">b64value</span>
+  <span class="keyword">do</span>
+    <span class="comment"># Consul's REST API returns values base64-encoded so we decode here.</span>
+    <span class="command">echo</span> <span class="variable">$key</span> `<span class="command">echo</span> <span class="string">"$b64value"</span> | <span class="command">base64</span> <span class="option">-d</span>`
+  <span class="keyword">done</span>
+}
+
+<span class="comment"># Set a new value in Consul's KV store</span>
+<span class="function">set_key</span>() {
+  <span class="variable">key</span>=<span class="variable">$1</span>
+  <span class="variable">value</span>=<span class="variable">$2</span>
+  <span class="command">curl</span> <span class="option">-s</span> <span class="option">-X</span> <span class="keyword">PUT</span> <span class="option">-d</span> <span class="string">"$value"</span> <span class="string">"localhost/v1/kv/$key"</span> &gt; <span class="path">/dev/null</span>
+}
+
+<span class="function">migrate_to_webserver_namespace</span>() {
+  <span class="function">keys_and_values</span> | <span class="keyword">while</span> <span class="keyword">read</span> <span class="variable">key</span> <span class="variable">value</span>
+  <span class="keyword">do</span>
+    <span class="function">set_key</span> <span class="string">"WEBSERVER/$key"</span> <span class="variable">$value</span>
+  <span class="keyword">done</span>
+}
+
+<span class="function">migrate_to_webserver_namespace</span></code></pre>
+
+                    <p>This script uses <a href="#">Consul's REST API</a> and filters the results using <a href="#">jq</a>.<sup><a href="#fn1" id="fnref1" aria-describedby="footnote-label">1</a></sup></p>
+                    <p>It's easily adapted to migrate key-value pairs between different namespaces.</p>
+                </div>
+
+                <footer class="article-footer">
+                    <aside class="footnotes" role="doc-endnotes">
+                        <h2 id="footnote-label" class="sr-only">Footnotes</h2>
+                        <ol>
+                            <li id="fn1">
+                                <p>I can never remember jq's <span class="highlight-text">select</span> syntax so this post is intended largely as a personal reference on how to do this. &rarr; <a href="#fnref1" aria-label="Back to reference 1">↩</a></p>
+                            </li>
+                        </ol>
+                    </aside>
+                </footer>
+            </article>
+        </main>
+
+        <hr>
+
+        <footer class="page-footer">
+            <div class="footer-grid">
+                <section class="footer-actions">
+                    <h3>Actions</h3>
+                    <p>Something wrong? <a href="#">Suggest an improvement</a> or <a href="#">add a comment</a> (see <a href="#">article history</a>).</p>
+                </section>
+                <section class="footer-meta">
+                    <h3>Meta</h3>
+                    <p>Filed in: <a href="#">tips</a></p>
+                    <div class="footer-tags">
+                        <ul>
+                            <li><a href="#">consul</a></li>
+                            <li><a href="#">bash</a></li>
+                            <li><a href="#">jq</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <nav class="footer-pagination" aria-label="Article navigation">
+                    <h3>Navigation</h3>
+                    <p>Previous: <a href="#">Lies you're told on a software project</a></p>
+                    <p>Next: <a href="#">Podcast. init on Oscar</a></p>
+                </nav>
+            </div>
+            <div class="footer-copyright">
+                <p>Copyright © 2005-2023 David Winterbottom</p>
+                <p>Content licensed under <a href="#">CC BY-NC-SA 4.0</a>.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

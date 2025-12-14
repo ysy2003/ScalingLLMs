@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running | Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #3a3a3a;
+            --header-bg: #2c3e50;
+            --header-text: #ecf0f1;
+            --accent-color: #3498db;
+            --meta-color: #7f8c8d;
+            --border-color: #e1e1e1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .page-header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .page-header .separator {
+            color: var(--accent-color);
+            font-weight: 400;
+            margin: 0 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--header-text);
+            opacity: 0.9;
+            margin: 10px 0 0;
+        }
+
+        .main-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        article {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
+
+        article h2 {
+            font-size: 2.5rem;
+            color: #222;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        article .post-meta {
+            font-size: 0.9rem;
+            color: var(--meta-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        article p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5em;
+        }
+
+        .page-footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: var(--meta-color);
+        }
+
+        .page-footer nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .page-footer nav li:not(:last-child)::after {
+            content: '•';
+            color: var(--meta-color);
+            margin-left: 10px;
+        }
+
+        .page-footer nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 5px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .page-footer nav a:hover,
+        .page-footer nav a:focus {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .page-footer .copyright {
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 50px 15px;
+                margin-bottom: 40px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            article h2 {
+                font-size: 2rem;
+            }
+
+            article p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                line-height: 1.6;
+            }
+            
+            .page-header {
+                padding: 40px 10px;
+                margin-bottom: 30px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            article h2 {
+                font-size: 1.75rem;
+            }
+            
+            .page-footer nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .page-footer nav li:not(:last-child)::after {
+                content: '';
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>Running<span class="separator" aria-hidden="true">|</span>Code</h1>
+        <p>About software and adventures on foot.</p>
+    </header>
+
+    <main class="main-content">
+        <article>
+            <header>
+                <h2>Meta-Running?</h2>
+                <p class="post-meta"><time datetime="2015-03-16">March 16, 2015</time></p>
+            </header>
+
+            <p>A problem lately: I start running, and within five minutes or so, I start thinking about a title or description for my online training log.</p>
+
+            <p>Take today's run, for example. Strava entry about this in my head.</p>
+
+            <p>This is a bit of a problem, for me and I think a lot of other people (there is a steady stream of running-selfies out there, for one measure). Sometimes we are too connected; we quantify our runs until we neglect to feel the ground with each step, and we objectify our performance until we no longer feel our lungs fill with each breath.</p>
+
+            <p>Short of investing time in learning to meditate or throwing out all training technology (which really is useful), the only two solutions I know of are to run longer and work harder. Working hard or being out a long time, you will eventually get into a zone in which you are present to the reality of the run.</p>
+
+            <p>Maybe blogging about it will help.</p>
+        </article>
+    </main>
+
+    <footer class="page-footer">
+        <nav aria-label="Footer navigation">
+            <ul>
+                <li><a href="#">My Apps</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">RSS</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">&copy; 2024 Running | Code</p>
+    </footer>
+</body>
+</html>

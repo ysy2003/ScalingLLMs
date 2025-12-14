@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.10: Surgical Adhesive Tape | OpenPrescribing</title>
+    <style>
+        :root {
+            --primary-color: #005f73;
+            --primary-light: #e0f7fa;
+            --primary-dark: #003d4a;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --bg-main: #f8fafc;
+            --bg-light: #ffffff;
+            --border-color: #e2e8f0;
+            --white: #fff;
+            --black: #000;
+            --info-bg: var(--primary-light);
+            --info-border: #007f8a;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition-speed: 0.2s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-main);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-speed) ease-in-out;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--primary-dark);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--bg-light);
+            padding: 0 24px;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+        .header-brand:hover {
+            text-decoration: none;
+            color: var(--primary-dark);
+        }
+
+        .header-logo {
+            color: var(--primary-color);
+        }
+
+        .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 12px;
+        }
+
+        .header-nav li a {
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
+        }
+
+        .header-nav li a:hover, .header-nav li a:focus-visible {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 8px;
+            font-size: 0.8em;
+            vertical-align: middle;
+            display: inline-block;
+            opacity: 0.7;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 64px;
+            padding-bottom: 64px;
+        }
+        
+        .page-header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+            color: var(--primary-dark);
+        }
+
+        .chapter-info {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .description-paragraph {
+            margin-bottom: 32px;
+            font-size: 1.15rem;
+            max-width: 75ch;
+            line-height: 1.7;
+        }
+
+        .button-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 48px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .button-link:hover {
+            background-color: var(--primary-dark);
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Notice Box */
+        .notice-box {
+            background-color: var(--info-bg);
+            border: 1px solid var(--info-border);
+            border-left-width: 5px;
+            border-radius: var(--border-radius);
+            padding: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 64px;
+            font-size: 1.05rem;
+        }
+
+        .notice-box-icon {
+            font-size: 1.5rem;
+            color: var(--info-border);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .notice-box p {
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        .content-section {
+            margin-bottom: 56px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            padding-bottom: 12px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .chemical-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 16px;
+        }
+        
+        .chemical-item a {
+            font-size: 1.1rem;
+            display: block;
+            padding: 16px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: var(--bg-light);
+            transition: border-color var(--transition-speed), background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        
+        .chemical-item a:hover {
+            border-color: var(--primary-color);
+            background-color: var(--bg-light);
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .download-data-paragraph {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--bg-light);
+            padding: 56px 24px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 32px;
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-logo {
+            display: block;
+            height: 40px;
+            opacity: 0.7;
+            transition: opacity var(--transition-speed);
+        }
+        .footer-logo:hover {
+            opacity: 1;
+        }
+
+        .footer-content p {
+            margin: 0;
+            max-width: 70ch;
+            line-height: 1.6;
+        }
+
+        /* Feedback Button */
+        .feedback-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease-in-out, box-shadow var(--transition-speed);
+        }
+
+        .feedback-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                height: auto;
+                padding: 16px 0;
+                gap: 16px;
+            }
+            .main-content {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.75rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav ul {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                gap: 5px;
+            }
+            .header-nav li a { text-align: center; }
+            .notice-box { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .notice-box-icon { margin-top: 0; }
+            .feedback-button { padding: 10px 16px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="#" class="header-brand">
+                <svg class="header-logo" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle">
+                    <title id="logoTitle">OpenPrescribing Logo</title>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L8 12v1c0 1.1.9 2 2 2v3.93zm5.6-1.83c-.31.31-.69.56-1.1.75V15c0-1.1-.9-2-2-2v-1l6.79-1.79c.13.58.21 1.17.21 1.79 0 2.84-1.64 5.28-4 6.5z"/>
+                </svg>
+                <span>OpenPrescribing</span>
+            </a>
+            <nav class="header-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#">Analyse</a></li>
+                    <li><a href="#" aria-haspopup="true" aria-expanded="false">Dashboards<span aria-hidden="true" class="dropdown-arrow">&#9662;</span></a></li>
+                    <li><a href="#" aria-haspopup="true" aria-expanded="false">Trends<span aria-hidden="true" class="dropdown-arrow">&#9662;</span></a></li>
+                    <li><a href="#" aria-haspopup="true" aria-expanded="false">More<span aria-hidden="true" class="dropdown-arrow">&#9662;</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="main-content container">
+        <header class="page-header">
+            <h1>20.10: Surgical Adhesive Tape</h1>
+            <p class="chapter-info">Part of chapter <a href="#">20 Dressings</a></p>
+        </header>
+
+        <p class="description-paragraph">
+            High-level prescribing trends for Surgical Adhesive Tape (BNF section 20.10) across all GP practices in NHS England for
+            the last five years. You can <a href="#">explore prescribing trends for this section by Sub-ICB Location</a>, or learn more <a href="#">about this site</a>.
+        </p>
+        <a href="#" class="button-link">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>View all matching dm+d items</span>
+        </a>
+
+        <aside class="notice-box" role="note">
+            <div class="notice-box-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+            <p>Do you need help with your analysis? Don't forget to check the <a href="#">FAQ page</a>, and <a href="#">get in touch</a> if you have questions.</p>
+        </aside>
+
+        <section class="content-section" aria-labelledby="chemicals-heading">
+            <h2 id="chemicals-heading">Chemicals</h2>
+            <ul class="chemical-list">
+                <li class="chemical-item">
+                    <a href="#">Surgical Adhesive Tape (2010)</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="content-section" aria-labelledby="download-heading">
+            <h2 id="download-heading">Download raw data</h2>
+            <p class="download-data-paragraph">
+                Download CSVs: <a href="#">all data on Surgical Adhesive Tape</a> or <a href="#">data on Surgical Adhesive Tape by Sub-ICB Location</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <div class="footer-logos">
+                <a href="#" aria-label="The University of Oxford"><img src="https://via.placeholder.com/120x40/E2E8F0/4A5568?text=Oxford" alt="The University of Oxford Logo" class="footer-logo"></a>
+                <a href="#" aria-label="The Bennett Institute for Applied Data Science"><img src="https://via.placeholder.com/150x40/E2E8F0/4A5568?text=Bennett+Institute" alt="The Bennett Institute Logo" class="footer-logo"></a>
+                <a href="#" aria-label="NIHR"><img src="https://via.placeholder.com/80x40/E2E8F0/4A5568?text=NIHR" alt="NIHR Logo" class="footer-logo"></a>
+            </div>
+            <p>
+                Designed and built by the <a href="#">Bennett Institute for Applied Data Science</a>, Department of Primary Care Health Sciences, University of Oxford.
+                Please see the <a href="#">about page</a> for details of our funding. Contact us at <a href="mailto:feedback@openprescribing.net">feedback@openprescribing.net</a> and find us on <a href="#" rel="noopener noreferrer">Twitter</a>.
+            </p>
+        </div>
+    </footer>
+
+    <button class="feedback-button">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span>Feedback</span>
+    </button>
+</body>
+</html>
