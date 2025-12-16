@@ -240,7 +240,7 @@ def read_html_from_uri(html_uri: Optional[str]) -> str:
         print(f"[WARN] failed to read HTML from {html_uri}: {e}")
         return ""
 
-
+############################ edited below #############################
 def compute_design2code_metrics(pred_html: str, gt_html_uri: Optional[str]) -> Dict[str, float]:
     """
     一个很简单的占位版本 metric:
