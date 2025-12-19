@@ -67,6 +67,11 @@ To train the model from scratch:
 python train.py --config configs/default.yaml
 ```
 
+To run the Automated Evaluation and Repair Agent:
+```bash
+bash agent/run_agent.sh
+```
+
 ---
 
 ### D. Evaluation
