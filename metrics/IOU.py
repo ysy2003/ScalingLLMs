@@ -5,14 +5,16 @@ import pandas as pd
 
 # --- Configuration ---
 # Path to prediction folder
-PREDICTION_FOLDER = Path('design2code-18b-v0/predictions')
-# PREDICTION_FOLDER = Path('gemini/results/gemini_predictions1')
+# PREDICTION_FOLDER = Path('design2code-18b-v0/predictions')
+PREDICTION_FOLDER = Path('gemini/results/gemini_predictions_perturbed')
 
 # Path to reference HTML files (ground truth)
-DESIGN2CODE_DIR = Path('Design2Code')
+# DESIGN2CODE_DIR = Path('Design2Code')
+DESIGN2CODE_DIR = Path('design2code-18b-v0/clean_htmls')
 
 # Path to save results
-OUTPUT_DIR = Path('design2code-18b-v0/evaluation_results')
+# OUTPUT_DIR = Path('design2code-18b-v0/evaluation_results')
+OUTPUT_DIR = Path('gemini/evaluation_results')
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 DEBUG_DIR = OUTPUT_DIR / "debug_screenshots"
 DEBUG_DIR.mkdir(parents=True, exist_ok=True)
@@ -264,7 +266,7 @@ async def main():
     df = pd.DataFrame(all_scores)
     
     # Generate filename
-    excel_filename = OUTPUT_DIR / "iou_scores.xlsx"
+    excel_filename = OUTPUT_DIR / "iou_scores_perturbed.xlsx"
     
     # Save to Excel
     df.to_excel(excel_filename, index=False)

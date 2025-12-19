@@ -118,7 +118,7 @@ async def process_single_image(number: str, png_uri: str, html_uri: Optional[str
             'raw_response': response
         }
 
-async def process_images_from_file(file_path="gemini/dataURI.txt", n_images=None, max_concurrent=10, prompt="gemini/prompt.txt", logs_file: str = "gemini/gemini_results.txt"):
+async def process_images_from_file(file_path="gemini/perturb_dataURI.txt", n_images=None, max_concurrent=10, prompt="gemini/prompt.txt", logs_file: str = "gemini/gemini_results.txt"):
     """
     Read dataURI.txt file, process all PNG images asynchronously, and return a DataFrame containing response.text and corresponding HTML URIs
     
@@ -136,7 +136,7 @@ async def process_images_from_file(file_path="gemini/dataURI.txt", n_images=None
     png_uris = {}
     html_uris = {}
     
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(file_path, 'r', encoding='utf-16') as f:# or utf-8
         for line in f:
             line = line.strip()
             if not line:
@@ -192,13 +192,13 @@ async def process_images_from_file(file_path="gemini/dataURI.txt", n_images=None
 
 # Execute processing
 if __name__ == "__main__":
-    for i in range(1, 3):
-        predictions_dir = f"gemini/results/gemini_predictions{i}" # results directory folder for html files
-        if not os.path.exists(predictions_dir):
-            os.makedirs(predictions_dir)
-        logs_file = f"gemini/gemini_results{i}.txt"
-        excel_file = f"gemini/gemini_results{i}.xlsx"
-        df = asyncio.run(process_images_from_file(logs_file=logs_file)) # logs file for results incase of error
-        df.to_excel(excel_file, index=False) # results file for excel
-        print(f"\nProcessed {len(df)} images, files saved in {predictions_dir} and logs saved in {logs_file} and excel saved in {excel_file}")
-        # print(df.head())
+    i='_perturbed'
+    predictions_dir = f"gemini/results/gemini_predictions{i}" # results directory folder for html files
+    if not os.path.exists(predictions_dir):
+        os.makedirs(predictions_dir)
+    logs_file = f"gemini/gemini_results{i}.txt"
+    excel_file = f"gemini/gemini_results{i}.xlsx"
+    df = asyncio.run(process_images_from_file(logs_file=logs_file)) # logs file for results incase of error
+    df.to_excel(excel_file, index=False) # results file for excel
+    print(f"\nProcessed {len(df)} images, files saved in {predictions_dir} and logs saved in {logs_file} and excel saved in {excel_file}")
+    # print(df.head())

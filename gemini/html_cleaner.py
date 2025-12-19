@@ -10,7 +10,7 @@ BASE_DIR = Path('gemini/results').resolve()
 
 # List of prediction folders to clean
 PREDICTION_FOLDERS: List[Path] = [
-    BASE_DIR / 'gemini_predictions1',
+    BASE_DIR / 'gemini_predictions_perturbed',
     # BASE_DIR / 'gemini_predictions2', # Add more folders here if needed
 ]
 # ---------------------------------------------------------------------

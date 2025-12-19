@@ -15,10 +15,11 @@ import metrics.structural_alignment as structural_alignment
 # --- Configuration ---
 # All paths are relative to project_root to ensure they work regardless of where the script is run from
 # Path to prediction folder
-PREDICTION_FOLDER = project_root / 'gemini' / 'results' / 'gemini_predictions1'
+PREDICTION_FOLDER = project_root / 'gemini' / 'results' / 'clean_pred_htmls'
 
 # Path to reference HTML files (ground truth)
-DESIGN2CODE_DIR = project_root / 'Design2Code'
+# DESIGN2CODE_DIR = project_root / 'Design2Code'
+DESIGN2CODE_DIR = project_root / 'design2code-18b-v0' / 'clean_htmls'
 
 # Path to save results
 OUTPUT_DIR = project_root / 'gemini' / 'evaluation_results'
@@ -193,7 +194,7 @@ def main():
     df = pd.DataFrame(all_scores)
     
     # Generate filename
-    excel_filename = OUTPUT_DIR / "structural_alignment_scores.xlsx"
+    excel_filename = OUTPUT_DIR / "structural_alignment_scores_clean.xlsx"
     
     # Save to Excel
     df.to_excel(excel_filename, index=False)
