@@ -2,7 +2,7 @@
 
 ## Team Information
 
-- **Team Name**: [Team Name]
+- **Team Name**: Design2Code at Scale
 - **Members**:
   - Chunyu Jin (cj2871)
   - Shuyang Yu (sy3309)
@@ -22,7 +22,8 @@ Summarize the model architecture(s) used (e.g., ResNet-18, Transformer). Include
 
 - Framework (e.g., PyTorch, TensorFlow)
 - Any custom layers or changes to standard models
-
+### Metrics Distribution
+![imgs\comparison.png](imgs\comparison.png "Metrics Distribution")
 ---
 
 ## 3. Final Results Summary
