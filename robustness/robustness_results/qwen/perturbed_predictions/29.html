@@ -1,0 +1,742 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML structure and CSS styling accurately.
+
+Starting with the overall layout. The image shows a webpage with a header, main content, sidebar, and footer. Let's break it down.
+
+Header section: There's a blue rectangle on the top left (maybe a logo), then navigation links. The navigation has three columns: "Info for Patients and Families", "Info for Medical Professionals", "Info for Educators" as top-level, then below them "Info for Police Officers", "About the Clinic", "Our Research", "Same Name Campaign", "Resources", "Donate".
+
+Sidebar: On the left, "In This Section..." with bullet points: "Info for Patients and Families", "COVID-19 Information", "What is 22q? Genetics Q&A", "How is 22q11.2 Deletion Syndrome diagnosed?".
+
+Main content: Title "Healthy Sexuality And Pregnancy", then two sections: "Websites on Healthy Sexuality" with two links (www.sexandu.ca and www.teenhealthsource.com), each with descriptions. Then "Websites on Pregnancy" with two links (www.toronto.ca/health/pregnancy and www.marchofdimes.com), each with descriptions. Each section has a "[Return to top]" link at the end.
+
+Footer: Copyright info, "©2012-2023 The Dalglish Family 22q Clinic All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network." Then a blue rectangle (maybe another logo), and contact info: [EMAIL REDACTED], Phone [PHONE REDACTED], Fax [PHONE REDACTED], https://22q.ca/, and "The Dalglish Family 22q Clinic [ADDRESS REDACTED]".
+
+Now, let's structure the HTML.
+
+First, the HTML5 doctype, then <html>, <head>, <body>.
+
+In the head, we need a <style> block with CSS. Let's think about the layout: probably a two-column layout (sidebar and main content), with a header and footer.
+
+Looking at the image, the header has a blue rectangle on the left (maybe a logo), then the navigation. The navigation is a horizontal menu with three columns. Let's check the image: the top navigation has three columns. The first column has "Info for Patients and Families", "Info for Police Officers", "Same Name Campaign". Second column: "Info for Medical Professionals", "About the Clinic", "Resources". Third column: "Info for Educators", "Our Research", "Donate". Wait, in the image, the top navigation is split into three columns. Let's count:
+
+Top row: three columns. First column: "Info for Patients and Families", "Info for Police Officers", "Same Name Campaign". Second column: "Info for Medical Professionals", "About the Clinic", "Resources". Third column: "Info for Educators", "Our Research", "Donate".
+
+Yes, that's how it's structured. So the header navigation is a three-column grid.
+
+Then the main content: left sidebar (In This Section...) and right main content (Healthy Sexuality And Pregnancy section).
+
+Footer: copyright, blue rectangle, contact info.
+
+Now, let's outline the HTML structure.
+
+- <header>: contains the logo (blue rectangle) and the navigation menu.
+- <main>: two columns: sidebar (left) and main content (right).
+- <footer>: copyright, blue rectangle, contact info.
+
+Let's start coding.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Sexuality And Pregnancy</title>
+    <style>
+        /* CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo and navigation -->
+    </header>
+    <main>
+        <aside>
+            <!-- In This Section... -->
+        </aside>
+        <article>
+            <!-- Main content -->
+        </article>
+    </main>
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>
+
+Now, the CSS. Let's think about the design.
+
+The header has a blue rectangle on the left. Let's assume the logo is a blue div. Then the navigation is a three-column grid.
+
+The main content has a sidebar (left) and main content (right). The sidebar has bullet points. The main content has headings and links.
+
+The footer has copyright, a blue rectangle, and contact info.
+
+Let's define the CSS.
+
+First, reset some default margins/paddings.
+
+Set font-family to something like Arial, sans-serif.
+
+For the header:
+
+- The logo is a blue rectangle (background-color: blue; width: 200px; height: 100px; maybe). But in the image, the top left blue rectangle is probably the logo. Let's check the image: the top left is a blue rectangle, then the navigation. So the header has a left div (blue) and then the navigation.
+
+Wait, in the image, the top left is a blue rectangle (maybe 200x100), then the navigation is to the right.
+
+So header structure:
+
+<header>
+    <div class="logo"> <!-- blue rectangle -->
+    </div>
+    <nav>
+        <ul class="nav-grid">
+            <li class="nav-col1">Info for Patients and Families</li>
+            <li class="nav-col1">Info for Police Officers</li>
+            <li class="nav-col1">Same Name Campaign</li>
+            <li class="nav-col2">Info for Medical Professionals</li>
+            <li class="nav-col2">About the Clinic</li>
+            <li class="nav-col2">Resources</li>
+            <li class="nav-col3">Info for Educators</li>
+            <li class="nav-col3">Our Research</li>
+            <li class="nav-col3">Donate</li>
+        </ul>
+    </nav>
+</header>
+
+But in the image, the navigation is three columns. So the nav-grid should be a grid with 3 columns.
+
+Wait, the image shows the navigation as three columns. Let's check the image: the top navigation has three columns. The first column has three items, second three, third three. So the nav is a grid with 3 columns.
+
+So the CSS for the nav-grid would be:
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+But in the image, the navigation items are aligned in three columns. So each column has three items.
+
+Now, the main content: two columns. The sidebar is left, main content right.
+
+The sidebar has "In This Section..." with bullet points.
+
+The main content has the title "Healthy Sexuality And Pregnancy", then two sections: "Websites on Healthy Sexuality" and "Websites on Pregnancy".
+
+Each section has a heading, then a link, then a description, then a "[Return to top]" link.
+
+The footer has copyright, a blue rectangle, and contact info.
+
+Let's handle the CSS for the layout.
+
+First, set the body to have a font, margin, padding.
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.logo {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    padding: 5px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+main {
+    display: flex;
+    margin: 20px;
+}
+
+aside {
+    width: 20%;
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+}
+
+article {
+    width: 78%;
+}
+
+article h1 {
+    margin-top: 0;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+footer.logo {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+footer.contact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+footer.contact a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+Now, let's check the image for specific elements.
+
+In the image, the "In This Section..." is a sidebar. The bullet points are:
+
+- Info for Patients and Families
+- COVID-19 Information
+- What is 22q? Genetics Q&A
+- How is 22q11.2 Deletion Syndrome diagnosed?
+
+So the sidebar should have a heading "In This Section..." and then the list.
+
+The main content has "Healthy Sexuality And Pregnancy" as the main title.
+
+Then "Websites on Healthy Sexuality" with two links:
+
+www.sexandu.ca
+
+This website offers information on sexual health for teens, adults, parents, teachers and health professionals.
+
+www.teenhealthsource.com
+
+This website is a way for young adults to learn more about sexual health and relationships.
+
+Then "Websites on Pregnancy" with two links:
+
+www.toronto.ca/health/pregnancy
+
+The Pregnancy section of Toronto Public Health’s website can answer many health-related questions for pregnant women.
+
+www.marchofdimes.com
+
+Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.
+
+Each section has a "[Return to top]" link at the end.
+
+The footer has:
+
+©2012-2023 The Dalglish Family 22q Clinic All rights reserved.
+The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.
+
+Then a blue rectangle (logo), and contact info:
+
+[EMAIL REDACTED] Phone [PHONE REDACTED] Fax [PHONE REDACTED] https://22q.ca/
+The Dalglish Family 22q Clinic [ADDRESS REDACTED]
+
+Now, let's code the HTML.
+
+Header:
+
+- Logo: blue rectangle (200x100)
+- Navigation: three columns, each with three items.
+
+Main:
+
+- Sidebar: "In This Section..." with bullet points.
+- Article: main content with title and sections.
+
+Footer:
+
+- Copyright text
+- Blue rectangle
+- Contact info.
+
+Let's code step by step.
+
+First, the header:
+
+<header>
+    <div class="logo"></div>
+    <nav>
+        <ul class="nav-grid">
+            <li><a href="#">Info for Patients and Families</a></li>
+            <li><a href="#">Info for Police Officers</a></li>
+            <li><a href="#">Same Name Campaign</a></li>
+            <li><a href="#">Info for Medical Professionals</a></li>
+            <li><a href="#">About the Clinic</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Info for Educators</a></li>
+            <li><a href="#">Our Research</a></li>
+            <li><a href="#">Donate</a></li>
+        </ul>
+    </nav>
+</header>
+
+Wait, in the image, the navigation items are in three columns. So the grid should have 3 columns. So the CSS for.nav-grid is grid-template-columns: repeat(3, 1fr);.
+
+Now, the main content:
+
+<main>
+    <aside>
+        <h3>In This Section...</h3>
+        <ul>
+            <li><a href="#">Info for Patients and Families</a></li>
+            <li><a href="#">COVID-19 Information</a></li>
+            <li><a href="#">What is 22q? Genetics Q&A</a></li>
+            <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+        </ul>
+    </aside>
+    <article>
+        <h1>Healthy Sexuality And Pregnancy</h1>
+        <section>
+            <h2>Websites on Healthy Sexuality</h2>
+            <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+            <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+            <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+            <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+            <p>[ Return to top ]</p>
+        </section>
+        <section>
+            <h2>Websites on Pregnancy</h2>
+            <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+            <p>The Pregnancy section of Toronto Public Health’s website can answer many health-related questions for pregnant women.</p>
+            <p><a href="www.marchofdimes.com">www.marchofdimes.com</a></p>
+            <p>Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.</p>
+            <p>[ Return to top ]</p>
+        </section>
+    </article>
+</main>
+
+Footer:
+
+<footer>
+    <p>©2012-2023 The Dalglish Family 22q Clinic All rights reserved.<br>
+    The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+    <div class="logo"></div>
+    <div class="contact">
+        <a href="#">[EMAIL REDACTED]</a>
+        <span>Phone [PHONE REDACTED]</span>
+        <span>Fax [PHONE REDACTED]</span>
+        <a href="https://22q.ca/">https://22q.ca/</a>
+    </div>
+    <p>The Dalglish Family 22q Clinic<br>
+    [ADDRESS REDACTED]</p>
+</footer>
+
+Now, the CSS. Let's make sure the layout is correct.
+
+The header: logo is 200x100, then the nav is a grid of 3 columns.
+
+The main content: aside (20%) and article (78%).
+
+The footer: the logo is a blue rectangle, same as the header logo.
+
+Let's adjust the CSS to match the image.
+
+In the image, the header logo is blue, the footer logo is also blue.
+
+The navigation links are blue (color: #0066cc).
+
+The sidebar has a border on the right.
+
+Let's write the CSS.
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.logo {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    padding: 5px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+main {
+    display: flex;
+    margin: 20px;
+}
+
+aside {
+    width: 20%;
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+}
+
+article {
+    width: 78%;
+}
+
+article h1 {
+    margin-top: 0;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+footer.logo {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+footer.contact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+footer.contact a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+Now, check if all elements are present.
+
+The header has the logo and navigation.
+
+The main content has the sidebar and article.
+
+The footer has the copyright, logo, contact info.
+
+Now, let's check the image for any specific details.
+
+In the image, the "In This Section..." is a heading in the sidebar. The bullet points are links.
+
+The main content sections have the "[Return to top]" links.
+
+The footer has the copyright text, then the blue logo, then the contact info.
+
+The contact info in the footer: [EMAIL REDACTED], Phone [PHONE REDACTED], Fax [PHONE REDACTED], https://22q.ca/, and the clinic name with address.
+
+In the HTML, the contact info is structured as:
+
+<div class="contact">
+    <a href="#">[EMAIL REDACTED]</a>
+    <span>Phone [PHONE REDACTED]</span>
+    <span>Fax [PHONE REDACTED]</span>
+    <a href="https://22q.ca/">https://22q.ca/</a>
+</div>
+
+Which matches the image.
+
+Now, let's make sure the HTML is valid.
+
+Check for missing closing tags, proper nesting.
+
+The HTML structure:
+
+- <html>
+- <head> with <style>
+- <body>
+  - <header>
+  - <main>
+    - <aside>
+    - <article>
+  - <footer>
+- </body>
+- </html>
+
+Yes.
+
+Now, let's write the complete HTML.
+
+Note: The image shows the top left blue rectangle as the logo, so the logo div in the header is 200x100.
+
+The footer logo is also 200x100.
+
+The navigation links are blue, so color: #0066cc.
+
+The sidebar has a border on the right.
+
+The main content sections have the "[Return to top]" links.
+
+Let's code it all.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Sexuality And Pregnancy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+       .logo {
+            background-color: #0000ff;
+            width: 200px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            padding: 5px 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        main {
+            display: flex;
+            margin: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        aside {
+            width: 20%;
+            padding-right: 20px;
+            border-right: 1px solid #ccc;
+        }
+        article {
+            width: 78%;
+        }
+        article h1 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        section h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+       .section-content {
+            margin-top: 10px;
+        }
+       .section-content a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+       .return-to-top {
+            float: right;
+            margin-top: 10px;
+            color: #666;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
+       .footer-logo {
+            background-color: #0000ff;
+            width: 200px;
+            height: 100px;
+            margin: 0 auto 15px;
+        }
+       .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+       .contact-info a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+       .contact-info span {
+            display: inline-block;
+        }
+       .copyright {
+            margin-bottom: 15px;
+        }
+       .clinic-info {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#">Info for Patients and Families</a></li>
+                <li><a href="#">Info for Police Officers</a></li>
+                <li><a href="#">Same Name Campaign</a></li>
+                <li><a href="#">Info for Medical Professionals</a></li>
+                <li><a href="#">About the Clinic</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Info for Educators</a></li>
+                <li><a href="#">Our Research</a></li>
+                <li><a href="#">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <h3>In This Section...</h3>
+            <ul>
+                <li><a href="#">Info for Patients and Families</a></li>
+                <li><a href="#">COVID-19 Information</a></li>
+                <li><a href="#">What is 22q? Genetics Q&A</a></li>
+                <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+            </ul>
+        </aside>
+        <article>
+            <h1>Healthy Sexuality And Pregnancy</h1>
+            <section>
+                <h2>Websites on Healthy Sexuality</h2>
+                <div class="section-content">
+                    <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+                    <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+                </div>
+                <div class="section-content">
+                    <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+                    <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+                </div>
+                <a href="#" class="return-to-top">[ Return to top ]</a>
+            </section>
+            <section>
+                <h2>Websites on Pregnancy</h2>
+                <div class="section-content">
+                    <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+                    <p>The Pregnancy section of Toronto Public Health's website can answer many health-related questions for pregnant women.</p>
+                </div>
+                <div class="section-content">
+                    <p><a href="www.marchofdimes.com">www.marchofdimes.com</a></p>
+                    <p>Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.</p>
+                </div>
+                <a href="#" class="return-to-top">[ Return to top ]</a>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <div class="copyright">
+            ©2012-2023 The Dalglish Family 22q Clinic All rights reserved.<br>
+            The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.
+        </div>
+        <div class="footer-logo"></div>
+        <div class="contact-info">
+            <a href="#">[EMAIL REDACTED]</a>
+            <span>Phone [PHONE REDACTED]</span>
+            <span>Fax [PHONE REDACTED]</span>
+            <a href="https://22q.ca/">https://22q.ca/</a>
+        </div>
+        <div class="clinic-info">
+            The Dalglish Family 22q Clinic<br>
+            [ADDRESS REDACTED]
+        </div>
+    </footer>
+</body>
+</html>
+```

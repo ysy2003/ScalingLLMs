@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reorganising a Consul key-value store</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            font-size: 16px;
+        }
+
+        /* Container for main content */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            text-align: right;
+            font-size: 0.9em;
+            margin-bottom: 40px;
+        }
+        .header-nav a {
+            color: #06c; /* Blue link color */
+            text-decoration: none;
+        }
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Title */
+        h1 {
+            font-size: 2.5em;
+            color: #900; /* Dark red */
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        /* Metadata (author/date) */
+        p.meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        p.meta a {
+            color: #666; /* Keep author link color subtle */
+            text-decoration: none;
+            font-style: italic;
+        }
+        p.meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* General Paragraphs */
+        p {
+            margin-bottom: 1em;
+        }
+
+        /* Links */
+        a {
+            color: #06c; /* Default blue link */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Highlighted text (like WEBSERVER/ or select) */
+        .highlight-text {
+            font-weight: bold;
+        }
+
+        /* Code Blocks */
+        pre.code-block {
+            background-color: #222;
+            color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin-bottom: 25px;
+        }
+        pre.code-block code {
+            display: block; /* Ensures padding and line-height apply correctly */
+            white-space: pre; /* Preserve whitespace */
+        }
+
+        /* Syntax Highlighting */
+        .code-block .comment { color: #666; } /* Gray for comments */
+        .code-block .keyword { color: #6cf; } /* Light blue for keywords (set, while, do, done, PUT) */
+        .code-block .option { color: #6cf; } /* Light blue for options (-e, -s, -X, -d, -r) */
+        .code-block .string { color: #6f6; } /* Green for strings ("...", '...') */
+        .code-block .number { color: #f66; } /* Red for numbers */
+        .code-block .variable { color: #f66; } /* Red for variables ($1, $2, $key, $value, $b64value) */
+        .code-block .function { color: #f66; } /* Red for function names (keys_and_values, set_key, migrate_to_webserver_namespace) */
+        .code-block .command { color: #6cf; } /* Light blue for commands (curl, jq, echo, base64) */
+        .code-block .path { color: #6f6; } /* Green for paths (/, A/, WEBSERVER/, /dev/null) */
+
+        /* Footnotes */
+        p.footnote {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 30px;
+        }
+        sup {
+            font-size: 0.7em; /* Smaller superscript */
+            vertical-align: super;
+            line-height: 0; /* Prevent extra line height */
+        }
+
+        /* Separator */
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 40px 0;
+        }
+
+        /* Footer */
+        .footer {
+            font-size: 0.85em;
+            color: #666;
+            line-height: 1.5;
+        }
+        .footer p {
+            margin-bottom: 0.5em;
+        }
+        .footer a {
+            color: #06c;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .header-nav {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .header-nav a {
+                display: inline-block;
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="header-nav">
+            <a href="#">home</a> | <a href="#">writing</a> | <a href="#">TIL</a> | <a href="#">now</a> | <a href="#">about</a>
+        </nav>
+
+        <main>
+            <h1>Reorganising a Consul key-value store</h1>
+            <p class="meta">by <a href="#">David Winterbottom</a> on Monday, 27 March 2017</p>
+
+            <p>If your Consul key-value store is structured as:</p>
+            <pre class="code-block"><code><span class="path">/</span>
+<span class="path">A/</span>
+  <span class="variable">X</span> = <span class="number">1</span>
+  <span class="variable">Z</span> = <span class="number">2</span>
+  <span class="variable">Y</span> = <span class="number">3</span>
+<span class="path">C</span>
+<span class="path">D</span></code></pre>
+
+            <p>but you now realise you should have namespaced everything within <span class="highlight-text">WEBSERVER/</span> (or something like that):</p>
+            <pre class="code-block"><code><span class="path">/</span>
+<span class="path">WEBSERVER/</span>
+<span class="path">A/</span>
+  <span class="variable">X</span> = <span class="number">1</span>
+  <span class="variable">Z</span> = <span class="number">2</span>
+  <span class="variable">Y</span> = <span class="number">3</span>
+<span class="path">C</span>
+<span class="path">D</span></code></pre>
+
+            <p>then this Bash script will help you migrate:</p>
+            <pre class="code-block bash"><code><span class="comment">#!/bin/bash</span>
+
+<span class="keyword">set</span> <span class="option">-e</span> <span class="comment"># Exit on error</span>
+
+<span class="comment"># Emit "key value" lines for all keys in Consul's KV store</span>
+<span class="function">keys_and_values</span>() {
+  <span class="comment"># Recursively fetch all values from Consul but exclude:</span>
+  <span class="comment"># (a) those that end in / (as these are folders)</span>
+  <span class="comment"># (b) those that start with WEBSERVER/ (as that's where we are migrating</span>
+  <span class="comment">#     to).</span>
+  <span class="command">curl</span> <span class="option">-s</span> <span class="string">"localhost/v1/kv/?recurse"</span> | <span class="command">jq</span> <span class="option">-r</span> <span class="string">'
+    .[] |
+    select(
+      ( (.Key | endswith("/")) | not) and
+      (.Key | startswith("WEBSERVER") | not)
+    ) |
+    [.Key, " ", .Value] |
+    add'</span> | <span class="keyword">while</span> <span class="keyword">read</span> <span class="variable">key</span> <span class="variable">b64value</span>
+  <span class="keyword">do</span>
+    <span class="comment"># Consul's REST API returns values base64-encoded so we decode here.</span>
+    <span class="command">echo</span> <span class="variable">$key</span> `<span class="command">echo</span> <span class="string">"$b64value"</span> | <span class="command">base64</span> <span class="option">-d</span>`
+  <span class="keyword">done</span>
+}
+
+<span class="comment"># Set a new value in Consul's KV store</span>
+<span class="function">set_key</span>() {
+  <span class="variable">key</span>=<span class="variable">$1</span>
+  <span class="variable">value</span>=<span class="variable">$2</span>
+  <span class="command">curl</span> <span class="option">-s</span> <span class="option">-X</span> <span class="keyword">PUT</span> <span class="option">-d</span> <span class="string">"$value"</span> <span class="string">"localhost/v1/kv/$key"</span> &gt; <span class="path">/dev/null</span>
+}
+
+<span class="function">migrate_to_webserver_namespace</span>() {
+  <span class="function">keys_and_values</span> | <span class="keyword">while</span> <span class="keyword">read</span> <span class="variable">key</span> <span class="variable">value</span>
+  <span class="keyword">do</span>
+    <span class="function">set_key</span> <span class="string">"WEBSERVER/$key"</span> <span class="variable">$value</span>
+  <span class="keyword">done</span>
+}
+
+<span class="function">migrate_to_webserver_namespace</span></code></pre>
+
+            <p>This script uses <a href="#">Consul's REST API</a> and filters the results using <a href="#">jq</a>.</p>
+            <p><sup>1</sup> It's easily adapted to migrate key-value pairs between different namespaces.</p>
+
+            <p class="footnote"><sup>1</sup> I can never remember jq's <span class="highlight-text">select</span> syntax so this post is intended largely as a personal reference on how to do this. &rarr;</p>
+        </main>
+
+        <hr>
+
+        <footer class="footer">
+            <p>Something wrong? Suggest an <a href="#">improvement</a> or add a <a href="#">comment</a> (see <a href="#">article history</a>)</p>
+            <p>Tagged with: <a href="#">consul</a>, <a href="#">bash</a>, <a href="#">jq</a></p>
+            <p>Filed in: <a href="#">tips</a></p>
+            <p>Previous: <a href="#">Lies you're told on a software project</a></p>
+            <p>Next: <a href="#">Podcast. init on Oscar</a></p>
+            <p>Copyright © 2005-2023 David Winterbottom</p>
+            <p>Content licensed under <a href="#">CC BY-NC-SA 4.0</a>.</p>
+        </footer>
+    </div>
+</body>
+</html>

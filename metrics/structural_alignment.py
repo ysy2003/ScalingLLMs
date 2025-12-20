@@ -5,7 +5,7 @@ This module computes structural alignment between a reference DOM and a
 predicted/rendered DOM, including:
 - Tree Edit Similarity (derived from tree edit distance)
 - Semantic HTML Usage ratio
-- Accessibility Score (alt coverage + ARIA coverage)
+# - Accessibility Score (alt coverage + ARIA coverage)  # Commented out - not suitable for robustness evaluation
 """
 
 from dataclasses import dataclass
@@ -17,7 +17,7 @@ class StructuralAlignmentScores:
     """Scores for structural alignment between reference and prediction."""
     tree_edit_similarity: float      # [0, 1]
     semantic_html_ratio: float       # [0, 1]
-    accessibility_score: float       # [0, 1]
+    # accessibility_score: float       # [0, 1]  # Commented out - not suitable for robustness evaluation
 
 
 # Common semantic tags used to encourage meaningful HTML structure
@@ -156,73 +156,76 @@ def _count_semantic_and_div(node: Any) -> Tuple[int, int]:
     return semantic_count, div_count
 
 
-def accessibility_score(root: Any) -> float:
-    """
-    Composite accessibility score based on:
-      - fraction of <img> with non-empty alt
-      - fraction of elements with ARIA roles / labels
+# Accessibility score commented out - not suitable for robustness evaluation
+# (scores too low, high noise, not meaningful for Design2Code task)
 
-    Returns a score in [0, 1]. Current definition:
-        score = 0.5 * alt_coverage + 0.5 * aria_coverage
-    You can adjust weights later if needed.
-    """
-    total_imgs, imgs_with_alt = _count_images_with_alt(root)
-    total_aria_candidates, nodes_with_aria = _count_nodes_with_aria(root)
-
-    alt_coverage = imgs_with_alt / total_imgs if total_imgs > 0 else 0.0
-    aria_coverage = (
-        nodes_with_aria / total_aria_candidates
-        if total_aria_candidates > 0 else 0.0
-    )
-
-    return 0.5 * alt_coverage + 0.5 * aria_coverage
-
-
-def _count_images_with_alt(node: Any) -> Tuple[int, int]:
-    if node is None:
-        return 0, 0
-
-    total_imgs = 0
-    imgs_with_alt = 0
-
-    tag = getattr(node, "tag", "").lower()
-    attrs = getattr(node, "attrs", {})  # assume dict-like
-
-    if tag == "img":
-        total_imgs += 1
-        alt = attrs.get("alt", "")
-        if isinstance(alt, str) and alt.strip():
-            imgs_with_alt += 1
-
-    for child in getattr(node, "children", []):
-        ti, ia = _count_images_with_alt(child)
-        total_imgs += ti
-        imgs_with_alt += ia
-
-    return total_imgs, imgs_with_alt
-
-
-def _count_nodes_with_aria(node: Any) -> Tuple[int, int]:
-    if node is None:
-        return 0, 0
-
-    total = 0
-    with_aria = 0
-
-    attrs = getattr(node, "attrs", {})
-    # any node can in principle carry ARIA attributes
-    total += 1
-    if any(
-        k.startswith("aria-") for k in attrs.keys()
-    ) or "role" in attrs or "aria-label" in attrs:
-        with_aria += 1
-
-    for child in getattr(node, "children", []):
-        t, w = _count_nodes_with_aria(child)
-        total += t
-        with_aria += w
-
-    return total, with_aria
+# def accessibility_score(root: Any) -> float:
+#     """
+#     Composite accessibility score based on:
+#       - fraction of <img> with non-empty alt
+#       - fraction of elements with ARIA roles / labels
+#
+#     Returns a score in [0, 1]. Current definition:
+#         score = 0.5 * alt_coverage + 0.5 * aria_coverage
+#     You can adjust weights later if needed.
+#     """
+#     total_imgs, imgs_with_alt = _count_images_with_alt(root)
+#     total_aria_candidates, nodes_with_aria = _count_nodes_with_aria(root)
+#
+#     alt_coverage = imgs_with_alt / total_imgs if total_imgs > 0 else 0.0
+#     aria_coverage = (
+#         nodes_with_aria / total_aria_candidates
+#         if total_aria_candidates > 0 else 0.0
+#     )
+#
+#     return 0.5 * alt_coverage + 0.5 * aria_coverage
+#
+#
+# def _count_images_with_alt(node: Any) -> Tuple[int, int]:
+#     if node is None:
+#         return 0, 0
+#
+#     total_imgs = 0
+#     imgs_with_alt = 0
+#
+#     tag = getattr(node, "tag", "").lower()
+#     attrs = getattr(node, "attrs", {})  # assume dict-like
+#
+#     if tag == "img":
+#         total_imgs += 1
+#         alt = attrs.get("alt", "")
+#         if isinstance(alt, str) and alt.strip():
+#             imgs_with_alt += 1
+#
+#     for child in getattr(node, "children", []):
+#         ti, ia = _count_images_with_alt(child)
+#         total_imgs += ti
+#         imgs_with_alt += ia
+#
+#     return total_imgs, imgs_with_alt
+#
+#
+# def _count_nodes_with_aria(node: Any) -> Tuple[int, int]:
+#     if node is None:
+#         return 0, 0
+#
+#     total = 0
+#     with_aria = 0
+#
+#     attrs = getattr(node, "attrs", {})
+#     # any node can in principle carry ARIA attributes
+#     total += 1
+#     if any(
+#         k.startswith("aria-") for k in attrs.keys()
+#     ) or "role" in attrs or "aria-label" in attrs:
+#         with_aria += 1
+#
+#     for child in getattr(node, "children", []):
+#         t, w = _count_nodes_with_aria(child)
+#         total += t
+#         with_aria += w
+#
+#     return total, with_aria
 
 
 def compute_structural_alignment_scores(
@@ -234,12 +237,12 @@ def compute_structural_alignment_scores(
     """
     tes = tree_edit_similarity(ref_dom, pred_dom)
     semantic_ratio = semantic_html_usage(pred_dom)
-    acc_score = accessibility_score(pred_dom)
+    # acc_score = accessibility_score(pred_dom)  # Commented out
 
     return StructuralAlignmentScores(
         tree_edit_similarity=tes,
         semantic_html_ratio=semantic_ratio,
-        accessibility_score=acc_score,
+        # accessibility_score=acc_score,  # Commented out
     )
 
 
@@ -252,15 +255,15 @@ def compute_overall_structural_alignment(
     e.g., a weighted combination of:
       - tree_edit_similarity
       - semantic_html_ratio
-      - accessibility_score
+    # - accessibility_score  # Commented out
     """
     scores = compute_structural_alignment_scores(ref_dom, pred_dom)
     # default: simple average; adjust weights as needed
     return (
         scores.tree_edit_similarity
         + scores.semantic_html_ratio
-        + scores.accessibility_score
-    ) / 3.0
+        # + scores.accessibility_score  # Commented out
+    ) / 2.0  # Changed from 3.0 to 2.0
 
 
 __all__ = [
@@ -269,7 +272,7 @@ __all__ = [
     "tree_edit_distance",
     "tree_edit_similarity",
     "semantic_html_usage",
-    "accessibility_score",
+    # "accessibility_score",  # Commented out
     "compute_structural_alignment_scores",
     "compute_overall_structural_alignment",
 ]

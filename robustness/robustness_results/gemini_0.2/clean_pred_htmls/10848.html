@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allegion Support</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            background-color: #444;
+            color: #fff;
+            min-height: 40px;
+        }
+
+        .header-logo {
+            background-color: #e65100; /* Allegion orange */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+        }
+
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 0.9em;
+            border-right: 1px solid #666;
+        }
+
+        .header-nav a:last-child {
+            border-right: none;
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+        }
+
+        .ask-question-section {
+            margin-bottom: 30px;
+        }
+
+        .ask-question-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .ask-question-section h2 span {
+            font-weight: bold;
+        }
+
+        .ask-question-section p {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+            min-width: 200px; /* Ensure input is not too small */
+        }
+
+        .search-button {
+            background-color: #e65100;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .search-button:hover {
+            background-color: #cc4700;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow tabs to wrap */
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9em;
+            font-weight: bold;
+            border-right: 1px solid #ccc;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .tab-button:last-child {
+            border-right: none;
+        }
+
+        .tab-button.active {
+            background-color: #e65100;
+            color: #fff;
+        }
+
+        .tab-button:not(.active):hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Quote */
+        .quote-section {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.5em;
+            color: #e65100;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        /* Related FAQs */
+        .related-faqs h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .faq-table {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Adjust column width ratio */
+            border-top: 1px solid #eee;
+        }
+
+        .faq-row {
+            display: contents; /* Allows grid children to be styled directly */
+        }
+
+        .faq-question, .faq-answer {
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            font-size: 0.8em;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-logo {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+
+            .header-nav {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 0;
+                flex-wrap: wrap;
+            }
+
+            .header-nav a {
+                border-right: none;
+                padding: 5px 10px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-input, .search-button {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .tabs {
+                flex-direction: column;
+                border-bottom: none;
+            }
+
+            .tab-button {
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+                text-align: center;
+            }
+
+            .tab-button:last-child {
+                border-bottom: none;
+            }
+
+            .faq-table {
+                grid-template-columns: 1fr; /* Stack question and answer */
+            }
+
+            .faq-question {
+                background-color: #f9f9f9; /* Slightly differentiate stacked question */
+                border-bottom: none;
+            }
+            .faq-answer {
+                padding-top: 0;
+            }
+            .faq-row:not(:last-child) .faq-answer {
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav a {
+                font-size: 0.8em;
+                padding: 5px 8px;
+            }
+            .quote-section {
+                font-size: 1.2em;
+            }
+            .footer {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-top">
+            <div class="header-logo">Allegion</div>
+            <nav class="header-nav">
+                <a href="#">Frequently Asked Questions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="ask-question-section">
+                <h2><span>Ask your question</span> Entering your question as a complete sentence will provide more accurate results than keywords or phrases.</h2>
+                <form class="search-form">
+                    <input type="text" class="search-input" placeholder="Ask your question">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </section>
+
+            <nav class="tabs">
+                <a href="#" class="tab-button active">User questions</a>
+                <a href="#" class="tab-button">FAQs</a>
+                <a href="#" class="tab-button">Category List</a>
+            </nav>
+
+            <section class="quote-section">
+                " maximum weight for auto operator "
+            </section>
+
+            <section class="related-faqs">
+                <h3>RELATED FAQS</h3>
+                <div class="faq-table">
+                    <div class="faq-row">
+                        <div class="faq-question">What is maximum width, height and weight for IVES butt hinges?</div>
+                        <div class="faq-answer">Resolution: Butt hinges can be used on doors up to 4' wide and 200 pounds. There is no maximum door height, just need to add a hinge for every 30" or part there of over 7'.:</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">What is the maximum door weight recommended for LCN closers?</div>
+                        <div class="faq-answer">Resolution: The maximum recommended door weight for LCN closers is 225 lbs.:</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">How deep of a reveal will an 8200 Falcon Operator accommodate?</div>
+                        <div class="faq-answer">Resolution: The maximum reveal for an 8200 Falcon Operator is: 8230 (pull side) -- 1/8" 8240 (push side) -- 6" The Benchmark long rod and shoe (9140-79LR) can be use with the Falcon 8242 for reveal from ...:</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">What is maximum reveal for the 9140?</div>
+                        <div class="faq-answer">Resolution: Reveal should not exceed: 6" for the REGULAR ARM 9 3/4" for the LONG ARM:</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">What would cause a Senior Swing to open too far?</div>
+                        <div class="faq-answer">Resolution: The Senior Swing operator is designed to power open the door to 90°.</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">What is the minimum and maximum reveal for a 9500 Series Senior Swing operator?</div>
+                        <div class="faq-answer">Resolution: The 9542, 9553, 9563 surface mounted Senior Swing with a regular arm, mounted on the push side of the door, can handle a reveal from 1 1/8" up to 10". The 9542, 9553, 9563 surface mounted Senior S...:</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">What is the minimum and maximum PSI applied to a 4800 operator?</div>
+                        <div class="faq-answer">Resolution: The pneumatic operators are designed to function with an input air pressure to the 7901/7902 Series control box of 80 (min) 100 (max) PSI, and an output pressure of 60 to 80 PSI to the pneumatic (2...:</div>
+                    </div>
+                    <div class="faq-row">
+                        <div class="faq-question">What is the maximum reveal for a regular arm 4642 operator?</div>
+                        <div class="faq-answer">Resolution: Max. reveal for a 4642: 4640 Regular arm -- 4.5" 4640 Long arm -- 8" 4640 x ST-3088 (custom made - extra long rod) -- 8" to 11" No special mounting instructions required, just standard templ...:</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p><a href="#">Privacy Policy</a> | <a href="#">About Allegion</a></p>
+            <p>&copy; Allegion plc, 2014 | [ADDRESS REDACTED]</p>
+            <p>REGISTERED IN IRELAND WITH LIMITED LIABILITY REGISTERED NUMBER 527370</p>
+            <p>Allegion is an equal opportunity and affirmative action employer.</p>
+        </footer>
+    </div>
+</body>
+</html>

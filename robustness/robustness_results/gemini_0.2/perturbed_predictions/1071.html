@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stampin' Pad</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; /* Default font for body text */
+            color: #333;
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Global Link Styles */
+        a {
+            color: #5cb85c; /* Green color for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 960px; /* Adjusted based on visual width */
+            margin: 0 auto;
+            padding: 20px;
+            position: relative; /* For absolute positioning of search */
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative; /* For positioning search link */
+        }
+
+        .site-title {
+            font-family: 'Georgia', serif; /* Specific font for title */
+            font-size: 3em; /* Large font size */
+            margin: 0;
+            padding-top: 20px;
+            font-weight: normal; /* Looks like normal weight */
+        }
+
+        .site-tagline {
+            font-family: 'Georgia', serif; /* Specific font for tagline */
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .search-link {
+            font-family: 'Arial', sans-serif; /* Sans-serif for search */
+            font-size: 0.85em;
+            text-transform: uppercase;
+            position: absolute;
+            top: 40px; /* Adjust based on visual alignment */
+            right: 20px;
+            color: #5cb85c;
+        }
+
+        /* Main Content Layout */
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center; /* Center the content block */
+            gap: 40px; /* Space between left share and main post */
+            margin-top: 20px;
+        }
+
+        .left-share-column {
+            width: 100px; /* Fixed width for the share column */
+            flex-shrink: 0;
+            padding-top: 5px; /* Align with post date */
+            text-align: right;
+        }
+
+        .left-share-column .share-link {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8em;
+            color: #5cb85c;
+        }
+
+        .main-post-area {
+            flex-grow: 1;
+            max-width: 600px; /* Max width for the main post content */
+        }
+
+        /* Post Styles */
+        .post-date {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .post-title::after {
+            content: '';
+            display: block;
+            width: 50px; /* Underline width */
+            height: 1px;
+            background-color: #ccc;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .post-image-placeholder {
+            background-color: #0000FF; /* Blue color */
+            width: 100%; /* Fill available width */
+            height: 300px; /* Fixed height */
+            margin-bottom: 20px;
+        }
+
+        .post-description {
+            font-family: 'Georgia', serif;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .post-description a {
+            color: #5cb85c;
+        }
+
+        .post-actions {
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+        .post-actions .share-link {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8em;
+            color: #5cb85c;
+        }
+
+        /* Comments & Popular Posts Sections */
+        .section-heading {
+            font-family: 'Arial', sans-serif;
+            font-size: 1em;
+            text-transform: uppercase;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee; /* Subtle line below heading */
+            padding-bottom: 5px;
+        }
+
+        .popular-posts-list {
+            margin-top: 20px;
+        }
+
+        .popular-post-item {
+            margin-bottom: 30px;
+        }
+
+        .popular-post-image-placeholder {
+            background-color: #0000FF;
+            width: 100%;
+            height: 200px; /* Smaller height for popular posts */
+            margin-bottom: 15px;
+        }
+
+        .popular-post-date {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .popular-post-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .popular-post-actions {
+            display: flex;
+            gap: 15px;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.75em;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: right;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.7em;
+            color: #999;
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .site-title {
+                font-size: 2.5em;
+            }
+
+            .search-link {
+                top: 20px;
+                right: 15px;
+            }
+
+            .main-content-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .left-share-column {
+                width: 100%;
+                text-align: left; /* Share link moves to left */
+                padding-top: 0;
+                margin-bottom: 10px; /* Space below share link */
+            }
+
+            .main-post-area {
+                max-width: 100%;
+            }
+
+            .post-title {
+                font-size: 1.5em;
+            }
+
+            .post-image-placeholder,
+            .popular-post-image-placeholder {
+                height: 250px; /* Adjust height for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 2em;
+            }
+            .site-tagline {
+                font-size: 0.8em;
+            }
+            .search-link {
+                position: static; /* Remove absolute positioning */
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+            }
+            .post-image-placeholder,
+            .popular-post-image-placeholder {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="site-title">THE STAMPIN' PAD</h1>
+            <p class="site-tagline">A place for creative inspiration and regular updates on Stampin' Up! promotions.</p>
+            <a href="#" class="search-link">SEARCH</a>
+        </header>
+
+        <main class="main-content-wrapper">
+            <div class="left-share-column">
+                <a href="#" class="share-link">Share</a>
+            </div>
+            <div class="main-post-area">
+                <article class="post">
+                    <p class="post-date">March 27, 2018</p>
+                    <h2 class="post-title">HOW TO USE A STAMP A MA JIG</h2>
+                    <div class="post-image-placeholder"></div>
+                    <p class="post-description">
+                        This cute card was quick to make using my stampamajig and my free sale-a-bration
+                        stamp set, die cut and paper. <a href="#">Get in touch with me before time runs out</a> so you can
+                        earn free Stampin Up! <a href="#">You can see how I made this card on You Tube</a>.
+                    </p>
+                    <div class="post-actions">
+                        <a href="#" class="share-link">Share</a>
+                    </div>
+                </article>
+
+                <section class="comments-section">
+                    <h3 class="section-heading">COMMENTS</h3>
+                    <!-- No comments content in image -->
+                </section>
+
+                <section class="popular-posts">
+                    <h3 class="section-heading">POPULAR POSTS</h3>
+                    <div class="popular-posts-list">
+                        <article class="popular-post-item">
+                            <div class="popular-post-image-placeholder

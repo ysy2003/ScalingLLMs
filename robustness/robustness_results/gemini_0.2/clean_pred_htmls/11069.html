@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On The Rural Route</title>
+    <style>
+        /* General Reset & Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* General sans-serif */
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            font-size: 14px; /* Base font size */
+        }
+
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            position: relative; /* For absolute positioning of search */
+            text-align: center; /* Centers the site-title */
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee; /* Subtle line below header */
+        }
+
+        .site-title {
+            font-family: Georgia, serif; /* Serif font for main title */
+            font-size: 32px; /* Larger font size */
+            font-weight: normal; /* Looks like normal weight, but large */
+            color: #333;
+            margin: 0; /* Remove default h1 margin */
+            padding-top: 10px; /* Adjust to visually center title vertically within header area */
+        }
+
+        .search-link {
+            position: absolute;
+            right: 0; /* Align to the right of the header */
+            top: 20px; /* Adjust to visually align with the title's baseline */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 12px;
+            color: #a08040; /* Golden brown/orange color */
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            gap: 40px; /* Space between sidebar and post area */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex-basis: 150px; /* Fixed width for sidebar */
+            flex-shrink: 0; /* Prevent shrinking */
+            padding-top: 10px; /* Align with post content */
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-link {
+            font-size: 12px;
+            color: #a08040;
+            text-decoration: none;
+            display: block; /* Make links block for better spacing */
+            margin-bottom: 5px;
+        }
+
+        .sidebar-label {
+            font-size: 12px;
+            color: #333; /* Labels text is dark */
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Post Area */
+        .post-area {
+            flex-grow: 1;
+            max-width: 600px; /* Limit post content width */
+        }
+
+        /* Individual Post */
+        .post {
+            margin-bottom: 60px; /* Space after the main post */
+        }
+
+        .post-date {
+            font-size: 12px;
+            color: #a08040;
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            font-family: Georgia, serif; /* Serif font for post title */
+            font-size: 28px;
+            font-weight: normal; /* Looks like normal weight */
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .post-divider {
+            border: none;
+            border-top: 1px solid #ccc;
+            width: 50px; /* Short line */
+            margin: 0 0 20px 0; /* Top, Right, Bottom, Left */
+        }
+
+        .post-body {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #a08040;
+        }
+
+        .meta-link {
+            color: #a08040;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .meta-label {
+            color: #333; /* Labels text is dark */
+        }
+
+        /* Section Headings (COMMENTS, POPULAR POSTS) */
+        .section-heading {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Popular Posts */
+        .popular-post-list {
+            margin-top: 20px;
+        }
+
+        .popular-post-item {
+            display: flex;
+            margin-bottom: 30px; /* Space between popular posts */
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .popular-post-thumbnail {
+            width: 120px; /* Width of the blue box */
+            height: 120px; /* Height of the blue box */
+            background-color: #0000FF; /* Blue color */
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-right: 20px; /* Space between thumbnail and text */
+        }
+
+        .popular-post-details {
+            flex-grow: 1;
+        }
+
+        .popular-post-date {
+            font-size: 12px;
+            color: #a08040;
+            margin-bottom: 5px;
+        }
+
+        .popular-post-title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beehive bend tail - LifeWiki</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: sans-serif; /* Generic sans-serif font */
+            font-size: 14px;
+            color: #333;
+            background-color: #f8f9fa; /* Light gray background for the whole page */
+            line-height: 1.5;
+        }
+
+        a {
+            color: #0645ad; /* Standard blue link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Top Header (Create account, Log in) */
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 20px;
+            font-size: 12px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #a7d7f9; /* Light blue border */
+        }
+
+        .header-top a {
+            margin-left: 15px;
+            color: #0645ad;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .search-bar input[type="text"] {
+            border: 1px solid #a2a9b1;
+            padding: 4px 6px;
+            border-radius: 2px;
+            width: 160px; /* Approximate width from image */
+            font-size: 13px;
+        }
+
+        /* Tabs (Page/Discussion) */
+        .tabs-container {
+            display: flex;
+            /* Aligns with the main content area, accounting for sidebar width + padding */
+            margin-left: 170px;
+            margin-top: 10px;
+            border-bottom: 1px solid #a7d7f9; /* Matches the header-top border */
+            position: relative; /* For positioning the active tab's bottom border */
+        }
+
+        .tab {
+            padding: 8px 15px;
+            border: 1px solid #a7d7f9;
+            border-bottom: none; /* Remove bottom border for tabs */
+            background-color: #f8f9fa;
+            margin-right: 2px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            font-size: 13px;
+            color: #0645ad;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: #fff; /* White background for active tab */
+            border-color: #a7d7f9;
+            border-bottom: 1px solid #fff; /* Hides the main border-bottom of tabs-container */
+            position: relative;
+            z-index: 1; /* Ensures it overlaps the main border-bottom */
+            font-weight: bold; /* Discussion tab looks slightly bolder */
+            color: #222; /* Active tab text color */
+        }
+
+        /* Main Navigation Bar */
+        .main-nav-bar {
+            background-color: #eaf3ff; /* Light blue background */
+            border-top: 1px solid #a7d7f9; /* Matches other borders */
+            border-bottom: 1px solid #a7d7f9;
+            padding: 5px 20px;
+            margin-top: -1px; /* Overlap with the tabs border for seamless look */
+            display: flex;
+            align-items: center;
+            min-height: 30px; /* Ensure consistent height */
+        }
+
+        .main-nav-bar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* Align with main content, considering sidebar width */
+            margin-left: 150px;
+        }
+
+        .main-nav-bar li {
+            margin-right: 15px;
+            font-size: 13px;
+            color: #333; /* Default text color */
+            white-space: nowrap; /* Prevent wrapping of nav items */
+        }
+
+        .main-nav-bar li:not(:last-child)::after {
+            content: "•";
+            margin-left: 15px;
+            color: #a2a9b1; /* Dot color */
+        }
+
+        .main-nav-bar a {
+            color: #0645ad;
+            font-weight: normal;
+        }
+        .main-nav-bar a.bold-link {
+            font-weight: bold; /* For "LifeWiki" */
+        }
+
+        /* Main Content Layout */
+        .content-wrapper {
+            display: flex;
+            /* Approximate height to push footer down, adjust as needed */
+            min-height: calc(100vh - 180px);
+            background-color: #fff; /* White background for content area */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 150px; /* Fixed width for sidebar */
+            padding: 20px 0 20px 20px;
+            background-color: #f8f9fa; /* Light gray background */
+            border-right: 1px solid #a7d7f9;
+            box-sizing: border-box; /* Include padding in width */
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .sidebar h3 {
+            font-size: 13px;
+            margin: 0 0 5px 0;
+            padding-top: 10px;
+            border-top: 1px solid #a7d7f9;
+            color: #555;
+            font-weight: bold; /* Headings appear bold */
+        }
+        .sidebar h3:first-of-type {
+            border-top: none; /* First heading doesn't have a top border */
+            padding-top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 3px;
+            font-size: 13px;
+        }
+
+        .sidebar a {
+            color: #0645ad;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff; /* White background */
+        }
+
+        .main-content h1 {
+            font-size: 28px; /* Larger font for main heading */
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #a2a9b1; /* Gray border */
+            font-weight: normal; /* Heading looks normal weight */
+        }
+
+        .main-content p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #a7d7f9;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-start; /* Align to left */
+            align-items: center;
+            position: relative; /* For positioning the blue buttons */
+        }
+
+        .footer ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* Align with main content */
+            margin-left: 150px;
+        }
+
+        .footer li {
+            margin-right: 15px;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .footer a {
+            color: #0645ad;
+        }
+
+        .blue-buttons-container {
+            position: absolute;
+            right: 20px;
+            bottom: 15px; /* Align with footer padding */
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+
+        .blue-button {
+            width: 60px; /* Approximate width */
+            height: 25px; /* Approximate height */
+            background-color: #0000ff; /* Solid blue */
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-top, .search-bar {
+                padding: 5px 10px;
+            }
+
+            .tabs-container {
+                margin-left: 0; /* Tabs take full width */
+                justify-content: center;
+                border-bottom: none; /* Hide border for mobile, will be handled by main-nav-bar */
+            }
+            .tab {
+                border-bottom: 1px solid #a7d7f9; /* Ensure tabs have bottom border */
+            }
+            .tab.active {
+                border-bottom: 1px solid #fff; /* Keep active tab bottom border white */
+            }
+
+            .main-nav-bar {
+                padding: 10px;
+                margin-top: 0; /* No overlap needed if tabs are not directly above */
+                border-top: 1px solid #a7d7f9; /* Ensure border is present */
+            }
+            .main-nav-bar ul {
+                margin-left: 0; /* Nav items take full width */
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .main-nav-bar li {
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+            .main-nav-bar li:not(:last-child)::after {
+                margin-left: 10px;
+            }
+
+            .content-wrapper {
+                flex-direction: column; /* Stack sidebar and main content */
+                min-height: calc(100vh - 250px); /* Adjust min-height for stacked layout */
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #a7d7f9;
+                padding: 10px 20px;
+            }
+            .sidebar h3:first-of-type {
+                border-top: 1px solid #a7d7f9; /* Add border back for mobile if it's the first element */
+                padding-top: 10px;
+            }
+            .sidebar h3 {
+                margin-top: 10px; /* Add some top margin for better spacing */
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .footer {
+                flex-direction: column; /* Stack footer items */
+                align-items: center;
+                padding: 15px 10px;
+            }
+            .footer ul {
+                margin-left: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 10px; /* Space between links and buttons */
+            }
+            .footer li {
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+
+            .blue-buttons-container {
+                position: static; /* Remove absolute positioning */
+                margin-top: 10px;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <a href="#">Create account</a>
+        <a href="#">Log in</a>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search LifeWiki">
+    </div>
+
+    <div class="tabs-container">
+        <a href="#" class="tab">Page</a>
+        <a href="#" class="tab active">Discussion</a>
+    </div>
+
+    <div class="main-nav-bar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#" class="bold-link">LifeWiki</a></li>
+            <li><a href="#">Book</a></li>

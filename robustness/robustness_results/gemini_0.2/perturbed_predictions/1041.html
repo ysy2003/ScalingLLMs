@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Got This with Mark and Hal</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background */
+            color: #fff; /* Default text color for header */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px; /* Limit width for top bar elements */
+            margin: 0 auto 20px auto;
+            padding: 0 20px; /* Add some padding for smaller screens */
+            box-sizing: border-box;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 1.2em;
+            font-weight: bold; /* To make text icons appear bolder */
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            line-height: 1; /* Ensure consistent vertical alignment */
+        }
+
+        .search-box {
+            background-color: #333; /* Darker gray for search input */
+            border: 1px solid #555;
+            border-radius: 3px;
+            padding: 5px 10px;
+            color: #fff;
+            width: 120px; /* Adjust width as needed */
+            font-size: 0.9em;
+        }
+
+        .search-box::placeholder {
+            color: #bbb;
+        }
+
+        .main-title {
+            font-size: 2.5em;
+            font-weight: normal;
+            margin-bottom: 40px; /* Space between title and content box */
+        }
+
+        /* Main Content Box */
+        .content-wrapper {
+            background-color: #fff;
+            color: #333; /* Default text color for content box */
+            width: 90%;
+            max-width: 700px; /* Max width for the content box */
+            margin: 0 auto 50px auto; /* Center horizontally, space at bottom */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* To contain rounded corners */
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd; /* Lighter border for the tab container */
+            background-color: #f8f8f8; /* Light gray for tab background */
+        }
+
+        .tab-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 0.9em;
+            border-right: 1px solid #eee; /* Separator between tabs */
+            border-bottom: 1px solid #ddd; /* Default bottom border for inactive tabs */
+            color: #555;
+        }
+
+        .tab-item:last-child {
+            border-right: none;
+        }
+
+        .tab-item.active {
+            background-color: #fff; /* White background for active tab */
+            border-bottom: 1px solid #fff; /* Blends with content-wrapper background */
+            position: relative; /* To allow z-index or slight overlap */
+            z-index: 1; /* Make it appear on top of the border */
+            margin-bottom: -1px; /* Pull it down slightly to cover the border */
+            color: #333;
+        }
+
+        .display-info {
+            background-color: #f0f0f0; /* Slightly darker gray */
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .episode-details {
+            padding: 20px 25px;
+        }
+
+        .episode-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .episode-date {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .episode-description p {
+            margin-top: 0;
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #007bff; /* A blue color for links, adjust if needed */
+            text-decoration: none;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        .comments-section {
+            border-top: 1px solid #eee;
+            padding: 20px 25px;
+            margin-top: 20px;
+        }
+
+        .comments-section h3 {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .comments-section p {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8em;
+            color: #666;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            margin-top: 20px; /* Space above copyright */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2em;
+            }
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .social-icons {
+                margin-bottom: 10px;
+            }
+            .search-box {
+                width: 100%; /* Full width on small screens */
+                max-width: 200px; /* But not too wide */
+            }
+            .episode-details, .comments-section, .copyright {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8em;
+            }
+            .social-icons {
+                font-size: 1em;
+            }
+            .tab-item {
+                padding: 8px 10px;
+                font-size: 0.8em;
+            }
+            .episode-title {
+                font-size: 1.3em;
+            }
+            .episode-description p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="social-icons">
+                <a href="#" aria-label="Info">i</a>
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Twitter">t</a>
+                <a href="#" aria-label="Email">&#9993;</a> <!-- Envelope icon -->
+                <a href="#" aria-label="RSS">&#x2605;</a> <!-- Star icon as placeholder for RSS -->
+                <a href="#" aria-label="Podcast">&#x266B;</a> <!-- Musical note icon as placeholder for Podcast -->
+            </div>
+            <input type="search" class="search-box" placeholder="Search">
+        </div>
+        <h1 class="main-title">We Got This with Mark and Hal</h1>
+    </header>
+
+    <main class="content-wrapper">
+        <nav class="tabs">
+            <div class="tab-item active">All Episodes</div>
+            <div class="tab-item">Archives</div>
+        </nav>
+
+        <div class="display-info">
+            Now displaying: Page 1
+        </div>
+
+        <section class="episode-details">
+            <h2 class="episode-title">#78 - Clean Slate III with Wil Wheaton</h2>
+            <p class="episode-date">Aug 24, 2016</p>
+            <div class="episode-description">
+                <p>Among the 250+ topics we've received over the last one and a half years, there are always some that don't warrant a full episode. Wil Wheaton, who waxes poetic on everything from theme park ruffians to the popcorn eating style he shares with Hal.</p>
+                <p>Going to Dragon Con? So is Hal! Here's where you can find him.</p>
+            </div>
+            <a href="#" class="download-link">Download this Episode</a>
+        </section>
+
+        <section class="comments-section">
+            <h3>0 Comments</h3>
+            <p>Adding comments is not available at this time.</p>
+        </section>
+
+        <footer class="copyright">
+            &copy;Copyright Hal Lublin and Mark Gagliardi
+        </footer>
+    </main>
+</body>
+</html>

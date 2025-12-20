@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LibriVox - Biography of an American Bondman, By His Daughter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+   .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+   .top-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+   .top-nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+   .search-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+   .search-container input {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+   .search-container a {
+      color: #555;
+      text-decoration: none;
+    }
+
+   .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+   .logo {
+      width: 100px;
+      height: 100px;
+      background-color: #0000FF;
+      margin-bottom: 0.5rem;
+    }
+
+   .logo-section p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+   .browse-catalog {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+   .browse-catalog h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+   .tabs {
+      display: flex;
+      gap: 1rem;
+      background-color: #f0f9ff;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+
+   .tabs button {
+      background-color: #f0f9ff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+   .tabs button:hover {
+      background-color: #e0f0ff;
+    }
+
+    main {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+   .sidebar {
+      flex: 0 0 25%;
+    }
+
+   .sidebar.donate {
+      background-color: #f0fff0;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+   .sidebar.donate a {
+      color: #008000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+   .sidebar.thank-reader {
+      background-color: #f0f9ff;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+   .sidebar.thank-reader h3 {
+      font-weight: bold;
+    }
+
+   .sidebar p {
+      margin-bottom: 1rem;
+    }
+
+   .sidebar h3 {
+      margin: 1rem 0;
+    }
+
+   .download-options {
+      margin-bottom: 1rem;
+    }
+
+   .download-option {
+      margin-bottom: 0.5rem;
+    }
+
+   .download-btn {
+      background-color: #008000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+    }
+
+   .download-btn:hover {
+      background-color: #006400;
+    }
+
+   .subscribe-btn,.rss-btn,.torrent-btn {
+      background-color: #008000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+    }
+
+   .subscribe-btn:hover,.rss-btn:hover,.torrent-btn:hover {
+      background-color: #006400;
+    }
+
+   .production-details {
+      margin-bottom: 1rem;
+    }
+
+   .production-details ul {
+      list-style: none;
+    }
+
+   .production-details li {
+      margin-bottom: 0.5rem;
+    }
+
+   .production-details li a {
+      color: #006400;
+      text-decoration: none;
+    }
+
+   .links {
+      margin-bottom: 1rem;
+    }
+
+   .links ul {
+      list-style: none;
+    }
+
+   .links li {
+      margin-bottom: 0.5rem;
+    }
+
+   .links li a {
+      color: #006400;
+      text-decoration: none;
+    }
+
+   .content {
+      flex: 1;
+    }
+
+   .book-info {
+      margin-bottom: 2rem;
+    }
+
+   .book-cover {
+      width: 100px;
+      height: 100px;
+      background-color: #0000FF;
+      margin-bottom: 1rem;
+    }
+
+   .book-info h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+   .book-info p {
+      margin-bottom: 1rem;
+    }
+
+   .metadata {
+      margin-bottom: 1rem;
+    }
+
+   .metadata p {
+      margin-bottom: 0.5rem;
+    }
+
+   .download-options {
+      margin-bottom: 1rem;
+    }
+
+   .chapters-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+   .chapters-table th {
+      background-color: #f0f9ff;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+   .chapters-table td {
+      padding: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+   .chapters-table tr:hover {
+      background-color: #f5f9ff;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Forum</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </nav>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search by Author, Title or Reader">
+    <a href="#">Advanced search</a>
+  </div>
+
+  <div class="logo-section">
+    <div class="logo"></div>
+    <p>Acoustical liberation of books in the public domain</p>
+  </div>
+
+  <div class="browse-catalog">
+    <h2>BROWSE THE CATALOG</h2>
+    <div class="tabs">
+      <button class="tab">Author</button>
+      <button class="tab">Title</button>
+      <button class="tab">Genre/Subject</button>
+      <button class="tab">Language</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="sidebar">
+      <div class="donate">
+        <a href="#">Donate to LibriVox</a>
+      </div>
+      <div class="thank-reader">
+        <h3>Thank a reader</h3>
+      </div>
+      <p>LibriVox recordings are Public Domain in the USA. If you are not in the USA, please verify the copyright status of these works in your own country before downloading, otherwise you may be violating copyright laws.</p>
+      <h3>Listen/Download (<a href="#">help?</a>)</h3>
+      <div class="download-options">
+        <div class="download-option">
+          <p>Whole book (zip file)</p>
+          <button class="download-btn">Download</button>
+        </div>
+        <div class="subscribe">
+          <p>Subscribe by iTunes</p>
+          <button class="subscribe-btn">iTunes</button>
+        </div>
+        <div class="rss">
+          <p>RSS Feed</p>
+          <button class="rss-btn">RSS</button>
+        </div>
+        <div class="torrent">
+          <p>Download torrent</p>
+          <button class="torrent-btn">Torrent</button>
+        </div>
+      </div>
+      <div class="production-details">
+        <h3>Production details</h3>
+        <ul>
+          <li>Running Time: 02:32:05</li>
+          <li>Zip file size: 71MB</li>
+          <li>Catalog date: 2018-09-12</li>
+          <li>Read by: <a href="#">Jim Locke</a></li>
+          <li>Book Coordinator: <a href="#">Jim Locke</a></li>
+          <li>Meta Coordinator: <a href="#">DaveC</a></li>
+          <li>Proof Listener: <a href="#">DaveC</a></li>
+        </ul>
+      </div>
+      <div class="links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Internet Archive Page</a></li>
+          <li><a href="#">Online text</a></li>
+          <li><a href="#">Wikipedia - Josephine Brown</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="book-info">
+        <div class="book-cover"></div>
+        <h1>Biography of an American Bondman, By His Daughter</h1>
+        <p>Josephine Brown (1839 - 1874)</p>
+        <p>Josephine Brown's Biography of an American Bondsmen faithfully follows the trajectory of her father's life as previously explored in his own narratives. She distills and summarizes the major revelatory moments of his autobiography while she also incorporates new anecdotal information and offers her own perspective on Brown's life.</p>
+        <div class="metadata">
+          <p><strong>Genre(s):</strong> Biography & Autobiography</p>
+          <p><strong>Language:</strong> English</p>
+        </div>
+        <div class="download-options">
+          <button class="download-btn">Download cover art</button>
+          <button class="download-btn">Download CD case insert</button>
+        </div>
+      </div>
+      <table class="chapters-table">
+        <thead>
+          <tr>
+            <th>SECTION</th>
+            <th>CHAPTER</th>
+            <th>READER</th>
+            <th>TIME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Chapters 1 and 2</td>
+            <td>Jim Locke</td>
+            <td>00:14:18</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Chapters 3 and 4</td>
+            <td>Jim Locke</td>
+            <td>00:07:04</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Chapters 5 and 6</td>
+            <td>Jim Locke</td>
+            <td>00:09:26</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

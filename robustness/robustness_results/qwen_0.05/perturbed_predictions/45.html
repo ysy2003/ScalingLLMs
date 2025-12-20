@@ -1,0 +1,971 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML structure and CSS styling accurately.
+
+Starting with the overall layout. The image shows a webpage with a red navigation bar at the top, blue sidebars on the left and right, a content area in the middle, and a footer at the bottom.
+
+Let's break down each section:
+
+1. **Header Navigation Bar**: Red background, white text. Contains "Home", "Company", "Products", "SDS Data". These are links.
+
+2. **Sidebars**: Left and right sidebars are blue. The left sidebar is a vertical rectangle, right sidebar is also vertical. The main content is between them.
+
+3. **Breadcrumb Trail**: Below the navigation, a breadcrumb path: "YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating >"
+
+4. **Main Content Area**: 
+   - Product title: "Speedfilla Light - RTU" in red.
+   - Description: "KCB Speedfilla Light is an ultra light, ready to use formula for filling cracks, nail heads and holes in a single application."
+   - Table with columns: SIZE, ITEM NUMBER, CTN. QTY., APN BARCODE. Rows for 100 GMS and 200 GMS.
+   - Text: "If you are interested in ordering this product please complete this form or contact us for further information."
+   - Two sections: "More paint & decorating products" and "Other KCB categories" with bullet points.
+
+5. **Footer**: Gray background. Contains links on the left, company info in the middle, copyright on the right.
+
+Now, let's think about the HTML structure.
+
+- The main container should have a wrapper for the content, with left and right sidebars. Wait, the image shows the left sidebar as a vertical blue bar, right sidebar as another vertical blue bar. So the layout is probably a three-column layout: left sidebar, main content, right sidebar. But in the image, the left sidebar is on the left, main content in the middle, right sidebar on the right.
+
+Wait, looking at the image: the top has a red nav bar. Below that, the left sidebar is a blue rectangle (left side), the main content is a white area (center), and the right sidebar is a blue rectangle (right side). So the structure is:
+
+- Top: red nav bar (full width)
+- Then, a container with three columns: left (blue), main (white), right (blue)
+- Then the footer (gray)
+
+Wait, but in the image, the left sidebar is a vertical blue bar, and the right sidebar is also vertical blue. So the main content is between them. So the HTML structure would be:
+
+<div class="container">
+  <div class="sidebar-left"></div>
+  <div class="main-content">
+    <div class="breadcrumb">...</div>
+    <div class="product-info">...</div>
+    <div class="related-products">...</div>
+  </div>
+  <div class="sidebar-right"></div>
+</div>
+
+But need to check the exact dimensions. The image shows the left sidebar as a tall blue rectangle, right sidebar as a tall blue rectangle. The main content is the white area between them.
+
+Now, the navigation bar: red background, white text. The links are "Home", "Company", "Products", "SDS Data". These should be in a nav bar.
+
+Let's outline the HTML structure:
+
+- <html>
+  - <head>
+    - <title>GSB Performance Chemicals</title>
+    - <style> (all CSS here)
+  - <body>
+    - <header> (red nav bar)
+      - <nav> with links
+    - <div class="container"> (for the main layout)
+      - <div class="sidebar-left"> (blue)
+      - <div class="main-content">
+          - <div class="breadcrumb">YOU ARE HERE:...</div>
+          - <h1>Speedfilla Light - RTU</h1>
+          - <p>description</p>
+          - <table> with data
+          - <p>ordering info</p>
+          - <div class="related-products">
+              - <h3>More paint & decorating products:</h3>
+              - <ul>...</ul>
+              - <h3>Other KCB categories:</h3>
+              - <ul>...</ul>
+          </div>
+      - </div>
+      - <div class="sidebar-right"> (blue)
+    - </div>
+    - <footer> (gray)
+      - <div class="footer-left"> links
+      - <div class="footer-middle"> company info
+      - <div class="footer-right"> copyright
+  - </body>
+</html>
+
+Now, let's handle the CSS.
+
+First, reset margins/paddings to avoid browser defaults.
+
+Set the body to have a font, maybe Arial.
+
+The header nav bar: background red, white text, links as inline-block, padding, etc.
+
+The container: should have a width, maybe 1200px, centered. The left and right sidebars: each 200px, main content 800px. But need to check the image. The image shows the left sidebar as a vertical blue bar, right sidebar as vertical blue bar. The main content is the white area. So the container should be a flex container with three columns: left (sidebar-left), main (main-content), right (sidebar-right).
+
+Wait, the image shows the left sidebar as a blue rectangle on the left, main content in the middle, right sidebar as blue rectangle on the right. So the container is a flex container with three columns.
+
+Let's define the container as:
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar-left,.sidebar-right {
+  background-color: blue;
+  width: 200px;
+  height: 100vh; /* to make them full height */
+}
+
+.main-content {
+  background-color: white;
+  flex: 1;
+  padding: 20px;
+}
+
+But wait, the image shows the left sidebar as a blue rectangle, but in the image, the left sidebar is a vertical blue bar, and the right sidebar is also vertical blue bar. The main content is the white area. So the container should have the three columns.
+
+Wait, but the image's left sidebar is a blue rectangle, but in the image, the left sidebar is on the left, and the right sidebar is on the right. So the container is a flex container with three columns.
+
+Now, the navigation bar: red background, white text. The links should be inline-block, with some padding.
+
+nav {
+  background-color: #c00; /* red */
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+The breadcrumb: a light gray background, with text.
+
+.breadcrumb {
+  background-color: #f0f0f0;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+The product title: red color.
+
+.product-title {
+  color: #c00;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+The table: need to style the headers and rows.
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+}
+
+The related products sections: bullet points.
+
+.related-products {
+  margin-top: 20px;
+}
+
+.related-products h3 {
+  margin-top: 10px;
+}
+
+The footer: gray background, three columns.
+
+footer {
+  background-color: #ccc;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  margin: 0 10px;
+}
+
+Now, let's check the image for specific details.
+
+The navigation bar: "Home", "Company", "Products", "SDS Data" — these are the links.
+
+The breadcrumb: "YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating >"
+
+The product title: "Speedfilla Light - RTU" in red.
+
+The description: "KCB Speedfilla Light is an ultra light, ready to use formula for filling cracks, nail heads and holes in a single application."
+
+The table:
+
+SIZE | ITEM NUMBER | CTN. QTY. | APN BARCODE
+
+100 GMS | SFL100 | 12 or 24 | 9315 215 030 027
+
+200 GMS | SFL200 | 12 | 9315 215 030 034
+
+The ordering text: "If you are interested in ordering this product please complete this form or contact us for further information."
+
+The related products:
+
+More paint & decorating products:
+
+- Paint Stripper
+
+- Linseed Oil Putty
+
+- Premixed Linseed Oil
+
+- Raw Linseed Oil
+
+Other KCB categories:
+
+- Paint & Decorating
+
+- Solvents
+
+- Adhesives
+
+- Cleaning
+
+Footer:
+
+Left: Home, Company information, Our range of products, SDS, Articles, What's new, Disclaimer, Sitemap, Contact GSB today
+
+Middle: HEAD OFFICE, Melbourne, 84 Camp Road, Broadmeadows VIC 3047, t: [PHONE REDACTED], f: [PHONE REDACTED], e: [EMAIL REDACTED]
+
+Right: Copyright © 2010, GSB Chemical Co. Pty. Ltd, ACN 004 355 113, ABN 13 004 355 113
+
+Now, let's structure the HTML.
+
+First, the header:
+
+<header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Company</a>
+    <a href="#">Products</a>
+    <a href="#">SDS Data</a>
+  </nav>
+</header>
+
+Then the container with sidebars and main content.
+
+<div class="container">
+  <div class="sidebar-left"></div>
+  <div class="main-content">
+    <div class="breadcrumb">YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating > </div>
+    <h1 class="product-title">Speedfilla Light - RTU</h1>
+    <p>KCB Speedfilla Light is an ultra light, ready to use formula for filling cracks, nail heads and holes in a single application.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>SIZE</th>
+          <th>ITEM NUMBER</th>
+          <th>CTN. QTY.</th>
+          <th>APN BARCODE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100 GMS</td>
+          <td>SFL100</td>
+          <td>12 or 24</td>
+          <td>9315 215 030 027</td>
+        </tr>
+        <tr>
+          <td>200 GMS</td>
+          <td>SFL200</td>
+          <td>12</td>
+          <td>9315 215 030 034</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>If you are interested in ordering this product please complete this form or contact us for further information.</p>
+    <div class="related-products">
+      <h3>More paint & decorating products:</h3>
+      <ul>
+        <li>Paint Stripper</li>
+        <li>Linseed Oil Putty</li>
+        <li>Premixed Linseed Oil</li>
+        <li>Raw Linseed Oil</li>
+      </ul>
+      <h3>Other KCB categories:</h3>
+      <ul>
+        <li>Paint & Decorating</li>
+        <li>Solvents</li>
+        <li>Adhesives</li>
+        <li>Cleaning</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar-right"></div>
+</div>
+
+Footer:
+
+<footer>
+  <div class="footer-col">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Company information</a></li>
+      <li><a href="#">Our range of products</a></li>
+      <li><a href="#">SDS</a></li>
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">What's new</a></li>
+      <li><a href="#">Disclaimer</a></li>
+      <li><a href="#">Sitemap</a></li>
+      <li><a href="#">Contact GSB today</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h3>HEAD OFFICE</h3>
+    <p>Melbourne</p>
+    <p>84 Camp Road</p>
+    <p>Broadmeadows VIC 3047</p>
+    <p>t: [PHONE REDACTED]</p>
+    <p>f: [PHONE REDACTED]</p>
+    <p>e: [EMAIL REDACTED]</p>
+  </div>
+  <div class="footer-col">
+    <p>Copyright © 2010</p>
+    <p>GSB Chemical Co. Pty. Ltd</p>
+    <p>ACN 004 355 113</p>
+    <p>ABN 13 004 355 113</p>
+  </div>
+</footer>
+
+Now, the CSS. Let's define all the styles.
+
+First, reset:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background-color: #c00;
+  color: white;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 0 5px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.sidebar-left,.sidebar-right {
+  background-color: #0000ff;
+  width: 200px;
+  height: 100vh;
+  /* To make them visible, but in the image they are blue, so set background to blue */
+}
+
+.main-content {
+  background-color: white;
+  flex: 1;
+  padding: 20px;
+  margin: 0 20px;
+}
+
+.breadcrumb {
+  background-color: #f0f0f0;
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+.product-title {
+  color: #c00;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+}
+
+.related-products {
+  margin-top: 20px;
+}
+
+.related-products h3 {
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #ccc;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin: 5px 0;
+}
+
+.footer-col h3 {
+  margin-bottom: 10px;
+}
+
+Now, check if the image has any specific details. For example, the left sidebar is a blue rectangle, but in the image, the left sidebar is a vertical blue bar. The right sidebar is also a vertical blue bar. The main content is white.
+
+Wait, in the image, the left sidebar is a blue rectangle, but the right sidebar is also a blue rectangle. So the container should have the three columns.
+
+Wait, but the image shows the left sidebar as a blue rectangle on the left, main content in the middle, right sidebar as blue rectangle on the right. So the container is a flex container with three columns.
+
+Now, let's check the dimensions. The image's left sidebar is a vertical blue bar, so height is 100vh (viewport height). The main content is the white area, and the right sidebar is also vertical blue bar.
+
+Now, the CSS for the container: display: flex; flex-direction: row; so the three columns are side by side.
+
+Now, let's check the breadcrumb. The image shows "YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating >" — so the breadcrumb is a horizontal line.
+
+The product title is "Speedfilla Light - RTU" in red.
+
+The table: the headers are SIZE, ITEM NUMBER, CTN. QTY., APN BARCODE. The rows have the data.
+
+The related products sections: two columns of bullet points.
+
+Footer: three columns.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows the left sidebar as a blue rectangle, but in the image, the left sidebar is a vertical blue bar. So the left sidebar is a div with class "sidebar-left", and the right sidebar is "sidebar-right".
+
+Now, let's make sure all elements are included.
+
+Let's write the HTML.
+
+Start with the doctype, html, head, body.
+
+In the head, include the style block.
+
+Now, let's code step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSB Performance Chemicals</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Company</a>
+      <a href="#">Products</a>
+      <a href="#">SDS Data</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="sidebar-left"></div>
+    <div class="main-content">
+      <div class="breadcrumb">YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating > </div>
+      <h1 class="product-title">Speedfilla Light - RTU</h1>
+      <p>KCB Speedfilla Light is an ultra light, ready to use formula for filling cracks, nail heads and holes in a single application.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>SIZE</th>
+            <th>ITEM NUMBER</th>
+            <th>CTN. QTY.</th>
+            <th>APN BARCODE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>100 GMS</td>
+            <td>SFL100</td>
+            <td>12 or 24</td>
+            <td>9315 215 030 027</td>
+          </tr>
+          <tr>
+            <td>200 GMS</td>
+            <td>SFL200</td>
+            <td>12</td>
+            <td>9315 215 030 034</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>If you are interested in ordering this product please complete this form or contact us for further information.</p>
+      <div class="related-products">
+        <h3>More paint & decorating products:</h3>
+        <ul>
+          <li>Paint Stripper</li>
+          <li>Linseed Oil Putty</li>
+          <li>Premixed Linseed Oil</li>
+          <li>Raw Linseed Oil</li>
+        </ul>
+        <h3>Other KCB categories:</h3>
+        <ul>
+          <li>Paint & Decorating</li>
+          <li>Solvents</li>
+          <li>Adhesives</li>
+          <li>Cleaning</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sidebar-right"></div>
+  </div>
+  <footer>
+    <div class="footer-col">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Company information</a></li>
+        <li><a href="#">Our range of products</a></li>
+        <li><a href="#">SDS</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">What's new</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Contact GSB today</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>HEAD OFFICE</h3>
+      <p>Melbourne</p>
+      <p>84 Camp Road</p>
+      <p>Broadmeadows VIC 3047</p>
+      <p>t: [PHONE REDACTED]</p>
+      <p>f: [PHONE REDACTED]</p>
+      <p>e: [EMAIL REDACTED]</p>
+    </div>
+    <div class="footer-col">
+      <p>Copyright © 2010</p>
+      <p>GSB Chemical Co. Pty. Ltd</p>
+      <p>ACN 004 355 113</p>
+      <p>ABN 13 004 355 113</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS. Let's add the styles.
+
+In the style block:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background-color: #c00;
+  color: white;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 0 5px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.sidebar-left,.sidebar-right {
+  background-color: #0000ff;
+  width: 200px;
+  height: 100vh;
+}
+
+.main-content {
+  background-color: white;
+  flex: 1;
+  padding: 20px;
+  margin: 0 20px;
+}
+
+.breadcrumb {
+  background-color: #f0f0f0;
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+.product-title {
+  color: #c00;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+}
+
+.related-products {
+  margin-top: 20px;
+}
+
+.related-products h3 {
+  margin-top: 10px;
+}
+
+footer {
+  background-color: #ccc;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin: 5px 0;
+}
+
+.footer-col h3 {
+  margin-bottom: 10px;
+}
+
+Wait, but the image shows the left sidebar as a blue rectangle, but in the image, the left sidebar is a vertical blue bar. The right sidebar is also a vertical blue bar. So the CSS for sidebar-left and sidebar-right should have height: 100vh to make them full height.
+
+But in the image, the main content is between them, so the container should have the three columns.
+
+Now, check if the image has any specific spacing. For example, the breadcrumb is a light gray bar.
+
+The product title is red.
+
+The table has the headers and data.
+
+The related products sections have bullet points.
+
+The footer has three columns.
+
+Now, let's check if the HTML is valid. All tags are closed, attributes are correct.
+
+Now, the task says to generate ONLY one complete, valid, and fully closed HTML5 file. So the code must be enclosed in ```html and ```.
+
+Wait, the user said: "BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```."
+
+So the response should start with ```html, then the HTML code, then ```.
+
+Now, let's make sure all elements are included.
+
+Check the breadcrumb: "YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating >" — the image shows this as a breadcrumb trail.
+
+The product title: "Speedfilla Light - RTU" in red.
+
+The table data: correct.
+
+The related products: correct.
+
+Footer: correct.
+
+Now, let's write the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSB Performance Chemicals</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      background-color: #c00;
+      color: white;
+      padding: 10px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 15px;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+   .sidebar-left,.sidebar-right {
+      background-color: #0000ff;
+      width: 200px;
+      height: 100vh;
+    }
+
+   .main-content {
+      background-color: white;
+      flex: 1;
+      padding: 20px;
+      margin: 0 20px;
+    }
+
+   .breadcrumb {
+      background-color: #f0f0f0;
+      padding: 5px;
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+
+   .product-title {
+      color: #c00;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+   .related-products {
+      margin-top: 20px;
+    }
+
+   .related-products h3 {
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #ccc;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+   .footer-col {
+      flex: 1;
+      margin: 0 10px;
+    }
+
+   .footer-col ul {
+      list-style: none;
+    }
+
+   .footer-col li {
+      margin: 5px 0;
+    }
+
+   .footer-col h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Company</a>
+      <a href="#">Products</a>
+      <a href="#">SDS Data</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="sidebar-left"></div>
+    <div class="main-content">
+      <div class="breadcrumb">YOU ARE HERE: GSB Performance Chemicals > Products > Hardware > KCB > Paint & Decorating > </div>
+      <h1 class="product-title">Speedfilla Light - RTU</h1>
+      <p>KCB Speedfilla Light is an ultra light, ready to use formula for filling cracks, nail heads and holes in a single application.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>SIZE</th>
+            <th>ITEM NUMBER</th>
+            <th>CTN. QTY.</th>
+            <th>APN BARCODE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>100 GMS</td>
+            <td>SFL100</td>
+            <td>12 or 24</td>
+            <td>9315 215 030 027</td>
+          </tr>
+          <tr>
+            <td>200 GMS</td>
+            <td>SFL200</td>
+            <td>12</td>
+            <td>9315 215 030 034</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>If you are interested in ordering this product please complete this form or contact us for further information.</p>
+      <div class="related-products">
+        <h3>More paint & decorating products:</h3>
+        <ul>
+          <li>Paint Stripper</li>
+          <li>Linseed Oil Putty</li>
+          <li>Premixed Linseed Oil</li>
+          <li>Raw Linseed Oil</li>
+        </ul>
+        <h3>Other KCB categories:</h3>
+        <ul>
+          <li>Paint & Decorating</li>
+          <li>Solvents</li>
+          <li>Adhesives</li>
+          <li>Cleaning</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sidebar-right"></div>
+  </div>
+  <footer>
+    <div class="footer-col">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Company information</a></li>
+        <li><a href="#">Our range of products</a></li>
+        <li><a href="#">SDS</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">What's new</a></li>
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Contact GSB today</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>HEAD OFFICE</h3>
+      <p>Melbourne</p>
+      <p>84 Camp Road</p>
+      <p>Broadmeadows VIC 3047</p>
+      <p>t: [PHONE REDACTED]</p>
+      <p>f: [PHONE REDACTED]</p>
+      <p>e: [EMAIL REDACTED]</p>
+    </div>
+    <div class="footer-col">
+      <p>Copyright © 2010</p>
+      <p>GSB Chemical Co. Pty. Ltd</p>
+      <p>ACN 004 355 113</p>
+      <p>ABN 13 004 355 113</p>
+    </div>
+  </footer>
+</body>
+</html>
+```

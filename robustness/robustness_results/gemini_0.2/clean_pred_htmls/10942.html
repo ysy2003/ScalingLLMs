@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTek Solutions</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333333;
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 1px solid #e0e0e0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 80px;
+            height: 40px;
+            background-color: #0000FF;
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333333;
+            white-space: nowrap;
+        }
+
+        /* Main Content */
+        .main-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .left-section {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .left-section h1 {
+            font-size: 2.8rem;
+            color: #388E3C;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .left-section h2 {
+            font-size: 1.4rem;
+            color: #388E3C;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .left-section p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .left-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .left-section ul li {
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+        }
+
+        .right-section {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            min-width: 300px; /* Ensure form doesn't get too narrow */
+        }
+
+        .right-section h3 {
+            font-size: 1.6rem;
+            color: #388E3C;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 0; /* Handled by gap */
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: calc(100% - 20px); /* Account for padding */
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            background-color: #E8F5E9;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .right-section button {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #e0e0e0;
+            color: #333333;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-section button:hover {
+            background-color: #d0d0d0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A1A1A;
+            color: #cccccc;
+            padding: 40px 5%;
+            font-size: 0.95rem;
+        }
+
+        .footer-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+
+        .footer-about,
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-about p {
+            margin-bottom: 0;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a,
+        .footer-bottom a {
+            color: #cccccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-bottom a:hover {
+            color: #ffffff;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact strong {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #444444;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left-section {
+                padding-right: 0;
+            }
+
+            .right-section {
+                min-width: unset;
+            }
+
+            .footer-content-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 5%;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                padding: 5px 0;
+            }
+
+            .left-section h1 {
+                font-size: 2rem;
+            }
+
+            .left-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .right-section h3 {
+                font-size: 1.4rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr; /* Stack form fields */
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-bottom p {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .left-section h2 {
+                font-size: 1rem;
+            }
+
+            .right-section {
+                padding: 20px;
+            }
+
+            .right-section h3 {
+                font-size: 1.2rem;
+            }
+
+            footer {
+                padding: 30px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sell Excess IT Equipment</a></li>
+                <li><a href="#">Buy Used IT Equipment</a></li>
+                <li><a href="#">IT Asset Disposition</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-content-wrapper">
+            <section class="left-section">
+                <h1>Problems We Solve - Buffalo, NY</h1>
+                <h2>PROBLEMS WE HELP BUSINESSES IN BUFFALO, NY SOLVE</h2>
+                <p>IT services and solutions customized to your company's needs</p>
+                <p>Your company's needs are specific to your organization, so our IT experts craft tailored solutions for every business we partner with in Buffalo, AL on IT asset disposition, data center decommissioning, equipment buyback, electronic recycling and IT equipment sales.</p>
+                <p>If you're relocating, scaling down, upgrading or shutting down operations, we have the expertise and solutions to help with your IT equipment needs, providing insured, certified services led by ITAD experts.</p>
+                <p>Our clients in Buffalo, NY rely on us for quick, accurate price estimates and the most competitive buyback quotes in the area for:</p>
+
+                <h2>GREENTEK SOLUTIONS HAS OVER 30 YEARS OF COMBINED IT EXPERTISE AND OFFERS:</h2>
+                <ul>
+                    <li>IT Asset Recovery</li>
+                    <li>Computer Liquidations</li>
+                    <li>Business Bankruptcy</li>
+                    <li>Business Relocation</li>
+                </ul>
+                <p>If you're expanding or upgrading IT assets, GreenTek Solutions brings competitive pricing on new and refurbished IT equipment. When it's time to purchase IT assets or infrastructure, GreenTek Solutions offers the best prices on all the top names and brands in Buffalo, NY.</p>
+                <p>We do things right and that means GreenTek Solutions is an insured business, protecting clients with everything from data breach and pollution insurance to general liability. We provide extensive process documentation, so you know your data, equipment and facilities are safe and carefully managed based on international certifications and best practices.</p>
+                <p>If you need to upgrade, sell or dispose of your IT assets in Buffalo, AL, chat with our team and get a free, competitive quote. Contact GreenTek Solutions LLC at [PHONE REDACTED] or get in touch with us here</p>
+                <p>Contact GreenTek Solutions LLC today for pricing, answers to questions and details about how we help companies in Buffalo, NY. Get in touch here or call <a href="#">[PHONE REDACTED]</a>.</p>
+            </section>
+
+            <aside class="right-section">
+                <h3>CONTACT US</h3>
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" placeholder="[EMAIL REDACTED]">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" id="phoneNumber" placeholder="[PHONE REDACTED]">
+                        </div>
+                        <div class="form-group">
+                            <label for="equipmentLocation">Equipment Location</label>
+                            <input type="text" id="equipmentLocation" placeholder="Equipment Location">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="comments">Do you have any comment?</label>
+                            <textarea id="comments" placeholder="Write something here..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content-wrapper">
+            <div class="footer-about">
+                <p>GreenTek Solutions is your nationwide partner when it is time to buy, sell, dispose of or recycle your IT assets. With decades of combined ITAD expertise, our team is ready to provide expert-led services, quality products and the most competitive rates available in Buffalo, NY</p>
+            </div>
+            <div class="footer-links">
+                <h4>LINKS</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sell Excess IT Equipment</a></li>
+                    <li><a href="#">Buy Used IT Equipment</a></li>
+                    <li><a href="#">IT Asset Disposition</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>CONTACT</h4>
+                <p><strong>Address:</strong><br>Buffalo, NY</p>
+                <p><strong>Phone:</strong> [PHONE REDACTED]</p>
+                <p><strong>Email:</strong><br>[EMAIL REDACTED]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Greentek Solutions, LLC © 2023</p>
+            <p><a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+</body>
+</html>

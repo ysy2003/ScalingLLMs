@@ -1,0 +1,885 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Starting with the structure:
+
+- The top has a navigation bar with HOME, ABOUT US, CONTACT US (green text).
+- Then a purple banner with "NEWS AND EVENTS" (dropdown) and a search bar on the right.
+- Main content: left side has "McMahon Engineering" as a heading, followed by sections: PROJECT SUMMARY, BACKGROUND, ACTIVITIES, BENEFITS. Right side has a purple box with SUMMARY details and a sidebar with links (CASE STUDIES, etc.).
+- Footer with privacy policy and some blue blocks.
+
+Let's break down each part.
+
+First, the HTML structure:
+
+1. **Header**: 
+   - Top bar: blue square (maybe a logo) on left, navigation links (HOME, ABOUT US, CONTACT US) on right. The navigation links are green.
+   - Below that, a purple banner with "NEWS AND EVENTS" (dropdown) and a search input.
+
+2. **Main content**:
+   - Left column: 
+     - H1: McMahon Engineering
+     - Sections: PROJECT SUMMARY, BACKGROUND, ACTIVITIES, BENEFITS with their content.
+   - Right column:
+     - A purple box with "SUMMARY" and key details (Name, Location, etc.)
+     - Sidebar links: CASE STUDIES, PUBLICATIONS, PROJECTS DIRECTORY, THEMATIC WORKING GROUPS.
+
+3. **Footer**:
+   - "privacy policy" link, three blue blocks, and a small purple box with "Web Design Belfast".
+
+Now, let's check the colors and styles:
+
+- Navigation links: green (probably #008000 or similar)
+- Purple banner: #800080
+- Summary box: light purple (maybe #e6e6ff)
+- Sidebar links: light green background, blue text
+- Footer: blue blocks (solid blue, #0000ff)
+
+Let's outline the HTML structure:
+
+- <header> with top bar (logo, nav) and news banner.
+- <main> with two columns (left content, right sidebar).
+- <footer> with privacy policy and blocks.
+
+Now, CSS:
+
+- Need to set up responsive layout. Probably using flexbox for the main content (two columns).
+- The top navigation: fixed or not? The image shows it as part of the header, so maybe a top bar.
+- The "NEWS AND EVENTS" is a dropdown, so maybe a button with a caret.
+
+Wait, the image shows "NEWS AND EVENTS" with a down arrow, so it's a dropdown menu. So the navigation bar has:
+
+- Left: blue square (logo)
+- Middle: "NEWS AND EVENTS" as a dropdown
+- Right: search bar and navigation links (HOME, ABOUT US, CONTACT US)
+
+Wait, the top bar: the image shows a blue square on the top left, then "HOME", "ABOUT US", "CONTACT US" on the top right. Then below that, a purple banner with "NEWS AND EVENTS" and search.
+
+Wait, looking at the image:
+
+Top part:
+
+- A blue square (logo) on the top left.
+- Then a navigation bar with "HOME", "ABOUT US", "CONTACT US" in green, right-aligned.
+- Below that, a purple banner with "NEWS AND EVENTS" (with a down arrow) on the left, and a search input on the right.
+
+So the header structure:
+
+- <header>
+  - <div class="top-bar"> (blue square, navigation links)
+  - <div class="news-banner"> (NEWS AND EVENTS dropdown, search bar)
+
+Wait, the image shows the top bar as a white background with blue square on left, then navigation links (HOME, etc.) on right. Then below that, a purple banner with "NEWS AND EVENTS" and search.
+
+So:
+
+<header>
+  <div class="top-nav">
+    <div class="logo"> (blue square)
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+Then the news banner:
+
+<div class="news-banner">
+  <div class="news-dropdown">NEWS AND EVENTS ▼</div>
+  <div class="search-bar">
+    <input type="text" placeholder="search the Rural Network">
+    <button>search</button> (but in the image, it's a blue button, maybe a search icon)
+  </div>
+</div>
+
+Wait, the image shows "search the Rural Network" with a blue button (maybe a search icon). So the search bar is a text input with a blue button.
+
+Now, the main content:
+
+- Left column: 
+  - H1: McMahon Engineering
+  - Sections: PROJECT SUMMARY, BACKGROUND, ACTIVITIES, BENEFITS.
+
+- Right column:
+  - A purple box with "SUMMARY" and details (Name, Location, etc.)
+  - Sidebar links: CASE STUDIES, PUBLICATIONS, etc.
+
+The right column has the summary box and the sidebar. So the main content is a two-column layout.
+
+Let's structure the main content:
+
+<main>
+  <div class="content-left">
+    <h1>McMahon Engineering</h1>
+    <section class="project-summary">
+      <h2>PROJECT SUMMARY</h2>
+      <p>To expand and develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products.</p>
+    </section>
+    <section class="background">
+      <h2>BACKGROUND</h2>
+      <p>McMahon Engineering is a successful engineering works which has been established for 25 years. The business is located in a large purpose built shed beside the promoter's home.</p>
+    </section>
+    <section class="activities">
+      <h2>ACTIVITIES</h2>
+      <p>Funded under Axis 3, through SOAR, the promoter received funding towards an aluminium welder and aluminium shaper.</p>
+    </section>
+    <section class="benefits">
+      <h2>BENEFITS</h2>
+      <p>The promoter had enquiries from manufacturers who specialise in the production of aluminium items and the equipment will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+    </section>
+  </div>
+  <div class="content-right">
+    <div class="summary-box">
+      <h3>SUMMARY</h3>
+      <ul>
+        <li><strong>Name:</strong> McMahon Engineering</li>
+        <li><strong>Location:</strong> Armagh</li>
+        <li><strong>County:</strong> Armagh</li>
+        <li><strong>Total Cost:</strong> £ 9,664.00</li>
+        <li><strong>Axis:</strong> AXIS 3 : SOAR</li>
+        <li><a href="#">Visit Web Site</a></li>
+      </ul>
+    </div>
+    <div class="sidebar">
+      <a href="#">CASE STUDIES</a>
+      <a href="#">PUBLICATIONS</a>
+      <a href="#">PROJECTS DIRECTORY</a>
+      <a href="#">THEMATIC WORKING GROUPS</a>
+    </div>
+  </div>
+</main>
+
+Footer:
+
+<footer>
+  <a href="#">privacy policy</a>
+  <div class="footer-blocks">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+  </div>
+  <div class="footer-logo">
+    <div class="footer-logo-box"></div>
+    <p>Web Design Belfast</p>
+  </div>
+</footer>
+
+Now, styling:
+
+- Colors:
+  - Top nav: white background, blue logo (maybe #0000ff), green links (#008000)
+  - News banner: #800080 (purple)
+  - Summary box: #e6e6ff (light purple)
+  - Sidebar links: light green background (#e0ffe0), blue text (#0000ff)
+  - Footer blocks: solid blue (#0000ff)
+  - Footer logo box: light purple (#e6e6ff)
+
+- Layout:
+  - Main content: two columns, left 60%, right 40% (or flexbox with flex: 1)
+  - Sidebar links: each in a separate div with margin.
+
+Let's set up the CSS.
+
+First, reset some margins/paddings.
+
+Then:
+
+-.top-nav: display flex, justify-content space-between, align-items center.
+-.logo: blue square (width 50px, height 50px, background #0000ff)
+-.top-nav nav: ul, li, a: green, no underline.
+-.news-banner: background #800080, color white, display flex, justify-content space-between, align-items center.
+-.news-dropdown: font-size 16px, color white, cursor pointer, maybe with a down arrow (▼)
+-.search-bar: input: white background, border, padding, placeholder color.
+-.search-bar button: blue background, white text.
+
+Main content:
+
+- main: display flex, margin: 20px 0;
+-.content-left: flex: 1, padding-right: 20px;
+-.content-right: flex: 0 0 40%, padding-left: 20px;
+
+Summary box:
+
+-.summary-box: background #e6e6ff, padding: 15px, border: 1px solid #ccc;
+- h3: bold, color #0000ff;
+- ul: list-style none, padding-left: 0;
+- li: margin-bottom: 8px;
+- a: color #0000ff, text-decoration none;
+
+Sidebar:
+
+-.sidebar: display flex, flex-direction column, gap: 10px;
+- a: display block, padding: 10px, background #e0ffe0, color #0000ff, text-decoration none;
+
+Footer:
+
+- footer: display flex, justify-content space-between, align-items center, padding: 20px;
+-.footer-blocks: display flex, gap: 20px;
+-.block: width 100px, height 50px, background #0000ff;
+-.footer-logo: display flex, flex-direction column, align-items center;
+-.footer-logo-box: width 100px, height 50px, background #e6e6ff;
+- p: color #0000ff, font-size 12px;
+
+Now, let's code this step by step.
+
+First, the HTML structure:
+
+- Start with <!DOCTYPE html>, <html>, <head> with <style> block, then <body>.
+
+In the head:
+
+- meta tags for charset, viewport.
+- title: "McMahon Engineering - Rural Network"
+
+In the body:
+
+- header with top nav and news banner.
+- main with content-left and content-right.
+- footer.
+
+Let's code the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McMahon Engineering - Rural Network</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-nav">
+      <div class="logo"></div>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="news-banner">
+      <div class="news-dropdown">NEWS AND EVENTS ▼</div>
+      <div class="search-bar">
+        <input type="text" placeholder="search the Rural Network">
+        <button>🔍</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="content-left">
+      <h1>McMahon Engineering</h1>
+      <section class="project-summary">
+        <h2>PROJECT SUMMARY</h2>
+        <p>To expand and develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products.</p>
+      </section>
+      <section class="background">
+        <h2>BACKGROUND</h2>
+        <p>McMahon Engineering is a successful engineering works which has been established for 25 years. The business is located in a large purpose built shed beside the promoter's home.</p>
+      </section>
+      <section class="activities">
+        <h2>ACTIVITIES</h2>
+        <p>Funded under Axis 3, through SOAR, the promoter received funding towards an aluminium welder and aluminium shaper.</p>
+      </section>
+      <section class="benefits">
+        <h2>BENEFITS</h2>
+        <p>The promoter had enquiries from manufacturers who specialise in the production of aluminium items and the equipment will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+      </section>
+    </div>
+    <div class="content-right">
+      <div class="summary-box">
+        <h3>SUMMARY</h3>
+        <ul>
+          <li><strong>Name:</strong> McMahon Engineering</li>
+          <li><strong>Location:</strong> Armagh</li>
+          <li><strong>County:</strong> Armagh</li>
+          <li><strong>Total Cost:</strong> £ 9,664.00</li>
+          <li><strong>Axis:</strong> AXIS 3 : SOAR</li>
+          <li><a href="#">Visit Web Site</a></li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <a href="#">CASE STUDIES</a>
+        <a href="#">PUBLICATIONS</a>
+        <a href="#">PROJECTS DIRECTORY</a>
+        <a href="#">THEMATIC WORKING GROUPS</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <a href="#">privacy policy</a>
+    <div class="footer-blocks">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-box"></div>
+      <p>Web Design Belfast</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Reset margins/paddings for body, html.
+- Set font-family to Arial, sans-serif.
+- Colors:
+  - top-nav: white background.
+  - logo: blue (background #0000ff), width 50px, height 50px.
+  - nav links: green (#008000), no underline.
+  - news-banner: background #800080, color white.
+  - news-dropdown: font-size 16px, color white, cursor pointer.
+  - search-bar: input: white background, border, padding, placeholder color.
+  - search button: blue background, white text.
+  - main: margin 20px 0, display flex.
+  - content-left: flex 1, padding-right 20px.
+  - content-right: flex 0 0 40%, padding-left 20px.
+  - summary-box: background #e6e6ff, padding 15px, border 1px solid #ccc.
+  - sidebar: display flex, flex-direction column, gap 10px.
+  - sidebar a: background #e0ffe0, color #0000ff, padding 10px, text-decoration none.
+  - footer: display flex, justify-content space-between, align-items center, padding 20px.
+  - footer-blocks: display flex, gap 20px.
+  - block: width 100px, height 50px, background #0000ff.
+  - footer-logo: display flex, flex-direction column, align-items center.
+  - footer-logo-box: width 100px, height 50px, background #e6e6ff.
+  - footer p: color #0000ff, font-size 12px.
+
+Let's write the CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  background-color: #0000ff;
+}
+
+.top-nav nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-nav nav ul li {
+  margin-left: 20px;
+}
+
+.top-nav nav ul li a {
+  color: #008000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.news-banner {
+  background-color: #800080;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.news-dropdown {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.search-bar button {
+  background-color: #0000ff;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  margin: 20px 0;
+  gap: 20px;
+}
+
+.content-left {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.content-right {
+  flex: 0 0 40%;
+  padding-left: 20px;
+}
+
+.summary-box {
+  background-color: #e6e6ff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.summary-box h3 {
+  font-weight: bold;
+  color: #0000ff;
+}
+
+.summary-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-box li {
+  margin-bottom: 8px;
+}
+
+.summary-box li strong {
+  color: #0000ff;
+}
+
+.summary-box li a {
+  color: #0000ff;
+  text-decoration: none;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  background-color: #e0ffe0;
+  color: #0000ff;
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.footer-blocks {
+  display: flex;
+  gap: 20px;
+}
+
+.block {
+  width: 100px;
+  height: 50px;
+  background-color: #0000ff;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo-box {
+  width: 100px;
+  height: 50px;
+  background-color: #e6e6ff;
+}
+
+.footer-logo p {
+  color: #0000ff;
+  font-size: 12px;
+}
+
+Now, check if all elements are covered.
+
+- The logo is a blue square (correct).
+- Navigation links are green (correct).
+- News banner is purple, with "NEWS AND EVENTS" and search bar (correct).
+- Main content: left column with sections, right column with summary box and sidebar (correct).
+- Footer: privacy policy link, three blue blocks, and the logo box with "Web Design Belfast" (correct).
+
+Check the colors:
+
+- Top nav: white background.
+- News banner: #800080 (purple).
+- Summary box: #e6e6ff (light purple).
+- Sidebar links: #e0ffe0 (light green) background, #0000ff (blue) text.
+- Footer blocks: #0000ff (blue).
+- Footer logo box: #e6e6ff (light purple).
+
+Also, the search bar has a blue button (the button is blue, as per the image).
+
+The "NEWS AND EVENTS" has a down arrow (▼), which is included in the HTML as "NEWS AND EVENTS ▼".
+
+The summary box has the details as in the image.
+
+The sidebar links are correctly listed.
+
+The footer has "privacy policy" link, three blue blocks, and the logo box with "Web Design Belfast".
+
+Now, check for any missing elements.
+
+- The image shows the search bar with a blue button (the button is a blue square with a magnifying glass icon, but in the code, we used "🔍" as the button text, which is a common icon for search).
+
+- The "Visit Web Site" link is in the summary box.
+
+- The "Axis: AXIS 3 : SOAR" is correctly written.
+
+- The total cost is £ 9,664.00.
+
+- The background sections have the correct text.
+
+Now, make sure the HTML is valid and closed.
+
+Check the structure:
+
+- All tags are properly closed.
+
+- The style block is inside the head.
+
+- The body is properly structured.
+
+Now, write the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McMahon Engineering - Rural Network</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+
+   .top-nav {
+      display: flex;
+      align-items: center;
+    }
+
+   .logo {
+      width: 50px;
+      height: 50px;
+      background-color: #0000ff;
+    }
+
+   .top-nav nav ul {
+      display: flex;
+      list-style: none;
+      margin-left: 20px;
+    }
+
+   .top-nav nav ul li {
+      margin-left: 20px;
+    }
+
+   .top-nav nav ul li a {
+      color: #008000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+   .news-banner {
+      background-color: #800080;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+   .news-dropdown {
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+   .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+   .search-bar input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-right: 5px;
+      width: 250px;
+    }
+
+   .search-bar button {
+      background-color: #0000ff;
+      color: white;
+      border: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    main {
+      display: flex;
+      margin: 20px 0;
+      gap: 20px;
+    }
+
+   .content-left {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+   .content-right {
+      flex: 0 0 40%;
+      padding-left: 20px;
+    }
+
+    h1 {
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+   .summary-box {
+      background-color: #e6e6ff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+   .summary-box h3 {
+      font-weight: bold;
+      color: #0000ff;
+      margin-bottom: 10px;
+    }
+
+   .summary-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+   .summary-box li {
+      margin-bottom: 8px;
+    }
+
+   .summary-box li strong {
+      color: #0000ff;
+    }
+
+   .summary-box li a {
+      color: #0000ff;
+      text-decoration: none;
+    }
+
+   .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+   .sidebar a {
+      display: block;
+      padding: 10px;
+      background-color: #e0ffe0;
+      color: #0000ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-top: 1px solid #eee;
+    }
+
+   .footer-blocks {
+      display: flex;
+      gap: 20px;
+    }
+
+   .block {
+      width: 100px;
+      height: 50px;
+      background-color: #0000ff;
+    }
+
+   .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+   .footer-logo-box {
+      width: 100px;
+      height: 50px;
+      background-color: #e6e6ff;
+    }
+
+   .footer-logo p {
+      color: #0000ff;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+   .privacy-policy {
+      color: #0000ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-nav">
+      <div class="logo"></div>
+      <nav>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="news-banner">
+      <div class="news-dropdown">NEWS AND EVENTS ▼</div>
+      <div class="search-bar">
+        <input type="text" placeholder="search the Rural Network">
+        <button>🔍</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="content-left">
+      <h1>McMahon Engineering</h1>
+      <section class="project-summary">
+        <h2>PROJECT SUMMARY</h2>
+        <p>To expand and develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products.</p>
+      </section>
+      <section class="background">
+        <h2>BACKGROUND</h2>
+        <p>McMahon Engineering is a successful engineering works which has been established for 25 years. The business is located in a large purpose built shed beside the promoter's home.</p>
+      </section>
+      <section class="activities">
+        <h2>ACTIVITIES</h2>
+        <p>Funded under Axis 3, through SOAR, the promoter received funding towards an aluminium welder and aluminium shaper.</p>
+      </section>
+      <section class="benefits">
+        <h2>BENEFITS</h2>
+        <p>The promoter had enquiries from manufacturers who specialise in the production of aluminium items and the equipment will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+      </section>
+    </div>
+    <div class="content-right">
+      <div class="summary-box">
+        <h3>SUMMARY</h3>
+        <ul>
+          <li><strong>Name:</strong> McMahon Engineering</li>
+          <li><strong>Location:</strong> Armagh</li>
+          <li><strong>County:</strong> Armagh</li>
+          <li><strong>Total Cost:</strong> £ 9,664.00</li>
+          <li><strong>Axis:</strong> AXIS 3 : SOAR</li>
+          <li><a href="#">Visit Web Site</a></li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <a href="#">CASE STUDIES</a>
+        <a href="#">PUBLICATIONS</a>
+        <a href="#">PROJECTS DIRECTORY</a>
+        <a href="#">THEMATIC WORKING GROUPS</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <a href="#" class="privacy-policy">privacy policy</a>
+    <div class="footer-blocks">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+    <div class="footer-logo">
+      <div class="footer-logo-box"></div>
+      <p>Web Design Belfast</p>
+    </div>
+  </footer>
+</body>
+</html>
+```

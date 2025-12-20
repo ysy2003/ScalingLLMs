@@ -1,0 +1,619 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the image exactly. First, I need to analyze the structure.
+
+The image shows a Wikipedia-style template page. The main elements are:
+
+- A header with "Template : Incel Forums" (note the colon, but the image has "Template : Incel Forums" — wait, the image's title is "Template : Incel Forums", so the h1 should be that.
+- A note below the title: "ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section."
+- A green box titled "Incel Forum Navbox" with a table inside. The table has three rows, each with a left cell (the forum name) and a right cell (list of users with labels like (mod), (user), etc.)
+- At the bottom, a category line: "Category : Nav box template"
+
+Let's break down the HTML structure.
+
+First, the HTML5 document. The head should have the style block. The body will have:
+
+- h1 for the title
+- p for the note
+- a div or section for the navbox (the green box)
+- a p for the category
+
+Now, the navbox is a green box with a table. The table has three rows. Each row has two columns: left is the forum name (Incel.is, Love-shy.net, Social Anxiety Support), right is the list of users.
+
+Looking at the image:
+
+- The navbox has a green background. The title "Incel Forum Navbox" is centered in the green header.
+- The table inside has a green border, and the cells have white background.
+
+Let's check the colors. The green in the navbox: the image shows a dark green (maybe #006600 or similar). The text in the navbox: the forum names are blue (Incel.is, Love-shy.net, Social Anxiety Support), and the user list has different colors: some are red (like "Jack Peterson (user/banned)" — wait, in the image, "Jack Peterson" is red, others are black? Wait, the image shows:
+
+In the first row (Incel.is), the users are listed with some in red, some in black. For example, "SergeantIncel (former admin)" is black, "AmiJustDreaming (mod)" is red? Wait, no, looking at the image:
+
+Wait, the image's first row under Incel.is:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEEtandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEE (user/banned) • BummerDrummer (user) • mylifetrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+
+Wait, the colors: in the image, some names are red, some black. For example, "Jack Peterson" is red, "BrendioEE" is black? Wait, maybe the red is for banned users? Let's check the image again. The user list has some names in red, some in black. For example, "Jack Peterson (user/banned)" is red, while others like "SergeantIncel (former admin)" is black. So the red is for users who are banned or something.
+
+But for the code, we need to replicate the visual. So the text colors: the forum names (Incel.is, Love-shy.net, Social Anxiety Support) are blue. The user list: some are red, some black. Let's see the image:
+
+In the first row (Incel.is), the first few names (SergeantIncel, Master, Fat Link, AmiJustDreaming, Knajid, Blickpall) are black, then Mahlo (user) is black, Jack Peterson (user/banned) is red, Grotesque Subhuman (user/banned) is red, etc. Wait, maybe the red is for "user/banned" or "user" with some status. But the exact color scheme: the image shows that the forum names are blue, and the user list has some red and some black.
+
+Wait, the image's user list: for example, "Jack Peterson (user/banned)" is red, while "SergeantIncel (former admin)" is black. So perhaps the red is for users who are banned or have a specific status. But for the code, we need to match the visual. So in the HTML, we can use inline styles for the text colors.
+
+But first, let's structure the HTML.
+
+The main elements:
+
+- The page has a header with "Template : Incel Forums" (h1)
+- A paragraph with the note
+- A div with class "navbox" (or similar) that has a green background, containing a table with the forum names and user lists.
+- A paragraph for the category.
+
+Now, the CSS:
+
+- The body should have a light background (like the image's background, which is white).
+- The h1: font size, maybe bold.
+- The note paragraph: standard text.
+- The navbox: a green background (let's say #006600), with a white border, and the title "Incel Forum Navbox" centered in the top of the navbox.
+- The table inside the navbox: the table should have a border, and the cells should have white background. The forum names (left cells) should be blue, and the user lists (right cells) should have some text in red and black.
+
+Wait, the image shows the navbox as a green box with a table. The table has three rows. Each row has two columns: left is the forum name (Incel.is, Love-shy.net, Social Anxiety Support), right is the list of users.
+
+Let's check the image's table structure:
+
+- First row: left cell "Incel.is", right cell with the list of users.
+- Second row: left cell "Love-shy.net", right cell with "ieatboogers (creator/admin/historian)".
+- Third row: left cell "Social Anxiety Support", right cell with the list of users.
+
+So the table has 3 rows, 2 columns.
+
+Now, the CSS for the navbox:
+
+- The navbox container (the green box) should have a background color of #006600 (dark green), padding, border (maybe 1px solid white), and rounded corners? The image shows a rectangular box with a green background.
+
+The title "Incel Forum Navbox" is centered in the top of the navbox. So the navbox should have a header with that title, then the table.
+
+Wait, the image shows the navbox as a single box with the title at the top, then the table. So the structure is:
+
+<div class="navbox">
+  <h2>Incel Forum Navbox</h2>
+  <table>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+   ...
+  </table>
+</div>
+
+But the image's navbox has the title as part of the box. So the title is inside the navbox, centered.
+
+So the navbox div should have the title as a heading inside it, then the table.
+
+Now, the colors:
+
+- The background of the navbox: #006600 (dark green)
+- The text for the title: white, centered.
+- The table inside: the cells have white background, and the text in the left cells (forum names) is blue, the right cells (user lists) have some text in red and some in black.
+
+Let's check the image's user list:
+
+For Incel.is, the user list has:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEEtandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEE (user/banned) • BummerDrummer (user) • mylifetrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+
+In the image, "Jack Peterson (user/banned)" is red, "Grotesque Subhuman (user/banned)" is red, etc. So perhaps the red is for users who are banned. So in the code, we can set the text color for those entries to red.
+
+But how to determine which ones are red? Looking at the image, the user list has some entries in red. For example, "Jack Peterson (user/banned)" is red, while "SergeantIncel (former admin)" is black. So the red is for "user/banned" or "user" with a specific status.
+
+But for the code, we need to replicate the visual. So in the HTML, we can use inline styles for the text color. For example, for the entries that are red, we can set color: red; for others, color: black.
+
+But the problem is that the image shows the exact text, so we need to copy the text exactly as in the image.
+
+Wait, the image's text for Incel.is:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEEtandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEE (user/banned) • BummerDrummer (user) • mylifetrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+
+Wait, the image shows "Jack Peterson (user/banned)" as red, and others like "SergeantIncel (former admin)" as black. So the red is for entries where the status is "user/banned" or "user" with a ban. But how to know which ones are red? Let's check the image again.
+
+Looking at the image:
+
+- "SergeantIncel (former admin)" is black.
+- "Master (former admin)" is black.
+- "Fat Link (mod)" is black.
+- "AmiJustDreaming (mod)" is black.
+- "Knajid (mod)" is black.
+- "Blickpall (ex-mod)" is black.
+- "Mahlo (user)" is black.
+- "Jack Peterson (user/banned)" is red.
+- "Grotesque Subhuman (user/banned)" is red.
+- "itsoVER (user/banned)" is red.
+- "NKL (user)" is black.
+- "NEEtandTidy (user/banned)" is red.
+- "jet112 (user)" is black.
+- "Limerencel (user)" is black.
+- "BrendioEE (user/banned)" is red.
+- "BummerDrummer (user)" is black.
+- "mylifetrash (user/banned)" is red.
+- "fukurou (user/banned)" is red.
+- "RegisterUserName (user/banned)" is red.
+- "Ban appeal" is black.
+
+So the red entries are those with "user/banned" in the status. So in the code, for those entries, we can set color: red; for others, color: black.
+
+But how to do that in HTML? We can use inline styles for each entry. For example:
+
+<span style="color: red;">Jack Peterson (user/banned)</span> •...
+
+But that's tedious. Alternatively, we can use CSS classes. But since the task is to recreate the visual exactly, we need to match the text colors as in the image.
+
+Alternatively, maybe the red is for all "user/banned" entries, and black for others. So in the code, we can split the text into parts where the status is "user/banned" and set those to red.
+
+But the problem is that the image shows the exact text, so we need to copy the text exactly, and for the entries that are red, we need to set their color to red.
+
+Let's list the entries for Incel.is:
+
+1. SergeantIncel (former admin) → black
+2. Master (former admin) → black
+3. Fat Link (mod) → black
+4. AmiJustDreaming (mod) → black
+5. Knajid (mod) → black
+6. Blickpall (ex-mod) → black
+7. Mahlo (user) → black
+8. Jack Peterson (user/banned) → red
+9. Grotesque Subhuman (user/banned) → red
+10. itsoVER (user/banned) → red
+11. NKL (user) → black
+12. NEEtandTidy (user/banned) → red
+13. jet112 (user) → black
+14. Limerencel (user) → black
+15. BrendioEE (user/banned) → red
+16. BummerDrummer (user) → black
+17. mylifetrash (user/banned) → red
+18. fukurou (user/banned) → red
+19. RegisterUserName (user/banned) → red
+20. Ban appeal → black
+
+So for entries 8,9,10,12,15,17,18,19, we need to set color: red; others black.
+
+But how to do this in HTML? We can use inline styles for each of those entries.
+
+Similarly for the other rows.
+
+Let's check the second row (Love-shy.net):
+
+ieatboogers (creator/admin/historian) → red? Wait, in the image, "ieatboogers (creator/admin/historian)" is red. So that's red.
+
+Third row (Social Anxiety Support):
+
+Chrisa (founder) → black
+Andrew "Drew" Mohebbi (third admin/dead) → black
+wmU'14 (member) → red
+ravens (member) → black
+DesiseAfterAll (banned) → red
+
+So for the third row, "wmU'14 (member)" and "DesiseAfterAll (banned)" are red.
+
+Now, let's structure the HTML.
+
+First, the HTML5 document.
+
+The head will have the style block.
+
+The body:
+
+- h1: "Template : Incel Forums"
+- p: the note
+- div with class "navbox" (or similar) containing the title and table.
+- p: "Category : Nav box template"
+
+Now, the CSS:
+
+- body: font-family, margin, padding.
+- h1: font-size, margin.
+- p: margin, font-size.
+-.navbox: background-color, border, padding, margin, etc.
+-.navbox h2: text-align, color, font-size.
+- table: border-collapse, width, etc.
+- td: padding, etc.
+- For the user list entries that are red, we can use inline styles or classes. But since the task is to recreate exactly, we can use inline styles for each entry.
+
+Wait, but the problem is that the image shows the exact text, so we need to copy the text exactly, and for the red entries, set their color to red.
+
+Let's start coding.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template : Incel Forums</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <h1>Template : Incel Forums</h1>
+  <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+  <div class="navbox">
+    <h2>Incel Forum Navbox</h2>
+    <table>
+      <tr>
+        <td><strong>Incel.is</strong></td>
+        <td>
+          SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • <span style="color: red;">Jack Peterson (user/banned)</span> • <span style="color: red;">Grotesque Subhuman (user/banned)</span> • <span style="color: red;">itsoVER (user/banned)</span> • NKL (user) • <span style="color: red;">NEEtandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span style="color: red;">BrendioEE (user/banned)</span> • BummerDrummer (user) • <span style="color: red;">mylifetrash (user/banned)</span> • <span style="color: red;">fukurou (user/banned)</span> • <span style="color: red;">RegisterUserName (user/banned)</span> | Ban appeal
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Love-shy.net</strong></td>
+        <td>
+          <span style="color: red;">ieatboogers (creator/admin/historian)</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Social Anxiety Support</strong></td>
+        <td>
+          Chrisa (founder) • Andrew "Drew" Mohebbi (third admin/dead) • <span style="color: red;">wmU'14 (member)</span> • ravens (member) • <span style="color: red;">DesiseAfterAll (banned)</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p>Category : Nav box template</p>
+</body>
+</html>
+
+Wait, but the image shows the forum names (Incel.is, Love-shy.net, Social Anxiety Support) as blue. So in the code, the <strong> elements for the forum names should be blue. So we need to set color: blue; for those.
+
+So for the left cells (td with forum names), set color: blue.
+
+So in the CSS, we can set:
+
+.navbox td:first-child {
+  color: blue;
+}
+
+But let's check the image: the forum names are blue. So the left cells (the first column of the table) should have blue text.
+
+So the CSS for the navbox table:
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+td {
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+.navbox td:first-child {
+  color: blue;
+  font-weight: bold;
+}
+
+But the image shows the forum names as blue, so that's correct.
+
+Also, the navbox has a green background. So the.navbox div should have background-color: #006600; (dark green).
+
+The title "Incel Forum Navbox" is white, centered.
+
+So the CSS for.navbox h2:
+
+.navbox h2 {
+  text-align: center;
+  color: white;
+  background-color: #006600;
+  padding: 5px;
+  margin: 0;
+}
+
+Wait, but the image shows the title as part of the green box, so the h2 is inside the navbox, with the same green background.
+
+So the.navbox div has a green background, and the h2 is inside it, so the h2's background is the same as the navbox.
+
+So the CSS for.navbox:
+
+.navbox {
+  background-color: #006600;
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.navbox h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 5px 0;
+}
+
+Now, the table inside the navbox: the table should have a white background for the cells, but the image shows the cells as white. So the table cells should have white background.
+
+So the CSS for the table:
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+  border: 1px solid #000;
+  background-color: white;
+}
+
+Now, the forum names (left cells) are blue, so:
+
+.navbox td:first-child {
+  color: blue;
+  font-weight: bold;
+}
+
+The user list (right cells) have some entries in red. So for those entries, we need to set color: red;.
+
+But how to do that without inline styles? Well, the image shows the exact text, so we can use inline styles for the specific entries that are red.
+
+Alternatively, we can use CSS classes, but since the task is to recreate the visual exactly, and the image shows specific entries in red, we need to apply the color to those entries.
+
+Let's list all the red entries:
+
+For Incel.is:
+
+- Jack Peterson (user/banned)
+- Grotesque Subhuman (user/banned)
+- itsoVER (user/banned)
+- NEEtandTidy (user/banned)
+- BrendioEE (user/banned)
+- mylifetrash (user/banned)
+- fukurou (user/banned)
+- RegisterUserName (user/banned)
+
+For Love-shy.net:
+
+- ieatboogers (creator/admin/historian)
+
+For Social Anxiety Support:
+
+- wmU'14 (member)
+- DesiseAfterAll (banned)
+
+So in the HTML, for each of these, we can wrap them in a span with style="color: red;"
+
+Now, let's check the image's text for Incel.is:
+
+The text is: "SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEEtandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEE (user/banned) • BummerDrummer (user) • mylifetrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal"
+
+Wait, the image shows "Jack Peterson (user/banned)" as red, so we need to wrap that in a span with red color.
+
+Similarly for the others.
+
+Now, let's code the HTML with the correct text and colors.
+
+Also, the image shows the "•" as bullet points. So we need to include those.
+
+Now, the CSS for the body:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 0.9em;
+}
+
+Now, let's put it all together.
+
+First, the HTML structure:
+
+- The h1 is "Template : Incel Forums"
+- The p is the note
+- The navbox div with the h2 and table
+- The p for the category
+
+Now, the CSS:
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f9f9f9;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 10px 0;
+    font-size: 0.9em;
+  }
+ .navbox {
+    background-color: #006600;
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+ .navbox h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 5px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td {
+    padding: 5px;
+    border: 1px solid #000;
+    background-color: white;
+  }
+ .navbox td:first-child {
+    color: blue;
+    font-weight: bold;
+  }
+</style>
+
+Now, the table rows:
+
+First row:
+
+<td><strong>Incel.is</strong></td>
+<td>
+  SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • <span style="color: red;">Jack Peterson (user/banned)</span> • <span style="color: red;">Grotesque Subhuman (user/banned)</span> • <span style="color: red;">itsoVER (user/banned)</span> • NKL (user) • <span style="color: red;">NEEtandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span style="color: red;">BrendioEE (user/banned)</span> • BummerDrummer (user) • <span style="color: red;">mylifetrash (user/banned)</span> • <span style="color: red;">fukurou (user/banned)</span> • <span style="color: red;">RegisterUserName (user/banned)</span> | Ban appeal
+</td>
+
+Second row:
+
+<td><strong>Love-shy.net</strong></td>
+<td>
+  <span style="color: red;">ieatboogers (creator/admin/historian)</span>
+</td>
+
+Third row:
+
+<td><strong>Social Anxiety Support</strong></td>
+<td>
+  Chrisa (founder) • Andrew "Drew" Mohebbi (third admin/dead) • <span style="color: red;">wmU'14 (member)</span> • ravens (member) • <span style="color: red;">DesiseAfterAll (banned)</span>
+</td>
+
+Now, check the image for the exact text. For example, in the first row, the user list has "Blickpall (ex-mod) • • Mahlo (user)" — there's a double bullet point? Wait, the image shows "Blickpall (ex-mod) • • Mahlo (user)" — so there's a space between the bullets. So we need to include that.
+
+Also, the image shows "NEEtandTidy (user/banned)" — note the typo: "NEEtandTidy" vs "NEEtandTidy" — wait, the image shows "NEEtandTidy", so we need to copy that.
+
+Now, let's check the image's text for Incel.is:
+
+The user list is:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEEtandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEE (user/banned) • BummerDrummer (user) • mylifetrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+
+Yes, so the "• •" is present.
+
+Now, the third row for Social Anxiety Support:
+
+Chrisa (founder) • Andrew "Drew" Mohebbi (third admin/dead) • wmU'14 (member) • ravens (member) • DesiseAfterAll (banned)
+
+In the image, "wmU'14 (member)" is red, and "DesiseAfterAll (banned)" is red.
+
+Now, let's code the HTML with all these details.
+
+Also, the image shows the "Incel Forum Navbox" title as part of the green box, so the h2 is inside the navbox.
+
+Now, let's write the complete HTML.
+
+Check for any missing elements:
+
+- The body has the h1, p, navbox, p.
+- The navbox has the h2 and table.
+- The table has three rows.
+- The text is exactly as in the image, with the correct colors.
+
+Now, let's put it all together.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template : Incel Forums</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+   .navbox {
+      background-color: #006600;
+      border: 1px solid #000;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+   .navbox h2 {
+      text-align: center;
+      color: white;
+      font-size: 1.5em;
+      margin: 0;
+      padding: 5px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 5px;
+      border: 1px solid #000;
+      background-color: white;
+    }
+   .navbox td:first-child {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Template : Incel Forums</h1>
+  <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+  <div class="navbox">
+    <h2>Incel Forum Navbox</h2>
+    <table>
+      <tr>
+        <td><strong>Incel.is</strong></td>
+        <td>
+          SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • Blickpall (ex-mod) • • Mahlo (user) • <span style="color: red;">Jack Peterson (user/banned)</span> • <span style="color: red;">Grotesque Subhuman (user/banned)</span> • <span style="color: red;">itsoVER (user/banned)</span> • NKL (user) • <span style="color: red;">NEEtandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span style="color: red;">BrendioEE (user/banned)</span> • BummerDrummer (user) • <span style="color: red;">mylifetrash (user/banned)</span> • <span style="color: red;">fukurou (user/banned)</span> • <span style="color: red;">RegisterUserName (user/banned)</span> | Ban appeal
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Love-shy.net</strong></td>
+        <td>
+          <span style="color: red;">ieatboogers (creator/admin/historian)</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Social Anxiety Support</strong></td>
+        <td>
+          Chrisa (founder) • Andrew "Drew" Mohebbi (third admin/dead) • <span style="color: red;">wmU'14 (member)</span> • ravens (member) • <span style="color: red;">DesiseAfterAll (banned)</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p>Category : Nav box template</p>
+</body>
+</html>
+```

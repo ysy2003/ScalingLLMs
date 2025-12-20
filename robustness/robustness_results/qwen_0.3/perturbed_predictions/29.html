@@ -1,0 +1,889 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Looking at the image:
+
+- The top has a navigation bar with three sections: "Info for Police Officers", "Same Name Campaign", "About the Clinic", "Resources". Wait, the image shows "Info for Police Officers" and "Same Name Campaign" on the left, "About the Clinic" and "Resources" on the right. Wait, the image's top navigation: the left side has "Info for Police Officers" and "Same Name Campaign" (maybe two links), and the right side has "About the Clinic" and "Resources". Wait, the image shows:
+
+Top bar: 
+- Left: "Info for Police Officers" and "Same Name Campaign" (two links)
+- Right: "About the Clinic" and "Resources" (two links)
+
+Then below that, there's a section titled "Healthy Sexuality And Pregnancy".
+
+Then two subsections: "Websites on Healthy Sexuality" and "Websites on Pregnancy", each with links and descriptions.
+
+Left sidebar: There's a vertical menu with "Syndrome" and "A" (maybe "A" is part of "Syndrome"? Wait, the image shows "Syndrome" and "A" (maybe "A" is a link, like "A" for something else). Wait, the left sidebar has "Syndrome" and "A" (maybe "A" is a typo or part of another link). Wait, the image shows:
+
+Left sidebar:
+- "Syndrome" (blue text)
+- "A" (blue text, maybe "A" is a link, like "A" for "About" or something else)
+
+Wait, the image's left side has a vertical menu. Let's check the image again.
+
+The image shows:
+
+Top: blue bar on the left (maybe a logo area, but the image has a blue rectangle on the top left, but in the HTML, maybe that's a background color).
+
+Wait, the image's structure:
+
+- Top navigation: two columns. Left column has "Info for Police Officers" and "Same Name Campaign" (two links). Right column has "About the Clinic" and "Resources" (two links). All in blue text.
+
+- Then a main content area with the title "Healthy Sexuality And Pregnancy".
+
+- Then two sections: "Websites on Healthy Sexuality" with two links (www.sexanddu.ca and www.teenhealthsource.com), each with a description.
+
+- Then "Websites on Pregnancy" with two links (www.toronto.ca/health/pregnancy and www.marchofdimes.com), each with a description.
+
+- Left sidebar: vertical menu with "Syndrome" and "A" (maybe "A" is a link, like "A" for "About" or "A" as a section). Wait, the image shows "Syndrome" and "A" (the "A" is blue, so a link).
+
+- Footer: copyright info, contact info (email, phone, fax), and a URL.
+
+Now, let's map this to HTML structure.
+
+First, the HTML5 structure:
+
+- <html>
+  - <head>
+    - <style> (responsive CSS)
+  - <body>
+    - Top navigation bar (two columns: left and right)
+    - Left sidebar (vertical menu)
+    - Main content area (with the title and sections)
+    - Footer
+
+Wait, the image shows a left sidebar. Let's check the image again. The left side has a vertical menu. The image shows:
+
+Left sidebar:
+- "Syndrome" (blue text)
+- "A" (blue text)
+
+So the left sidebar is a vertical list of links.
+
+The main content is on the right.
+
+Top navigation: two columns. Let's see the image's top: the top bar has "Info for Police Officers" and "Same Name Campaign" on the left, "About the Clinic" and "Resources" on the right. So the top navigation is a horizontal bar with two columns.
+
+Now, let's think about the CSS.
+
+The image has a blue background on the top left (maybe a logo area), but in the HTML, perhaps the top navigation has a background color. Wait, the image's top has a blue rectangle on the left (maybe a logo), but the navigation links are blue text.
+
+Wait, the image shows:
+
+- Top: a blue bar on the left (maybe a logo), then the navigation links.
+
+But in the provided image, the top navigation is:
+
+Left side: "Info for Police Officers" and "Same Name Campaign" (two links, blue text)
+
+Right side: "About the Clinic" and "Resources" (two links, blue text)
+
+So the top navigation is a horizontal bar with two columns. Let's structure it as a <div> with two <div>s: left and right.
+
+Now, the left sidebar: vertical menu. The image shows "Syndrome" and "A" (blue text). So a <nav> with links.
+
+Main content: the title "Healthy Sexuality And Pregnancy", then two sections.
+
+Footer: copyright, contact info.
+
+Now, let's outline the HTML structure.
+
+1. <html>
+2. <head>
+   - <meta charset="UTF-8">
+   - <title>Healthy Sexuality And Pregnancy</title>
+   - <style> (responsive CSS)
+3. <body>
+   - Top navigation bar (two columns)
+   - Left sidebar (vertical menu)
+   - Main content area
+   - Footer
+
+Now, the CSS needs to be responsive. Let's think about the layout.
+
+The image shows a two-column layout: left sidebar and main content. But the top navigation is horizontal.
+
+Wait, the image's structure:
+
+- Top: horizontal navigation (two columns: left and right)
+- Left: vertical sidebar (menu)
+- Right: main content
+
+So the body has a container with two columns: left (sidebar) and right (main content).
+
+But the top navigation is above the sidebar and main content.
+
+Wait, the image shows the top navigation as a horizontal bar, then below that, the left sidebar and main content.
+
+So the structure:
+
+- <header> (top navigation)
+- <div class="container"> (sidebar and main content)
+  - <aside> (sidebar)
+  - <main> (main content)
+- <footer>
+
+Now, let's check the image's elements:
+
+Top navigation:
+
+- Left: "Info for Police Officers", "Same Name Campaign"
+- Right: "About the Clinic", "Resources"
+
+So the top navigation is a <nav> with two columns. Let's use a flex container for the top navigation.
+
+Left sidebar:
+
+- "Syndrome" (link)
+- "A" (link)
+
+Main content:
+
+- Title: "Healthy Sexuality And Pregnancy"
+- Section 1: "Websites on Healthy Sexuality" with two links and descriptions
+- Section 2: "Websites on Pregnancy" with two links and descriptions
+
+Footer:
+
+- Copyright: "©2012-2023 The Dalglish Family 22q Clinic. All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network."
+- Contact info: [EMAIL REDACTED], Phone [PHONE REDACTED], Fax [PHONE REDACTED], URL
+
+Now, let's code the HTML.
+
+First, the top navigation:
+
+The image shows the top navigation as a horizontal bar. Let's create a <nav> with two columns. The left column has two links, the right column has two links.
+
+In the image, the top navigation links are blue text. So the CSS for the links should be blue.
+
+Now, the left sidebar: vertical menu. The image shows "Syndrome" and "A" as links. So a <nav> with <a> tags.
+
+Main content: the title is bold, then the sections.
+
+Now, the CSS:
+
+- The body should have a font, maybe Arial or sans-serif.
+- The top navigation: flex container, two columns. Left and right.
+- The sidebar: float left or flex column.
+- The main content: float right or flex.
+
+Wait, the image shows the sidebar on the left, main content on the right. So the container should have two columns: sidebar (left) and main (right).
+
+Let's structure the body:
+
+<body>
+  <header>
+    <nav>
+      <div class="top-nav-left">
+        <a href="#">Info for Police Officers</a>
+        <a href="#">Same Name Campaign</a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#">About the Clinic</a>
+        <a href="#">Resources</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <a href="#">Syndrome</a>
+        <a href="#">A</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section>
+        <h2>Websites on Healthy Sexuality</h2>
+        <a href="www.sexanddu.ca">www.sexanddu.ca</a>
+        <p>This website offers information on sexual health for teens, adults, parents and professionals.</p>
+        <a href="www.teenhealthsource.com">www.teenhealthsource.com</a>
+        <p>This website is a way for young adults to learn more about sexual health and...</p>
+      </section>
+      <section>
+        <h2>Websites on Pregnancy</h2>
+        <a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a>
+        <p>The Pregnancy section of Toronto Public Health's website can answer many questions for pregnant women.</p>
+        <a href="www.marchofdimes.com">www.marchofdimes.com</a>
+        <p>Please see the Pregnancy and Newborn section. The March of Dimes is an organization that provides information for women who are planning a pregnancy or are currently pregnant.</p>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+    <div class="contact-info">
+      <a href="#">[EMAIL REDACTED]</a>
+      <span>Phone [PHONE REDACTED]</span>
+      <span>Fax [PHONE REDACTED]</span>
+      <a href="#">https://22q.ca</a>
+    </div>
+  </footer>
+</body>
+
+Now, the CSS:
+
+- The body should have a font, maybe Arial, sans-serif.
+- The top navigation: flex container, justify-content: space-between, align-items: center.
+- The top-nav-left and top-nav-right: flex column, maybe.
+- The sidebar: float left, width: 200px, padding: 10px.
+- The main content: float right, width: calc(100% - 200px), padding: 10px.
+- The footer: clear both, padding: 10px.
+
+Wait, but the image shows the top navigation as a horizontal bar, so the top navigation should be a single row with two columns.
+
+Let's adjust the top navigation:
+
+The top navigation has two columns: left and right. So the top-nav container is a flex container with two children (left and right).
+
+The left column has two links, right column has two links.
+
+So the top-nav-left and top-nav-right should be flex columns, each with two links.
+
+Now, the CSS for the top navigation:
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
+
+.top-nav-left,.top-nav-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+Now, the sidebar:
+
+.sidebar {
+  float: left;
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+}
+
+.sidebar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.main-content {
+  float: right;
+  width: calc(100% - 200px);
+  padding: 10px;
+  background-color: white;
+}
+
+footer {
+  clear: both;
+  padding: 10px;
+  background-color: white;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+Now, the image shows the top navigation links as blue text. So the a tags should have color: #0066cc.
+
+Also, the main content title is bold.
+
+Now, let's check the image's elements:
+
+- The top navigation: "Info for Police Officers" and "Same Name Campaign" on the left, "About the Clinic" and "Resources" on the right. So the top-nav-left has two links, top-nav-right has two links.
+
+- The left sidebar: "Syndrome" and "A" (blue text). So the sidebar has two links.
+
+- Main content: title "Healthy Sexuality And Pregnancy" (bold), then two sections.
+
+- Footer: copyright text, then contact info.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows a blue rectangle on the top left (maybe a logo), but in the HTML, perhaps that's a background color. Wait, the image's top left has a blue bar, but the navigation is on the right. Wait, the image shows:
+
+Top left: blue rectangle (maybe a logo area), then the navigation links.
+
+But in the provided image, the top navigation is:
+
+Left side: "Info for Police Officers" and "Same Name Campaign" (two links)
+
+Right side: "About the Clinic" and "Resources" (two links)
+
+So the top navigation is a horizontal bar, with the left part having two links, right part having two links.
+
+So the top navigation container should have a background color? The image shows the top navigation as white background, with blue text.
+
+Wait, the image's top navigation is white background, blue text.
+
+Now, the left sidebar: the image shows "Syndrome" and "A" as blue text, so the sidebar links are blue.
+
+Main content: the title is bold, the section titles are bold.
+
+Now, let's code the HTML.
+
+First, the HTML structure:
+
+- <html>
+  - <head>
+    - <meta charset="UTF-8">
+    - <title>Healthy Sexuality And Pregnancy</title>
+    - <style> (CSS)
+  - <body>
+    - <header> (top navigation)
+    - <div class="container"> (sidebar and main content)
+      - <aside class="sidebar"> (vertical menu)
+      - <main class="main-content"> (main content)
+    - <footer> (footer)
+
+Now, the CSS:
+
+- The body should have a font-family: Arial, sans-serif;
+- The header: padding: 10px;
+- The top navigation: flex container, two columns.
+- The sidebar: float left, width: 200px;
+- The main content: float right, width: calc(100% - 200px);
+- The footer: clear both, padding: 10px;
+
+Let's write the CSS.
+
+Now, let's check the image's footer:
+
+Footer has:
+
+- Copyright text: "©2012-2023 The Dalglish Family 22q Clinic. All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network."
+
+- Contact info: [EMAIL REDACTED], Phone [PHONE REDACTED], Fax [PHONE REDACTED], URL
+
+In the image, the contact info is in a row: [EMAIL REDACTED] on the left, then Phone and Fax, then URL on the right.
+
+So the contact-info div should have the elements arranged as:
+
+[EMAIL REDACTED] | Phone [PHONE REDACTED] | Fax [PHONE REDACTED] | URL
+
+So in the HTML, the contact-info div has:
+
+<a href="#">[EMAIL REDACTED]</a>
+<span>Phone [PHONE REDACTED]</span>
+<span>Fax [PHONE REDACTED]</span>
+<a href="#">https://22q.ca</a>
+
+Now, let's code the HTML.
+
+Wait, the image shows the top navigation as a horizontal bar. Let's make sure the top navigation is correctly structured.
+
+The top navigation has two columns: left and right. So the top-nav container is a flex container with two children (left and right).
+
+Each child (top-nav-left and top-nav-right) is a flex column with two links.
+
+Now, the CSS for the top navigation:
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
+
+.top-nav-left,.top-nav-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+Now, the sidebar:
+
+.sidebar {
+  float: left;
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+}
+
+.sidebar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.main-content {
+  float: right;
+  width: calc(100% - 200px);
+  padding: 10px;
+  background-color: white;
+}
+
+footer {
+  clear: both;
+  padding: 10px;
+  background-color: white;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+Now, let's check the image's main content:
+
+- The title "Healthy Sexuality And Pregnancy" is bold.
+
+- The section titles "Websites on Healthy Sexuality" and "Websites on Pregnancy" are bold.
+
+- The links are blue and underlined.
+
+- The descriptions are regular text.
+
+Now, the HTML for the main content:
+
+<h1>Healthy Sexuality And Pregnancy</h1>
+
+<section>
+  <h2>Websites on Healthy Sexuality</h2>
+  <a href="www.sexanddu.ca">www.sexanddu.ca</a>
+  <p>This website offers information on sexual health for teens, adults, parents and professionals.</p>
+  <a href="www.teenhealthsource.com">www.teenhealthsource.com</a>
+  <p>This website is a way for young adults to learn more about sexual health and...</p>
+</section>
+
+<section>
+  <h2>Websites on Pregnancy</h2>
+  <a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a>
+  <p>The Pregnancy section of Toronto Public Health's website can answer many questions for pregnant women.</p>
+  <a href="www.marchofdimes.com">www.marchofdimes.com</a>
+  <p>Please see the Pregnancy and Newborn section. The March of Dimes is an organization that provides information for women who are planning a pregnancy or are currently pregnant.</p>
+</section>
+
+Now, the footer:
+
+<p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+<div class="contact-info">
+  <a href="#">[EMAIL REDACTED]</a>
+  <span>Phone [PHONE REDACTED]</span>
+  <span>Fax [PHONE REDACTED]</span>
+  <a href="#">https://22q.ca</a>
+</div>
+
+Now, let's check the image's left sidebar:
+
+The image shows "Syndrome" and "A" as links. So the sidebar has two links.
+
+In the HTML, the sidebar is:
+
+<aside class="sidebar">
+  <nav>
+    <a href="#">Syndrome</a>
+    <a href="#">A</a>
+  </nav>
+</aside>
+
+Now, let's put it all together.
+
+Wait, the image shows the top navigation as a horizontal bar, but the left sidebar is vertical. So the body structure is:
+
+- Header (top navigation)
+- Container (sidebar and main content)
+- Footer
+
+Now, the CSS should be responsive. Let's make sure the layout works on different screen sizes.
+
+For mobile, the sidebar and main content should stack. But the task says "responsive CSS", so we need to use media queries.
+
+Wait, the task says "responsive CSS must be fully embedded within a <style> block".
+
+So we need to add media queries for mobile.
+
+Let's adjust the CSS for mobile:
+
+On small screens, the sidebar should be below the main content.
+
+So:
+
+@media (max-width: 768px) {
+ .sidebar {
+    float: none;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+ .main-content {
+    float: none;
+    width: 100%;
+  }
+}
+
+But the task says "strictly and accurately recreate the visual design in the image". The image is a desktop view, so the CSS should be responsive, meaning it works on desktop and mobile.
+
+Now, let's code the CSS with media queries.
+
+Now, let's write the complete HTML.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Sexuality And Pregnancy</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="top-nav">
+      <div class="top-nav-left">
+        <a href="#">Info for Police Officers</a>
+        <a href="#">Same Name Campaign</a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#">About the Clinic</a>
+        <a href="#">Resources</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Container -->
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <a href="#">Syndrome</a>
+        <a href="#">A</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section>
+        <h2>Websites on Healthy Sexuality</h2>
+        <a href="www.sexanddu.ca">www.sexanddu.ca</a>
+        <p>This website offers information on sexual health for teens, adults, parents and professionals.</p>
+        <a href="www.teenhealthsource.com">www.teenhealthsource.com</a>
+        <p>This website is a way for young adults to learn more about sexual health and...</p>
+      </section>
+      <section>
+        <h2>Websites on Pregnancy</h2>
+        <a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a>
+        <p>The Pregnancy section of Toronto Public Health's website can answer many questions for pregnant women.</p>
+        <a href="www.marchofdimes.com">www.marchofdimes.com</a>
+        <p>Please see the Pregnancy and Newborn section. The March of Dimes is an organization that provides information for women who are planning a pregnancy or are currently pregnant.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+    <div class="contact-info">
+      <a href="#">[EMAIL REDACTED]</a>
+      <span>Phone [PHONE REDACTED]</span>
+      <span>Fax [PHONE REDACTED]</span>
+      <a href="#">https://22q.ca</a>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Body: font-family, margin, padding.
+- Header: padding, background.
+- Top-nav: flex, justify-content, align-items.
+- Top-nav-left and top-nav-right: flex column.
+- Sidebar: float left, width, padding.
+- Main-content: float right, width, padding.
+- Footer: clear, padding.
+- Media queries for mobile.
+
+Let's write the CSS.
+
+First, the base styles:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  padding: 10px;
+  background-color: white;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
+
+.top-nav-left,.top-nav-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.container {
+  display: flex;
+  margin: 10px;
+}
+
+.sidebar {
+  float: left;
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+}
+
+.sidebar a {
+  color: #0066cc;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.main-content {
+  float: right;
+  width: calc(100% - 200px);
+  padding: 10px;
+  background-color: white;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+footer {
+  clear: both;
+  padding: 10px;
+  background-color: white;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+ .container {
+    flex-direction: column;
+  }
+ .sidebar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+ .main-content {
+    width: 100%;
+  }
+}
+
+Now, check if this matches the image.
+
+The image shows the top navigation as a horizontal bar with two columns. The CSS for top-nav uses flex, so it's correct.
+
+The sidebar is on the left, main content on the right. The CSS for container uses flex, so on desktop, it's two columns. On mobile, it's stacked.
+
+The links are blue, which is #0066cc.
+
+The footer has the contact info arranged as specified.
+
+Now, let's check the image's elements:
+
+- Top navigation: "Info for Police Officers", "Same Name Campaign" on left; "About the Clinic", "Resources" on right. Correct.
+
+- Left sidebar: "Syndrome", "A". Correct.
+
+- Main content: title, two sections. Correct.
+
+- Footer: copyright text, contact info. Correct.
+
+Now, the HTML should be valid and closed.
+
+Let's write the complete HTML with the CSS inside the style block.
+
+Make sure there are no extra characters before or after the code block.
+
+Start with ```html and end with ```.
+
+Now, the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Sexuality And Pregnancy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      padding: 10px;
+      background-color: white;
+    }
+   .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: white;
+    }
+   .top-nav-left,.top-nav-right {
+      display: flex;
+      flex-direction: column;
+    }
+   .top-nav a {
+      color: #0066cc;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+   .container {
+      display: flex;
+      margin: 10px;
+    }
+   .sidebar {
+      float: left;
+      width: 200px;
+      padding: 10px;
+      background-color: white;
+    }
+   .sidebar a {
+      color: #0066cc;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+   .main-content {
+      float: right;
+      width: calc(100% - 200px);
+      padding: 10px;
+      background-color: white;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.2em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    footer {
+      clear: both;
+      padding: 10px;
+      background-color: white;
+    }
+   .contact-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+     .container {
+        flex-direction: column;
+      }
+     .sidebar {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+     .main-content {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <div class="top-nav-left">
+        <a href="#">Info for Police Officers</a>
+        <a href="#">Same Name Campaign</a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#">About the Clinic</a>
+        <a href="#">Resources</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <a href="#">Syndrome</a>
+        <a href="#">A</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section>
+        <h2>Websites on Healthy Sexuality</h2>
+        <a href="www.sexanddu.ca">www.sexanddu.ca</a>
+        <p>This website offers information on sexual health for teens, adults, parents and professionals.</p>
+        <a href="www.teenhealthsource.com">www.teenhealthsource.com</a>
+        <p>This website is a way for young adults to learn more about sexual health and...</p>
+      </section>
+      <section>
+        <h2>Websites on Pregnancy</h2>
+        <a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a>
+        <p>The Pregnancy section of Toronto Public Health's website can answer many questions for pregnant women.</p>
+        <a href="www.marchofdimes.com">www.marchofdimes.com</a>
+        <p>Please see the Pregnancy and Newborn section. The March of Dimes is an organization that provides information for women who are planning a pregnancy or are currently pregnant.</p>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved. The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+    <div class="contact-info">
+      <a href="#">[EMAIL REDACTED]</a>
+      <span>Phone [PHONE REDACTED]</span>
+      <span>Fax [PHONE REDACTED]</span>
+      <a href="#">https://22q.ca</a>
+    </div>
+  </footer>
+</body>
+</html>
+```

@@ -1,0 +1,759 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image as an HTML5 file with embedded CSS. First, I need to analyze the structure and elements in the image.
+
+Looking at the image:
+
+- Top navigation bar: "Refer a Patient [PHONE REDACTED] Contact" on the top right, then "Services", "Info for", "Events", "About" as links. Wait, the image shows "Refer a Patient [PHONE REDACTED] Contact" as the top right, then the main navigation: Services, Info for, Events, About. So the top bar has a right-aligned section with "Refer a Patient [PHONE REDACTED] Contact" and then the main navigation links.
+
+- Then a dark blue header with "Website Privacy Policy" in large white text.
+
+- Below that, a white section with "Effective Date of this Website Privacy Policy: December 8, 2011" in purple, "Last update: March 1, 2016" in blue. Then a list of sections: Introduction, Consent, etc.
+
+- The content has bullet points explaining each section.
+
+- At the bottom, a dark purple footer with redacted address info, "Licensed Since 1979", and links: About, Foundation, Contact, Give.
+
+Now, let's break down the HTML structure:
+
+1. **HTML5 structure**: <html>, <head>, <body>.
+
+2. **Head**: 
+   - Meta tags for charset, viewport (responsive).
+   - Title: "Website Privacy Policy" (matches the header).
+   - Style block with CSS.
+
+3. **Body**:
+   - Top navigation bar: a container with a right-aligned section for "Refer a Patient [PHONE REDACTED] Contact" and the main navigation links (Services, Info for, Events, About). These should be links, probably in a nav element.
+   - Header section: dark blue background with "Website Privacy Policy" centered.
+   - Main content: white background with the effective date, last update, sections list, and the detailed content.
+   - Footer: dark purple background with redacted info, "Licensed Since 1979", and footer links.
+
+Now, let's handle the CSS. Need to make it responsive. Let's think about:
+
+- Navigation bar: fixed top? Or just a regular nav. The image shows it as a top bar, so maybe a flex container with items.
+
+- Header: background color #2c5e8a (dark blue), text color white, centered.
+
+- Main content: white background, with purple and blue text for dates.
+
+- Footer: background #3a2a6b (dark purple), text color white.
+
+Let's outline the CSS:
+
+- Reset some default margins/paddings.
+
+- Body: font-family, maybe Arial, sans-serif.
+
+- Nav: display flex, justify-content space-between, or right-aligned for the "Refer a Patient..." part.
+
+Wait, the top navigation in the image: "Refer a Patient [PHONE REDACTED] Contact" is on the top right, then the main navigation (Services, Info for, Events, About) is also on the top right but below? Wait, looking at the image:
+
+The top bar has "Refer a Patient [PHONE REDACTED] Contact" as the first line, then "Services Info for Events About" as the second line. So it's two lines. So the top bar is a container with two rows: first row has "Refer a Patient [PHONE REDACTED] Contact" (right-aligned), second row has the main navigation links (right-aligned as well).
+
+Wait, the image shows:
+
+Top right corner:
+
+Refer a Patient [PHONE REDACTED] Contact
+
+Services Info for Events About
+
+So the top bar is a container with two lines. So in HTML, maybe a div with class "top-bar" containing two divs: one for the "Refer..." text, and one for the main navigation links.
+
+Wait, the image's top bar:
+
+First line: "Refer a Patient [PHONE REDACTED] Contact" (all right-aligned)
+
+Second line: "Services Info for Events About" (all right-aligned)
+
+So the top bar is a flex container with two rows, both right-aligned.
+
+So in HTML:
+
+<div class="top-bar">
+  <div class="top-bar-first-row">Refer a Patient [PHONE REDACTED] Contact</div>
+  <div class="top-bar-second-row">
+    <a href="#">Services</a>
+    <a href="#">Info for</a>
+    <a href="#">Events</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+But the image shows "Refer a Patient [PHONE REDACTED] Contact" as a single line, then the main navigation as the next line. So the top bar is two lines, both right-aligned.
+
+Now, the header: "Website Privacy Policy" in large white text, centered, on a dark blue background.
+
+Main content: white background, with the effective date section (purple text), last update (blue), then the list of sections, then the detailed content.
+
+Footer: dark purple background, with redacted address, "Licensed Since 1979", and footer links.
+
+Let's structure the HTML:
+
+- <html>
+  - <head>
+    - <meta charset="UTF-8">
+    - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    - <title>Website Privacy Policy</title>
+    - <style>... </style>
+  - <body>
+    - <div class="top-bar">
+        <div class="top-bar-first-row">Refer a Patient [PHONE REDACTED] Contact</div>
+        <div class="top-bar-second-row">
+            <a href="#">Services</a>
+            <a href="#">Info for</a>
+            <a href="#">Events</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+    - <header class="site-header">
+        <h1>Website Privacy Policy</h1>
+    </header>
+    - <main class="content">
+        <h2>Effective Date of this Website Privacy Policy: December 8, 2011</h2>
+        <p class="last-update">Last update: March 1, 2016</p>
+        <p>This Website Privacy Policy contains the following sections:</p>
+        <ul>
+            <li>Introduction</li>
+            <li>Consent</li>
+            <li>Information Collected</li>
+            <li>How We Use Information</li>
+            <li>Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).</li>
+            <li>Consent. Please read this Privacy Policy with care before using this website. By accessing and using this website, you are acknowledging that you have read and understand this Privacy Policy and agree and consent to be legally bound by it.</li>
+            <li>Information Collected. Personally Identifiable Information ” is information that can be used to identify or contact you, such as your name, email address, or mailing address. “ Aggregate Information ” is information that does not identify you, and may include, for example, statistical information concerning the Web pages on our website used most frequently. Cookies ” to automatically gather some of this information.</li>
+            <li>How We Use Information.</li>
+        </ul>
+        <p>In addition, you may use this website to apply for employment with Community Hospice. Information that you provide during use of this website to apply for employment with Community Hospice is also encrypted and stored in a secured database.</p>
+        <ul>
+            <li>Compliance with Children’s Online Privacy Protection Act (“COPPA”).</li>
+            <li>Donations. Community Hospice of Northeast Florida Foundation for Caring, Inc. (“ Community Hospice Foundation ”) accepts online donations through this website.</li>
+            <li>Changes to Privacy Policy.</li>
+            <li>Complete Agreement and Relationship to Terms and Conditions of Website Use. This Privacy Policy should be read in conjunction with Community Hospice’s Terms and Conditions of Website Use.</li>
+        </ul>
+    </main>
+    - <footer class="site-footer">
+        <div class="footer-content">
+            <p>[ADDRESS REDACTED] [ADDRESS REDACTED] | [PHONE REDACTED]</p>
+            <p>Licensed Since 1979</p>
+            <nav class="footer-nav">
+                <a href="#">About</a>
+                <a href="#">Foundation</a>
+                <a href="#">Contact</a>
+                <a href="#">Give</a>
+            </nav>
+        </div>
+    </footer>
+  </body>
+</html>
+
+Now, the CSS:
+
+- Body: margin 0, padding 0, font-family Arial, sans-serif.
+
+- Top-bar: display flex, flex-direction column, align-items flex-end, padding 10px.
+
+- Top-bar-first-row: font-size 14px, color #666.
+
+- Top-bar-second-row: display flex, gap 10px, font-size 14px, color #666.
+
+- Site-header: background #2c5e8a, color white, padding 40px 20px, text-align center.
+
+- H1: font-size 36px, margin 0.
+
+- Content: padding 20px, max-width 1200px, margin 0 auto.
+
+- H2: color #7a5d9a (purple), font-size 24px.
+
+- Last-update: color #2a6bb3 (blue), font-size 18px, margin-top 5px.
+
+- Ul: list-style type none, padding-left 0.
+
+- Li: margin-bottom 10px.
+
+- Footer: background #3a2a6b, color white, padding 20px, text-align center.
+
+- Footer-content: max-width 1200px, margin 0 auto.
+
+- Footer-nav: display flex, gap 15px, margin-top 10px.
+
+- Links: color white, text-decoration none.
+
+Let's check the colors:
+
+- Header background: #2c5e8a (dark blue)
+
+- Effective date text: purple, which is #7a5d9a (approximate)
+
+- Last update text: blue, #2a6bb3 (approximate)
+
+- Footer background: #3a2a6b (dark purple)
+
+- Text colors: white for header and footer.
+
+Now, let's code the CSS.
+
+Also, need to make sure the HTML is valid. Let's structure the HTML with proper tags.
+
+Wait, the image shows the top bar with "Refer a Patient [PHONE REDACTED] Contact" as a single line, then the main navigation as the next line. So the top bar is two lines, both right-aligned.
+
+In the HTML, the top-bar div should have two child divs: first row and second row.
+
+Now, let's write the HTML and CSS.
+
+First, the HTML structure:
+
+- <html>
+  - <head>
+    - meta tags
+    - title
+    - style block
+  - <body>
+    - top-bar
+    - site-header
+    - content
+    - site-footer
+
+Now, let's code the CSS.
+
+Let's define the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.top-bar-first-row {
+  font-size: 14px;
+  color: #666;
+}
+
+.top-bar-second-row {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.site-header {
+  background-color: #2c5e8a;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.site-header h1 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content h2 {
+  color: #7a5d9a;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.content.last-update {
+  color: #2a6bb3;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  margin-bottom: 10px;
+}
+
+.content ul {
+  list-style-type: none;
+}
+
+.content li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.content li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #000;
+  font-weight: bold;
+}
+
+.content li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-footer {
+  background-color: #3a2a6b;
+  color: white;
+  padding: 20px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+Now, check if the bullet points are correctly styled. The image shows bullet points as •, so the CSS for li:before should add a bullet.
+
+Wait, in the image, the sections list has bullet points. So the CSS for li should have a bullet.
+
+Yes, the content ul has list-style-type: none, and then li has a before pseudo-element with •.
+
+Now, let's check the HTML structure for the content.
+
+The image shows:
+
+- Effective Date... December 8, 2011 (h2)
+
+- Last update: March 1, 2016 (p with class last-update)
+
+- Then a paragraph: "This Website Privacy Policy contains the following sections:"
+
+- Then a list of sections (Introduction, Consent, etc.)
+
+- Then the detailed content.
+
+In the HTML, the list of sections is a ul with li elements. The image shows the sections as bullet points, so the ul should have list-style-type: none, and each li has a bullet via the before pseudo-element.
+
+Wait, the image shows the sections as:
+
+- Introduction
+
+- Consent
+
+- Information Collected
+
+- How We Use Information
+
+- Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).
+
+So the first four items are the sections, and then the next items are the detailed content for each section.
+
+Wait, the image shows the sections list as:
+
+- Introduction
+
+- Consent
+
+- Information Collected
+
+- How We Use Information
+
+- Introduction.... (this is the detailed content for Introduction)
+
+- Consent.... (detailed content for Consent)
+
+- Information Collected.... (detailed content for Information Collected)
+
+- How We Use Information. (detailed content for How We Use Information)
+
+Then, after that, there's a paragraph: "In addition, you may use this website to apply for employment with Community Hospice. Information that you provide during use of this website to apply for employment with Community Hospice is also encrypted and stored in a secured database."
+
+Then another list:
+
+- Compliance with Children’s Online Privacy Protection Act (“COPPA”).
+
+- Donations. Community Hospice of Northeast Florida Foundation for Caring, Inc. (“ Community Hospice Foundation ”) accepts online donations through this website.
+
+- Changes to Privacy Policy.
+
+- Complete Agreement and Relationship to Terms and Conditions of Website Use. This Privacy Policy should be read in conjunction with Community Hospice’s Terms and Conditions of Website Use.
+
+So the HTML should have:
+
+- A ul for the sections (the first four items are the section titles, then the next four items are the detailed content for each section).
+
+Wait, no. The image shows the sections list as:
+
+This Website Privacy Policy contains the following sections:
+
+- Introduction
+
+- Consent
+
+- Information Collected
+
+- How We Use Information
+
+Then, the next part is the detailed content for each section. So the "Introduction" section is followed by the detailed content for Introduction, which is a paragraph. Wait, no, the image shows:
+
+- Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).
+
+So the "Introduction" section is a bullet point that includes the detailed content.
+
+Similarly for Consent, Information Collected, How We Use Information.
+
+So the HTML should have a ul with li elements where each li is a section title followed by the detailed content.
+
+Wait, the image shows the sections list as:
+
+- Introduction
+
+- Consent
+
+- Information Collected
+
+- How We Use Information
+
+- Introduction.... (this is the detailed content for Introduction)
+
+Wait, no, the image shows:
+
+The sections list is:
+
+- Introduction
+
+- Consent
+
+- Information Collected
+
+- How We Use Information
+
+Then, the next part is the detailed content for each section. So the "Introduction" section is the first bullet point, which includes the detailed content.
+
+Wait, looking at the image:
+
+The text says:
+
+"This Website Privacy Policy contains the following sections:
+
+• Introduction
+
+• Consent
+
+• Information Collected
+
+• How We Use Information
+
+• Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).
+
+• Consent. Please read this Privacy Policy with care before using this website. By accessing and using this website, you are acknowledging that you have read and understand this Privacy Policy and agree and consent to be legally bound by it.
+
+• Information Collected. Personally Identifiable Information ” is information that can be used to identify or contact you, such as your name, email address, or mailing address. “ Aggregate Information ” is information that does not identify you, and may include, for example, statistical information concerning the Web pages on our website used most frequently. Cookies ” to automatically gather some of this information.
+
+• How We Use Information."
+
+So the sections list is a list where each item is a section title followed by the detailed content. So the HTML should have a ul with li elements where each li is a section title and the detailed content.
+
+So the HTML for the sections list would be:
+
+<ul>
+  <li>Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).</li>
+  <li>Consent. Please read this Privacy Policy with care before using this website. By accessing and using this website, you are acknowledging that you have read and understand this Privacy Policy and agree and consent to be legally bound by it.</li>
+  <li>Information Collected. Personally Identifiable Information ” is information that can be used to identify or contact you, such as your name, email address, or mailing address. “ Aggregate Information ” is information that does not identify you, and may include, for example, statistical information concerning the Web pages on our website used most frequently. Cookies ” to automatically gather some of this information.</li>
+  <li>How We Use Information.</li>
+</ul>
+
+Then, after that, there's a paragraph: "In addition, you may use this website to apply for employment with Community Hospice. Information that you provide during use of this website to apply for employment with Community Hospice is also encrypted and stored in a secured database."
+
+Then another ul:
+
+<ul>
+  <li>Compliance with Children’s Online Privacy Protection Act (“COPPA”).</li>
+  <li>Donations. Community Hospice of Northeast Florida Foundation for Caring, Inc. (“ Community Hospice Foundation ”) accepts online donations through this website.</li>
+  <li>Changes to Privacy Policy.</li>
+  <li>Complete Agreement and Relationship to Terms and Conditions of Website Use. This Privacy Policy should be read in conjunction with Community Hospice’s Terms and Conditions of Website Use.</li>
+</ul>
+
+So the HTML structure for the content is:
+
+<h2>Effective Date of this Website Privacy Policy: December 8, 2011</h2>
+<p class="last-update">Last update: March 1, 2016</p>
+<p>This Website Privacy Policy contains the following sections:</p>
+<ul>
+  <li>Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).</li>
+  <li>Consent. Please read this Privacy Policy with care before using this website. By accessing and using this website, you are acknowledging that you have read and understand this Privacy Policy and agree and consent to be legally bound by it.</li>
+  <li>Information Collected. Personally Identifiable Information ” is information that can be used to identify or contact you, such as your name, email address, or mailing address. “ Aggregate Information ” is information that does not identify you, and may include, for example, statistical information concerning the Web pages on our website used most frequently. Cookies ” to automatically gather some of this information.</li>
+  <li>How We Use Information.</li>
+</ul>
+<p>In addition, you may use this website to apply for employment with Community Hospice. Information that you provide during use of this website to apply for employment with Community Hospice is also encrypted and stored in a secured database.</p>
+<ul>
+  <li>Compliance with Children’s Online Privacy Protection Act (“COPPA”).</li>
+  <li>Donations. Community Hospice of Northeast Florida Foundation for Caring, Inc. (“ Community Hospice Foundation ”) accepts online donations through this website.</li>
+  <li>Changes to Privacy Policy.</li>
+  <li>Complete Agreement and Relationship to Terms and Conditions of Website Use. This Privacy Policy should be read in conjunction with Community Hospice’s Terms and Conditions of Website Use.</li>
+</ul>
+
+Now, the footer:
+
+<div class="footer-content">
+  <p>[ADDRESS REDACTED] [ADDRESS REDACTED] | [PHONE REDACTED]</p>
+  <p>Licensed Since 1979</p>
+  <nav class="footer-nav">
+    <a href="#">About</a>
+    <a href="#">Foundation</a>
+    <a href="#">Contact</a>
+    <a href="#">Give</a>
+  </nav>
+</div>
+
+Now, let's check the colors:
+
+- Header background: #2c5e8a
+
+- Effective date text: #7a5d9a (purple)
+
+- Last update text: #2a6bb3 (blue)
+
+- Footer background: #3a2a6b
+
+- Text colors: white for header and footer.
+
+Now, let's code the HTML and CSS.
+
+Also, the top bar:
+
+The top bar has "Refer a Patient [PHONE REDACTED] Contact" as the first line, then "Services Info for Events About" as the second line.
+
+So in HTML:
+
+<div class="top-bar">
+  <div class="top-bar-first-row">Refer a Patient [PHONE REDACTED] Contact</div>
+  <div class="top-bar-second-row">
+    <a href="#">Services</a>
+    <a href="#">Info for</a>
+    <a href="#">Events</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+Now, let's write the full HTML.
+
+Make sure to close all tags properly.
+
+Let's start coding.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Privacy Policy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+   .top-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 10px 20px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+   .top-bar-first-row {
+      font-size: 14px;
+      color: #666;
+    }
+
+   .top-bar-second-row {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+   .top-bar a {
+      color: #666;
+      text-decoration: none;
+    }
+
+   .site-header {
+      background-color: #2c5e8a;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+   .site-header h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+   .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+   .content h2 {
+      color: #7a5d9a;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+   .content.last-update {
+      color: #2a6bb3;
+      font-size: 18px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+   .content p {
+      margin-bottom: 10px;
+    }
+
+   .content ul {
+      list-style-type: none;
+    }
+
+   .content li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+   .content li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #000;
+      font-weight: bold;
+    }
+
+   .content li:last-child {
+      margin-bottom: 0;
+    }
+
+   .site-footer {
+      background-color: #3a2a6b;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+   .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+   .footer-nav {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+   .footer-nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+   .footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+   .licensed-text {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="top-bar-first-row">Refer a Patient [PHONE REDACTED] Contact</div>
+    <div class="top-bar-second-row">
+      <a href="#">Services</a>
+      <a href="#">Info for</a>
+      <a href="#">Events</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Website Privacy Policy</h1>
+  </header>
+  <main class="content">
+    <h2>Effective Date of this Website Privacy Policy: December 8, 2011</h2>
+    <p class="last-update">Last update: March 1, 2016</p>
+    <p>This Website Privacy Policy contains the following sections:</p>
+    <ul>
+      <li>Introduction</li>
+      <li>Consent</li>
+      <li>Information Collected</li>
+      <li>How We Use Information</li>
+      <li>Introduction. Community Hospice ") has created this website as a readily accessible compilation of public information about the organization. To assist you in using our website, and to explain the relationship arising from your use of our website and the information offered through it, we have created: (i) this privacy policy (the “ Privacy Policy ” or “ Policy ”); and (ii) a set of terms and conditions of use (the “ Terms of Use ” or “Terms”).</li>
+      <li>Consent. Please read this Privacy Policy with care before using this website. By accessing and using this website, you are acknowledging that you have read and understand this Privacy Policy and agree and consent to be legally bound by it.</li>
+      <li>Information Collected. Personally Identifiable Information ” is information that can be used to identify or contact you, such as your name, email address, or mailing address. “ Aggregate Information ” is information that does not identify you, and may include, for example, statistical information concerning the Web pages on our website used most frequently. Cookies ” to automatically gather some of this information.</li>
+      <li>How We Use Information.</li>
+    </ul>
+    <p>In addition, you may use this website to apply for employment with Community Hospice. Information that you provide during use of this website to apply for employment with Community Hospice is also encrypted and stored in a secured database.</p>
+    <ul>
+      <li>Compliance with Children’s Online Privacy Protection Act (“COPPA”).</li>
+      <li>Donations. Community Hospice of Northeast Florida Foundation for Caring, Inc. (“ Community Hospice Foundation ”) accepts online donations through this website.</li>
+      <li>Changes to Privacy Policy.</li>
+      <li>Complete Agreement and Relationship to Terms and Conditions of Website Use. This Privacy Policy should be read in conjunction with Community Hospice’s Terms and Conditions of Website Use.</li>
+    </ul>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>[ADDRESS REDACTED] [ADDRESS REDACTED] | [PHONE REDACTED]</p>
+      <p class="licensed-text">Licensed Since 1979</p>
+      <nav class="footer-nav">
+        <a href="#">About</a>
+        <a href="#">Foundation</a>
+        <a href="#">Contact</a>
+        <a href="#">Give</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
+```

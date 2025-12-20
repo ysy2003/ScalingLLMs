@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLC6X: pki-selinux</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            display: flex; /* Use flexbox for main layout */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            background-color: #f0f0f0; /* Light background for the whole page */
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px; /* Fixed width as per image */
+            background-color: #215697; /* Dark blue */
+            color: white;
+            padding: 20px 0;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .sidebar-header {
+            font-weight: bold;
+            padding: 0 20px 10px;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light separator */
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 8px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            flex-grow: 1; /* Allow main content to take remaining space */
+            background-color: white;
+            padding: 20px 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-left: 20px; /* Space between sidebar and main content */
+            margin-right: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-width: calc(100% - 250px - 40px); /* Adjust for sidebar and margins */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-bottom: 15px;
+        }
+
+        .jump-to-letter {
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .jump-to-letter a {
+            margin-right: 3px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* Info Box (Website, License, Vendor) */
+        .info-box {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9; /* Light gray background */
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 400px; /* Approximate width from image */
+            box-sizing: border-box;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            width: 80px; /* Fixed width for labels */
+            flex-shrink: 0;
+            padding-right: 10px;
+            color: #555;
+        }
+
+        .info-value {
+            flex-grow: 1;
+        }
+
+        .info-value a {
+            word-break: break-all; /* Prevent long URLs from overflowing */
+        }
+
+        /* Description Section Specifics */
+        .description-text {
+            margin-bottom: 15px;
+        }
+
+        .preformatted-block {
+            background-color: #f0f0f0; /* Light gray background for the block */
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap; /* Preserve whitespace and wrap */
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .component-list, .subsystem-list, .theme-packages-list {
+            list-style-type: disc; /* Standard bullet points */
+            margin-left: 20px;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .component-list li, .subsystem-list li, .theme-packages-list li {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        /* Packages Section */
+        .package-entry {
+            border-bottom: 1px solid #eee; /* Light separator */
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .package-entry:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .package-title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #007bff; /* Link color */
+            text-decoration: none;
+        }
+
+        .package-title:hover {
+            text-decoration: underline;
+        }
+
+        .package-changelog-header {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .package-changelog-details {
+            margin-left: 15px; /* Indent changelog details */
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .package-changelog-details p {
+            margin-bottom: 5px;
+        }
+
+        .package-changelog-details p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer for listing created by */
+        .listing-footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column; /* Stack sidebar and main content */
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 15px 0;
+            }
+
+            .sidebar-header {
+                padding: 0 15px 10px;
+            }
+
+            .sidebar ul li a {
+                padding: 8px 15px;
+            }
+
+            .main-content {
+                margin: 15px;
+                max-width: calc(100% - 30px); /* Full width minus margins */
+                padding: 15px 20px;
+            }
+
+            .info-box {
+                width: 100%; /* Full width on smaller screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+            h3 {
+                font-size: 14px;
+            }
+            body {
+                font-size: 13px;
+            }
+            .sidebar ul li a, .jump-to-letter, .package-changelog-header, .package-changelog-details, .listing-footer {
+                font-size: 12px;
+            }
+            .component-list li, .subsystem-list li, .theme-packages-list li {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">@ CERN</div>
+        <ul>
+            <li><a href="#">Introduction</a></li>
+            <li><a href="#">Which distribution should I use?</a></li>
+            <li><a href="#">Scientific Linux</a></li>
+            <li><a href="#">Red Hat Enterprise Linux (RHEL)</a></li>
+            <li><a href="#">Other OS</a></li>
+            <li><a href="#">Deprecated Linux Distributions</a></li>
+            <li><a href="#">Installation</a></li>
+            <li><a href="#">Updates</a></li>
+            <li><a href="#">Configuration</a></li>
+            <li><a href="#">Server images</a></li>
+            <li><a href="#">OpenStack images</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Software Building</a></li>
+            <li><a href="#">Hardware</a></li>
+            <li><a href="#">Linux Survival Kit training</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Sitemap</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>"SLC6X: system environment/base: pki-selinux"</h1>
+
+        <p class="back-link">« <a href="#">Back to group</a></p>
+
+        <p class="jump-to-letter">Jump to letter: [
+            <a href="#">3</a>
+            <a href="#">A</a>
+            <a href="#">B</a>
+            <a href="#">C</a>
+            <a href="#">D</a>
+            <a href="#">E</a>
+            <a href="#">F</a>
+            <a href="#">G</a>
+            <a href="#">H</a>
+            <a href="#">I</a>
+            <a href="#">J</a>
+            <a href="#">K</a>
+            <a href="#">L</a>
+            <a href="#">M</a>
+            <a href="#">N</a>
+            <a href="#">O</a>
+            <a href="#">P</a>
+            <a href="#">Q</a>
+            <a href="#">R</a>
+            <a href="#">S</a>
+            <a href="#">T</a>
+            <a href="#">U</a>
+            <a href="#">V</a>
+            <a href="#">W</a>
+            <a href="#">X</a>
+            <a href="#">Y</a>
+            <a href="#">Z</a>
+            ]
+        </p>
+
+        <h2>pki-selinux - Certificate System - PKI Selinux Policies</h2>
+
+        <div class="info-box">
+            <div class="info-row">
+                <div class="info-label">Website:</div>
+                <div class="info-value"><a href="http://pki.fedoraproject.org/">http://pki.fedoraproject.org/</a></div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">License:</div>
+                <div class="info-value">GPLv2</div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">Vendor:</div>
+                <div class="info-value">Scientific Linux CERN, <a href="http://cern.ch/linux">http://cern.ch/linux</a></div>
+            </div>
+        </div>
+
+        <h3>Description:</h3>
+        <p class="description-text">Selinux policies for the PKI components.</p>
+        <p class="description-text">This package is a part of the PKI Core used by the Certificate System.</p>
+
+        <pre class="preformatted-block">
+================================================================
+|| ABOUT "CERTIFICATE SYSTEM" ||
+================================================================</pre>
+
+        <p>Certificate System (CS) is an enterprise software system designed
+to manage enterprise Public Key Infrastructure (PKI) deployments.</p>
+
+        <p>PKI Core contains fundamental packages required by Certificate System,
+and consists of the following components:</p>
+        <ul class="component-list">
+            <li>pki-setup</li>
+            <li>pki-symkey</li>
+            <li>pki-native-tools</li>
+            <li>pki-util</li>
+            <li>pki-util-javadoc</li>
+            <li>pki-java-tools</li>
+            <li>pki-java-tools-javadoc</li>
+            <li>pki-common</li>
+            <li>pki-common-javadoc</li>
+            <li>pki-selinux</li>
+            <li>pki

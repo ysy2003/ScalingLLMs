@@ -1,0 +1,807 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The user wants me to recreate the visual design from the provided image as an HTML5 file with embedded CSS. First, I need to analyze the structure of the content.
+
+Looking at the image, it's a resume or profile page. Let's break down the sections:
+
+- Introduction paragraph (about work at IIT Delhi, Instabase, Mobile Enerlytics)
+- Education section (Ph.D. from Purdue, undergrad from IIT Kanpur)
+- Links: Publications / LinkedIn / Google Scholar / CV
+- Selected Press (with bullet points, each with a project name, year, and media outlets)
+- Awards section
+- Service section
+- Teaching section (with bullet points of courses)
+- Footer with contact info (but some parts are redacted)
+
+First, the HTML structure. The main content should be in a container. Let's think about the layout. The text is left-aligned, with sections separated by headings. The links (Publications, LinkedIn, etc.) are blue and underlined, so they should be styled as links.
+
+Let's outline the sections:
+
+1. <h1> or <h2> for the main content? Wait, the image starts with a paragraph, then a line with links, then sections.
+
+Wait, the image has:
+
+- First paragraph: "Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded."
+
+- Then: "I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur."
+
+- Then: "Publications / LinkedIn / Google Scholar / CV" (these are links, so <a> tags)
+
+- Then "Selected Press" as a heading, followed by bullet points.
+
+- "Awards" heading, bullet points.
+
+- "Service" heading, bullet points.
+
+- "Teaching" heading, bullet points.
+
+- Then a section with [NAME REDACTED] and contact info.
+
+Wait, the image shows:
+
+[NAME REDACTED]
+
+[NAMES REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So the footer has three columns: left (name, email), middle (codenet), right (title).
+
+Now, the design: the text is in a clean, sans-serif font. The links are blue. The sections have headings. The bullet points are standard.
+
+Let's structure the HTML:
+
+- <body> with a container div for the main content.
+
+- First paragraph.
+
+- Then the links line.
+
+- Then each section: Selected Press, Awards, Service, Teaching, and the footer.
+
+Wait, the image's structure:
+
+First paragraph (about work)
+
+Second paragraph (education)
+
+Links line
+
+Selected Press (heading, bullet points)
+
+Awards (heading, bullet points)
+
+Service (heading, bullet points)
+
+Teaching (heading, bullet points)
+
+Then [NAME REDACTED] section with three columns.
+
+Now, for the CSS:
+
+- Set font-family to something like Arial, sans-serif.
+
+- Links: color: #0066cc; text-decoration: underline; (since in the image, the links are blue and underlined)
+
+- Headings: maybe bold, larger font size.
+
+- Bullet points: standard.
+
+- The footer section: three columns. Let's see, the image shows:
+
+[NAME REDACTED]
+
+[NAMES REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So the footer has three columns. Let's check the spacing. The image shows the contact info in three columns. So maybe a flex container for the footer.
+
+Wait, the image's footer:
+
+Left column: [NAME REDACTED] and [EMAIL REDACTED]
+
+Middle column: codenet
+
+Right column: Assistant Professor... etc.
+
+So the footer is a row with three columns.
+
+Now, let's code the HTML structure.
+
+First, the HTML5 boilerplate:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        /* CSS here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Content here -->
+    </div>
+</body>
+</html>
+
+Now, the container should have padding, maybe max-width, to center content.
+
+Let's outline the content:
+
+1. First paragraph: "Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded."
+
+2. Second paragraph: "I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur."
+
+3. Links: "Publications / LinkedIn / Google Scholar / CV" — these are links, so <a> tags with href (but since it's a design task, maybe just text with links, but the image shows them as clickable, so we can use <a> with target="_blank" or just as text. Wait, the image shows them as blue and underlined, so we need to style them as links.
+
+Wait, the image has "Publications / LinkedIn / Google Scholar / CV" as a line. So in HTML, that would be a <p> with <a> tags for each.
+
+So:
+
+<p>
+    <a href="#">Publications</a> / 
+    <a href="#">LinkedIn</a> / 
+    <a href="#">Google Scholar</a> / 
+    <a href="#">CV</a>
+</p>
+
+4. Selected Press section:
+
+<h2>Selected Press</h2>
+<ul>
+    <li>Mobile Enerlytics, 2014+: BGR | Mashable | Gizmodo |</li>
+    <li>DiffProf, 2018: Communication of the ACM | The Register | The Week |</li>
+    <li>Hush, 2015: BBC | SlashDot | Zee News |</li>
+    <li>No-Sleep Bugs, 2012: The Verge | NBC | Times of India |</li>
+</ul>
+
+5. Awards section:
+
+<h2>Awards</h2>
+<ul>
+    <li>Google India Research Award, 2022.</li>
+    <li>Best Community Paper Award, MobiCom, 2022.</li>
+</ul>
+
+6. Service section:
+
+<h2>Service</h2>
+<p>PC member: Middleware'23, Eurosyst'22</p>
+
+7. Teaching section:
+
+<h2>Teaching</h2>
+<ul>
+    <li>[2023-2024 II] COL-733: Cloud computing technology fundamentals</li>
+    <li>[2022-2023 II] COP-290: Design Practices</li>
+    <li>[2022 Winter] WSS-22: Cloud Computing</li>
+    <li>[2022-2023 II] COL-732: Virtualization and Cloud Computing</li>
+</ul>
+
+8. Footer section:
+
+<h2>[NAME REDACTED]</h2>
+<div class="footer">
+    <div class="footer-col">
+        <p>[NAME REDACTED]</p>
+        <p>[EMAIL REDACTED]</p>
+    </div>
+    <div class="footer-col">
+        <p>codenet</p>
+    </div>
+    <div class="footer-col">
+        <p>[NAME REDACTED]</p>
+        <p>[NAME REDACTED]</p>
+        <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+    </div>
+</div>
+
+Wait, the image shows the footer as:
+
+[NAME REDACTED]
+
+[NAMES REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So the first line is [NAME REDACTED], then the next line has the contact info (name, email) on the left, codenet in the middle, and the title on the right.
+
+Wait, the image's footer:
+
+The first line is [NAME REDACTED] (maybe a heading for the footer section).
+
+Then, the next lines:
+
+Left: [NAME REDACTED] and [EMAIL REDACTED]
+
+Middle: codenet
+
+Right: [NAME REDACTED] and [NAME REDACTED] and the title.
+
+Wait, the image shows:
+
+[NAME REDACTED]
+
+[NAMES REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So the structure is:
+
+- A heading: [NAME REDACTED]
+
+- Then three columns:
+
+  - Left: [NAME REDACTED] and [EMAIL REDACTED]
+
+  - Middle: codenet
+
+  - Right: [NAME REDACTED], [NAME REDACTED], and the title.
+
+So in HTML, the footer would have a heading, then a flex container with three columns.
+
+Now, for the CSS:
+
+- The body should have a font-family, maybe Arial, sans-serif.
+
+- Links: color: #0066cc; text-decoration: underline;
+
+- Headings: font-weight: bold; maybe a larger font size.
+
+- The container: max-width: 800px; margin: 0 auto; padding: 20px;
+
+- The footer columns: display: flex; justify-content: space-between; or flex-wrap: wrap; for responsiveness.
+
+Wait, the task says "responsive CSS", so we need to make sure it's responsive.
+
+Let's think about the CSS:
+
+- body: font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0;
+
+-.container: max-width: 800px; margin: 0 auto; padding: 20px;
+
+- h2: font-size: 1.5em; margin-top: 20px; margin-bottom: 10px; color: #000;
+
+- a: color: #0066cc; text-decoration: underline; font-weight: normal;
+
+- ul: list-style-type: disc; padding-left: 20px; margin-top: 10px;
+
+- li: margin-bottom: 5px;
+
+-.footer: display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 20px;
+
+-.footer-col: flex: 1 1 200px; padding: 10px; box-sizing: border-box;
+
+Wait, the footer has three columns. Let's check the image: the left column has two lines (name and email), middle has one line (codenet), right has three lines (name, name, title). So each column should have appropriate height.
+
+Now, let's code the HTML structure step by step.
+
+First, the container div.
+
+Inside the container:
+
+- First paragraph.
+
+- Second paragraph.
+
+- Links line.
+
+- Selected Press section.
+
+- Awards section.
+
+- Service section.
+
+- Teaching section.
+
+- Footer section.
+
+Now, let's write the HTML.
+
+Wait, the image's first paragraph: "Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded."
+
+Second paragraph: "I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur."
+
+Then the links: "Publications / LinkedIn / Google Scholar / CV"
+
+Then Selected Press.
+
+So the HTML:
+
+<div class="container">
+    <p>Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded.</p>
+    <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+    <p>
+        <a href="#">Publications</a> / 
+        <a href="#">LinkedIn</a> / 
+        <a href="#">Google Scholar</a> / 
+        <a href="#">CV</a>
+    </p>
+    <h2>Selected Press</h2>
+    <ul>
+        <li>Mobile Enerlytics, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+        <li>DiffProf, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+        <li>Hush, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+        <li>No-Sleep Bugs, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+    </ul>
+    <h2>Awards</h2>
+    <ul>
+        <li>Google India Research Award, 2022.</li>
+        <li>Best Community Paper Award, MobiCom, 2022.</li>
+    </ul>
+    <h2>Service</h2>
+    <p>PC member: Middleware'23, Eurosyst'22</p>
+    <h2>Teaching</h2>
+    <ul>
+        <li>[2023-2024 II] COL-733: Cloud computing technology fundamentals</li>
+        <li>[2022-2023 II] COP-290: Design Practices</li>
+        <li>[2022 Winter] WSS-22: Cloud Computing</li>
+        <li>[2022-2023 II] COL-732: Virtualization and Cloud Computing</li>
+    </ul>
+    <h2>[NAME REDACTED]</h2>
+    <div class="footer">
+        <div class="footer-col">
+            <p>[NAME REDACTED]</p>
+            <p>[EMAIL REDACTED]</p>
+        </div>
+        <div class="footer-col">
+            <p>codenet</p>
+        </div>
+        <div class="footer-col">
+            <p>[NAME REDACTED]</p>
+            <p>[NAME REDACTED]</p>
+            <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+        </div>
+    </div>
+</div>
+
+Wait, but in the image, the "Selected Press" section has bullet points with media outlets as links. So in the HTML, each media outlet should be a link. So for example, "BGR" is a link, so <a href="#">BGR</a>.
+
+Similarly, the education section has "Purdue University", "Y. Charlie Hu", "Samuel Midkiff", "IIT Kanpur" as links.
+
+Now, the CSS:
+
+We need to style the links to be blue and underlined. Also, the headings should be bold.
+
+Let's write the CSS:
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+    }
+   .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    p {
+        margin-bottom: 15px;
+    }
+    a {
+        color: #0066cc;
+        text-decoration: underline;
+        font-weight: normal;
+    }
+    h2 {
+        font-size: 1.5em;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #000;
+        font-weight: bold;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+   .footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+   .footer-col {
+        flex: 1 1 200px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+</style>
+
+Wait, but the image shows the "Selected Press" section with bullet points. The HTML uses <ul> and <li>, which is correct.
+
+Now, check if the structure matches the image.
+
+The image's "Selected Press" section has bullet points with each item having a project name, year, and media outlets. The HTML has <li> with the project name, year, and media outlets as links.
+
+The "Awards" section has two bullet points.
+
+The "Service" section has a paragraph.
+
+The "Teaching" section has four bullet points.
+
+The footer has a heading [NAME REDACTED], then three columns.
+
+Now, check the redacted parts. The image shows [NAME REDACTED] in the footer, so we need to include those as text.
+
+Now, let's verify the HTML structure.
+
+Wait, the image's first paragraph: "Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded."
+
+In the HTML, that's a <p> tag.
+
+Second paragraph: "I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur."
+
+In the HTML, that's a <p> with links for Purdue University, Y. Charlie Hu, Samuel Midkiff, IIT Kanpur.
+
+Then the links line: "Publications / LinkedIn / Google Scholar / CV" as a <p> with <a> tags.
+
+Then the sections.
+
+Now, the CSS for responsiveness: the footer columns should wrap on smaller screens. The flex-wrap: wrap in.footer ensures that.
+
+Now, let's check if all elements are included.
+
+The image has:
+
+- First paragraph
+
+- Second paragraph
+
+- Links line
+
+- Selected Press (with bullet points)
+
+- Awards (with bullet points)
+
+- Service (with paragraph)
+
+- Teaching (with bullet points)
+
+- Footer (with [NAME REDACTED] heading and three columns)
+
+Yes.
+
+Now, let's write the complete HTML.
+
+Make sure to close all tags properly.
+
+Also, the task says "strictly and accurately recreate the visual design". So the text content must match exactly.
+
+Check the text:
+
+First paragraph: "Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded."
+
+Second paragraph: "I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur."
+
+Links: "Publications / LinkedIn / Google Scholar / CV"
+
+Selected Press:
+
+- Mobile Enerlytics, 2014+: BGR | Mashable | Gizmodo |
+
+- DiffProf, 2018: Communication of the ACM | The Register | The Week |
+
+- Hush, 2015: BBC | SlashDot | Zee News |
+
+- No-Sleep Bugs, 2012: The Verge | NBC | Times of India |
+
+Awards:
+
+- Google India Research Award, 2022.
+
+- Best Community Paper Award, MobiCom, 2022.
+
+Service:
+
+- PC member: Middleware'23, Eurosyst'22
+
+Teaching:
+
+- [2023-2024 II] COL-733: Cloud computing technology fundamentals
+
+- [2022-2023 II] COP-290: Design Practices
+
+- [2022 Winter] WSS-22: Cloud Computing
+
+- [2022-2023 II] COL-732: Virtualization and Cloud Computing
+
+Footer:
+
+- [NAME REDACTED]
+
+- Left column: [NAME REDACTED], [EMAIL REDACTED]
+
+- Middle column: codenet
+
+- Right column: [NAME REDACTED], [NAME REDACTED], Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+Yes, all text matches.
+
+Now, code the HTML.
+
+Make sure to have the <style> block inside the <head>.
+
+Also, the task says "BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```."
+
+So the response should be:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+       .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: underline;
+            font-weight: normal;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #000;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+       .footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+       .footer-col {
+            flex: 1 1 200px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded.</p>
+        <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+        <p>
+            <a href="#">Publications</a> / 
+            <a href="#">LinkedIn</a> / 
+            <a href="#">Google Scholar</a> / 
+            <a href="#">CV</a>
+        </p>
+        <h2>Selected Press</h2>
+        <ul>
+            <li>Mobile Enerlytics, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+            <li>DiffProf, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+            <li>Hush, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+            <li>No-Sleep Bugs, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+        </ul>
+        <h2>Awards</h2>
+        <ul>
+            <li>Google India Research Award, 2022.</li>
+            <li>Best Community Paper Award, MobiCom, 2022.</li>
+        </ul>
+        <h2>Service</h2>
+        <p>PC member: Middleware'23, Eurosyst'22</p>
+        <h2>Teaching</h2>
+        <ul>
+            <li>[2023-2024 II] COL-733: Cloud computing technology fundamentals</li>
+            <li>[2022-2023 II] COP-290: Design Practices</li>
+            <li>[2022 Winter] WSS-22: Cloud Computing</li>
+            <li>[2022-2023 II] COL-732: Virtualization and Cloud Computing</li>
+        </ul>
+        <h2>[NAME REDACTED]</h2>
+        <div class="footer">
+            <div class="footer-col">
+                <p>[NAME REDACTED]</p>
+                <p>[EMAIL REDACTED]</p>
+            </div>
+            <div class="footer-col">
+                <p>codenet</p>
+            </div>
+            <div class="footer-col">
+                <p>[NAME REDACTED]</p>
+                <p>[NAME REDACTED]</p>
+                <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+Wait, but in the image, the "Selected Press" section has the media outlets as links, so in the HTML, each media outlet is a link. For example, "BGR" is a link, so <a href="#">BGR</a>.
+
+Yes, that's correct.
+
+Also, the "Service" section is a paragraph, not a list.
+
+The "Teaching" section is a list.
+
+The footer has three columns.
+
+Now, check if the CSS is correctly embedded.
+
+Yes, the <style> block is inside the <head>.
+
+The HTML is valid, closed properly.
+
+The task says "Generate ONLY one complete, valid, and fully closed HTML5 file."
+
+This should meet all requirements.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+       .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: underline;
+            font-weight: normal;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #000;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+       .footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+       .footer-col {
+            flex: 1 1 200px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded.</p>
+        <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+        <p>
+            <a href="#">Publications</a> / 
+            <a href="#">LinkedIn</a> / 
+            <a href="#">Google Scholar</a> / 
+            <a href="#">CV</a>
+        </p>
+        <h2>Selected Press</h2>
+        <ul>
+            <li>Mobile Enerlytics, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+            <li>DiffProf, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+            <li>Hush, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+            <li>No-Sleep Bugs, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+        </ul>
+        <h2>Awards</h2>
+        <ul>
+            <li>Google India Research Award, 2022.</li>
+            <li>Best Community Paper Award, MobiCom, 2022.</li>
+        </ul>
+        <h2>Service</h2>
+        <p>PC member: Middleware'23, Eurosyst'22</p>
+        <h2>Teaching</h2>
+        <ul>
+            <li>[2023-2024 II] COL-733: Cloud computing technology fundamentals</li>
+            <li>[2022-2023 II] COP-290: Design Practices</li>
+            <li>[2022 Winter] WSS-22: Cloud Computing</li>
+            <li>[2022-2023 II] COL-732: Virtualization and Cloud Computing</li>
+        </ul>
+        <h2>[NAME REDACTED]</h2>
+        <div class="footer">
+            <div class="footer-col">
+                <p>[NAME REDACTED]</p>
+                <p>[EMAIL REDACTED]</p>
+            </div>
+            <div class="footer-col">
+                <p>codenet</p>
+            </div>
+            <div class="footer-col">
+                <p>[NAME REDACTED]</p>
+                <p>[NAME REDACTED]</p>
+                <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```

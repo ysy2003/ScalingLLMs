@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margo's Gift Shop</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #333;
+            line-height: 1.5;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1100px; /* Defines the maximum width for content */
+            margin: 0 auto;
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee; /* Subtle separator line */
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px; /* Matches container width */
+            margin: 0 auto;
+            padding: 0 20px; /* Ensures padding even if header doesn't use .container directly */
+        }
+
+        .logo-placeholder {
+            width: 150px; /* Approximate width from image */
+            height: 50px; /* Approximate height from image */
+            background-color: #0000FF; /* Blue color as seen in image */
+            flex-shrink: 0; /* Prevents logo from shrinking */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; /* Spacing between navigation items */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9em;
+            font-weight: 500; /* Slightly bolder than normal for navigation */
+            letter-spacing: 0.05em; /* Spacing between letters */
+            text-transform: uppercase;
+            white-space: nowrap; /* Prevents navigation items from wrapping */
+        }
+
+        nav a:hover {
+            color: #000; /* Darker on hover */
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: normal; /* As seen in image */
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .main-image-placeholder {
+            width: 100%;
+            height: 400px; /* Approximate height from image */
+            background-color: #0000FF; /* Blue color as seen in image */
+            margin-bottom: 40px;
+        }
+
+        .main-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 800px; /* Constrains text width for readability */
+            margin-bottom: 60px; /* Space before footer */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #215a6e; /* Dark teal/blue sampled from image */
+            color: #f0f0f0; /* Light text color for contrast */
+            padding: 60px 0 30px; /* Top, bottom padding */
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr); /* Column widths: logo section wider */
+            gap: 40px; /* Spacing between columns */
+            margin-bottom: 40px;
+        }
+
+        .footer-logo-section .logo-placeholder {
+            width: 100px; /* Smaller logo in footer */
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-section p {
+            font-size: 0.85em;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .footer-column h3 {
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: inherit; /* Inherits color from parent */
+            font-size: 0.9em;
+            display: block; /* Makes links block-level for better click area */
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-about-text {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2); /* Light separator line */
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8em;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+            }
+            .footer-logo-section {
+                grid-column: span 2; /* Logo section spans both columns */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column; /* Stack logo and nav vertically */
+                align-items: flex-start; /* Align items to the left */
+                gap: 20px;
+            }
+            nav ul {
+                flex-wrap: wrap; /* Allow nav items to wrap to next line */
+                gap: 15px;
+            }
+            nav a {
+                font-size: 0.85em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .main-image-placeholder {
+                height: 300px; /* Adjust height for smaller screens */
+            }
+
+            .main-text {
+                font-size: 1em;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr; /* Stack all footer columns vertically */
+            }
+            .footer-logo-section {
+                grid-column: span 1; /* Reset span for single column layout */
+            }
+            .footer-bottom {
+                flex-direction: column; /* Stack copyright and design info */
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px; /* Reduce padding on very small screens */
+            }
+            header {
+                padding: 15px 0;
+            }
+            .logo-placeholder {
+                width: 120px;
+                height: 40px;
+            }
+            nav ul {
+                gap: 10px;
+            }
+            nav a {
+                font-size: 0.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .main-image-placeholder {
+                height: 200px;
+                margin-bottom: 30px;
+            }
+            .main-text {
+                font-size: 0.95em;
+                margin-bottom: 40px;
+            }
+            footer {
+                padding: 40px 0 20px;
+            }
+            .footer-logo-section .logo-placeholder {
+                width: 80px;
+                height: 30px;
+            }
+            .footer-logo-section p,
+            .footer-column a,
+            .footer-about-text,
+            .footer-bottom p {
+                font-size: 0.8em; /* Further reduce font sizes */
+            }
+            .footer-column h3 {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-placeholder"></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Household</a></li>
+                    <li><a href="#">Gifts</a></li>
+                    <li><a href="#">Paper</a></li>
+                    <li><a href="#">Holiday</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Easter Baskets</h1>
+            <div class="main-image-placeholder"></div>
+            <p class="main-text">Did you know Margo's Gift Shop creates Easter Baskets to order, they have items for young and old. Stop in today and fill your basket up.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo-section">
+                    <div class="logo-placeholder"></div>
+                    <p>2058 Utica Square Tulsa, Oklahoma |</p>
+                    <p>[PHONE REDACTED]</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Collections</h3>
+                    <ul>
+                        <li><a href="#">Bridal Registry</a></li>
+                        <li><a href="#">Household</a></li>
+                        <li><a href="#">Gifts</a></li>
+                        <li><a href="#">Glassware</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Returns & Shipping</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About Margo's Gifts</h3>
+                    <p class="footer-about-text">Margo's was established in 1935 and is known for its bridal registry. Through the store's vast inventory, brides can register for pottery, linens, home decor, and other fine gifts.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023, Margo's Gift Shop.</p>
+                <p>Designed by Janzen Designs | Powered by Shopify</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

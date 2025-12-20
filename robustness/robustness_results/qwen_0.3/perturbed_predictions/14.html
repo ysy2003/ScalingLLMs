@@ -1,0 +1,286 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the image provided. The image shows a biography section with specific elements: "Biography" as a heading, "CV" in pink, a paragraph of text, "Contact:" as a heading, and "[EMAIL REDACTED]" in pink.
+
+Let's break down the structure:
+
+- The main content is a section with a title "Biography".
+- Under that, a subheading "CV" which is pink.
+- Then a paragraph of text.
+- Then "Contact:" as a heading, followed by "[EMAIL REDACTED]" in pink.
+
+Now, looking at the styling:
+
+- "Biography" is a heading, probably h2 or h3. In the image, it's bold, maybe a larger font.
+- "CV" is in pink (so color: #e74c3c or similar), bold, maybe a different size.
+- The paragraph is regular text.
+- "Contact:" is a heading, similar to "Biography" but maybe smaller.
+- "[EMAIL REDACTED]" is pink, bold.
+
+Wait, the image shows "Biography" as a heading, then "CV" as a subheading. Then the paragraph. Then "Contact:" as a heading, then the email.
+
+Let's check the font sizes and colors. The "CV" and "[EMAIL REDACTED]" are in pink. The rest is black.
+
+In the image, "Biography" is a bold heading, maybe h2. "CV" is a subheading, maybe h3 or a paragraph with a different style. The paragraph is regular. "Contact:" is a heading, maybe h3.
+
+Let's structure the HTML:
+
+- A container div for the content.
+- h2 for "Biography"
+- p for "CV" with color pink, bold.
+- p for the paragraph text.
+- h3 for "Contact:"
+- p for "[EMAIL REDACTED]" with color pink, bold.
+
+Wait, the image shows "Biography" as a heading, then "CV" as a subheading. So:
+
+<h2>Biography</h2>
+<p style="color: #e74c3c; font-weight: bold;">CV</p>
+<p>For thirty years...</p>
+<h3>Contact:</h3>
+<p style="color: #e74c3c; font-weight: bold;">[EMAIL REDACTED]</p>
+
+But need to check the exact styling. The image has "Biography" as a heading, then "CV" is in pink. The paragraph is standard. "Contact:" is a heading, then the email is pink.
+
+Now, for the CSS. The task says responsive CSS embedded in a style block.
+
+Let's think about the layout. The image is a single column, so no need for complex grid. Just basic styling for headings, paragraphs, colors.
+
+Possible CSS:
+
+- Set body font to sans-serif, maybe Arial or Helvetica.
+- h2: font-size: 1.5em; margin-bottom: 0.5em;
+- p: margin: 0.5em 0;
+- The "CV" and "[EMAIL REDACTED]" have color: #e74c3c (a common pink), font-weight: bold.
+
+Wait, the image shows "CV" in pink, so color: #e74c3c (or maybe #c0392b, but #e74c3c is a standard pink). Let's confirm: #e74c3c is a shade of red, but the image says pink. Maybe #e67e22? No, the image's pink is more like a coral. Wait, the user's image shows "CV" in pink, so we can use a pink color. Let's pick #e74c3c as it's a common pinkish-red.
+
+Now, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
+    p {
+      margin: 0.5em 0;
+    }
+   .pink-text {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Biography</h2>
+  <p class="pink-text">CV</p>
+  <p>For thirty years I have been making drawings, paintings, 16mm films and videos. My films integrate hybrid forms and traditions including autobiography, experimental tropes, cinema verité, scripted narrative, ethnographic observation and dance and performance, engaging with cultural and political themes, such as identity, nationalism, the transgression of borders, displacement, nuclear arms and war, foregrounding the human experience and personal testimony.</p>
+  <h3>Contact:</h3>
+  <p class="pink-text">[EMAIL REDACTED]</p>
+</body>
+</html>
+
+Wait, but the image shows "Biography" as a heading, then "CV" as a paragraph. The "Contact:" is a heading. So the structure is:
+
+- h2: Biography
+- p: CV (pink)
+- p: paragraph
+- h3: Contact:
+- p: [EMAIL REDACTED] (pink)
+
+But in the image, "Contact:" is a heading, so h3. Let's check the image: "Contact:" is a heading, similar to "Biography" but maybe smaller. So h2 for Biography, h3 for Contact.
+
+Wait, the image's "Biography" is a larger heading, "Contact:" is a smaller heading. So:
+
+h2 for Biography (font-size: 1.8em)
+h3 for Contact (font-size: 1.5em)
+
+But in the code, we can set h2 and h3 with appropriate sizes.
+
+Alternatively, maybe the "Biography" is h1, but the image shows it as a section title, so h2 is appropriate.
+
+Now, check the spacing. The image has "Biography" followed by "CV", then the paragraph, then "Contact:".
+
+Let's make sure the HTML is correct. The user's image has:
+
+Biography (heading)
+CV (pink)
+paragraph
+Contact: (heading)
+[EMAIL REDACTED] (pink)
+
+So the HTML structure is correct.
+
+Now, the CSS: the pink color for CV and [EMAIL REDACTED]. Let's use a class for that, so we can apply the style to both.
+
+In the style block, define a class.pink-text with color: #e74c3c; font-weight: bold;
+
+Then apply that class to the CV and [EMAIL REDACTED] paragraphs.
+
+Wait, in the image, "CV" is a paragraph, not a heading. So the HTML would be:
+
+<h2>Biography</h2>
+<p class="pink-text">CV</p>
+<p>...</p>
+<h3>Contact:</h3>
+<p class="pink-text">[EMAIL REDACTED]</p>
+
+Yes.
+
+Now, check if the HTML is valid. The body has the elements in order.
+
+Also, the task says "responsive CSS". So the CSS should be responsive. But since it's a simple layout, the CSS can be basic with font sizes and margins.
+
+Let's adjust the CSS to be responsive. For example, using relative units like em or rem, but for simplicity, maybe just set the font sizes to be relative to the parent.
+
+But the task says "responsive CSS", so perhaps using a mobile-first approach. However, the image is a single column, so the CSS can be minimal.
+
+Let's write the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+.pink-text {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+This should make the text responsive as the font sizes are relative to the body.
+
+Now, check the image: "Biography" is a heading, "CV" is pink, paragraph, "Contact:" is a heading, [EMAIL REDACTED] is pink.
+
+Yes, this structure matches.
+
+Now, the HTML file must be a single complete file, with the style in the head.
+
+Let's put it all together.
+
+Start with ```html, then the HTML code, then close with ```.
+
+Wait, the task says: BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.
+
+So the response should be:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      color: #333;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
+    h3 {
+      font-size: 1.5em;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin: 0.5em 0;
+    }
+   .pink-text {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Biography</h2>
+  <p class="pink-text">CV</p>
+  <p>For thirty years I have been making drawings, paintings, 16mm films and videos. My films integrate hybrid forms and traditions including autobiography, experimental tropes, cinema verité, scripted narrative, ethnographic observation and dance and performance, engaging with cultural and political themes, such as identity, nationalism, the transgression of borders, displacement, nuclear arms and war, foregrounding the human experience and personal testimony.</p>
+  <h3>Contact:</h3>
+  <p class="pink-text">[EMAIL REDACTED]</p>
+</body>
+</html>
+```
+
+Wait, but the image shows "Biography" as a heading, then "CV" as a paragraph. The "Contact:" is a heading. So the h2 and h3 are correct.
+
+Check the paragraph text: it's exactly as in the image.
+
+Yes, this should match the visual design.
+
+Now, check if the CSS is responsive. The font sizes are relative to the body, so it's responsive. The margins are set to be appropriate for different screen sizes.
+
+Yes, this should work.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      color: #333;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
+    h3 {
+      font-size: 1.5em;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin: 0.5em 0;
+    }
+   .pink-text {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Biography</h2>
+  <p class="pink-text">CV</p>
+  <p>For thirty years I have been making drawings, paintings, 16mm films and videos. My films integrate hybrid forms and traditions including autobiography, experimental tropes, cinema verité, scripted narrative, ethnographic observation and dance and performance, engaging with cultural and political themes, such as identity, nationalism, the transgression of borders, displacement, nuclear arms and war, foregrounding the human experience and personal testimony.</p>
+  <h3>Contact:</h3>
+  <p class="pink-text">[EMAIL REDACTED]</p>
+</body>
+</html>
+```

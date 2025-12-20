@@ -1,0 +1,1112 @@
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML structure and styling.
+
+Looking at the image:
+
+- The top has a logo on the left, and a navigation bar with "Home" and "22q11.2DS Quick Facts" on the right. Then there are several menu items: "Info for Patients and Families", "Info for Medical Professionals", etc., arranged in a grid.
+
+- Below that, there's a section with "In This Section..." on the left (a sidebar) and the main content on the right. The main content has headings like "Healthy Sexuality And Pregnancy", then subsections for "Websites on Healthy Sexuality" and "Websites on Pregnancy".
+
+Let's break down the structure:
+
+1. **Header Section**:
+   - Logo on the left (text "Logo" as per image).
+   - Top navigation: "Home" and "22q11.2DS Quick Facts" in a row, then a grid of menu items (3 columns, 3 rows? Let's check: the image shows 3 columns of menu items. The first row has 3 items: Info for Patients..., Info for Medical..., Info for Educators. Second row: Info for Police..., About the Clinic, Our Research. Third row: Same Name Campaign, Resources, Donate. So 3 columns, 3 rows, each cell is a button-like element with padding.)
+
+2. **Main Content**:
+   - Left sidebar: "In This Section..." with bullet points.
+   - Right main content: "Healthy Sexuality And Pregnancy" as a heading, then two subsections: "Websites on Healthy Sexuality" with links and descriptions, then "Websites on Pregnancy" (partially visible).
+
+Now, let's think about the HTML structure.
+
+First, the HTML5 boilerplate. Then, the header with logo and top nav. Then the main content with two columns (sidebar and main).
+
+For the header:
+
+- The top nav has "Home" and "22q11.2DS Quick Facts" as two elements. Wait, in the image, "Home" is a button, and "22q11.2DS Quick Facts" is another. Then below that, the menu items are in a grid.
+
+Wait, the image shows:
+
+Top row: Home (left), 22q11.2DS Quick Facts (right). Then below that, a grid of 3x3 menu items? Let's count:
+
+First row: Info for Patients and Families, Info for Medical Professionals, Info for Educators.
+
+Second row: Info for Police Officers, About the Clinic, Our Research.
+
+Third row: Same Name Campaign, Resources, Donate.
+
+So that's 3 columns, 3 rows. So the top nav has two items (Home and Quick Facts), then a grid of 9 menu items (3x3).
+
+Wait, the image shows the top navigation as:
+
+- Left: Logo (text "Logo")
+- Right: Home and 22q11.2DS Quick Facts (two items)
+- Then below that, the menu grid.
+
+Wait, the image's top part:
+
+The first line has "Logo" on the left, then a white bar with "Home" and "22q11.2DS Quick Facts" (maybe "Home" is a link, and "22q11.2DS Quick Facts" is another). Then below that, the menu items in a grid.
+
+Wait, looking at the image:
+
+The top section has:
+
+- Left: Logo (text "Logo")
+- Right: A row with "Home" and "22q11.2DS Quick Facts" (two elements)
+- Then below that, a grid of 3 columns, 3 rows of menu items.
+
+So the header structure:
+
+- A container for the logo and top nav.
+- Then a container for the menu grid.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22q11.2DS Website</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Logo</div>
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">22q11.2DS Quick Facts</a>
+    </nav>
+    <nav class="main-menu">
+      <div class="menu-row">
+        <a href="#">Info for Patients and Families</a>
+        <a href="#">Info for Medical Professionals</a>
+        <a href="#">Info for Educators</a>
+      </div>
+      <div class="menu-row">
+        <a href="#">Info for Police Officers</a>
+        <a href="#">About the Clinic</a>
+        <a href="#">Our Research</a>
+      </div>
+      <div class="menu-row">
+        <a href="#">Same Name Campaign</a>
+        <a href="#">Resources</a>
+        <a href="#">Donate</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h3>In This Section...</h3>
+      <ul>
+        <li><a href="#">Info for Patients and Families</a></li>
+        <li><a href="#">COVID-19 Information</a></li>
+        <li><a href="#">What is 22q? Genetics Q&A</a></li>
+        <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+      </ul>
+    </aside>
+
+    <article class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section class="section">
+        <h2>Websites on Healthy Sexuality</h2>
+        <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+        <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+        <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+        <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+      </section>
+      <section class="section">
+        <h2>Websites on Pregnancy</h2>
+        <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+        <p>The Pregnancy section of Toronto Public Health’s website can answer many health related questions for preg...</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
+
+Wait, but the image shows the main content with "Healthy Sexuality And Pregnancy" as a heading, then the two sections.
+
+Now, for the CSS:
+
+- The header should have a light background (maybe white or very light gray).
+- The logo is on the left, top nav items are on the right.
+- The main menu grid: each menu item is a button-like element with padding, maybe a light border or background.
+
+Looking at the image:
+
+- The top nav (Home and Quick Facts) are in a white bar, maybe with some spacing.
+- The main menu items are in a grid with a light background (maybe a very light gray) and each item has a border or padding.
+
+Wait, the image shows the main menu items as having a light background (like a white box with a border). Let's check the image:
+
+The menu items are in a grid, each with a light background (maybe #f9f9f9) and a border. The text is dark.
+
+Also, the sidebar is a light blue (maybe #f0f8ff) background.
+
+Let's define the CSS:
+
+- Body: font-family, margin, padding.
+- Header: display flex, justify-content space-between, padding.
+- Logo: font-size, maybe bold.
+- Top nav: display flex, gap, align-items center.
+- Main menu: display grid, grid-template-columns 1fr 1fr 1fr, gap, padding.
+- Sidebar: background color (light blue), padding, border-right.
+- Main content: padding, margin.
+- Section headings: bold, maybe a different color.
+
+Let's structure the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.top-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.main-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.main-menu a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sidebar {
+  background-color: #f0f8ff;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  width: 25%;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main-content {
+  padding: 1rem;
+  width: 75%;
+}
+
+.main-content h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.section p {
+  margin: 0.5rem 0;
+}
+
+/* For the Return link at the end */
+.return-link {
+  float: right;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #000;
+}
+
+Wait, the image shows a "[ Return" link at the end of the Healthy Sexuality section. So in the HTML, the main content should have a return link.
+
+Looking at the image: in the Healthy Sexuality section, after the second paragraph, there's a "[ Return" link. So in the HTML, the main content's section for Healthy Sexuality should have a return link.
+
+Wait, the image shows:
+
+In the main content, after the second website description, there's a "[ Return" link. So in the HTML, the section for Healthy Sexuality And Pregnancy should have a return link.
+
+Wait, the image's main content:
+
+- "Healthy Sexuality And Pregnancy" heading.
+- Then "Websites on Healthy Sexuality" section.
+- Then "Websites on Pregnancy" section.
+- At the end of the Healthy Sexuality section, there's a "[ Return" link.
+
+Wait, the image shows:
+
+In the Healthy Sexuality And Pregnancy section, after the two websites, there's a "[ Return" link. So the HTML should have:
+
+In the main content, after the "Websites on Healthy Sexuality" section, there's a return link.
+
+Wait, the image shows:
+
+The main content has:
+
+Healthy Sexuality And Pregnancy
+
+Websites on Healthy Sexuality
+
+[www.sexandu.ca] ... description
+
+[www.teenhealthsource.com] ... description
+
+[ Return]
+
+Then Websites on Pregnancy.
+
+So the return link is part of the Healthy Sexuality section.
+
+So in the HTML, the section for Healthy Sexuality And Pregnancy should have a return link.
+
+Wait, the image shows:
+
+The main content is:
+
+Healthy Sexuality And Pregnancy
+
+Websites on Healthy Sexuality
+
+www.sexandu.ca
+
+description
+
+www.teenhealthsource.com
+
+description
+
+[ Return]
+
+Websites on Pregnancy
+
+So the return link is after the Healthy Sexuality section.
+
+So in the HTML, the main content should have:
+
+<article class="main-content">
+  <h1>Healthy Sexuality And Pregnancy</h1>
+  <section class="section">
+    <h2>Websites on Healthy Sexuality</h2>
+    <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+    <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+    <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+    <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+  </section>
+  <a href="#" class="return-link">[ Return</a>
+  <section class="section">
+    <h2>Websites on Pregnancy</h2>
+    <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+    <p>The Pregnancy section of Toronto Public Health’s website can answer many health related questions for preg...</p>
+  </section>
+</article>
+
+Wait, but the image shows the return link as "[ Return" (without a closing bracket), so maybe it's "[ Return" as text.
+
+Now, let's check the image again:
+
+The image shows:
+
+In the main content, after the second website description, there's a "[ Return" link. So the HTML should have that.
+
+Now, for the CSS:
+
+- The return link should be styled as a link, maybe with a different color.
+
+Also, the sidebar's "In This Section..." has bullet points.
+
+Now, let's adjust the HTML structure.
+
+Let's make sure the HTML is valid.
+
+Also, the top nav: "Home" and "22q11.2DS Quick Facts" are in the top bar. The image shows "Home" as a link, and "22q11.2DS Quick Facts" as another.
+
+Now, the main menu grid: each menu item is a link with a light background.
+
+Let's code the HTML and CSS.
+
+First, the HTML structure:
+
+- Header with logo, top nav, main menu.
+- Main with sidebar and main content.
+
+Now, the CSS:
+
+- Body: margin 0, padding 0.
+- Header: flex, space-between, padding.
+- Logo: text, maybe bold.
+- Top nav: flex, gap, links.
+- Main menu: grid, 3 columns, gap, each item has padding, border.
+- Sidebar: background color, padding, border right.
+- Main content: padding, width.
+- Sections: margin bottom.
+- Return link: float right, etc.
+
+Let's write the CSS.
+
+Also, the image shows the main menu items as having a light background (like #f9f9f9) and a border. So the main-menu a elements should have a background color and border.
+
+Wait, the image shows the main menu items as white boxes with a light border. So the main-menu a elements should have a background color (maybe #fff) and a border (1px solid #ddd).
+
+Let's set:
+
+.main-menu {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.main-menu a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+}
+
+Wait, but the image shows the main menu items as having a light background, so maybe the main-menu container has a background, and each item has a border.
+
+Alternatively, the main-menu container is a grid with each item having a background.
+
+Let's check the image: the main menu items are in a grid, each with a light background (like a white box with a border). So each menu item (a tag) should have a background color and border.
+
+So:
+
+.main-menu a {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+}
+
+And the main-menu container (the grid) has a background color (maybe #f9f9f9) and padding.
+
+Wait, the image shows the main menu items as part of a section that's a bit lighter than the header. So the main-menu container (the grid) has a background color.
+
+Let's set:
+
+.main-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.main-menu a {
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+}
+
+Now, the sidebar:
+
+.sidebar {
+  background-color: #f0f8ff;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  width: 25%;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #000;
+}
+
+Main content:
+
+.main-content {
+  padding: 1rem;
+  width: 75%;
+}
+
+.main-content h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.section p {
+  margin: 0.5rem 0;
+}
+
+.return-link {
+  float: right;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #000;
+}
+
+Now, let's check the image for the return link: it's "[ Return" (without a closing bracket), so the HTML should have <a href="#" class="return-link">[ Return</a>
+
+Wait, the image shows "[ Return" as the text, so the link text is "[ Return".
+
+Now, let's put it all together.
+
+Also, the top nav: "Home" and "22q11.2DS Quick Facts" are in the top bar. The image shows them as two items, so the top-nav div has two links.
+
+Now, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22q11.2DS Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .top-nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .top-nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+    .main-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+    .main-menu a {
+      display: block;
+      padding: 0.5rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #ddd;
+      text-align: center;
+      font-weight: bold;
+    }
+    .sidebar {
+      background-color: #f0f8ff;
+      padding: 1rem;
+      border-right: 1px solid #ddd;
+      width: 25%;
+    }
+    .sidebar h3 {
+      margin-top: 0;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin-bottom: 0.5rem;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: #000;
+    }
+    .main-content {
+      padding: 1rem;
+      width: 75%;
+    }
+    .main-content h1 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    .section p {
+      margin: 0.5rem 0;
+    }
+    .return-link {
+      float: right;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Logo</div>
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">22q11.2DS Quick Facts</a>
+    </nav>
+    <nav class="main-menu">
+      <div class="menu-row">
+        <a href="#">Info for Patients and Families</a>
+        <a href="#">Info for Medical Professionals</a>
+        <a href="#">Info for Educators</a>
+      </div>
+      <div class="menu-row">
+        <a href="#">Info for Police Officers</a>
+        <a href="#">About the Clinic</a>
+        <a href="#">Our Research</a>
+      </div>
+      <div class="menu-row">
+        <a href="#">Same Name Campaign</a>
+        <a href="#">Resources</a>
+        <a href="#">Donate</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h3>In This Section...</h3>
+      <ul>
+        <li><a href="#">Info for Patients and Families</a></li>
+        <li><a href="#">COVID-19 Information</a></li>
+        <li><a href="#">What is 22q? Genetics Q&A</a></li>
+        <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+      </ul>
+    </aside>
+
+    <article class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section class="section">
+        <h2>Websites on Healthy Sexuality</h2>
+        <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+        <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+        <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+        <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+      </section>
+      <a href="#" class="return-link">[ Return</a>
+      <section class="section">
+        <h2>Websites on Pregnancy</h2>
+        <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+        <p>The Pregnancy section of Toronto Public Health’s website can answer many health related questions for preg...</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
+
+Wait, but the main menu in the image has the menu items as a grid, but in the HTML, the main-menu is a grid with 3 columns, but the menu items are in divs with class "menu-row". Wait, no, the main-menu should be a grid, so the grid-template-columns is 3, and each item is a grid item.
+
+Wait, the main-menu in the HTML is a grid, so the structure should be:
+
+<nav class="main-menu">
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+  <a href="#">...</a>
+</nav>
+
+But in the image, the menu items are arranged in 3 rows, 3 columns. So the grid should have 9 items, 3 per row.
+
+So the main-menu should have 9 a tags, each as a grid item.
+
+Wait, the image shows:
+
+First row: 3 items.
+
+Second row: 3 items.
+
+Third row: 3 items.
+
+So the main-menu should have 9 a tags, arranged in a 3x3 grid.
+
+So the HTML for main-menu should be:
+
+<nav class="main-menu">
+  <a href="#">Info for Patients and Families</a>
+  <a href="#">Info for Medical Professionals</a>
+  <a href="#">Info for Educators</a>
+  <a href="#">Info for Police Officers</a>
+  <a href="#">About the Clinic</a>
+  <a href="#">Our Research</a>
+  <a href="#">Same Name Campaign</a>
+  <a href="#">Resources</a>
+  <a href="#">Donate</a>
+</nav>
+
+But in the image, the menu items are in a grid, so the CSS grid should handle it.
+
+So the main-menu should be a grid with 3 columns, and 3 rows (since 9 items / 3 columns = 3 rows).
+
+So the CSS for main-menu:
+
+.main-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+Then the a tags are the grid items.
+
+So the HTML for main-menu should be:
+
+<nav class="main-menu">
+  <a href="#">Info for Patients and Families</a>
+  <a href="#">Info for Medical Professionals</a>
+  <a href="#">Info for Educators</a>
+  <a href="#">Info for Police Officers</a>
+  <a href="#">About the Clinic</a>
+  <a href="#">Our Research</a>
+  <a href="#">Same Name Campaign</a>
+  <a href="#">Resources</a>
+  <a href="#">Donate</a>
+</nav>
+
+That's better. The previous code had divs with class "menu-row", which is unnecessary. The grid will handle the rows.
+
+So let's correct that.
+
+Also, the top nav: "Home" and "22q11.2DS Quick Facts" are in the top bar. The image shows them as two items, so the top-nav has two links.
+
+Now, the sidebar: the image shows "In This Section..." with bullet points. The HTML has a ul with li elements.
+
+Now, the main content: the "Healthy Sexuality And Pregnancy" heading, then the two sections.
+
+The return link is after the first section.
+
+Now, let's check the image for the return link: it's "[ Return" (without a closing bracket), so the HTML should have <a href="#" class="return-link">[ Return</a>
+
+Now, let's adjust the HTML.
+
+Also, the image shows the main menu items as having a light background (like a white box with a border), so the main-menu a tags should have a background color and border.
+
+Wait, the image shows the main menu items as having a light background (maybe #fff) and a border. So the main-menu a tags should have:
+
+background-color: #fff;
+border: 1px solid #ddd;
+padding: 0.5rem;
+
+Yes.
+
+Now, let's write the final HTML.
+
+Also, the body should have a margin of 0, padding 0.
+
+Let's check the image for the colors:
+
+- Header background: light gray (#f5f5f5)
+- Main menu background: light gray (#f9f9f9)
+- Sidebar background: light blue (#f0f8ff)
+- Text color: black
+
+Now, the HTML code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22q11.2DS Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .top-nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .top-nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+    .main-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+    .main-menu a {
+      display: block;
+      padding: 0.5rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #ddd;
+      text-align: center;
+      font-weight: bold;
+      background-color: #fff;
+    }
+    .sidebar {
+      background-color: #f0f8ff;
+      padding: 1rem;
+      border-right: 1px solid #ddd;
+      width: 25%;
+    }
+    .sidebar h3 {
+      margin-top: 0;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin-bottom: 0.5rem;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: #000;
+    }
+    .main-content {
+      padding: 1rem;
+      width: 75%;
+    }
+    .main-content h1 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    .section p {
+      margin: 0.5rem 0;
+    }
+    .return-link {
+      float: right;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Logo</div>
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">22q11.2DS Quick Facts</a>
+    </nav>
+    <nav class="main-menu">
+      <a href="#">Info for Patients and Families</a>
+      <a href="#">Info for Medical Professionals</a>
+      <a href="#">Info for Educators</a>
+      <a href="#">Info for Police Officers</a>
+      <a href="#">About the Clinic</a>
+      <a href="#">Our Research</a>
+      <a href="#">Same Name Campaign</a>
+      <a href="#">Resources</a>
+      <a href="#">Donate</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h3>In This Section...</h3>
+      <ul>
+        <li><a href="#">Info for Patients and Families</a></li>
+        <li><a href="#">COVID-19 Information</a></li>
+        <li><a href="#">What is 22q? Genetics Q&A</a></li>
+        <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+      </ul>
+    </aside>
+
+    <article class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section class="section">
+        <h2>Websites on Healthy Sexuality</h2>
+        <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+        <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+        <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+        <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+      </section>
+      <a href="#" class="return-link">[ Return</a>
+      <section class="section">
+        <h2>Websites on Pregnancy</h2>
+        <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+        <p>The Pregnancy section of Toronto Public Health’s website can answer many health related questions for preg...</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
+```
+
+Wait, but the image shows the main menu items as having a light background (like a white box with a border), so the main-menu a tags should have a background color. In the CSS, I added background-color: #fff; to the main-menu a tags, which should make them white.
+
+Also, the sidebar's background is #f0f8ff, which is a light blue.
+
+Now, check if the structure matches the image:
+
+- Header with logo, top nav (Home and Quick Facts), main menu (3x3 grid).
+- Sidebar with "In This Section..." and bullet points.
+- Main content with the heading and sections.
+
+Yes, this should match.
+
+Now, check for any missing elements:
+
+- The return link is present.
+- The main menu items are 9, arranged in 3x3 grid.
+- The sidebar has the correct bullet points.
+
+Looks good.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22q11.2DS Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .top-nav {
+      display: flex;
+      gap: 2rem;
+    }
+    .top-nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+    .main-menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+    .main-menu a {
+      display: block;
+      padding: 0.5rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #ddd;
+      text-align: center;
+      font-weight: bold;
+      background-color: #fff;
+    }
+    .sidebar {
+      background-color: #f0f8ff;
+      padding: 1rem;
+      border-right: 1px solid #ddd;
+      width: 25%;
+    }
+    .sidebar h3 {
+      margin-top: 0;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin-bottom: 0.5rem;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: #000;
+    }
+    .main-content {
+      padding: 1rem;
+      width: 75%;
+    }
+    .main-content h1 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .section {
+      margin-bottom: 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    .section p {
+      margin: 0.5rem 0;
+    }
+    .return-link {
+      float: right;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Logo</div>
+    <nav class="top-nav">
+      <a href="#">Home</a>
+      <a href="#">22q11.2DS Quick Facts</a>
+    </nav>
+    <nav class="main-menu">
+      <a href="#">Info for Patients and Families</a>
+      <a href="#">Info for Medical Professionals</a>
+      <a href="#">Info for Educators</a>
+      <a href="#">Info for Police Officers</a>
+      <a href="#">About the Clinic</a>
+      <a href="#">Our Research</a>
+      <a href="#">Same Name Campaign</a>
+      <a href="#">Resources</a>
+      <a href="#">Donate</a>
+    </nav>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h3>In This Section...</h3>
+      <ul>
+        <li><a href="#">Info for Patients and Families</a></li>
+        <li><a href="#">COVID-19 Information</a></li>
+        <li><a href="#">What is 22q? Genetics Q&A</a></li>
+        <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+      </ul>
+    </aside>
+
+    <article class="main-content">
+      <h1>Healthy Sexuality And Pregnancy</h1>
+      <section class="section">
+        <h2>Websites on Healthy Sexuality</h2>
+        <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+        <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+        <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+        <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+      </section>
+      <a href="#" class="return-link">[ Return</a>
+      <section class="section">
+        <h2>Websites on Pregnancy</h2>
+        <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+        <p>The Pregnancy section of Toronto Public Health’s website can answer many health related questions for preg...</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
+```

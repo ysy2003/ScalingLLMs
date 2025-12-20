@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ingroove Jazzclub</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Closest sans-serif look */
+            color: #333;
+            background-color: #fff;
+            line-height: 1.6;
+            font-size: 16px; /* Base font size */
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            flex-direction: column; /* Default to column for smaller screens */
+            min-height: 100vh; /* Ensure container takes full viewport height */
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 40px 60px 0 60px; /* Adjust padding to match image */
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.1;
+            color: #333;
+            text-transform: uppercase;
+            white-space: nowrap; /* Prevent "JAZZCLUB" from wrapping too early */
+        }
+        .logo span {
+            display: block;
+        }
+
+        .main-title {
+            font-size: 36px; /* Larger font size */
+            font-weight: normal; /* Looks normal, not bold */
+            letter-spacing: 2px; /* Increased letter spacing */
+            color: #333;
+            text-transform: uppercase;
+            margin-left: auto; /* Pushes it to the right */
+            padding-top: 10px; /* Align with the logo's baseline */
+            white-space: nowrap;
+        }
+
+        .content-area {
+            display: flex;
+            flex-grow: 1; /* Allows content area to take remaining height */
+            padding-top: 40px; /* Space below header */
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 280px; /* Fixed width for sidebar */
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            padding-left: 60px; /* Matches left padding of header */
+            padding-right: 20px;
+            box-sizing: border-box;
+            color: #666; /* Lighter gray for sidebar text */
+            font-size: 15px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px; /* Space between sections */
+        }
+
+        .sidebar-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333; /* Darker for section titles */
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-section li {
+            margin-bottom: 5px;
+            padding-left: 15px; /* Indent list items */
+        }
+
+        .sidebar-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-contact {
+            margin-top: 40px; /* Space before contact */
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        /* Right Main Content */
+        .main-content {
+            flex-grow: 1; /* Takes remaining width */
+            padding-right: 60px; /* Matches right padding of header */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Align blue box and dialogue to the right */
+        }
+
+        .blue-box {
+            background-color: #0000FF; /* Bright blue */
+            width: 100%; /* Takes full width of main-content */
+            height: 400px; /* Approximate height from image */
+            margin-bottom: 60px; /* Space below blue box */
+        }
+
+        .dialogue-section {
+            width: 100%; /* Dialogue section takes full width of main-content */
+            color: #666; /* Lighter gray for dialogue */
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .dialogue-line {
+            margin-bottom: 15px; /* Space between dialogue lines */
+            text-align: right; /* All lines are right-aligned */
+            margin-left: auto; /* Pushes lines to the right */
+            margin-right: 0;
+            max-width: 600px; /* Default max-width for dialogue lines */
+        }
+        .dialogue-line.sergej {
+            max-width: 450px; /* Sergej's lines are shorter */
+        }
+        .dialogue-line.sterre {
+            max-width: 600px; /* Sterre's lines are longer */
+        }
+
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 0 40px 0;
+            color: #aaa; /* Lighter gray for footer text */
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .footer .back-to-top {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #999; /* Slightly darker for back to top */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .header-top {
+                padding: 30px 40px 0 40px;
+            }
+            .main-title {
+                font-size: 30px;
+            }
+            .sidebar {
+                width: 220px;
+                padding-left: 40px;
+            }
+            .main-content {
+                padding-right: 40px;
+            }
+            .blue-box {
+                height: 300px;
+            }
+            .dialogue-line {
+                max-width: 500px;
+            }
+            .dialogue-line.sergej {
+                max-width: 380px;
+            }
+            .dialogue-line.sterre {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 20px 0 20px;
+            }
+            .main-title {
+                margin-left: 0;
+                margin-top: 20px;
+                text-align: center;
+                font-size: 28px;
+            }
+            .content-area {
+                flex-direction: column; /* Stack sidebar and main content */
+                padding-top: 20px;
+            }
+            .sidebar {
+                width: 100%; /* Full width for sidebar */
+                padding: 20px;
+                text-align: center;
+            }
+            .sidebar-section ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .sidebar-section li {
+                padding-left: 0;
+            }
+            .main-content {
+                padding: 20px;
+                align-items: center; /* Center blue box and dialogue */
+            }
+            .blue-box {
+                width: 90%; /* Adjust width for smaller screens */
+                height: 250px;
+                margin-bottom: 40px;
+            }
+            .dialogue-section {
+                width: 90%; /* Adjust width for smaller screens */
+            }
+            .dialogue-line {
+                text-align: left; /* Left align dialogue on small screens for better readability */
+                margin-left: 0;
+                max-width: 100%;
+            }
+            .dialogue-line.sergej,
+            .dialogue-line.sterre {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+            .main-title {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+            body {
+                font-size: 14px;
+            }
+            .sidebar-section h3 {
+                font-size: 15px;
+            }
+            .blue-box {
+                height: 200px;
+            }
+            .footer {
+                padding: 40px 0 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-top">
+            <div class="logo">
+                <span>THE</span>
+                <span>INGROOVE</span>
+                <span>JAZZCLUB</span>
+            </div>
+            <h1 class="main-title">CULTIVATING COMPETENCE</h1>
+        </header>
+
+        <div class="content-area">
+            <nav class="sidebar">
+                <div class="sidebar-section">
+                    <h3>PRINCIPLES</h3>
+                    <ul>
+                        <li>Cosmopolis 2045</li>
+                        <li>This is not a Jazz Club</li>
+                        <li>Minding the Moment</li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>PROCESSES</h3>
+                    <ul>
+                        <li>MMIIRR</li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>PATTERNS</h3>
+                    <ul>
+                        <li>Patterns of Space</li>
+                        <li>Patterns of Communication</li>
+                        <li>Rather Refreshing</li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>PEOPLE</h3>
+                    <ul>
+                        <li>Sergej van Middendorp</li>
+                        <li>Rik Spann</li>
+                        <li>Artwork by Sterre van Middendorp</li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>PUBLICATIONS</h3>
+                    <ul>
+                        <li>Places to go</li>
+                        <li>Our Ship</li>
+                        <li>Embodying Metaphors in Systems</li>
+                    </ul>
+                </div>
+                <div class="sidebar-contact">
+                    Contact
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <div class="blue-box"></div>
+
+                <section class="dialogue-section">
+                    <p class="dialogue-line sergej">Sergej: Let's look at the second painting.</p>
+                    <p class="dialogue-line sterre">Sterre: So the knowledge of the one hand complements the other. Also, with this moment, and by making new knowledge, you use the knowledge you already have.</p>
+                    <p class="dialogue-line sergej">Sergej: Yes, suppose you are really good at something, But you cannot concentrate.</p>
+                    <p class="dialogue-line sterre">Sterre: New developments and actions are carried by both hands.</p>
+                    <p class="dialogue-line sergej">Sergej: Somehow, the hands look like the tree of minding the moment. Was that conscious?</p>
+                    <p class="dialogue-line sterre">Sterre: No, it was not a conscious choice to have the hands resemble the tree.</p>
+                    <p class="dialogue-line sergej">Sergej: They also resemble a heart.</p>
+                    <p class="dialogue-line sterre">Sterre: Unconscious too!</p>
+                    <p class="dialogue-line sergej">Sergej: Do you like the painting?</p>
+                    <p class="dialogue-line sterre">Sterre: I like the symbolism of it, but I am not too fond of the painting itself.</p>
+                    <p class="dialogue-line sergej">Sergej: What would you do different if you were to make it now?</p>
+                    <p class="dialogue-line sterre">Sterre: I am not sure, it is my own development since I made this that makes me look at it critically now.</p>
+                    <p class="dialogue-line sergej">Sergej: So when you look back at your own development, at some later point, You can say new things about your earlier performance.</p>
+                    <p class="dialogue-line sterre">Sterre: Indeed!</p>
+                </section>
+            </

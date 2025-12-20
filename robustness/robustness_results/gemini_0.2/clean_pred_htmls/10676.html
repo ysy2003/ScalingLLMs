@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define CSS variables for consistent styling */
+        :root {
+            --bg-dark-green: #507828; /* Darker green from the left side of the gradient */
+            --bg-light-green: #8CB450; /* Lighter green from the right side of the gradient */
+            --text-light: #f0f0f0; /* A very light grey, almost white, for text */
+            --blue-box-color: #0000FF; /* Pure blue for the placeholder box */
+            --line-color: #f0f0f0; /* Color for the horizontal line */
+        }
+
+        /* Universal box-sizing for easier layout management */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body styling: font, background gradient, text color, and full height */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to right, var(--bg-dark-green), var(--bg-light-green));
+            color: var(--text-light);
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+            display: flex;
+            flex-direction: column; /* Allows main content to grow and push footer (if any) down */
+        }
+
+        /* Container for centralizing content and applying horizontal padding */
+        .container {
+            max-width: 1200px; /* Maximum width for the content area */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 0 20px; /* Horizontal padding for content inside the container */
+            width: 100%; /* Ensure container takes full width up to max-width */
+        }
+
+        /* Header styling */
+        header {
+            padding-top: 40px; /* Space from the top of the page */
+        }
+
+        /* Navigation list styling */
+        nav ul {
+            list-style: none; /* Remove bullet points */
+            display: flex;
+            justify-content: flex-end; /* Align navigation items to the right */
+            gap: 30px; /* Space between navigation links */
+        }
+
+        /* Navigation link styling */
+        nav a {
+            color: var(--text-light);
+            text-decoration: none; /* Remove underline */
+            font-weight: 400; /* Regular font weight */
+            font-size: 1em;
+            white-space: nowrap; /* Prevent links from wrapping */
+        }
+
+        /* Horizontal line below the navigation */
+        .header-line {
+            border-bottom: 1px solid var(--line-color);
+            opacity: 0.5; /* Make the line slightly transparent */
+            margin-top: 20px; /* Space below navigation */
+            margin-bottom: 50px; /* Space above the main content */
+        }
+
+        /* Main content area styling */
+        main {
+            flex-grow: 1; /* Allows main content to take up available vertical space */
+            display: flex;
+            align-items: center; /* Vertically center the content-wrapper within main */
+            padding-bottom: 50px; /* Padding at the bottom of the page */
+        }
+
+        /* Wrapper for the text content and blue box, enabling side-by-side layout */
+        .content-wrapper {
+            display: flex;
+            gap: 80px; /* Space between the text block and the blue box */
+            align-items: flex-start; /* Align items to the top of the flex container */
+            width: 100%;
+        }
+
+        /* Text content block styling */
+        .text-content {
+            flex: 1; /* Allows text content to grow and shrink */
+            max-width: 500px; /* Limit the maximum width of the text block */
+        }
+
+        /* "Maintenance" title styling */
+        .text-content h1 {
+            font-size: 2.5em;
+            font-weight: 700; /* Bold font weight */
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        /* Paragraph text styling */
+        .text-content p {
+            font-size: 1em;
+            line-height: 1.6; /* Increased line height for readability */
+            font-weight: 400;
+            margin-bottom: 1em; /* Space between paragraphs */
+        }
+        .text-content p:last-child {
+            margin-bottom: 0; /* No bottom margin for the last paragraph */
+        }
+
+        /* Blue placeholder box styling */
+        .blue-box {
+            width: 500px; /* Fixed width for the blue box */
+            height: 350px; /* Fixed height for the blue box */
+            background-color: var(--blue-box-color);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            flex-shrink: 0; /* Prevent the blue box from shrinking */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column; /* Stack text and blue box vertically */
+                align-items: center; /* Center items horizontally when stacked */
+                gap: 40px; /* Reduce gap when stacked */
+            }
+
+            .text-content {
+                max-width: 80%; /* Allow text to take more width on medium screens */
+                text-align: center; /* Center text when stacked */
+            }
+
+            .blue-box {
+                width: 80%; /* Make blue box responsive */
+                height: 250px; /* Adjust height */
+            }
+
+            nav ul {
+                justify-content: center; /* Center nav items */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding-top: 20px; /* Reduce top padding */
+            }
+            nav ul {
+                flex-wrap: wrap; /* Allow nav items to wrap to the next line */
+                gap: 15px; /* Reduce gap between nav items */
+            }
+            .text-content h1 {
+                font-size: 2em; /* Adjust title font size */
+            }
+            .text-content p {
+                font-size: 0.9em; /* Adjust paragraph font size */
+            }
+            .blue-box {
+                width: 90%; /* Further adjust blue box width */
+                height: 200px; /* Further adjust blue box height */
+            }
+            .container {
+                padding: 0 15px; /* Reduce horizontal padding */
+            }
+            .header-line {
+                margin-bottom: 30px; /* Adjust line margin */
+            }
+            main {
+                padding-bottom: 30px; /* Adjust main padding */
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column; /* Stack nav items vertically */
+                align-items: center; /* Center stacked nav items */
+            }
+            .text-content h1 {
+                font-size: 1.8em; /* Further adjust title font size */
+            }
+            .text-content p {
+                font-size: 0.85em; /* Further adjust paragraph font size */
+            }
+            .blue-box {
+                width: 95%; /* Max width for blue box on very small screens */
+                height: 150px; /* Further adjust blue box height */
+            }
+            .container {
+                padding: 0 10px; /* Minimal horizontal padding */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Construction</a></li>
+                </ul>
+            </nav>
+            <div class="header-line"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h1>Maintenance</h1>
+                    <p>
+                        Our award winning maintenance division provides complete professional landscape maintenance service including weekly maintenance, irrigation repairs, landscape upgrades, tree service, weed abatement and seasonal color change. We customize each maintenance project to fit your budget and time constraints, working with you, our #1 priority, to make sure you are completely satisfied.
+                    </p>
+                    <p>
+                        Let us, your "green partner" show you what we can do for you.
+                    </p>
+                </div>
+                <div class="blue-box"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

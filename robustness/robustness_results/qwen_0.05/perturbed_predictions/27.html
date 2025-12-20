@@ -1,0 +1,1060 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image and recreate the HTML and CSS exactly as shown.
+
+Starting with the structure:
+
+1. **Header**: The top has "SEGWAY Guided TOURS" as the main title. Then a navigation bar with links: Home, Find Segway Tours, Browse Tours, For Tour Operators.
+
+2. **Search Section**: A search bar with "Tour Location..." placeholder and a green "FIND" button.
+
+3. **Breadcrumbs**: " / / USA / SOUTH CAROLINA" (though in the image, it's "USA / SOUTH CAROLINA", so maybe the first two slashes are part of the breadcrumb path).
+
+4. **Main Content**:
+   - Title: "List of 6 Segway Tours in South Carolina"
+   - Subtitle: "South Carolina List Date: 11/3/23"
+   - A blue section with "South Carolina" label (teal background, white text) on the left, and a larger blue rectangle (maybe a placeholder for an image or content).
+   - Then a section titled "SOUTH CAROLINA SEGWAY TOURS" with descriptive text.
+   - A list of tours with links: USA >>, SOUTH CAROLINA >>, then cities like CHARLESTON >>, etc., each with their tour names.
+   - A note: "Showing 6 South Carolina tours of 636 tours Worldwide"
+
+5. **Another Section**: "South Carolina Segway Tours" with more descriptive text.
+
+6. **Stats Section**: Gray background with four stats: 636 WORLDWIDE, 56 COUNTRIES, 198 REGIONS, 442 CITIES.
+
+7. **Call to Action**: Green background with "Find a Tour on a Segway® PT now!" and a "Find a Tour Now" button.
+
+8. **Footer**: Links: HOME, FIND SEGWAY TOURS, BROWSE TOURS, ABOUT SGT, SEGWAY MINIPRO, FOR TOUR OPERATORS, LEGALESE, SITEMAP. Copyright info.
+
+Now, let's break down each part into HTML elements.
+
+First, the HTML structure:
+
+- <html>
+  - <head>
+    - <title>SEGWAY Guided TOURS</title>
+    - <style> (all CSS here)
+  - <body>
+    - Header with logo and nav
+    - Search bar
+    - Breadcrumbs
+    - Main content sections
+    - Stats section
+    - CTA section
+    - Footer
+
+Let's handle the CSS. Need to make it responsive, so use flexbox or grid where needed.
+
+Starting with the header:
+
+- The logo "SEGWAY Guided TOURS" should be styled as a heading, maybe h1 or h2. The navigation links should be inline, maybe with some spacing.
+
+Search bar: input with placeholder, button. The button is green, so background color #009688 (or similar, but need to match the image). The input should have a border, maybe rounded corners.
+
+Breadcrumbs: the path " / / USA / SOUTH CAROLINA" – in the image, it's "USA / SOUTH CAROLINA", so maybe the first two slashes are part of the breadcrumb. Let's check the image: the breadcrumb is " / / USA / SOUTH CAROLINA" – so three slashes? Wait, the image shows " / / USA / SOUTH CAROLINA" – so maybe the breadcrumb is structured as "Home / USA / SOUTH CAROLINA", but the image shows " / / USA / SOUTH CAROLINA", so perhaps the first two slashes are placeholders. Let's see: the image has " / / USA / SOUTH CAROLINA" – so maybe the breadcrumb is " / / USA / SOUTH CAROLINA", so the actual path is from a root, then two slashes, then USA, then South Carolina. But for the code, we can just replicate the text as in the image.
+
+Main content:
+
+- The title "List of 6 Segway Tours in South Carolina" – h2 or h1?
+- Subtitle: "South Carolina List Date: 11/3/23" – smaller font, maybe gray.
+- The blue section: a div with a teal label "South Carolina" (left-aligned, maybe a badge), and a large blue rectangle (background color #0000FF, but in the image it's blue, so #0000FF or similar). Wait, the image shows a blue rectangle, so the background color for that section is blue. The label "South Carolina" is in a teal box (maybe #008080 or similar), white text.
+
+Then the "SOUTH CAROLINA SEGWAY TOURS" section: a heading, then a paragraph.
+
+The list of tours: each city has a link with ">>" after the city name, then the tour name. For example, "CHARLESTON >>" followed by "Segway of Charleston >>".
+
+The note: "Showing 6 South Carolina tours of 636 tours Worldwide" – centered or left-aligned?
+
+Another section: "South Carolina Segway Tours" with a paragraph.
+
+Stats section: four boxes with numbers and labels. The background is gray, so #e0e0e0 or similar.
+
+CTA section: green background, white text, button.
+
+Footer: links in two columns, copyright.
+
+Now, let's think about the colors:
+
+- Primary color for buttons: green, like #009688 (the "FIND" button and "Find a Tour Now" button).
+- The blue sections: #0000FF (the large blue rectangle) and the "South Carolina" label is teal, maybe #008080.
+- The stats section background: light gray, #e0e0e0.
+- The CTA section: green, #009688 (or a darker green, like #00b09b).
+
+Let's check the image:
+
+- The "FIND" button is green, so background #009688.
+- The "Find a Tour Now" button is the same green.
+- The blue rectangle in the main content is solid blue, so #0000FF.
+- The "South Carolina" label is a teal box, so #008080, white text.
+
+Now, let's structure the HTML.
+
+First, the header:
+
+<div class="header">
+  <h1>SEGWAY Guided TOURS</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Find Segway Tours</a></li>
+      <li><a href="#">Browse Tours</a></li>
+      <li><a href="#">For Tour Operators</a></li>
+    </ul>
+  </nav>
+</div>
+
+Search bar:
+
+<div class="search-bar">
+  <input type="text" placeholder="Tour Location...">
+  <button class="find-btn">FIND</button>
+</div>
+
+Breadcrumbs:
+
+<div class="breadcrumbs">
+  <span>/ / USA / SOUTH CAROLINA</span>
+</div>
+
+Main content:
+
+<div class="main-content">
+  <h2>List of 6 Segway Tours in South Carolina</h2>
+  <p class="list-date">South Carolina List Date: 11/3/23</p>
+  <div class="tour-section">
+    <div class="south-carolina-badge">South Carolina</div>
+    <div class="blue-rectangle"></div>
+  </div>
+  <h3>SOUTH CAROLINA SEGWAY TOURS</h3>
+  <p>Discover South Carolina on one of these six Segway tours. Experience the sights and sounds of South Carolina's cities and landmarks with an up-close and personal tour on the Segway® PT.</p>
+  <div class="tour-list">
+    <p><a href="#">USA >></a></p>
+    <p><a href="#">SOUTH CAROLINA >></a></p>
+    <p><a href="#">CHARLESTON >></a></p>
+    <p><a href="#">Segway of Charleston >></a></p>
+    <p><a href="#">GREENVILLE >></a></p>
+    <p><a href="#">Carolina Segway >></a></p>
+    <p><a href="#">Greenville Glides >></a></p>
+    <p><a href="#">HILTON HEAD ISLAND >></a></p>
+    <p><a href="#">Hilton Head Segway >></a></p>
+    <p><a href="#">LITTLE RIVER >></a></p>
+    <p><a href="#">Myrtle Beach Segway >></a></p>
+    <p><a href="#">Myrtle Beach Segway >></a></p>
+  </div>
+  <p class="tour-count">Showing 6 South Carolina tours of 636 tours Worldwide</p>
+</div>
+
+Another section:
+
+<div class="south-carolina-description">
+  <h3>South Carolina Segway Tours</h3>
+  <p>Whether South Carolina is your home state or your next travel destination, one of these Segway tours can add exciting new fun to your next business trip, vacation or weekend plans.<br><br>Looking for adventure tours beyond South Carolina's six Segway tours? Use our Directory to <a href="#">find Segway Tours</a> across the United States and around the world and experience touring on a Segway PT for yourself!</p>
+</div>
+
+Stats section:
+
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-number">636</span>
+    <span class="stat-label">WORLDWIDE</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">56</span>
+    <span class="stat-label">COUNTRIES</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">198</span>
+    <span class="stat-label">REGIONS</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">442</span>
+    <span class="stat-label">CITIES</span>
+  </div>
+</div>
+
+CTA section:
+
+<div class="cta">
+  <h2>Find a Tour on a Segway® PT now!</h2>
+  <button class="cta-btn">Find a Tour Now</button>
+</div>
+
+Footer:
+
+<footer>
+  <div class="footer-links">
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">FIND SEGWAY TOURS</a></li>
+      <li><a href="#">BROWSE TOURS</a></li>
+      <li><a href="#">ABOUT SGT</a></li>
+      <li><a href="#">SEGWAY MINIPRO</a></li>
+      <li><a href="#">FOR TOUR OPERATORS</a></li>
+      <li><a href="#">LEGALESE</a></li>
+      <li><a href="#">SITEMAP</a></li>
+    </ul>
+  </div>
+  <div class="copyright">
+    <p>©2004-2023 SegwayGuidedTours.com</p>
+  </div>
+</footer>
+
+Now, the CSS. Need to make it responsive. Let's think about the layout.
+
+- The header: fixed or not? The image shows it as top, so maybe fixed. But the problem says "recreate the visual design", so the structure should match.
+
+- The search bar: centered or left-aligned? In the image, it's centered.
+
+- The main content: the blue rectangle is a large block, so maybe a flex container.
+
+Let's outline the CSS:
+
+Reset some default styles.
+
+Set font-family, colors.
+
+Header:
+
+- background: white, maybe.
+- padding: 10px, etc.
+
+Navigation: inline, maybe with some margin.
+
+Search bar: input and button, centered.
+
+Breadcrumbs: small font, gray.
+
+Main content:
+
+- The tour-section: a container with the badge and blue rectangle. The badge is a small rectangle with "South Carolina", and the blue rectangle is a larger block.
+
+- The tour-list: each item is a paragraph with links.
+
+Stats section: four items in a row, so flexbox.
+
+CTA: green background, centered text.
+
+Footer: two columns for links, copyright.
+
+Let's define the CSS variables for colors to make it easier.
+
+But since it's a single file, we can define colors directly.
+
+Let's start coding the CSS.
+
+First, reset:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.header {
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
+
+.search-bar button {
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.list-date {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.tour-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.south-carolina-badge {
+  background-color: #008080;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.blue-rectangle {
+  background-color: #0000FF;
+  width: 300px;
+  height: 200px;
+  border-radius: 4px;
+}
+
+.tour-list {
+  margin: 20px 0;
+}
+
+.tour-list p {
+  margin: 10px 0;
+}
+
+.tour-count {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+}
+
+.south-carolina-description {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.south-carolina-description h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.south-carolina-description p {
+  margin-bottom: 10px;
+}
+
+.stats {
+  background-color: #e0e0e0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #009688;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.cta {
+  background-color: #009688;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.cta h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+footer {
+  background: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.footer-links ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.footer-links li {
+  margin-right: 15px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.copyright {
+  text-align: center;
+  width: 50%;
+  color: #666;
+}
+
+Now, check if all elements are covered.
+
+Wait, the image shows the "FIND" button as green, which we have. The "Find a Tour Now" button is also green.
+
+The breadcrumbs: in the image, it's " / / USA / SOUTH CAROLINA", so the text should be exactly that.
+
+The main content's title: "List of 6 Segway Tours in South Carolina" – correct.
+
+The list of tours: the image shows:
+
+USA >> 
+
+SOUTH CAROLINA >> 
+
+CHARLESTON >> 
+
+Segway of Charleston >> 
+
+GREENVILLE >> 
+
+Carolina Segway >> 
+
+Greenville Glides >> 
+
+HILTON HEAD ISLAND >> 
+
+Hilton Head Segway >> 
+
+LITTLE RIVER >> 
+
+Myrtle Beach Segway >> 
+
+Myrtle Beach Segway >> 
+
+So the HTML for the tour-list should have each of these as paragraphs.
+
+The note: "Showing 6 South Carolina tours of 636 tours Worldwide" – correct.
+
+The stats section: 636 WORLDWIDE, 56 COUNTRIES, 198 REGIONS, 442 CITIES – correct.
+
+The CTA: "Find a Tour on a Segway® PT now!" – correct.
+
+Footer links: HOME, FIND SEGWAY TOURS, BROWSE TOURS, ABOUT SGT, SEGWAY MINIPRO, FOR TOUR OPERATORS, LEGALESE, SITEMAP – correct.
+
+Copyright: ©2004-2023 SegwayGuidedTours.com – correct.
+
+Now, check the responsive part. The CSS uses flexbox for the stats section, which will wrap on smaller screens. The main content and other sections have max-width, so they'll be centered.
+
+Now, let's put it all together.
+
+Wait, the image shows the "South Carolina" badge as a teal box with white text, which we have as #008080.
+
+The blue rectangle is #0000FF.
+
+The search bar input has a border, and the button is green.
+
+The header background is white.
+
+The main content has a white background with a shadow.
+
+The stats section is light gray.
+
+The CTA is green.
+
+Now, let's code the HTML.
+
+Start with the doctype, html, head, body.
+
+Make sure all tags are closed.
+
+Check for any missing elements.
+
+Let's write the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEGWAY Guided TOURS</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>SEGWAY Guided TOURS</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Find Segway Tours</a></li>
+        <li><a href="#">Browse Tours</a></li>
+        <li><a href="#">For Tour Operators</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Tour Location...">
+    <button class="find-btn">FIND</button>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <span>/ / USA / SOUTH CAROLINA</span>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>List of 6 Segway Tours in South Carolina</h2>
+    <p class="list-date">South Carolina List Date: 11/3/23</p>
+    <div class="tour-section">
+      <div class="south-carolina-badge">South Carolina</div>
+      <div class="blue-rectangle"></div>
+    </div>
+    <h3>SOUTH CAROLINA SEGWAY TOURS</h3>
+    <p>Discover South Carolina on one of these six Segway tours. Experience the sights and sounds of South Carolina's cities and landmarks with an up-close and personal tour on the Segway® PT.</p>
+    <div class="tour-list">
+      <p><a href="#">USA >></a></p>
+      <p><a href="#">SOUTH CAROLINA >></a></p>
+      <p><a href="#">CHARLESTON >></a></p>
+      <p><a href="#">Segway of Charleston >></a></p>
+      <p><a href="#">GREENVILLE >></a></p>
+      <p><a href="#">Carolina Segway >></a></p>
+      <p><a href="#">Greenville Glides >></a></p>
+      <p><a href="#">HILTON HEAD ISLAND >></a></p>
+      <p><a href="#">Hilton Head Segway >></a></p>
+      <p><a href="#">LITTLE RIVER >></a></p>
+      <p><a href="#">Myrtle Beach Segway >></a></p>
+      <p><a href="#">Myrtle Beach Segway >></a></p>
+    </div>
+    <p class="tour-count">Showing 6 South Carolina tours of 636 tours Worldwide</p>
+  </div>
+
+  <!-- South Carolina Description -->
+  <div class="south-carolina-description">
+    <h3>South Carolina Segway Tours</h3>
+    <p>Whether South Carolina is your home state or your next travel destination, one of these Segway tours can add exciting new fun to your next business trip, vacation or weekend plans.<br><br>Looking for adventure tours beyond South Carolina's six Segway tours? Use our Directory to <a href="#">find Segway Tours</a> across the United States and around the world and experience touring on a Segway PT for yourself!</p>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">636</span>
+      <span class="stat-label">WORLDWIDE</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">56</span>
+      <span class="stat-label">COUNTRIES</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">198</span>
+      <span class="stat-label">REGIONS</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">442</span>
+      <span class="stat-label">CITIES</span>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="cta">
+    <h2>Find a Tour on a Segway® PT now!</h2>
+    <button class="cta-btn">Find a Tour Now</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">FIND SEGWAY TOURS</a></li>
+        <li><a href="#">BROWSE TOURS</a></li>
+        <li><a href="#">ABOUT SGT</a></li>
+        <li><a href="#">SEGWAY MINIPRO</a></li>
+        <li><a href="#">FOR TOUR OPERATORS</a></li>
+        <li><a href="#">LEGALESE</a></li>
+        <li><a href="#">SITEMAP</a></li>
+      </ul>
+    </div>
+    <div class="copyright">
+      <p>©2004-2023 SegwayGuidedTours.com</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, check the CSS. Let's make sure all styles are included.
+
+Wait, in the CSS, the.blue-rectangle has a background color of #0000FF, which is correct.
+
+The.south-carolina-badge has background #008080, which is teal.
+
+The search bar button is #009688.
+
+The CTA button is #009688.
+
+The stats section background is #e0e0e0.
+
+The main content has a white background with a shadow.
+
+The footer has a white background.
+
+Now, check if all elements are present.
+
+Yes, the breadcrumbs, search bar, main content, etc.
+
+Now, check for any missing elements. The image shows the "FIND" button as green, which is in the search bar.
+
+The "Find a Tour Now" button is in the CTA section.
+
+The footer links are all there.
+
+The copyright is there.
+
+Now, check the responsive part. The CSS uses flexbox for the stats section, which will wrap on smaller screens. The main content has max-width, so it's centered.
+
+Now, let's make sure the HTML is valid and closed.
+
+Yes, all tags are closed.
+
+Now, the task says to generate ONLY one complete, valid, and fully closed HTML5 file.
+
+So the code should start with ```html and end with ```.
+
+Wait, the problem says: "BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```."
+
+So the response should be:
+
+```html
+<!DOCTYPE html>
+...
+</html>
+```
+
+So the code block starts with ```html and ends with ```.
+
+Now, let's write the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEGWAY Guided TOURS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+   .header {
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+
+   .header h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+   .search-bar {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+   .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+      font-size: 16px;
+    }
+
+   .search-bar button {
+      background-color: #009688;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+   .breadcrumbs {
+      font-size: 14px;
+      color: #666;
+      margin: 10px 0;
+    }
+
+   .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+   .main-content h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+   .list-date {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+   .tour-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+   .south-carolina-badge {
+      background-color: #008080;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+   .blue-rectangle {
+      background-color: #0000FF;
+      width: 300px;
+      height: 200px;
+      border-radius: 4px;
+    }
+
+   .tour-list {
+      margin: 20px 0;
+    }
+
+   .tour-list p {
+      margin: 10px 0;
+    }
+
+   .tour-count {
+      text-align: center;
+      font-style: italic;
+      color: #666;
+      margin-top: 10px;
+    }
+
+   .south-carolina-description {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+   .south-carolina-description h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+   .south-carolina-description p {
+      margin-bottom: 10px;
+    }
+
+   .stats {
+      background-color: #e0e0e0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+   .stat-item {
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+      margin: 10px;
+    }
+
+   .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #009688;
+    }
+
+   .stat-label {
+      font-size: 14px;
+      color: #666;
+    }
+
+   .cta {
+      background-color: #009688;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+   .cta h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+   .cta-btn {
+      background-color: #009688;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+    }
+
+   .footer-links ul {
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      width: 50%;
+    }
+
+   .footer-links li {
+      margin-right: 15px;
+    }
+
+   .footer-links a {
+      text-decoration: none;
+      color: #333;
+    }
+
+   .copyright {
+      text-align: center;
+      width: 50%;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>SEGWAY Guided TOURS</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Find Segway Tours</a></li>
+        <li><a href="#">Browse Tours</a></li>
+        <li><a href="#">For Tour Operators</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Tour Location...">
+    <button class="find-btn">FIND</button>
+  </div>
+
+  <div class="breadcrumbs">
+    <span>/ / USA / SOUTH CAROLINA</span>
+  </div>
+
+  <div class="main-content">
+    <h2>List of 6 Segway Tours in South Carolina</h2>
+    <p class="list-date">South Carolina List Date: 11/3/23</p>
+    <div class="tour-section">
+      <div class="south-carolina-badge">South Carolina</div>
+      <div class="blue-rectangle"></div>
+    </div>
+    <h3>SOUTH CAROLINA SEGWAY TOURS</h3>
+    <p>Discover South Carolina on one of these six Segway tours. Experience the sights and sounds of South Carolina's cities and landmarks with an up-close and personal tour on the Segway® PT.</p>
+    <div class="tour-list">
+      <p><a href="#">USA >></a></p>
+      <p><a href="#">SOUTH CAROLINA >></a></p>
+      <p><a href="#">CHARLESTON >></a></p>
+      <p><a href="#">Segway of Charleston >></a></p>
+      <p><a href="#">GREENVILLE >></a></p>
+      <p><a href="#">Carolina Segway >></a></p>
+      <p><a href="#">Greenville Glides >></a></p>
+      <p><a href="#">HILTON HEAD ISLAND >></a></p>
+      <p><a href="#">Hilton Head Segway >></a></p>
+      <p><a href="#">LITTLE RIVER >></a></p>
+      <p><a href="#">Myrtle Beach Segway >></a></p>
+      <p><a href="#">Myrtle Beach Segway >></a></p>
+    </div>
+    <p class="tour-count">Showing 6 South Carolina tours of 636 tours Worldwide</p>
+  </div>
+
+  <div class="south-carolina-description">
+    <h3>South Carolina Segway Tours</h3>
+    <p>Whether South Carolina is your home state or your next travel destination, one of these Segway tours can add exciting new fun to your next business trip, vacation or weekend plans.<br><br>Looking for adventure tours beyond South Carolina's six Segway tours? Use our Directory to <a href="#">find Segway Tours</a> across the United States and around the world and experience touring on a Segway PT for yourself!</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-number">636</span>
+      <span class="stat-label">WORLDWIDE</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">56</span>
+      <span class="stat-label">COUNTRIES</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">198</span>
+      <span class="stat-label">REGIONS</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">442</span>
+      <span class="stat-label">CITIES</span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Find a Tour on a Segway® PT now!</h2>
+    <button class="cta-btn">Find a Tour Now</button>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">FIND SEGWAY TOURS</a></li>
+        <li><a href="#">BROWSE TOURS</a></li>
+        <li><a href="#">ABOUT SGT</a></li>
+        <li><a href="#">SEGWAY MINIPRO</a></li>
+        <li><a href="#">FOR TOUR OPERATORS</a></li>
+        <li><a href="#">LEGALESE</a></li>
+        <li><a href="#">SITEMAP</a></li>
+      </ul>
+    </div>
+    <div class="copyright">
+      <p>©2004-2023 SegwayGuidedTours.com</p>
+    </div>
+  </footer>
+</body>
+</html>
+```

@@ -1,0 +1,848 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's break down the elements.
+
+The page has a header with "[NAME REDACTED]" and navigation links "Publications" and "Personal". Then there's a section with the assistant professor info, a blue circle (probably a placeholder for a profile picture), and sections like "About me", "Selected Press", "Awards", "Service", "Teaching", and a footer.
+
+First, structure the HTML. The main container should have a header, then a main section, and a footer.
+
+Header: 
+- Left: "[NAME REDACTED]"
+- Right: navigation links "Publications" and "Personal" with some spacing.
+
+Main content:
+- Left column: text info (title, office, email), then "About me" section with paragraphs, links, etc.
+- Right column: a blue circle (maybe a div with background color blue, rounded).
+
+Wait, looking at the image, the main content has two columns? Wait, no. The image shows the text on the left, and a blue circle on the right. So maybe a flex container with two columns: left for text, right for the blue circle.
+
+Wait, the image shows:
+
+Top: [NAME REDACTED] and navigation.
+
+Then below, left side: Assistant professor, CSE, IIT Delhi, etc., then About me section. Right side: a blue oval (circle) image.
+
+So the main content is a container with two columns: left (text) and right (blue circle).
+
+Let's outline the HTML structure:
+
+- <header>
+  - <h1>[NAME REDACTED]</h1>
+  - <nav>Publications | Personal</nav>
+- <main>
+  - <div class="content-container">
+    - <div class="left-column">
+      - Title: Assistant professor, CSE, IIT Delhi
+      - Office: SIT 412, etc.
+      - Email: ajindal AT cse.iitd.ac.in
+      - <h2>About me</h2>
+      - Paragraphs with links (like Instabase, Mobile Enerlytics, Purdue University, etc.)
+      - Links: Publications / LinkedIn / Google Scholar / CV
+      - <h2>Selected Press</h2>
+      - Bullet points with links
+      - <h2>Awards</h2>
+      - Bullet points
+      - <h2>Service</h2>
+      - Text
+      - <h2>Teaching</h2>
+      - Bullet points
+    - </div>
+    - <div class="right-column">
+      - <div class="profile-circle"></div>
+    </div>
+  </div>
+- <footer>
+  - [NAME REDACTED] (maybe a section with contact info)
+  - Another [NAME REDACTED] and links
+  - Assistant Professor info
+</footer>
+
+Now, styling. Need to make it responsive. Let's think about the layout.
+
+The header should be a flex container with justify-content: space-between.
+
+The main content: two columns. On larger screens, left column takes 70%, right 30%. On smaller screens, stack vertically.
+
+The blue circle: a div with background-color: blue, border-radius: 50%, width: 150px, height: 150px (or similar, as per image).
+
+Let's check the image: the blue circle is on the right, so the right column is the circle.
+
+Now, the footer: the image shows a section with "[NAME REDACTED]" and some contact info. Let's see:
+
+In the image, the footer has:
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+[EMAIL REDACTED]
+
+codenet
+[NAME REDACTED]
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So the footer has three columns: left (name, email), middle (codenet, name, name), right (title).
+
+Wait, the image's footer is:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet [NAME REDACTED] [NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So maybe the footer is a flex container with three columns. Let's structure it.
+
+Now, let's code step by step.
+
+First, the HTML structure.
+
+Start with <!DOCTYPE html>, then <html>, <head> with meta tags, title, and style block.
+
+In the style block, define the CSS.
+
+Let's outline the CSS:
+
+- Reset margins/paddings.
+- Body: font-family, line-height, etc.
+- Header: display flex, justify-content space-between, padding.
+- Nav: list-style none, margin 0, padding 0, display flex, gap.
+- Main: display flex, flex-wrap wrap, padding.
+- Content container: display flex, gap, width 100%.
+- Left column: flex 1, padding, etc.
+- Right column: flex 0 0 30%, padding, etc.
+- Profile circle: background blue, border-radius 50%, width 150px, height 150px, margin auto.
+- Footer: display flex, flex-wrap wrap, justify-content space-between, padding.
+- Footer columns: each with padding, etc.
+
+Let's check the image's text:
+
+Header: [NAME REDACTED] (h1), then navigation (Publications, Personal).
+
+Main content:
+
+Left column:
+
+Assistant professor, CSE, IIT Delhi
+
+TBO Faculty Fellow
+
+Office: SIT 412, Khosla School of IT, IIT Delhi
+
+Email: ajindal AT cse.iitd.ac.in
+
+About me
+
+I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at Instabase and another couple years as the CTO of Mobile Enerlytics, a startup I co-founded.
+
+I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur.
+
+Publications / LinkedIn / Google Scholar / CV
+
+Selected Press
+
+- Mobile Enerlytics, 2014+: BGR | Mashable | Gizmodo |
+- DiffProf, 2018: Communication of the ACM | The Register | The Week |
+- Hush, 2015: BBC | SlashDot | Zee News |
+- No-Sleep Bugs, 2012: The Verge | NBC | Times of India |
+
+Awards
+
+- Google India Research Award, 2022.
+- Best Community Paper Award, MobiCom, 2022.
+
+Service
+
+PC member: Middleware’23, Eurosyst’22
+
+Teaching
+
+- [2023-2024 I] COL-733: Cloud computing technology fundamentals
+- [2022-2023 II] COP-290: Design Practices
+- [2022 Winter] WSS-22: Cloud Computing
+- [2022-2023 I] COL-732: Virtualization and Cloud Computing
+
+Footer:
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+[EMAIL REDACTED]
+
+codenet
+[NAME REDACTED]
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+Now, code the HTML.
+
+First, the header:
+
+<header>
+  <h1>[NAME REDACTED]</h1>
+  <nav>
+    <a href="#">Publications</a>
+    <a href="#">Personal</a>
+  </nav>
+</header>
+
+Main content:
+
+<main>
+  <div class="content-container">
+    <div class="left-column">
+      <p>Assistant professor, <strong>CSE, IIT Delhi</strong></p>
+      <p>TBO Faculty Fellow</p>
+      <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+      <p>Email: ajindal AT cse.iitd.ac.in</p>
+      <h2>About me</h2>
+      <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+      <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+      <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+      <h2>Selected Press</h2>
+      <ul>
+        <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+        <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+        <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+        <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+      </ul>
+      <h2>Awards</h2>
+      <ul>
+        <li>Google India Research Award, 2022.</li>
+        <li>Best Community Paper Award, MobiCom, 2022.</li>
+      </ul>
+      <h2>Service</h2>
+      <p>PC member: Middleware’23, Eurosyst’22</p>
+      <h2>Teaching</h2>
+      <ul>
+        <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+        <li>[2022-2023 II] COP-290: Design Practices</li>
+        <li>[2022 Winter] WSS-22: Cloud Computing</li>
+        <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+      </ul>
+    </div>
+    <div class="right-column">
+      <div class="profile-circle"></div>
+    </div>
+  </div>
+</main>
+
+Footer:
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>[NAME REDACTED]</h3>
+      <p>[NAME REDACTED]</p>
+      <p><a href="#">[EMAIL REDACTED]</a></p>
+    </div>
+    <div class="footer-column">
+      <p>codenet</p>
+      <p>[NAME REDACTED]</p>
+      <p>[NAME REDACTED]</p>
+    </div>
+    <div class="footer-column">
+      <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+    </div>
+  </div>
+</footer>
+
+Now, the CSS.
+
+Let's define the styles.
+
+Reset:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+Body:
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+Header:
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+Main:
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.right-column {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-circle {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+Footer:
+
+footer {
+  padding: 2rem;
+  background-color: #f8f8f8;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+}
+
+Now, check responsiveness. For mobile, the main content should stack. So in the content-container, on small screens, the left and right columns stack. So using flex-wrap: wrap.
+
+Also, the footer columns: on small screens, they stack.
+
+Let's adjust the CSS for responsiveness.
+
+For example, in the content-container, on small screens, the right column should be below the left.
+
+The CSS for the content-container is already set to flex-wrap: wrap, so it will stack.
+
+Now, check the image's layout. The blue circle is on the right, so the right-column is 30% on larger screens, and on smaller, it's below.
+
+Now, let's code the HTML with all elements.
+
+Wait, the image's header has "[NAME REDACTED]" as the title, then navigation.
+
+In the image, the header is:
+
+[NAME REDACTED]
+
+Publications Personal
+
+So the header has the h1 as [NAME REDACTED], and the nav with two links.
+
+Now, the main content: the left column has all the text, right column has the blue circle.
+
+The footer has three columns: left (name, email), middle (codenet, names), right (title).
+
+Now, let's code the HTML.
+
+Make sure all elements are present.
+
+Check the "About me" section: the text has links like Instabase, Mobile Enerlytics, Purdue University, etc. So those should be <a> tags.
+
+In the Selected Press, each bullet point has links.
+
+Awards: bullet points.
+
+Service: text.
+
+Teaching: bullet points.
+
+Footer: three columns.
+
+Now, let's write the HTML.
+
+Start with the doctype, html, head, body.
+
+In the head, include the style block.
+
+Let's code it step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>[NAME REDACTED]</h1>
+    <nav>
+      <a href="#">Publications</a>
+      <a href="#">Personal</a>
+    </nav>
+  </header>
+  <main>
+    <div class="content-container">
+      <div class="left-column">
+        <p>Assistant professor, <strong>CSE, IIT Delhi</strong></p>
+        <p>TBO Faculty Fellow</p>
+        <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+        <p>Email: ajindal AT cse.iitd.ac.in</p>
+        <h2>About me</h2>
+        <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+        <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+        <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+        <h2>Selected Press</h2>
+        <ul>
+          <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+          <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+          <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+          <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+        </ul>
+        <h2>Awards</h2>
+        <ul>
+          <li>Google India Research Award, 2022.</li>
+          <li>Best Community Paper Award, MobiCom, 2022.</li>
+        </ul>
+        <h2>Service</h2>
+        <p>PC member: Middleware’23, Eurosyst’22</p>
+        <h2>Teaching</h2>
+        <ul>
+          <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+          <li>[2022-2023 II] COP-290: Design Practices</li>
+          <li>[2022 Winter] WSS-22: Cloud Computing</li>
+          <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+        </ul>
+      </div>
+      <div class="right-column">
+        <div class="profile-circle"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>[NAME REDACTED]</h3>
+        <p>[NAME REDACTED]</p>
+        <p><a href="#">[EMAIL REDACTED]</a></p>
+      </div>
+      <div class="footer-column">
+        <p>codenet</p>
+        <p>[NAME REDACTED]</p>
+        <p>[NAME REDACTED]</p>
+      </div>
+      <div class="footer-column">
+        <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS. Let's add the styles.
+
+In the style block:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.right-column {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-circle {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+footer {
+  padding: 2rem;
+  background-color: #f8f8f8;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-column h3 {
+  margin-bottom: 1rem;
+}
+
+Now, check if all elements are present.
+
+The image has a blue circle, which is the profile-circle.
+
+The footer has three columns, each with the specified content.
+
+The main content has the left column with all the text, right column with the blue circle.
+
+The header has the title and navigation.
+
+Now, check for any missing elements.
+
+In the image, the "About me" section has the text with links. The HTML has those as <a> tags.
+
+The Selected Press has bullet points with links.
+
+Awards and Service are correctly structured.
+
+Teaching has bullet points.
+
+Footer has the three columns.
+
+Now, check the responsive design. The CSS uses flex-wrap, so on smaller screens, the main content columns stack, and the footer columns stack.
+
+This should match the image.
+
+Now, write the complete HTML with the style block.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #eee;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    main {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+   .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      width: 100%;
+    }
+
+   .left-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+   .right-column {
+      flex: 0 0 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+   .profile-circle {
+      width: 150px;
+      height: 150px;
+      background-color: #0000ff;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    h2 {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      border-left: 1px solid #ddd;
+      position: relative;
+    }
+
+    li:before {
+      content: "•";
+      position: absolute;
+      left: -1rem;
+      color: #2c3e50;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 2rem;
+      background-color: #f8f8f8;
+      border-top: 1px solid #eee;
+    }
+
+   .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+   .footer-column {
+      flex: 1;
+      min-width: 150px;
+    }
+
+   .footer-column h3 {
+      margin-bottom: 1rem;
+    }
+
+   .footer-column p {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+     .content-container {
+        flex-direction: column;
+      }
+
+     .right-column {
+        flex: 0 0 100%;
+      }
+
+     .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>[NAME REDACTED]</h1>
+    <nav>
+      <a href="#">Publications</a>
+      <a href="#">Personal</a>
+    </nav>
+  </header>
+  <main>
+    <div class="content-container">
+      <div class="left-column">
+        <p>Assistant professor, <strong>CSE, IIT Delhi</strong></p>
+        <p>TBO Faculty Fellow</p>
+        <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+        <p>Email: ajindal AT cse.iitd.ac.in</p>
+        <h2>About me</h2>
+        <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+        <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+        <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+        <h2>Selected Press</h2>
+        <ul>
+          <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+          <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+          <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+          <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+        </ul>
+        <h2>Awards</h2>
+        <ul>
+          <li>Google India Research Award, 2022.</li>
+          <li>Best Community Paper Award, MobiCom, 2022.</li>
+        </ul>
+        <h2>Service</h2>
+        <p>PC member: Middleware’23, Eurosyst’22</p>
+        <h2>Teaching</h2>
+        <ul>
+          <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+          <li>[2022-2023 II] COP-290: Design Practices</li>
+          <li>[2022 Winter] WSS-22: Cloud Computing</li>
+          <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+        </ul>
+      </div>
+      <div class="right-column">
+        <div class="profile-circle"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>[NAME REDACTED]</h3>
+        <p>[NAME REDACTED]</p>
+        <p><a href="#">[EMAIL REDACTED]</a></p>
+      </div>
+      <div class="footer-column">
+        <p>codenet</p>
+        <p>[NAME REDACTED]</p>
+        <p>[NAME REDACTED]</p>
+      </div>
+      <div class="footer-column">
+        <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```

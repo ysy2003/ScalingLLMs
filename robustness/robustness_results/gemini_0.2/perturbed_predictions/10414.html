@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Jobs</title>
+    <style>
+        /* Basic reset and font styling */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* A clean sans-serif font */
+            overflow: hidden; /* Prevent scrollbars, especially with nowrap text */
+            -webkit-font-smoothing: antialiased; /* Improve font rendering on macOS/iOS */
+            -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS/iOS */
+        }
+
+        /* Container for the entire page content and background */
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex; /* Use flexbox to center the content div */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background halves */
+        .background-left,
+        .background-right {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50%;
+        }
+
+        .background-left {
+            left: 0;
+            background-color: #000000; /* Black color from the image */
+        }
+
+        .background-right {
+            right: 0;
+            background-color: #3F911F; /* Green color from the image */
+        }
+
+        /* Content wrapper for text */
+        .content {
+            position: relative; /* Ensures content is above the backgrounds */
+            z-index: 1; /* Places content on top of background divs */
+            text-align: center;
+            color: #FFFFFF; /* Default white text for headings */
+            padding: 0 20px; /* Add some horizontal padding for very small screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            font-size: 8vw; /* Responsive font size based on viewport width */
+            font-weight: 700; /* Bold */
+            margin: 0; /* Remove default margin */
+            line-height: 1; /* Compact line height */
+            white-space: nowrap; /* Prevent text from wrapping to a new line */
+            text-transform: uppercase; /* Ensure uppercase as in the image */
+        }
+
+        /* Styling for the sub-paragraph */
+        p {
+            font-size: 1.8vw; /* Responsive font size based on viewport width */
+            font-weight: 400; /* Regular weight */
+            color: #AAAAAA; /* Gray text color from the image */
+            margin-top: 2vw; /* Responsive spacing between heading and paragraph */
+            line-height: 1.2; /* Slightly more relaxed line height */
+            white-space: nowrap; /* Prevent text from wrapping to a new line */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 12vw; /* Larger font size on tablets */
+            }
+            p {
+                font-size: 3vw; /* Larger font size on tablets */
+                margin-top: 3vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 15vw; /* Even larger font size on mobile phones */
+            }
+            p {
+                font-size: 4vw; /* Even larger font size on mobile phones */
+                margin-top: 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-left"></div>
+        <div class="background-right"></div>
+        <div class="content">
+            <h1>GLOBAL JOBS</h1>
+            <p>HELLO, WE WILL BE RIGHT BACK VERY SHORTLY.</p>
+        </div>
+    </div>
+</body>
+</html>

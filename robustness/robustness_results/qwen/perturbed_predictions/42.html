@@ -1,0 +1,881 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS exactly.
+
+The image shows a website for EssayScribes.com. Let's break down the structure:
+
+1. **Header Section**: 
+   - Background: dark gray (maybe #333333 or similar)
+   - Logo: "ESSAYSCRIBES.COM" in large, bold font, centered.
+   - Navigation menu: "HOMEPAGE", "WRITING TIPS", "SKILLS FOR STUDENTS", "ESSAY WRITING" as links, centered below the logo.
+
+2. **Main Content Area**:
+   - Background: white.
+   - Left column: 
+     - Heading: "Looking For A Perfect Editorial Essay Example Online"
+     - Paragraph: explaining editorial essays.
+     - Subheadings: "How an Editorial Essay Works", "Find an Example", "Choosing a Topic", followed by bullet points (though in the image, it's a list of questions).
+   - Right column: 
+     - "Writing Help" as a heading.
+     - "Writing Ideas" as a subheading.
+     - List of links: "Mozart: essay example", "Music: persuasive paper topics", "Writing literature essay", "Jealousy: writing a descriptive essay".
+
+3. **Footer**:
+   - Background: dark gray (same as header).
+   - Text: "2023 EssayScribes.com - Building Up Strategies For Your Essay" centered.
+
+Now, let's think about the HTML structure:
+
+- The HTML5 document structure: doctype, html, head, body.
+- Head: title, meta tags (for responsive design, maybe viewport), and the style block.
+- Body: header, main (or section), footer.
+
+Let's outline the elements:
+
+- Header: 
+  - A div for the logo (h1 or span with the text).
+  - A nav with the menu items as links.
+
+- Main: 
+  - Two columns (left and right). Maybe using flexbox or grid. The left column has the main content, right has the sidebar.
+
+- Footer: a div with the copyright text.
+
+Now, for CSS:
+
+- Colors: 
+  - Header and footer background: #333333 (dark gray).
+  - Text color: white for header/footer, black for main content.
+  - Links: maybe a hover effect, but in the image, the links in the right column are in a light gray or orange? Wait, in the image, the right column links are in a light brownish color. Let's check: "Mozart: essay example" etc. are in a light brown. So maybe #8B4513 or similar.
+
+- Typography:
+  - Logo: large, bold, centered.
+  - Navigation: centered, links with some spacing.
+  - Main content: left column has headings and paragraphs, right column has headings and links.
+
+Let's check the image again:
+
+- The header background is dark gray, logo is large, centered.
+- Navigation links are in the header, below the logo, centered.
+- Main content: left side has text, right side has "Writing Help" and "Writing Ideas" as headings, then the list.
+
+Let's structure the HTML:
+
+- <header> with the logo and nav.
+- <main> with two columns: left (content) and right (sidebar).
+- <footer> with the copyright.
+
+For the main content, using a flex container for the two columns. Let's set the main to be a flex container with two children: left and right.
+
+Now, let's define the CSS:
+
+- Body: font-family, maybe Arial or sans-serif.
+- Header: background-color, padding, text-align.
+- Logo: font-size, text-align, margin.
+- Nav: display flex, justify-content center, list-style none, margin-top.
+- Main: display flex, padding, etc.
+- Left column: flex: 1, padding.
+- Right column: flex: 0 0 300px, padding.
+- Footer: background-color, text-align, padding.
+
+Let's check the image's layout:
+
+- The header is dark gray, logo is centered, navigation is below the logo, centered.
+- Main content: left column has the main text, right column has the sidebar. The right column's "Writing Help" and "Writing Ideas" are headings, then the list.
+
+Now, let's code step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ESSAYSCRIBES.COM</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="content">
+      <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+      <p>With an editorial essay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial essay is actually fairly useful in the real world.</p>
+      <h3>How an Editorial Essay Works</h3>
+      <p>This type of paper will have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state the author's belief.</p>
+      <h3>Find an Example</h3>
+      <p>There are several different locations that offer free essays online. The easiest way to find this type of writing is to type "editorial essay examples" into the search bar.</p>
+      <h3>Choosing a Topic</h3>
+      <p>Once a student has found an example, they will be able to figure out how the writing style works. Before they can start writing, the student will have to choose a topic.</p>
+      <p>What was the real cause of the Civil War? If both sides were given the same number of soldiers, would the Union have won the war?</p>
+      <p>Should the United States and coalition forces have entered a war in Afghanistan and Iraq?</p>
+      <p>Does recycling have a positive effect on the environment? Are there environmental costs to recycling?</p>
+      <p>Should companies be required to offer union membership to their employees?</p>
+    </section>
+    <section class="sidebar">
+      <h2>Writing Help</h2>
+      <h3>Writing Ideas</h3>
+      <ul>
+        <li>Mozart: essay example</li>
+        <li>Music: persuasive paper topics</li>
+        <li>Writing literature essay</li>
+        <li>Jealousy: writing a descriptive essay</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Header: background-color #333333, padding, text-align center.
+- H1: color white, font-size 3em, margin 0.
+- Nav: ul { list-style none; display flex; justify-content center; margin-top 10px; }
+  - li { margin: 0 10px; }
+  - a { color white; text-decoration none; }
+- Main: display flex; padding 20px; 
+  - content: flex: 1; padding 20px; 
+  - sidebar: flex: 0 0 300px; padding 20px; 
+- Footer: background-color #333333; text-align center; padding 10px; color white; 
+- Content and sidebar: font-family Arial, sans-serif; 
+- Links in sidebar: color #8B4513 (the light brown color in the image), maybe hover effect, but the image shows them as plain text. Wait, in the image, the right column's links are in a light brown. Let's check the image: the "Writing Ideas" section has links like "Mozart: essay example" etc., which are in a light brown. So set the list items to color #8B4513.
+
+Let's adjust the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333333;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+  font-size: 3em;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.sidebar {
+  flex: 0 0 300px;
+  padding: 0 20px;
+}
+
+footer {
+  background-color: #333333;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+}
+
+.sidebar h2,.sidebar h3 {
+  color: #8B4513;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 5px 0;
+}
+
+Wait, the image shows the right column's "Writing Help" and "Writing Ideas" as headings. The "Writing Help" is a heading, then "Writing Ideas" is a subheading. So in the CSS, the sidebar h2 and h3 should be styled. The image shows "Writing Help" as a heading, then "Writing Ideas" as a subheading. So the h2 for "Writing Help" and h3 for "Writing Ideas".
+
+Also, the main content's headings (h2, h3) should be in black, bold.
+
+Let's check the image:
+
+- The main content has "Looking For A Perfect Editorial Essay Example Online" as a heading (h2), then paragraphs, then "How an Editorial Essay Works" (h3), etc.
+
+So the CSS for h2 and h3 in the content should be bold, maybe a bit larger.
+
+Let's adjust:
+
+.content h2 {
+  color: #333333;
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.content h3 {
+  color: #333333;
+  font-size: 1em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.sidebar h2 {
+  color: #8B4513;
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.sidebar h3 {
+  color: #8B4513;
+  font-size: 1em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+Also, the links in the sidebar: the image shows them as plain text, but in the HTML, they are list items. Wait, in the image, the right column has "Mozart: essay example" etc., which are links. So in the HTML, the list items should be links. Wait, the image shows them as text, but maybe they are links. Let's check the image: the right column has "Writing Ideas" followed by a list of items. The items are "Mozart: essay example", etc. So in the HTML, those should be <a> tags. Wait, the image shows them as text, but maybe they are links. Let's see: the image's right column has "Writing Ideas" as a heading, then the list items. So in the HTML, the list items are links. So the HTML should have:
+
+<ul>
+  <li><a href="#">Mozart: essay example</a></li>
+ ...
+</ul>
+
+But the image doesn't show the links as underlined, but maybe they are. However, the problem says to recreate the visual design. The image shows the text as plain, but perhaps they are links. Let's check the image: the right column's list items are in a light brown color, which is the same as the "Writing Help" and "Writing Ideas" headings. So the CSS for the list items should be color #8B4513.
+
+Wait, the image shows the right column's "Writing Help" and "Writing Ideas" as headings, and the list items are in the same color. So the list items are not links, but just text. Wait, no, the image shows them as text, but maybe they are links. Let's check the image again: the right column has "Writing Ideas" followed by four items. The items are "Mozart: essay example", etc. So in the HTML, those are probably links, but the image doesn't show the underline. So perhaps they are links with no underline. So in the CSS, the list items should be color #8B4513, and no underline.
+
+So the CSS for the sidebar li:
+
+.sidebar li {
+  color: #8B4513;
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+But the image shows them as plain text, so maybe they are not links. Wait, the problem says to recreate the visual design. The image shows the text as is, so perhaps they are just text. But the original website might have them as links. However, the task is to recreate the visual design, so if the image shows them as text, then they are text. Wait, the image shows the right column with "Writing Ideas" and then the list items. The list items are in a light brown color, so they are text. So in the HTML, they are just <li> elements, not links. Wait, but the image might have them as links. Let's check the image: the right column's list items are "Mozart: essay example", etc. So perhaps they are links. But the problem says to recreate the visual design, so we need to see if they are links. The image shows them as text, but maybe they are links. However, the task is to code the design as per the image. Let's assume that the list items are text, not links. Because the image doesn't show any underline or hover effect. So the HTML would have <li> elements, not <a> tags.
+
+Wait, but the image is a screenshot of a website, so the list items are likely links. But the problem says to recreate the visual design. So perhaps the list items are links, but styled to look like text. So in the HTML, they are <a> tags, and the CSS removes the underline.
+
+So let's adjust the HTML for the sidebar:
+
+<section class="sidebar">
+  <h2>Writing Help</h2>
+  <h3>Writing Ideas</h3>
+  <ul>
+    <li><a href="#">Mozart: essay example</a></li>
+    <li><a href="#">Music: persuasive paper topics</a></li>
+    <li><a href="#">Writing literature essay</a></li>
+    <li><a href="#">Jealousy: writing a descriptive essay</a></li>
+  </ul>
+</section>
+
+And in the CSS, the a tags have text-decoration: none; color: #8B4513;
+
+So the CSS for the sidebar li a:
+
+.sidebar a {
+  color: #8B4513;
+  text-decoration: none;
+}
+
+Now, let's check the header's navigation: the links are "HOMEPAGE", etc. In the image, they are in the header, so the HTML has them as <a> tags in the nav ul.
+
+Now, let's check the colors:
+
+- Header and footer background: #333333 (dark gray)
+- Text in header: white
+- Navigation links: white
+- Main content text: black
+- Sidebar headings: #8B4513 (light brown)
+- Sidebar list items: #8B4513
+
+Let's confirm the color codes:
+
+- #333333 is a dark gray.
+- #8B4513 is a light brown (used for the sidebar headings and list items).
+
+Now, let's check the spacing:
+
+- Header: padding 20px 0
+- Nav: margin-top 10px
+- Main: padding 20px
+- Content and sidebar: padding 0 20px
+- Footer: padding 10px 0
+
+Also, the main content's headings:
+
+- h2: font-size 1.2em, margin-top 10px, margin-bottom 5px
+- h3: font-size 1em, margin-top 15px, margin-bottom 5px
+
+Now, let's put it all together.
+
+Wait, the image shows the main content's "Looking For A Perfect Editorial Essay Example Online" as a heading. So that's an h2.
+
+The navigation links are "HOMEPAGE", etc., which are in the header.
+
+Now, let's check the image's layout:
+
+- The header is dark gray, logo is centered, navigation is below the logo, centered.
+- The main content is white background, with two columns: left (content) and right (sidebar).
+- The footer is dark gray, centered text.
+
+Now, let's code the HTML and CSS.
+
+Let's write the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333333;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 3em;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      display: flex;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+   .content {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+   .sidebar {
+      flex: 0 0 300px;
+      padding: 0 20px;
+    }
+
+    footer {
+      background-color: #333333;
+      text-align: center;
+      padding: 10px 0;
+      color: white;
+    }
+
+   .content h2 {
+      color: #333333;
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+   .content h3 {
+      color: #333333;
+      font-size: 1em;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+   .sidebar h2 {
+      color: #8B4513;
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+   .sidebar h3 {
+      color: #8B4513;
+      font-size: 1em;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+   .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+   .sidebar li {
+      margin: 5px 0;
+    }
+
+   .sidebar a {
+      color: #8B4513;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ESSAYSCRIBES.COM</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="content">
+      <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+      <p>With an editorial essay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial essay is actually fairly useful in the real world.</p>
+      <h3>How an Editorial Essay Works</h3>
+      <p>This type of paper will have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state the author's belief.</p>
+      <h3>Find an Example</h3>
+      <p>There are several different locations that offer free essays online. The easiest way to find this type of writing is to type "editorial essay examples" into the search bar.</p>
+      <h3>Choosing a Topic</h3>
+      <p>Once a student has found an example, they will be able to figure out how the writing style works. Before they can start writing, the student will have to choose a topic.</p>
+      <p>What was the real cause of the Civil War? If both sides were given the same number of soldiers, would the Union have won the war?</p>
+      <p>Should the United States and coalition forces have entered a war in Afghanistan and Iraq?</p>
+      <p>Does recycling have a positive effect on the environment? Are there environmental costs to recycling?</p>
+      <p>Should companies be required to offer union membership to their employees?</p>
+    </section>
+    <section class="sidebar">
+      <h2>Writing Help</h2>
+      <h3>Writing Ideas</h3>
+      <ul>
+        <li><a href="#">Mozart: essay example</a></li>
+        <li><a href="#">Music: persuasive paper topics</a></li>
+        <li><a href="#">Writing literature essay</a></li>
+        <li><a href="#">Jealousy: writing a descriptive essay</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+  </footer>
+</body>
+</html>
+
+Wait, but the image shows the main content's "Looking For A Perfect Editorial Essay Example Online" as a heading. In the HTML, that's an h2. The image shows the text as bold, so the h2 should be bold. The CSS for h2 is color #333333, which is black, so that's correct.
+
+The navigation links: in the image, they are in the header, so the HTML has them as <a> tags. The CSS for nav a is color white, text-decoration none, font-weight bold. That matches the image.
+
+The sidebar: "Writing Help" is h2, color #8B4513, which is the light brown. The list items are a tags with color #8B4513, no underline.
+
+The footer: text is white, centered.
+
+Now, check if the main content's paragraphs are correctly styled. The image shows the paragraphs as black text, which is #333333.
+
+Also, the main content's headings (h2, h3) are bold, which is handled by the CSS.
+
+Now, check the responsiveness. The main container has max-width: 1200px, which is responsive. The flex container for main will adjust on smaller screens.
+
+Wait, the problem says "responsive CSS", so the CSS should be responsive. The current CSS uses flexbox, which is responsive. The max-width on main is for desktop, but on mobile, the two columns will stack. Let's check:
+
+On mobile, the main container will have the two columns stack, so the content and sidebar will be one column. The flex property for main is display: flex, which on mobile, the flex direction is row, but if the screen is too small, the columns will wrap. However, the current CSS doesn't have media queries. But the problem says "responsive CSS", so maybe we need to add media queries for mobile.
+
+Wait, the problem says "responsive CSS must be fully embedded within a <style> block". So we need to make sure the design is responsive. Let's add a media query for mobile.
+
+For example:
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+ .content,.sidebar {
+    padding: 0 10px;
+  }
+}
+
+But the image doesn't show a mobile view, but the task says "responsive", so we need to include media queries.
+
+Let's add that.
+
+So in the CSS:
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+ .content,.sidebar {
+    padding: 0 10px;
+  }
+ .sidebar {
+    width: 100%;
+  }
+}
+
+This will make the sidebar stack below the content on mobile.
+
+Let's update the CSS accordingly.
+
+Now, the final CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #333333;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+  font-size: 3em;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.sidebar {
+  flex: 0 0 300px;
+  padding: 0 20px;
+}
+
+footer {
+  background-color: #333333;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+}
+
+.content h2 {
+  color: #333333;
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.content h3 {
+  color: #333333;
+  font-size: 1em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.sidebar h2 {
+  color: #8B4513;
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.sidebar h3 {
+  color: #8B4513;
+  font-size: 1em;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 5px 0;
+}
+
+.sidebar a {
+  color: #8B4513;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+ .content,.sidebar {
+    padding: 0 10px;
+  }
+ .sidebar {
+    width: 100%;
+  }
+}
+
+Now, let's check if this matches the image.
+
+The image shows the main content as two columns on desktop, which the CSS handles with flex-direction: row. On mobile, it stacks.
+
+The navigation is centered, which is handled by justify-content: center.
+
+The header and footer are dark gray, text white.
+
+The sidebar's headings and list items are light brown.
+
+The main content's headings are black.
+
+The paragraphs are black.
+
+The links in the navigation are white, bold.
+
+The footer text is white.
+
+This should match the image.
+
+Now, let's write the final HTML.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333333;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 3em;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      display: flex;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+   .content {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+   .sidebar {
+      flex: 0 0 300px;
+      padding: 0 20px;
+    }
+
+    footer {
+      background-color: #333333;
+      text-align: center;
+      padding: 10px 0;
+      color: white;
+    }
+
+   .content h2 {
+      color: #333333;
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+   .content h3 {
+      color: #333333;
+      font-size: 1em;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+   .sidebar h2 {
+      color: #8B4513;
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+   .sidebar h3 {
+      color: #8B4513;
+      font-size: 1em;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+   .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+   .sidebar li {
+      margin: 5px 0;
+    }
+
+   .sidebar a {
+      color: #8B4513;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+     .content,.sidebar {
+        padding: 0 10px;
+      }
+     .sidebar {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ESSAYSCRIBES.COM</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="content">
+      <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+      <p>With an editorial essay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial essay is actually fairly useful in the real world.</p>
+      <h3>How an Editorial Essay Works</h3>
+      <p>This type of paper will have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state the author's belief.</p>
+      <h3>Find an Example</h3>
+      <p>There are several different locations that offer free essays online. The easiest way to find this type of writing is to type "editorial essay examples" into the search bar.</p>
+      <h3>Choosing a Topic</h3>
+      <p>Once a student has found an example, they will be able to figure out how the writing style works. Before they can start writing, the student will have to choose a topic.</p>
+      <p>What was the real cause of the Civil War? If both sides were given the same number of soldiers, would the Union have won the war?</p>
+      <p>Should the United States and coalition forces have entered a war in Afghanistan and Iraq?</p>
+      <p>Does recycling have a positive effect on the environment? Are there environmental costs to recycling?</p>
+      <p>Should companies be required to offer union membership to their employees?</p>
+    </section>
+    <section class="sidebar">
+      <h2>Writing Help</h2>
+      <h3>Writing Ideas</h3>
+      <ul>
+        <li><a href="#">Mozart: essay example</a></li>
+        <li><a href="#">Music: persuasive paper topics</a></li>
+        <li><a href="#">Writing literature essay</a></li>
+        <li><a href="#">Jealousy: writing a descriptive essay</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+  </footer>
+</body>
+</html>
+```

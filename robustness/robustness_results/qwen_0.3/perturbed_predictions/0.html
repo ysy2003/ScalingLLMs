@@ -1,0 +1,1161 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to understand the structure and elements. The image shows a news article page with various sections: a header with tags, a search bar, a blue banner, the main article, related stories, top stories, and a network section.
+
+Let's break down each part:
+
+1. **Header Tags**: At the top, there are hashtags like #business intelligence, #commerce systems, etc. These are probably inline elements, maybe in a flex container.
+
+2. **Search Section**: A "Search" label with an input field and a search icon (the "..." in the image).
+
+3. **Main Banner**: A large blue rectangle (probably a background color for the main content area).
+
+4. **Article Section**: 
+   - Title: "AVG launches start-up security suite"
+   - Byline: "By Staff Writer", date "Tue, 19th Oct 2010", and a tag "# nz"
+   - A note: "FYI, this story is more than a year old" in green.
+   - The article text.
+   - "Follow us on:" with a blue bar (maybe a social media bar).
+
+5. **Related Stories**: A section with a list of links.
+
+6. **Top Stories**: Another section with a list of links.
+
+7. **Our Kiwi Network**: A grid of sections with titles like Fintech, Industry, etc., each with a description and "Visit" and "Media Kit" buttons.
+
+8. **Footer**: Links to other regions.
+
+Now, let's think about the structure in HTML. The main elements will be:
+
+- A container for the entire page.
+- Header with tags and search.
+- Main content with the blue banner, article, related stories, top stories.
+- Network section.
+- Footer.
+
+For CSS, we need to make it responsive. Let's consider:
+
+- Using flexbox or grid for layout.
+- Media queries for responsiveness.
+- Proper spacing, fonts, colors.
+
+Let's outline the HTML structure:
+
+- <header> with the tags and search.
+- <main> with the blue banner (maybe a div with background color), article, related stories, top stories.
+- <section> for the network.
+- <footer> for the footer.
+
+Now, the colors: The blue banner is a solid blue, probably #0056b3 or similar. The green text for "FYI..." is #00a86b. The tags at the top are probably in a light gray or white background.
+
+Let's check the image:
+
+- Top tags: #business intelligence, etc. These are likely inline, maybe in a div with a light background, spaced out.
+
+- Search: "Search" label, then an input with a placeholder or icon.
+
+- Main banner: large blue rectangle (maybe 100% width, height 200px or so).
+
+- Article: title in bold, byline, date, tag, FYI note, text, social bar.
+
+- Related stories: a list with each item as a link.
+
+- Top stories: similar to related stories.
+
+- Network: a grid of 3x3 sections (Fintech, Industry, Commerce, Consumer tech, Enterprise, Cybersecurity, Telecommunications). Each has a title, description, and two buttons.
+
+- Footer: links to other regions.
+
+Now, let's start coding.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVG launches start-up security suite</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header with tags -->
+  <header class="header">
+    <div class="tags">
+      <span># business intelligence</span>
+      <span># commerce systems</span>
+      <span># customer data platforms</span>
+      <span># marketing technologies</span>
+      <span># payment gateway</span>
+    </div>
+    <div class="search">
+      <h2>Search</h2>
+      <input type="text" placeholder="...">
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <div class="banner"></div>
+    <article class="article">
+      <h1>AVG launches start-up security suite</h1>
+      <div class="byline">
+        <span>By Staff Writer</span>
+        <div class="date">Tue, 19th Oct 2010</div>
+        <span># nz</span>
+      </div>
+      <div class="fyi">FYI, this story is more than a year old</div>
+      <p>AVG has released (AU/NZ), the Australian, New Zealand and South Pacific distributor of the award-winning virus and Internet Security solutions, today announced the immediate availability of AVG Internet Security Edition and AVG Anti-Virus 2011 Business Edition.</p>
+      <p>The new suite of business security products are aimed at internet-active small and medium sized businesses. The software covers online transactions and email communications as well as securing sensitive customer data.</p>
+      <p>"AVG recognises that most small business owners are not IT experts, and need an anti-virus and Internet Security solution that is easy to use and provides maximum protection for their business that provides maximum protection and is easy to administer," said Peter Cameron, Managing Director of AVG AU/NZ.</p>
+      <p>The new Security software suite is available now through all the usual channels.</p>
+      <div class="social">
+        <h3>Follow us on:</h3>
+        <div class="social-bar"></div>
+      </div>
+    </article>
+
+    <section class="related-stories">
+      <h2>Related stories</h2>
+      <ul>
+        <li><a href="#">Layer3 unveils Secure Anywhere cloud security for NZ small businesses</a></li>
+        <li><a href="#">HCLTech graduates first digital apprentices in New Zealand, plans expansion</a></li>
+        <li><a href="#">Epson unveils SureColor P5360 professional photo printer in Sydney</a></li>
+        <li><a href="#">Survey reveals alarming rate of online scams targeting New Zealanders</a></li>
+        <li><a href="#">NCSC report reveals heightened financially motivated cybercrime in NZ</a></li>
+      </ul>
+    </section>
+
+    <section class="top-stories">
+      <h2>Top stories</h2>
+      <ul>
+        <li><a href="#">Preparing for peak holiday season with Composable Commerce</a></li>
+        <li><a href="#">In today's data-driven world, compromising on cybersecurity is not an option</a></li>
+        <li><a href="#">Cloudera partners with Pinecone to enhance AI operations for enterprise</a></li>
+        <li><a href="#">AI, Machine Learning boom to dominate the year 2024</a></li>
+        <li><a href="#">DataStax unveils RAGStack to simplify generative AI application development</a></li>
+      </ul>
+    </section>
+
+    <section class="kiwi-network">
+      <h2>Our Kiwi network</h2>
+      <div class="network-grid">
+        <div class="network-item">
+          <h3>Fintech</h3>
+          <p>Technology news for CFOs & financial decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Industry</h3>
+          <p>Industry insider news for technology resellers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Commerce</h3>
+          <p>Technology news for digital commerce decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Consumer tech</h3>
+          <p>Consumer technology news and reviews from the future</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Enterprise</h3>
+          <p>Technology news for CIOs & IT decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Cybersecurity</h3>
+          <p>Technology news for CISOs & cybersecurity decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Telecommunications</h3>
+          <p>Telecommunications news for ICT decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>TechDay operates in other regions, see our <a href="#">Asian sites</a>, our <a href="#">Australian sites</a>, our <a href="#">UK sites</a> & our <a href="#">Indian sites</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>
+
+Now, the CSS. Let's define the styles.
+
+First, reset some default styles:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+Set font-family, colors.
+
+Colors:
+
+- Blue banner: #0056b3 (or similar, let's check the image. The banner is a solid blue, maybe #0056b3)
+- Green FYI: #00a86b
+- Tags: maybe #666 or #333
+- Buttons: maybe #0056b3 for background, white text.
+
+Let's define variables for colors:
+
+:root {
+  --primary-blue: #0056b3;
+  --green-fyi: #00a86b;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --button-bg: #0056b3;
+  --button-text: #fff;
+}
+
+Now, body:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #fff;
+}
+
+Header:
+
+.header {
+  background-color: var(--light-gray);
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tags span {
+  background-color: #e0e0e0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.search h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.search input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+}
+
+Main content:
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.banner {
+  height: 200px;
+  background-color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.article {
+  margin-bottom: 2rem;
+}
+
+.article h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.byline span {
+  font-weight: bold;
+}
+
+.date {
+  color: #666;
+}
+
+.fyi {
+  color: var(--green-fyi);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.article p {
+  margin-bottom: 1rem;
+}
+
+.social {
+  margin-bottom: 2rem;
+}
+
+.social h3 {
+  margin-bottom: 0.5rem;
+}
+
+.social-bar {
+  height: 40px;
+  background-color: var(--primary-blue);
+  width: 100%;
+}
+
+Related stories:
+
+.related-stories {
+  margin-bottom: 2rem;
+}
+
+.related-stories h2 {
+  margin-bottom: 1rem;
+}
+
+.related-stories ul {
+  list-style: none;
+}
+
+.related-stories li {
+  margin-bottom: 0.5rem;
+}
+
+.related-stories a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+Top stories:
+
+.top-stories {
+  margin-bottom: 2rem;
+}
+
+.top-stories h2 {
+  margin-bottom: 1rem;
+}
+
+.top-stories ul {
+  list-style: none;
+}
+
+.top-stories li {
+  margin-bottom: 0.5rem;
+}
+
+.top-stories a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+Kiwi network:
+
+.kiwi-network {
+  margin-bottom: 2rem;
+}
+
+.kiwi-network h2 {
+  margin-bottom: 1rem;
+}
+
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.network-item {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.network-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.network-item p {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+}
+
+Footer:
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+footer a {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+Now, responsiveness:
+
+For the network grid, use grid with auto-fill.
+
+Also, adjust padding and margins for mobile.
+
+Let's add media queries for mobile:
+
+@media (max-width: 768px) {
+ .tags {
+    flex-direction: column;
+  }
+
+ .search {
+    width: 100%;
+  }
+
+ .network-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+Check if the image has a specific layout. The image shows the main banner as a large blue rectangle, then the article. The related stories and top stories are in columns. The network section has 7 items, arranged in 3 columns on desktop, 1 on mobile.
+
+Wait, the image shows the network section with 7 items: Fintech, Industry, Commerce, Consumer tech, Enterprise, Cybersecurity, Telecommunications. So 3 columns on desktop (3 items per row), but 7 items would be 3 rows (3, 3, 1). But in the code, we can use grid with auto-fill, which will adjust.
+
+Now, let's check the image for the "Follow us on" section: it's a blue bar, so the social-bar div is a solid blue rectangle.
+
+Also, the "FYI" text is green, bold.
+
+Now, let's make sure all elements are included.
+
+Let's check the HTML structure again:
+
+- Header with tags and search.
+- Main content with banner, article, related stories, top stories.
+- Kiwi network section.
+- Footer.
+
+Now, let's code the CSS with all the styles.
+
+Wait, the image has the top tags as #business intelligence, etc. So the tags in the header are those.
+
+Also, the search input has a "..." placeholder.
+
+Now, let's write the CSS.
+
+Let's start with the CSS:
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --primary-blue: #0056b3;
+    --green-fyi: #00a86b;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --button-bg: #0056b3;
+    --button-text: #fff;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+  }
+
+ .header {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+ .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+ .tags span {
+    background-color: #e0e0e0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+
+ .search {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+ .search h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+ .search input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+ .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+ .banner {
+    height: 200px;
+    background-color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+  }
+
+ .article {
+    margin-bottom: 2rem;
+  }
+
+ .article h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+ .byline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+ .byline span {
+    font-weight: bold;
+  }
+
+ .date {
+    color: #666;
+  }
+
+ .fyi {
+    color: var(--green-fyi);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+ .article p {
+    margin-bottom: 1rem;
+  }
+
+ .social {
+    margin-bottom: 2rem;
+  }
+
+ .social h3 {
+    margin-bottom: 0.5rem;
+  }
+
+ .social-bar {
+    height: 40px;
+    background-color: var(--primary-blue);
+    width: 100%;
+  }
+
+ .related-stories {
+    margin-bottom: 2rem;
+  }
+
+ .related-stories h2 {
+    margin-bottom: 1rem;
+  }
+
+ .related-stories ul {
+    list-style: none;
+  }
+
+ .related-stories li {
+    margin-bottom: 0.5rem;
+  }
+
+ .related-stories a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+ .top-stories {
+    margin-bottom: 2rem;
+  }
+
+ .top-stories h2 {
+    margin-bottom: 1rem;
+  }
+
+ .top-stories ul {
+    list-style: none;
+  }
+
+ .top-stories li {
+    margin-bottom: 0.5rem;
+  }
+
+ .top-stories a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+ .kiwi-network {
+    margin-bottom: 2rem;
+  }
+
+ .kiwi-network h2 {
+    margin-bottom: 1rem;
+  }
+
+ .network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+ .network-item {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+
+ .network-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+ .network-item p {
+    margin-bottom: 1rem;
+    color: #666;
+  }
+
+ .buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+ .buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+  }
+
+  footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+   .tags {
+      flex-direction: column;
+    }
+
+   .search {
+      width: 100%;
+    }
+
+   .network-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+Now, check if all elements are present.
+
+The image has the "FYI" text in green, which is handled by the.fyi class.
+
+The social bar is a blue rectangle, which is the.social-bar.
+
+The related stories and top stories are lists.
+
+The network section has 7 items, which is handled by the grid.
+
+The footer has the links.
+
+Now, let's make sure the HTML structure matches the image.
+
+The image shows:
+
+- Top tags: #business intelligence, etc. (handled by.tags span)
+- Search: "Search" and input (handled by.search)
+- Blue banner (handled by.banner)
+- Article with title, byline, date, tag, FYI, text, social bar.
+- Related stories (handled by.related-stories)
+- Top stories (handled by.top-stories)
+- Kiwi network (handled by.kiwi-network)
+- Footer (handled by footer)
+
+Yes, this should match.
+
+Now, let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVG launches start-up security suite</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #0056b3;
+      --green-fyi: #00a86b;
+      --text-color: #333;
+      --light-gray: #f5f5f5;
+      --button-bg: #0056b3;
+      --button-text: #fff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+    }
+
+   .header {
+      background-color: var(--light-gray);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+   .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+   .tags span {
+      background-color: #e0e0e0;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+   .search {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+   .search h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+   .search input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+   .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+   .banner {
+      height: 200px;
+      background-color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+    }
+
+   .article {
+      margin-bottom: 2rem;
+    }
+
+   .article h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+   .byline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+   .byline span {
+      font-weight: bold;
+    }
+
+   .date {
+      color: #666;
+    }
+
+   .fyi {
+      color: var(--green-fyi);
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+   .article p {
+      margin-bottom: 1rem;
+    }
+
+   .social {
+      margin-bottom: 2rem;
+    }
+
+   .social h3 {
+      margin-bottom: 0.5rem;
+    }
+
+   .social-bar {
+      height: 40px;
+      background-color: var(--primary-blue);
+      width: 100%;
+    }
+
+   .related-stories {
+      margin-bottom: 2rem;
+    }
+
+   .related-stories h2 {
+      margin-bottom: 1rem;
+    }
+
+   .related-stories ul {
+      list-style: none;
+    }
+
+   .related-stories li {
+      margin-bottom: 0.5rem;
+    }
+
+   .related-stories a {
+      display: block;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+   .top-stories {
+      margin-bottom: 2rem;
+    }
+
+   .top-stories h2 {
+      margin-bottom: 1rem;
+    }
+
+   .top-stories ul {
+      list-style: none;
+    }
+
+   .top-stories li {
+      margin-bottom: 0.5rem;
+    }
+
+   .top-stories a {
+      display: block;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+   .kiwi-network {
+      margin-bottom: 2rem;
+    }
+
+   .kiwi-network h2 {
+      margin-bottom: 1rem;
+    }
+
+   .network-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+   .network-item {
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+
+   .network-item h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+   .network-item p {
+      margin-bottom: 1rem;
+      color: #666;
+    }
+
+   .buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+   .buttons button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+    }
+
+    footer a {
+      color: var(--primary-blue);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+     .tags {
+        flex-direction: column;
+      }
+
+     .search {
+        width: 100%;
+      }
+
+     .network-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="tags">
+      <span># business intelligence</span>
+      <span># commerce systems</span>
+      <span># customer data platforms</span>
+      <span># marketing technologies</span>
+      <span># payment gateway</span>
+    </div>
+    <div class="search">
+      <h2>Search</h2>
+      <input type="text" placeholder="...">
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="banner"></div>
+    <article class="article">
+      <h1>AVG launches start-up security suite</h1>
+      <div class="byline">
+        <span>By Staff Writer</span>
+        <div class="date">Tue, 19th Oct 2010</div>
+        <span># nz</span>
+      </div>
+      <div class="fyi">FYI, this story is more than a year old</div>
+      <p>AVG has released (AU/NZ), the Australian, New Zealand and South Pacific distributor of the award-winning virus and Internet Security solutions, today announced the immediate availability of AVG Internet Security Edition and AVG Anti-Virus 2011 Business Edition.</p>
+      <p>The new suite of business security products are aimed at internet-active small and medium sized businesses. The software covers online transactions and email communications as well as securing sensitive customer data.</p>
+      <p>"AVG recognises that most small business owners are not IT experts, and need an anti-virus and Internet Security solution that is easy to use and provides maximum protection for their business that provides maximum protection and is easy to administer," said Peter Cameron, Managing Director of AVG AU/NZ.</p>
+      <p>The new Security software suite is available now through all the usual channels.</p>
+      <div class="social">
+        <h3>Follow us on:</h3>
+        <div class="social-bar"></div>
+      </div>
+    </article>
+
+    <section class="related-stories">
+      <h2>Related stories</h2>
+      <ul>
+        <li><a href="#">Layer3 unveils Secure Anywhere cloud security for NZ small businesses</a></li>
+        <li><a href="#">HCLTech graduates first digital apprentices in New Zealand, plans expansion</a></li>
+        <li><a href="#">Epson unveils SureColor P5360 professional photo printer in Sydney</a></li>
+        <li><a href="#">Survey reveals alarming rate of online scams targeting New Zealanders</a></li>
+        <li><a href="#">NCSC report reveals heightened financially motivated cybercrime in NZ</a></li>
+      </ul>
+    </section>
+
+    <section class="top-stories">
+      <h2>Top stories</h2>
+      <ul>
+        <li><a href="#">Preparing for peak holiday season with Composable Commerce</a></li>
+        <li><a href="#">In today's data-driven world, compromising on cybersecurity is not an option</a></li>
+        <li><a href="#">Cloudera partners with Pinecone to enhance AI operations for enterprise</a></li>
+        <li><a href="#">AI, Machine Learning boom to dominate the year 2024</a></li>
+        <li><a href="#">DataStax unveils RAGStack to simplify generative AI application development</a></li>
+      </ul>
+    </section>
+
+    <section class="kiwi-network">
+      <h2>Our Kiwi network</h2>
+      <div class="network-grid">
+        <div class="network-item">
+          <h3>Fintech</h3>
+          <p>Technology news for CFOs & financial decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Industry</h3>
+          <p>Industry insider news for technology resellers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Commerce</h3>
+          <p>Technology news for digital commerce decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Consumer tech</h3>
+          <p>Consumer technology news and reviews from the future</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Enterprise</h3>
+          <p>Technology news for CIOs & IT decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Cybersecurity</h3>
+          <p>Technology news for CISOs & cybersecurity decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+        <div class="network-item">
+          <h3>Telecommunications</h3>
+          <p>Telecommunications news for ICT decision-makers</p>
+          <div class="buttons">
+            <button>Visit</button>
+            <button>Media Kit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>TechDay operates in other regions, see our <a href="#">Asian sites</a>, our <a href="#">Australian sites</a>, our <a href="#">UK sites</a> & our <a href="#">Indian sites</a>.</p>
+    </footer>
+  </main>
+</body>
+</html>
+```

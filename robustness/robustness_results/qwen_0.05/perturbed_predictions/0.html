@@ -1,0 +1,1204 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML structure and CSS styling accurately.
+
+Starting with the overall layout. The image shows a webpage for "eCommerceNews New Zealand" with various sections: header, guides, search, main article, related stories, top stories, kiwi network, about us, and footer.
+
+First, the header. The top has a blue bar with "NEW ZEALAND" in the center. Then there's a "Guides" section with tags: #business intelligence, #commerce systems, etc. Then a search bar. Below that, a large blue section (maybe a banner) with the main article title "AVG launches start-up security suite".
+
+Let's break down each part:
+
+1. **Header Section**:
+   - Top blue bar: probably a header with "NEW ZEALAND" centered. The image shows two blue bars at the top, but maybe the main header is the middle one. Wait, the image's top has a blue bar with "NEW ZEALAND" in the center. So the header is a blue background with white text "NEW ZEALAND".
+
+2. **Guides Section**:
+   - Title "Guides" (h2)
+   - Tags: #business intelligence, #commerce systems, #customer data platforms, #marketing technologies, #payment gateways. These are probably inline with a hashtag style.
+
+3. **Search Section**:
+   - "Search" as a heading, then a search input with a placeholder "..." (maybe a magnifying glass icon, but the image shows a simple input).
+
+4. **Main Article**:
+   - A large blue background (maybe a hero image or section) with the article title "AVG launches start-up security suite" in white text. Wait, the image shows a blue rectangle with the title. Then below that, the article content: by Staff Writer, date, etc.
+
+5. **Related Stories**:
+   - Section title "Related stories", then a list of links.
+
+6. **Top Stories**:
+   - Section title "Top stories", list of links.
+
+7. **Our Kiwi Network**:
+   - A grid of sections: Fintech, Industry, Commerce, Consumer tech, Enterprise, Cybersecurity, Telecommunications. Each has a title, description, and "Visit" and "Media Kit" buttons.
+
+8. **About Us**:
+   - Links: Contact us, Editorial features, FAQ, Media kit, Job moves, Our terms, Subscribe.
+
+9. **Footer**:
+   - Copyright info: © 2023 TechDay, All rights reserved. Hosted on Plan B's Cloud Services. DMARC protection by PowerDMARC.
+
+Now, let's think about the structure:
+
+- HTML5 structure: <html>, <head>, <body>
+- In <head>, include <style> with CSS for responsiveness.
+- The body will have sections: header, guides, search, main article, related stories, top stories, kiwi network, about us, footer.
+
+Let's outline the HTML structure:
+
+- <header> for the top blue bar with "NEW ZEALAND"
+- <section> for Guides
+- <section> for Search
+- <section> for the main article (with the blue background and article content)
+- <section> for Related stories
+- <section> for Top stories
+- <section> for Our Kiwi network (grid layout)
+- <section> for About us
+- <footer> for copyright
+
+Now, CSS considerations:
+
+- The main blue bars: probably using background-color: #0000FF (or similar, but the image shows a bright blue). Let's check the image: the top bar is blue, the main article section is blue. So we'll use a blue color for those.
+
+- The text colors: white for the main article title (since it's on a blue background), black for other text.
+
+- Responsive design: need to use media queries for different screen sizes. The image shows a desktop layout, so we need to make sure it's responsive.
+
+Let's start coding.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerceNews New Zealand</title>
+    <style>
+        /* CSS here */
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-bar">NEW ZEALAND</div>
+    </header>
+
+    <!-- Guides Section -->
+    <section class="guides">
+        <h2>Guides</h2>
+        <div class="tags">
+            <span># business intelligence</span>
+            <span># commerce systems</span>
+            <span># customer data platforms</span>
+            <span># marketing technologies</span>
+            <span># payment gateways</span>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search">
+        <h2>Search</h2>
+        <input type="text" placeholder="..." class="search-input">
+    </section>
+
+    <!-- Main Article Section -->
+    <section class="article">
+        <div class="article-banner">
+            <h1>AVG launches start-up security suite</h1>
+        </div>
+        <div class="article-content">
+            <div class="author-info">
+                <span>By Staff Writer</span>
+                <span>Tue, 19th Oct 2010</span>
+                <span># nz</span>
+                <span class="fyi">FYI, this story is more than a year old</span>
+            </div>
+            <p>AVG has released (AU/NZ), the Australian, New Zealand and South Pacific distributor of the award-winning range of AVG anti-virus and Internet Security solutions, today announced the immediate availability of AVG Internet Security 2011 Business Edition and AVG Anti-Virus 2011 Business Edition.</p>
+            <p>The new suite of business security products are aimed at internet-active small and medium sized business owners. The software covers online transactions and email communications as well as securing sensitive customer data.</p>
+            <p>"AVG recognises that most small business owners are not IT experts, and need an anti-virus and Internet Security solution for their business that provides maximum protection and is easy to administer," said Peter Cameron, Managing Director, AVG.</p>
+            <p>The new Security software suite is available now through all the usual channels.</p>
+            <div class="follow-us">
+                <h3>Follow us on:</h3>
+                <div class="social-icons"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Stories -->
+    <section class="related-stories">
+        <h2>Related stories</h2>
+        <ul>
+            <li>Layer3 unveils Secure Anywhere cloud security for NZ small businesses</li>
+            <li>HCLTech graduates first digital apprentices in New Zealand, plans expansion</li>
+            <li>Epson unveils SureColor P5360 professional photo printer in Sydney</li>
+            <li>Survey reveals alarming rate of online scams targeting New Zealanders</li>
+            <li>NCSC report reveals heightened financially motivated cybercrime in NZ</li>
+        </ul>
+    </section>
+
+    <!-- Top Stories -->
+    <section class="top-stories">
+        <h2>Top stories</h2>
+        <ul>
+            <li>Preparing for peak holiday season with Composable Commerce</li>
+            <li>In today's data-driven world, compromising on cybersecurity is not an option</li>
+            <li>Cloudera partners with Pinecone to enhance AI operations for enterprise</li>
+            <li>AI, Machine Learning boom to dominate the year 2024</li>
+            <li>DataStax unveils RAGStack to simplify generative AI application development</li>
+        </ul>
+    </section>
+
+    <!-- Kiwi Network -->
+    <section class="kiwi-network">
+        <h2>Our Kiwi network</h2>
+        <div class="network-grid">
+            <div class="network-item">
+                <h3>Fintech</h3>
+                <p>Technology news for CFOs & financial decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Industry</h3>
+                <p>Industry insider news for technology resellers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Commerce</h3>
+                <p>Technology news for digital commerce decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Consumer tech</h3>
+                <p>Consumer technology news & reviews from the future</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Enterprise</h3>
+                <p>Technology news for CIOs & IT decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Cybersecurity</h3>
+                <p>Technology news for CISOs & cybersecurity decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Telecommunications</h3>
+                <p>Telecommunications news for ICT decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about-us">
+        <h2>About us</h2>
+        <div class="about-links">
+            <a href="#" class="link">Contact us</a>
+            <a href="#" class="link">Editorial features</a>
+            <a href="#" class="link">FAQ</a>
+            <a href="#" class="link">Media kit</a>
+            <a href="#" class="link">Job moves</a>
+            <a href="#" class="link">Our terms</a>
+            <a href="#" class="link">Subscribe</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 TechDay, All rights reserved. Hosted on Plan B's Cloud Services. DMARC protection by PowerDMARC.</p>
+    </footer>
+</body>
+</html>
+
+Now, the CSS. Let's think about the styles:
+
+- The header bar: background color blue, text white, centered.
+- Guides section: background white, maybe a light gray border.
+- Search section: similar.
+- Article banner: blue background, white text.
+- Article content: white background, black text.
+- Related and top stories: list items with some spacing.
+- Kiwi network: grid layout, each item with a blue header bar (like the image shows blue bars for each section).
+- Buttons: "Visit" and "Media Kit" as buttons, maybe with a blue background.
+
+Let's define the CSS:
+
+First, reset some default styles:
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background-color: #0000FF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header-bar {
+    font-size: 1.5em;
+}
+
+.guides {
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tags span {
+    background: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.search {
+    padding: 20px;
+}
+
+.search h2 {
+    margin-bottom: 10px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.article {
+    background: #fff;
+    padding: 20px;
+}
+
+.article-banner {
+    background-color: #0000FF;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.article-banner h1 {
+    font-size: 1.8em;
+}
+
+.article-content {
+    line-height: 1.8;
+}
+
+.author-info {
+    margin-bottom: 15px;
+}
+
+.author-info span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fyi {
+    color: green;
+    font-style: italic;
+}
+
+.follow-us {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.related-stories,.top-stories {
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.related-stories h2,.top-stories h2 {
+    margin-bottom: 15px;
+}
+
+.related-stories ul,.top-stories ul {
+    list-style: none;
+}
+
+.related-stories li,.top-stories li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.related-stories li:last-child,.top-stories li:last-child {
+    border-bottom: none;
+}
+
+.kiwi-network {
+    background: #fff;
+    padding: 20px;
+}
+
+.kiwi-network h2 {
+    margin-bottom: 20px;
+}
+
+.network-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.network-item {
+    background: #0000FF;
+    color: white;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.network-item h3 {
+    margin-bottom: 10px;
+}
+
+.network-item p {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.network-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background: #0000FF;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0000CC;
+}
+
+.about-us {
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.link {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #0000FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.link:hover {
+    background: #0000CC;
+}
+
+footer {
+    background: #0000FF;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+Now, check for responsiveness. The grid for kiwi network should be responsive. The CSS uses grid with auto-fill, which is responsive.
+
+Also, the main article banner is blue, the kiwi network items are blue, etc.
+
+Let's check the image again for details:
+
+- The top bar: "NEW ZEALAND" in the center, blue background.
+- Guides section: tags with #, search bar.
+- Main article: blue banner with title, then content.
+- Related stories: list of links.
+- Top stories: list of links.
+- Kiwi network: 7 items in a grid (2 rows, 3 columns? Wait, the image shows 7 items: Fintech, Industry, Commerce, Consumer tech, Enterprise, Cybersecurity, Telecommunications. So 3 columns, 3 rows (with one item in the last row). The CSS grid with minmax(250px, 1fr) should handle that.
+
+Also, the "FYI" text is green, which is in the article content.
+
+The "By Staff Writer" and date are in the author-info section.
+
+The "Follow us on:" section has a blue bar (maybe the social icons, but in the image it's a blue bar, so we can leave it as a div with background color).
+
+Now, let's make sure all elements are included.
+
+Check the HTML structure:
+
+- Header with "NEW ZEALAND"
+- Guides section with tags
+- Search section
+- Article section with banner and content
+- Related stories
+- Top stories
+- Kiwi network grid
+- About us
+- Footer
+
+Yes.
+
+Now, let's write the CSS with all the styles.
+
+Wait, the image shows the top bar as two blue bars, but the main header is "NEW ZEALAND" in the center. So the header is a single blue bar with the text.
+
+Also, the image has a blue bar at the top left and right, but maybe that's part of the header. Wait, the image's top has a blue bar with "NEW ZEALAND" in the center. So the header is a single blue bar.
+
+Now, let's code the HTML and CSS.
+
+Make sure to close all tags properly.
+
+Let's check for any missing elements:
+
+- The "eCommerceNews New Zealand - technology news for digital commerce decision-makers" is in the top, but the image shows it as the site title. Wait, the image's top has "eCommerceNews New Zealand - technology news for digital commerce decision-makers" as the site name. Wait, the image shows:
+
+At the very top, there's a small text: "eCommerceNews New Zealand - technology news for digital commerce decision-makers"
+
+But in the provided image, the top has a blue bar with "NEW ZEALAND" in the center. Wait, the image's top part:
+
+The first line is "eCommerceNews New Zealand - technology news for digital commerce decision-makers" (small text), then a blue bar with "NEW ZEALAND" in the center.
+
+Wait, the user's image description says:
+
+"eCommerceNews New Zealand - technology news for digital commerce decision-makers" is at the top, then a blue bar with "NEW ZEALAND".
+
+So the header should include that small text.
+
+Wait, the image shows:
+
+Top: "eCommerceNews New Zealand - technology news for digital commerce decision-makers" (small, maybe in the header)
+
+Then a blue bar with "NEW ZEALAND" in the center.
+
+So the header should have two parts:
+
+- A small text: "eCommerceNews New Zealand - technology news for digital commerce decision-makers"
+- A blue bar with "NEW ZEALAND"
+
+Wait, the image's top has:
+
+First line: "eCommerceNews New Zealand - technology news for digital commerce decision-makers" (small font)
+Then a blue bar with "NEW ZEALAND" in the center.
+
+So the header should be:
+
+<header>
+    <div class="site-title">eCommerceNews New Zealand - technology news for digital commerce decision-makers</div>
+    <div class="header-bar">NEW ZEALAND</div>
+</header>
+
+But the image shows the site title as a small text at the top, then the blue bar. So we need to include that.
+
+Wait, the user's image description says:
+
+"eCommerceNews New Zealand - technology news for digital commerce decision-makers" is at the top, then a blue bar with "NEW ZEALAND".
+
+So the HTML should have:
+
+<header>
+    <div class="site-title">eCommerceNews New Zealand - technology news for digital commerce decision-makers</div>
+    <div class="header-bar">NEW ZEALAND</div>
+</header>
+
+But the image shows the site title as a small text, so we need to style it.
+
+Let's adjust the header:
+
+<header>
+    <div class="site-title">eCommerceNews New Zealand - technology news for digital commerce decision-makers</div>
+    <div class="header-bar">NEW ZEALAND</div>
+</header>
+
+Then, the site-title should be smaller, maybe in a different color.
+
+So in CSS:
+
+.site-title {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.header-bar {
+    background-color: #0000FF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5em;
+}
+
+That's important. The image shows the site title at the very top, so we need to include that.
+
+Now, let's update the HTML structure.
+
+Also, the image shows the "Guides" section with the tags. The tags are in a row, so the CSS for.tags should be a flex container.
+
+Now, let's check the main article section. The image shows a blue banner with the title "AVG launches start-up security suite". So the article-banner is a blue div with white text.
+
+The article content has the author info, then the paragraphs.
+
+The "FYI" text is green, so in CSS:
+
+.fyi {
+    color: green;
+    font-style: italic;
+}
+
+Now, the "Follow us on:" section has a blue bar. In the image, it's a blue bar, so we can style the.follow-us div with a background color.
+
+In the HTML, the.follow-us has a div with class "social-icons", which is empty. But in the image, it's a blue bar, so maybe the.follow-us has a background color.
+
+Wait, the image shows "Follow us on:" followed by a blue bar. So the.follow-us div should have a background color.
+
+So in CSS:
+
+.follow-us {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    background-color: #0000FF;
+    color: white;
+}
+
+But the image shows the "Follow us on:" text in black, then a blue bar. Wait, the image shows:
+
+"Follow us on:"
+
+Then a blue bar (maybe the social icons are there, but in the image it's a blue bar).
+
+Wait, the image's "Follow us on:" section has a blue bar. So the.follow-us div should have a background color.
+
+Let's adjust:
+
+.follow-us {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.follow-us h3 {
+    color: #333;
+}
+
+.follow-us.social-icons {
+    background-color: #0000FF;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+But the image shows a blue bar, so maybe the.social-icons is a blue bar.
+
+Alternatively, the image shows a blue bar under "Follow us on:", so the.follow-us div has a background color.
+
+Let's check the image:
+
+The "Follow us on:" section has a blue bar. So the.follow-us div should have a background color.
+
+So in CSS:
+
+.follow-us {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    background-color: #0000FF;
+    color: white;
+}
+
+.follow-us h3 {
+    color: white;
+}
+
+But the image shows "Follow us on:" in black, then a blue bar. Wait, the image shows:
+
+"Follow us on:"
+
+Then a blue bar. So the "Follow us on:" is in black, and the bar is blue.
+
+So the.follow-us div should have a background color for the bar, but the text "Follow us on:" is in black.
+
+So:
+
+.follow-us {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.follow-us h3 {
+    color: #333;
+}
+
+.follow-us.social-icons {
+    background-color: #0000FF;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+But the image shows the bar as a solid blue, so the.social-icons div is the blue bar.
+
+Now, the Kiwi network section: each item has a blue header bar. So the.network-item has a background color of #0000FF.
+
+Yes, in the CSS,.network-item has background: #0000FF; color: white;.
+
+Now, the buttons: "Visit" and "Media Kit" are buttons with blue background.
+
+Now, let's check the footer: the copyright text is in white on a blue background.
+
+Now, let's make sure all elements are included.
+
+Let's write the complete HTML and CSS.
+
+First, the HTML structure with the site title.
+
+Now, the code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerceNews New Zealand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #0000FF;
+            color: white;
+            padding: 10px 0;
+        }
+
+       .site-title {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+       .header-bar {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+       .guides {
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+       .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+       .tags span {
+            background: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+       .search {
+            padding: 20px;
+        }
+
+       .search h2 {
+            margin-bottom: 10px;
+        }
+
+       .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+       .article {
+            background: #fff;
+            padding: 20px;
+        }
+
+       .article-banner {
+            background-color: #0000FF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+       .article-banner h1 {
+            font-size: 1.8em;
+        }
+
+       .article-content {
+            line-height: 1.8;
+        }
+
+       .author-info {
+            margin-bottom: 15px;
+        }
+
+       .author-info span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+       .fyi {
+            color: green;
+            font-style: italic;
+        }
+
+       .follow-us {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+
+       .follow-us h3 {
+            color: #333;
+        }
+
+       .follow-us.social-icons {
+            background-color: #0000FF;
+            height: 20px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+       .related-stories,.top-stories {
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+       .related-stories h2,.top-stories h2 {
+            margin-bottom: 15px;
+        }
+
+       .related-stories ul,.top-stories ul {
+            list-style: none;
+        }
+
+       .related-stories li,.top-stories li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+       .related-stories li:last-child,.top-stories li:last-child {
+            border-bottom: none;
+        }
+
+       .kiwi-network {
+            background: #fff;
+            padding: 20px;
+        }
+
+       .kiwi-network h2 {
+            margin-bottom: 20px;
+        }
+
+       .network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+       .network-item {
+            background: #0000FF;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+       .network-item h3 {
+            margin-bottom: 10px;
+        }
+
+       .network-item p {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+       .network-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+       .btn {
+            background: #0000FF;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+       .btn:hover {
+            background: #0000CC;
+        }
+
+       .about-us {
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+       .about-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+       .link {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #0000FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+       .link:hover {
+            background: #0000CC;
+        }
+
+        footer {
+            background: #0000FF;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+           .network-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="site-title">eCommerceNews New Zealand - technology news for digital commerce decision-makers</div>
+        <div class="header-bar">NEW ZEALAND</div>
+    </header>
+
+    <section class="guides">
+        <h2>Guides</h2>
+        <div class="tags">
+            <span># business intelligence</span>
+            <span># commerce systems</span>
+            <span># customer data platforms</span>
+            <span># marketing technologies</span>
+            <span># payment gateways</span>
+        </div>
+    </section>
+
+    <section class="search">
+        <h2>Search</h2>
+        <input type="text" placeholder="..." class="search-input">
+    </section>
+
+    <section class="article">
+        <div class="article-banner">
+            <h1>AVG launches start-up security suite</h1>
+        </div>
+        <div class="article-content">
+            <div class="author-info">
+                <span>By Staff Writer</span>
+                <span>Tue, 19th Oct 2010</span>
+                <span># nz</span>
+                <span class="fyi">FYI, this story is more than a year old</span>
+            </div>
+            <p>AVG has released (AU/NZ), the Australian, New Zealand and South Pacific distributor of the award-winning range of AVG anti-virus and Internet Security solutions, today announced the immediate availability of AVG Internet Security 2011 Business Edition and AVG Anti-Virus 2011 Business Edition.</p>
+            <p>The new suite of business security products are aimed at internet-active small and medium sized business owners. The software covers online transactions and email communications as well as securing sensitive customer data.</p>
+            <p>"AVG recognises that most small business owners are not IT experts, and need an anti-virus and Internet Security solution for their business that provides maximum protection and is easy to administer," said Peter Cameron, Managing Director, AVG.</p>
+            <p>The new Security software suite is available now through all the usual channels.</p>
+            <div class="follow-us">
+                <h3>Follow us on:</h3>
+                <div class="social-icons"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-stories">
+        <h2>Related stories</h2>
+        <ul>
+            <li>Layer3 unveils Secure Anywhere cloud security for NZ small businesses</li>
+            <li>HCLTech graduates first digital apprentices in New Zealand, plans expansion</li>
+            <li>Epson unveils SureColor P5360 professional photo printer in Sydney</li>
+            <li>Survey reveals alarming rate of online scams targeting New Zealanders</li>
+            <li>NCSC report reveals heightened financially motivated cybercrime in NZ</li>
+        </ul>
+    </section>
+
+    <section class="top-stories">
+        <h2>Top stories</h2>
+        <ul>
+            <li>Preparing for peak holiday season with Composable Commerce</li>
+            <li>In today's data-driven world, compromising on cybersecurity is not an option</li>
+            <li>Cloudera partners with Pinecone to enhance AI operations for enterprise</li>
+            <li>AI, Machine Learning boom to dominate the year 2024</li>
+            <li>DataStax unveils RAGStack to simplify generative AI application development</li>
+        </ul>
+    </section>
+
+    <section class="kiwi-network">
+        <h2>Our Kiwi network</h2>
+        <div class="network-grid">
+            <div class="network-item">
+                <h3>Fintech</h3>
+                <p>Technology news for CFOs & financial decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Industry</h3>
+                <p>Industry insider news for technology resellers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Commerce</h3>
+                <p>Technology news for digital commerce decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Consumer tech</h3>
+                <p>Consumer technology news & reviews from the future</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Enterprise</h3>
+                <p>Technology news for CIOs & IT decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Cybersecurity</h3>
+                <p>Technology news for CISOs & cybersecurity decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+            <div class="network-item">
+                <h3>Telecommunications</h3>
+                <p>Telecommunications news for ICT decision-makers</p>
+                <div class="network-buttons">
+                    <a href="#" class="btn">Visit</a>
+                    <a href="#" class="btn">Media Kit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us">
+        <h2>About us</h2>
+        <div class="about-links">
+            <a href="#" class="link">Contact us</a>
+            <a href="#" class="link">Editorial features</a>
+            <a href="#" class="link">FAQ</a>
+            <a href="#" class="link">Media kit</a>
+            <a href="#" class="link">Job moves</a>
+            <a href="#" class="link">Our terms</a>
+            <a href="#" class="link">Subscribe</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 TechDay, All rights reserved. Hosted on Plan B's Cloud Services. DMARC protection by PowerDMARC.</p>
+    </footer>
+</body>
+</html>
+
+Now, check if all elements are present:
+
+- Site title at the top (small text)
+- Header bar with "NEW ZEALAND"
+- Guides section with tags
+- Search section
+- Main article with banner and content
+- Related stories
+- Top stories
+- Kiwi network grid
+- About us
+- Footer
+
+Yes.
+
+Check the CSS for responsiveness: the network grid uses auto-fill, which is responsive.
+
+The.site-title is centered, the header bar is centered.
+
+The tags are in a flex container, so they wrap.
+
+The search input is full width.
+
+The article content has the author info, FYI text, etc.
+
+The buttons are styled correctly.
+
+The footer is centered.
+
+This should match the image.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerceNews New Zealand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #0000FF;
+            color: white;
+            padding: 10px 0;
+        }
+
+       .site-title {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+       .header-bar {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+       .guides {
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+       .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+       .tags span {
+            background: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+       .search {
+            padding: 20px;
+        }
+
+       .search h2 {
+            margin-bottom: 10px;
+        }
+
+       .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+       .article {
+            background: #fff;
+            padding: 20px;
+        }
+
+       .article-banner {
+            background-color: #0000FF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 2

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOOM Game</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            background-color: #f0f0f0; /* Light gray background for the page */
+            color: #333;
+            font-size: 13px; /* Base font size, visually matched */
+            line-height: 1.5;
+        }
+
+        /* Page Wrapper for Centering and Max Width */
+        .page-wrapper {
+            max-width: 1000px; /* Overall content width */
+            margin: 20px auto; /* Center the content with some top/bottom margin */
+            background-color: #fff; /* White background for the main content area */
+            display: flex;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for the page block */
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 200px; /* Fixed width for the sidebar */
+            padding: 20px 0 20px 20px; /* Padding on left, top, bottom */
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 2px; /* Small space between list items */
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 3px 0;
+            color: #000099; /* Dark blue link color */
+            text-decoration: none;
+            font-size: 12px; /* Smaller font for sidebar links */
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area Styles */
+        .main-content {
+            flex-grow: 1; /* Allow main content to take remaining space */
+            padding: 20px;
+            border-left: 1px dotted #cccccc; /* Dotted separator line between sidebar and main content */
+        }
+
+        /* Header Section (ZOOM title and description) */
+        .header-section {
+            margin-bottom: 20px;
+        }
+
+        .header-section h1 {
+            background-color: #0000ff; /* Blue background for ZOOM title */
+            color: #fff;
+            padding: 10px 20px;
+            /* Negative margins to extend the blue bar to the edges of the main-content padding */
+            margin: -20px -20px 15px -20px; 
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .header-section p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Rules and Features Section */
+        .section-title {
+            color: #990000; /* Reddish-brown color */
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 1px dotted #cccccc; /* Dotted line below title */
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase; /* As seen in image */
+        }
+
+        .rules-features p {
+            margin-bottom: 10px;
+        }
+
+        .rules-features a {
+            color: #000099;
+            text-decoration: underline;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            width: 100%;
+            height: 300px; /* Fixed height for the video area */
+            border: 1px dotted #cccccc;
+            margin-top: 20px;
+            background-color: #fcfcfc; /* Slightly off-white background */
+        }
+
+        .video-controls {
+            text-align: right;
+            font-size: 11px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .video-controls a {
+            color: #000099;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .video-controls a:hover {
+            text-decoration: underline;
+        }
+
+        /* Horizontal Rule */
+        .dotted-hr {
+            border: none;
+            border-top: 1px dotted #cccccc;
+            margin: 20px 0;
+        }
+
+        /* Game Description */
+        .game-description {
+            margin-bottom: 20px;
+        }
+
+        .game-description strong {
+            font-weight: bold;
+        }
+
+        /* Game Grids (Related, New, Top Zuma) */
+        .game-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px; /* Space between game items */
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .game-item {
+            width: 100px; /* Fixed width for each game item */
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.2;
+        }
+
+        .game-thumbnail {
+            width: 80px;
+            height: 80px;
+            background-color: #0000ff; /* Blue square */
+            margin: 0 auto 5px auto; /* Center thumbnail, space below */
+            border-radius: 5px; /* Slightly rounded corners */
+        }
+
+        .game-title {
+            color: #333;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .small-zuma-text {
+            color: #000099;
+            font-size: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            display: block; /* Ensure it takes its own line */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                flex-direction: column; /* Stack sidebar and main content */
+                margin: 10px; /* Less margin on smaller screens */
+            }
+
+            .sidebar {
+                width: auto; /* Allow sidebar to take full width */
+                padding: 15px;
+                border-right: none; /* Remove right border */
+                border-bottom: 1px dotted #cccccc; /* Add bottom border */
+            }
+
+            .main-content {
+                padding: 15px;
+                border-left: none; /* Remove left border */
+            }
+
+            .header-section h1 {
+                /* Adjust negative margins for smaller padding */
+                margin: -15px -15px 15px -15px; 
+            }
+
+            .game-grid {
+                justify-content: center; /* Center game items on smaller screens */
+            }
+
+            .game-item {
+                width: calc(33.33% - 15px); /* 3 items per row */
+                max-width: 100px; /* Maintain max width */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-item {
+                width: calc(50% - 15px); /* 2 items per row */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#">Angry Birds</a></li>
+                <li><a href="#">Animals Care</a></li>
+                <li><a href="#">Balls</a></li>
+                <li><a href="#">Billiards</a></li>
+                <li><a href="#">Cooking</a></li>
+                <li><a href="#">Divination</a></li>
+                <li><a href="#">Dress Up And Hairstyle</a></li>
+                <li><a href="#">Fighting</a></li>
+                <li><a href="#">Jokes And Cartoons</a></li>
+                <li><a href="#">Kids Games</a></li>
+                <li><a href="#">Logical Games</a></li>
+                <li><a href="#">Mahjongs</a></li>
+                <li><a href="#">Quests</a></li>
+                <li><a href="#">Races</a></li>
+                <li><a href="#">Rpgs And Arcades</a></li>
+                <li><a href="#">Search Items</a></li>
+                <li><a href="#">Tetris</a></li>
+                <li><a href="#">Three In A Row</a></li>
+                <li><a href="#">Trucks</a></li>
+                <li><a href="#">Two Player Games</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="header-section">
+                <h1>ZOOM</h1>
+                <p>You can find this game in Zuma section, where also located a number of similar free online games. Read how to play, rules and features below and get ready to start.</p>
+            </div>
+
+            <div class="rules-features">
+                <h2 class="section-title">RULES AND FEATURES</h2>
+                <p>The game Zuma, not having appeared in 2004 and immediately gained popularity among the many fans of the game Balls. The idea is simple and yet original.</p>
+                <p>The Problem is that firing out of a cannon ball of a certain color to get them in the group of balls of the same color. Getting a group of three or more balls of the group of bursts and disappears, giving the player points.</p>
+                <p>For a full understanding of the process, we recommend you to watch the video <a href="#">how to play Zuma</a>.</p>
+            </div>
+
+            <div class="video-placeholder">
+                <!-- Video content would go here -->
+            </div>
+            <div class="video-controls">
+                <a href="#">+</a> • <a href="#">-</a> • <a href="#">800x600</a> • <a href="#">Full screen</a>
+            </div>
+
+            <hr class="dotted-hr">
+
+            <p class="game-description">You can play the game <strong>ZOOM</strong> online 24 hours a day for free.</p>
+
+            <h3 class="section-title">RELATED GAMES</h3>
+            <div class="game-grid">
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">BALLS</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">BEADS AND HONEY</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">PIG ZUMA</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">ZUMA-ZUMA</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">ZUMA BALLS</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">DIGITAL ZOOM</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">INDIAN ZUMA</p>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="game-title">ZUMA DELUXE</p>
+                </div>
+            </div>
+            <span class="small-zuma-text">Zuma</span>
+
+            <h3 class="section-title">NEW ZUMA</h3>
+            <div class="game-grid">
+                <div class="game-item">
+                    <div class="game-thumbnail"></div>
+                    <p class="

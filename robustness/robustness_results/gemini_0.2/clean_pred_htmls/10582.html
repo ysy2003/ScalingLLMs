@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCC EVENT BLOG</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        .header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-blue-box {
+            width: 100px; /* Approximate width based on image */
+            height: 60px; /* Approximate height based on image */
+            background-color: #0000FF;
+            flex-shrink: 0;
+        }
+
+        .blog-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Navigation and Search Bar */
+        .nav-search-wrapper {
+            background-color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            border-bottom: 4px solid #f58220; /* Orange border */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-nav li a {
+            display: block;
+            padding: 15px 0;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .main-nav li a:hover {
+            color: #f58220; /* Orange hover effect */
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Push to the right */
+        }
+
+        .search-bar input[type="text"] {
+            padding: 8px 10px;
+            border: none;
+            border-radius: 0;
+            font-size: 0.9em;
+            width: 150px; /* Adjust as needed */
+            height: 36px; /* Match button height */
+        }
+
+        .search-bar button {
+            background-color: #f58220; /* Orange button */
+            border: none;
+            padding: 0; /* Remove default padding */
+            cursor: pointer;
+            border-radius: 0;
+            margin-left: -1px; /* Overlap with input border */
+            width: 50px; /* Fixed width for the orange square button */
+            height: 36px; /* Match input height */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Main Content Layout */
+        .content-area {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            padding: 20px;
+            gap: 40px; /* Space between columns */
+        }
+
+        .main-content {
+            flex: 3; /* Takes more space */
+            min-width: 300px; /* Ensure it doesn't get too small */
+        }
+
+        .sidebar {
+            flex: 1; /* Takes less space */
+            min-width: 250px; /* Ensure it doesn't get too small */
+        }
+
+        /* Main Content - Blog Post Section */
+        .section-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ccc; /* Gray border for main section title */
+        }
+
+        .blog-post {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee; /* Light separator after post */
+        }
+
+        .blog-post h2 {
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .blog-post .date {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .blog-post p {
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            float: right; /* Position to the right */
+            margin-top: 10px;
+        }
+
+        .read-more-btn:hover {
+            background-color: #f58220;
+        }
+
+        /* Sidebar Styles */
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f58220; /* Orange border for sidebar titles */
+            text-transform: uppercase;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar-section li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-section li a {
+            color: #555;
+        }
+
+        .sidebar-section li a:hover {
+            color: #f58220;
+        }
+
+        .upcoming-events-image {
+            background-color: #0000FF;
+            width: 100%;
+            height: 100px; /* Placeholder height */
+            margin-bottom: 15px;
+        }
+
+        .upcoming-events-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .upcoming-events-list div {
+            flex: 1;
+            min-width: 100px; /* Ensure items don't get too small */
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: right;
+            padding: 15px 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .blog-title {
+                font-size: 2em;
+            }
+
+            .nav-search-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 15px;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .main-nav li a {
+                padding: 8px 0;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .search-bar input[type="text"] {
+                width: calc(100% - 50px); /* Adjust for button width */
+            }
+
+            .search-bar button {
+                width: 50px; /* Keep button fixed width */
+            }
+
+            .content-area {
+                flex-direction: column;
+                padding: 15px;
+                gap: 30px;
+            }
+
+            .main-content, .sidebar {
+                min-width: unset; /* Remove min-width for stacking */
+                width: 100%;
+            }
+
+            .read-more-btn {
+                float: none; /* Remove float */
+                display: block; /* Make it block level */
+                width: fit-content; /* Adjust width to content */
+                margin-left: auto; /* Align right within its block parent */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-title {
+                font-size: 1.5em;
+            }
+
+            .logo-blue-box {
+                width: 80px;
+                height: 50px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .blog-post h2 {
+                font-size: 1.5em;
+            }
+
+            .read-more-btn {
+                padding: 8px 15px;
+                font-size: 0.8em;
+            }
+
+            .footer {
+                text-align: center;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-blue-box"></div>
+            <h1 class="blog-title">CCC EVENT BLOG</h1>
+        </header>
+
+        <div class="nav-search-wrapper">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CCC</a></li>
+                    <li><a href="#">ORGA-TEAMS</a></li>
+                    <li><a href="#">RECORDINGS</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search Blog...">
+                <button type="submit" aria-label="Search"></button>
+            </div>
+        </div>
+
+        <main class="content-area">
+            <section class="main-content">
+                <h2 class="section-title">interpretation English</h2>
+
+                <article class="blog-post">
+                    <h2>Lost in Interpretation ...</h2>
+                    <span class="date">December 27, 2008</span>
+                    <p>This year, we will continue a tradition started last year with the "spontaneous simultaneous" interpretation of the Hacker Jeopardy. As of tomorrow, we will interpret one event in Saal 1 each day.</p>
+                    <a href="#" class="read-more-btn">Read more ...</a>
+                </article>
+                <!-- Only one blog post visible in the provided image -->
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>UPCOMING EVENTS</h3>
+                    <div class="upcoming-events-image"></div>
+                    <div class="upcoming-events-list">
+                        <div>37C3: Unlocked</div>
+                        <div>Fireshonks</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>CONGRESS</h3>
+                    <ul>
+                        <li><a href="#">37C3: Unlocked (2023)</a></li>
+                        <li><a href="#">36C3: Resource Exhaustion (2019)</a></li>
+                        <li><a href="#">35C3: Refreshing Memories (2018)</a></li>
+                        <li><a href="#">34C3: tuwat (2017)</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>CAMP</h3>
+                    <ul>
+                        <li><a href="#">Chaos Communication Camp 2023</a></li>
+                        <li><a href="#">Chaos Communication Camp 2019</a></li>
+                        <li><a href="#">Chaos Communication Camp 2015</a></li>
+                        <li><a href="#">Chaos Communication Camp 2011</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>REMOTE CHAOS EXPERIENCE</h3>
+                    <ul>
+                        <li><a href="#">rC3: NOWHERE (2021)</a></li>
+                        <li><a href="#">rC3 (2020)</a></li>
+                    </ul>
+                </div>
+
+                <

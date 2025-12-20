@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hopewell Theatre</title>
+    <style>
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif; /* Generic sans-serif font */
+            line-height: 1.6;
+            color: #cccccc; /* Default light gray text color for dark sections */
+            background-color: #1a1a1a; /* Overall very dark background */
+        }
+
+        .container {
+            max-width: 1200px; /* Standard content width */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding on sides for smaller screens */
+        }
+
+        /* Header */
+        header {
+            background-color: #1e1e1e; /* Darker gray for header */
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .logo {
+            width: 100px; /* Estimated size */
+            height: 60px; /* Estimated size */
+            background-color: #000080; /* Dark blue */
+            margin-right: 20px; /* Space between logo and nav */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap; /* Allow nav items to wrap */
+            gap: 20px; /* Space between nav items */
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap; /* Prevent links from breaking */
+        }
+
+        nav ul li a:hover {
+            color: #aaaaaa;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #808080; /* Medium gray */
+            min-height: 400px; /* Estimated height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; /* Padding for card on smaller screens */
+        }
+
+        .get-involved-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 500px; /* Max width for the card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #333333; /* Darker text for white background */
+        }
+
+        .get-involved-card h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .get-involved-card p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-button {
+            background-color: #1a1a1a; /* Black */
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #333333;
+        }
+
+        /* Admission Section */
+        .admission-section {
+            background-color: #1a1a1a; /* Very dark gray/black */
+            padding: 80px 0;
+        }
+
+        .admission-title {
+            font-size: 48px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 4px;
+            font-weight: normal; /* Looks like normal weight */
+        }
+
+        .admission-category {
+            margin-bottom: 40px;
+            padding-bottom: 20px; /* Padding before the category's bottom border */
+            border-bottom: 1px solid #444444; /* Thicker separator for categories */
+        }
+
+        .admission-category:last-of-type {
+            border-bottom: none; /* No border for the last category */
+            margin-bottom: 20px; /* Adjust margin if no border */
+        }
+
+        .admission-category h2 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .admission-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline; /* Align text baselines */
+            padding: 10px 0;
+            border-bottom: 1px solid #333333; /* Lighter separator for items */
+        }
+
+        .admission-item:last-of-type {
+            border-bottom: none; /* No border for the last item in a category */
+        }
+
+        .admission-item p {
+            font-size: 20px;
+            color: #cccccc;
+        }
+
+        .admission-item p:last-child {
+            font-weight: bold; /* Prices look bolder */
+            color: #ffffff;
+        }
+
+        .disclaimer {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 40px;
+            color: #aaaaaa;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a; /* Same as admission section */
+            padding: 40px 0;
+            border-top: 1px solid #333333; /* Subtle separator */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align to top if content wraps */
+            flex-wrap: wrap; /* Allow items to wrap */
+            gap: 20px; /* Space between columns on wrap */
+        }
+
+        .copyright-info {
+            max-width: 60%; /* Allow copyright to take more space on desktop */
+        }
+
+        .copyright-info p {
+            font-size: 14px;
+            color: #aaaaaa;
+            margin-bottom: 5px;
+        }
+
+        .copyright-info a {
+            color: #aaaaaa;
+            text-decoration: underline;
+        }
+
+        .copyright-info a:hover {
+            color: #ffffff;
+        }
+
+        .powered-by {
+            font-size: 14px;
+            color: #aaaaaa;
+            text-align: right; /* Align to right on desktop */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .logo {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+            }
+
+            .admission-title {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+            .admission-category h2 {
+                font-size: 28px;
+            }
+            .admission-item p {
+                font-size: 18px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .copyright-info {
+                max-width: 100%; /* Full width on smaller screens */
+                margin-bottom: 15px;
+            }
+            .powered-by {
+                text-align: center; /* Center align on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .get-involved-card {
+                padding: 25px;
+            }
+            .get-involved-card h2 {
+                font-size: 28px;
+            }
+            .get-involved-card p {
+                font-size: 14px;
+            }
+            .contact-button {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+            .admission-title {
+                font-size: 30px;
+                letter-spacing: 2px;
+            }
+            .admission-category h2 {
+                font-size: 24px;
+            }
+            .admission-item p {
+                font-size: 16px;
+            }
+            .disclaimer, .copyright-info p, .powered-by {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">TICKETS</a></li>
+                    <li><a href="#">CURRENT SEASON</a></li>
+                    <li><a href="#">HANDICAP PROJECT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="get-involved-card">
+                <h2>Get Involved</h2>
+                <p>We need help to bring our shows to life. If you would like to volunteer, use the button below to drop us a line.</p>
+                <button class="contact-button">CONTACT US</button>
+            </div>
+        </section>
+
+        <section class="admission-section">
+            <div class="container">
+                <h1 class="admission-title">ADMISSION</h1>
+
+                <div class="admission-category">
+                    <h2>Standard Show (Non-musical)</h2>
+                    <div class="admission-item">
+                        <p>General Admission</p>
+                        <p>15</p>
+                    </div>
+                    <div class="admission-item">
+                        <p>Student / Senior Admission</p>
+                        <p>12</p>
+                    </div>
+                </div>
+
+                <div class="admission-category">
+                    <h2>Musicals</h2>
+                    <div class="admission-item">
+                        <p>General Admission</p>
+                        <p>17</p>
+                    </div>
+                    <div class="admission-item">
+                        <p>Student / Senior Admission</p>
+                        <p>14</p>
+                    </div>
+                </div>
+
+                <p class="disclaimer">Groups of 10 or more sold at a discounted price when paid in single transaction.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright-info">
+                <p>Copyright © 2021 Hopewell Theatre - All Rights Reserved.</p>
+                <p>Special thanks to <a href="#">The Youngstown Foundation</a>, <a href="#">The Thomases Family Endowment</a>, and the J. Ford Crandall Memorial Foundation for their generosity.</p>
+            </div>
+            <p class="powered-by">Powered by GoDaddy Website Builder</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enagic Client ID</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000000; /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: #FFFFFF; /* White text for general elements */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px; /* Space between elements */
+            padding: 20px; /* Add some padding around the content */
+            max-width: 90%; /* Ensure it doesn't go too wide on small screens */
+            box-sizing: border-box;
+        }
+
+        .blue-box {
+            width: 200px; /* Base width */
+            height: 120px; /* Base height */
+            background-color: #0000FF; /* Blue color */
+            max-width: 80vw; /* Max width relative to viewport width */
+            /* Maintain aspect ratio (200/120 = 5/3, so height is 0.6 * width) */
+            height: calc(var(--blue-box-width, 200px) * 0.6); /* Use CSS variable for width */
+            min-height: 80px; /* Minimum height to prevent it from becoming too small */
+            min-width: 120px; /* Minimum width */
+            --blue-box-width: 200px; /* Define CSS variable for width */
+        }
+
+        .question-text {
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.4;
+            margin: 0; /* Remove default paragraph margin */
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            justify-content: center; /* Center buttons if they wrap */
+        }
+
+        .button {
+            background-color: #FF9900; /* Orange color */
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase; /* Make text uppercase as in image */
+            min-width: 80px; /* Ensure buttons have a minimum width */
+            box-sizing: border-box;
+            transition: background-color 0.2s ease; /* Smooth transition for hover */
+        }
+
+        .button:hover {
+            background-color: #E68A00; /* Slightly darker orange on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                gap: 20px;
+            }
+            .blue-box {
+                width: 160px; /* Slightly smaller on small screens */
+                height: calc(var(--blue-box-width, 160px) * 0.6); /* Maintain aspect ratio */
+                max-width: 70vw;
+                --blue-box-width: 160px; /* Update CSS variable for width */
+            }
+            .question-text {
+                font-size: 16px;
+            }
+            .button-group {
+                gap: 15px;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 14px;
+                min-width: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blue-box"></div>
+        <p class="question-text">Do you have an Enagic Client ID Number?</p>
+        <div class="button-group">
+            <button class="button">Yes</button>
+            <button class="button">No</button>
+        </div>
+    </div>
+</body>
+</html>

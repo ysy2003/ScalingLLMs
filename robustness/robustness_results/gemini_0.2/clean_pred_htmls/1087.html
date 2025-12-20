@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Reform: Cost, Quality and Access</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #495057; /* Dark gray text */
+            line-height: 1.6;
+        }
+
+        /* Header - Search Bar */
+        .header-search {
+            background-color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .search-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px; /* Limit width for larger screens */
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #495057;
+        }
+
+        .search-input::placeholder {
+            color: #6c757d;
+        }
+
+        .search-button {
+            background-color: #4a4a6a; /* Dark blue/purple */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .search-button:hover {
+            background-color: #3a3a5a;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .breadcrumbs a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .essay-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .essay-card h1 {
+            color: #008080; /* Teal */
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .essay-card .metadata {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .essay-card p {
+            margin-bottom: 20px;
+        }
+
+        .essay-card .summary-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .show-more-button {
+            background-color: #e74c3c; /* Reddish orange */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: block; /* Make it a block element */
+            margin-left: auto; /* Align right */
+            width: fit-content; /* Adjust width to content */
+            transition: background-color 0.2s ease;
+        }
+
+        .show-more-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Related Section */
+        .related-section {
+            margin-top: 40px;
+        }
+
+        .related-header {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #6c757d;
+            margin: 40px 0;
+        }
+
+        .related-header::before,
+        .related-header::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #dee2e6; /* Light gray line */
+        }
+
+        .related-header span {
+            padding: 0 20px;
+            font-size: 1.1rem;
+            font-weight: normal;
+        }
+
+        .related-item {
+            background-color: white; /* Assuming related items also have white background */
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .related-item h2 {
+            color: #008080; /* Teal */
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .related-item .metadata {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .related-item p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .read-more-button {
+            background-color: #e74c3c; /* Reddish orange */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: block; /* Make it a block element */
+            margin-left: auto; /* Align right */
+            width: fit-content; /* Adjust width to content */
+            transition: background-color 0.2s ease;
+        }
+
+        .read-more-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* More About Section */
+        .more-about-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .more-about-section h3 {
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+
+        .more-about-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .more-about-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .more-about-list li:last-child {
+            border-bottom: none;
+        }
+
+        .more-about-list a {
+            color: #008080; /* Teal */
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .more-about-list a:hover {
+            text-decoration: underline;
+        }
+
+        .more-about-list .metadata {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #343a40; /* Dark gray */
+            color: white;
+            padding: 30px 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px; /* For smaller screens */
+        }
+
+        .footer-blue-square {
+            width: 30px;
+            height: 30px;
+            background-color: #1a237e; /* Dark blue */
+            margin-right: 15px;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .footer-copyright {
+            color: #adb5bd; /* Light gray */
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px; /* For smaller screens */
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;

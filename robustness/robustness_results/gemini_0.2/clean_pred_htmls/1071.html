@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE STAMPIN' PAD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lora', serif; /* Main body font */
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 16px; /* Base font size */
+        }
+
+        /* Global Link Styles */
+        a {
+            color: #3cb371; /* Greenish color for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            position: relative;
+            max-width: 960px; /* Match container width */
+            margin: 0 auto;
+        }
+
+        .site-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em; /* Larger font for title */
+            margin: 0;
+            font-weight: 400; /* As seen in image */
+        }
+
+        .tagline {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        .search-link {
+            position: absolute;
+            top: 50px; /* Adjust based on visual */
+            right: 20px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3cb371;
+        }
+
+        /* Main Content Layout */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px; /* Space between sidebar and main content */
+        }
+
+        .sidebar-left {
+            flex: 0 0 120px; /* Fixed width for sidebar */
+            padding-top: 10px; /* Align with post content */
+            text-align: right;
+        }
+
+        .sidebar-left .share-link {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3cb371;
+            display: block; /* Make it block to apply text-align */
+        }
+
+        .post-list {
+            flex-grow: 1;
+            max-width: 600px; /* Adjust based on visual */
+        }
+
+        /* Blog Post Entry */
+        .post-entry {
+            margin-bottom: 40px;
+        }
+
+        .post-date {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            font-family: 'Lora', serif; /* Use Lora for post titles */
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 400;
+            position: relative;
+            display: inline-block; /* To make underline span only text */
+        }
+
+        .post-title::after {
+            content: '';
+            display: block;
+            width: 50px; /* Short underline */
+            height: 1px;
+            background-color: #333;
+            margin-top: 5px;
+        }
+
+        .post-image-placeholder {
+            width: 100%;
+            height: 300px; /* Placeholder height */
+            background-color: #0000FF; /* Blue color */
+            margin-bottom: 20px;
+        }
+
+        .post-description {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .post-description a {
+            font-weight: bold; /* Links in description are bold */
+        }
+
+        .post-actions {
+            margin-top: 10px;
+        }
+
+        .post-actions .share-link {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3cb371;
+        }
+
+        /* Comments & Popular Posts Sections */
+        .section-header {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .popular-posts-list {
+            margin-top: 20px;
+        }
+
+        .popular-post-item {
+            margin-bottom: 30px;
+        }
+
+        .popular-post-item .post-image-placeholder {
+            height: 200px; /* Slightly smaller image for popular posts */
+            margin-bottom: 15px;
+        }
+
+        .popular-post-item .post-date {
+            margin-bottom: 5px;
+        }
+
+        .popular-post-item .post-title {
+            font-size: 1.2em; /* Smaller title for popular posts */
+            margin-bottom: 10px;
+        }
+
+        .popular-post-item .post-title::after {
+            width: 30px; /* Shorter underline for popular posts */
+            margin-top: 3px;
+        }
+
+        .popular-post-item .post-actions a {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            font-size: 0.7em;
+            color: #999;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding-top: 20px;
+            }
+            .site-title {
+                font-size: 2.5em;
+            }
+            .search-link {
+                position: static; /* Remove absolute positioning */
+                display: block;
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 20px;
+            }
+            .container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 15px;
+            }
+            .sidebar-left {
+                display: none; /* Hide left sidebar on small screens */
+            }
+            .post-list {
+                max-width: 100%; /* Allow main content to take full width */
+            }
+            .post-image-placeholder {
+                height: 200px; /* Adjust image height for smaller screens */
+            }
+            .popular-post-item .post-image-placeholder {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 2em;
+            }
+            .tagline {
+                font-size: 0.8em;
+            }
+            .post-title {
+                font-size: 1.5em;
+            }
+            .popular-post-item .post-title {
+                font-size: 1.1em;
+            }
+            .post-description {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">THE STAMPIN' PAD</h1>
+        <p class="tagline">A place for creative inspiration and regular updates on Stampin' Up! promotions.</p>
+        <a href="#" class="search-link">SEARCH</a>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar-left">
+            <a href="#" class="share-link">Share</a>
+        </aside>
+
+        <main class="post-list">
+            <article class="post-entry">
+                <p class="post-date">March 27, 2018</p>
+                <h2 class="post-title">HOW TO USE A STAMP A MA JIG</h2>
+                <div class="post-image-placeholder"></div>
+                <p class="post-description">
+                    This cute card was quick to make using my stampamajig and my free sale-a-bration
+                    stamp set, die cut and paper. <a href="#">Get in touch with me before time runs out</a> so you can
+                    earn free Stampin Up! <a href="#">You can see how I made this card on You Tube</a> .
+                </p>
+                <div class="post-actions">
+                    <a href="#" class="share-link">Share</a>
+                </div>
+            </article>
+
+            <section class="comments-section">
+                <h3 class="section-header">COMMENTS</h3>
+                <!-- No comments content shown in image -->
+            </section>
+
+            <section class="popular-posts">
+                <h3 class="section-header">POPULAR POSTS</h3>
+                <div class="popular-posts-list">
+                    <article class="popular-post-item">
+                        <p class="post-date">April 29, 2018</p>
+                        <h4 class="post-title">LOVE WHAT YOU DO</h4>
+                        <div class="post-image-placeholder"></div>
+                        <div class="post-actions">
+                            <a href="#" class="share-link">Share</a>
+                            <a href="#" class="share-link">Post a Comment</a>
+                        </div>
+                    </article>
+
+                    <article class="popular-post-item">
+                        <p class="post-date">March 23, 2018</p>
+                        <h4 class="post-title">YOU ARE AWESOME!</h4>
+                        <div class="post-image-placeholder"></div>
+                        <div class="post-actions">
+                            <a href="#" class="share-link">Share</a>
+                            <a href="#" class="share-link">Post a Comment</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Powered by Blogger</p>
+    </footer>
+</body>
+</html>

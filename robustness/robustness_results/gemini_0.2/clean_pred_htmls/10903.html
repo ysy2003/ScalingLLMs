@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #333; /* Dark gray text */
+            line-height: 1.6;
+            font-size: 15px; /* Adjusted based on visual comparison */
+        }
+
+        .container {
+            max-width: 1000px; /* Adjust as needed to match width in image */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            display: flex;
+            align-items: flex-end; /* Align nav with bottom of blue boxes */
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .logo-placeholder {
+            width: 100px; /* Width of blue boxes */
+            height: 60px; /* Height of blue boxes */
+            background-color: blue;
+            margin-right: 20px;
+        }
+
+        .logo-placeholder:last-of-type {
+            margin-right: 0; /* No margin after the last blue box */
+        }
+
+        nav {
+            margin-left: auto; /* Pushes nav to the right */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 15px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        nav a.active {
+            background-color: #d9d9d9; /* Light brownish-gray for active tab */
+            border-radius: 3px;
+            font-weight: normal; /* Ensure font weight is consistent */
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .column {
+            flex: 1; /* Allow columns to grow */
+            min-width: 300px; /* Minimum width before wrapping */
+            padding-right: 40px; /* Spacing between columns */
+            box-sizing: border-box;
+        }
+
+        .column:last-of-type {
+            padding-right: 0;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #555; /* Slightly lighter than body text */
+        }
+
+        .member-list p, .student-list p, .publication-list p {
+            margin-bottom: 5px;
+            margin-top: 0;
+        }
+
+        .member-list a, .student-list a {
+            color: #007bff; /* Standard blue link color */
+            text-decoration: none;
+        }
+
+        .member-list a:hover, .student-list a:hover {
+            text-decoration: underline;
+        }
+
+        .advisor-info {
+            margin-left: 20px; /* Indent advisor info */
+            display: block;
+            font-size: 0.95em;
+        }
+
+        .publications-section {
+            margin-top: 40px;
+            clear: both; /* Clear floats if any, for full width */
+        }
+
+        .publications-section p {
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #eee; /* Light gray footer background */
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+            .column {
+                padding-right: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-placeholder"></div>
+            <div class="logo-placeholder"></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">Members</a></li>
+                    <li><a href="#">Papers</a></li>
+                    <li><a href="#">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="main-content">
+            <div class="column">
+                <div class="member-list">
+                    <p><a href="#">Pietro Manzoni [coordinator]</a></p>
+                    <p><a href="#">Juan Carlos Cano</a></p>
+                    <p><a href="#">Carlos Tavares Calafate</a></p>
+                    <p><a href="#">Enrique Hernández</a></p>
+                </div>
+
+                <div class="member-list" style="margin-top: 40px;">
+                    <p><a href="#">C.K. Toh</a> (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)</p>
+                    <p><a href="#">Edjair Mota</a> (Institute of Computing at the Federal University of Amazonas - UFAM, BRASIL)</p>
+                    <p><a href="#">Francisco Martínez</a> (Universidad de Zaragoza, SPAIN)</p>
+                    <p>Piedad Garrido (Universidad de Zaragoza, SPAIN)</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="member-list">
+                    <p>Alicia Sepulveda Muñoz<span class="advisor-info">(Advisor: José M. Cecilia, Carlos Periñán-Pascual)</span></p>
+                    <p>Daniel Hernández<span class="advisor-info">(Advisor: José María Cecilia)</span></p>
+                    <p>Jamie Wubben<span class="advisor-info">(Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</span></p>
+                    <p>Juan José Franco Peñaranda<span class="advisor-info">(Advisor: José M. Cecilia, Joaquín Lasheras)</span></p>
+                </div>
+
+                <h2 class="section-title">Master Students</h2>
+                <div class="student-list">
+                    <p>Cristian Villarroya<span class="advisor-info">(Advisor: Juan Carlos Cano, Carlos Calafate)</span></p>
+                    <p>José Daniel Padrón<span class="advisor-info">(Advisor: Carlos Calafate, Juan Carlos Cano)</span></p>
+                    <p>Julio José Fernández<span class="advisor-info">(Advisor: José María Cecilia, Pietro Manzoni)</span></p>
+                    <p>Pedro Garcia<span class="advisor-info">(Advisor: José María Cecilia, Pietro Manzoni)</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="publications-section">
+            <p>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</p>
+            <p>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</p>
+            <p>Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019</p>
+            <p>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</p>
+        </div>
+
+        <footer>
+            [EMAIL REDACTED] | Last update: January 15, 2020
+        </footer>
+    </div>
+</body>
+</html>

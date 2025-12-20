@@ -1,0 +1,757 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS exactly. Let's break down the elements.
+
+The page has a header with a tagline: "Specializing in Energy Efficient Solutions for Buildings" in red. Then a navigation bar with links: About Us, Our Focus, Projects (highlighted), Clients.
+
+On the left, there's a sidebar with a list of projects. The current section is "Institutional" (highlighted in red). The main content is about the Morris and Helen Belkin Art Gallery Humidification System Upgrade Project. There's a blue image placeholder, then client info, year, type, and a description.
+
+Also, there's a "DO YOU HAVE A QUESTION FOR US?" section with contact info (email and phone redacted). At the bottom, footer with address info and copyright.
+
+Let's structure the HTML:
+
+- HTML5 doctype, head with meta tags for responsive design, title, and style block.
+- Body: header with tagline, nav bar, main content with sidebar and main section.
+
+First, the header: the tagline is in red, centered maybe? The navigation bar has links, with Projects highlighted (red).
+
+Sidebar: list of projects. The "Institutional" is highlighted (red background, white text). The current project is "UBC Art Gallery Humidification System Upgrade" which is red in the image.
+
+Main content: title of the project, blue image, client info, description.
+
+Contact section: "DO YOU HAVE A QUESTION FOR US?" with a box for email/phone.
+
+Footer: address info, copyright.
+
+Now, CSS needs to be responsive. Let's think about layout: probably a two-column layout for the main content (sidebar left, main right). But in the image, the sidebar is on the left, main on the right.
+
+Let's outline the HTML structure:
+
+- <header>
+  - <h1>Specializing in Energy Efficient Solutions for Buildings</h1>
+- <nav>
+  - <ul> with links: About Us, Our Focus, Projects (active), Clients
+- <main>
+  - <aside> (sidebar)
+    - <ul> with project categories (All Projects, Health Care, Government, Institutional (active), etc.)
+  - <article> (main content)
+    - <h2>Project title
+    - <img> (blue placeholder)
+    - <p>Client info, year, type
+    - <p>description
+- <section> (contact)
+  - <h3>DO YOU HAVE A QUESTION FOR US?</h3>
+  - <div> with contact info
+- <footer>
+  - Address info, copyright
+
+Now, let's check the colors. The tagline is red (probably #c00 or similar). The active navigation item is red. The sidebar's active item is red background, white text. The project title is bold, etc.
+
+Let's get the exact text from the image:
+
+Header tagline: "Specializing in Energy Efficient Solutions for Buildings" (red)
+
+Navigation: About Us, Our Focus, Projects (red), Clients
+
+Sidebar items:
+- All Projects
+- Health Care
+- Government
+- Institutional (red background, white text)
+- VCHA - Hybrid Heat Recovery Systems
+- Schools District 35 - Continuous Optimization and Power Factor Correction
+- UBC Art Gallery Humidification System Upgrade (red text, same as active?)
+
+Main content title: "Morris and Helen Belkin Art Gallery Humidification System Upgrade Project"
+
+Image: blue (solid color)
+
+Client info:
+Client: University of British Columbia
+Venue: Morris and Helen Belkin Art Gallery
+Year: 2007
+Type: Institutional
+
+Description: "This project began with a review of the existing humidification system design problems and determination of causes and the development of some redesign options. An option to replace 5 of the 8 zone humidifiers with new electric pan humidifiers was selected to replace the failing - oversized steam to steam units.
+
+A dew-point temperature control scheme will be used to ensure tight RH control under variable conditions to well within +/- 1%RH. The new equipment was installed in March 2007.
+
+Many thanks to UBC staff and also to Chris Malloy at Square M for the great service and pricing for the Dristeam equipment."
+
+Contact section: "DO YOU HAVE A QUESTION FOR US?" with "Email us at [EMAIL REDACTED] Or give us a call at [PHONE REDACTED]"
+
+Footer: [ADDRESS REDACTED] repeated, then "About Us | Our Focus | Projects | Clients", copyright.
+
+Now, let's code the HTML structure.
+
+First, the doctype, html, head.
+
+In the head, meta tags for viewport (responsive), title.
+
+Style block: need to style the header, nav, sidebar, main, etc.
+
+Let's define the structure:
+
+- The page has a container for the main content (sidebar and main article). Let's use a two-column layout with flex or grid.
+
+Let's set up the CSS:
+
+- Body: font-family, margin, padding.
+- Header: background, text color, text-align.
+- Nav: background, list style, links.
+- Main: container for sidebar and article.
+- Sidebar: width, background, list style.
+- Article: width, margin, etc.
+- Contact section: background, padding.
+- Footer: background, text-align.
+
+Let's check the colors:
+
+- Tagline: red (let's use #c00)
+- Active nav item: red (#c00)
+- Active sidebar item: red background, white text (so background: #c00; color: white)
+- Blue image: #0000ff
+
+Let's code step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Specializing in Energy Efficient Solutions for Buildings</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Our Focus</a></li>
+      <li><a href="#" class="active">Projects</a></li>
+      <li><a href="#">Clients</a></li>
+    </ul>
+  </nav>
+  <main>
+    <aside>
+      <ul>
+        <li><a href="#">All Projects</a></li>
+        <li><a href="#">Health Care</a></li>
+        <li><a href="#">Government</a></li>
+        <li><a href="#" class="active">Institutional</a></li>
+        <li><a href="#">VCHA - Hybrid Heat Recovery Systems</a></li>
+        <li><a href="#">Schools District 35 - Continuous Optimization and Power Factor Correction</a></li>
+        <li><a href="#">UBC Art Gallery Humidification System Upgrade</a></li>
+      </ul>
+    </aside>
+    <article>
+      <h2>Morris and Helen Belkin Art Gallery Humidification System Upgrade Project</h2>
+      <img src="#" alt="Project Image" style="width: 100%; height: auto; background-color: #0000ff;">
+      <p><strong>Client:</strong> University of British Columbia</p>
+      <p><strong>Venue:</strong> Morris and Helen Belkin Art Gallery</p>
+      <p><strong>Year:</strong> 2007</p>
+      <p><strong>Type:</strong> Institutional</p>
+      <p>This project began with a review of the existing humidification system design problems and determination of causes and the development of some redesign options. An option to replace 5 of the 8 zone humidifiers with new electric pan humidifiers was selected to replace the failing - oversized steam to steam units.</p>
+      <p>A dew-point temperature control scheme will be used to ensure tight RH control under variable conditions to well within +/- 1%RH. The new equipment was installed in March 2007.</p>
+      <p>Many thanks to UBC staff and also to Chris Malloy at Square M for the great service and pricing for the Dristeam equipment.</p>
+    </article>
+  </main>
+  <section>
+    <h3>DO YOU HAVE A QUESTION FOR US?</h3>
+    <div>
+      <p>Email us at <strong>[EMAIL REDACTED]</strong> Or give us a call at <strong>[PHONE REDACTED]</strong></p>
+    </div>
+  </section>
+  <footer>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[PHONE REDACTED]</p>
+    <p>[EMAIL REDACTED]</p>
+    <p>About Us | Our Focus | Projects | Clients</p>
+    <p>&copy; 2023 E-Factor Engineering, Incorporated<br>Website Design by Eggbearer Creative Inc. | Powered By Vortex</p>
+  </footer>
+</body>
+</html>
+
+Now, let's adjust the CSS to match the design.
+
+First, the header: the tagline is in red, centered. Let's set the header to have a background color, maybe light gray? Wait, in the image, the header is white. Wait, the image shows the header with the tagline in red, and the navigation bar is a light gray background.
+
+Looking at the image:
+
+- The top part has the tagline in red, centered.
+- Then a navigation bar with a light gray background (maybe #f0f0f0).
+- The main content area is white.
+
+So, let's set:
+
+header {
+  text-align: center;
+  padding: 10px;
+  background-color: white;
+  color: #c00;
+}
+
+nav {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a.active {
+  color: #c00;
+}
+
+main {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+
+aside {
+  width: 200px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside ul li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+aside ul li a.active {
+  background-color: #c00;
+  color: white;
+  padding: 5px;
+}
+
+article {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+article h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+article img {
+  width: 100%;
+  height: auto;
+  background-color: #0000ff;
+}
+
+section {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+section h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+section div {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+Now, check the image: the blue image is a solid color, so the img tag has background-color: #0000ff; but in the image, it's a blue square. So the img tag's background is blue, but the image itself is not present (since it's a placeholder). So the CSS for img should set the background color.
+
+Also, the sidebar's active item: "Institutional" is red background, white text. So in the aside ul li a.active, background-color: #c00; color: white.
+
+The contact section: the box has a light gray background, so section div has background-color: #e0e0e0.
+
+Let's check the navigation: the active item is Projects, which is red. So nav a.active { color: #c00; }
+
+The sidebar's active item is Institutional, so aside ul li a.active { background-color: #c00; color: white; }
+
+Now, let's adjust the CSS to make it responsive. For mobile, maybe stack the sidebar and main content. But the image shows a desktop layout, so we can use a two-column layout for desktop, and stack on mobile.
+
+But the task says "responsive CSS", so we need to make it responsive.
+
+Let's use media queries for mobile.
+
+For example:
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+  }
+}
+
+But let's see the original design: the sidebar is on the left, main on the right. On mobile, it should stack.
+
+So in the CSS, set main to display: flex; and on mobile, flex-direction: column.
+
+Let's adjust the CSS accordingly.
+
+Also, the footer: the address info is in a column, so it's okay.
+
+Now, let's code the CSS with responsive design.
+
+Let's start writing the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  background-color: white;
+  color: #c00;
+  margin-bottom: 10px;
+}
+
+nav {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a.active {
+  color: #c00;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+aside {
+  width: 200px;
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-size: 14px;
+}
+
+aside ul li a.active {
+  background-color: #c00;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+article {
+  flex: 1;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+article h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+article img {
+  width: 100%;
+  height: auto;
+  background-color: #0000ff;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+section {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+section h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+section div {
+  background-color: #e0e0e0;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: left;
+}
+
+footer {
+  background-color: #f0f0f0;
+  padding: 15px;
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  aside {
+    width: 100%;
+  }
+  nav ul {
+    flex-wrap: wrap;
+  }
+  nav a {
+    font-size: 14px;
+  }
+}
+
+Now, check if this matches the image.
+
+The image shows:
+
+- Header tagline in red, centered.
+- Navigation bar with Projects highlighted (red).
+- Sidebar with Institutional highlighted (red background, white text).
+- Main content with blue image.
+- Contact section with a box.
+- Footer with address info.
+
+Let's check the sidebar items: the "Institutional" is highlighted, so in the aside ul li a.active, it's red background.
+
+The contact section: "DO YOU HAVE A QUESTION FOR US?" is in bold, then the email/phone info.
+
+The footer has the address info (all redacted), then the links, then copyright.
+
+Now, let's make sure all elements are present.
+
+In the HTML, the main content has the project title, image, client info, description.
+
+The contact section is a separate section.
+
+The footer has the address info and copyright.
+
+Now, let's check the CSS for the active states.
+
+The navigation's active item (Projects) is red, so nav a.active { color: #c00; }
+
+The sidebar's active item (Institutional) is red background, white text: aside ul li a.active { background-color: #c00; color: white; }
+
+The image is blue, so article img { background-color: #0000ff; }
+
+The contact section's box has a light gray background: section div { background-color: #e0e0e0; }
+
+Now, let's write the complete HTML with the CSS inside the style block.
+
+Make sure to close all tags properly.
+
+Let's check the HTML structure:
+
+- The header has the tagline.
+- Nav with links.
+- Main with aside (sidebar) and article (main content).
+- Section for contact.
+- Footer.
+
+Yes.
+
+Now, let's code the HTML with the CSS.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 15px;
+      background-color: white;
+      color: #c00;
+      margin-bottom: 10px;
+    }
+    nav {
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    nav a.active {
+      color: #c00;
+    }
+    main {
+      display: flex;
+      gap: 20px;
+      margin: 20px;
+    }
+    aside {
+      width: 200px;
+      background-color: white;
+      padding: 15px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    aside ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    aside ul li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      font-size: 14px;
+    }
+    aside ul li a.active {
+      background-color: #c00;
+      color: white;
+      padding: 5px;
+      border-radius: 3px;
+    }
+    article {
+      flex: 1;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    article h2 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    article img {
+      width: 100%;
+      height: auto;
+      background-color: #0000ff;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+    section {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    section h3 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    section div {
+      background-color: #e0e0e0;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: left;
+    }
+    footer {
+      background-color: #f0f0f0;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+    footer p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    /* Responsive design for mobile */
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+      aside {
+        width: 100%;
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+      nav a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Specializing in Energy Efficient Solutions for Buildings</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Our Focus</a></li>
+      <li><a href="#" class="active">Projects</a></li>
+      <li><a href="#">Clients</a></li>
+    </ul>
+  </nav>
+  <main>
+    <aside>
+      <ul>
+        <li><a href="#">All Projects</a></li>
+        <li><a href="#">Health Care</a></li>
+        <li><a href="#">Government</a></li>
+        <li><a href="#" class="active">Institutional</a></li>
+        <li><a href="#">VCHA - Hybrid Heat Recovery Systems</a></li>
+        <li><a href="#">Schools District 35 - Continuous Optimization and Power Factor Correction</a></li>
+        <li><a href="#">UBC Art Gallery Humidification System Upgrade</a></li>
+      </ul>
+    </aside>
+    <article>
+      <h2>Morris and Helen Belkin Art Gallery Humidification System Upgrade Project</h2>
+      <img src="#" alt="Project Image" style="width: 100%; height: auto; background-color: #0000ff;">
+      <p><strong>Client:</strong> University of British Columbia</p>
+      <p><strong>Venue:</strong> Morris and Helen Belkin Art Gallery</p>
+      <p><strong>Year:</strong> 2007</p>
+      <p><strong>Type:</strong> Institutional</p>
+      <p>This project began with a review of the existing humidification system design problems and determination of causes and the development of some redesign options. An option to replace 5 of the 8 zone humidifiers with new electric pan humidifiers was selected to replace the failing - oversized steam to steam units.</p>
+      <p>A dew-point temperature control scheme will be used to ensure tight RH control under variable conditions to well within +/- 1%RH. The new equipment was installed in March 2007.</p>
+      <p>Many thanks to UBC staff and also to Chris Malloy at Square M for the great service and pricing for the Dristeam equipment.</p>
+    </article>
+  </main>
+  <section>
+    <h3>DO YOU HAVE A QUESTION FOR US?</h3>
+    <div>
+      <p>Email us at <strong>[EMAIL REDACTED]</strong> Or give us a call at <strong>[PHONE REDACTED]</strong></p>
+    </div>
+  </section>
+  <footer>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[PHONE REDACTED]</p>
+    <p>[EMAIL REDACTED]</p>
+    <p>About Us | Our Focus | Projects | Clients</p>
+    <p>&copy; 2023 E-Factor Engineering, Incorporated<br>Website Design by Eggbearer Creative Inc. | Powered By Vortex</p>
+  </footer>
+</body>
+</html>
+```

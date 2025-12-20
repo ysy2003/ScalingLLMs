@@ -1,0 +1,761 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's break down the elements.
+
+The page has a header with the name "Dr Emma Ostrovskaya BSc, DCouns" in red, then a subtitle "Counselling Psychology & Existential Therapy" and "Adults, Couples & Children" in smaller text. Then a navigation bar with links: Welcome, Therapy, About Emma, Issues, Fees. The navigation bar is a maroon (dark red) background with white text. Below that, there's a section with "Issues" and "Contact" on the right. The Issues section has a description and bullet points, Contact has phone and email info.
+
+First, structure the HTML. Start with the doctype, html, head, body.
+
+In the head, include the style block. Let's think about the colors: the main header text is red (maybe #c00 or similar, but the image shows a dark red). The navigation bar is a darker red (maroon, #800020 maybe). The section divs: the main content area has a white background, the footer-like section (Issues and Contact) has a white background with a red line above it.
+
+Let's outline the HTML structure:
+
+- Header: contains the name, subtitle, and maybe a line under the name.
+- Navigation bar: a div with the links.
+- Main content area: probably a section with some padding, but in the image, after the nav bar, there's a large white space (maybe a placeholder for content, but in the provided image, the main content is the Issues and Contact sections at the bottom).
+- Wait, looking at the image: the top part has the header, then the nav bar (maroon), then a big white area (maybe a placeholder for other content, but in the given image, the Issues section is at the bottom). Wait, the image shows that the Issues section is in the lower part, with a red line above it. So the structure is:
+
+1. Header (name, subtitle)
+2. Navigation bar (maroon, links)
+3. A large white area (maybe a section that's empty, but in the image, it's just white space)
+4. A red line (horizontal rule)
+5. Two columns: Issues on left, Contact on right.
+
+Wait, the image shows that the Issues section is under a red line. So the HTML should have:
+
+- <header> for the top name and subtitle.
+- <nav> for the navigation links.
+- Then a <section> or <div> for the main content area (which is empty in the image, but maybe just a container).
+- Then a <hr> or a div with a red border to separate.
+- Then a <div> with two columns: Issues and Contact.
+
+Let's check the colors:
+
+- Header text: red, probably #c00 (but the image shows a dark red, maybe #800020 for the name, but the subtitle is smaller and maybe same color? Wait, the name is "Dr Emma Ostrovskaya BSc, DCouns" in red, then the next line is "Counselling Psychology & Existential Therapy" and "Adults, Couples & Children" in smaller, maybe same red but lighter? Wait, the image shows the name in a bold red, the subtitle in a smaller, maybe same red but not bold.
+
+Wait, the image's header:
+
+- "Dr Emma Ostrovskaya BSc, DCouns" is in a larger, bold red font.
+- Below that, "Counselling Psychology & Existential Therapy" is smaller, same red.
+- Then "Adults, Couples & Children" is even smaller, same red.
+
+Then the navigation bar is a maroon (dark red) background with white text.
+
+The Issues section: "Issues" is in red, bold. The text is black. The bullet points are black. The Contact section: "Contact" is red, bold. The contact info is black.
+
+The red line above the Issues and Contact sections: a horizontal line, maybe a div with a red border-top.
+
+Let's plan the CSS:
+
+- Body: font-family, maybe Arial or sans-serif. Background white.
+- Header: text-align center, padding, etc.
+- Nav: background color #800020 (maroon), text color white, display flex, justify content space between, padding.
+- The main content area (the big white space) can be a section with padding, but maybe not necessary. Wait, in the image, after the nav bar, there's a large white area. So maybe a <div> with class "main-content" that's just a container with padding.
+
+Then the red line: a <hr> with style, or a div with a border-top.
+
+Then the Issues and Contact sections: two columns, maybe using flex or grid.
+
+Let's structure the HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr Emma Ostrovskaya BSc, DCouns</h1>
+    <p>Counselling Psychology & Existential Therapy</p>
+    <p>Adults, Couples & Children</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Welcome</a></li>
+      <li><a href="#">Therapy</a></li>
+      <li><a href="#">About Emma</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">Fees</a></li>
+    </ul>
+  </nav>
+  <div class="main-content">
+    <!-- This is the large white area -->
+  </div>
+  <div class="separator"></div>
+  <div class="content-sections">
+    <div class="issues">
+      <h2>Issues</h2>
+      <p>I work with the variety of conditions long-standing and recently onset.<br>Areas of counselling I work with:</p>
+      <ul>
+        <li>Abuse</li>
+        <li>Addiction</li>
+        <li>Anger Management</li>
+        <li>Anxiety</li>
+      </ul>
+      <p>Often several issues will be present at the same time. At the initial consultation we will explore the current issues and your personal background, and will establish the focus of the therapy.</p>
+    </div>
+    <div class="contact">
+      <h2>Contact</h2>
+      <p>Tel: [PHONE REDACTED]</p>
+      <p>Email: [EMAIL REDACTED] @gmail.com</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+- Header: text-align center, padding, font-family. The h1 is red, maybe #c00. The p elements are smaller, same color but maybe lighter? Wait, the image shows the name in a bold red, the subtitle in a smaller red. Let's set h1 to color: #c00; font-size: 1.5em; font-weight: bold; The p elements: color: #800020; font-size: 0.9em; etc.
+
+- Nav: background: #800020; color: white; padding: 10px; display: flex; justify-content: space-around; list-style: none; margin: 0; padding: 0; The links: text-decoration: none; color: white; font-weight: bold; etc.
+
+- Main-content: height: 500px; background: white; maybe, but in the image, it's just a white space. So maybe padding: 50px; to give space.
+
+- Separator: a div with border-top: 2px solid #c00; margin: 20px 0; width: 100%; etc.
+
+- Content-sections: display: flex; justify-content: space-between; padding: 20px; etc.
+
+- Issues and Contact: each has h2 in red, bold. So h2 { color: #c00; font-weight: bold; }
+
+Let's check the image again. The Issues section's "Issues" is in red, same as the header. The Contact's "Contact" is also red.
+
+Also, the bullet points: in the image, the bullet points are black, so ul { list-style-type: disc; }
+
+Let's code the CSS step by step.
+
+First, reset some default styles:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  color: #c00;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #800020;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+nav {
+  background-color: #800020;
+  color: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+nav li {
+  margin: 0 5px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.main-content {
+  height: 500px; /* Just to simulate the large white area */
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.separator {
+  border-top: 2px solid #c00;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.content-sections {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.issues,.contact {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.issues h2,.contact h2 {
+  color: #c00;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.issues p,.contact p {
+  color: #333;
+}
+
+.issues ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* For the red line above the content sections, the separator div is the red line */
+
+Wait, the image shows a red line above the Issues and Contact sections. So the separator div is that line.
+
+Now, check the image: the Issues section is under a red line. So the separator is between the main content and the Issues/Contact sections.
+
+Now, let's check the text in the Issues section:
+
+"I work with the variety of conditions long-standing and recently onset. Areas of counselling I work with:"
+
+Then bullet points: Abuse, Addiction, Anger Management, Anxiety.
+
+Then the paragraph: "Often several issues will be present at the same time. At the initial consultation we will explore the current issues and your personal background, and will establish the focus of the therapy."
+
+Contact section:
+
+Tel: [PHONE REDACTED]
+
+Email: [EMAIL REDACTED] @gmail.com
+
+Now, the HTML structure should have the header, nav, main-content (the big white area), separator (red line), then the two columns.
+
+Let's make sure all elements are present.
+
+Now, code the HTML and CSS.
+
+Wait, the image shows that the navigation bar is a single bar with the links. So the nav should be a div with the links as a list.
+
+Also, the main-content div is just a placeholder, so it can be empty or have some padding.
+
+Let's write the HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr Emma Ostrovskaya BSc, DCouns</h1>
+    <p>Counselling Psychology & Existential Therapy</p>
+    <p>Adults, Couples & Children</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Welcome</a></li>
+      <li><a href="#">Therapy</a></li>
+      <li><a href="#">About Emma</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">Fees</a></li>
+    </ul>
+  </nav>
+  <div class="main-content"></div>
+  <div class="separator"></div>
+  <div class="content-sections">
+    <div class="issues">
+      <h2>Issues</h2>
+      <p>I work with the variety of conditions long-standing and recently onset.<br>Areas of counselling I work with:</p>
+      <ul>
+        <li>Abuse</li>
+        <li>Addiction</li>
+        <li>Anger Management</li>
+        <li>Anxiety</li>
+      </ul>
+      <p>Often several issues will be present at the same time. At the initial consultation we will explore the current issues and your personal background, and will establish the focus of the therapy.</p>
+    </div>
+    <div class="contact">
+      <h2>Contact</h2>
+      <p>Tel: [PHONE REDACTED]</p>
+      <p>Email: [EMAIL REDACTED] @gmail.com</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  color: #c00;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #800020;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+nav {
+  background-color: #800020;
+  color: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+nav li {
+  margin: 0 5px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.main-content {
+  height: 500px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.separator {
+  border-top: 2px solid #c00;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.content-sections {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.issues,.contact {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.issues h2,.contact h2 {
+  color: #c00;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.issues p,.contact p {
+  color: #333;
+}
+
+.issues ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+Wait, but the image shows that the Issues section's text is in black, so the p elements are black. The Contact section's text is also black.
+
+Now, check if the colors match. The header h1 is #c00 (bright red), the header p is #800020 (darker red). The nav is #800020 (maroon), text white.
+
+The separator is a red line, so border-top: 2px solid #c00.
+
+The Issues and Contact h2 are #c00, bold.
+
+Now, let's check the responsiveness. The problem says "responsive CSS", so we need to make sure it's responsive. The nav should be a flex container that wraps on small screens. But the image is a desktop view, so maybe the nav is horizontal. For responsiveness, we can add media queries.
+
+Wait, the task says "responsive CSS", so we need to make it responsive. Let's add a media query for smaller screens.
+
+For example, on screens smaller than 768px, the nav should stack vertically.
+
+So:
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav li {
+    margin: 5px 0;
+  }
+}
+
+But the image is a desktop view, but the task says responsive, so we need to include that.
+
+Let's adjust the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  color: #c00;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #800020;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+nav {
+  background-color: #800020;
+  color: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+nav li {
+  margin: 0 5px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.main-content {
+  height: 500px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.separator {
+  border-top: 2px solid #c00;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.content-sections {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.issues,.contact {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.issues h2,.contact h2 {
+  color: #c00;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.issues p,.contact p {
+  color: #333;
+}
+
+.issues ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav li {
+    margin: 5px 0;
+  }
+ .content-sections {
+    flex-direction: column;
+  }
+ .issues,.contact {
+    margin: 10px 0;
+  }
+}
+
+Wait, but the image shows the Issues and Contact sections as two columns. On smaller screens, they should stack. So the content-sections should be flex-direction: column on small screens.
+
+Now, check if the HTML structure is correct. The main-content div is empty, which is fine. The separator is the red line.
+
+Now, let's check the text in the Issues section: the bullet points are correct. The Contact section has the email as [EMAIL REDACTED] @gmail.com.
+
+Now, let's make sure all elements are present and styled correctly.
+
+Another thing: the header's h1 is "Dr Emma Ostrovskaya BSc, DCouns" — note that in the image, it's "DCouns" (probably DCouns is a typo for DCouns, but we have to copy exactly as in the image).
+
+Yes, the image shows "Dr Emma Ostrovskaya BSc, DCouns".
+
+Now, let's write the final HTML with the CSS.
+
+Wait, the problem says "strictly and accurately recreate the visual design in the image". So we need to make sure all elements match.
+
+Let's check the image again:
+
+- Header: name in red, bold, larger font. Subtitle: "Counselling Psychology & Existential Therapy" in smaller red. Then "Adults, Couples & Children" in even smaller red.
+
+- Navigation bar: maroon background, white text, links: Welcome, Therapy, About Emma, Issues, Fees.
+
+- Main content area: large white space (so the main-content div is just a container with padding).
+
+- Red line above Issues and Contact.
+
+- Issues section: "Issues" in red, bold. Text: "I work with the variety of conditions long-standing and recently onset. Areas of counselling I work with:" followed by bullet points (Abuse, Addiction, Anger Management, Anxiety). Then a paragraph.
+
+- Contact section: "Contact" in red, bold. Tel: [PHONE REDACTED], Email: [EMAIL REDACTED] @gmail.com.
+
+Now, the HTML code should have all these elements.
+
+Let's code it.
+
+Note: The problem says "generate ONLY one complete, valid, and fully closed HTML5 file". So the HTML must be valid, with proper tags.
+
+Let's write the code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      color: #c00;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #800020;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+
+    nav {
+      background-color: #800020;
+      color: white;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    nav li {
+      margin: 0 5px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+   .main-content {
+      height: 500px;
+      background-color: white;
+      margin-bottom: 20px;
+    }
+
+   .separator {
+      border-top: 2px solid #c00;
+      margin: 20px 0;
+      width: 100%;
+    }
+
+   .content-sections {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+   .issues,.contact {
+      flex: 1;
+      margin: 0 10px;
+    }
+
+   .issues h2,.contact h2 {
+      color: #c00;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+   .issues p,.contact p {
+      color: #333;
+    }
+
+   .issues ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav li {
+        margin: 5px 0;
+      }
+     .content-sections {
+        flex-direction: column;
+      }
+     .issues,.contact {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr Emma Ostrovskaya BSc, DCouns</h1>
+    <p>Counselling Psychology & Existential Therapy</p>
+    <p>Adults, Couples & Children</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Welcome</a></li>
+      <li><a href="#">Therapy</a></li>
+      <li><a href="#">About Emma</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">Fees</a></li>
+    </ul>
+  </nav>
+  <div class="main-content"></div>
+  <div class="separator"></div>
+  <div class="content-sections">
+    <div class="issues">
+      <h2>Issues</h2>
+      <p>I work with the variety of conditions long-standing and recently onset.<br>Areas of counselling I work with:</p>
+      <ul>
+        <li>Abuse</li>
+        <li>Addiction</li>
+        <li>Anger Management</li>
+        <li>Anxiety</li>
+      </ul>
+      <p>Often several issues will be present at the same time. At the initial consultation we will explore the current issues and your personal background, and will establish the focus of the therapy.</p>
+    </div>
+    <div class="contact">
+      <h2>Contact</h2>
+      <p>Tel: [PHONE REDACTED]</p>
+      <p>Email: [EMAIL REDACTED] @gmail.com</p>
+    </div>
+  </div>
+</body>
+</html>
+```

@@ -1,0 +1,709 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+The image shows a website for EssayScribes.com. Let's break down the components:
+
+1. **Header Section**: 
+   - Background: Dark gray (maybe #333333 or similar)
+   - Logo: "ESSAYSCRIBES.COM" in large, bold, white text (or light gray, but the image shows dark gray on dark background, so maybe white)
+   - Navigation menu: "HOMEPAGE", "WRITING TIPS", "SKILLS FOR STUDENTS", "ESSAY WRITING" in white, centered below the logo.
+
+2. **Main Content Area**:
+   - Background: White
+   - Left Column: 
+     - Sections with headings like "Looking For A Perfect Editorial Essay Example Online", "How an Editorial Essay Works", etc. Each section has a heading and paragraph text.
+     - Some questions at the bottom (e.g., "What was the real cause of the Civil War?...").
+   - Right Column: 
+     - "Writing Help" heading (bold, maybe dark gray)
+     - "Writing Ideas" heading (bold)
+     - List of links: "Mozart: essay example", "Music: persuasive paper topics", etc.
+
+3. **Footer**:
+   - Background: Dark gray (same as header)
+   - Text: "2023 EssayScribes.com - Building Up Strategies For Your Essay" in white.
+
+Now, let's structure the HTML:
+
+- **DOCTYPE**, <html>, <head>, <body>
+- <head> includes <title> (probably "EssayScribes.com"), <meta> tags for viewport (responsive), and <style> block with CSS.
+- <body> has:
+  - Header with logo and nav
+  - Main container with two columns (left and right)
+  - Footer
+
+Let's check the colors. The header and footer are dark gray. The main content is white. The text in the header and footer is white. The navigation links are white. The main content text is dark gray (maybe #333).
+
+For the navigation: the links are "HOMEPAGE", "WRITING TIPS", etc. They should be centered, maybe with some spacing.
+
+The main content has two columns. The left column is the main text, right column is the "Writing Help" and "Writing Ideas" sections.
+
+Let's outline the HTML structure:
+
+- <header>
+  - <h1>ESSAYSCRIBES.COM</h1>
+  - <nav>
+    - <ul>
+      - <li><a href="#">HOMEPAGE</a></li>
+      -... etc.
+    </ul>
+  </nav>
+</header>
+
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+      - <p>...</p>
+      -... other sections
+    </div>
+    - <div class="right-column">
+      - <h3>Writing Help</h3>
+      - <h3>Writing Ideas</h3>
+      - <ul>
+        - <li>Mozart: essay example</li>
+        -...
+      </ul>
+    </div>
+  </div>
+</main>
+
+- <footer>
+  - <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+</footer>
+
+Now, CSS considerations:
+
+- Header and footer: background-color: #333; color: white;
+- Navigation: list-style: none; display: flex; justify-content: center; gap: 20px; (or similar)
+- Main content: container, two columns. Maybe using flexbox or grid. Let's see, the right column is narrower, so maybe a grid with two columns, where the left is larger, right is smaller.
+
+For the main content area, the left column has the main text, right column has the writing help and ideas. So in CSS, we can set:
+
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+But need to check the image. The right column is on the right, so grid columns: 2fr 1fr.
+
+Also, the text in the main content: the headings (like "Looking For A Perfect Editorial Essay Example Online") are bold, maybe h2 or h3.
+
+Let's check the text in the image:
+
+- Left column:
+  - "Looking For A Perfect Editorial Essay Example Online" (h2)
+  - "How an Editorial Essay Works" (h2)
+  - "Find an Example" (h2)
+  - "Choosing a Topic" (h2)
+  - Then the questions at the bottom (no heading, just paragraphs)
+
+- Right column:
+  - "Writing Help" (h3)
+  - "Writing Ideas" (h3)
+  - Then the list items (links, maybe styled as links)
+
+Also, the footer text is centered.
+
+Now, let's code the HTML and CSS step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ESSAYSCRIBES.COM</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="content">
+      <div class="left-column">
+        <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+        <p>With an editorial essay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial essay is actually fairly useful in the real world.</p>
+        
+        <h2>How an Editorial Essay Works</h2>
+        <p>This type of paper will have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state the author's belief.</p>
+        
+        <h2>Find an Example</h2>
+        <p>There are several different locations that offer free essays online. The easiest way to find this type of writing is to type "editorial essay examples" into the search bar.</p>
+        
+        <h2>Choosing a Topic</h2>
+        <p>Once a student has found an example, they will be able to figure out how the writing style works. Before they can start writing, the student will have to choose a topic.</p>
+        
+        <p>What was the real cause of the Civil War? If both sides were given the same number of soldiers, would the Union have won the war?</p>
+        <p>Should the United States and coalition forces have entered a war in Afghanistan and Iraq?</p>
+        <p>Does recycling have a positive effect on the environment? Are there environmental costs to recycling?</p>
+        <p>Should companies be required to offer union membership to their employees?</p>
+      </div>
+      
+      <div class="right-column">
+        <h3>Writing Help</h3>
+        <h3>Writing Ideas</h3>
+        <ul>
+          <li>Mozart: essay example</li>
+          <li>Music: persuasive paper topics</li>
+          <li>Writing literature essay</li>
+          <li>Jealousy: writing a descriptive essay</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+  </footer>
+</body>
+</html>
+
+Now, the CSS. Let's define:
+
+- Body: font-family (maybe Arial, sans-serif), margin 0, padding 0.
+- Header: background-color #333, color white, padding 1rem, text-align center.
+- H1: font-size 2.5rem, margin 0.
+- Nav: display flex, justify-content center, gap 2rem, margin 1rem 0.
+- Nav ul: list-style none, margin 0, padding 0.
+- Nav li: display inline-block, margin 0 0.5rem.
+- Nav a: color white, text-decoration none, font-weight bold.
+- Main: padding 2rem, background white.
+-.content: display grid, grid-template-columns 2fr 1fr, gap 2rem.
+- Left column: padding 1rem.
+- Right column: padding 1rem.
+- Footer: background #333, color white, text-align center, padding 1rem, font-size 0.9rem.
+
+Let's check the image for exact spacing. The header and footer are dark gray, main content white.
+
+Also, the navigation links in the image are white, bold, centered.
+
+Let's adjust the CSS:
+
+Header:
+  background-color: #333;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+
+H1:
+  font-size: 2.5rem;
+  margin: 0;
+
+Nav:
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+
+Nav ul:
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+Nav li:
+  display: inline-block;
+  margin: 0 0.5rem;
+
+Nav a:
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+Main:
+  padding: 2rem;
+  background-color: white;
+
+.content:
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+
+Left column:
+  padding: 1rem;
+
+Right column:
+  padding: 1rem;
+
+Footer:
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+
+Also, the text in the main content: the paragraphs should be normal, headings bold.
+
+Let's make sure all elements are included. The image shows the right column with "Writing Help" and "Writing Ideas" as headings, then the list.
+
+Now, check if the HTML structure matches. The left column has the sections with h2 headings, the right column has h3 headings and a list.
+
+Also, the footer text is "2023 EssayScribes.com - Building Up Strategies For Your Essay".
+
+Now, let's code the CSS in the style block.
+
+Wait, the image's header is dark gray, so background-color: #333333 (or #333). Let's use #333 for simplicity.
+
+Also, the main content's background is white, so background-color: white.
+
+Let's write the CSS:
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+  }
+
+  nav ul {
+    list-style: none;
+  }
+
+  nav li {
+    display: inline-block;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  main {
+    padding: 2rem;
+    background-color: white;
+  }
+
+ .content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+ .left-column {
+    padding: 1rem;
+  }
+
+ .right-column {
+    padding: 1rem;
+  }
+
+ .right-column h3 {
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+</style>
+
+Wait, the image shows the right column's "Writing Help" and "Writing Ideas" as headings. So in the HTML, the right column has:
+
+<h3>Writing Help</h3>
+<h3>Writing Ideas</h3>
+
+Which is correct.
+
+Now, check the text in the left column. The first section is "Looking For A Perfect Editorial Essay Example Online" as h2, then the paragraph. Then "How an Editorial Essay Works" as h2, etc.
+
+Yes.
+
+Now, the footer text: "2023 EssayScribes.com - Building Up Strategies For Your Essay" — that's correct.
+
+Now, let's check if all elements are present.
+
+Also, the navigation links: HOMEPAGE, WRITING TIPS, SKILLS FOR STUDENTS, ESSAY WRITING — all present.
+
+The right column list items:
+
+- Mozart: essay example
+- Music: persuasive paper topics
+- Writing literature essay
+- Jealousy: writing a descriptive essay
+
+Yes.
+
+Now, the HTML structure is correct.
+
+Let's make sure the code is valid HTML5. The doctype is correct, all tags are closed properly.
+
+Now, the task says to generate ONLY one complete, valid, fully closed HTML5 file. So the code should be enclosed in ```html and ```.
+
+Wait, the user said: BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.
+
+So the response should be:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- HTML content -->
+</body>
+</html>
+```
+
+But the CSS must be embedded in the style block.
+
+Let's put all together.
+
+Wait, the user said "Do not include any text before or after the code block." So the response is exactly the HTML code inside the triple backticks.
+
+Let's write the full code.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav li {
+      display: inline-block;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+      background-color: white;
+    }
+
+   .content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+   .left-column {
+      padding: 1rem;
+    }
+
+   .right-column {
+      padding: 1rem;
+    }
+
+   .right-column h3 {
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ESSAYSCRIBES.COM</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="content">
+      <div class="left-column">
+        <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+        <p>With an editorial essay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial essay is actually fairly useful in the real world.</p>
+        
+        <h2>How an Editorial Essay Works</h2>
+        <p>This type of paper will have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state the author's belief.</p>
+        
+        <h2>Find an Example</h2>
+        <p>There are several different locations that offer free essays online. The easiest way to find this type of writing is to type "editorial essay examples" into the search bar.</p>
+        
+        <h2>Choosing a Topic</h2>
+        <p>Once a student has found an example, they will be able to figure out how the writing style works. Before they can start writing, the student will have to choose a topic.</p>
+        
+        <p>What was the real cause of the Civil War? If both sides were given the same number of soldiers, would the Union have won the war?</p>
+        <p>Should the United States and coalition forces have entered a war in Afghanistan and Iraq?</p>
+        <p>Does recycling have a positive effect on the environment? Are there environmental costs to recycling?</p>
+        <p>Should companies be required to offer union membership to their employees?</p>
+      </div>
+      
+      <div class="right-column">
+        <h3>Writing Help</h3>
+        <h3>Writing Ideas</h3>
+        <ul>
+          <li>Mozart: essay example</li>
+          <li>Music: persuasive paper topics</li>
+          <li>Writing literature essay</li>
+          <li>Jealousy: writing a descriptive essay</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+  </footer>
+</body>
+</html>
+```
+
+Wait, but the user said "Do not include any text before or after the code block." So the response should be exactly the code inside the triple backticks.
+
+Let me check if all elements are present:
+
+- Header with logo (h1)
+- Navigation menu (ul with li and a)
+- Main content with two columns (grid)
+- Left column with sections (h2, p)
+- Right column with h3 and ul
+- Footer
+
+Yes.
+
+Also, the CSS is embedded in the style block.
+
+The HTML is valid, closed properly.
+
+I think this should match the design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EssayScribes.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav li {
+      display: inline-block;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+      background-color: white;
+    }
+
+   .content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+   .left-column {
+      padding: 1rem;
+    }
+
+   .right-column {
+      padding: 1rem;
+    }
+
+   .right-column h3 {
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ESSAYSCRIBES.COM</h1>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="content">
+      <div class="left-column">
+        <h2>Looking For A Perfect Editorial Essay Example Online</h2>
+        <p>With an editorial essay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial essay is actually fairly useful in the real world.</p>
+        
+        <h2>How an Editorial Essay Works</h2>
+        <p>This type of paper will have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state the author's belief.</p>
+        
+        <h2>Find an Example</h2>
+        <p>There are several different locations that offer free essays online. The easiest way to find this type of writing is to type "editorial essay examples" into the search bar.</p>
+        
+        <h2>Choosing a Topic</h2>
+        <p>Once a student has found an example, they will be able to figure out how the writing style works. Before they can start writing, the student will have to choose a topic.</p>
+        
+        <p>What was the real cause of the Civil War? If both sides were given the same number of soldiers, would the Union have won the war?</p>
+        <p>Should the United States and coalition forces have entered a war in Afghanistan and Iraq?</p>
+        <p>Does recycling have a positive effect on the environment? Are there environmental costs to recycling?</p>
+        <p>Should companies be required to offer union membership to their employees?</p>
+      </div>
+      
+      <div class="right-column">
+        <h3>Writing Help</h3>
+        <h3>Writing Ideas</h3>
+        <ul>
+          <li>Mozart: essay example</li>
+          <li>Music: persuasive paper topics</li>
+          <li>Writing literature essay</li>
+          <li>Jealousy: writing a descriptive essay</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>2023 EssayScribes.com - Building Up Strategies For Your Essay</p>
+  </footer>
+</body>
+</html>
+```

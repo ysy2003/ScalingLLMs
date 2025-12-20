@@ -1,0 +1,724 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's break down the elements.
+
+The page has a header with "Schedule" as the main title. Then two main sections: one for "manger by Boris Charmatz" and another for "Philadelphia Museum of Dance". Each section has date/time, location, and details.
+
+First, the structure. The HTML should have a container. Let's see the layout:
+
+- The top part has "Schedule" as a heading.
+- Then the first event: "manger by Boris Charmatz" with date in red, location details.
+- Then the second event: "Philadelphia Museum of Dance" with date in red, location, and a schedule section with times.
+
+Looking at the image, the text "manger" is in lowercase, "by Boris Charmatz" is normal. The date is in red (so color: #e74c3c maybe). The location details are in smaller font.
+
+For the Philadelphia Museum of Dance section, there's a "Schedule" subheading, then a table-like structure with times and descriptions. The times are bold, then the event details. Also, there's a "Rain or Shine" section, "Times to Remember".
+
+At the bottom, there's a footer with copyright info, support info, and contact.
+
+Let's outline the HTML structure:
+
+- <html>
+  - <head>
+    - <title> (maybe not needed, but the image doesn't show a title, but the task says to recreate the design. The image's top is "Schedule", so maybe the title is "Schedule" but the image doesn't have a title tag. Wait, the image shows the content, so the HTML should have the content as per the image.)
+
+Wait, the image is a page with "Schedule" as the main heading. So the HTML should have:
+
+<h1>Schedule</h1>
+
+Then the first event:
+
+<h2>manger by Boris Charmatz</h2>
+<p><span style="color: #e74c3c;">SEPTEMBER 22-23, 2018 • 8-9 PM</span></p>
+<p>FringeArts</p>
+<p>140 N Columbus Blvd (at Race St)</p>
+<p>Philadelphia, PA 19106</p>
+
+Then the second event:
+
+<h2>Philadelphia Museum of Dance</h2>
+<p><span style="color: #e74c3c;">OCTOBER 6, 2018 • 3-9 PM</span></p>
+<p>Barnes Foundation</p>
+<p>2025 Benjamin Franklin Parkway</p>
+<p>Philadelphia, PA 19130</p>
+<p>[PHONE REDACTED]</p>
+<p>FREE EVENT • Just walk up. Stop by for an hour or stay for all six.</p>
+
+Then a "Schedule" subheading:
+
+<h3>Schedule</h3>
+
+Then a list of times:
+
+- 3-4 pm: Public warm-up led by Boris Charmatz and Romain Bigé (WEST TERRACE, MAIN FLOOR) with "Join In—the audience is invited to participate"
+- 4-4:30 pm: A medley of choreographed and freestyle pieces by It’s Showtime NYC! (WEST TERRACE, MAIN FLOOR)
+- STAGED? (2016) _ undressed by Maria Hassabi (MAIN ENTRANCE, OUTSIDE)
+- 4:30-4:45 pm: 1973, a collective dance proposed by Boris Charmatz, performed by local college students (ANNENBERG COURT, MAIN FLOOR)
+
+Then "Rain or Shine" section:
+
+<h3>Rain or Shine</h3>
+<p>Philadelphia Museum of Dance will take place rain or shine. Outside performance locations for the Solo Forest may be inside if it rains.</p>
+
+Then "Times to Remember":
+
+<h3>Times to Remember</h3>
+<ul>
+  <li>5 pm • Barnes collection and parking lot close</li>
+  <li>9 pm • Event ends and building closes</li>
+</ul>
+
+Footer:
+
+<div class="footer">
+  <p>Support for Philadelphia Museum of Dance has been provided to Westphal College of Media Arts & Design by <a href="#">The Pew Center for Arts & Heritage</a>. Philadelphia Museum of Dance is produced in partnership with the Barnes Foundation. Performances of <i>manger</i> are presented in partnership with FringeArts.</p>
+  <p>Copyright © 2023. <a href="#">Westphal College of Media Arts & Design</a>, Drexel University. All rights reserved.</p>
+  <p>Contact: <a href="#">[PHONE REDACTED]</a> <a href="#">[EMAIL REDACTED]</a></p>
+  <p>Website developed by <a href="#">Zero Defect Design</a>.</p>
+</div>
+
+Now, the CSS. The design has a clean look. Let's check the colors:
+
+- The date text is red (like #e74c3c, which is a common red for such purposes).
+- The main text is black, headings are bold.
+- The footer has a black background with white text? Wait, the image's footer is black with white text. Let's check the image: the bottom part is black with white text. The image shows the footer as black background, white text.
+
+Wait, the image's footer: the text is white on black. So the footer should have a black background.
+
+Also, the "Schedule" heading is bold, maybe a larger font.
+
+Let's structure the CSS:
+
+- Body: font-family, maybe Arial, sans-serif. Padding, margin.
+- h1: font-size, bold.
+- h2: bold, maybe a bit smaller than h1.
+- h3: bold, maybe smaller than h2.
+- The date spans: color: #e74c3c; font-weight: bold.
+- The schedule items: maybe a table-like structure, but in the image, it's a list with times on the left, details on the right. So using a flexbox or grid for each schedule item.
+
+Wait, in the image, the schedule section has:
+
+3-4 pm | Public warm-up led by Boris Charmatz and Romain Bigé
+
+WEST TERRACE, MAIN FLOOR
+
+Join In—the audience is invited to participate
+
+So each schedule item has a time, then the event title, then location, then description.
+
+So for each schedule item, we can have a div with two columns: time on left, details on right.
+
+But in the image, the time is bold, then the event title is blue (like a link color), then location in smaller font, then description.
+
+Wait, the image shows:
+
+3-4 pm (bold) then "Public warm-up led by Boris Charmatz and Romain Bigé" (blue, maybe a link), then "WEST TERRACE, MAIN FLOOR" (smaller, gray?), then "Join In—the audience is invited to participate" (smaller, gray).
+
+So the CSS for the schedule items:
+
+Each item is a container with:
+
+- Time: bold, left-aligned.
+- Event title: blue, maybe a link (but in the image, it's not a link, just text, but the color is blue).
+- Location: smaller, gray.
+- Description: smaller, gray.
+
+So for the schedule items, we can use a flex container with two columns.
+
+Let's structure the schedule section:
+
+<div class="schedule">
+  <div class="schedule-item">
+    <div class="time">3-4 pm</div>
+    <div class="event-title">Public warm-up led by Boris Charmatz and Romain Bigé</div>
+    <div class="location">WEST TERRACE, MAIN FLOOR</div>
+    <div class="description">Join In—the audience is invited to participate</div>
+  </div>
+ ... other items
+</div>
+
+Then style the schedule-item with flex, and the time, event-title, etc. with appropriate styles.
+
+Also, the "Rain or Shine" and "Times to Remember" sections are h3, then paragraphs.
+
+Now, the footer: black background, white text. The text is left-aligned.
+
+Let's check the image's footer:
+
+- The first line: "Support for Philadelphia Museum of Dance has been provided to Westphal College of Media Arts & Design by The Pew Center for Arts & Heritage. Philadelphia Museum of Dance is produced in partnership with the Barnes Foundation. Performances of manger are presented in partnership with FringeArts."
+
+- Then "Copyright © 2023. Westphal College of Media Arts & Design, Drexel University. All rights reserved."
+
+- Then "Contact: [PHONE REDACTED] [EMAIL REDACTED]"
+
+- Then "Website developed by Zero Defect Design."
+
+The image shows the footer as black background, white text. So the footer div should have background-color: #000; color: #fff;.
+
+Also, the links in the footer: "The Pew Center for Arts & Heritage", "Westphal College of Media Arts & Design", "Zero Defect Design" should be blue (like #007bff) or the same as the event titles (blue). The image shows the links as blue.
+
+Now, let's code the HTML structure.
+
+First, the HTML5 structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <h1>Schedule</h1>
+  <!-- First event -->
+  <h2>manger by Boris Charmatz</h2>
+  <p><span style="color: #e74c3c;">SEPTEMBER 22-23, 2018 • 8-9 PM</span></p>
+  <p>FringeArts</p>
+  <p>140 N Columbus Blvd (at Race St)</p>
+  <p>Philadelphia, PA 19106</p>
+  <!-- Second event -->
+  <h2>Philadelphia Museum of Dance</h2>
+  <p><span style="color: #e74c3c;">OCTOBER 6, 2018 • 3-9 PM</span></p>
+  <p>Barnes Foundation</p>
+  <p>2025 Benjamin Franklin Parkway</p>
+  <p>Philadelphia, PA 19130</p>
+  <p>[PHONE REDACTED]</p>
+  <p>FREE EVENT • Just walk up. Stop by for an hour or stay for all six.</p>
+  <!-- Schedule section -->
+  <h3>Schedule</h3>
+  <div class="schedule">
+    <div class="schedule-item">
+      <div class="time">3-4 pm</div>
+      <div class="event-title">Public warm-up led by Boris Charmatz and Romain Bigé</div>
+      <div class="location">WEST TERRACE, MAIN FLOOR</div>
+      <div class="description">Join In—the audience is invited to participate</div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">4-4:30 pm</div>
+      <div class="event-title">A medley of choreographed and freestyle pieces by It’s Showtime NYC!</div>
+      <div class="location">WEST TERRACE, MAIN FLOOR</div>
+      <div class="description"></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time"></div>
+      <div class="event-title">STAGED? (2016) _ undressed by Maria Hassabi</div>
+      <div class="location">MAIN ENTRANCE, OUTSIDE</div>
+      <div class="description"></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">4:30-4:45 pm</div>
+      <div class="event-title">1973, a collective dance proposed by Boris Charmatz, performed by local college students</div>
+      <div class="location">ANNENBERG COURT, MAIN FLOOR</div>
+      <div class="description"></div>
+    </div>
+  </div>
+  <h3>Rain or Shine</h3>
+  <p>Philadelphia Museum of Dance will take place rain or shine. Outside performance locations for the Solo Forest may be inside if it rains.</p>
+  <h3>Times to Remember</h3>
+  <ul>
+    <li>5 pm • Barnes collection and parking lot close</li>
+    <li>9 pm • Event ends and building closes</li>
+  </ul>
+  <!-- Footer -->
+  <div class="footer">
+    <p>Support for Philadelphia Museum of Dance has been provided to Westphal College of Media Arts & Design by <a href="#">The Pew Center for Arts & Heritage</a>. Philadelphia Museum of Dance is produced in partnership with the Barnes Foundation. Performances of <i>manger</i> are presented in partnership with FringeArts.</p>
+    <p>Copyright © 2023. <a href="#">Westphal College of Media Arts & Design</a>, Drexel University. All rights reserved.</p>
+    <p>Contact: <a href="#">[PHONE REDACTED]</a> <a href="#">[EMAIL REDACTED]</a></p>
+    <p>Website developed by <a href="#">Zero Defect Design</a>.</p>
+  </div>
+</body>
+</html>
+
+Now, the CSS. Let's define the styles.
+
+- Body: font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;
+- h1: font-size: 2.5em; margin-bottom: 20px;
+- h2: font-size: 1.8em; margin: 20px 0 10px;
+- h3: font-size: 1.4em; margin: 20px 0 10px;
+- The date spans: color: #e74c3c; font-weight: bold;
+- The schedule items: each item should have a margin-bottom. Let's use a flex container for each schedule item, with the time on the left, and the rest on the right. But in the image, the time is left-aligned, and the event title is blue. Wait, the image shows the time as bold, then the event title as blue. So for the schedule items, the time is bold, the event title is blue, location is smaller, description is smaller.
+
+Let's style the schedule-item:
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.time {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.event-title {
+  color: #007bff; /* blue color for event titles */
+  margin-bottom: 3px;
+}
+
+.location {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.description {
+  font-size: 0.9em;
+  color: #666;
+}
+
+But wait, in the image, the event titles are blue, so the event-title class should have color: #007bff.
+
+Also, the footer:
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+Also, the "Times to Remember" list: the list items should have the time bold, then the description. Wait, in the image, it's "5 pm • Barnes collection and parking lot close", so the "5 pm" is bold. So the list items should have the time part bold.
+
+In the HTML, the list items are:
+
+<li>5 pm • Barnes collection and parking lot close</li>
+
+So in CSS, we can style the first part of the list item as bold.
+
+But maybe it's easier to have the time as a span with bold.
+
+Wait, in the HTML, the list items are written as:
+
+<li>5 pm • Barnes collection and parking lot close</li>
+
+So in CSS, we can target the first part:
+
+li {
+  font-weight: normal;
+}
+
+li span {
+  font-weight: bold;
+}
+
+But maybe better to have the time as a span inside the list item.
+
+Wait, the image shows the times as bold. So in the HTML, for the "Times to Remember" section, the list items have the time part bold. So in the HTML, we can write:
+
+<li><strong>5 pm</strong> • Barnes collection and parking lot close</li>
+
+But the original HTML in the task's image has it as "5 pm •...", so the time is bold. So in the HTML, we can add <strong> around the time.
+
+Wait, the image shows:
+
+5 pm • Barnes collection and parking lot close
+
+So the "5 pm" is bold. So in the HTML, for the list items, we should have:
+
+<li><strong>5 pm</strong> • Barnes collection and parking lot close</li>
+
+Similarly for 9 pm.
+
+So in the HTML, the list items should have the time in strong tags.
+
+Let's adjust the HTML for the "Times to Remember" section:
+
+<ul>
+  <li><strong>5 pm</strong> • Barnes collection and parking lot close</li>
+  <li><strong>9 pm</strong> • Event ends and building closes</li>
+</ul>
+
+Now, the CSS for the list items:
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+Now, let's check the image's layout. The first event's location details are in smaller font, so maybe the location paragraphs have font-size: 0.9em.
+
+Also, the "FREE EVENT" line: "FREE EVENT • Just walk up. Stop by for an hour or stay for all six." — the "FREE EVENT" is bold? In the image, it's "FREE EVENT •...", so maybe "FREE EVENT" is bold.
+
+Wait, the image shows:
+
+FREE EVENT • Just walk up. Stop by for an hour or stay for all six.
+
+So "FREE EVENT" is bold. So in the HTML, we can have:
+
+<p><strong>FREE EVENT</strong> • Just walk up. Stop by for an hour or stay for all six.</p>
+
+But the original image's text is "FREE EVENT •...", so the "FREE EVENT" is bold.
+
+So in the HTML, for the Philadelphia Museum of Dance section, the line after the phone number is:
+
+<p>FREE EVENT • Just walk up. Stop by for an hour or stay for all six.</p>
+
+So we should make "FREE EVENT" bold.
+
+So in the HTML:
+
+<p><strong>FREE EVENT</strong> • Just walk up. Stop by for an hour or stay for all six.</p>
+
+Now, let's put all this together.
+
+Let's write the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin: 20px 0 10px;
+}
+
+h3 {
+  font-size: 1.4em;
+  margin: 20px 0 10px;
+}
+
+.date {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.schedule {
+  margin-top: 20px;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.time {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.event-title {
+  color: #007bff;
+  margin-bottom: 3px;
+}
+
+.location {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.description {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+Now, check the HTML structure again.
+
+First event:
+
+<h2>manger by Boris Charmatz</h2>
+<p><span class="date">SEPTEMBER 22-23, 2018 • 8-9 PM</span></p>
+<p>FringeArts</p>
+<p>140 N Columbus Blvd (at Race St)</p>
+<p>Philadelphia, PA 19106</p>
+
+Second event:
+
+<h2>Philadelphia Museum of Dance</h2>
+<p><span class="date">OCTOBER 6, 2018 • 3-9 PM</span></p>
+<p>Barnes Foundation</p>
+<p>2025 Benjamin Franklin Parkway</p>
+<p>Philadelphia, PA 19130</p>
+<p>[PHONE REDACTED]</p>
+<p><strong>FREE EVENT</strong> • Just walk up. Stop by for an hour or stay for all six.</p>
+
+Schedule section:
+
+<h3>Schedule</h3>
+<div class="schedule">
+  <div class="schedule-item">
+    <div class="time">3-4 pm</div>
+    <div class="event-title">Public warm-up led by Boris Charmatz and Romain Bigé</div>
+    <div class="location">WEST TERRACE, MAIN FLOOR</div>
+    <div class="description">Join In—the audience is invited to participate</div>
+  </div>
+  <div class="schedule-item">
+    <div class="time">4-4:30 pm</div>
+    <div class="event-title">A medley of choreographed and freestyle pieces by It’s Showtime NYC!</div>
+    <div class="location">WEST TERRACE, MAIN FLOOR</div>
+    <div class="description"></div>
+  </div>
+  <div class="schedule-item">
+    <div class="time"></div>
+    <div class="event-title">STAGED? (2016) _ undressed by Maria Hassabi</div>
+    <div class="location">MAIN ENTRANCE, OUTSIDE</div>
+    <div class="description"></div>
+  </div>
+  <div class="schedule-item">
+    <div class="time">4:30-4:45 pm</div>
+    <div class="event-title">1973, a collective dance proposed by Boris Charmatz, performed by local college students</div>
+    <div class="location">ANNENBERG COURT, MAIN FLOOR</div>
+    <div class="description"></div>
+  </div>
+</div>
+
+Rain or Shine:
+
+<h3>Rain or Shine</h3>
+<p>Philadelphia Museum of Dance will take place rain or shine. Outside performance locations for the Solo Forest may be inside if it rains.</p>
+
+Times to Remember:
+
+<h3>Times to Remember</h3>
+<ul>
+  <li><strong>5 pm</strong> • Barnes collection and parking lot close</li>
+  <li><strong>9 pm</strong> • Event ends and building closes</li>
+</ul>
+
+Footer:
+
+<div class="footer">
+  <p>Support for Philadelphia Museum of Dance has been provided to Westphal College of Media Arts & Design by <a href="#">The Pew Center for Arts & Heritage</a>. Philadelphia Museum of Dance is produced in partnership with the Barnes Foundation. Performances of <i>manger</i> are presented in partnership with FringeArts.</p>
+  <p>Copyright © 2023. <a href="#">Westphal College of Media Arts & Design</a>, Drexel University. All rights reserved.</p>
+  <p>Contact: <a href="#">[PHONE REDACTED]</a> <a href="#">[EMAIL REDACTED]</a></p>
+  <p>Website developed by <a href="#">Zero Defect Design</a>.</p>
+</div>
+
+Now, check if all elements are present.
+
+The image shows the "manger" as lowercase, which is correct in the HTML.
+
+The date for the first event is "SEPTEMBER 22-23, 2018 • 8-9 PM" — correct.
+
+The location for the first event: FringeArts, 140 N Columbus Blvd (at Race St), Philadelphia, PA 19106 — correct.
+
+Second event: October 6, 2018 • 3-9 PM, Barnes Foundation, 2025 Benjamin Franklin Parkway, Philadelphia, PA 19130, [PHONE REDACTED], FREE EVENT line.
+
+Schedule items: all four items as per the image.
+
+Rain or Shine section: correct.
+
+Times to Remember: 5 pm and 9 pm.
+
+Footer: all the text as per the image.
+
+Now, the CSS: the date spans have class "date", which is styled with color #e74c3c and bold.
+
+The schedule items are styled with flex, time bold, event title blue, location and description smaller.
+
+The footer has black background, white text.
+
+Now, let's write the complete HTML.
+
+Wait, the task says to generate ONLY one complete, valid, and fully closed HTML5 file. So the HTML must be self-contained.
+
+Let's make sure all tags are closed properly.
+
+Also, the image shows the "Philadelphia Museum of Dance" section has a "Schedule" subheading, which is h3.
+
+Now, let's code the HTML with the CSS inside the style block.
+
+Let's start with the HTML structure.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.8em;
+      margin: 20px 0 10px;
+    }
+    h3 {
+      font-size: 1.4em;
+      margin: 20px 0 10px;
+    }
+   .date {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+   .schedule {
+      margin-top: 20px;
+    }
+   .schedule-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+   .time {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+   .event-title {
+      color: #007bff;
+      margin-bottom: 3px;
+    }
+   .location {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 3px;
+    }
+   .description {
+      font-size: 0.9em;
+      color: #666;
+    }
+   .footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    strong {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Schedule</h1>
+  <h2>manger by Boris Charmatz</h2>
+  <p><span class="date">SEPTEMBER 22-23, 2018 • 8-9 PM</span></p>
+  <p>FringeArts</p>
+  <p>140 N Columbus Blvd (at Race St)</p>
+  <p>Philadelphia, PA 19106</p>
+  <h2>Philadelphia Museum of Dance</h2>
+  <p><span class="date">OCTOBER 6, 2018 • 3-9 PM</span></p>
+  <p>Barnes Foundation</p>
+  <p>2025 Benjamin Franklin Parkway</p>
+  <p>Philadelphia, PA 19130</p>
+  <p>[PHONE REDACTED]</p>
+  <p><strong>FREE EVENT</strong> • Just walk up. Stop by for an hour or stay for all six.</p>
+  <h3>Schedule</h3>
+  <div class="schedule">
+    <div class="schedule-item">
+      <div class="time">3-4 pm</div>
+      <div class="event-title">Public warm-up led by Boris Charmatz and Romain Bigé</div>
+      <div class="location">WEST TERRACE, MAIN FLOOR</div>
+      <div class="description">Join In—the audience is invited to participate</div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">4-4:30 pm</div>
+      <div class="event-title">A medley of choreographed and freestyle pieces by It's Showtime NYC!</div>
+      <div class="location">WEST TERRACE, MAIN FLOOR</div>
+      <div class="description"></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time"></div>
+      <div class="event-title">STAGED? (2016) _ undressed by Maria Hassabi</div>
+      <div class="location">MAIN ENTRANCE, OUTSIDE</div>
+      <div class="description"></div>
+    </div>
+    <div class="schedule-item">
+      <div class="time">4:30-4:45 pm</div>
+      <div class="event-title">1973, a collective dance proposed by Boris Charmatz, performed by local college students</div>
+      <div class="location">ANNENBERG COURT, MAIN FLOOR</div>
+      <div class="description"></div>
+    </div>
+  </div>
+  <h3>Rain or Shine</h3>
+  <p>Philadelphia Museum of Dance will take place rain or shine. Outside performance locations for the Solo Forest may be inside if it rains.</p>
+  <h3>Times to Remember</h3>
+  <ul>
+    <li><strong>5 pm</strong> • Barnes collection and parking lot close</li>
+    <li><strong>9 pm</strong> • Event ends and building closes</li>
+  </ul>
+  <div class="footer">
+    <p>Support for Philadelphia Museum of Dance has been provided to Westphal College of Media Arts & Design by <a href="#">The Pew Center for Arts & Heritage</a>. Philadelphia Museum of Dance is produced in partnership with the Barnes Foundation. Performances of <i>manger</i> are presented in partnership with FringeArts.</p>
+    <p>Copyright © 2023. <a href="#">Westphal College of Media Arts & Design</a>, Drexel University. All rights reserved.</p>
+    <p>Contact: <a href="#">[PHONE REDACTED]</a> <a href="#">[EMAIL REDACTED]</a></p>
+    <p>Website developed by <a href="#">Zero Defect Design</a>.</p>
+  </div>
+</body>
+</html>
+```

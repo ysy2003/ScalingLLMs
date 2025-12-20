@@ -1,0 +1,1052 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's break down the elements.
+
+The page has a header with the title "Zoetrope Animations & Praxinoscope". Then a navigation bar with Home, About Us, Zoetrope (with a dropdown indicator), Praxinoscope (same). Then the main content is "About Us" section with text. There's a blue block at the bottom, and a footer with sections like Latest News, Quick Links, etc.
+
+First, structure the HTML. Start with <!DOCTYPE html>, then <html>, <head> with meta tags for responsive design, title, and the style block. Then <body>.
+
+Header: The title is a large heading. Let's check the font size. The title in the image is big, so maybe h1. Then the navigation bar. The navigation items: Home, About Us (which is the current page), Zoetrope (with a dropdown icon), Praxinoscope (same). The navigation should be a horizontal list, maybe with a container.
+
+Main content: The "About Us" section. The text is in paragraphs. There's a blue rectangle at the bottom of the main content. Then the footer with sections.
+
+Let's note the colors. The background is light gray. The header title is dark gray. Navigation links: Home, About Us (maybe bold or highlighted), Zoetrope and Praxinoscope have a dropdown indicator (like a down arrow). The blue block is a solid blue.
+
+Let's outline the HTML structure:
+
+- <header> with the title and navigation.
+- <main> with the "About Us" section (h2, then paragraphs).
+- <section> for the blue block (maybe a div with background color).
+- <footer> with the sections.
+
+Now, CSS. Need to make it responsive. Use flexbox for navigation, maybe. The navigation should be a horizontal list. The dropdown indicators: in the image, Zoetrope and Praxinoscope have a small down arrow (like ▼). So in the navigation, those items should have a pseudo-element or an icon.
+
+Wait, the navigation in the image: "Zoetrope ▼" and "Praxinoscope ▼". So the text is "Zoetrope" followed by a down arrow. So in HTML, the navigation items would be <a href="#">Zoetrope ▼</a>, etc.
+
+Let's check the text content. The "About Us" section has several paragraphs. The blue block is a large rectangle. Then the footer has "My other website is www.zoetrope.org" and then the footer sections.
+
+Let's start coding.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoetrope Animations & Praxinoscope</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zoetrope Animations & Praxinoscope</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Zoetrope ▼</a></li>
+        <li><a href="#">Praxinoscope ▼</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p>Welcome to the wonderful world of <strong>Zoetrope</strong> and <strong>Praxinoscope</strong> animations!</p>
+      <p>I'm Jo & as you can see i love Zoetrope & Praxinoscope Optical Toys.</p>
+      <p>In 2012 i discovered i lived only a few miles away from the biggest historical collection of Zoetropes and the house where the inventor lived.</p>
+      <p>I hope you love these modern versions of the classic Victorian Optical Toys as much as i do.</p>
+      <p>There are a variety of sizes and colours available and i ship all over the world.</p>
+      <p>I'm always fascinated where they go. Often TV film companies, Museums & Galleries, plus educational uses in schools and even royalty!</p>
+      <p>The Zoetrope has been featured in many films and on TV including: BBC2 TV UK and in the Hollywood film: Woman in Black with Daniel Radcliffe.</p>
+      <p>There are 9 different products available and include 2 different colour-ways available in the mid size.</p>
+      <p>As well as being a decorative product they are also educational.</p>
+      <p>They are often used by schools, museums, country estates and in the film industry, may be you have spotted one in a latest block buster movie?!</p>
+      <p>All products are shipped from the UK within 24 hours of order.</p>
+      <p>Shipped globally signed 1st class.</p>
+      <p>Gift wrap service available.</p>
+      <p>Perfect gift for both children and adults a like!</p>
+      <div class="blue-block"></div>
+    </section>
+  </main>
+  <footer>
+    <p>My other website is <a href="http://www.zoetrope.org">www.zoetrope.org</a></p>
+    <div class="footer-sections">
+      <div class="section">
+        <h3>Latest News</h3>
+        <p>Back in Stock November 2023</p>
+      </div>
+      <div class="section">
+        <h3>Quick Links</h3>
+        <p>Search</p>
+      </div>
+      <div class="section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Contact Us</h3>
+        <p>To contact, please ring</p>
+      </div>
+      <div class="section">
+        <h3>Newsletter</h3>
+        <p>Sign up for the latest</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Wait, but the image shows the navigation with "Zoetrope" and "Praxinoscope" having a dropdown indicator. So the HTML for those links should have the ▼ symbol. Also, the navigation bar in the image has a horizontal line above and below? Wait, the image shows a thin line above the navigation and below the title. Let's check the image:
+
+The header has the title, then a thin horizontal line (maybe a border), then the navigation. Then another thin line below the navigation? Wait, the image shows:
+
+- Title: "Zoetrope Animations & Praxinoscope" (large)
+- Then a thin line (maybe a border-top)
+- Then navigation: Home, About Us, Zoetrope ▼, Praxinoscope ▼
+- Then another thin line (border-bottom) below the navigation?
+
+Wait, looking at the image: the navigation is under the title, and there's a horizontal line above the navigation (maybe a border-top) and below the navigation (border-bottom). Let's check the image:
+
+The title is at the top, then a thin line (like a separator), then the navigation bar. Then the main content starts. So in the HTML, the header should have the title, then a border-top, then the navigation, then a border-bottom.
+
+Wait, the image shows:
+
+- Title: "Zoetrope Animations & Praxinoscope" (centered, large)
+- Then a thin horizontal line (maybe a border-top)
+- Then the navigation bar (Home, About Us, etc.)
+- Then another thin horizontal line (border-bottom) below the navigation.
+
+So in the HTML, the header would have:
+
+<header>
+  <h1>Zoetrope Animations & Praxinoscope</h1>
+  <div class="nav-container">
+    <nav>
+     ... navigation links...
+    </nav>
+  </div>
+</header>
+
+And the header should have a border-top and border-bottom. Wait, the image shows the navigation bar with a line above and below. Let's check the image again. The title is at the top, then a thin line (maybe a border-top), then the navigation. Then the main content starts. So the navigation is between two lines.
+
+Wait, the image's navigation bar is under the title, and there's a line above the navigation (so the title is above the line, then the navigation). Wait, no: the title is at the top, then a line, then the navigation. So the header has the title, then a border-top, then the navigation, then a border-bottom? Or the navigation has a border-top and border-bottom?
+
+Looking at the image: the navigation bar is a horizontal bar with the links. The title is above it, and there's a thin line (like a separator) between the title and the navigation. Then below the navigation, there's another thin line (separator) before the main content.
+
+So in the HTML, the header would have:
+
+<header>
+  <h1>Zoetrope Animations & Praxinoscope</h1>
+  <nav>
+   ... links...
+  </nav>
+</header>
+
+And the header should have a border-top (between title and nav) and border-bottom (between nav and main content). Wait, the image shows the navigation bar with a line above and below. So the header's nav has a border-top and border-bottom.
+
+Wait, the image's navigation bar is a horizontal bar. The title is above it, and there's a line (border-top) between the title and the navigation. Then the navigation bar itself has a border-bottom (so the line below the navigation is part of the navigation's border).
+
+Wait, maybe the navigation bar is a container with a border-top and border-bottom. Let's check the image:
+
+The title is at the top, then a thin line (maybe a border-top), then the navigation bar. Then another thin line (border-bottom) below the navigation bar. So the navigation bar is between two lines.
+
+So in the HTML, the header would have:
+
+<header>
+  <h1>Zoetrope Animations & Praxinoscope</h1>
+  <div class="nav-container">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Zoetrope ▼</a></li>
+        <li><a href="#">Praxinoscope ▼</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+And the header should have a border-top (between title and nav) and border-bottom (between nav and main content). Wait, the image shows the navigation bar with a line above and below. So the header's nav container has a border-top and border-bottom.
+
+Wait, maybe the title is inside a div, then the nav is below it, with a border-top between them. Let's look at the image:
+
+The title is "Zoetrope Animations & Praxinoscope" (large, centered). Then a thin horizontal line (like a border-top). Then the navigation bar (Home, About Us, etc.). Then another thin horizontal line (border-bottom) below the navigation bar.
+
+So the HTML structure for the header would be:
+
+<header>
+  <h1>Zoetrope Animations & Praxinoscope</h1>
+  <nav>
+    <ul>
+     ... links...
+    </ul>
+  </nav>
+</header>
+
+And the header should have a border-top (between h1 and nav) and border-bottom (between nav and main content). Wait, no. The title is part of the header, then the nav is part of the header. So the header has the title and the nav. The line above the nav is a border-top of the nav, and the line below the nav is a border-bottom of the nav.
+
+Wait, the image shows the navigation bar with a line above and below. So the nav element has a border-top and border-bottom.
+
+Let's check the image: the navigation bar is a horizontal bar. The line above it is a thin line (border-top), and the line below it is a thin line (border-bottom). So the nav element should have:
+
+nav {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+But the title is above the nav, so the title is not part of the nav. So the header has the title, then the nav. The line above the nav is a border-top of the nav, and the line below the nav is a border-bottom of the nav.
+
+Yes, that makes sense.
+
+Now, the main content: the "About Us" section. The text is in paragraphs. The blue block is a large rectangle. The image shows the blue block as a solid blue rectangle, so in CSS, we can set a div with background-color: #0000ff; (or a specific blue, but the image is a solid blue).
+
+The footer: the image shows "My other website is www.zoetrope.org" (with the URL in red). Then the footer sections: Latest News, Quick Links, Follow Us, Contact Us, Newsletter. Each section has a title and some text.
+
+Now, let's handle the CSS.
+
+First, reset some default styles. Use a reset or normalize.
+
+Set the body to have a light gray background (like #f5f5f5).
+
+The header: the title should be centered, large font. Maybe h1 with font-size: 2.5em; text-align: center; margin: 0; padding: 0.
+
+The nav: the links should be horizontal, centered. Maybe a flex container.
+
+The nav ul: display: flex; justify-content: center; list-style: none; margin: 0; padding: 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; (so the nav has a top and bottom border).
+
+The nav li: display: inline-block; margin: 0 10px; (so the links are spaced).
+
+The nav a: text-decoration: none; color: #333; (maybe bold for the current page, but in the image, "About Us" is the current page, so it's bold. Wait, in the image, the navigation has "Home", "About Us" (bold), "Zoetrope ▼", "Praxinoscope ▼". So the "About Us" link is bold. So in CSS, we can set the active link to bold.
+
+But the image shows "About Us" as the current page, so it's bold. So in the HTML, the "About Us" link should have a class or be styled. But since it's a static page, maybe the CSS for the nav a that is "About Us" is bold. But in the HTML, we can't know which is active, so maybe the design has "About Us" as bold. So in the CSS, for the nav a, set color: #333; and for the "About Us" link, set font-weight: bold.
+
+Wait, the image shows "About Us" as bold. So in the HTML, the "About Us" link is bold. So in the CSS, we can set:
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a.active {
+  font-weight: bold;
+}
+
+But since it's a static page, maybe the "About Us" link is the active one, so we can set it as bold. But in the HTML, we can't add a class, so maybe the CSS for the "About Us" link is bold. But that's not possible. Alternatively, the design has "About Us" as bold, so in the HTML, the link text is "About Us" and the CSS for that link is bold.
+
+Wait, the image shows the navigation as:
+
+Home | About Us | Zoetrope ▼ | Praxinoscope ▼
+
+With "About Us" being bold. So in the HTML, the "About Us" link is bold. So in the CSS, we can set:
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+nav a:nth-child(2) {
+  font-weight: bold;
+}
+
+But that's a bit hacky. Alternatively, the design has "About Us" as bold, so in the HTML, the link text is "About Us" and the CSS for that link is bold. But since it's a static page, maybe the CSS for the "About Us" link is bold. But the problem is that the HTML is static, so we can't know which link is active. However, the image shows "About Us" as bold, so we can set the second link (About Us) to be bold.
+
+So in the CSS:
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+nav a:nth-child(2) {
+  font-weight: bold;
+}
+
+But maybe the design has the "About Us" link as bold, so that's how it's styled.
+
+Now, the main content: the "About Us" section. The h2 should be bold, maybe a bit larger. The paragraphs are left-aligned, with some line height.
+
+The blue block: a div with class "blue-block" that has a solid blue background, full width, and maybe a height of 300px (as in the image).
+
+The footer: the "My other website is..." text is left-aligned. The footer sections are in a grid. The image shows the footer with five sections: Latest News, Quick Links, Follow Us, Contact Us, Newsletter. Each section has a title and some text.
+
+The footer should have a background color, maybe white, with a border-top.
+
+Let's outline the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: normal;
+}
+
+nav a:nth-child(2) {
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+main h2 {
+  font-size: 1.8em;
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+main p {
+  margin: 15px 0;
+}
+
+.blue-block {
+  background-color: #0000ff;
+  height: 300px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+footer {
+  background-color: #fff;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+footer.footer-sections {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer.section {
+  flex: 1;
+  min-width: 150px;
+  padding: 0 10px;
+}
+
+footer h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+/* For the social icons */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 5px 0;
+  }
+
+  main {
+    padding: 0 10px;
+  }
+
+ .blue-block {
+    height: 200px;
+  }
+
+  footer.footer-sections {
+    flex-direction: column;
+  }
+
+  footer.section {
+    width: 100%;
+  }
+}
+
+Wait, but the image shows the navigation as horizontal, so the media query for mobile should stack the navigation. But the problem says "responsive CSS", so we need to make it responsive.
+
+Also, the blue block: in the image, it's a solid blue rectangle. The height is about 300px, but in the image, it's a large block. So setting height: 300px; is okay.
+
+Now, check the text content. The "About Us" section has the text as in the image. The blue block is a solid blue, so background-color: #0000ff; (or maybe a different blue, but the image is a solid blue).
+
+The footer: "My other website is www.zoetrope.org" with the URL in red. So in CSS, footer a { color: #e74c3c; }.
+
+The footer sections: each section has a title and some text. The image shows "Latest News" with "Back in Stock November 2023", etc.
+
+Now, let's check the HTML structure again.
+
+The header has the title and the navigation. The navigation has four links: Home, About Us, Zoetrope ▼, Praxinoscope ▼.
+
+In the HTML, the navigation links are:
+
+<li><a href="#">Home</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Zoetrope ▼</a></li>
+<li><a href="#">Praxinoscope ▼</a></li>
+
+Yes.
+
+The main content has the "About Us" h2, then the paragraphs.
+
+The blue block is a div with class "blue-block".
+
+The footer has the text "My other website is www.zoetrope.org" (with the URL as a link), then the footer sections.
+
+Now, let's check the image for the footer sections. The image shows:
+
+- Latest News: Back in Stock November 2023
+- Quick Links: Search
+- Follow Us: social icons (Facebook, Twitter, Instagram)
+- Contact Us: To contact, please ring
+- Newsletter: Sign up for the latest
+
+So in the HTML, the footer sections are:
+
+<div class="footer-sections">
+  <div class="section">
+    <h3>Latest News</h3>
+    <p>Back in Stock November 2023</p>
+  </div>
+  <div class="section">
+    <h3>Quick Links</h3>
+    <p>Search</p>
+  </div>
+  <div class="section">
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <div class="section">
+    <h3>Contact Us</h3>
+    <p>To contact, please ring</p>
+  </div>
+  <div class="section">
+    <h3>Newsletter</h3>
+    <p>Sign up for the latest</p>
+  </div>
+</div>
+
+Wait, but the image shows the social icons as small icons. So we need to include Font Awesome for the icons. But the problem says "strictly and accurately recreate the visual design". The image shows the social icons as small squares with icons, but since the image is a screenshot, maybe the icons are just placeholders. However, the problem says to recreate the visual design, so we need to include the icons. But since the problem doesn't specify using external libraries, maybe we can use Unicode characters. For example, Facebook: "f", Twitter: "t", Instagram: "i". But the image shows the icons as small icons, so maybe using Font Awesome is acceptable, but the problem says "valid HTML5", so we can include the Font Awesome CDN.
+
+Wait, the problem says "generate ONLY one complete, valid, and fully closed HTML5 file". So we can include the Font Awesome CDN in the head.
+
+So add:
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+But the problem says "strictly and accurately recreate the visual design". The image shows the social icons as small icons, so including Font Awesome is acceptable.
+
+So in the head, add the Font Awesome CDN.
+
+Now, let's adjust the CSS to include the social icons.
+
+Also, the blue block: in the image, it's a solid blue rectangle. So the CSS for.blue-block is:
+
+.blue-block {
+  background-color: #0000ff;
+  height: 300px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+Now, let's check the colors. The background of the page is light gray (like #f5f5f5). The header title is dark gray. The navigation links are dark gray, with "About Us" bold.
+
+Now, let's put it all together.
+
+Wait, the problem says "Do not include any text before or after the code block." So the response must start with ```html and end with ```.
+
+Also, the HTML must be valid and closed.
+
+Let's write the HTML.
+
+First, the DOCTYPE, html, head, body.
+
+In the head:
+
+- meta tags for charset and viewport.
+- title.
+- link for Font Awesome.
+- style block with CSS.
+
+Then the body.
+
+Let's code it step by step.
+
+Start with:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoetrope Animations & Praxinoscope</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Content here -->
+</body>
+</html>
+```
+
+Now, the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: normal;
+}
+
+nav a:nth-child(2) {
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+main h2 {
+  font-size: 1.8em;
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+main p {
+  margin: 15px 0;
+}
+
+.blue-block {
+  background-color: #0000ff;
+  height: 300px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+footer {
+  background-color: #fff;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+footer.footer-sections {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer.section {
+  flex: 1;
+  min-width: 150px;
+  padding: 0 10px;
+}
+
+footer h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    margin: 5px 0;
+  }
+
+  main {
+    padding: 0 10px;
+  }
+
+ .blue-block {
+    height: 200px;
+  }
+
+  footer.footer-sections {
+    flex-direction: column;
+  }
+
+  footer.section {
+    width: 100%;
+  }
+}
+```
+
+Now, the body content:
+
+<header>
+  <h1>Zoetrope Animations & Praxinoscope</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Zoetrope ▼</a></li>
+      <li><a href="#">Praxinoscope ▼</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>About Us</h2>
+    <p>Welcome to the wonderful world of <strong>Zoetrope</strong> and <strong>Praxinoscope</strong> animations!</p>
+    <p>I'm Jo & as you can see i love Zoetrope & Praxinoscope Optical Toys.</p>
+    <p>In 2012 i discovered i lived only a few miles away from the biggest historical collection of Zoetropes and the house where the inventor lived.</p>
+    <p>I hope you love these modern versions of the classic Victorian Optical Toys as much as i do.</p>
+    <p>There are a variety of sizes and colours available and i ship all over the world.</p>
+    <p>I'm always fascinated where they go. Often TV film companies, Museums & Galleries, plus educational uses in schools and even royalty!</p>
+    <p>The Zoetrope has been featured in many films and on TV including: BBC2 TV UK and in the Hollywood film: Woman in Black with Daniel Radcliffe.</p>
+    <p>There are 9 different products available and include 2 different colour-ways available in the mid size.</p>
+    <p>As well as being a decorative product they are also educational.</p>
+    <p>They are often used by schools, museums, country estates and in the film industry, may be you have spotted one in a latest block buster movie?!</p>
+    <p>All products are shipped from the UK within 24 hours of order.</p>
+    <p>Shipped globally signed 1st class.</p>
+    <p>Gift wrap service available.</p>
+    <p>Perfect gift for both children and adults a like!</p>
+    <div class="blue-block"></div>
+  </section>
+</main>
+<footer>
+  <p>My other website is <a href="http://www.zoetrope.org">www.zoetrope.org</a></p>
+  <div class="footer-sections">
+    <div class="section">
+      <h3>Latest News</h3>
+      <p>Back in Stock November 2023</p>
+    </div>
+    <div class="section">
+      <h3>Quick Links</h3>
+      <p>Search</p>
+    </div>
+    <div class="section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Contact Us</h3>
+      <p>To contact, please ring</p>
+    </div>
+    <div class="section">
+      <h3>Newsletter</h3>
+      <p>Sign up for the latest</p>
+    </div>
+  </div>
+</footer>
+```
+
+Wait, but the image shows the navigation bar with "Zoetrope ▼" and "Praxinoscope ▼". In the HTML, the links are "Zoetrope ▼" and "Praxinoscope ▼", which is correct.
+
+The blue block is a div with class "blue-block", which is styled with background-color: #0000ff;.
+
+The footer has the social icons with Font Awesome.
+
+Now, check if all elements are present.
+
+- Header with title and navigation.
+- Main content with "About Us" section and blue block.
+- Footer with the website link and sections.
+
+The CSS is responsive, with media queries for mobile.
+
+Now, check for any missing elements.
+
+The image shows the navigation bar with a line above and below. The CSS for nav has border-top and border-bottom, which matches.
+
+The main content has the paragraphs as in the image.
+
+The blue block is a solid blue rectangle.
+
+The footer sections are correctly structured.
+
+Now, let's check the text content. The "About Us" section text matches the image.
+
+The URL in the footer is red, which is handled by footer a { color: #e74c3c; }.
+
+The social icons are using Font Awesome, which is included via CDN.
+
+Now, the HTML is valid, closed, and responsive.
+
+I think this should be the correct code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoetrope Animations & Praxinoscope</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px 15px;
+      font-weight: normal;
+    }
+
+    nav a:nth-child(2) {
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    main h2 {
+      font-size: 1.8em;
+      margin: 0 0 15px 0;
+      color: #333;
+    }
+
+    main p {
+      margin: 15px 0;
+    }
+
+   .blue-block {
+      background-color: #0000ff;
+      height: 300px;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 20px 0;
+      border-top: 1px solid #ccc;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 0;
+      padding: 0;
+    }
+
+   .footer-sections {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+   .section {
+      flex: 1;
+      min-width: 150px;
+      padding: 0 10px;
+    }
+
+   .section h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.1em;
+    }
+
+   .section p {
+      margin: 5px 0;
+    }
+
+   .section a {
+      color: #e74c3c;
+      text-decoration: none;
+    }
+
+   .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+   .social-icons a {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav li {
+        margin: 5px 0;
+      }
+
+      main {
+        padding: 0 10px;
+      }
+
+     .blue-block {
+        height: 200px;
+      }
+
+     .footer-sections {
+        flex-direction: column;
+      }
+
+     .section {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zoetrope Animations & Praxinoscope</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Zoetrope ▼</a></li>
+        <li><a href="#">Praxinoscope ▼</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p>Welcome to the wonderful world of <strong>Zoetrope</strong> and <strong>Praxinoscope</strong> animations!</p>
+      <p>I'm Jo & as you can see i love Zoetrope & Praxinoscope Optical Toys.</p>
+      <p>In 2012 i discovered i lived only a

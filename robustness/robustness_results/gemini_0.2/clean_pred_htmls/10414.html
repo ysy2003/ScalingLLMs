@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Jobs</title>
+    <style>
+        /* Basic reset and body styling */
+        body {
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif; /* A clean sans-serif font, similar to the image */
+            overflow: hidden; /* Prevent scrollbars if content slightly overflows */
+            position: relative; /* Needed for absolute positioning of background */
+        }
+
+        /* Background split into two halves */
+        .background-split {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex; /* Use flexbox to create two equal columns */
+            z-index: 0; /* Ensure background is behind content */
+        }
+
+        .left-half {
+            background-color: #000000; /* Black */
+            flex: 1; /* Takes 50% width */
+        }
+
+        .right-half {
+            background-color: #4CAF50; /* Green, sampled from image */
+            flex: 1; /* Takes 50% width */
+        }
+
+        /* Content container for text */
+        .content {
+            text-align: center;
+            z-index: 1; /* Ensure text is above the background */
+            padding: 20px; /* Add some padding for smaller screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            max-width: 90%; /* Limit content width on very wide screens */
+        }
+
+        /* Styling for the main title */
+        .content h1 {
+            color: #FFFFFF; /* White */
+            font-size: 8vw; /* Responsive font size based on viewport width */
+            font-weight: bold;
+            margin: 0; /* Remove default margin */
+            line-height: 1; /* Adjust line height for tight spacing */
+            text-transform: uppercase;
+            letter-spacing: 0.05em; /* Slight letter spacing for visual accuracy */
+            white-space: nowrap; /* Prevent "GLOBAL JOBS" from wrapping */
+        }
+
+        /* Styling for the secondary text */
+        .content p {
+            color: #A9A9A9; /* Dark gray, sampled from image */
+            font-size: 1.8vw; /* Responsive font size */
+            margin-top: 2vw; /* Responsive space below h1 */
+            line-height: 1.2;
+            font-weight: normal;
+        }
+
+        /* Media queries for better responsiveness on smaller screens */
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 10vw; /* Slightly larger on smaller screens */
+                letter-spacing: 0.04em; /* Adjust letter spacing */
+            }
+            .content p {
+                font-size: 2.5vw; /* Slightly larger on smaller screens */
+                margin-top: 3vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content h1 {
+                font-size: 12vw; /* Even larger on very small screens */
+            }
+            .content p {
+                font-size: 3.5vw; /* Even larger on very small screens */
+                margin-top: 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-split">
+        <div class="left-half"></div>
+        <div class="right-half"></div>
+    </div>
+    <div class="content">
+        <h1>GLOBAL JOBS</h1>
+        <p>HELLO, WE WILL BE RIGHT BACK VERY SHORTLY.</p>
+    </div>
+</body>
+</html>

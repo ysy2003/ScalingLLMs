@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* White background */
+            color: #333; /* Dark gray text */
+            line-height: 1.6;
+        }
+
+        .wrapper { /* A wrapper for content that needs max-width and centering */
+            max-width: 1000px; /* Overall content width */
+            margin: 0 auto;
+        }
+
+        /* Header - Blue rectangle and navigation */
+        .header {
+            margin-bottom: 30px; /* Space below header */
+        }
+
+        .blue-banner {
+            width: 100%; /* Full width of the wrapper */
+            height: 100px; /* Height of the blue rectangle */
+            background-color: #0000ff; /* Blue color */
+            margin-bottom: 20px; /* Space between banner and nav */
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 20px; /* Indent nav items slightly to match content */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 15px;
+            margin-right: 5px;
+            font-weight: normal;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .nav-bar a.active {
+            background-color: #e0d8d3; /* Light brown/beige for active tab */
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Main content layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            justify-content: space-between; /* Space between columns */
+            padding: 0 20px; /* Padding for the content inside the wrapper */
+        }
+
+        .column {
+            flex: 1; /* Allow columns to grow and shrink */
+            min-width: 300px; /* Minimum width before wrapping */
+            margin-bottom: 30px; /* Space between sections */
+        }
+
+        .column:first-child {
+            margin-right: 50px; /* Space between left and right columns */
+        }
+
+        .column h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .column ul:first-of-type { /* Specific margin for the first list in a column */
+            margin-bottom: 30px;
+        }
+
+        .column li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .column li a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+        }
+
+        .column li a:hover {
+            text-decoration: underline;
+        }
+
+        .column li span {
+            color: #333; /* Default text color for non-links */
+        }
+
+        /* Specific styling for the second list on the left */
+        .column .person-description {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .column .person-description a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .column .person-description a:hover {
+            text-decoration: underline;
+        }
+
+        /* Publications section */
+        .publications {
+            width: 100%;
+            padding: 0 20px; /* Match main content padding */
+            margin-top: 20px;
+            margin-bottom: 50px; /* Space before footer */
+        }
+
+        .publications ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .publications li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f0f0f0; /* Light gray background */
+            color: #666; /* Medium gray text */
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 14px;
+            border-top: 1px solid #eee; /* Light border at the top */
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .wrapper {
+                max-width: 100%; /* Allow wrapper to take full width */
+                padding: 0 10px; /* Add some side padding to the wrapper */
+            }
+            .nav-bar {
+                justify-content: center; /* Center nav items on smaller screens */
+                padding-left: 0;
+            }
+            .nav-bar a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .main-content {
+                flex-direction: column; /* Stack columns vertically */
+                padding: 0; /* Remove padding from main-content, wrapper handles it */
+            }
+            .column {
+                min-width: unset; /* Remove min-width */
+                width: 100%; /* Take full width */
+                margin-right: 0; /* Remove right margin */
+            }
+            .column:first-child {
+                margin-right: 0; /* Ensure no extra margin on first column */
+            }
+            .blue-banner {
+                height: 70px; /* Smaller banner on mobile

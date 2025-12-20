@@ -1,0 +1,1024 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+We are going to create a single HTML file that exactly matches the design in the image.
+ Steps:
+ 1. The design has a blue header (top) and then a pink header for "Producer Application".
+ 2. The main content is a form with various fields.
+
+ Important: 
+ - The form has required fields marked with an asterisk (*).
+ - There are multiple sections: personal info, age, production company, etc.
+ - We must include all the fields as shown.
+
+ We note:
+ - The top blue bar is a solid blue (we'll use #0000FF for the top bar, but note the image has a blue bar at the very top, then a pink bar for the title).
+ - The pink bar for "Producer Application" is a solid pink (we'll use #FF00FF or similar, but the image shows a bright pink).
+
+ However, note the image: 
+   - The very top is a solid blue rectangle (without any text) - we'll make it a div with a blue background and no content.
+   - Then a pink bar with the title "Producer Application".
+
+ But the image shows:
+   - Top: blue rectangle (full width, height about 100px? but we don't have exact dimensions, so we'll set a fixed height for the blue bar and then the pink bar below it).
+
+ However, the problem says: "recreate the visual design in the image". The image has:
+   - A blue bar at the top (without any text) - we'll make it a div with class "top-bar" and background blue.
+   - Then a pink bar with the title.
+
+ But note: the image also has a note: "Tell us a little about you and your experience. FAQ for more information." below the pink bar.
+
+ Let's break down the structure:
+
+   <div class="top-bar"> (blue, full width, height 100px? but we don't have exact, so we'll set a fixed height for the top bar and then the pink bar below it)
+
+   <div class="pink-bar">
+        <h1>Producer Application</h1>
+   </div>
+
+   <div class="content">
+        <p>Tell us a little about you and your experience. <a href="#">FAQ</a> for more information.</p>
+       ... form fields...
+   </div>
+
+ However, the image shows the pink bar as having the title and then the paragraph below it.
+
+ But note: the image has the pink bar as a solid color and the title in white? Actually, the image shows the pink bar with white text.
+
+ We'll design:
+
+   Top bar: blue (background: #0000FF), height: 100px, full width.
+
+   Pink bar: background: #FF00FF (or a similar bright pink), height: 50px, with the title in white, centered.
+
+   Then the content area: white background.
+
+ However, the image does not show the top bar as having any text, so we'll just have a blue bar.
+
+ But note: the image has a blue bar at the very top (without any text) and then the pink bar below it.
+
+ Let's look at the form:
+
+   - First Name, Last Name, Email, Phone, etc.
+
+ We must replicate the form exactly.
+
+ Important: 
+   - The form has required fields marked with an asterisk. We'll use the asterisk as in the image.
+   - The form has a note: "Tell us a little about you and your experience. FAQ for more information." (with a link to FAQ)
+
+ Steps for the form:
+
+   We'll create a form with the following fields:
+
+     First Name * (input)
+     Last Name * (input)
+     Email Address * (input)
+     Phone Number * (input)
+     Where Do You Live? * (input)
+     I am at Least 18 Years of Age * (radio: Yes)
+     Do You Have a Production Company? * (radio: Yes, No)
+     Tell Us More About You. * (textarea)
+     Preferred Genre * (select)
+     Are You Confident You Can Create Full-Length Episodes (12-25 minutes) on a Low-Budget and Continue to Create Episodes if they are Renewed by Candivan Subscribers? * (radio: Yes, No)
+     If Selected as a Winner, Would You be Able to Start Production by this May or June (2019)? * (radio: Yes, No)
+     Names of Others Plan to Collaborate with (if Applicable) (textarea)
+     Are you a member of the PGA? * (radio: Yes, No)
+     OPTIONAL:... (textarea with 800 characters limit)
+     How did you find out about us? (select)
+     Terms and Conditions checkbox (with a link to Terms and Conditions)
+
+   Also, a submit button at the bottom.
+
+ We note the image has a "Submit" button at the bottom (pink, but the image shows a pink button? Actually, the image shows a pink button at the bottom).
+
+ However, the image shows the submit button as a pink button. We'll make it a button with background: #FF00FF (same as the pink bar) and white text.
+
+ But note: the image has a blue bar at the top and then the pink bar for the title, and then the form. The form has a white background.
+
+ We'll structure:
+
+   <body>
+     <div class="top-bar"></div>
+     <div class="pink-bar">
+        <h1>Producer Application</h1>
+     </div>
+     <div class="form-container">
+        <p>Tell us a little about you and your experience. <a href="#">FAQ</a> for more information.</p>
+        <form>
+         ... fields...
+        </form>
+     </div>
+   </body>
+
+ However, the image does not have a separate container for the form? It's all in the main content.
+
+ Let's design the form to be responsive.
+
+ We'll use:
+
+   - The top bar: fixed height (100px) and full width.
+   - The pink bar: fixed height (50px) and full width, with the title centered.
+
+ But note: the image shows the pink bar as having the title and then the paragraph below it. So the pink bar is only for the title.
+
+ We'll set:
+
+  .top-bar {
+        background-color: #0000FF;
+        height: 100px;
+        width: 100%;
+   }
+
+  .pink-bar {
+        background-color: #FF00FF;
+        height: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+   }
+
+  .pink-bar h1 {
+        color: white;
+        font-size: 24px;
+   }
+
+  .form-container {
+        padding: 20px;
+        background-color: white;
+        margin-top: 10px;
+   }
+
+   The form fields: we'll use a grid or flex for the form.
+
+   However, the image shows the form fields in two columns? Actually, the image shows:
+
+        First Name and Last Name side by side.
+
+   So we'll use:
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first-name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last-name">
+            </div>
+        </div>
+
+   Similarly for other fields.
+
+   But note: some fields are single (like Email) and some are radio buttons.
+
+   We'll create a form group for each field.
+
+   For the radio buttons, we'll have:
+
+        <div class="form-group">
+            <label>I am at Least 18 Years of Age *</label>
+            <div>
+                <input type="radio" name="age" value="yes"> Yes
+            </div>
+        </div>
+
+   However, the image shows the radio buttons as two options (Yes and No) but the label is "I am at Least 18 Years of Age *", and then two radio buttons.
+
+   We'll do:
+
+        <div class="form-group">
+            <label for="age">I am at Least 18 Years of Age *</label>
+            <div>
+                <input type="radio" id="age-yes" name="age" value="yes"> Yes
+                <input type="radio" id="age-no" name="age" value="no"> No
+            </div>
+        </div>
+
+   But note: the image has the radio buttons as two separate options without a label for each? Actually, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   So it's one label and then the radio button for Yes (and the No is not shown? Actually, the image shows two options: Yes and No? Wait, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   But then there's another field: "Do You Have a Production Company? *", which has two options: Yes and No.
+
+   So for the age field, it's only one option? Actually, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   But that doesn't make sense because it's a yes/no question. However, the image does not show the "No" option? Actually, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then below:
+
+        "Do You Have a Production Company? *"
+        [ ] Yes
+        [ ] No
+
+   So the age field only has a "Yes" option? But that doesn't make sense. Actually, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field has two options.
+
+   Wait, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field:
+
+        "Do You Have a Production Company? *"
+        [ ] Yes
+        [ ] No
+
+   So the age field is only asking for "Yes" (meaning if you are at least 18, you must select yes). But note: the question is "I am at Least 18 Years of Age", so the only option is to say yes (if you are) or no (if you are not). However, the image only shows the "Yes" option? Actually, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field has two options.
+
+   But wait, the image also shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field:
+
+        "Do You Have a Production Company? *"
+        [ ] Yes
+        [ ] No
+
+   So the age field is missing the "No" option? Actually, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field has two options.
+
+   However, the image also shows a note: "I am at Least 18 Years of Age *", and then a checkbox? But it's a radio button? Actually, the image shows a checkbox? Wait, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   But the image has a checkbox? Actually, the image shows a checkbox for "Yes", but the field is a radio button? Or is it a checkbox? The image shows a square box (like a checkbox) for "Yes". However, the field is a yes/no question, so it should be a radio button? But the image shows a checkbox.
+
+   Let me check: the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field:
+
+        "Do You Have a Production Company? *"
+        [ ] Yes
+        [ ] No
+
+   So the first one is a checkbox? But the second one is two checkboxes? Actually, the image shows two separate checkboxes for the second field.
+
+   However, the problem says: "recreate the visual design". We must match the visual.
+
+   The image shows:
+
+        For "I am at Least 18 Years of Age *": 
+            [ ] Yes
+
+        For "Do You Have a Production Company? *":
+            [ ] Yes
+            [ ] No
+
+   So we'll use checkboxes for both? But note: the first one is a yes/no question and the second one is also yes/no. However, the first one is only one option? Actually, the first one is a yes/no question and the second one is also yes/no.
+
+   But the image shows the first one as a single checkbox (with the label "Yes") and the second one as two checkboxes (with labels "Yes" and "No").
+
+   However, the problem says: "recreate the visual design". So we'll do:
+
+        For the age field: 
+            <label>I am at Least 18 Years of Age *</label>
+            <input type="checkbox" name="age" value="yes"> Yes
+
+        But wait, the image shows a checkbox for "Yes", but the question is "I am at Least 18 Years of Age", so if you are at least 18, you must check "Yes". However, the image does not show a "No" option? Actually, the image does not show a "No" for the age field? It only shows "Yes". But that doesn't make sense because if you are not at least 18, you should be able to say no.
+
+   However, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field has two options.
+
+   But note: the image also has a note: "I am at Least 18 Years of Age *", and then a checkbox for "Yes". So it's a checkbox for "Yes", meaning if you are at least 18, you check it. But what if you are not? Then you don't check it? But the form doesn't have a "No" option? Actually, the form is designed so that if you are not at least 18, you cannot apply? So the form requires that you are at least 18, so the only option is to check "Yes". But the image does not show a "No" option.
+
+   However, the image shows the field as:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+   and then the next field has two options.
+
+   So we'll do:
+
+        <div class="form-group">
+            <label for="age">I am at Least 18 Years of Age *</label>
+            <input type="checkbox" id="age" name="age" value="yes">
+            <span>Yes</span>
+        </div>
+
+   But note: the image shows the checkbox and then the word "Yes" next to it.
+
+   However, the image also shows the next field as:
+
+        "Do You Have a Production Company? *"
+        [ ] Yes
+        [ ] No
+
+   So we'll do:
+
+        <div class="form-group">
+            <label for="production-company">Do You Have a Production Company? *</label>
+            <div>
+                <input type="checkbox" id="production-company-yes" name="production-company" value="yes"> Yes
+                <input type="checkbox" id="production-company-no" name="production-company" value="no"> No
+            </div>
+        </div>
+
+   But wait, the image shows two separate checkboxes for the same field? Actually, the image shows two checkboxes for the same field? But that would be two separate checkboxes for the same name? That would be invalid.
+
+   Alternatively, it might be radio buttons? But the image shows two checkboxes.
+
+   However, the problem says: "recreate the visual design". The image shows two checkboxes for the production company field.
+
+   But note: the image also shows the age field as a single checkbox (with the label "Yes") and the production company field as two checkboxes (with labels "Yes" and "No").
+
+   However, the production company field is a yes/no question, so it should be radio buttons? But the image shows checkboxes.
+
+   We'll follow the visual: checkboxes for both.
+
+   But note: the image shows the age field as a checkbox and the production company field as two checkboxes. So we'll do:
+
+        Age: one checkbox (with label "Yes")
+        Production Company: two checkboxes (with labels "Yes" and "No")
+
+   However, the image also shows the production company field as having two checkboxes, but the name of the field is "Do You Have a Production Company? *", so the two checkboxes are for the same field? That would be confusing.
+
+   Alternatively, it might be that the production company field is a radio button group? But the image shows two checkboxes.
+
+   Let me check the image again: the image shows two checkboxes for the production company field.
+
+   But note: the image also shows the age field as a single checkbox (with the label "Yes") and the production company field as two checkboxes (with labels "Yes" and "No").
+
+   However, the problem says: "recreate the visual design". So we'll do exactly as the image.
+
+   But wait, the image shows:
+
+        "I am at Least 18 Years of Age *"
+        [ ] Yes
+
+        "Do You Have a Production Company? *"
+        [ ] Yes
+        [ ] No
+
+   So we'll use:
+
+        For age: 
+            <label>I am at Least 18 Years of Age *</label>
+            <input type="checkbox" name="age" value="yes"> Yes
+
+        For production company:
+            <label>Do You Have a Production Company? *</label>
+            <input type="checkbox" name="production-company" value="yes"> Yes
+            <input type="checkbox" name="production-company" value="no"> No
+
+   However, note: the name for the production company field is the same for both checkboxes? That would cause the form to send both values? But the form should only have one value (either yes or no). So it's better to use radio buttons.
+
+   But the image shows checkboxes. So we'll use checkboxes? But that would allow both to be checked? That's not intended.
+
+   Alternatively, the image might have a mistake? But we must follow the visual.
+
+   However, the problem says: "recreate the visual design". The visual shows two checkboxes for the production company field. So we'll use two checkboxes.
+
+   But note: the image also shows the age field as a single checkbox. So we'll do:
+
+        Age: one checkbox (with value "yes")
+        Production Company: two checkboxes (with values "yes" and "no")
+
+   However, the form should not allow both to be checked for the production company? But the image doesn't show a constraint.
+
+   We'll do as the image: two checkboxes for production company.
+
+   But note: the image also shows the production company field as having two checkboxes, but the label is "Do You Have a Production Company? *", so the two checkboxes are for the same field? That is confusing.
+
+   Alternatively, it might be that the production company field is a checkbox for "Yes" and then a separate checkbox for "No", but that doesn't make sense.
+
+   However, the problem says: "recreate the visual design". So we'll do exactly as the image.
+
+   But wait, the image also shows the production company field as having two checkboxes, but the form is designed to have only one answer. So it's likely that the image intended radio buttons? But the visual shows checkboxes.
+
+   We'll follow the visual: checkboxes.
+
+   However, the image also shows the age field as a checkbox and the production company field as two checkboxes. So we'll do:
+
+        Age: 
+            <div class="form-group">
+                <label>I am at Least 18 Years of Age *</label>
+                <input type="checkbox" name="age" value="yes"> Yes
+            </div>
+
+        Production Company:
+            <div class="form-group">
+                <label>Do You Have a Production Company? *</label>
+                <input type="checkbox" name="production-company" value="yes"> Yes
+                <input type="checkbox" name="production-company" value="no"> No
+            </div>
+
+   But note: the image shows the production company field as having two checkboxes, but the name is the same? That would be invalid. However, the problem says to recreate the visual design, so we'll do that.
+
+   Alternatively, the image might have intended radio buttons? But the visual shows checkboxes.
+
+   We'll do checkboxes for both.
+
+   However, the image also shows the production company field as having two checkboxes, but the form is designed to have only one answer. So it's better to use radio buttons. But the visual shows checkboxes.
+
+   Given the ambiguity, we'll follow the visual: checkboxes.
+
+   But note: the image also shows the production company field as having two checkboxes, but the label is "Do You Have a Production Company? *", so the two checkboxes are for the same field? That is not standard.
+
+   However, the problem says: "recreate the visual design". So we'll do as the image.
+
+   Let's look at the image again: the image shows two checkboxes for the production company field. So we'll do two checkboxes.
+
+   But note: the image also shows the age field as a single checkbox. So we'll do:
+
+        Age: one checkbox (with label "Yes")
+        Production Company: two checkboxes (with labels "Yes" and "No")
+
+   However, the image does not show a "No" for the age field? So for the age field, we only have "Yes", meaning if you are not at least 18, you cannot apply? So the form requires that you are at least 18, so the only option is to check "Yes". But the image does not show a "No" option for the age field.
+
+   So we'll do:
+
+        Age: 
+            <label>I am at Least 18 Years of Age *</label>
+            <input type="checkbox" name="age" value="yes"> Yes
+
+        Production Company:
+            <label>Do You Have a Production Company? *</label>
+            <input type="checkbox" name="production-company" value="yes"> Yes
+            <input type="checkbox" name="production-company" value="no"> No
+
+   But note: the image shows the production company field as having two checkboxes, but the form should only allow one. However, the visual shows two checkboxes.
+
+   We'll do as the image.
+
+   Now, for the other fields:
+
+        "Tell Us More About You. *" -> textarea
+        "Preferred Genre *" -> select (with options? but the image doesn't show options, so we'll leave it as a select without options? But the image shows a dropdown. We'll create a select with placeholder? Or we can leave it empty? The image doesn't show options, so we'll create a select without options? But that's not valid. We'll create a select with a placeholder? Actually, the image shows a dropdown, so we'll create a select element.
+
+        However, the image doesn't show the options, so we'll just create the select element without options? But that's not user-friendly. We'll create a select with a placeholder? But the problem says: "recreate the visual design", and the visual doesn't show options, so we'll just create the select element.
+
+        But note: the image shows a dropdown, so we'll create a select.
+
+        Similarly, the other select fields.
+
+   We'll create:
+
+        <select name="preferred-genre" id="preferred-genre">
+            <!-- options would be here, but the image doesn't show them, so we'll leave it empty? But the form must have options. However, the problem says to recreate the visual design, and the visual doesn't show the options. So we'll create the select element without options? But that's not valid. Alternatively, we can add placeholder? But the image doesn't show a placeholder. -->
+
+        We'll create the select element without options? But that's not functional. However, the problem says: "recreate the visual design", so we'll create the select element as in the image (which is a dropdown without visible options). But the image doesn't show the options, so we'll just create the element.
+
+        But note: the image shows a dropdown, so we'll create a select element.
+
+        However, the problem says: "recreate the visual design", so we'll create the element without options? But that's not standard. We'll create the element and leave it without options? But the form would be broken.
+
+        Alternatively, we can add a placeholder? But the image doesn't show a placeholder.
+
+        We'll create the select element without options? But that's not valid. However, the problem says: "recreate the visual design", so we'll create the element as in the image (which is a dropdown without visible options). But the image doesn't show the options, so we'll just create the element.
+
+        But note: the image shows a dropdown, so we'll create a select element.
+
+        We'll do:
+
+            <select name="preferred-genre" id="preferred-genre" required>
+                <!-- no options shown in the image, so we leave it empty? But that's not valid. We'll add a placeholder? -->
+                <option value="" disabled selected>Select a genre</option>
+            </select>
+
+        However, the image doesn't show a placeholder. But the form requires a selection, so we'll add a placeholder.
+
+        But the problem says: "recreate the visual design", and the visual doesn't show the placeholder. So we'll create the select element without any options? But that would be invalid.
+
+        Alternatively, we can leave it without options? But the form would not work.
+
+        We'll add a placeholder as a standard practice.
+
+        Similarly for the other select fields.
+
+   For the "How did you find out about us?" field, we'll create a select with options? But the image doesn't show the options, so we'll create a select without options? But we'll add a placeholder.
+
+   Now, the optional field: "OPTIONAL: Those with large social networks are preferable. Feel free to list any large networks you are part of or your Twitter." -> textarea with a character limit (800 characters).
+
+   We'll create:
+
+        <textarea name="social-networks" id="social-networks" rows="3" placeholder="Optional: List social networks..."></textarea>
+        <p>0/800 characters</p>
+
+   But note: the image shows the character count at the bottom of the textarea.
+
+   We'll add a span for the character count.
+
+   However, the image shows the character count as "0/800 characters" below the textarea.
+
+   We'll do:
+
+        <div class="form-group">
+            <label>OPTIONAL: Those with large social networks are preferable. Feel free to list any large networks you are part of or your Twitter.</label>
+            <textarea name="social-networks" id="social-networks" rows="3"></textarea>
+            <p id="char-count">0/800 characters</p>
+        </div>
+
+   But note: the image shows the character count as "0/800 characters", so we'll set the initial count to 0.
+
+   However, the form does not have JavaScript, so we cannot update the count. But the problem says: "recreate the visual design", so we'll just show the static text.
+
+   We'll set the character count to "0/800 characters".
+
+   For the terms and conditions:
+
+        <div class="form-group">
+            <input type="checkbox" id="terms" name="terms" value="accepted">
+            <label for="terms">I Have Read and I Accept the Terms and Conditions Below</label>
+        </div>
+
+        <a href="#">Terms and Conditions</a>
+
+   And then a submit button.
+
+   The submit button: pink background, white text.
+
+   We'll create:
+
+        <button type="submit" class="submit-btn">Submit</button>
+
+   Now, for the responsive design:
+
+        We'll use a mobile-first approach.
+
+        The form fields: on mobile, we'll stack the fields.
+
+        We'll use a grid for the form.
+
+        We'll set:
+
+           .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+        But for the single fields, we'll use a single column.
+
+        We'll use:
+
+           .form-row {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 10px;
+            }
+
+        But note: the image shows the form fields in two columns for the first two fields (First Name and Last Name), then the next fields are single.
+
+        However, the image shows:
+
+            First Name and Last Name side by side.
+
+            Then Email Address (single)
+
+            Then Phone Number (single)
+
+            Then Where Do You Live? (single)
+
+            Then the age field (single)
+
+            Then the production company field (single)
+
+            Then the "Tell Us More About You" (single)
+
+            Then Preferred Genre (single)
+
+            Then the confidence question (single)
+
+            Then the production start question (single)
+
+            Then the collaboration field (single)
+
+            Then the PGA membership (single)
+
+            Then the social networks (single)
+
+            Then the how did you find out (single)
+
+            Then the terms (single)
+
+        So we'll have:
+
+            First Name and Last Name: two columns.
+
+            The rest: one column.
+
+        We'll do:
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+           ... and so on.
+
+        But note: the image shows the form fields in two columns for the first two, then the rest in one column.
+
+        We'll use a grid for the form.
+
+        We'll set:
+
+           .form-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+           .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+           .form-group {
+                margin-bottom: 10px;
+            }
+
+           .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+           .form-group input,.form-group select,.form-group textarea {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+           .form-group textarea {
+                resize: vertical;
+            }
+
+        But for the single fields, we don't want them to be in two columns? Actually, we want the first two fields to be in two columns, and the rest in one column.
+
+        We can do:
+
+           .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+           .form-row:nth-child(1) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+           .form-row:nth-child(2) {
+                grid-template-columns: 1fr;
+            }
+
+        But that's not the way.
+
+        Alternatively, we can have:
+
+            <div class="form-row">
+                <div class="form-group">... First Name... </div>
+                <div class="form-group">... Last Name... </div>
+            </div>
+
+            <div class="form-group">... Email... </div>
+
+           ... and so on.
+
+        And then for the form-row, we set:
+
+           .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+        But for the single fields, we don't want them to be in two columns? So we'll wrap the single fields in a div that is not a grid row? Actually, we can have:
+
+            <div class="form-row">
+                <div class="form-group">... First Name... </div>
+                <div class="form-group">... Last Name... </div>
+            </div>
+
+            <div class="form-group">... Email... </div>
+
+        But then the form-row for the first two fields is a grid row, and the email field is a single form-group.
+
+        However, the form-row class is applied to the container of the two fields. For the single fields, we don't apply the form-row class.
+
+        So:
+
+            <div class="form-row">
+                <div class="form-group">... First Name... </div>
+                <div class="form-group">... Last Name... </div>
+            </div>
+
+            <div class="form-group">... Email... </div>
+
+        And then for the rest, we do the same.
+
+        But note: the image shows the form fields in two columns for the first two, then the rest in one column. So we'll do:
+
+            For the first two fields: wrap in a div with class "form-row" (which is a grid of two columns).
+
+            For the rest: each field is a single form-group.
+
+        However, the image shows the form fields in two columns for the first two, then the next fields are single. So we'll do:
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+           ... and so on.
+
+        But note: the image shows the form fields in two columns for the first two, then the next fields are single. So we'll do that.
+
+        However, the image also shows the "Where Do You Live?" field as a single field, so we'll do:
+
+            <div class="form-group">
+                <label for="location">Where Do You Live? *</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+        And so on.
+
+   Now, for the character count: we'll add a span below the textarea.
+
+   We'll set:
+
+        <div class="form-group">
+            <label>OPTIONAL: Those with large social networks are preferable. Feel free to list any large networks you are part of or your Twitter.</label>
+            <textarea name="social-networks" id="social-networks" rows="3"></textarea>
+            <p id="char-count">0/800 characters</p>
+        </div>
+
+   But note: the image shows the character count as "0/800 characters", so we'll set it to that.
+
+   However, the form does not have JavaScript, so we'll just show the static text.
+
+   Now, the terms and conditions:
+
+        <div class="form-group">
+            <input type="checkbox" id="terms" name="terms" value="accepted">
+            <label for="terms">I Have Read and I Accept the Terms and Conditions Below</label>
+        </div>
+
+        <a href="#">Terms and Conditions</a>
+
+   And then the submit button.
+
+   We'll set the submit button as:
+
+        <button type="submit" class="submit-btn">Submit</button>
+
+   And style it as pink.
+
+   Now, for the CSS:
+
+        We'll set:
+
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+           .top-bar {
+                background-color: #0000FF;
+                height: 100px;
+                width: 100%;
+            }
+
+           .pink-bar {
+                background-color: #FF00FF;
+                height: 50px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+           .pink-bar h1 {
+                color: white;
+                font-size: 24px;
+            }
+
+           .form-container {
+                padding: 20px;
+                background-color: white;
+                margin-top: 10px;
+            }
+
+           .form-container p {
+                margin-bottom: 10px;
+            }
+
+           .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+           .form-group {
+                margin-bottom: 10px;
+            }
+
+           .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+           .form-group input,.form-group select,.form-group textarea {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+           .form-group textarea {
+                resize: vertical;
+            }
+
+           .form-group input[type="checkbox"] {
+                margin-right: 5px;
+            }
+
+           .submit-btn {
+                background-color: #FF00FF;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+           .submit-btn:hover {
+                background-color: #CC00CC;
+            }
+
+           .form-group.char-count {
+                font-size: 12px;
+                color: #666;
+            }
+
+        But note: the image shows the form fields with a light gray border? We'll set the border to #ccc.
+
+        Also, the image shows the form fields with a white background.
+
+   Now, the form fields:
+
+        We'll set the required fields to have an asterisk.
+
+        We'll add the asterisk in the label.
+
+        For example:
+
+            <label for="first-name">First Name *</label>
+
+        And then the input.
+
+   Now, the image shows the form fields with the asterisk in the label.
+
+   We'll do that.
+
+   Let's code the HTML.
+
+   Steps:
+
+        - Create the top bar (blue)
+        - Create the pink bar (with the title)
+        - Create the form container
+        - Inside the form container:
+            * A paragraph: "Tell us a little about you and your experience. <a href="#">FAQ</a> for more information."
+            * The form with the fields.
+
+   We'll create a form element.
+
+   Note: the image shows the form as having a white background.
+
+   We'll set the form-container to have a white background.
+
+   Now, the form:
+
+        <form>
+           ... fields...
+        </form>
+
+   But note: the image does not show a form tag? Actually, it's a form.
+
+   We'll wrap the fields in a form.
+
+   Now, the character count: we'll add a span with id="char-count" inside the form-group for the social networks.
+
+   However, the image shows the character count as "0/800 characters", so we'll set it to that.
+
+   But note: the image shows the character count below the textarea.
+
+   We'll do:
+
+        <div class="form-group">
+            <label>OPTIONAL: Those with large social networks are preferable. Feel free to list any large networks you are part of or your Twitter.</label>
+            <textarea name="social-networks" id="social-networks" rows="3"></textarea>
+            <p class="char-count">0/800 characters</p>
+        </div>
+
+   And then in CSS:
+
+       .char-count {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+   Now, the terms and conditions:
+
+        <div class="form-group">
+            <input type="checkbox" id="terms" name="terms" value="accepted">
+            <label for="terms">I Have Read and I Accept the Terms and Conditions Below</label>
+        </div>
+
+        <a href="#">Terms and Conditions</a>
+
+   And then the submit button.
+
+   We'll set the submit button to be at the bottom.
+
+   Now, the image shows the submit button at the bottom.
+
+   We'll put the submit button after the terms and conditions.
+
+   Now, let's code.
+
+   Important: the image shows the form fields with the asterisk in the label.
+
+   We'll do:
+
+        <label for="first-name">First Name *</label>
+
+   And so on.
+
+   We'll also set the required attribute on the input fields.
+
+   But note: the image shows the asterisk, so we don't need to set required? But the form validation requires it.

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5; /* Light grey background */
+            margin: 0;
+            padding: 20px; /* Padding around the resume container */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Resume Container */
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        }
+
+        /* Header Section */
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .name-section h1 {
+            font-size: 40px;
+            font-weight: normal;
+            margin: 0;
+            line-height: 1.1;
+            color: #333;
+        }
+
+        .social-links {
+            text-align: right;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-top: 5px; /* Align with name section */
+        }
+
+        .social-links a {
+            display: block;
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience Timeline */
+        .experience-timeline {
+            position: relative;
+            padding-left: 20px; /* Space for the line and dots */
+            border-left: 1px solid #a7d9ed; /* Light blue vertical line */
+        }
+
+        .job-entry {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 20px; /* Indent content to the right of the dot */
+        }
+
+        /* Timeline Dot */
+        .job-entry::before {
+            content: '';
+            position: absolute;
+            left: -26px; /* Position relative to job-entry, aligning with timeline line */
+            top: 5px; /* Vertically align with job title */
+            width: 10px;
+            height: 10px;
+            background-color: #a7d9ed; /* Light blue dot color */
+            border-radius: 50%;
+            border: 2px solid #fff; /* White border to make it stand out */
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: normal;
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .job-meta {
+            font-size: 14px;
+            margin: 0 0 15px 0;
+            color: #666;
+        }
+
+        .job-meta .company {
+            font-weight: bold;
+        }
+
+        .job-meta a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .job-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .job-description {
+            font-size: 15px;
+            margin: 0;
+            color: #555;
+        }
+
+        .job-description a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .job-description a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .resume-container {
+                padding: 20px;
+            }
+
+            .resume-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 30px;
+            }
+
+            .name-section h1 {
+                font-size: 32px;
+            }
+
+            .social-links {
+                text-align: left;
+                margin-top: 15px;
+            }
+
+            .job-entry {
+                margin-bottom: 25px;
+            }
+
+            .job-title {
+                font-size: 16px;
+            }
+
+            .job-meta, .job-description, .social-links a {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="resume-header">
+            <div class="name-section">
+                <h1>[NAME<br>REDACTED]</h1>
+            </div>
+            <div class="social-links">
+                <a href="#">[TWITTER REDACTED]</a>
+                <a href="#">[GITHUB REDACTED]</a>
+                <a href="#">[LINKEDIN REDACTED]</a>
+            </div>
+        </header>
+
+        <main class="experience-timeline">
+            <section class="job-entry">
+                <h2 class="job-title">Engineer Manager</h2>
+                <p class="job-meta">
+                    <span class="company">Mozilla</span>, <span class="location">France</span>, <span class="dates">May 2015 » Now</span>
+                </p>
+                <p class="job-description">Managing a part of the Firefox developer tools engineering team and owner of the Inspector tool.</p>
+            </section>
+
+            <section class="job-entry">
+                <h2 class="job-title">Senior Development Engineer</h2>
+                <p class="job-meta">
+                    <span class="company">Mozilla</span>, <span class="location">France</span>, <span class="dates">August 2013 » May 2015</span>
+                </p>
+                <p class="job-description">Working on the Firefox developer tools, in charge of the HTML/CSS inspector part.</p>
+            </section>
+
+            <section class="job-entry">
+                <h2 class="job-title">Senior Web Development Engineer</h2>
+                <p class="job-meta">
+                    <span class="company"><a href="#">Amadeus</a></span>, <span class="location">France</span>, <span class="dates">July 2012 » August 2013</span>
+                </p>
+                <p class="job-description">Working on the next generation mission-critical HTML5 user interfaces for the Airport IT industry. Targetting modern browsers using HTML5, CSS3 and client-side templating.</p>
+            </section>
+
+            <section class="job-entry">
+                <h2 class="job-title">Team Leader</h2>
+                <p class="job-meta">
+                    <span class="company"><a href="#">Amadeus</a></span>, <span class="location">France</span>, <span class="dates">June 2009 » July 2012</span>
+                </p>
+                <p class="job-description">In charge of the team developing the Amadeus <a href="#">aria templates</a> web user interface framework. Team focused on delivering a fast, reliable and scalable software that enables professional ajax-based web applications to be built. I helped create the team, put processes in place (introduced SCRUM methodology) and I managed it for about 3 years to make it the official Amadeus UI framework, used by hundreds within the company, and now also open sourced.</p>
+            </section>
+
+            <section class="job-entry">
+                <h2 class="job-title">Web Development Engineer</h2>
+                <p class="job-meta">
+                    <span class="company"><a href="#">Amadeus</a></span>, <span class="location">France</span>, <span class="dates">January 2008 » May 2009</span>
+                </p>
+                <p class="job-description">Using a variety of technologies from Java/J2EE to Ajax, Javascript, HTML and CSS, I participated in the design/architecture, development and maintenance of the Amadeus' client/server framework. Helping and training other development teams using the framework to implement web applications for travel agencies and airlines. During that experience, I also worked on one of Amadeus' airlines retail sites engine, primarily focused on improving the Javascript and CSS layers of the application.</p>
+            </section>
+
+            <section class="job-entry">
+                <h2 class="job-title">Web Development Engineer</h2>
+                <p class="job-meta">
+                    <span class="company"><a href="#">Astek</a></span>, <span class="location">France</span>, <span class="dates">July 2006 » January 2008</span>
+                </p>
+                <p class="job-description">Software engineer contracting for Amadeus, working on <a href="#">aircanada.com</a>. Implemented and maintained several of the booking pages, implementing mockups provided by the customer, and especially helping on the CSS part.</p>
+            </section>
+
+            <section class="job-entry">
+                <h2 class="job-title">Web Designer/Developer</h2>
+                <p class="job-meta">
+                    <span class="company"><a href="#">Zoe Communications</a></span>, <span class="location">New Zealand</span>, <span class="dates">June 2004 » February 2006</span>
+                </p>
+                <p class="job-description">Web developer and designer for small to medium size New Zealand companies. Responsible for the complete design phase, from early meetings with clients, to mockup proposals and final working HTML versions. Development of the site using PHP/MySQL and an internal CMS.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

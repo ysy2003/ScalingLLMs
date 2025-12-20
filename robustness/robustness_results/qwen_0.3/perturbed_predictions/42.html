@@ -1,0 +1,705 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the image provided. The image shows a webpage with a navigation bar at the top, then a main content area with text and some side sections.
+
+Looking at the top, there's a dark gray header with navigation links: HOMEPAGE, WRITING TIPS, SKILLS FOR STUDENTS, ESSAY WRITING. The text is white, centered maybe? Then below that, the main content has a white background with text. On the right side, there are some sections like "Writing Help" and "Writing Ideas" with some example topics.
+
+First, structure the HTML. The basic structure would be:
+
+- A <header> for the navigation bar.
+- A <main> section for the content, which might have a two-column layout (left main content, right sidebar).
+- The sidebar has some sections with titles and bullet points.
+
+Wait, the image shows the main content on the left, and on the right, there's a sidebar with "Writing Help" and "Writing Ideas" as headings, each with some text.
+
+Let's break down the elements:
+
+1. **Header Navigation**:
+   - Background color: dark gray (maybe #4a4a4a or similar)
+   - Links: HOMEPAGE, WRITING TIPS, SKILLS FOR STUDENTS, ESSAY WRITING
+   - Text color: white
+   - Layout: horizontal, centered? Or maybe flex container with space between.
+
+2. **Main Content Area**:
+   - Background: white
+   - Left column: main text content (the paragraphs and questions)
+   - Right column: sidebar with "Writing Help" and "Writing Ideas" sections.
+
+Wait, the image shows the main content as a single column on the left, and the sidebar on the right. So the main content is a two-column layout: left (main) and right (sidebar).
+
+Let's check the text in the image:
+
+- The main content starts with "Editorial Essay Example Online" (but the text is cut off, but the visible part is "Editorial Essay Example Online... the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial... useful in the real world."
+
+Then "Why Works" section: "I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state..."
+
+Then "different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar."
+
+Then "bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic."
+
+Then a list of questions: "use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?"
+
+On the right sidebar:
+
+- "Writing Help" (heading)
+- "Writing Ideas" (heading)
+- Under Writing Ideas: "Mozart: ess...", "Music: pers...", "Writing liter...", "Jealousy: w..."
+
+So the sidebar has two sections: Writing Help and Writing Ideas, each with some text.
+
+Now, for the HTML structure:
+
+- <header> with navigation links.
+- <main> with two columns: left (main content) and right (sidebar).
+
+Let's think about the CSS:
+
+- The header should have a fixed or full-width background, with links styled as text links.
+- The main content area should have a two-column layout. Maybe using flexbox or grid. Let's use flex for the main content, with the left column taking 70% and right 30%, or similar.
+
+Wait, the image shows the main content as a single column on the left, and the sidebar on the right. So the main content is a container with two child elements: the main text and the sidebar.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essay Writing Guide</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="main-content">
+      <!-- Main text content -->
+      <p>Editorial Essay Example Online... (the text from the image)</p>
+      <!-- etc. -->
+    </section>
+    <aside class="sidebar">
+      <h3>Writing Help</h3>
+      <p>...</p>
+      <h3>Writing Ideas</h3>
+      <p>...</p>
+    </aside>
+  </main>
+</body>
+</html>
+
+Now, the CSS:
+
+- Header: background color #4a4a4a (dark gray), text color white, padding, maybe centered.
+- Navigation links: display inline-block, margin, color white, text-decoration none, hover effects.
+- Main content: container with flex display, two columns. Let's set the main content to have a max-width, and the two columns to be flex, with the main content taking 70% and sidebar 30%.
+- Sidebar: background color maybe light gray, padding, etc.
+
+Wait, the image shows the main content as white background, and the sidebar as white? Or maybe the sidebar has a light background. Let's check the image: the main content is white, and the sidebar is also white but with some text. Wait, the image's right side has "Writing Help" and "Writing Ideas" as headings, so the sidebar is a separate section.
+
+Let's look at the image again. The top navigation is dark gray. Below that, the main content is white. On the right, there's a sidebar with "Writing Help" and "Writing Ideas" as headings, each with some text. So the main content is a two-column layout: left (main text) and right (sidebar).
+
+So the CSS for the main container:
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 1 1 70%;
+  padding-right: 20px;
+}
+
+.sidebar {
+  flex: 1 1 30%;
+  padding-left: 20px;
+  background-color: #f9f9f9; /* light gray for sidebar */
+}
+
+But maybe the sidebar doesn't have a background. Wait, the image shows the sidebar as part of the white background. Let's check: the main content is white, and the sidebar is also white, but with some text. So maybe the sidebar is just a section within the main content area, but styled as a separate column.
+
+Alternatively, the main content is a single column, and the sidebar is a right-aligned column. So the main content is a container with two columns.
+
+Let's proceed with the structure.
+
+Now, the text content:
+
+The main content has several paragraphs. Let's transcribe the visible text:
+
+- "Editorial Essay Example Online
+  ay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial
+  useful in the real world."
+
+Wait, the first line is "Editorial Essay Example Online" but the next line starts with "ay" which is probably a typo. Maybe it's "In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world."
+
+Then "Why Works
+  I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state"
+
+Then "different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar."
+
+Then "bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic."
+
+Then the questions:
+
+"use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?"
+
+Wait, the text seems to have some typos or missing words, but we need to recreate the visual design, so we should use the text as it appears in the image.
+
+Looking at the image:
+
+The main content text:
+
+- "Editorial Essay Example Online
+  ay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial
+  useful in the real world."
+
+Wait, the first line is "Editorial Essay Example Online" (maybe the "ay" is part of "In an editorial essay example online" but the image shows "Editorial Essay Example Online" as a heading, then the next line starts with "ay" which is probably a typo. Let's assume the text is as follows:
+
+"Editorial Essay Example Online
+
+In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world.
+
+Why Works
+
+I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state
+
+different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar.
+
+bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic.
+
+use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?"
+
+Wait, the image shows "Why Works" as a heading, then the text. So the main content has headings like "Editorial Essay Example Online", "Why Works", etc.
+
+Now, the sidebar:
+
+- "Writing Help" as a heading, then some text (but the image shows "Writing Help" and then "Writing Ideas" as headings, each with some text. The text under Writing Ideas is "Mozart: ess...", "Music: pers...", etc.
+
+So the sidebar has:
+
+<h3>Writing Help</h3>
+<p>...</p>
+<h3>Writing Ideas</h3>
+<p>...</p>
+
+But the image shows "Writing Help" and "Writing Ideas" as headings, each with some text. Let's see the text under Writing Ideas:
+
+"Mozart: ess...
+Music: pers...
+Writing liter...
+Jealousy: w..."
+
+So the sidebar content is:
+
+- Writing Help: maybe some text, but the image shows "Writing Help" as a heading, then maybe some text. But the image's right side shows "Writing Help" and "Writing Ideas" as headings, each with some text. Let's assume the sidebar has:
+
+<h3>Writing Help</h3>
+<p>Some text here</p>
+<h3>Writing Ideas</h3>
+<p>Mozart: ess...<br>Music: pers...<br>Writing liter...<br>Jealousy: w...</p>
+
+Now, for the CSS:
+
+- The header: background color #333 (dark gray), text color white, padding 1rem, font-family maybe Arial or sans-serif.
+- Navigation links: display inline-block, margin 0 1rem, color white, text-decoration none, hover color #ccc.
+- Main content: container with max-width 1200px, margin 0 auto, padding 2rem.
+- Main content columns: flex, two columns. Left column (main content) 70%, right (sidebar) 30%.
+- Sidebar: background color #f5f5f5 (light gray), padding 1rem, border-left 1px solid #ddd.
+
+Let's code the HTML and CSS.
+
+First, the header:
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">HOMEPAGE</a></li>
+      <li><a href="#">WRITING TIPS</a></li>
+      <li><a href="#">SKILLS FOR STUDENTS</a></li>
+      <li><a href="#">ESSAY WRITING</a></li>
+    </ul>
+  </nav>
+</header>
+
+Then the main content:
+
+<main>
+  <section class="main-content">
+    <h2>Editorial Essay Example Online</h2>
+    <p>In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world.</p>
+    <h2>Why Works</h2>
+    <p>I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state</p>
+    <p>different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar.</p>
+    <p>bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic.</p>
+    <p>use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?</p>
+  </section>
+  <aside class="sidebar">
+    <h3>Writing Help</h3>
+    <p>Some helpful tips for writing essays.</p>
+    <h3>Writing Ideas</h3>
+    <p>Mozart: ess<br>Music: pers<br>Writing liter<br>Jealousy: w</p>
+  </aside>
+</main>
+
+Now, the CSS:
+
+- Reset some default styles (like margin, padding).
+- Set font-family to Arial, sans-serif.
+- Header: background #333, color white, padding 1rem, text-align center.
+- Navigation links: display inline-block, margin 0 1rem, color white, text-decoration none, hover color #ccc.
+- Main content: max-width 1200px, margin 0 auto, padding 2rem.
+- Main content columns: display flex, flex-wrap wrap.
+- Main content: flex: 1 1 70%, padding-right 2rem.
+- Sidebar: flex: 1 1 30%, padding-left 2rem, background #f5f5f5, border-left 1px solid #ddd.
+
+Wait, the image shows the main content as a single column, but the sidebar is on the right. So the main content is a two-column layout.
+
+Let's write the CSS:
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin: 0 1rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    color: #ccc;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+ .main-content {
+    flex: 1 1 70%;
+    padding-right: 2rem;
+  }
+
+ .sidebar {
+    flex: 1 1 30%;
+    padding-left: 2rem;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+ .sidebar p {
+    margin-bottom: 1.5rem;
+  }
+</style>
+
+Wait, the image shows the main content as white background, and the sidebar as white. But the sidebar in the image has a light background. Let's check the image: the right side has "Writing Help" and "Writing Ideas" as headings, so the sidebar is a separate section with a light background.
+
+Now, let's check the text in the image. The main content has some text, and the sidebar has "Writing Help" and "Writing Ideas" with some text.
+
+Now, let's make sure the HTML is valid. The main content has a section with class "main-content", and the sidebar with class "sidebar".
+
+Now, the text in the main content:
+
+The image shows:
+
+"Editorial Essay Example Online
+ay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial
+useful in the real world."
+
+Wait, the first line is "Editorial Essay Example Online" (maybe a heading), then the next line starts with "ay" which is probably a typo. Let's assume it's "In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world."
+
+Then "Why Works" as a heading, followed by "I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state"
+
+Then "different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar."
+
+Then "bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic."
+
+Then the questions.
+
+So the HTML for the main content:
+
+<section class="main-content">
+  <h2>Editorial Essay Example Online</h2>
+  <p>In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world.</p>
+  <h2>Why Works</h2>
+  <p>I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state</p>
+  <p>different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar.</p>
+  <p>bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic.</p>
+  <p>use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?</p>
+</section>
+
+The sidebar:
+
+<aside class="sidebar">
+  <h3>Writing Help</h3>
+  <p>Some helpful tips for writing essays.</p>
+  <h3>Writing Ideas</h3>
+  <p>Mozart: ess<br>Music: pers<br>Writing liter<br>Jealousy: w</p>
+</aside>
+
+Now, check the CSS for responsiveness. The main content should be responsive, so using flex-wrap: wrap.
+
+Now, let's put it all together.
+
+Wait, the image shows the navigation links as "HOMEPAGE", "WRITING TIPS", etc., so the HTML should have those as links.
+
+Also, the header should have the navigation links centered.
+
+Now, let's write the complete HTML file.
+
+Make sure to have the style block inside the head.
+
+Let's check for any missing elements.
+
+The HTML structure:
+
+- DOCTYPE
+- html with lang
+- head with meta, title, style
+- body with header, main
+
+Yes.
+
+Now, the code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essay Writing Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav ul li a:hover {
+      color: #ccc;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+   .main-content {
+      flex: 1 1 70%;
+      padding-right: 2rem;
+    }
+
+   .sidebar {
+      flex: 1 1 30%;
+      padding-left: 2rem;
+      background-color: #f9f9f9;
+      border-left: 1px solid #ddd;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+   .sidebar p {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="main-content">
+      <h2>Editorial Essay Example Online</h2>
+      <p>In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world.</p>
+      <h2>Why Works</h2>
+      <p>I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state</p>
+      <p>different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar.</p>
+      <p>bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic.</p>
+      <p>use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?</p>
+    </section>
+    <aside class="sidebar">
+      <h3>Writing Help</h3>
+      <p>Some helpful tips for writing essays.</p>
+      <h3>Writing Ideas</h3>
+      <p>Mozart: ess<br>Music: pers<br>Writing liter<br>Jealousy: w</p>
+    </aside>
+  </main>
+</body>
+</html>
+```
+
+Wait, but the image shows the main content as having some text that's cut off. Let's check the image again.
+
+The image's main content:
+
+- "Editorial Essay Example Online
+  ay, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial
+  useful in the real world."
+
+So the first line is "Editorial Essay Example Online", then the next line starts with "ay" which is probably a typo. Maybe it's "In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world."
+
+But the image shows "ay" as the start of the next line, so maybe it's "In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world."
+
+Similarly, "Why Works" is a heading, then the text.
+
+The sidebar has "Writing Help" and "Writing Ideas" as headings.
+
+Now, the code above should match the visual design.
+
+Let's check the CSS for the sidebar: background-color #f9f9f9, which is a light gray, matching the image.
+
+The navigation links are white, centered, with hover effect.
+
+The main content is two columns, left 70%, right 30%.
+
+The text in the main content is as per the image.
+
+Yes, this should recreate the visual design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essay Writing Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 1.2rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ccc;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+   .main-content {
+      flex: 1 1 70%;
+      padding-right: 2rem;
+    }
+
+   .sidebar {
+      flex: 1 1 30%;
+      padding-left: 2rem;
+      background-color: #f9f9f9;
+      border-left: 1px solid #ddd;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      color: #555;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+   .sidebar p {
+      margin-bottom: 1.5rem;
+    }
+
+   .sidebar p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOMEPAGE</a></li>
+        <li><a href="#">WRITING TIPS</a></li>
+        <li><a href="#">SKILLS FOR STUDENTS</a></li>
+        <li><a href="#">ESSAY WRITING</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="main-content">
+      <h2>Editorial Essay Example Online</h2>
+      <p>In an editorial essay example online, the student is expected to give their opinion about a topic. Unlike many academic papers, an editorial is useful in the real world.</p>
+      <h2>Why Works</h2>
+      <p>I have one thesis that unifies the whole paper. This thesis should span one or two sentences and should state</p>
+      <p>different locations that offer free essays online. The easiest way to find this type of writing is to type 'editorial' in the search bar.</p>
+      <p>bound an example, they will be able to figure out how the writing style works. Before they can start writing, the choose a topic.</p>
+      <p>use of the Civil War? If both sides were given the same number of soldiers, would the Union have won the states and coalition forces have entered a war in Afghanistan and Iraq? positive effect on the environment? Are there environmental costs to recycling? required to offer union membership to their employees?</p>
+    </section>
+    <aside class="sidebar">
+      <h3>Writing Help</h3>
+      <p>Some helpful tips for writing essays.</p>
+      <h3>Writing Ideas</h3>
+      <p>Mozart: ess<br>Music: pers<br>Writing liter<br>Jealousy: w</p>
+    </aside>
+  </main>
+</body>
+</html>
+```

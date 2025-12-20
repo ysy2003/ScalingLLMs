@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monarda fistulosa Raspberry Wine' Wine-red Bee Balm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Top Bar */
+        .header-top {
+            background-color: #66bb55; /* Green */
+            color: #fff;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            padding: 5px 10px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            color: #fff;
+            padding: 0;
+            outline: none;
+            width: 100px; /* Adjust as needed */
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-bar .icon {
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        .header-top-links a {
+            color: #fff;
+            margin-left: 15px;
+        }
+        .header-top-links a:first-child {
+            margin-left: 0;
+        }
+
+        /* Main Header/Navigation */
+        .header-main {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 500;
+            color: #66bb55; /* Green */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-size: 1.1em;
+            font-weight: 400;
+            color: #555;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-right: 15px; /* Space for arrow */
+        }
+
+        .nav-links a.has-dropdown::after {
+            content: '▾'; /* Down arrow */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background-color: #f8f8f8;
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .breadcrumbs a {
+            color: #888;
+        }
+
+        .breadcrumbs span {
+            margin: 0 5px;
+        }
+
+        /* Product Detail Section */
+        .product-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 40px 0;
+            background-color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .product-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px; /* Adjust max width for image */
+            background-color: blue; /* Placeholder */
+            aspect-ratio: 1 / 1; /* Square aspect ratio */
+        }
+
+        .product-info {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .product-info .company-name {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .product-info h1 {
+            font-size: 2.2em;
+            font-weight: 500;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+
+        .product-info .price {
+            font-size: 1.8em;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .product-info .label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-info .availability {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #00aaee; /* Bright blue */
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: 500;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #0099dd;
+        }
+
+        .product-specs {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+        }
+
+        .product-description strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .share-product {
+            margin-top: 20px;
+        }
+
+        .share-product .label {
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .share-buttons button {
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .share-buttons .facebook {
+            background-color: #3b5998;
+        }
+
+        .share-buttons .twitter {
+            background-color: #55acee;
+        }
+
+        .share-buttons .google {
+            background-color: #dd4b39;
+        }
+
+        .share-buttons .plus-one {
+            background-color: #ccc; /* Placeholder color */
+            color: #333;
+        }
+
+        /* More from this collection */
+        .more-collection {
+            padding: 30px 0 60px 0;
+            background-color: #f8f8f8;
+        }
+
+        .more-collection h2 {
+            font-size: 1.5em;
+            font-weight: 500;
+            color: #66bb55; /* Green */
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .product-card .image-placeholder {
+            background-color: blue;
+            aspect-ratio: 1 / 1;
+            margin-bottom: 15px;
+        }
+
+        .product-card .name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 1.05em;
+            line-height: 1.3;
+        }
+
+        .product-card .price {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #66bb55; /* Green */
+            color: #fff;
+            padding: 50px 0 20px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 20px;

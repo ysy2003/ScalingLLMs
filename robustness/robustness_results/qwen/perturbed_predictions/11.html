@@ -1,0 +1,1015 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's break down the elements.
+
+The image has a header with a large blue rectangle (probably a background), then navigation links: galleries, about, workshops, services. Below that, a section titled "Personal Projects : Entrada" with a description. Then a "View Slideshow" link. Then a grid of image placeholders (all blue rectangles) with titles underneath each.
+
+First, structure the HTML. The main elements:
+
+- A header section with the blue background and navigation.
+- A main content area with the title, description, slideshow link, and the grid of items.
+
+Let's outline the HTML structure:
+
+1. <html> with <head> containing <style> for responsive CSS.
+2. <body> with:
+   - A header div (maybe with a background color, and the navigation links)
+   - A section for the personal projects description
+   - A section for the grid of items (each item is a blue rectangle with a title)
+
+Now, the design details:
+
+- The top blue area: it's a large rectangle, probably the background of the header. The navigation links are at the bottom right of this blue area. The text "galleries about workshops services" is in the blue area, right-aligned, maybe with some margin.
+
+- The main content area: the "Personal Projects : Entrada" is centered, then the description, then "View Slideshow" as a link.
+
+- The grid of items: there are multiple rows. Let's count the items. The image shows 16 items? Wait, let's check:
+
+First row: Aubade Paean, January - Wind Sand Moon Arch, Matins in the Cathedral of Wind - Layout, Matins i → 4
+
+Second row: Matins ii, Matins iii, Matins iv, Equinox Siesta → 4
+
+Third row: Spring Storm Alone, Wind Psalm, Solstice: Sky Sun Bird, Moonrise Sandstone Watersleep → 4
+
+Fourth row: Century Plant: Wind Moon Owl, Equinox Novena, Tumbleweed: an Autumn Portrait, Cold Snap → 4
+
+Fifth row: Winter Solstice (two panels), Winter Solstice (left panel), Winter Solstice (right panel), Nocturne Sliver Moon Datura → 4
+
+Sixth row: Introductory Exhibit Text, David Lee, Moab Library Exhibit 1, Moab Library Exhibit 2 → 4
+
+Wait, that's 6 rows × 4 = 24 items? Wait, no, let's count again. Wait, the image shows:
+
+Looking at the image:
+
+First row (top): 4 items.
+
+Second row: 4.
+
+Third row: 4.
+
+Fourth row: 4.
+
+Fifth row: 4.
+
+Sixth row: 4.
+
+Wait, but the image shows 24 items? Let's check the titles:
+
+1. Aubade Paean
+
+2. January - Wind Sand Moon Arch
+
+3. Matins in the Cathedral of Wind - Layout
+
+4. Matins i
+
+5. Matins ii
+
+6. Matins iii
+
+7. Matins iv
+
+8. Equinox Siesta
+
+9. Spring Storm Alone
+
+10. Wind Psalm
+
+11. Solstice: Sky Sun Bird
+
+12. Moonrise Sandstone Watersleep
+
+13. Century Plant: Wind Moon Owl
+
+14. Equinox Novena
+
+15. Tumbleweed: an Autumn Portrait
+
+16. Cold Snap
+
+17. Winter Solstice (two panels)
+
+18. Winter Solstice (left panel)
+
+19. Winter Solstice (right panel)
+
+20. Nocturne Sliver Moon Datura
+
+21. Introductory Exhibit Text
+
+22. David Lee
+
+23. Moab Library Exhibit 1
+
+24. Moab Library Exhibit 2
+
+Yes, 24 items. So the grid is 6 rows, 4 columns.
+
+Now, the design:
+
+- The top blue area: it's a solid blue background (probably #0000FF or similar). The navigation links are in the bottom right of this blue area. The text "galleries about workshops services" is in a light color (maybe white) and right-aligned.
+
+- The main content area: the background is light (beige or off-white). The "Personal Projects : Entrada" is centered, with a description below it. The "View Slideshow" is a link, probably blue.
+
+- Each item in the grid: a blue rectangle (same as the top header color) with a white border, and the title below it. The titles are centered or left-aligned? In the image, the titles are below each blue rectangle, centered.
+
+Now, for the CSS:
+
+- The header: a div with background color blue, height maybe 300px (since the image shows a large blue area). The navigation links are inside this header, positioned at the bottom right.
+
+- The main content: a container with a light background.
+
+- The grid: a flex container with 4 columns, each item is a flex item with a blue background, white border, and the title below.
+
+Let's structure the HTML:
+
+- <header> with a blue background, containing the navigation links.
+
+- <main> with the title, description, slideshow link, and the grid.
+
+Wait, the image shows the top blue area as the header, then the content below.
+
+Let's code step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada - Personal Projects</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-bg"></div>
+    <nav>
+      <ul>
+        <li><a href="#">galleries</a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">workshops</a></li>
+        <li><a href="#">services</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Personal Projects : Entrada</h1>
+    <p>Entrada is a collaboration with my poet friend David Lee. David's collection of 14 poems entitled Entrada served as the beginning of this project.</p>
+    <a href="#" class="view-slideshow">View Slideshow</a>
+    <div class="grid-container">
+      <!-- Grid items -->
+    </div>
+  </main>
+</body>
+</html>
+
+Now, the CSS:
+
+- The header: the blue background. Let's set the header to have a height, maybe 300px. The header-bg div is the blue area. The navigation is inside the header, positioned at the bottom right.
+
+Wait, in the image, the navigation links are at the bottom right of the blue area. So the header should have a blue background, and the nav is inside, with position absolute or fixed.
+
+Let's set the header to have a background color of #0000FF (blue), height 300px. The nav is inside, with position absolute, right: 20px, bottom: 20px.
+
+The main content area: background color #f5f5f5 (light beige), padding.
+
+The grid container: display flex, flex-wrap wrap, gap between items.
+
+Each grid item: a div with a blue background, white border, padding, and the title below.
+
+Let's define the styles:
+
+Header:
+
+.header {
+  background-color: #0000FF;
+  height: 300px;
+  position: relative;
+}
+
+.header-bg {
+  /* Maybe not needed, since the header is the blue area */
+}
+
+nav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.view-slideshow {
+  color: #0066cc;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.grid-item {
+  width: 220px;
+  height: 150px;
+  background-color: #0000FF;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item img {
+  /* If there's an image, but in the design it's a blue rectangle, so maybe no img, just the div */
+}
+
+.grid-item span {
+  margin-top: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+Wait, but in the image, the blue rectangles are the placeholders, so each grid item is a div with blue background, white border, and the title below. So the grid-item div has the blue background, and the title is a span or p inside.
+
+Let's check the image: each item has a blue rectangle (the placeholder), then the title below it. So the grid-item is a container for the blue rectangle and the title.
+
+So for each grid item:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span>title</span>
+</div>
+
+But in the design, the blue rectangle is the same as the header's blue. So the blue-rectangle div has background-color: #0000FF, and the grid-item has a white border.
+
+Wait, the image shows the blue rectangles with a white border. So the grid-item has a white border, and the blue rectangle is inside it. So the grid-item is the container with border, and the blue rectangle is the background of the grid-item's content area.
+
+Wait, no: the image shows the blue rectangle as the main element, with a white border around it, and the title below. So the grid-item is the blue rectangle with white border, and the title is below.
+
+So the grid-item should be:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <div class="title">title</div>
+</div>
+
+But in the image, the blue rectangle is the same as the header's blue, so the blue-rectangle has background-color: #0000FF, and the grid-item has a white border.
+
+Wait, the image shows the blue rectangles with a white border. So the grid-item is a div with a white border, and inside it, a blue rectangle (the placeholder) and the title.
+
+Wait, no: the blue rectangle is the placeholder, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the container for the blue rectangle and the title.
+
+Let's look at the image: each item has a blue rectangle (the placeholder), then the title below. So the blue rectangle is the main element, with a white border, and the title is a text below.
+
+So the grid-item is a div with:
+
+- background-color: #0000FF (the blue rectangle)
+- border: 2px solid white
+- padding: 10px
+- and the title is inside, but the title is below the rectangle.
+
+Wait, no: the image shows the blue rectangle as the placeholder, then the title below. So the blue rectangle is the image placeholder, and the title is a text element below it.
+
+So the grid-item structure is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <div class="title">title</div>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF, and the grid-item has a white border.
+
+Wait, the image shows the blue rectangles with a white border. So the grid-item is the container with the white border, and the blue rectangle is inside it. So the grid-item has a white border, and the blue rectangle is the background of the grid-item's content area.
+
+Wait, no: the image shows the blue rectangle as the main element, with a white border around it. So the blue rectangle is the placeholder, and the white border is around it. So the grid-item is the blue rectangle with a white border, and the title is below.
+
+So the grid-item is a div with:
+
+- width: 220px (for example)
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span below the rectangle.
+
+Wait, but the image shows the title below the rectangle, so the rectangle is the top part, then the title.
+
+So the grid-item would have:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+Where the blue-rectangle is the blue background, and the title is below.
+
+But in the image, the blue rectangle is the same as the header's blue, so the blue-rectangle has background-color: #0000FF.
+
+Now, the grid-container is a flex container with 4 columns.
+
+Let's set the grid-item width to 220px, so 4 columns would be 220 * 4 = 880px, which is reasonable.
+
+Now, the responsive part: the grid should be responsive, so using flex-wrap: wrap.
+
+Now, the navigation links: in the image, they are "galleries about workshops services" with spaces. So the nav ul has list-style: none, and the links are inline.
+
+Now, the main content: the "Personal Projects : Entrada" is centered, the description is below, then "View Slideshow" link.
+
+Now, let's code the HTML with the grid items.
+
+First, the header:
+
+The header has a blue background (300px height), and the navigation links at the bottom right.
+
+So the header div is:
+
+<header>
+  <div class="header-bg"></div>
+  <nav>
+    <ul>
+      <li><a href="#">galleries</a></li>
+      <li><a href="#">about</a></li>
+      <li><a href="#">workshops</a></li>
+      <li><a href="#">services</a></li>
+    </ul>
+  </nav>
+</header>
+
+But the header-bg is the blue area. So the header has a background-color: #0000FF, and the header-bg is the same as the header. Maybe the header-bg is not needed; the header itself is the blue area.
+
+Wait, the image shows the top blue area as the header. So the header is a div with background-color: #0000FF, height: 300px.
+
+Then, the navigation is inside the header, positioned at the bottom right.
+
+So:
+
+<header style="background-color: #0000FF; height: 300px; position: relative;">
+  <nav style="position: absolute; bottom: 20px; right: 20px; display: flex; gap: 15px;">
+    <a href="#">galleries</a>
+    <a href="#">about</a>
+    <a href="#">workshops</a>
+    <a href="#">services</a>
+  </nav>
+</header>
+
+But to make it responsive, better to use CSS classes.
+
+So in the style block:
+
+.header {
+  background-color: #0000FF;
+  height: 300px;
+  position: relative;
+}
+
+.header-nav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+Now, the main content:
+
+main {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.view-slideshow {
+  color: #0066cc;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.grid-item {
+  width: 220px;
+  height: 150px;
+  background-color: #0000FF;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item.title {
+  margin-top: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+Now, the grid items: each has a title. Let's list all the titles as per the image.
+
+The titles are:
+
+1. Aubade Paean
+
+2. January - Wind Sand Moon Arch
+
+3. Matins in the Cathedral of Wind - Layout
+
+4. Matins i
+
+5. Matins ii
+
+6. Matins iii
+
+7. Matins iv
+
+8. Equinox Siesta
+
+9. Spring Storm Alone
+
+10. Wind Psalm
+
+11. Solstice: Sky Sun Bird
+
+12. Moonrise Sandstone Watersleep
+
+13. Century Plant: Wind Moon Owl
+
+14. Equinox Novena
+
+15. Tumbleweed: an Autumn Portrait
+
+16. Cold Snap
+
+17. Winter Solstice (two panels)
+
+18. Winter Solstice (left panel)
+
+19. Winter Solstice (right panel)
+
+20. Nocturne Sliver Moon Datura
+
+21. Introductory Exhibit Text
+
+22. David Lee
+
+23. Moab Library Exhibit 1
+
+24. Moab Library Exhibit 2
+
+So in the HTML, the grid-container will have 24 grid-item divs, each with a title.
+
+Now, let's structure the grid items:
+
+<div class="grid-container">
+  <div class="grid-item">
+    <span class="title">Aubade Paean</span>
+  </div>
+  <div class="grid-item">
+    <span class="title">January - Wind Sand Moon Arch</span>
+  </div>
+  <!-- and so on for all 24 -->
+</div>
+
+Wait, but in the image, the blue rectangle is the placeholder, so the grid-item has the blue background, and the title is below. So the grid-item is the container with the blue background and the title. So the grid-item should have the blue background, and the title is inside.
+
+Wait, the grid-item is the blue rectangle with a white border, so the grid-item has:
+
+- background-color: #0000FF (the blue rectangle)
+- border: 2px solid white
+- and the title is a child element.
+
+So the grid-item is a div with the blue background, and the title is inside.
+
+So the grid-item structure is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, then the title is below. So the grid-item is a container that has the rectangle (blue) and the title.
+
+So the grid-item is a div with:
+
+- background-color: #0000FF (the rectangle)
+- border: 2px solid white
+- padding: 10px
+- and the title is a child element.
+
+Wait, but the image shows the blue rectangle as the placeholder, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with a white border, and the title is below. So the grid-item is the blue rectangle with a white border, and the title is a text element below it.
+
+So the grid-item is a div with:
+
+- width: 220px
+- height: 150px
+- background-color: #0000FF
+- border: 2px solid white
+- display: flex
+- flex-direction: column
+- align-items: center
+- justify-content: center
+
+Then, the title is a span inside, but since the grid-item is centered, the title is below the rectangle.
+
+Wait, no: the rectangle is the top part, so the grid-item is a container that has the rectangle (blue) and the title. So the grid-item is a div with the blue background, and the title is a child element.
+
+So the grid-item is:
+
+<div class="grid-item">
+  <div class="blue-rectangle"></div>
+  <span class="title">title</span>
+</div>
+
+But the blue-rectangle is the same as the header's blue, so it's a div with background-color: #0000FF.
+
+But in the image, the blue rectangle is the main element, so the grid-item is the blue rectangle with

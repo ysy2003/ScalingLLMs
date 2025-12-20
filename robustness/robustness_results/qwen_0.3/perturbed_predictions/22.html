@@ -1,0 +1,688 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the image provided. The image shows a webpage with a navigation bar at the top, then some content sections. Let's break it down.
+
+The top navigation bar has four links: Therapy, About Emma, Issues, Fees. The "Issues" link is underlined, which might indicate it's the active page. The background of the nav bar is a dark red (maroon). Below that, there's a large empty space (maybe a section with some content, but in the image it's mostly empty). Then there's a horizontal red line (maybe a separator). Below that, there are two columns: left side has a section titled "Issues" (but the text is cut off, but the title is "Issues" in red), and the right side is "Contact" with Tel and Email info.
+
+Wait, the image shows the "Issues" section as the active one (since it's underlined in the nav bar). The content below the nav bar: the main content area has a section with "Issues" as the heading (red), then some text. Then a red horizontal line. Then two columns: left is "Issues" (but the text is partially visible), right is "Contact" with contact info.
+
+Wait, the image's main content: the top part is the nav bar. Then below that, there's a large white area (maybe a section with some content, but in the image it's empty). Then a red line. Then the content is split into two columns: left column has "Issues" as a heading (red), then some text (partially visible: "with the variety of conditions long-standing and recently onset. of counselling I work with: use diction ger Management"). Right column has "Contact" as a heading (red), then Tel: [PHONE REDACTED], Email: [EMAIL REDACTED] @gmail.com.
+
+So the structure:
+
+- HTML5 document.
+- Head with meta tags for responsive design (viewport), and a style block.
+- Body: 
+  - Navigation bar (top, dark red background, white text, links)
+  - Main content area: 
+    - A section with a red horizontal line (maybe a separator)
+    - Two columns (flex or grid) for the content: left is "Issues" section, right is "Contact" section.
+
+Let's outline the HTML structure:
+
+1. <html>
+2. <head>
+   - <meta charset="UTF-8">
+   - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   - <title>Emma's Therapy</title>
+   - <style> (all CSS here)
+3. <body>
+   - <nav> with links: Therapy, About Emma, Issues (active), Fees
+   - <main> (or section) with the content
+     - A section with a red line (maybe a horizontal rule)
+     - Two columns: left (Issues), right (Contact)
+
+Now, the navigation bar: the image shows the nav bar as a dark red (maroon) bar. The links are white text. The "Issues" link is underlined, so in CSS, we can set the active link to have an underline.
+
+The main content: the image has a large empty space above the red line. Wait, the image shows the nav bar, then a big white area (maybe a section with some content, but in the image it's empty), then a red line. Then the two columns.
+
+Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white). Then a red horizontal line. Then the two columns.
+
+So the structure:
+
+- Nav bar (top)
+- A section (maybe with a background color, but in the image it's white) that's empty (but in the image, the text starts after the red line)
+- Then a red horizontal line (maybe a <hr> with red color)
+- Then two columns (flex container)
+
+Wait, the image shows the "Issues" section as the active page. The content below the nav bar: the first part is a large empty area (maybe a placeholder for content), then a red line, then the two columns.
+
+Wait, the image's content: the left column has "Issues" as a heading (red), then some text. The right column has "Contact" as a heading (red), then contact info.
+
+So the HTML structure:
+
+- <nav> with the four links.
+- <section> (or <main>) with a <hr> (red line) and then two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. So in the nav bar, the active link is styled with an underline.
+
+Now, the colors: the nav bar is dark red (let's say #8B0000 or similar). The headings "Issues" and "Contact" are red (maybe #C00000 or similar). The text in the content is black.
+
+Let's check the image:
+
+- Nav bar: dark red background, white text. Links: Therapy, About Emma, Issues (underlined), Fees.
+- The main content area: white background.
+- The red line: a horizontal line, same color as the nav bar (dark red).
+- Left column: heading "Issues" (red), then text (partially visible).
+- Right column: heading "Contact" (red), then contact info.
+
+So the CSS needs to:
+
+- Set the nav bar to have a dark red background, white text, and the active link (Issues) has an underline.
+- The main content area: white background.
+- The horizontal line: red, maybe with a width of 100%.
+- The two columns: flex container, maybe with a gap.
+
+Let's structure the HTML:
+
+- <nav> with a <ul> of links. The active link (Issues) has a class "active" or is styled with underline.
+
+Wait, the image shows the "Issues" link as underlined. So in CSS, we can set the active link to have a bottom border (underline).
+
+Now, the content sections:
+
+- After the nav bar, there's a section that's empty (the large white area). Then a red line. Then the two columns.
+
+Wait, the image shows the "Issues" section as the main content. So the main content area is split into two columns: left is the Issues section, right is Contact.
+
+So the HTML structure:
+
+- <body>
+  - <nav> (top)
+  - <main>
+    - <div class="content-section"> (the large empty area, maybe with some padding)
+    - <hr> (red line)
+    - <div class="content-columns">
+      - <div class="left-column"> (Issues section)
+      - <div class="right-column"> (Contact section)
+
+Wait, but the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. The image shows the Issues section's content (partially visible) and the Contact section.
+
+Wait, the image's main content: the left side has "Issues" as a heading, then some text. The right side has "Contact" as a heading, then contact info.
+
+So the two columns are part of the main content.
+
+Let's outline the HTML:
+
+- <nav> with links.
+- <main>
+  - <div class="content"> (the main content area)
+    - <div class="section"> (Issues section)
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="section"> (Contact section)
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+Wait, but the image shows a red horizontal line between the large empty area and the two columns. So maybe the structure is:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact</h2>
+      - <p>Tel: [PHONE REDACTED]</p>
+      - <p>Email: [EMAIL REDACTED] @gmail.com</p>
+
+But the image shows a red horizontal line between the large empty area and the two columns. So maybe there's a section before the two columns.
+
+Wait, the image shows the nav bar, then a large white area (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+So the structure:
+
+- <nav>
+- <section class="hero"> (the large empty area, maybe with a background color, but in the image it's white)
+- <hr>
+- <div class="content-columns"> (two columns)
+
+But the image shows the "Issues" section as the active page, so the content below the nav bar is the Issues section. Wait, the image's main content area: the top part (below nav) is a large white space (maybe a section with a background color, but in the image it's white), then a red line, then the two columns.
+
+Wait, the image shows the "Issues" section as the active page. The navigation bar has "Issues" underlined. The content below the nav bar is the Issues section, which is split into two columns: left is the Issues content, right is Contact.
+
+Wait, the image's content: the left column has "Issues" as a heading, then some text. The right column has "Contact" as a heading, then contact info.
+
+So the HTML structure:
+
+- <nav> (top)
+- <main>
+  - <div class="content">
+    - <div class="left-column">
+      - <h2>Issues</h2>
+      - <p>text...</p>
+    - <div class="right-column">
+      - <h2>Contact

@@ -1,0 +1,498 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the image provided. The design has a black background with various sections: a top paragraph, then NEWS, Current Version, CONTACT, Funding. Let's break down each part.
+
+First, the top text: "mass, elution time and abundance" and "Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed." These are probably in a smaller font, maybe gray.
+
+Then, the main sections: NEWS, Current Version, CONTACT, Funding. Each section has a title in orange (or maybe a specific color), then content below. The NEWS section has a date and text. Current Version shows "Version 0.9". CONTACT has three people with advisor, email. Funding has the grant info.
+
+Looking at the structure: the page is divided into two columns? Wait, the image shows NEWS and Current Version on the top row, then CONTACT and Funding on the bottom row. So maybe two columns, each with two sections.
+
+Let's check the layout. The top part has two lines of text. Then, the main content is split into two columns. Let's see:
+
+- Top: "mass, elution time and abundance" (smaller font, maybe gray)
+- Next line: "Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed." (smaller font, gray)
+- Then, two columns: left column has NEWS and CONTACT, right column has Current Version and Funding.
+
+Wait, the image shows:
+
+First, the top text (two lines). Then, a horizontal line? Then NEWS section (title, then content), then a horizontal line, then CONTACT section (title, then three entries). On the right side, Current Version (title, version), then Funding (title, text).
+
+So the structure is:
+
+- Header (top two lines)
+- Main content: two columns (left and right)
+  - Left column: NEWS (with date and text), then CONTACT (with three people)
+  - Right column: Current Version (with version), then Funding (with grant info)
+
+Now, let's think about the HTML structure.
+
+The HTML should have a <body> with a container. Let's use a div for the main content.
+
+First, the top text: two paragraphs. Let's set them as <p> elements, with font size smaller, color gray.
+
+Then, the main content: two columns. So maybe a <div> with two columns, using flex or grid. Let's use a flex container with two children, each taking 50% width.
+
+Each column has a section. For example, left column: <div class="column"> with <h2>NEWS</h2>, then a <p> for the date and text, then a horizontal line, then <h2>CONTACT</h2>, then the contact info.
+
+Wait, in the image, the NEWS section is a title, then below it the date and text. Then a horizontal line, then CONTACT title, then the contact entries.
+
+Similarly, right column: Current Version title, then version, then horizontal line, then Funding title, then the funding text.
+
+So each column has two sections, each with a title and content.
+
+Let's outline the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <p>mass, elution time and abundance</p>
+  <p>Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+  
+  <div class="container">
+    <div class="column">
+      <h2>NEWS</h2>
+      <p>2013.03.23 First release version to public. NEW!!</p>
+      <hr>
+      <h2>CONTACT</h2>
+      <p><strong>Advisor:</strong> Haixu Tang<br>
+      Email: hatang at indiana.edu</p>
+      <p><strong>Anoop Mayampurath</strong><br>
+      Email: annmayam at indiana.edu</p>
+      <p><strong>Chuan-Yih Yu</strong><br>
+      Email: chuyu at indiana.edu</p>
+    </div>
+    <div class="column">
+      <h2>Current Version</h2>
+      <p>Version 0.9</p>
+      <hr>
+      <h2>Funding</h2>
+      <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS. Let's think about the design:
+
+- Background color: black (as in the image)
+- Text color: for the top paragraphs, maybe light gray (like #ccc)
+- Titles (NEWS, Current Version, CONTACT, Funding) are orange. Let's pick a color, maybe #FF6B00 or similar. Let's check the image: the titles are orange, so we can use #FF6B00.
+- The "NEW!!" is yellow, so maybe #FFD700.
+- The horizontal lines: maybe a light gray, like #ccc, but in the image, they might be thin.
+
+Let's set the body background to black. The top paragraphs: font-size 14px, color #ccc.
+
+The columns: each column should have a width of 48% (so they don't overlap), with some margin. Let's use flexbox for the container.
+
+The container (div.container) should be a flex container with justify-content: space-between, so the two columns are side by side.
+
+Each column (div.column) has padding, maybe 10px.
+
+The h2 elements: color #FF6B00, font-size 24px, margin-bottom 10px.
+
+The p elements: color white, font-size 14px.
+
+The "NEW!!" is yellow, so in the NEWS section, the "NEW!!" part should be yellow. Let's see: the text is "2013.03.23 First release version to public. NEW!!" so the "NEW!!" is in yellow.
+
+So in the p for NEWS, the "NEW!!" should be styled with color #FFD700.
+
+The horizontal lines (hr) should be thin, maybe 1px, color #ccc.
+
+Let's write the CSS:
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.column {
+  width: 48%;
+  padding: 10px;
+}
+
+h2 {
+  color: #FF6B00;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h2:after {
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #ccc;
+  margin-top: 5px;
+}
+
+/* Wait, the image has a horizontal line below the NEWS title? Let's check. The image shows NEWS, then a line, then the date. So the line is between NEWS and the date. So the hr is after the h2 and before the p. So in the HTML, the structure is h2, then hr, then p. So the hr is a separate element. So in CSS, the hr should be styled. Let's set hr { border: 0; height: 1px; background: #ccc; margin: 10px 0; } */
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 10px 0;
+}
+
+/* For the "NEW!!" in NEWS */
+.news-new {
+  color: #FFD700;
+}
+
+/* For the top paragraphs */
+.top-text {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+}
+
+Wait, the top two paragraphs are not in the container. Let's adjust the HTML:
+
+The top two paragraphs are outside the container. So:
+
+<body>
+  <p class="top-text">mass, elution time and abundance</p>
+  <p class="top-text">Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+  
+  <div class="container">
+   ... 
+  </div>
+</body>
+
+So in CSS,.top-text { font-size: 14px; color: #ccc; margin: 5px 0; }
+
+Now, the NEWS section: the p has "NEW!!" which should be yellow. So in the HTML, the p for NEWS is:
+
+<p>2013.03.23 First release version to public. <span class="news-new">NEW!!</span></p>
+
+But maybe it's easier to style the text. Alternatively, in the CSS, for the NEWS p, the "NEW!!" part is yellow. But since it's a specific part, maybe using a span with class "news-new".
+
+Wait, the image shows "NEW!!" in yellow. So let's add a span around it.
+
+So in the HTML:
+
+<p>2013.03.23 First release version to public. <span class="news-new">NEW!!</span></p>
+
+Then in CSS:
+
+.news-new {
+  color: #FFD700;
+}
+
+Now, let's check the CONTACT section. The advisor, Anoop, and Chuan-Yih are in separate p elements. The names are bold? In the image, the names are in yellow. Let's check: the image shows "Advisor: Haixu Tang" where "Haixu Tang" is yellow. Similarly, "Anoop Mayampurath" and "Chuan-Yih Yu" are yellow.
+
+So in the CONTACT section, the names should be yellow. So in the HTML:
+
+<p><strong>Advisor:</strong> <span class="contact-name">Haixu Tang</span><br>
+Email: hatang at indiana.edu</p>
+
+Similarly for the others.
+
+So the CSS for.contact-name { color: #FFD700; }
+
+Let's adjust the HTML for CONTACT:
+
+<p><strong>Advisor:</strong> <span class="contact-name">Haixu Tang</span><br>
+Email: hatang at indiana.edu</p>
+<p><span class="contact-name">Anoop Mayampurath</span><br>
+Email: annmayam at indiana.edu</p>
+<p><span class="contact-name">Chuan-Yih Yu</span><br>
+Email: chuyu at indiana.edu</p>
+
+Yes, that's better. So the names are in yellow.
+
+Now, the Funding section: the text is white, so no special color.
+
+Let's put all this together.
+
+Now, the CSS:
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.top-text {
+  font-size: 14px;
+  color: #ccc;
+  margin: 5px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.column {
+  width: 48%;
+  padding: 10px;
+}
+
+h2 {
+  color: #FF6B00;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 10px 0;
+}
+
+.news-new {
+  color: #FFD700;
+}
+
+.contact-name {
+  color: #FFD700;
+}
+
+Now, let's check the HTML structure again.
+
+Top two paragraphs: class "top-text".
+
+Container with two columns.
+
+Left column:
+
+- h2 NEWS
+- p with date and "NEW!!" (span for NEW!!)
+- hr
+- h2 CONTACT
+- p for advisor (with contact-name for name)
+- p for Anoop
+- p for Chuan-Yih
+
+Right column:
+
+- h2 Current Version
+- p with version
+- hr
+- h2 Funding
+- p with funding text
+
+Yes.
+
+Now, let's write the HTML.
+
+Make sure all tags are closed properly.
+
+Let's check the email addresses: in the image, they are "hatang at indiana.edu", etc. So we need to write them as is.
+
+Now, the final HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+   .top-text {
+      font-size: 14px;
+      color: #ccc;
+      margin: 5px 0;
+    }
+   .container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      width: 100%;
+    }
+   .column {
+      width: 48%;
+      padding: 10px;
+    }
+    h2 {
+      color: #FF6B00;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: #ccc;
+      margin: 10px 0;
+    }
+   .news-new {
+      color: #FFD700;
+    }
+   .contact-name {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <p class="top-text">mass, elution time and abundance</p>
+  <p class="top-text">Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+  
+  <div class="container">
+    <div class="column">
+      <h2>NEWS</h2>
+      <p>2013.03.23 First release version to public. <span class="news-new">NEW!!</span></p>
+      <hr>
+      <h2>CONTACT</h2>
+      <p><strong>Advisor:</strong> <span class="contact-name">Haixu Tang</span><br>
+      Email: hatang at indiana.edu</p>
+      <p><span class="contact-name">Anoop Mayampurath</span><br>
+      Email: annmayam at indiana.edu</p>
+      <p><span class="contact-name">Chuan-Yih Yu</span><br>
+      Email: chuyu at indiana.edu</p>
+    </div>
+    <div class="column">
+      <h2>Current Version</h2>
+      <p>Version 0.9</p>
+      <hr>
+      <h2>Funding</h2>
+      <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Wait, let's check the image again. The "Current Version" section has "Version 0.9" in the p. The Funding section has the text. The CONTACT section has three entries, each with a name and email.
+
+Yes, this should match.
+
+Now, check if the CSS is embedded correctly. The style is inside the head, as required.
+
+Also, the HTML is valid, with proper closing tags.
+
+Let's verify the colors:
+
+- Background: black (#000)
+- Top text: #ccc (light gray)
+- Titles: #FF6B00 (orange)
+- NEW!! and names: #FFD700 (yellow)
+- Horizontal lines: #ccc (light gray)
+- Body text: white (#fff)
+
+Yes, that matches the image.
+
+The container is a flex container with two columns, each 48% width, so they fit side by side.
+
+The top text is two paragraphs, each with class top-text.
+
+The NEWS section has the date and NEW!! in yellow.
+
+The CONTACT section has the names in yellow.
+
+The Funding section has the text.
+
+Looks good.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+   .top-text {
+      font-size: 14px;
+      color: #ccc;
+      margin: 5px 0;
+    }
+   .container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      width: 100%;
+    }
+   .column {
+      width: 48%;
+      padding: 10px;
+    }
+    h2 {
+      color: #FF6B00;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: #ccc;
+      margin: 10px 0;
+    }
+   .news-new {
+      color: #FFD700;
+    }
+   .contact-name {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <p class="top-text">mass, elution time and abundance</p>
+  <p class="top-text">Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+  
+  <div class="container">
+    <div class="column">
+      <h2>NEWS</h2>
+      <p>2013.03.23 First release version to public. <span class="news-new">NEW!!</span></p>
+      <hr>
+      <h2>CONTACT</h2>
+      <p><strong>Advisor:</strong> <span class="contact-name">Haixu Tang</span><br>
+      Email: hatang at indiana.edu</p>
+      <p><span class="contact-name">Anoop Mayampurath</span><br>
+      Email: annmayam at indiana.edu</p>
+      <p><span class="contact-name">Chuan-Yih Yu</span><br>
+      Email: chuyu at indiana.edu</p>
+    </div>
+    <div class="column">
+      <h2>Current Version</h2>
+      <p>Version 0.9</p>
+      <hr>
+      <h2>Funding</h2>
+      <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+    </div>
+  </div>
+</body>
+</html>
+```

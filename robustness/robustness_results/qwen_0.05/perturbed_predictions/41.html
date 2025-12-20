@@ -1,0 +1,863 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image exactly. First, I need to analyze the structure and elements in the image.
+
+Looking at the image:
+
+- The top has a navigation bar with "Home", "Search", "Browse", "Tools & Resources" on the left, and "Quick search" and "Search" on the right. The background of the nav bar is a light orange (maybe #e6a800 or similar, but need to check the image's color).
+- Below that, a main title: "obsolete multi-organism process" centered.
+- Then a section titled "Obsolete Term Information" with a small square icon (maybe a toggle or info icon).
+- The main content is a table-like structure with key-value pairs: Accession, Name, Ontology, etc. Each has a label on the left and value on the right.
+- There are links in the "Related" section (e.g., "Link to all annotated objects...").
+- At the bottom, footer with "Cite this data • Terms of use" on the left, and "Last data loaded on 2023-07-30, see full details" and "Planteome release: 5.0.0 (browser.planteome.org)" on the right.
+
+First, let's structure the HTML.
+
+Start with the HTML5 doctype, then <html>, <head>, <body>.
+
+In the head:
+- Meta tags for charset, viewport (responsive).
+- Style block with CSS.
+
+The navigation bar: a <nav> element. The left part has links: Home, Search (with dropdown?), Browse, Tools & Resources. The right part has "Quick search" input and "Search" button.
+
+Wait, the image shows "Home Search - Browse Tools & Resources" on the left. The "Search" has a dropdown indicator (like a down arrow). So maybe "Search" is a dropdown menu.
+
+The right side: "Quick search" input field and a "Search" button.
+
+Then the main content: a container for the title and the term info.
+
+The title is "obsolete multi-organism process" in a large font, centered.
+
+Then the "Obsolete Term Information" section: a header with a small icon (maybe a square with a circle, but in the image it's a small square icon next to the text). The image shows "Obsolete Term Information" with a small square icon (like a toggle or info icon) on the right of the text.
+
+Then the key-value pairs: each has a label (like "Accession") and a value. The labels are bold, values are regular. Some values have links (like "Link" in the Related section).
+
+Let's list the elements:
+
+- Navigation bar: background color (from image, the top bar is a light orange, maybe #e6a800 or #d4a017? Let's check the image. The top bar is a light orange, so maybe #e6a800. The text is dark, maybe #333.
+
+- Main content: white background, with the title centered.
+
+- The "Obsolete Term Information" section: a light orange background (like the nav bar but maybe a bit lighter), with the text "Obsolete Term Information" and a small icon (maybe a square with a circle, but in the image it's a small square icon, so maybe a [ ] or something. Wait, the image shows "Obsolete Term Information" followed by a small square icon (like a toggle button). So maybe a span with a small icon, like a square with a circle inside? Or maybe a simple square. Let's see: the image has "Obsolete Term Information" with a small square icon (like a checkbox or info icon) next to it. So in HTML, maybe a <span> with a small icon, but since it's a design task, we can use a simple square.
+
+Wait, the image shows "Obsolete Term Information" with a small square icon (like a toggle) on the right. So the text is "Obsolete Term Information" and then a small square (maybe a [ ] or a square with a dot). Let's check the image: the text is "Obsolete Term Information" followed by a small square icon (like a toggle button). So in the HTML, we can have "Obsolete Term Information" and then a small square icon (maybe a <span> with a background color and a dot, but maybe just a square).
+
+But for simplicity, maybe the design uses a small square icon, so we can use a <span> with a background color and a dot, but the image shows it as a small square. Alternatively, maybe it's a [ ] symbol. Let's look at the image: the text is "Obsolete Term Information" and then a small square icon (like a toggle button). So perhaps it's a [ ] or a square with a circle. Let's assume it's a small square icon, so we can use a <span> with a background color and a dot, but maybe the design uses a simple square.
+
+Alternatively, maybe the icon is a small square with a circle inside, but for the purpose of this task, we can use a simple square. Let's check the image: the text "Obsolete Term Information" has a small square icon next to it. So in the HTML, we can have:
+
+<h2>Obsolete Term Information <span class="icon">□</span></h2>
+
+But maybe the icon is a toggle button, so perhaps a square with a dot. Alternatively, maybe it's a small square. Let's proceed.
+
+Now, the key-value pairs:
+
+- Accession: GO:0051704
+
+- Name: obsolete multi-organism process
+
+- Ontology: biological_process
+
+- Synonyms: interaction between organisms, physiological interaction between organisms, physiological interaction with other organism
+
+- Alternate...: GO:0051706
+
+- Definition: OBSOLETE. A biological process which involves another organism of the same or different species. Source: GO:jl
+
+- Comment: This term was obsoleted because it was not a biologically meaningful grouping class.
+
+- History: See term history for GO:0051704 at QuickGO
+
+- Subset: None
+
+- Related: multiple links (each with "Link" and the text)
+
+- Feedback: Contact the Planteome feedback if you find mistakes or have concerns about the data you find here. Comments, changes to terms, or requests for new ontology terms can be made at GO issue tracker on GitHub.
+
+The "Related" section has three links:
+
+1. Link to all annotated objects annotated to obsolete multi-organism process.
+
+2. Link to all direct and indirect annotations to obsolete multi-organism process.
+
+3. Link to all direct and indirect annotations download (limited to first 10,000) for obsolete multi-organism process.
+
+Each of these has "Link" in bold, then the text.
+
+The "Feedback" section has a paragraph.
+
+Now, the footer: left side "Cite this data • Terms of use", right side "Last data loaded on 2023-07-30, see full details" and "Planteome release: 5.0.0 (browser.planteome.org)".
+
+Now, let's structure the HTML.
+
+First, the navigation bar:
+
+<nav>
+  <div class="nav-left">
+    <a href="#">Home</a>
+    <a href="#">Search <span class="dropdown">▼</span></a>
+    <a href="#">Browse</a>
+    <a href="#">Tools & Resources</a>
+  </div>
+  <div class="nav-right">
+    <input type="text" placeholder="Quick search" class="quick-search">
+    <button type="button">Search</button>
+  </div>
+</nav>
+
+The main content:
+
+<div class="container">
+  <h1>obsolete multi-organism process</h1>
+  <div class="term-info">
+    <h2>Obsolete Term Information <span class="icon">□</span></h2>
+    <div class="info-item">
+      <span class="label">Accession</span>
+      <span class="value">GO:0051704</span>
+    </div>
+   ... and so on for each item.
+  </div>
+</div>
+
+The footer:
+
+<footer>
+  <div class="footer-left">
+    <a href="#">Cite this data</a> • <a href="#">Terms of use</a>
+  </div>
+  <div class="footer-right">
+    Last data loaded on 2023-07-30, see <a href="#">full details</a><br>
+    Planteome release: <strong>5.0.0</strong> (browser.planteome.org)
+  </div>
+</footer>
+
+Now, the CSS:
+
+- The nav bar: background color (let's say #e6a800, but need to check the image. The image's top bar is a light orange, so maybe #d4a017 or #e6a800. Let's use #e6a800 for the nav bar background.
+
+- The text in the nav bar: white, font size 16px, etc.
+
+- The main title: centered, large font, maybe 2em.
+
+- The "Obsolete Term Information" section: background color #f9e0a0 (light orange), padding, etc.
+
+- The info items: each with a label (bold) and value (regular). The labels are left-aligned, values right-aligned? Or maybe each item is a row with label on left, value on right.
+
+Wait, in the image, the "Accession" is on the left, "GO:0051704" on the right. So each item is a row with label and value.
+
+So for each info item:
+
+<div class="info-item">
+  <span class="label">Accession</span>
+  <span class="value">GO:0051704</span>
+</div>
+
+The labels are bold, values are regular.
+
+The "Related" section has links with "Link" in bold, then the text. So:
+
+<div class="related">
+  <span class="label">Related</span>
+  <div class="related-links">
+    <a href="#">Link</a> to all annotated objects annotated to obsolete multi-organism process.
+    <br>
+    <a href="#">Link</a> to all direct and indirect <strong>annotations</strong> to obsolete multi-organism process.
+    <br>
+    <a href="#">Link</a> to all direct and indirect <strong>annotations download</strong> (limited to first 10,000) for obsolete multi-organism process.
+  </div>
+</div>
+
+The "Feedback" section:
+
+<div class="feedback">
+  <span class="label">Feedback</span>
+  <p>Contact the <a href="#">Planteome feedback</a> if you find mistakes or have concerns about the data you find here.<br>
+  Comments, changes to terms, or requests for new ontology terms can be made at <a href="#">GO issue tracker on GitHub</a>.</p>
+</div>
+
+Now, the colors:
+
+- Nav bar background: #e6a800 (from the image, the top bar is a light orange)
+
+- "Obsolete Term Information" background: #f9e0a0 (lighter orange)
+
+- Text colors: dark gray for most text, black for labels.
+
+- Links: blue (standard link color)
+
+- The "OBSOLETE" in the Definition: bold, maybe red or something, but in the image it's "OBSOLETE." so maybe bold and red.
+
+Wait, in the image, the Definition starts with "OBSOLETE." which is in bold. So in the HTML, the "OBSOLETE." should be bold.
+
+Let's check the image:
+
+Definition: OBSOLETE. A biological process which involves another organism of the same or different species. Source: GO:jl
+
+So "OBSOLETE." is bold.
+
+Now, the CSS:
+
+- Body: font-family Arial, sans-serif; margin: 0; padding: 0; color: #333;
+
+- Nav: display: flex; justify-content: space-between; background-color: #e6a800; padding: 0.5em 1em; font-size: 16px;
+
+- Nav links: color: white; text-decoration: none; padding: 0.2em 0.5em; display: inline-block;
+
+- Nav dropdown: maybe a small down arrow, but in the image, "Search" has a down arrow, so the "Search" link has a span with "▼" (down arrow).
+
+- Quick search input: background: white; border: 1px solid #ccc; padding: 0.2em; width: 150px; margin-right: 0.5em;
+
+- Search button: background: #e6a800; color: white; border: none; padding: 0.2em 0.5em; cursor: pointer;
+
+- Main container: max-width: 1200px; margin: 0 auto; padding: 1em;
+
+- Title: text-align: center; font-size: 2em; margin-bottom: 1em;
+
+- Term info: background-color: #f9e0a0; padding: 1em; border-radius: 4px; margin-bottom: 1em;
+
+- Term info header: font-size: 1.2em; margin-bottom: 1em; display: flex; justify-content: space-between;
+
+- Icon: maybe a small square, like a <span class="icon">□</span> with background color #e6a800 and white text, but maybe just a square.
+
+- Info items: display: flex; flex-direction: row; margin-bottom: 0.5em;
+
+- Label: font-weight: bold; width: 120px; text-align: right; padding-right: 0.5em;
+
+- Value: flex: 1; text-align: left;
+
+- Related section: label is bold, then the links.
+
+- Feedback section: similar.
+
+- Footer: display: flex; justify-content: space-between; padding: 1em; font-size: 0.9em;
+
+- Footer links: color: #0066cc;
+
+Now, let's code this step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsolete Term Information</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <a href="#">Home</a>
+      <a href="#">Search <span class="dropdown">▼</span></a>
+      <a href="#">Browse</a>
+      <a href="#">Tools & Resources</a>
+    </div>
+    <div class="nav-right">
+      <input type="text" placeholder="Quick search" class="quick-search">
+      <button type="button">Search</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>obsolete multi-organism process</h1>
+    <div class="term-info">
+      <h2>Obsolete Term Information <span class="icon">□</span></h2>
+      <div class="info-item">
+        <span class="label">Accession</span>
+        <span class="value">GO:0051704</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Name</span>
+        <span class="value">obsolete multi-organism process</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Ontology</span>
+        <span class="value">biological_process</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Synonyms</span>
+        <span class="value">interaction between organisms, physiological interaction between organisms, physiological interaction with other organism</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Alternate...</span>
+        <span class="value">GO:0051706</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Definition</span>
+        <span class="value">OBSOLETE. A biological process which involves another organism of the same or different species. Source: GO:jl</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Comment</span>
+        <span class="value">This term was obsoleted because it was not a biologically meaningful grouping class.</span>
+      </div>
+      <div class="info-item">
+        <span class="label">History</span>
+        <span class="value">See term history for GO:0051704 at QuickGO</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Subset</span>
+        <span class="value">None</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Related</span>
+        <div class="related-links">
+          <a href="#">Link</a> to all annotated objects annotated to obsolete multi-organism process.<br>
+          <a href="#">Link</a> to all direct and indirect <strong>annotations</strong> to obsolete multi-organism process.<br>
+          <a href="#">Link</a> to all direct and indirect <strong>annotations download</strong> (limited to first 10,000) for obsolete multi-organism process.
+        </div>
+      </div>
+      <div class="info-item">
+        <span class="label">Feedback</span>
+        <p>Contact the <a href="#">Planteome feedback</a> if you find mistakes or have concerns about the data you find here.<br>
+        Comments, changes to terms, or requests for new ontology terms can be made at <a href="#">GO issue tracker on GitHub</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <a href="#">Cite this data</a> • <a href="#">Terms of use</a>
+    </div>
+    <div class="footer-right">
+      Last data loaded on 2023-07-30, see <a href="#">full details</a><br>
+      Planteome release: <strong>5.0.0</strong> (browser.planteome.org)
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Nav bar: background-color: #e6a800; color: white; font-family: Arial, sans-serif;
+
+- Nav links: color: white; text-decoration: none; padding: 0.2em 0.5em; display: inline-block; margin-right: 0.5em;
+
+- Dropdown: color: white; font-size: 0.8em;
+
+- Quick search input: background: white; border: 1px solid #ccc; padding: 0.2em; width: 150px; margin-right: 0.5em; border-radius: 3px;
+
+- Search button: background: #e6a800; color: white; border: none; padding: 0.2em 0.5em; cursor: pointer; border-radius: 3px;
+
+- Container: max-width: 1200px; margin: 0 auto; padding: 1em;
+
+- Title: text-align: center; font-size: 2em; margin-bottom: 1em;
+
+- Term info: background-color: #f9e0a0; padding: 1em; border-radius: 4px; margin-bottom: 1em;
+
+- Term info header: font-size: 1.2em; margin-bottom: 1em; display: flex; justify-content: space-between;
+
+- Icon: background-color: #e6a800; color: white; width: 16px; height: 16px; display: inline-block; border-radius: 2px;
+
+- Info items: display: flex; flex-direction: row; margin-bottom: 0.5em;
+
+- Label: font-weight: bold; width: 120px; text-align: right; padding-right: 0.5em;
+
+- Value: flex: 1; text-align: left;
+
+- Related links: margin-top: 0.5em;
+
+- Feedback p: margin-top: 0.5em;
+
+- Footer: display: flex; justify-content: space-between; padding: 1em; font-size: 0.9em;
+
+- Footer links: color: #0066cc;
+
+Now, let's adjust the CSS to match the image.
+
+Check the image:
+
+- The nav bar is a light orange, so #e6a800.
+
+- The "Obsolete Term Information" section is a lighter orange, #f9e0a0.
+
+- The text in the nav bar is white.
+
+- The main title is black, centered.
+
+- The labels in the info items are bold, left-aligned (but in the image, the labels are on the left, values on the right, so the labels are left-aligned, values right-aligned? Wait, in the image, the labels are on the left, values on the right. So the labels are left-aligned, values right-aligned. So the info items should have the label on the left, value on the right.
+
+So for the info items, the label is on the left, value on the right. So the CSS for info-item should have:
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+.label {
+  font-weight: bold;
+  width: 120px;
+  text-align: left;
+}
+
+.value {
+  text-align: left;
+}
+
+Wait, but in the image, the labels are on the left, values on the right. So the labels are left-aligned, values right-aligned. So the info-item should have the label on the left, value on the right. So the CSS for info-item should be:
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+.label {
+  font-weight: bold;
+  width: 120px;
+  text-align: left;
+}
+
+.value {
+  text-align: left;
+}
+
+But maybe the labels are left-aligned, values right-aligned. So the label is on the left, value on the right. So the info-item is a row with label on left, value on right.
+
+Yes.
+
+Now, the "Related" section: the "Link" is bold, so the <a> tags for "Link" should be bold.
+
+In the HTML, the "Related" section has:
+
+<span class="label">Related</span>
+<div class="related-links">
+  <a href="#">Link</a> to all annotated objects annotated to obsolete multi-organism process.<br>
+ ...
+
+So the "Link" is in bold, so the <a> tag should have font-weight: bold.
+
+Similarly, the "Feedback" section has links.
+
+Now, the "OBSOLETE" in the Definition: it's bold, so the "OBSOLETE." should be bold. In the HTML, the value for Definition is "OBSOLETE. A biological process which involves another organism of the same or different species. Source: GO:jl", so the "OBSOLETE." is part of the value. So in the HTML, the value is a string, so the "OBSOLETE." is bold. So in the HTML, we can have:
+
+<span class="value">OBSOLETE. <span style="font-weight: bold;">OBSOLETE.</span> A biological process which involves another organism of the same or different species. Source: GO:jl</span>
+
+Wait, no. The "OBSOLETE." is the start of the definition. So in the image, the "OBSOLETE." is bold. So in the HTML, the value for Definition is "OBSOLETE. A biological process which involves another organism of the same or different species. Source: GO:jl", and the "OBSOLETE." is bold. So we can write:
+
+<span class="value">OBSOLETE. <strong>A biological process which involves another organism of the same or different species. Source: GO:jl</strong></span>
+
+Wait, no. The "OBSOLETE." is the first part, so it's "OBSOLETE. A biological process...". So the "OBSOLETE." is bold. So:
+
+<span class="value"><strong>OBSOLETE.</strong> A biological process which involves another organism of the same or different species. Source: GO:jl</span>
+
+Yes.
+
+Now, the "Related" section: the "Link" is bold, so the <a> tags should have font-weight: bold.
+
+In the HTML, the "Related" section has:
+
+<a href="#">Link</a> to all annotated objects annotated to obsolete multi-organism process.
+
+So the "Link" is in bold, so the <a> tag should have font-weight: bold.
+
+Similarly, the "Feedback" section has links.
+
+Now, the footer: "Cite this data • Terms of use" on the left, and the right side text.
+
+Now, let's code the CSS.
+
+Let's write the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e6a800;
+  padding: 0.5em 1em;
+  font-size: 16px;
+}
+
+.nav-left {
+  display: flex;
+}
+
+.nav-left a {
+  color: white;
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.dropdown {
+  color: white;
+  font-size: 0.8em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.quick-search {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 0.2em;
+  width: 150px;
+  margin-right: 0.5em;
+  border-radius: 3px;
+}
+
+button {
+  background: #e6a800;
+  color: white;
+  border: none;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.term-info {
+  background-color: #f9e0a0;
+  padding: 1em;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+.term-info h2 {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  background-color: #e6a800;
+  color: white;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+.label {
+  font-weight: bold;
+  width: 120px;
+  text-align: left;
+}
+
+.value {
+  text-align: left;
+}
+
+.related-links {
+  margin-top: 0.5em;
+}
+
+.related-links a {
+  font-weight: bold;
+  color: #0066cc;
+}
+
+.related-links a:hover {
+  text-decoration: underline;
+}
+
+.feedback p {
+  margin-top: 0.5em;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+.footer-left a {
+  color: #0066cc;
+}
+
+.footer-left a:hover {
+  text-decoration: underline;
+}
+
+.footer-right a {
+  color: #0066cc;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+Now, check if this matches the image.
+
+The image shows the "Obsolete Term Information" section with a small square icon. The icon is a square, so the.icon class should have a square. The CSS for.icon is a 16x16 square with background color #e6a800 and white text. That should look like a square.
+
+The nav bar has "Home", "Search" (with dropdown), "Browse", "Tools & Resources" on the left, and "Quick search" input and "Search" button on the right.
+
+The main title is centered.
+
+The info items have labels on the left, values on the right.
+
+The "Related" section has "Link" in bold.
+
+The footer has the left and right sections.
+
+Now, let's check the colors:
+
+- Nav bar: #e6a800 (light orange)
+
+- Term info section: #f9e0a0 (lighter orange)
+
+- Text colors: #333 for body, white for nav bar text.
+
+- Links: #0066cc (blue)
+
+- Hover effects: underline.
+
+Now, the HTML structure should match the image.
+
+Let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsolete Term Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      background-color: #e6a800;
+      padding: 0.5em 1em;
+      font-size: 16px;
+    }
+   .nav-left {
+      display: flex;
+    }
+   .nav-left a {
+      color: white;
+      text-decoration: none;
+      padding: 0.2em 0.5em;
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+   .dropdown {
+      color: white;
+      font-size: 0.8em;
+    }
+   .nav-right {
+      display: flex;
+      align-items: center;
+    }
+   .quick-search {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 0.2em;
+      width: 150px;
+      margin-right: 0.5em;
+      border-radius: 3px;
+    }
+    button {
+      background: #e6a800;
+      color: white;
+      border: none;
+      padding: 0.2em 0.5em;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1em;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+   .term-info {
+      background-color: #f9e0a0;
+      padding: 1em;
+      border-radius: 4px;
+      margin-bottom: 1em;
+    }
+   .term-info h2 {
+      font-size: 1.2em;
+      margin-bottom: 1em;
+      display: flex;
+      justify-content: space-between;
+    }
+   .icon {
+      background-color: #e6a800;
+      color: white;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      border-radius: 2px;
+    }
+   .info-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5em;
+    }
+   .label {
+      font-weight: bold;
+      width: 120px;
+      text-align: left;
+    }
+   .value {
+      text-align: left;
+    }
+   .related-links {
+      margin-top: 0.5em;
+    }
+   .related-links a {
+      font-weight: bold;
+      color: #0066cc;
+    }
+   .related-links a:hover {
+      text-decoration: underline;
+    }
+   .feedback p {
+      margin-top: 0.5em;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+   .footer-left a {
+      color: #0066cc;
+    }
+   .footer-left a:hover {
+      text-decoration: underline;
+    }
+   .footer-right a {
+      color: #0066cc;
+    }
+   .footer-right a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-left">
+      <a href="#">Home</a>
+      <a href="#">Search <span class="dropdown">▼</span></a>
+      <a href="#">Browse</a>
+      <a href="#">Tools & Resources</a>
+    </div>
+    <div class="nav-right">
+      <input type="text" placeholder="Quick search" class="quick-search">
+      <button type="button">Search</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>obsolete multi-organism process</h1>
+    <div class="term-info">
+      <h2>Obsolete Term Information <span class="icon">□</span></h2>
+      <div class="info-item">
+        <span class="label">Accession</span>
+        <span class="value">GO:0051704</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Name</span>
+        <span class="value">obsolete multi-organism process</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Ontology</span>
+        <span class="value">biological_process</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Synonyms</span>
+        <span class="value">interaction between organisms, physiological interaction between organisms, physiological interaction with other organism</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Alternate...</span>
+        <span class="value">GO:0051706</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Definition</span>
+        <span class="value">OBSOLETE. A biological process which involves another organism of the same or different species. Source: GO:jl</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Comment</span>
+        <span class="value">This term was obsoleted because it was not a biologically meaningful grouping class.</span>
+      </div>
+      <div class="info-item">
+        <span class="label">History</span>
+        <span class="value">See term history for GO:0051704 at QuickGO</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Subset</span>
+        <span class="value">None</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Related</span>
+        <div class="related-links">
+          <a href="#">Link</a> to all annotated objects annotated to obsolete multi-organism process.<br>
+          <a href="#">Link</a> to all direct and indirect <strong>annotations</strong> to obsolete multi-organism process.<br>
+          <a href="#">Link</a> to all direct and indirect <strong>annotations download</strong> (limited to first 10,000) for obsolete multi-organism process.
+        </div>
+      </div>
+      <div class="info-item">
+        <span class="label">Feedback</span>
+        <p>Contact the <a href="#">Planteome feedback</a> if you find mistakes or have concerns about the data you find here.<br>
+        Comments, changes to terms, or requests for new ontology terms can be made at <a href="#">GO issue tracker on GitHub</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <a href="#">Cite this data</a> • <a href="#">Terms of use</a>
+    </div>
+    <div class="footer-right">
+      Last data loaded on 2023-07-30, see <a href="#">full details</a><br>
+      Planteome release: <strong>5.0.0</strong> (browser.planteome.org)
+    </div>
+  </footer>
+</body>
+</html>
+```

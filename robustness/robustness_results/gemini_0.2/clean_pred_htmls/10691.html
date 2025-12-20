@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rosado Wrap Bracelet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #555;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px; /* Add some padding on smaller screens */
+        }
+
+        /* Colors */
+        :root {
+            --primary-blue: #80d8d8; /* Light turquoise/blue */
+            --text-dark: #333;
+            --text-medium: #555;
+            --text-light: #888;
+            --border-light: #e0e0e0;
+            --placeholder-blue: blue;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--primary-blue);
+            margin-bottom: 40px;
+        }
+
+        .header-left .logo-placeholder {
+            width: 100px;
+            height: 30px;
+            background-color: var(--placeholder-blue);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .header-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .header-cart {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .header-cart a {
+            color: var(--primary-blue);
+        }
+
+        /* Product Title & Price */
+        .product-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: var(--text-medium);
+            font-weight: 600;
+        }
+
+        /* Product Details */
+        .product-details {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .product-images {
+            flex: 1;
+            min-width: 300px; /* Ensure images don't shrink too much */
+        }
+
+        .main-image-placeholder {
+            width: 100%;
+            padding-bottom: 75%; /* Aspect ratio 4:3 (height is 75% of width) */
+            background-color: var(--placeholder-blue);
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail-placeholder {
+            width: 100px; /* Fixed width for thumbnails */
+            height: 75px; /* Fixed height for thumbnails */
+            background-color: var(--placeholder-blue);
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 300px; /* Ensure info doesn't shrink too much */
+        }
+
+        .product-description p {
+            margin-bottom: 1em;
+            font-size: 0.95em;
+            color: var(--text-medium);
+        }
+
+        .product-description p strong { /* For the bolded parts like **For sizing...** */
+            font-weight: normal; /* Override default strong bold */
+            color: var(--primary-blue);
+        }
+
+        .product-options {
+            margin-top: 30px;
+        }
+
+        .product-options select,
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--primary-blue);
+            background-color: #fff;
+            color: var(--text-medium);
+            font-size: 1em;
+            cursor: pointer;
+            appearance: none; /* Remove default select arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border-radius: 0; /* Remove default border-radius */
+        }
+
+        .product-options select {
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2380d8d8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%01-13%205.7H18.4c-5%200-9.3-1.8-12.9-5.7-3.6-3.9-5.4-8.5-5.4-13.9%200-5.4%201.8-10%205.4-13.9L132.4%203.3c3.6-3.9%208.2-5.9%2013.9-5.9s10.3%202%2013.9%205.9l114.3%20114.3c3.6%203.9%205.4%208.5%205.4%2013.9%200%205.4-1.8%2010-5.4%2013.9z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 40px; /* Make space for the custom arrow */
+        }
+
+        .add-to-cart-btn {
+            text-align: center;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        .share-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .share-text {
+            font-size: 0.9em;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .share-icon-placeholder {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--primary-blue);
+            background-color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--primary-blue);
+            padding: 20px 0;
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        .footer-left .bigcartel-text {
+            background-color: #f0f0f0; /* Light gray background */
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 0;
+            }
+            .header-nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .header-cart {
+                margin-top: 10px;
+            }
+
+            .product-title {
+                font-size: 1.8em;
+                letter-spacing: 0.15em;
+            }
+
+            .product-details {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .product-images,
+            .product-info {
+                min-width: unset; /* Remove min-width on smaller screens */
+                width: 100%;
+            }
+
+            .thumbnail-images {
+                justify-content: center;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .header-nav {
+                font-size: 0.8em;
+            }
+            .product-title {
+                font-size: 1.5em;
+                letter-spacing: 0.1em;
+            }
+            .product-price {
+                font-size: 1em;
+            }
+            .product-description p {
+                font-size: 0.9em;
+            }
+            .thumbnail-placeholder {
+                width: 80px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <div class="logo-placeholder"></div>
+            </div>
+            <nav class="header-nav">
+                <a href="#">Products</a>
+                <a href="#">Who We Are</a>
+                <a href="#">Size Chart</a>
+                <a href="#">Policies</a>
+            </nav>
+            <div class="header-cart">
+                <a href="#">0 / $0.00</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="product-header">
+                <h1 class="product-title">The Rosado Wrap Bracelet</h1>
+                <p class="product-price">$ 20.00</p>
+            </section>
+
+            <section class="product-details">
+                <div class="product-images">
+                    <div class="main-image-placeholder"></div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail-placeholder"></div>
+                        <div class="thumbnail-placeholder"></div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-description">
+                        <p>Dyed pink, wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!</p>
+                        <p>This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $20.00 each.</p>
+                        <p><strong>**For sizing measurements, please refer to the Size Chart Page.**</strong></p>
+                        <p><strong>**This bracelet can be customized with silver spacers.**</strong></p>
+                    </div>
+
+                    <div class="product-options">
+                        <select name="size" id="size-select">
+                            <option value="small">Small (S)</option>
+                            <option value="medium">Medium (M)</option>
+                            <option value="large">Large (L)</option>
+                        </select>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+
+                    <div class="share-section">
+                        <p class

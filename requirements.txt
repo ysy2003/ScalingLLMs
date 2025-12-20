@@ -1,0 +1,51 @@
+# Core ML/DL frameworks
+torch==2.8.0
+torchvision==0.23.0
+torchaudio==2.8.0
+transformers==4.57.1
+
+# Model-specific utilities
+qwen-vl-utils==0.0.14
+
+# Dataset handling
+datasets==4.4.1
+
+# Image processing
+pillow==12.0.0
+
+# Data analysis and export
+pandas==2.3.3
+openpyxl==3.1.5  # Required for pandas Excel export (df.to_excel)
+
+# HTML parsing and structural analysis
+beautifulsoup4==4.14.2
+lxml==6.0.2  # Fast HTML parser backend for BeautifulSoup
+
+# Tree edit distance (optional but recommended)
+zss==1.2.0  # For accurate tree edit distance in structural_alignment.py
+            # Falls back to simple recursive algorithm if not installed
+
+# Browser automation for correctness metrics
+playwright>=1.40.0  # Required for running correctness checks
+                    # After installation, run: playwright install chromium
+
+# Progress bars
+tqdm==4.67.1
+
+# Optional: for debugging
+torchsummary==1.5.1
+
+# ============================================================================
+# INSTALLATION INSTRUCTIONS:
+# ============================================================================
+#
+# 1. Install all packages:
+#    pip install -r requirements.txt
+#
+# 2. Install Playwright browsers (required for correctness metrics):
+#    playwright install chromium
+#
+# 3. For CUDA support, ensure you have the appropriate CUDA toolkit installed
+#    that matches your torch version (2.8.0 requires CUDA 11.8 or 12.1+)
+#
+# ============================================================================

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Git Repositories</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 20px; /* Add some padding around the main content */
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            max-width: 1000px; /* Approximate width from image */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            flex: 0 0 200px; /* Fixed width for sidebar */
+            padding-right: 40px; /* Space between sidebar and main content */
+            box-sizing: border-box;
+            padding-top: 10px; /* Align with main content top */
+        }
+
+        .sidebar h3 {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #007bff; /* Blue link color */
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1; /* Takes remaining space */
+            padding-left: 20px; /* Small padding for visual separation */
+            box-sizing: border-box;
+        }
+
+        /* Top Header Section (Jeremy Minton, About, Share) */
+        .article-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 30px; /* Space below this section */
+            padding-bottom: 10px; /* Visual separation from title */
+            border-bottom: 1px solid #eee; /* Subtle line */
+        }
+
+        .author-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .header-links a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 15px;
+            font-size: 0.9em;
+        }
+
+        .header-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Title and Metadata */
+        h1 {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            color: #333;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Article Body Content */
+        .article-body p {
+            margin-bottom: 1.2em;
+            font-size: 1em;
+        }
+
+        .article-body a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        code {
+            font-family: monospace;
+        }
+
+        /* Article Footer */
+        .article-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .article-footer .post-date {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .article-footer .share-link {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 0.9em;
+        }
+
+        .article-footer .share-link:hover {
+            text-decoration: underline;
+        }
+
+        .article-footer h3 {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .article-footer ul {
+            list-style: disc; /* Bullet points */
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .article-footer li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .article-footer li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .article-footer li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 0 15px; /* Add horizontal padding on smaller screens */
+            }
+
+            .sidebar {
+                flex: none; /* Remove fixed width */
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 20px;
+            }
+
+            .main-content {
+                padding-left: 0;
+            }
+
+            .article-header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-links {
+                margin-top: 10px;
+            }
+
+            .header-links a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Me</a></li>
+                <li><a href="#">Documents</a></li>
+                <li><a href="#">Technical Notes &#x03A0;</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <div class="article-header-top">
+                <div class="author-name">Jeremy Minton</div>
+                <div class="header-links">
+                    <a href="#">About</a>
+                    <a href="#">&#x25A1;</a> <!-- Share icon placeholder -->
+                </div>
+            </div>
+
+            <article>
+                <h1>Creating Git Repositories</h1>
+                <p class="post-meta">Posted by Jeremy Minton, 9 years ago</p>
+
+                <div class="article-body">
+                    <p>I have recently been thoroughly sold by the benefits of Git. It is a revelation that came slower to me than many of you, probably because I haven't worked on projects large enough or high risk enough to warrant that sort versioning and I have never seriously been in a situation with that level of collaboration.</p>
+                    <p>Recently, however, I was writing some code to implement a mathematical model I had developed and I decided to invest in properly learning to use git. It almost immediately paid itself off as I could track the many subtle tweaks one makes while chasing sign errors or factors of two as well as using branching to more safely test theories about what may be going wrong.</p>
+                    <p>I don't need to add to the dozens of Git tutorials out there already so instead I am writing this as a reference (to myself mostly) about how to do some typical tasks in git. <a href="#">this site</a> as very accessible instruction of git functionality.</p>
+
+                    <h2>Converting an existing folder to a git Repository</h2>
+                    <p>Firstly, create a bare git repository, so on the server (or where you keep your repository)</p>
+                    <pre><code>mkdir &lt;repositoryFolder&gt;.git; cd &lt;repositoryFolder&gt;
+git --bare init</code></pre>
+                    <p>Now on your local machine, create a repository out of the current directory and add the bare repository created before.</p>
+                    <pre><code>cd &lt;workingFolder&gt;/..; mv &lt;workingFolder&gt;.bak -R
+git clone ssh://[EMAIL REDACTED]:/absolute/address/to/&lt;repositoryFolder
+&gt;.git
+cp &lt;workingFolder&gt;.bak/\* &lt;repositoryName&gt;</code></pre>
+                    <p>Then do the usual add, commit, push</p>
+                    <pre><code>git add *
+git commit -m "Repository creation"
+git push</code></pre>
+                </div>
+            </article>
+
+            <footer class="article-footer">
+                <div class="post-date">
+                    <span>Posted Saturday 4 October 2014</span>
+                    <a href="#" class="share-link">&#x25A1; Share</a>
+                </div>
+                <h3>You might also like:</h3>
+                <ul>
+                    <li><a href="#">Frequentist hypothesis testing</a></li>
+                    <li><a href="#">Fixing ctrl+arrow to jump words in Alacritty terminal.</a></li>
+                    <li><a href="#">Developing in Docker containers</a></li>
+                </ul>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>

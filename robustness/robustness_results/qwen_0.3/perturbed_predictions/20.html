@@ -1,0 +1,1352 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Starting with the structure:
+
+- The top has a navigation bar with "HOME", "ABOUT US", "CONTACT US" in green. Then a purple bar with "EVENTS" dropdown and a search box.
+- The main content has a header "McMahon Engineering", then sections like "PROJECT SUMMARY", "BACKGROUND", "OUTCOMES", etc.
+- There's a pink box with "SUMMARY" details: Name, Location, County, Total Cost, Axis, and a "Visit Web Site" link.
+- On the right, a sidebar with links: CASE STUDIES, PUBLICATIONS, etc.
+- The footer has some blue blocks and a "policy" link.
+
+Let's break down each part.
+
+First, the HTML structure:
+
+- <header> for the top navigation.
+- <nav> for the main navigation (HOME, ABOUT US, CONTACT US).
+- Then a purple bar with "EVENTS" dropdown and search.
+- <main> for the content: header, sections, summary box.
+- <aside> for the sidebar links.
+- <footer> for the bottom elements.
+
+Now, the colors:
+
+- Top nav: green text (maybe #4CAF50 or similar), background white.
+- Purple bar: #9C57B4.
+- Summary box: light pink (#F8F0FF).
+- Sidebar links: blue text (#4A90E2).
+- Footer: blue blocks.
+
+Let's check the text:
+
+- "McMahon Engineering" is the main header.
+- "PROJECT SUMMARY" section: text about developing an engineering business, purchasing equipment for aluminium products.
+- "BACKGROUND": mentions 25 years, large shed.
+- "OUTCOMES": funding for welder and shaper.
+- "SUMMARY" box: Name: McMahon Engineering, Location: Armagh, County: Armagh, Total Cost: £9,664.00, Axis: AXIS 3 : SOAR, Visit Web Site.
+
+Sidebar links: CASE STUDIES, PUBLICATIONS, PROJECTS DIRECTORY, THEMATIC WORKING GROUPS.
+
+Search box: "search the Rural Network" with a blue search button.
+
+Now, the CSS needs to be responsive. Let's think about layout:
+
+- The main content and sidebar: probably a two-column layout. The sidebar is on the right, so using flex or grid.
+
+Let's outline the HTML:
+
+1. <html> with lang="en".
+2. <head> with meta tags (charset, viewport), title, and style block.
+3. <body>:
+   - <header> with top nav (HOME, ABOUT US, CONTACT US) - maybe a <nav> inside.
+   - Then a purple bar with "EVENTS" dropdown and search.
+   - <main> with the content:
+     - <h1> McMahon Engineering
+     - <section> PROJECT SUMMARY
+     - <section> BACKGROUND
+     - <section> OUTCOMES
+     - <div> SUMMARY box (pink)
+   - <aside> with sidebar links
+   - <footer> with blue blocks and "policy" link.
+
+Wait, the image shows the "SUMMARY" box as a separate element. Let's check the image again.
+
+The image has:
+
+- Left side: text sections (PROJECT SUMMARY, BACKGROUND, etc.)
+- Middle: pink box with SUMMARY details.
+- Right side: sidebar links.
+
+So the layout is three columns? Or main content (left and middle) and sidebar (right). Wait, the image shows the summary box in the middle, so maybe the main content is split into two columns: left (text) and middle (summary box), and right (sidebar). But looking at the image, the summary box is a separate block, so perhaps the main content is a two-column layout where the left is the text sections, and the right is the sidebar. Wait, no: the summary box is in the middle of the main content.
+
+Wait, the image shows:
+
+- Top: navigation bar (HOME, ABOUT US, CONTACT US)
+- Then a purple bar with EVENTS and search.
+- Then the main content area: left side has "McMahon Engineering" header, then PROJECT SUMMARY, BACKGROUND, OUTCOMES sections. In the middle, there's a pink box with SUMMARY details. On the right, the sidebar links.
+
+So the main content is a three-column layout? Or maybe the main content is a two-column: left (text sections and summary box), right (sidebar). Wait, the summary box is part of the main content, so perhaps the main content is a two-column layout where the left column has the text sections and the summary box, and the right column is the sidebar.
+
+Wait, looking at the image:
+
+- The "SUMMARY" box is a light pink rectangle. It's positioned to the right of the text sections. So the main content area is split into two columns: left (text sections) and right (summary box and sidebar). Wait, no, the sidebar is on the right, so the main content is left (text sections) and middle (summary box), and right (sidebar). But the image shows the summary box as a separate block, so maybe the main content is a two-column layout where the left is the text sections, and the right is the summary box and sidebar. Hmm, maybe better to use a flex container for the main content.
+
+Alternatively, the main content is structured as:
+
+- <div class="container">
+  - <div class="content">
+    - <h1>McMahon Engineering</h1>
+    - <section class="project-summary">PROJECT SUMMARY text</section>
+    - <section class="background">BACKGROUND text</section>
+    - <section class="outcomes">OUTCOMES text</section>
+    - <div class="summary-box">SUMMARY details</div>
+  </div>
+  - <aside class="sidebar">sidebar links</aside>
+</div>
+
+But the image shows the summary box as a separate element, so perhaps the main content is a two-column layout where the left column has the text sections and the summary box, and the right column is the sidebar. Wait, no, the summary box is in the middle of the main content. Let's check the image again.
+
+The image shows:
+
+- Left side: text sections (PROJECT SUMMARY, BACKGROUND, etc.)
+- Middle: pink box with SUMMARY details.
+- Right side: sidebar links.
+
+So the main content area is a three-column layout? Or maybe the main content is a two-column layout where the left is the text sections, and the right is the summary box and sidebar. Wait, the summary box is a single block, so perhaps the main content is a two-column layout where the left column is the text sections, and the right column is the summary box and sidebar. But the sidebar is on the right, so the main content is split into two columns: left (text sections), right (summary box and sidebar). Wait, no, the sidebar is a separate element on the right, so the main content is left (text sections and summary box) and right (sidebar). But the summary box is part of the main content, so the main content is a two-column layout where the left column has the text sections and the summary box, and the right column is the sidebar.
+
+Alternatively, the main content is a single column, but the summary box is a separate block. Let's look at the image's structure.
+
+The image shows:
+
+- The "McMahon Engineering" header is at the top of the main content.
+- Below that, "PROJECT SUMMARY" section.
+- Then "BACKGROUND" section.
+- Then "OUTCOMES" section.
+- Then the pink "SUMMARY" box.
+
+So the main content is a vertical stack of sections, with the summary box as a separate block. The sidebar is on the right.
+
+So the HTML structure would be:
+
+<body>
+  <header>
+    <nav>HOME, ABOUT US, CONTACT US</nav>
+  </header>
+  <div class="purple-bar">
+    <div class="events-dropdown">EVENTS</div>
+    <div class="search-box">search the Rural Network</div>
+  </div>
+  <main>
+    <h1>McMahon Engineering</h1>
+    <section class="project-summary">PROJECT SUMMARY text...</section>
+    <section class="background">BACKGROUND text...</section>
+    <section class="outcomes">OUTCOMES text...</section>
+    <div class="summary-box">
+      <h2>SUMMARY</h2>
+      <p>Name: McMahon Engineering</p>
+     ... etc.
+    </div>
+  </main>
+  <aside class="sidebar">
+    <ul>
+      <li>CASE STUDIES</li>
+     ... etc.
+    </ul>
+  </aside>
+  <footer>
+   ... blue blocks and policy link
+  </footer>
+</body>
+
+Now, the CSS:
+
+- The top nav: background white, text green, links styled.
+- Purple bar: background #9C57B4, text white for "EVENTS", search box with white background.
+- Main content: left-aligned, with the summary box having a light pink background.
+- Sidebar: right-aligned, links in blue.
+- Footer: blue blocks.
+
+Let's define the colors:
+
+- Green for top nav: #4CAF50 (or similar, but the image shows green, so let's use #4CAF50)
+- Purple bar: #9C57B4
+- Summary box: #F8F0FF
+- Sidebar links: #4A90E2
+- Search button: blue (maybe #0066CC)
+
+Now, the responsive part: the layout should be responsive. For mobile, the sidebar might stack below the main content.
+
+Let's structure the CSS:
+
+- Reset margins/paddings.
+- Set font sizes, line heights.
+- The main content and sidebar: use flexbox for the main container, so that on larger screens, main content is left, sidebar is right; on mobile, sidebar is below.
+
+Wait, the image shows the sidebar on the right, so the main content (left) and sidebar (right) are side by side on larger screens, and stacked on mobile.
+
+So the main container (the one holding main and aside) should be a flex container with wrap.
+
+Let's outline the CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.purple-bar {
+  background: #9C57B4;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.events-dropdown {
+  position: relative;
+}
+
+/* Search box */
+.search-box {
+  background: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 5px;
+}
+
+.search-box button {
+  background: #0066CC;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.summary-box {
+  background: #F8F0FF;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.summary-box h2 {
+  color: #333;
+  margin-top: 0;
+}
+
+.summary-box p {
+  margin: 5px 0;
+}
+
+aside {
+  background: white;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+footer {
+  background: #0066CC;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  main, aside {
+    margin: 0;
+    padding: 0;
+  }
+  main {
+    flex-direction: column;
+  }
+  aside {
+    margin-top: 20px;
+  }
+}
+
+Wait, but the image shows the sidebar on the right, so on larger screens, main and aside are side by side. So the main container (the one holding main and aside) should be a flex container with main on the left and aside on the right.
+
+So the structure should be:
+
+<div class="container">
+  <main>...</main>
+  <aside>...</aside>
+</div>
+
+Then, in CSS:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main {
+  flex: 1;
+  min-width: 300px;
+}
+
+aside {
+  flex: 0 0 250px;
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  main, aside {
+    flex: 1 1 100%;
+  }
+}
+
+Yes, that makes sense. So the main content (left) takes up the remaining space, and the sidebar (right) is fixed width on larger screens.
+
+Now, let's check the text content.
+
+The "PROJECT SUMMARY" section text: "and develop an existing engineering business the purchase of specialist equipment thus enabling manufacture of various aluminium products."
+
+Wait, the image shows "PROJECT SUMMARY" followed by text. Let's check the image:
+
+The text under PROJECT SUMMARY is: "and develop an existing engineering business the purchase of specialist equipment thus enabling manufacture of various aluminium products."
+
+Wait, that seems like it's missing the start. Maybe it's "To develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products." But the image shows "and develop...", so perhaps the text is incomplete. But we have to replicate exactly as in the image.
+
+Similarly, BACKGROUND: "McMahon Engineering is a successful engineering works has been established for 25 years. The business is in a large purpose built shed beside the promoter's"
+
+OUTCOMES: "the promoter had enquiries from manufacturers who specialise in the production of aluminium items and the development will enable the promoter to meet the demands of these new customers. One job has also been created."
+
+SUMMARY box:
+
+Name: McMahon Engineering
+
+Location: Armagh
+
+County: Armagh
+
+Total Cost: £ 9,664.00
+
+Axis: AXIS 3 : SOAR
+
+Visit Web Site
+
+Sidebar links:
+
+CASE STUDIES
+
+PUBLICATIONS
+
+PROJECTS DIRECTORY
+
+THEMATIC WORKING GROUPS
+
+Search box: "search the Rural Network"
+
+Top nav: HOME, ABOUT US, CONTACT US
+
+Now, let's code the HTML.
+
+First, the header:
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">ABOUT US</a></li>
+      <li><a href="#">CONTACT US</a></li>
+    </ul>
+  </nav>
+</header>
+
+Then the purple bar:
+
+<div class="purple-bar">
+  <div class="events-dropdown">
+    <span>EVENTS</span>
+    <span>&#9660;</span>
+  </div>
+  <div class="search-box">
+    <input type="text" placeholder="search the Rural Network">
+    <button type="submit">Search</button>
+  </div>
+</div>
+
+Main content:
+
+<main>
+  <h1>McMahon Engineering</h1>
+  <section class="project-summary">
+    <h2>PROJECT SUMMARY</h2>
+    <p>and develop an existing engineering business the purchase of specialist equipment thus enabling manufacture of various aluminium products.</p>
+  </section>
+  <section class="background">
+    <h2>BACKGROUND</h2>
+    <p>McMahon Engineering is a successful engineering works has been established for 25 years. The business is in a large purpose built shed beside the promoter's</p>
+  </section>
+  <section class="outcomes">
+    <h2>OUTCOMES</h2>
+    <p>the promoter had enquiries from manufacturers who specialise in the production of aluminium items and the development will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+  </section>
+  <div class="summary-box">
+    <h2>SUMMARY</h2>
+    <p><strong>Name:</strong> McMahon Engineering</p>
+    <p><strong>Location:</strong> Armagh</p>
+    <p><strong>County:</strong> Armagh</p>
+    <p><strong>Total Cost:</strong> £ 9,664.00</p>
+    <p><strong>Axis:</strong> AXIS 3 : SOAR</p>
+    <p><a href="#">Visit Web Site</a></p>
+  </div>
+</main>
+
+Aside:
+
+<aside class="sidebar">
+  <ul>
+    <li><a href="#">CASE STUDIES</a></li>
+    <li><a href="#">PUBLICATIONS</a></li>
+    <li><a href="#">PROJECTS DIRECTORY</a></li>
+    <li><a href="#">THEMATIC WORKING GROUPS</a></li>
+  </ul>
+</aside>
+
+Footer:
+
+<footer>
+  <div class="footer-content">
+    <p>policy</p>
+    <div class="footer-blocks">
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+    </div>
+  </div>
+</footer>
+
+Now, the CSS:
+
+We need to style all these elements.
+
+Let's define the colors:
+
+- Top nav: background white, text green (#4CAF50)
+- Purple bar: #9C57B4
+- Summary box: #F8F0FF
+- Sidebar links: #4A90E2
+- Footer blocks: #0066CC
+
+Let's write the CSS:
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  header {
+    background: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+ .purple-bar {
+    background: #9C57B4;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+ .events-dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+ .events-dropdown span {
+    cursor: pointer;
+  }
+
+ .search-box {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+  }
+
+ .search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 5px;
+    flex: 1;
+  }
+
+ .search-box button {
+    background: #0066CC;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #333;
+    margin-top: 0;
+  }
+
+ .summary-box {
+    background: #F8F0FF;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+
+ .summary-box h2 {
+    color: #333;
+    margin-top: 0;
+  }
+
+ .summary-box p {
+    margin: 5px 0;
+  }
+
+ .summary-box a {
+    color: #0066CC;
+    text-decoration: none;
+  }
+
+  aside {
+    background: white;
+    padding: 20px;
+    margin-left: 20px;
+  }
+
+  aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  aside li {
+    margin-bottom: 10px;
+  }
+
+  aside a {
+    color: #4A90E2;
+    text-decoration: none;
+  }
+
+  footer {
+    background: #0066CC;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+ .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+ .footer-blocks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+ .block {
+    width: 80px;
+    height: 40px;
+    background: white;
+  }
+
+  /* Responsive for mobile */
+  @media (max-width: 768px) {
+    main, aside {
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      flex-direction: column;
+    }
+    aside {
+      margin-top: 20px;
+    }
+   .purple-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+   .events-dropdown {
+      margin-bottom: 10px;
+    }
+   .search-box {
+      width: 100%;
+    }
+  }
+</style>
+
+Wait, the footer in the image has three blue blocks. The code above has.block with white background, but the image shows blue blocks. Wait, the image's footer has three blue blocks. So the footer blocks should be blue.
+
+Wait, the image's footer: the three blocks are blue. So the.block should have background: #0066CC (same as the search button).
+
+So in the CSS:
+
+.block {
+  width: 80px;
+  height: 40px;
+  background: #0066CC;
+}
+
+Also, the "policy" link in the footer: the image shows "policy" as a link. So in the footer, there's a <p>policy</p> which is a link.
+
+Wait, the image's footer has "policy" as a link. So:
+
+<footer>
+  <p><a href="#">policy</a></p>
+  <div class="footer-blocks">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+  </div>
+</footer>
+
+Yes, that's correct.
+
+Now, check the purple bar: the "EVENTS" dropdown has a down arrow. In the image, it's "EVENTS" with a down arrow. So the.events-dropdown span has the down arrow.
+
+In the HTML, the events dropdown is:
+
+<div class="events-dropdown">
+  <span>EVENTS</span>
+  <span>&#9660;</span>
+</div>
+
+Which shows "EVENTS" followed by a down arrow.
+
+Now, the main content: the "PROJECT SUMMARY" section has text that starts with "and develop...", which is as per the image.
+
+Now, let's check the summary box:
+
+Name: McMahon Engineering
+
+Location: Armagh
+
+County: Armagh
+
+Total Cost: £ 9,664.00
+
+Axis: AXIS 3 : SOAR
+
+Visit Web Site
+
+Yes, that's correct.
+
+Sidebar links: CASE STUDIES, PUBLICATIONS, PROJECTS DIRECTORY, THEMATIC WORKING GROUPS.
+
+Now, the responsive part: on mobile, the sidebar is below the main content.
+
+Now, let's put it all together.
+
+The HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McMahon Engineering</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="purple-bar">
+    <div class="events-dropdown">
+      <span>EVENTS</span>
+      <span>&#9660;</span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="search the Rural Network">
+      <button type="submit">Search</button>
+    </div>
+  </div>
+  <main>
+    <h1>McMahon Engineering</h1>
+    <section class="project-summary">
+      <h2>PROJECT SUMMARY</h2>
+      <p>and develop an existing engineering business the purchase of specialist equipment thus enabling manufacture of various aluminium products.</p>
+    </section>
+    <section class="background">
+      <h2>BACKGROUND</h2>
+      <p>McMahon Engineering is a successful engineering works has been established for 25 years. The business is in a large purpose built shed beside the promoter's</p>
+    </section>
+    <section class="outcomes">
+      <h2>OUTCOMES</h2>
+      <p>the promoter had enquiries from manufacturers who specialise in the production of aluminium items and the development will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+    </section>
+    <div class="summary-box">
+      <h2>SUMMARY</h2>
+      <p><strong>Name:</strong> McMahon Engineering</p>
+      <p><strong>Location:</strong> Armagh</p>
+      <p><strong>County:</strong> Armagh</p>
+      <p><strong>Total Cost:</strong> £ 9,664.00</p>
+      <p><strong>Axis:</strong> AXIS 3 : SOAR</p>
+      <p><a href="#">Visit Web Site</a></p>
+    </div>
+  </main>
+  <aside class="sidebar">
+    <ul>
+      <li><a href="#">CASE STUDIES</a></li>
+      <li><a href="#">PUBLICATIONS</a></li>
+      <li><a href="#">PROJECTS DIRECTORY</a></li>
+      <li><a href="#">THEMATIC WORKING GROUPS</a></li>
+    </ul>
+  </aside>
+  <footer>
+    <div class="footer-content">
+      <p><a href="#">policy</a></p>
+      <div class="footer-blocks">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, check the CSS for the container. Wait, the main and aside should be in a container that's a flex container. Wait, in the current HTML, main and aside are siblings, but they are not wrapped in a container. So the CSS for main and aside should be:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main {
+  flex: 1;
+  min-width: 300px;
+}
+
+aside {
+  flex: 0 0 250px;
+  min-width: 250px;
+}
+
+But in the current HTML, there's no container. So we need to wrap main and aside in a container.
+
+Ah, right! The image shows the main content (left) and sidebar (right) side by side, so they should be in a container that's a flex container.
+
+So the HTML should have:
+
+<div class="container">
+  <main>...</main>
+  <aside>...</aside>
+</div>
+
+Then, in CSS:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+main {
+  flex: 1;
+  min-width: 300px;
+}
+
+aside {
+  flex: 0 0 250px;
+  min-width: 250px;
+}
+
+This way, on larger screens, main and aside are side by side, and on mobile, they stack.
+
+So let's adjust the HTML:
+
+<body>
+  <header>...</header>
+  <div class="purple-bar">...</div>
+  <div class="container">
+    <main>...</main>
+    <aside>...</aside>
+  </div>
+  <footer>...</footer>
+</body>
+
+And add the container CSS.
+
+Now, the CSS:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+main {
+  flex: 1;
+  min-width: 300px;
+}
+
+aside {
+  flex: 0 0 250px;
+  min-width: 250px;
+}
+
+This will make the main content take up the remaining space, and the sidebar fixed width on larger screens.
+
+Now, check the image: the sidebar is on the right, so the container should have main on the left and aside on the right.
+
+Yes.
+
+Now, let's update the HTML and CSS.
+
+Also, the footer's "policy" link: in the image, it's "policy" as a link, so the HTML has <p><a href="#">policy</a></p>.
+
+Now, let's check the colors:
+
+- Top nav: white background, green text.
+- Purple bar: #9C57B4, white text.
+- Summary box: #F8F0FF.
+- Sidebar links: #4A90E2.
+- Footer: #0066CC.
+
+The search button is blue (#0066CC), which matches the footer blocks.
+
+Now, let's write the final HTML and CSS.
+
+Make sure all elements are closed properly.
+
+Let's check the HTML structure:
+
+- The <header> has the nav with three links.
+- The purple bar has events dropdown and search box.
+- The container has main and aside.
+- Main has the h1 and sections.
+- Aside has the sidebar links.
+- Footer has policy link and three blocks.
+
+Now, the CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.purple-bar {
+  background: #9C57B4;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.events-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.events-dropdown span {
+  cursor: pointer;
+}
+
+.search-box {
+  background: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 5px;
+  flex: 1;
+}
+
+.search-box button {
+  background: #0066CC;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+main {
+  flex: 1;
+  min-width: 300px;
+}
+
+h1 {
+  color: #333;
+  margin-top: 0;
+}
+
+.summary-box {
+  background: #F8F0FF;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.summary-box h2 {
+  color: #333;
+  margin-top: 0;
+}
+
+.summary-box p {
+  margin: 5px 0;
+}
+
+.summary-box a {
+  color: #0066CC;
+  text-decoration: none;
+}
+
+aside {
+  background: white;
+  padding: 20px;
+  flex: 0 0 250px;
+  min-width: 250px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+aside a {
+  color: #4A90E2;
+  text-decoration: none;
+}
+
+footer {
+  background: #0066CC;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-blocks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.block {
+  width: 80px;
+  height: 40px;
+  background: #0066CC;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  main, aside {
+    margin: 0;
+    padding: 0;
+  }
+  main {
+    flex-direction: column;
+  }
+  aside {
+    margin-top: 20px;
+  }
+ .purple-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+ .events-dropdown {
+    margin-bottom: 10px;
+  }
+ .search-box {
+    width: 100%;
+  }
+}
+
+Now, check if all elements are correctly styled.
+
+The main content (main) has the h1, project summary, background, outcomes, and summary box.
+
+The summary box has the correct details.
+
+The sidebar (aside) has the four links.
+
+The footer has the policy link and three blue blocks.
+
+The purple bar has the events dropdown and search box.
+
+The top nav has the three links.
+
+Now, let's make sure the HTML is valid and closed properly.
+
+Yes, all tags are closed.
+
+Now, the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McMahon Engineering</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+   .purple-bar {
+      background: #9C57B4;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+   .events-dropdown {
+      display: flex;
+      align-items: center;
+    }
+
+   .events-dropdown span {
+      cursor: pointer;
+    }
+
+   .search-box {
+      background: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+   .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 5px;
+      flex: 1;
+    }
+
+   .search-box button {
+      background: #0066CC;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    main {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    h1 {
+      color: #333;
+      margin-top: 0;
+    }
+
+   .summary-box {
+      background: #F8F0FF;
+      padding: 20px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+
+   .summary-box h2 {
+      color: #333;
+      margin-top: 0;
+    }
+
+   .summary-box p {
+      margin: 5px 0;
+    }
+
+   .summary-box a {
+      color: #0066CC;
+      text-decoration: none;
+    }
+
+    aside {
+      background: white;
+      padding: 20px;
+      flex: 0 0 250px;
+      min-width: 250px;
+    }
+
+    aside ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    aside li {
+      margin-bottom: 10px;
+    }
+
+    aside a {
+      color: #4A90E2;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #0066CC;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+   .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+   .footer-blocks {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+   .block {
+      width: 80px;
+      height: 40px;
+      background: #0066CC;
+    }
+
+    @media (max-width: 768px) {
+      main, aside {
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        flex-direction: column;
+      }
+      aside {
+        margin-top: 20px;
+      }
+     .purple-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+     .events-dropdown {
+        margin-bottom: 10px;
+      }
+     .search-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="purple-bar">
+    <div class="events-dropdown">
+      <span>EVENTS</span>
+      <span>&#9660;</span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="search the Rural Network">
+      <button type="submit">Search</button>
+    </div>
+  </div>
+  <div class="container">
+    <main>
+      <h1>McMahon Engineering</h1>
+      <section class="project-summary">
+        <h2>PROJECT SUMMARY</h2>
+        <p>and develop an existing engineering business the purchase of specialist equipment thus enabling manufacture of various aluminium products.</p>
+      </section>
+      <section class="background">
+        <h2>BACKGROUND</h2>
+        <p>McMahon Engineering is a successful engineering works has been established for 25 years. The business is in a large purpose built shed beside the promoter's</p>
+      </section>
+      <section class="outcomes">
+        <h2>OUTCOMES</h2>
+        <p>the promoter had enquiries from manufacturers who specialise in the production of aluminium items and the development will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+      </section>
+      <div class="summary-box">
+        <h2>SUMMARY</h2>
+        <p><strong>Name:</strong> McMahon Engineering</p>
+        <p><strong>Location:</strong> Armagh</p>
+        <p><strong>County:</strong> Armagh</p>
+        <p><strong>Total Cost:</strong> £ 9,664.00</p>
+        <p><strong>Axis:</strong> AXIS 3 : SOAR</p>
+        <p><a href="#">Visit Web Site</a></p>
+      </div>
+    </main>
+    <aside>
+      <ul>
+        <li><a href="#">CASE STUDIES</a></li>
+        <li><a href="#">PUBLICATIONS</a

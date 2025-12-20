@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLDAP, Evolution and Microsoft Outlook HOWTO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #2c3e50;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+       .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin: 20px 0 10px;
+        }
+       .date {
+            font-size: 0.9em;
+            color: #bdc3c7;
+            margin-bottom: 15px;
+        }
+       .categories {
+            margin-bottom: 20px;
+        }
+       .categories label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 5px 0;
+            margin-left: 20px;
+            position: relative;
+        }
+        li:before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #34495e;
+            margin: 25px 0;
+        }
+       .thanks {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 25px 0 15px;
+        }
+       .feedback {
+            margin-bottom: 20px;
+        }
+       .feedback p {
+            margin: 10px 0;
+        }
+       .feedback ul {
+            padding-left: 20px;
+        }
+       .feedback li {
+            margin: 5px 0;
+        }
+       .feedback li:before {
+            content: "- ";
+            color: #3498db;
+        }
+       .comment-form {
+            margin-top: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            min-height: 100px;
+            background-color: #34495e;
+            color: white;
+            border: 1px solid #2c3e50;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+       .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #2c3e50;
+            background-color: #34495e;
+            color: white;
+            border-radius: 4px;
+        }
+       .form-row input {
+            flex: 1;
+        }
+       .form-row input:last-child {
+            flex: 2;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-family: inherit;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+       .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #bdc3c7;
+        }
+        @media (max-width: 600px) {
+           .form-row {
+                flex-direction: column;
+            }
+           .form-row input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sebastien Wains</h1>
+            <nav>
+                <a href="#">posts</a>
+                <a href="#">search</a>
+                <a href="#">subscribe</a>
+                <a href="#">contact</a>
+            </nav>
+        </header>
+        <h2>OpenLDAP, Evolution and Microsoft Outlook HOWTO</h2>
+        <p class="date">December 17, 2006</p>
+        <div class="categories">
+            <label>categories:</label>
+            <ul>
+                <li>Howto</li>
+                <li>LDAP</li>
+                <li>Linux</li>
+            </ul>
+        </div>
+        <p>Matthew Feldt was kind enough to put up a guide explaining how to set up OpenLDAP as an addressbook compatible with Evolution and Microsoft Outlook.</p>
+        <p>Please visit his page here: <a href="http://www.feldt.com/work/projects/openLDAP/">http://www.feldt.com/work/projects/openLDAP/</a></p>
+        <p>A mirror of his page is available here: <a href="http://blog.wains.be/mirrors/feldt.com/">http://blog.wains.be/mirrors/feldt.com/</a></p>
+        <p>The guide works for CentOS/RHEL 4.4.</p>
+        <p>Thanks Matthew for that very well written howto!</p>
+        <p>For your information, LDAP support in Outlook is terrible. No autocompletion available.. pretty much like IMAP support.. "terrible on purpose" (tm)</p>
+        <hr>
+        <h3 class="thanks">Thanks for reading this post!</h3>
+        <div class="feedback">
+            <p>Did you find an issue in this article?</p>
+            <ul>
+                <li>click on the following <a href="#">Github link</a></li>
+                <li>log into Github with your account</li>
+                <li>click on the line number containing the error</li>
+                <li>click on the "..." button</li>
+                <li>choose "Reference in new issue"</li>
+                <li>add a title and your comment</li>
+                <li>click "Submit new issue"</li>
+            </ul>
+            <p>Your feedback is much appreciated! 🙏</p>
+            <p>You can also drop me a line below!</p>
+        </div>
+        <div class="comment-form">
+            <textarea placeholder="Type Comment Here (at least 3 chars)"></textarea>
+            <div class="form-row">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="E-mail">
+                <input type="url" placeholder="Website (optional)">
+            </div>
+            <button type="button">Preview</button>
+            <button type="submit">Submit</button>
+        </div>
+        <footer class="footer">
+            Copyright © Sebastien Wains
+        </footer>
+    </div>
+</body>
+</html>

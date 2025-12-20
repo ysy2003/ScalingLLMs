@@ -1,0 +1,1204 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. I need to recreate the visual design from the image exactly. First, let's analyze the structure.
+
+The page has a header with a search bar, a "PROJECTS" button. Then a main section with a filter sidebar on the left and the project details on the right. There's a "VIEW PROJECTS" button, a careers section, then the project info with a blue placeholder image, project details in a table, description, services, and other projects section.
+
+Let's break down each part:
+
+1. **Header**: 
+   - Search bar at top right: input with a button (maybe a submit button, but in the image it's a search icon? Wait, the image shows a search bar with a dark button on the right. So the search input is a text input, and the button is a submit button. But in the image, the search bar is a white input with a dark green button on the right. So the search bar is a div with a text input and a button.
+
+2. **Main Content**:
+   - Left sidebar: "Filter By" section with dropdowns for By Sector, By Country, By Year, and a "VIEW PROJECTS" button. Then "Careers @ ECIL" section.
+   - Right main content: Project title, image placeholder (blue square), project details in a table, project description, services, and other projects section.
+
+3. **Footer**: Navigation links (Home, Contact, etc.) and copyright.
+
+Now, let's structure the HTML.
+
+First, the HTML5 structure:
+
+- <html>
+  - <head>
+    - <meta> tags for charset, viewport
+    - <title> (probably "Projects - ECIL" or similar, but the image doesn't show a title, but we can assume)
+    - <style> block with CSS
+  - <body>
+    - Header: search bar and "PROJECTS" button
+    - Main: two columns (sidebar and content)
+    - Footer
+
+Let's check the image:
+
+- The top has a search bar: "SEARCH" input with a dark green button (maybe a submit button). The "PROJECTS" button is a dark green button in the center top.
+
+Wait, the image shows:
+
+Top right: a search input with a dark green button (the button is part of the search bar). Then below that, a "PROJECTS" button (dark green, centered).
+
+So the header has:
+
+- A search bar (input and button) on the top right.
+- A "PROJECTS" button centered below the search bar.
+
+Wait, looking at the image:
+
+The top part: there's a search bar (white input with a dark green button on the right), then below that, a "PROJECTS" button (dark green, centered).
+
+So the header structure:
+
+<div class="header">
+  <div class="search-bar">
+    <input type="text" placeholder="SEARCH">
+    <button type="submit">Search</button>
+  </div>
+  <div class="projects-btn">
+    <button>PROJECTS</button>
+  </div>
+</div>
+
+But in the image, the search bar is at the top right, and the "PROJECTS" button is below it, centered.
+
+Wait, the image shows:
+
+Top right: a search bar (input with a dark green button on the right). Then below that, a "PROJECTS" button (dark green, centered).
+
+So the header has:
+
+- A search bar (input and button) in the top right.
+- A "PROJECTS" button centered below the search bar.
+
+Now, the main content:
+
+Left sidebar:
+
+- "Filter By" heading
+- "By Sector" dropdown (selected "water supply")
+- "By Country" dropdown (selected "- Select Country-")
+- "By Year" dropdown (selected "- Select Year-")
+- "VIEW PROJECTS" button (dark green)
+- "Careers @ ECIL" section with text and a redacted email.
+
+Right main content:
+
+- Project title: "Second Karachi Water & Sanitation Project (K-2) for KW&SB (Design & Construction Supervision)"
+- A blue square image (placeholder)
+- A table with project details (Name of associated firm, Project Location, Start Date, Completion Date)
+- Project Description section
+- Services section
+- "OTHER PROJECTS IN THIS SECTOR" heading
+- Three blue square placeholders with project names (AL QUOSH WATER..., K.D.A OUTFALL..., HYDERABAD WATER...)
+
+Footer:
+
+- Navigation links: Home | Contact | Website Feedback | Site Map
+- Copyright: © 2016 ECIL | All Rights Reserved
+
+Now, let's think about the CSS.
+
+The design uses a dark green (maybe #005A4A or similar) for buttons and headers. The text is dark, background is white.
+
+Let's note the colors:
+
+- Dark green for buttons: #005A4A (or similar; the image shows a dark green, let's check the image. The "PROJECTS" button and "VIEW PROJECTS" button are dark green. The search button is also dark green. The footer is dark green.)
+
+- Blue placeholders: solid blue (maybe #0000FF or #0033CC; the image shows a bright blue, so #0000FF)
+
+- The "VIEW PROJECTS" button is dark green, same as "PROJECTS".
+
+Let's structure the HTML.
+
+First, the HTML5 structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - ECIL</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="search-bar">
+      <input type="text" placeholder="SEARCH" class="search-input">
+      <button type="submit" class="search-btn">Search</button>
+    </div>
+    <div class="projects-btn">
+      <button>PROJECTS</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <aside class="filter-sidebar">
+        <h3>Filter By</h3>
+        <div class="filter-group">
+          <label>By Sector</label>
+          <select class="filter-select">
+            <option>water supply</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>By Country</label>
+          <select class="filter-select">
+            <option>- Select Country-</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>By Year</label>
+          <select class="filter-select">
+            <option>- Select Year-</option>
+          </select>
+        </div>
+        <button class="view-projects-btn">VIEW PROJECTS</button>
+        <div class="careers-section">
+          <h3>Careers @ ECIL</h3>
+          <p>We invite you to ECIL and grow with us!</p>
+          <p>[EMAIL REDACTED]</p>
+        </div>
+      </aside>
+
+      <article class="project-details">
+        <h1>Second Karachi Water & Sanitation Project (K-2) for KW&SB<br>(Design & Construction Supervision)</h1>
+        <div class="project-image">
+          <div class="image-placeholder" style="background-color: #0000FF;"></div>
+        </div>
+        <div class="project-info">
+          <table>
+            <tr>
+              <td>Name of associated firm :</td>
+              <td>Balfours U.K.</td>
+            </tr>
+            <tr>
+              <td>Project Location within Country:</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Start Date:</td>
+              <td>February 1989</td>
+            </tr>
+            <tr>
+              <td>Completion Date:</td>
+              <td>March 1997</td>
+            </tr>
+          </table>
+          <h2>Project Description</h2>
+          <p>The project comprised of three components:</p>
+          <ul>
+            <li>Baldia Trunk & Secondary Sewers ranging from diameter 200 mm to 1500 mm. Pipe-work of over 300 mm diameter with PVC lined to prevent internal corrosion (of total length approx.</li>
+            <li>Lyari Trunk Sewer of RCC box culvert sizing of 2m x 2m, 11 km in length passing through the right bank of Lyari River from Sir Shah Suleiman Road to Mauripur Sewage Treatment Plant.</li>
+            <li>54 mgd capacity sewage treatment plant based on waste stabilization pond lagoon system at Mauripur, Karachi.</li>
+          </ul>
+          <h2>Services</h2>
+          <p>The Trunk Sewers were designed to carry all the wastewater from the city to the treatment plant. Lyari Trunk Sewer runs on the bank of Lyari River to Mauripur Sewage Treatment Plant.</p>
+          <p>Mauripur Sewage Treatment Plant was designed to treat all the wastewater carried out by these Trunk Sewers and then use this treated water for irrigation purpose also.</p>
+          <p>ECIL carried out design & construction supervision of the above work which includes:</p>
+          <ul>
+            <li>Topographic Surveys</li>
+            <li>Soil Surveys</li>
+            <li>Hydraulic & Process Design</li>
+            <li>Detailed Design & Drawings</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Home</a> | <a href="#">Contact</a> | <a href="#">Website Feedback</a> | <a href="#">Site Map</a>
+    </div>
+    <div class="footer-copyright">
+      © 2016 ECIL | All Rights Reserved
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, let's adjust the CSS to match the design.
+
+First, the overall layout: the page has a container with two columns (sidebar and main content). The sidebar is on the left, main content on the right.
+
+The image shows the sidebar and main content side by side. So the container should have a flex layout.
+
+Let's set up the CSS:
+
+- Body: font-family, margin 0, padding 0.
+- Container: display flex, flex-wrap wrap, max-width 1200px, margin 0 auto, padding 1rem.
+- Sidebar: width 25% (or 20%?), padding 1rem.
+- Main content: width 75% (or 80%), padding 1rem.
+
+But the image shows the sidebar is narrower. Let's check the image: the sidebar has "Filter By" and the buttons, and the main content is wider.
+
+Let's set the container to have a max-width, and the sidebar to be 25% width, main content 75%.
+
+Also, the "VIEW PROJECTS" button is dark green, same as "PROJECTS" button.
+
+The search bar: input and button. The button is dark green, same as the other buttons.
+
+The project image is a blue square (background-color: #0000FF).
+
+The table in the project info: the table has two columns, left and right.
+
+The "Project Description" and "Services" sections have bullet points.
+
+The "OTHER PROJECTS IN THIS SECTOR" section is not in the image? Wait, the image shows "OTHER PROJECTS IN THIS SECTOR" at the bottom, with three blue placeholders. Wait, in the image, the main content has the project details, then at the bottom, "OTHER PROJECTS IN THIS SECTOR" with three blue boxes.
+
+Wait, looking back at the image:
+
+The main content (right side) has:
+
+- Project title
+- Blue image
+- Project info table
+- Project Description
+- Services
+- Then "OTHER PROJECTS IN THIS SECTOR" heading, followed by three blue boxes with project names.
+
+Ah, I missed that. So the project details section includes the "OTHER PROJECTS..." part.
+
+So the structure of the main content (article) is:
+
+- Project title
+- Image
+- Project info (table)
+- Project Description
+- Services
+- Other projects section (heading and three boxes)
+
+So in the HTML, the article should have:
+
+<h1>Project title</h1>
+<div class="project-image">...</div>
+<div class="project-info">...</div>
+<div class="other-projects">
+  <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+  <div class="project-cards">
+    <div class="project-card">AL QUOSH WATER...</div>
+    <div class="project-card">K.D.A OUTFALL...</div>
+    <div class="project-card">HYDERABAD WATER...</div>
+  </div>
+</div>
+
+Now, the three project cards: each is a blue square with a white text. The image shows them as blue rectangles with white text.
+
+So the CSS for the project cards: background-color: #0000FF; color: white; padding: 1rem; text-align: center; etc.
+
+Now, let's define the CSS.
+
+First, reset some styles:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  width: 200px;
+}
+
+.search-btn {
+  background-color: #005A4A;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.projects-btn {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.projects-btn button {
+  background-color: #005A4A;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.filter-sidebar {
+  width: 25%;
+  padding: 1rem;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+}
+
+.filter-sidebar h3 {
+  margin-bottom: 1rem;
+}
+
+.filter-group {
+  margin-bottom: 1rem;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.view-projects-btn {
+  background-color: #005A4A;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.careers-section {
+  margin-top: 2rem;
+}
+
+.careers-section h3 {
+  margin-bottom: 0.5rem;
+}
+
+.careers-section p {
+  margin-bottom: 0.5rem;
+}
+
+.project-details {
+  width: 75%;
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.project-details h1 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.project-image {
+  margin-bottom: 1rem;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #0000FF;
+  border: 1px solid #ccc;
+  display: block;
+}
+
+.project-info {
+  margin-bottom: 1rem;
+}
+
+.project-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.project-info table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.project-info table tr:last-child td {
+  border-bottom: none;
+}
+
+.project-info h2 {
+  margin: 1rem 0;
+}
+
+.project-info ul {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-info li {
+  margin-bottom: 0.5rem;
+}
+
+.other-projects {
+  margin-top: 2rem;
+}
+
+.other-projects h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.project-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-color: #0000FF;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  width: 30%;
+  border-radius: 4px;
+  margin: 0.5rem;
+}
+
+footer {
+  background-color: #005A4A;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+}
+
+Now, check if this matches the image.
+
+The image shows:
+
+- The search bar at the top right: input and button. The button is dark green, input is white.
+- The "PROJECTS" button is centered below the search bar, dark green.
+- The sidebar has "Filter By" with dropdowns, "VIEW PROJECTS" button, and careers section.
+- The main content has the project title, blue image, table, description, services, and other projects section.
+- The other projects section has three blue boxes with project names.
+
+Let's check the colors:
+
+- The "VIEW PROJECTS" button is dark green, same as "PROJECTS" button.
+- The project image is blue (background-color: #0000FF).
+- The other project cards are blue (background-color: #0000FF).
+- The footer is dark green.
+
+Now, let's adjust the CSS for responsiveness.
+
+The container should be a flex container with wrap, so on smaller screens, the sidebar and main content stack.
+
+So add:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+ .filter-sidebar {
+    width: 100%;
+    border-right: none;
+  }
+
+ .project-details {
+    width: 100%;
+  }
+}
+
+This way, on mobile, the sidebar and main content stack.
+
+Now, let's check the image's layout:
+
+- The sidebar is on the left, main content on the right. On mobile, they stack.
+
+Yes.
+
+Now, the "VIEW PROJECTS" button: in the image, it's a dark green button, same as "PROJECTS".
+
+The careers section: "Careers @ ECIL" with text and redacted email.
+
+The project info table: the table has two columns, left and right. The image shows the table with "Name of associated firm :" and "Balfours U.K." etc.
+
+The project description has bullet points.
+
+The services section has bullet points.
+
+The other projects section: three blue boxes with project names.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows the "Project Location within Country" as "-", so in the table, that cell is "-".
+
+Also, the "Start Date" is "February 1989", "Completion Date" is "March 1997".
+
+The project description has three bullet points.
+
+The services section has four bullet points.
+
+The other projects section has three project cards: "AL QUOSH WATER...", "K.D.A OUTFALL...", "HYDERABAD WATER...".
+
+Now, let's write the HTML.
+
+First, the header:
+
+<header>
+  <div class="search-bar">
+    <input type="text" placeholder="SEARCH" class="search-input">
+    <button type="submit" class="search-btn">Search</button>
+  </div>
+  <div class="projects-btn">
+    <button>PROJECTS</button>
+  </div>
+</header>
+
+The container:
+
+<div class="container">
+  <aside class="filter-sidebar">
+    <h3>Filter By</h3>
+    <div class="filter-group">
+      <label>By Sector</label>
+      <select class="filter-select">
+        <option>water supply</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>By Country</label>
+      <select class="filter-select">
+        <option>- Select Country-</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>By Year</label>
+      <select class="filter-select">
+        <option>- Select Year-</option>
+      </select>
+    </div>
+    <button class="view-projects-btn">VIEW PROJECTS</button>
+    <div class="careers-section">
+      <h3>Careers @ ECIL</h3>
+      <p>We invite you to ECIL and grow with us!</p>
+      <p>[EMAIL REDACTED]</p>
+    </div>
+  </aside>
+  <article class="project-details">
+    <h1>Second Karachi Water & Sanitation Project (K-2) for KW&SB<br>(Design & Construction Supervision)</h1>
+    <div class="project-image">
+      <div class="image-placeholder" style="background-color: #0000FF;"></div>
+    </div>
+    <div class="project-info">
+      <table>
+        <tr>
+          <td>Name of associated firm :</td>
+          <td>Balfours U.K.</td>
+        </tr>
+        <tr>
+          <td>Project Location within Country:</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Start Date:</td>
+          <td>February 1989</td>
+        </tr>
+        <tr>
+          <td>Completion Date:</td>
+          <td>March 1997</td>
+        </tr>
+      </table>
+      <h2>Project Description</h2>
+      <p>The project comprised of three components:</p>
+      <ul>
+        <li>Baldia Trunk & Secondary Sewers ranging from diameter 200 mm to 1500 mm. Pipe-work of over 300 mm diameter with PVC lined to prevent internal corrosion (of total length approx.</li>
+        <li>Lyari Trunk Sewer of RCC box culvert sizing of 2m x 2m, 11 km in length passing through the right bank of Lyari River from Sir Shah Suleiman Road to Mauripur Sewage Treatment Plant.</li>
+        <li>54 mgd capacity sewage treatment plant based on waste stabilization pond lagoon system at Mauripur, Karachi.</li>
+      </ul>
+      <h2>Services</h2>
+      <p>The Trunk Sewers were designed to carry all the wastewater from the city to the treatment plant. Lyari Trunk Sewer runs on the bank of Lyari River to Mauripur Sewage Treatment Plant.</p>
+      <p>Mauripur Sewage Treatment Plant was designed to treat all the wastewater carried out by these Trunk Sewers and then use this treated water for irrigation purpose also.</p>
+      <p>ECIL carried out design & construction supervision of the above work which includes:</p>
+      <ul>
+        <li>Topographic Surveys</li>
+        <li>Soil Surveys</li>
+        <li>Hydraulic & Process Design</li>
+        <li>Detailed Design & Drawings</li>
+      </ul>
+      <div class="other-projects">
+        <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+        <div class="project-cards">
+          <div class="project-card">AL QUOSH WATER...</div>
+          <div class="project-card">K.D.A OUTFALL...</div>
+          <div class="project-card">HYDERABAD WATER...</div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+Footer:
+
+<footer>
+  <div class="footer-links">
+    <a href="#">Home</a> | <a href="#">Contact</a> | <a href="#">Website Feedback</a> | <a href="#">Site Map</a>
+  </div>
+  <div class="footer-copyright">
+    © 2016 ECIL | All Rights Reserved
+  </div>
+</footer>
+
+Now, the CSS:
+
+We need to make sure the layout is correct. Let's check the image:
+
+- The sidebar has "Filter By" as a heading, then the dropdowns, then the "VIEW PROJECTS" button, then the careers section.
+
+- The main content has the project title, image, table, description, services, and other projects.
+
+- The other projects section is part of the main content.
+
+Now, let's write the CSS with the responsive design.
+
+Also, the image shows the "VIEW PROJECTS" button is dark green, same as the "PROJECTS" button.
+
+The search button is dark green.
+
+The footer is dark green.
+
+Now, let's code the CSS.
+
+Let's start with the CSS:
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+  }
+
+ .search-bar {
+    display: flex;
+    align-items: center;
+  }
+
+ .search-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 200px;
+  }
+
+ .search-btn {
+    background-color: #005A4A;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+
+ .projects-btn {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+ .projects-btn button {
+    background-color: #005A4A;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+ .container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+ .filter-sidebar {
+    width: 25%;
+    padding: 1rem;
+    background-color: #fff;
+    border-right: 1px solid #eee;
+  }
+
+ .filter-sidebar h3 {
+    margin-bottom: 1rem;
+  }
+
+ .filter-group {
+    margin-bottom: 1rem;
+  }
+
+ .filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+ .filter-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+ .view-projects-btn {
+    background-color: #005A4A;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+ .careers-section {
+    margin-top: 2rem;
+  }
+
+ .careers-section h3 {
+    margin-bottom: 0.5rem;
+  }
+
+ .careers-section p {
+    margin-bottom: 0.5rem;
+  }
+
+ .project-details {
+    width: 75%;
+    padding: 1rem;
+    background-color: #fff;
+  }
+
+ .project-details h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+ .project-image {
+    margin-bottom: 1rem;
+  }
+
+ .image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #0000FF;
+    border: 1px solid #ccc;
+    display: block;
+  }
+
+ .project-info {
+    margin-bottom: 1rem;
+  }
+
+ .project-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+
+ .project-info table td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+ .project-info table tr:last-child td {
+    border-bottom: none;
+  }
+
+ .project-info h2 {
+    margin: 1rem 0;
+  }
+
+ .project-info ul {
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+ .project-info li {
+    margin-bottom: 0.5rem;
+  }
+
+ .other-projects {
+    margin-top: 2rem;
+  }
+
+ .other-projects h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+ .project-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+ .project-card {
+    background-color: #0000FF;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 30%;
+    border-radius: 4px;
+    margin: 0.5rem;
+  }
+
+  footer {
+    background-color: #005A4A;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+ .footer-links {
+    margin-bottom: 0.5rem;
+  }
+
+ .footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+
+ .footer-copyright {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+   .filter-sidebar {
+      width: 100%;
+      border-right: none;
+    }
+
+   .project-details {
+      width: 100%;
+    }
+
+   .project-cards {
+      flex-direction: column;
+    }
+
+   .project-card {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+</style>
+
+Now, check if this matches the image.
+
+The image shows the "VIEW PROJECTS" button as a dark green button, which is included.
+
+The careers section has the text and redacted email.
+
+The project info table has the correct data.
+
+The other projects section has three cards.
+
+The footer has the links and copyright.
+
+Now, let's make sure all elements are present.
+
+Yes.
+
+Now, the HTML file should be:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - ECIL</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="search-bar">
+      <input type="text" placeholder="SEARCH" class="search-input">
+      <button type="submit" class="search-btn">Search</button>
+    </div>
+    <div class="projects-btn">
+      <button>PROJECTS</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <aside class="filter-sidebar">
+        <h3>Filter By</h3>
+        <div class="filter-group">
+          <label>By Sector</label>
+          <select class="filter-select">
+            <option>water supply</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>By Country</label>
+          <select class="filter-select">
+            <option>- Select Country-</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>By Year</label>
+          <select class="filter-select">
+            <option>- Select Year-</option>
+          </select>
+        </div>
+        <button class="view-projects-btn">VIEW PROJECTS</button>
+        <div class="careers-section">
+          <h3>Careers @ ECIL</h3>
+          <p>We invite you to ECIL and grow with us!</p>
+          <p>[EMAIL REDACTED]</p>
+        </div>
+      </aside>
+
+      <article class="project-details">
+        <h1>Second Karachi Water & Sanitation Project (K-2) for KW&SB<br>(Design & Construction Supervision)</h1>
+        <div class="project-image">
+          <div class="image-placeholder" style="background-color: #0000FF;"></div>
+        </div>
+        <div class="project-info">
+          <table>
+            <tr>
+              <td>Name of associated firm :</td>
+              <td>Balfours U.K.</td>
+            </tr>
+            <tr>
+              <td>Project Location within Country:</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>Start Date:</td>
+              <td>February 1989</td>
+            </tr>
+            <tr>
+              <td>Completion Date:</td>
+              <td>March 1997</td>
+            </tr>
+          </table>
+          <h2>Project Description</h2>
+          <p>The project comprised of three components:</p>
+          <ul>
+            <li>Baldia Trunk & Secondary Sewers ranging from diameter 200 mm to 1500 mm. Pipe-work of over 300 mm diameter with PVC lined to prevent internal corrosion (of total length approx.</li>
+            <li>Lyari Trunk Sewer of RCC box culvert sizing of 2m x 2m, 11 km in length passing through the right bank of Lyari River from Sir Shah Suleiman Road to Mauripur Sewage Treatment Plant.</li>
+            <li>54 mgd capacity sewage treatment plant based on waste stabilization pond lagoon system at Mauripur, Karachi.</li>
+          </ul>
+          <h2>Services</h2>
+          <p>The Trunk Sewers were designed to carry all the wastewater from the city to the treatment plant. Lyari Trunk Sewer runs on the bank of Lyari River to Mauripur Sewage Treatment Plant.</p>
+          <p>Mauripur Sewage Treatment Plant was designed to treat all the wastewater carried out by these Trunk Sewers and then use this treated water for irrigation purpose also.</p>
+          <p>ECIL carried out design & construction supervision of the above work which includes:</p>
+          <ul>
+            <li>Topographic Surveys</li>
+            <li>Soil Surveys</li>
+            <li>Hydraulic & Process Design</li>
+            <li>Detailed Design & Drawings</li>
+          </ul>
+          <div class="other-projects">
+            <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+            <div class="project-cards">
+              <div class="project-card">AL QUOSH WATER...</div>
+              <div class="project-card">K.D.A OUTFALL...</div>
+              <div class="project-card">HYDERABAD WATER...</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Home</a> | <a href="#">Contact</a> | <a href="#">Website Feedback</a> | <a href="#">Site Map</a>
+    </div>
+    <div class="footer-copyright">
+      © 2016 ECIL | All Rights Reserved
+    </div>
+  </footer>
+</body>
+</html>
+
+Wait, the image shows the "Project Description" section has a bullet point that says "Baldia Trunk & Secondary Sewers ranging from diameter 200 mm to 1500 mm. Pipe-work of over 300 mm diameter with PVC lined to prevent internal corrosion (of total length approx." — the image shows "of total length approx." but the HTML has "approx." — but the image shows "approx." so it's correct.
+
+Also, the "Lyari Trunk Sewer" bullet point: the image shows "Lyari Trunk Sewer of RCC box culvert sizing of 2m x 2m, 11 km in length passing through the right bank of Lyari River from Sir Shah Suleiman Road to Mauripur Sewage Treatment Plant." — the HTML has that.
+
+The "54 mgd capacity..." bullet point: correct.
+
+The services section: the image shows "The Trunk Sewers were designed to carry all the wastewater from the city to the treatment plant. Lyari Trunk Sewer runs on the bank of Lyari River to Mauripur Sewage Treatment Plant." — correct.
+
+Then "Mauripur Sewage Treatment Plant was designed to treat all the wastewater carried out by these Trunk Sewers and then use this treated water for irrigation purpose also." — correct.
+
+Then "ECIL carried out design & construction supervision of the above work which includes:" — correct.
+
+The bullet points: Topographic Surveys, Soil Surveys, Hydraulic & Process Design, Detailed Design & Drawings — correct.
+
+The other projects section: three cards with the project names — correct.
+
+The footer: Home | Contact | Website Feedback | Site Map — correct.
+
+The copyright: © 2016 ECIL | All Rights Reserved — correct.
+
+Now, check the CSS for responsiveness. The media query for max-width 768px makes the sidebar and main content stack, which is correct for mobile.
+
+The project cards on mobile stack vertically, which is correct.
+
+The search bar and projects button are in the header, which is correct.
+
+The "VIEW PROJECTS" button is in the sidebar, dark green, correct.
+
+The careers section is in the sidebar, correct.
+
+The project details are in the main content, correct.
+
+Now, the HTML is valid, the CSS is embedded, and the structure matches the image.
+
+I think this should be correct.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - ECIL</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+   .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+   .search-input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      width: 200px;
+    }
+
+   .search-btn {
+      background-color: #005A4A;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+   .projects-btn {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+   .projects-btn button {
+      background-color: #005A4A;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      cursor:

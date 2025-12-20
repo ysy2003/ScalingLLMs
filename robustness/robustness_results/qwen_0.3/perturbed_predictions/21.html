@@ -1,0 +1,772 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the image into a single HTML5 file with embedded CSS. First, I need to analyze the structure and elements in the image.
+
+Looking at the image, there's a section with "Start Date" and "Completion Date" at the top right. Then "Project Description" with bullet points. Below that, "Services" with more bullet points. Then a section titled "OTHER PROJECTS IN THIS SECTOR" with blue blocks.
+
+First, let's outline the HTML structure. The main container should have a header area with the dates, then the project description, services, and the other projects section.
+
+Wait, the image shows a layout where the top has "Start Date: February 1989" and "Completion Date: March 1997" on the right. Then "Project Description" as a heading, followed by three bullet points. Then "Services" heading, more bullet points. Then "OTHER PROJECTS IN THIS SECTOR" as a heading, with three blue blocks below.
+
+Let's check the colors: the blue blocks are a solid blue (probably #0047AB or similar, but the image shows a dark blue). The text for headings is dark blue, maybe #0047AB. The body text is black. The "OTHER PROJECTS" heading is a lighter blue, maybe #0080C0.
+
+Wait, the image has a left sidebar with some elements (like a dropdown arrow and a teal bar), but the main content is on the right. Wait, the user's image shows a split layout: left side has some elements (maybe a navigation or sidebar), right side has the project details. But the task says to recreate the visual design in the image. Let's check the image again.
+
+The image shows:
+
+- Top right: Start Date: February 1989; Completion Date: March 1997.
+
+- Then "Project Description" with three bullet points.
+
+- Then "Services" with bullet points.
+
+- Then "OTHER PROJECTS IN THIS SECTOR" with three blue blocks.
+
+Wait, the left side has some elements: a dropdown arrow (▼), a teal bar, and some text like "IL and D]". But the main content is on the right. However, the task says to recreate the visual design. So we need to include the left sidebar elements as well.
+
+Wait, the image's left side has:
+
+- A dropdown arrow (▼) at the top left.
+
+- A teal bar (maybe a navigation item).
+
+- Some text: "IL and D]".
+
+But the main content is on the right. So the HTML structure should have a container with two columns: left sidebar and right content.
+
+Wait, the image shows a split layout. Let's see:
+
+Left side:
+
+- A vertical bar with a dropdown arrow (▼) at the top.
+
+- A teal rectangle (maybe a navigation item).
+
+- Some text: "IL and D]".
+
+Right side:
+
+- Start Date and Completion Date at the top.
+
+- Project Description section.
+
+- Services section.
+
+- Other Projects section.
+
+So the HTML should have a two-column layout. Let's structure it with a container, then two columns: left (sidebar) and right (main content).
+
+First, the left sidebar:
+
+- A dropdown arrow (▼) as a button or icon.
+
+- A teal bar (maybe a div with background color #006666).
+
+- Text: "IL and D]".
+
+Wait, the image shows "IL and D]" on the left. So the left sidebar has:
+
+- A dropdown arrow (▼) at the top.
+
+- A teal bar (maybe a div with height 20px, background #006666).
+
+- Text: "IL and D]".
+
+Then the right content:
+
+- Start Date: February 1989
+
+- Completion Date: March 1997
+
+- Project Description heading.
+
+- Bullet points.
+
+- Services heading.
+
+- Bullet points.
+
+- Other Projects heading.
+
+- Three blue blocks.
+
+Now, let's think about the CSS. The right content should have a white background, the left sidebar has a light gray background (maybe #f5f5f5). The headings for Project Description, Services, Other Projects should be in a dark blue (like #0047AB). The bullet points are standard.
+
+Let's outline the HTML structure:
+
+- <div class="container"> (flex container for two columns)
+
+  - <div class="sidebar"> (left column)
+
+    - <div class="dropdown"> (with ▼ icon)
+
+    - <div class="teal-bar"></div>
+
+    - <div class="sidebar-text">IL and D]</div>
+
+  - <div class="main-content"> (right column)
+
+    - <div class="date-section">
+
+      <div class="date-label">Start Date:</div>
+
+      <div class="date-value">February 1989</div>
+
+      <div class="date-label">Completion Date:</div>
+
+      <div class="date-value">March 1997</div>
+
+    </div>
+
+    - <h2>Project Description</h2>
+
+    - <ul class="project-description">
+
+      <li>Baldia Trunk & Secondary Sewers...</li>
+
+      <li>Lyari Trunk Sewer...</li>
+
+      <li>54 mgd capacity sewage treatment plant...</li>
+
+    </ul>
+
+    - <h2>Services</h2>
+
+    - <ul class="services">
+
+      <li>The Trunk Sewers were designed...</li>
+
+      <li>Mauripur Sewage Treatment Plant...</li>
+
+      <li>ECIL carried out design...</li>
+
+      <li>Topographic Surveys</li>
+
+      <li>Soil Surveys</li>
+
+      <li>Hydraulic & Process Design</li>
+
+      <li>Detailed Design & Drawings</li>
+
+    </ul>
+
+    - <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+
+    - <div class="other-projects">
+
+      <div class="project-block"></div>
+
+      <div class="project-block"></div>
+
+      <div class="project-block"></div>
+
+    </div>
+
+Now, the CSS:
+
+- Container: display flex, gap between columns.
+
+- Sidebar: background #f5f5f5, padding, etc.
+
+- Main content: white background, padding.
+
+- Date labels: color #0047AB, font-weight bold.
+
+- Date values: color #333.
+
+- Headings (Project Description, Services, Other Projects): color #0047AB, font-size 1.2em.
+
+- Bullet points: standard.
+
+- Project blocks: solid blue (like #0047AB), height 20px, width 100%, margin.
+
+Wait, the image shows the blue blocks as solid, so the project-blocks should be divs with background color #0047AB, maybe with some height and width.
+
+Let's check the image: the "OTHER PROJECTS IN THIS SECTOR" has three blue blocks. So each project-block is a div with background #0047AB, maybe 100% width, height 20px, but in the image, they are horizontal, so maybe each is a block with some height.
+
+Wait, the image shows three blue rectangles below "OTHER PROJECTS IN THIS SECTOR". So the HTML for that section is a div with three child divs, each with background color #0047AB.
+
+Now, let's code the HTML and CSS.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="dropdown">▼</div>
+      <div class="teal-bar"></div>
+      <div class="sidebar-text">IL and D]</div>
+    </div>
+    <div class="main-content">
+      <div class="date-section">
+        <div class="date-label">Start Date:</div>
+        <div class="date-value">February 1989</div>
+        <div class="date-label">Completion Date:</div>
+        <div class="date-value">March 1997</div>
+      </div>
+      <h2>Project Description</h2>
+      <ul class="project-description">
+        <li>Baldia Trunk & Secondary Sewers ranging from di... mm. Pipe-work of over 300 mm diameter with PV... internal corrosion (of total length approx.</li>
+        <li>Lyari Trunk Sewer of RCC box culvert sizing of 2m... passing through the right bank of Lyari River from... to Mauripur Sewage Treatment Plant.</li>
+        <li>54 mgd capacity sewage treatment plant based on... pond lagoon system at Mauripur, Karachi.</li>
+      </ul>
+      <h2>Services</h2>
+      <ul class="services">
+        <li>The Trunk Sewers were designed to carry all the waste... the treatment plant. Lyari Trunk Sewer runs on the... Mauripur Sewerage Treatment Plant.</li>
+        <li>Mauripur Sewage Treatment Plant was designed to tr... carried out by these Trunk Sewers and then use this... irrigation purpose also.</li>
+        <li>ECIL carried out design & construction supervision of... includes:</li>
+        <li>Topographic Surveys</li>
+        <li>Soil Surveys</li>
+        <li>Hydraulic & Process Design</li>
+        <li>Detailed Design & Drawings</li>
+      </ul>
+      <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+      <div class="other-projects">
+        <div class="project-block"></div>
+        <div class="project-block"></div>
+        <div class="project-block"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+- Container: display flex, gap: 20px; (to separate sidebar and main content)
+
+- Sidebar: width: 200px; background: #f5f5f5; padding: 10px; (adjust as needed)
+
+- Dropdown: text-align: center; font-size: 1.2em; margin: 5px 0;
+
+- Teal-bar: height: 20px; background: #006666; margin: 5px 0;
+
+- Sidebar-text: font-size: 0.9em; color: #333;
+
+- Main-content: flex: 1; background: white; padding: 15px; (to make it take remaining space)
+
+- Date-section: display: flex; flex-direction: column; gap: 10px;
+
+- Date-label: font-weight: bold; color: #0047AB;
+
+- Date-value: color: #333;
+
+- Headings (h2): color: #0047AB; margin-top: 15px;
+
+- Project-description and services lists: margin-left: 0; (to remove default margin)
+
+- Project-block: background: #0047AB; height: 20px; width: 100%; margin: 5px 0; (adjust height as per image)
+
+Wait, the image shows the blue blocks as solid, so the project-blocks should be divs with background color #0047AB, maybe with some height. Let's check the image: the blue blocks are horizontal, so each is a block with height 20px, width 100% (but in the image, they are three separate blocks, so maybe each is a div with width 33.33%? Wait, no, the image shows three blue rectangles side by side, so they are horizontal. So the other-projects div should have display: flex; flex-wrap: wrap; and each project-block has width: 33.33%; height: 20px; background: #0047AB; margin: 5px 0;.
+
+Wait, the image shows three blue blocks, so the other-projects container should have three child divs, each taking 33.33% of the width.
+
+So in CSS:
+
+.other-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.project-block {
+  flex: 1;
+  min-width: 33.33%;
+  height: 20px;
+  background: #0047AB;
+}
+
+Wait, but the image shows the blue blocks as solid, so maybe they are just solid rectangles. Let's check the image: the blue blocks are three, each with a solid blue color, so the CSS for project-block should be background: #0047AB; height: 20px; width: 100%; but if they are three, then each is 33.33% width.
+
+Wait, the image shows three blue blocks, so the other-projects section has three divs, each with background color #0047AB, and they are side by side. So the CSS for other-projects should be display: flex; gap: 10px; and each project-block has width: 33.33%; height: 20px;.
+
+Now, let's adjust the CSS:
+
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  background: #f5f5f5;
+  padding: 15px;
+}
+
+.dropdown {
+  text-align: center;
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.teal-bar {
+  height: 20px;
+  background: #006666;
+  margin: 5px 0;
+}
+
+.sidebar-text {
+  font-size: 0.9em;
+  color: #333;
+}
+
+.main-content {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.date-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date-label {
+  font-weight: bold;
+  color: #0047AB;
+}
+
+.date-value {
+  color: #333;
+}
+
+h2 {
+  color: #0047AB;
+  margin-top: 15px;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.project-description,.services {
+  list-style-type: disc;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.other-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.project-block {
+  flex: 1;
+  min-width: 33.33%;
+  height: 20px;
+  background: #0047AB;
+}
+
+Wait, but the image shows the blue blocks as solid, so maybe the height is 20px, but in the image, they are longer. Wait, the image shows the blue blocks as rectangles, but the exact height isn't clear. However, the task is to recreate the visual design, so we need to match the elements as per the image.
+
+Looking back at the image:
+
+- The "OTHER PROJECTS IN THIS SECTOR" section has three blue blocks. Each block is a solid blue rectangle. The image shows them as three separate blocks, so the CSS for project-block should be background: #0047AB; height: 20px; width: 100%; but since there are three, they are in a row, so each is 33.33% width.
+
+Wait, but the image might have the blue blocks as part of a grid. Let's check the image again. The user's image shows three blue blocks below "OTHER PROJECTS IN THIS SECTOR". So the HTML for that section is a div with three child divs, each with background color #0047AB, and they are side by side.
+
+Now, let's check the colors:
+
+- The blue for the project blocks: #0047AB (dark blue).
+
+- The teal bar in the sidebar: #006666.
+
+- The headings (Project Description, Services, Other Projects): #0047AB.
+
+- The date labels: #0047AB.
+
+- The sidebar background: #f5f5f5.
+
+- The main content background: white.
+
+Now, let's code the CSS accordingly.
+
+Also, the image shows the "Start Date" and "Completion Date" on the top right. Wait, in the image, the Start Date is on the top right, Completion Date is below it. So the date-section should have the labels and values arranged as:
+
+Start Date: February 1989
+
+Completion Date: March 1997
+
+So the date-section is a flex column with two date labels and two date values.
+
+Now, let's put it all together.
+
+Wait, the image shows the Start Date and Completion Date on the top right. So the date-section should be positioned on the right side of the main content. Wait, no, the image shows the main content as a single column, with the dates at the top. So the date-section is part of the main content, at the top.
+
+So the main content starts with the date-section, then Project Description, then Services, then Other Projects.
+
+Now, let's check the image again. The image shows:
+
+- Top right: Start Date: February 1989; Completion Date: March 1997.
+
+- Then Project Description.
+
+- Then Services.
+
+- Then Other Projects.
+
+So the date-section is at the top of the main content.
+
+Now, the HTML structure is correct.
+
+Now, let's write the CSS.
+
+Also, the image shows the "Project Description" and "Services" as headings, so h2 elements.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows the "Project Description" with bullet points. The bullet points are:
+
+- Baldia Trunk & Secondary Sewers...
+
+- Lyari Trunk Sewer...
+
+- 54 mgd capacity...
+
+So the HTML for the project-description list should have these three items.
+
+Similarly, the Services section has bullet points:
+
+- The Trunk Sewers were designed...
+
+- Mauripur Sewage Treatment Plant...
+
+- ECIL carried out design...
+
+- Topographic Surveys
+
+- Soil Surveys
+
+- Hydraulic & Process Design
+
+- Detailed Design & Drawings
+
+So the services list has seven items.
+
+Now, the CSS for the lists: list-style-type: disc; margin-left: 0; padding-left: 0; to remove default padding.
+
+Now, let's write the complete HTML.
+
+Also, the image shows the "OTHER PROJECTS IN THIS SECTOR" heading in a lighter blue, but the task says to recreate the visual design. The image shows "OTHER PROJECTS IN THIS SECTOR" in a dark blue, same as the other headings. Wait, the image shows "OTHER PROJECTS IN THIS SECTOR" in a dark blue, so the h2 for that should be color #0047AB.
+
+Now, let's code the HTML.
+
+Wait, the image shows the left sidebar with "IL and D]". So the sidebar-text is "IL and D]".
+
+Now, the HTML code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+   .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+   .sidebar {
+      width: 200px;
+      background-color: #f5f5f5;
+      padding: 15px;
+    }
+   .dropdown {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 5px 0;
+    }
+   .teal-bar {
+      height: 20px;
+      background-color: #006666;
+      margin: 5px 0;
+    }
+   .sidebar-text {
+      font-size: 0.9em;
+      color: #333;
+    }
+   .main-content {
+      flex: 1;
+      background-color: white;
+      padding: 20px;
+      border-radius: 4px;
+    }
+   .date-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+   .date-label {
+      font-weight: bold;
+      color: #0047AB;
+    }
+   .date-value {
+      color: #333;
+    }
+    h2 {
+      color: #0047AB;
+      margin-top: 15px;
+    }
+    ul {
+      margin-left: 0;
+      padding-left: 0;
+    }
+   .project-description,.services {
+      list-style-type: disc;
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+   .other-projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+   .project-block {
+      flex: 1;
+      min-width: 33.33%;
+      height: 20px;
+      background-color: #0047AB;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="dropdown">▼</div>
+      <div class="teal-bar"></div>
+      <div class="sidebar-text">IL and D]</div>
+    </div>
+    <div class="main-content">
+      <div class="date-section">
+        <div class="date-label">Start Date:</div>
+        <div class="date-value">February 1989</div>
+        <div class="date-label">Completion Date:</div>
+        <div class="date-value">March 1997</div>
+      </div>
+      <h2>Project Description</h2>
+      <ul class="project-description">
+        <li>Baldia Trunk & Secondary Sewers ranging from di... mm. Pipe-work of over 300 mm diameter with PV... internal corrosion (of total length approx.</li>
+        <li>Lyari Trunk Sewer of RCC box culvert sizing of 2m... passing through the right bank of Lyari River from... to Mauripur Sewage Treatment Plant.</li>
+        <li>54 mgd capacity sewage treatment plant based on... pond lagoon system at Mauripur, Karachi.</li>
+      </ul>
+      <h2>Services</h2>
+      <ul class="services">
+        <li>The Trunk Sewers were designed to carry all the waste... the treatment plant. Lyari Trunk Sewer runs on the... Mauripur Sewerage Treatment Plant.</li>
+        <li>Mauripur Sewage Treatment Plant was designed to tr... carried out by these Trunk Sewers and then use this... irrigation purpose also.</li>
+        <li>ECIL carried out design & construction supervision of... includes:</li>
+        <li>Topographic Surveys</li>
+        <li>Soil Surveys</li>
+        <li>Hydraulic & Process Design</li>
+        <li>Detailed Design & Drawings</li>
+      </ul>
+      <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+      <div class="other-projects">
+        <div class="project-block"></div>
+        <div class="project-block"></div>
+        <div class="project-block"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+Wait, but the image shows the "Start Date" and "Completion Date" on the top right. In the current code, they are on the left side of the main content. Wait, no, the image shows the main content as a single column, with the dates at the top. So the date-section is part of the main content, which is correct.
+
+Wait, the image shows the Start Date and Completion Date on the top right. But in the code, the date-section is in the main content, which is on the right. So the dates are on the right side of the page, which matches the image.
+
+Yes, the image shows the dates at the top right, so the main content (right column) has the dates at the top.
+
+Now, check the colors:
+
+- The sidebar has a teal bar (background #006666), which matches the image.
+
+- The project blocks are #0047AB, which is the dark blue.
+
+- The headings are #0047AB.
+
+- The date labels are #0047AB.
+
+- The sidebar background is #f5f5f5.
+
+- The main content background is white.
+
+This should match the visual design.
+
+Now, check if the HTML is valid and the CSS is embedded.
+
+Yes, the code is a single HTML file with the CSS in a style block.
+
+Now, check for any missing elements.
+
+The image shows the "Project Description" with three bullet points, which are included.
+
+The "Services" section has seven bullet points, included.
+
+The "OTHER PROJECTS IN THIS SECTOR" has three blue blocks, included.
+
+The sidebar has the dropdown arrow, teal bar, and "IL and D]", included.
+
+The dates are correctly placed.
+
+Now, the code should be correct.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333;
+    }
+   .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+   .sidebar {
+      width: 200px;
+      background-color: #f5f5f5;
+      padding: 15px;
+    }
+   .dropdown {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 5px 0;
+    }
+   .teal-bar {
+      height: 20px;
+      background-color: #006666;
+      margin: 5px 0;
+    }
+   .sidebar-text {
+      font-size: 0.9em;
+      color: #333;
+    }
+   .main-content {
+      flex: 1;
+      background-color: white;
+      padding: 20px;
+      border-radius: 4px;
+    }
+   .date-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+   .date-label {
+      font-weight: bold;
+      color: #0047AB;
+    }
+   .date-value {
+      color: #333;
+    }
+    h2 {
+      color: #0047AB;
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+    ul {
+      margin-left: 0;
+      padding-left: 0;
+    }
+   .project-description,.services {
+      list-style-type: disc;
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+   .other-projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+   .project-block {
+      flex: 1;
+      min-width: 33.33%;
+      height: 20px;
+      background-color: #0047AB;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="dropdown">▼</div>
+      <div class="teal-bar"></div>
+      <div class="sidebar-text">IL and D]</div>
+    </div>
+    <div class="main-content">
+      <div class="date-section">
+        <div class="date-label">Start Date:</div>
+        <div class="date-value">February 1989</div>
+        <div class="date-label">Completion Date:</div>
+        <div class="date-value">March 1997</div>
+      </div>
+      <h2>Project Description</h2>
+      <ul class="project-description">
+        <li>Baldia Trunk & Secondary Sewers ranging from di... mm. Pipe-work of over 300 mm diameter with PV... internal corrosion (of total length approx.</li>
+        <li>Lyari Trunk Sewer of RCC box culvert sizing of 2m... passing through the right bank of Lyari River from... to Mauripur Sewage Treatment Plant.</li>
+        <li>54 mgd capacity sewage treatment plant based on... pond lagoon system at Mauripur, Karachi.</li>
+      </ul>
+      <h2>Services</h2>
+      <ul class="services">
+        <li>The Trunk Sewers were designed to carry all the waste... the treatment plant. Lyari Trunk Sewer runs on the... Mauripur Sewerage Treatment Plant.</li>
+        <li>Mauripur Sewage Treatment Plant was designed to tr... carried out by these Trunk Sewers and then use this... irrigation purpose also.</li>
+        <li>ECIL carried out design & construction supervision of... includes:</li>
+        <li>Topographic Surveys</li>
+        <li>Soil Surveys</li>
+        <li>Hydraulic & Process Design</li>
+        <li>Detailed Design & Drawings</li>
+      </ul>
+      <h2>OTHER PROJECTS IN THIS SECTOR</h2>
+      <div class="other-projects">
+        <div class="project-block"></div>
+        <div class="project-block"></div>
+        <div class="project-block"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+```

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+   .top-bar {
+      background-color: #5a3d9a;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+   .top-bar-left {
+      font-size: 14px;
+    }
+
+   .top-bar-right {
+      font-size: 14px;
+    }
+
+   .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+    }
+
+   .hero h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+   .activity-card {
+      display: flex;
+      margin: 20px 0;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+   .activity-left {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      width: 40%;
+    }
+
+   .activity-left p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+   .activity-right {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      width: 60%;
+    }
+
+   .teacher-info {
+      margin-bottom: 20px;
+    }
+
+   .teacher-avatar {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+   .avatar-circle {
+      width: 24px;
+      height: 24px;
+      background-color: #0066ff;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+   .teacher-name {
+      font-weight: bold;
+      color: #333;
+    }
+
+   .activity-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+   .activity-meta {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+   .student-instructions {
+      margin-top: 20px;
+    }
+
+   .student-instructions h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+   .student-instructions p {
+      margin-bottom: 15px;
+    }
+
+   .student-instructions ol {
+      padding-left: 20px;
+    }
+
+   .student-instructions li {
+      margin-bottom: 8px;
+    }
+
+   .blue-button {
+      display: inline-block;
+      background-color: #0066ff;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+   .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+   .try-it {
+      background-color: #5a3d9a;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+   .save-activity {
+      color: #5a3d9a;
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+   .related-activities {
+      margin: 30px 0;
+    }
+
+   .related-activities h2 {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+   .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+   .related-activity {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+   .related-activity.avatar-circle {
+      width: 24px;
+      height: 24px;
+      background-color: #0066ff;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+   .related-activity.teacher-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+   .related-activity.activity-title {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+   .related-activity.assessment-info {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #666;
+    }
+
+   .related-activity.assessment-label {
+      background-color: #0066ff;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+
+   .related-activity.assessment-number {
+      font-weight: bold;
+    }
+
+   .call-to-action {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+    }
+
+   .call-to-action h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+   .call-to-action p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+   .call-to-action a {
+      color: #5a3d9a;
+      text-decoration: underline;
+    }
+
+   .sign-up-free {
+      background-color: #00a65a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    footer nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-left">About Seesaw</div>
+    <div class="top-bar-right">Sign Up</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Teachers, save “Higher Order Thinking Questions_1” to assign it to your class.</h1>
+    </section>
+
+    <section class="activity-card">
+      <div class="activity-left">
+        <p>1) If the hummingbird had not sent a message to Jade, what would have happened to Jade? 2) Why do you think Mountain Spirit was pleased?</p>
+      </div>
+      <div class="activity-right">
+        <div class="teacher-info">
+          <div class="teacher-avatar">
+            <div class="avatar-circle"></div>
+            <div class="teacher-name">Hamimah Flynn</div>
+          </div>
+          <div class="activity-title">Higher Order Thinking Questions_1</div>
+          <div class="activity-meta">
+            <span>Grades: 2nd Grade</span>
+            <span>Subjects: English Language Learners, English Language Arts</span>
+          </div>
+        </div>
+        <div class="student-instructions">
+          <h3>Student Instructions</h3>
+          <p>You guys came up with some really good questions. Well done!</p>
+          <ol>
+            <li>Read the question carefully.</li>
+            <li>Type your answer out on the line.</li>
+            <li>Click on <span class="blue-button">when you have finished.</span></li>
+          </ol>
+        </div>
+        <div class="action-buttons">
+          <button class="try-it">Try It</button>
+          <a href="#" class="save-activity">Save Activity</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-activities">
+      <h2>Related Activities</h2>
+      <div class="activity-grid">
+        <div class="related-activity">
+          <div class="avatar-circle"></div>
+          <div class="teacher-name">Alex Keeney</div>
+          <div class="activity-title">Short Vowel Practice (a, e, i, o, u)</div>
+          <div class="assessment-info">
+            <span class="assessment-label">Assessment</span>
+            <span class="assessment-number">482</span>
+          </div>
+        </div>
+        <div class="related-activity">
+          <div class="avatar-circle"></div>
+          <div class="teacher-name">Alex Keeney</div>
+          <div class="activity-title">Short Vowel Practice (short i)</div>
+          <div class="assessment-info">
+            <span class="assessment-label">Assessment</span>
+            <span class="assessment-number">37</span>
+          </div>
+        </div>
+        <div class="related-activity">
+          <div class="avatar-circle"></div>
+          <div class="teacher-name">Ms. Howe</div>
+          <div class="activity-title">Word Sort -eg, en, -ead (2)</div>
+          <div class="assessment-info">
+            <span class="assessment-label">Assessment</span>
+            <span class="assessment-number">165</span>
+          </div>
+        </div>
+        <div class="related-activity">
+          <div class="avatar-circle"></div>
+          <div class="teacher-name">Alex Keeney</div>
+          <div class="activity-title">Short Vowel Practice (short u)</div>
+          <div class="assessment-info">
+            <span class="assessment-label">Assessment</span>
+            <span class="assessment-number">3</span>
+          </div>
+        </div>
+        <div class="related-activity">
+          <div class="avatar-circle"></div>
+          <div class="teacher-name">Tamara Letter</div>
+          <div class="activity-title">Reading Fluency Practice (K-2)</div>
+          <div class="assessment-info">
+            <span class="assessment-label">Assessment</span>
+            <span class="assessment-number">110</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="call-to-action">
+      <h2>Inspire your students to do their best</h2>
+      <p>Explore thousands of teacher-tested classroom activities to engage your students and save you time. <a href="#">Learn more.</a></p>
+      <button class="sign-up-free">Sign Up Free</button>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="#">Browse Classroom Activities</a>
+      <a href="#">About Seesaw</a>
+      <a href="#">Get the App</a>
+      <a href="#">Privacy Center</a>
+    </nav>
+  </footer>
+</body>
+</html>

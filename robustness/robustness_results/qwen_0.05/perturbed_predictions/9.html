@@ -1,0 +1,938 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the image into a single HTML5 file with embedded CSS. First, I need to analyze the structure of the provided image.
+
+Looking at the image:
+
+- Top navigation bar: HOME, COCKTAILS, FOODS, EXTRAS (all uppercase, probably links)
+- Main header: "The Pickled Mary" in large font, then "Submitted by: D. Keith Robinson" below it.
+- Content sections: [In Progress], Mix Ingredients, Mix Preparation, The Pickled Mary, Notes, Experimentation notes.
+- Each section has bullet points.
+
+First, the HTML structure. Let's outline:
+
+- <html> with lang="en"
+- <head> with meta tags (charset, viewport), title, and style block.
+- <body> with:
+  - Navigation bar (top)
+  - Main content: header (title and submitter), then sections.
+
+Let's break down each part.
+
+Navigation bar: The image shows a black bar with white text: HOME, COCKTAILS, FOODS, EXTRAS. So a <nav> with links. But in the image, it's a horizontal bar. Let's use a <div> for the nav, or <nav> with a <ul> for the links.
+
+Header: "The Pickled Mary" is large, centered. Then "Submitted by: D. Keith Robinson" below it, smaller.
+
+Content sections: Each section has a heading (like "Mix Ingredients") and bullet points. The bullet points are in a list.
+
+Let's check the styling:
+
+- The top bar is black, text white. So background-color: #000; color: #fff;.
+- The main content area is white background.
+- The header title is large, maybe font-size: 2.5em; font-weight: bold;.
+- The submitter line is smaller, maybe font-style: italic; or smaller font-size.
+- Sections: headings are bold, maybe h2 or h3. The bullet points are standard list.
+
+Let's structure the HTML:
+
+1. <head>:
+   - meta charset
+   - meta viewport
+   - title: "The Pickled Mary - The Mason Jar Project"
+   - style block with CSS.
+
+2. <body>:
+   - <nav> with links (HOME, COCKTAILS, FOODS, EXTRAS). In the image, they are in a black bar, so nav has background #000, color #fff, padding, etc.
+   - <header> for the main title and submitter.
+   - <main> with sections.
+
+Wait, the image shows the top bar as a black bar with the navigation links. Then the main content starts with the title.
+
+Let's check the image again:
+
+Top: black bar with HOME, COCKTAILS, FOODS, EXTRAS (all uppercase, spaced out).
+
+Then a black bar with "The Pickled Mary" in large white text, then "Submitted by: D. Keith Robinson" below it.
+
+Then the content.
+
+So the structure:
+
+- <nav> (top bar)
+- <header> (title and submitter)
+- <main> (content sections)
+
+Now, the CSS:
+
+- The top nav: background #000, color #fff, padding: 0.5em 0; text-align: center; font-size: 1.2em; maybe a bit of margin.
+- The header: background #000 (same as nav?), but in the image, the title is on a black bar. Wait, the image shows the title on a black bar, then the content on white. Wait, the image's top part: the first black bar is the navigation, then the next black bar is the title. Wait, no: the image shows:
+
+Top: black bar with HOME, COCKTAILS, FOODS, EXTRAS.
+
+Then a black bar with "The Pickled Mary" (large white text), then "Submitted by: D. Keith Robinson" (smaller white text).
+
+Then the content area is white.
+
+Wait, looking at the image:
+
+The top part is a black bar with the navigation links. Then below that, a black bar with the title and submitter. Then the content is on a white background.
+
+Wait, the image's layout:
+
+- Top: black bar (navigation)
+- Then a black bar (title and submitter)
+- Then white background for content.
+
+So in HTML:
+
+- <nav> for the top navigation.
+- <header> for the title and submitter.
+- <main> for the content.
+
+Now, the navigation links: in the image, they are "HOME", "COCKTAILS", "FOODS", "EXTRAS". So a <nav> with a <ul> or <div> with links.
+
+Let's code the navigation:
+
+<nav>
+  <ul>
+    <li><a href="#">HOME</a></li>
+    <li><a href="#">COCKTAILS</a></li>
+    <li><a href="#">FOODS</a></li>
+    <li><a href="#">EXTRAS</a></li>
+  </ul>
+</nav>
+
+But in the image, the links are in a black bar, so the nav should have background #000, color #fff, and the links should be white.
+
+The header:
+
+<header>
+  <h1>The Pickled Mary</h1>
+  <p>Submitted by: <a href="#">D. Keith Robinson</a></p>
+</header>
+
+Wait, in the image, "Submitted by: D. Keith Robinson" is in the same black bar as the title. So the header is a black bar with the title and submitter.
+
+So the header should have a background color #000, and the text is white.
+
+Now, the content sections:
+
+- [In Progress]. A spicy pickled take.
+- Mix Ingredients (with bullet points)
+- Mix Preparation (with bullet points)
+- The Pickled Mary (with bullet points)
+- Notes (with bullet points)
+- Experimentation notes (with bullet points)
+
+Each section has a heading (like "Mix Ingredients") and a list.
+
+The styling for the content:
+
+- The main content area is white background.
+- The headings (like "Mix Ingredients") are bold, maybe h2 or h3.
+- The bullet points are standard list items.
+
+Let's check the image's font sizes:
+
+- The title "The Pickled Mary" is large, maybe 2.5em.
+- The submitter line is smaller, maybe 0.9em.
+- The section headings (Mix Ingredients, etc.) are bold, maybe 1.2em.
+- The bullet points are standard.
+
+Now, the CSS:
+
+- Body: font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #fff;
+- Nav: background: #000; color: #fff; padding: 0.5em 0; text-align: center; font-size: 1.2em;
+- Header: background: #000; color: #fff; padding: 1em; text-align: center;
+- H1: font-size: 2.5em; margin: 0;
+- P (submitter): font-size: 0.9em; margin: 0.5em 0;
+- Section headings (like "Mix Ingredients"): font-weight: bold; font-size: 1.2em; margin: 1.5em 0 0.5em;
+- Lists: margin-left: 2em; margin-top: 0.5em;
+- Bullet points: standard.
+
+Also, the image has a footer: "Est. 2013 by D. Keith Robinson & Chad Seeger" at the bottom.
+
+Wait, the image shows at the bottom: "THE MASON JAR PROJECT" and "Est. 2013 by D. Keith Robinson & Chad Seeger".
+
+So the footer should have:
+
+<footer>
+  <p>THE MASON JAR PROJECT</p>
+  <p>Est. 2013 by D. Keith Robinson & Chad Seeger</p>
+</footer>
+
+Now, let's structure the HTML:
+
+- <html>
+  - <head>
+    - meta tags
+    - title
+    - style block
+  - <body>
+    - <nav> (top navigation)
+    - <header> (title and submitter)
+    - <main> (content sections)
+    - <footer> (project info)
+
+Now, let's code the CSS.
+
+First, the nav:
+
+nav {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5em 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 0.5em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  background-color: #000;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+header p {
+  font-size: 0.9em;
+  margin: 0.5em 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+section {
+  margin-bottom: 1.5em;
+}
+
+section h2 {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 1.5em 0 0.5em;
+}
+
+ul {
+  margin-left: 2em;
+  margin-top: 0.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  font-size: 0.8em;
+  color: #666;
+}
+
+Now, check the image for any specific styles.
+
+The image shows the "Submitted by" line as a link (D. Keith Robinson is underlined). So in the HTML, the submitter's name should be a link.
+
+Also, the "In Progress" line: [In Progress]. A spicy pickled take. That's a paragraph before the sections.
+
+Wait, the image shows:
+
+[In Progress]. A spicy pickled take.
+
+Then the sections.
+
+So the content starts with a paragraph, then the sections.
+
+So in the main:
+
+<p>[In Progress]. A spicy pickled take.</p>
+
+Then the sections.
+
+Now, let's code the HTML structure.
+
+Let's outline:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pickled Mary - The Mason Jar Project</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">COCKTAILS</a></li>
+      <li><a href="#">FOODS</a></li>
+      <li><a href="#">EXTRAS</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>The Pickled Mary</h1>
+    <p>Submitted by: <a href="#">D. Keith Robinson</a></p>
+  </header>
+  <main>
+    <p>[In Progress]. A spicy pickled take.</p>
+    <section>
+      <h2>Mix Ingredients</h2>
+      <ul>
+        <li>Freshly seeded, stemmed and chopped peppers. 1 red bell, 1 green bell pepper and one anaheim chili.</li>
+        <li>1/4 cup or so chopped garlic</li>
+        <li>2 small tomatoes. Chopped into chunks</li>
+        <li>4 oz tomato paste</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Mix Preparation</h2>
+      <ul>
+        <li>Chop the peppers, tomato and garlic into small chunks. Place them in large Dutch oven.</li>
+        <li>Puree the veggies.</li>
+        <li>(Optional if you want a thinner consistency.) Strain into a bowl or jar through sieve, pressing with a rubber spatula; discard solids.</li>
+        <li>Add everything else. Puree a bit more.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>The Pickled Mary</h2>
+      <ul>
+        <li>Edge a large glass with salt.</li>
+        <li>Pour in a shot or two of vodka (Ursula cucumber vodka is good). Strain if needed.</li>
+        <li>Pour in the mix, fill about 2/3rds of the glass.</li>
+        <li>Add ice. Be sure and leave some room in the glass.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Notes</h2>
+      <ul>
+        <li>Cucumber juice can be hard to come by. Puree one or two large cucumbers with a bit of water and strain.</li>
+        <li>If you don't strain the veggies it'll come out a bit thick. Almost smoothy like, but not chunky.</li>
+        <li>If the mix is too thick, no worries, just add some water.</li>
+        <li>You can play a bit of mix n' match with the peppers for variety.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Experimentation notes</h2>
+      <ul>
+        <li>More pickle juice?</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>THE MASON JAR PROJECT</p>
+    <p>Est. 2013 by D. Keith Robinson & Chad Seeger</p>
+  </footer>
+</body>
+</html>
+
+Now, check the CSS for responsiveness. The main content should be centered, max-width 800px.
+
+Also, the nav should be responsive. But the task says "responsive CSS", so maybe use a media query for smaller screens.
+
+Wait, the image is a desktop view, but the task says "responsive", so we need to make sure the layout works on mobile.
+
+Let's adjust the CSS for responsiveness.
+
+For example, the nav on mobile: stack the links vertically.
+
+But the image doesn't show mobile, but the task says "responsive CSS", so we need to include media queries.
+
+Let's add a media query for screens smaller than 768px.
+
+nav {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5em 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav li {
+  display: inline;
+  margin: 0 0.5em;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav li {
+    margin: 0.2em 0;
+  }
+}
+
+Also, the main content: on mobile, maybe adjust the padding.
+
+But the task says "strictly and accurately recreate the visual design in the image". The image is a desktop view, but the CSS should be responsive. So we need to make sure that the layout is responsive.
+
+Another thing: the image shows the navigation links as "HOME", "COCKTAILS", "FOODS", "EXTRAS" in a black bar. So the nav should have those links.
+
+Now, check the image for any specific styling:
+
+- The "Submitted by" line: the name is underlined, so in HTML, the <a> tag for D. Keith Robinson should have text-decoration: underline;.
+
+Wait, in the image, "D. Keith Robinson" is underlined. So in the CSS, the link should have text-decoration: underline;.
+
+So for the submitter's link:
+
+a {
+  text-decoration: underline;
+}
+
+But in the image, it's only the name that's underlined, not the whole "Submitted by:...". So the <a> tag is only around the name.
+
+Yes, in the HTML:
+
+<p>Submitted by: <a href="#">D. Keith Robinson</a></p>
+
+So the link is only the name, which is underlined.
+
+Now, let's check the image for the footer: "THE MASON JAR PROJECT" is in uppercase, and "Est. 2013 by D. Keith Robinson & Chad Seeger" is below it.
+
+In the HTML, the footer has two paragraphs.
+
+Now, let's code the CSS with the responsive elements.
+
+Also, the body should have a font-family, maybe Arial, sans-serif.
+
+Let's write the CSS:
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5em 0;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav li {
+    display: inline;
+    margin: 0 0.5em;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  header {
+    background-color: #000;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+
+  header p {
+    font-size: 0.9em;
+    margin: 0.5em 0;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+
+  section {
+    margin-bottom: 1.5em;
+  }
+
+  section h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 1.5em 0 0.5em;
+  }
+
+  ul {
+    margin-left: 2em;
+    margin-top: 0.5em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1em;
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    nav li {
+      margin: 0.2em 0;
+    }
+    main {
+      padding: 0.5em;
+    }
+  }
+</style>
+
+Now, check if all elements are included.
+
+The image has:
+
+- Navigation links: HOME, COCKTAILS, FOODS, EXTRAS (all uppercase)
+- Header: The Pickled Mary (large), Submitted by: D. Keith Robinson (smaller, underlined)
+- Content sections: [In Progress] paragraph, then Mix Ingredients, Mix Preparation, The Pickled Mary, Notes, Experimentation notes.
+- Footer: THE MASON JAR PROJECT, Est. 2013 by D. Keith Robinson & Chad Seeger.
+
+In the HTML, the [In Progress] is a paragraph before the sections.
+
+Now, let's check the bullet points. The image shows bullet points with dashes, but in HTML, we use <ul> and <li>.
+
+Yes, the image uses bullet points, so <ul> is correct.
+
+Now, the "In Progress" line: [In Progress]. A spicy pickled take. That's a paragraph, so <p> tag.
+
+Now, let's make sure the HTML is valid.
+
+Check the structure:
+
+- <html> with lang="en"
+- <head> with meta, title, style
+- <body> with nav, header, main, footer.
+
+Yes.
+
+Now, the code should be:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pickled Mary - The Mason Jar Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #000;
+      color: #fff;
+      padding: 0.5em 0;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      display: inline;
+      margin: 0 0.5em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 0.9em;
+      margin: 0.5em 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1em;
+    }
+
+    section {
+      margin-bottom: 1.5em;
+    }
+
+    section h2 {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: 1.5em 0 0.5em;
+    }
+
+    ul {
+      margin-left: 2em;
+      margin-top: 0.5em;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.8em;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav li {
+        margin: 0.2em 0;
+      }
+      main {
+        padding: 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">COCKTAILS</a></li>
+      <li><a href="#">FOODS</a></li>
+      <li><a href="#">EXTRAS</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>The Pickled Mary</h1>
+    <p>Submitted by: <a href="#">D. Keith Robinson</a></p>
+  </header>
+  <main>
+    <p>[In Progress]. A spicy pickled take.</p>
+    <section>
+      <h2>Mix Ingredients</h2>
+      <ul>
+        <li>Freshly seeded, stemmed and chopped peppers. 1 red bell, 1 green bell pepper and one anaheim chili.</li>
+        <li>1/4 cup or so chopped garlic</li>
+        <li>2 small tomatoes. Chopped into chunks</li>
+        <li>4 oz tomato paste</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Mix Preparation</h2>
+      <ul>
+        <li>Chop the peppers, tomato and garlic into small chunks. Place them in large Dutch oven.</li>
+        <li>Puree the veggies.</li>
+        <li>(Optional if you want a thinner consistency.) Strain into a bowl or jar through sieve, pressing with a rubber spatula; discard solids.</li>
+        <li>Add everything else. Puree a bit more.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>The Pickled Mary</h2>
+      <ul>
+        <li>Edge a large glass with salt.</li>
+        <li>Pour in a shot or two of vodka (Ursula cucumber vodka is good). Strain if needed.</li>
+        <li>Pour in the mix, fill about 2/3rds of the glass.</li>
+        <li>Add ice. Be sure and leave some room in the glass.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Notes</h2>
+      <ul>
+        <li>Cucumber juice can be hard to come by. Puree one or two large cucumbers with a bit of water and strain.</li>
+        <li>If you don't strain the veggies it'll come out a bit thick. Almost smoothy like, but not chunky.</li>
+        <li>If the mix is too thick, no worries, just add some water.</li>
+        <li>You can play a bit of mix n' match with the peppers for variety.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Experimentation notes</h2>
+      <ul>
+        <li>More pickle juice?</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>THE MASON JAR PROJECT</p>
+    <p>Est. 2013 by D. Keith Robinson & Chad Seeger</p>
+  </footer>
+</body>
+</html>
+```
+
+Wait, the image shows the navigation links as "HOME", "COCKTAILS", "FOODS", "EXTRAS" in the top bar. In the HTML, the nav has those links. The CSS for nav is correct.
+
+The header has the title and submitter. The submitter's name is a link, which is underlined.
+
+The content sections are correctly structured with sections and lists.
+
+The footer has the project info.
+
+Now, check if the CSS is embedded correctly. Yes, the style block is inside the head.
+
+The HTML is valid, with proper tags.
+
+The responsive part: the media query for max-width 768px makes the nav stack vertically on mobile.
+
+This should accurately recreate the visual design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pickled Mary - The Mason Jar Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #000;
+      color: #fff;
+      padding: 0.5em 0;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      display: inline;
+      margin: 0 0.5em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 0.9em;
+      margin: 0.5em 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1em;
+    }
+
+    section {
+      margin-bottom: 1.5em;
+    }
+
+    section h2 {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: 1.5em 0 0.5em;
+    }
+
+    ul {
+      margin-left: 2em;
+      margin-top: 0.5em;
+    }
+
+    li {
+      margin-bottom: 0.5em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.8em;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav li {
+        margin: 0.2em 0;
+      }
+      main {
+        padding: 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">COCKTAILS</a></li>
+      <li><a href="#">FOODS</a></li>
+      <li><a href="#">EXTRAS</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1>The Pickled Mary</h1>
+    <p>Submitted by: <a href="#">D. Keith Robinson</a></p>
+  </header>
+  <main>
+    <p>[In Progress]. A spicy pickled take.</p>
+    <section>
+      <h2>Mix Ingredients</h2>
+      <ul>
+        <li>Freshly seeded, stemmed and chopped peppers. 1 red bell, 1 green bell pepper and one anaheim chili.</li>
+        <li>1/4 cup or so chopped garlic</li>
+        <li>2 small tomatoes. Chopped into chunks</li>
+        <li>4 oz tomato paste</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Mix Preparation</h2>
+      <ul>
+        <li>Chop the peppers, tomato and garlic into small chunks. Place them in large Dutch oven.</li>
+        <li>Puree the veggies.</li>
+        <li>(Optional if you want a thinner consistency.) Strain into a bowl or jar through sieve, pressing with a rubber spatula; discard solids.</li>
+        <li>Add everything else. Puree a bit more.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>The Pickled Mary</h2>
+      <ul>
+        <li>Edge a large glass with salt.</li>
+        <li>Pour in a shot or two of vodka (Ursula cucumber vodka is good). Strain if needed.</li>
+        <li>Pour in the mix, fill about 2/3rds of the glass.</li>
+        <li>Add ice. Be sure and leave some room in the glass.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Notes</h2>
+      <ul>
+        <li>Cucumber juice can be hard to come by. Puree one or two large cucumbers with a bit of water and strain.</li>
+        <li>If you don't strain the veggies it'll come out a bit thick. Almost smoothy like, but not chunky.</li>
+        <li>If the mix is too thick, no worries, just add some water.</li>
+        <li>You can play a bit of mix n' match with the peppers for variety.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Experimentation notes</h2>
+      <ul>
+        <li>More pickle juice?</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>THE MASON JAR PROJECT</p>
+    <p>Est. 2013 by D. Keith Robinson & Chad Seeger</p>
+  </footer>
+</body>
+</html>
+```

@@ -1,0 +1,988 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image as an HTML5 file with embedded CSS. First, I need to analyze the structure and content of the image.
+
+Looking at the image, it's a resume or profile page. Let's break down the sections:
+
+- Header with title, position, etc.
+- About me section
+- Selected Press (with bullet points)
+- Awards
+- Service
+- Teaching
+- Footer with contact info (some redacted)
+
+First, the HTML structure. The main elements are:
+
+- A container for the content.
+- Sections: header, about me, selected press, awards, service, teaching, footer.
+
+Let's note the styling:
+
+- The page has a clean, modern look. The text is left-aligned, with some sections having bold headings.
+- The "About me" section has a paragraph with links (like Instabase, Mobile Enerlytics, Purdue University, etc.) which are blue and underlined.
+- The "Selected Press" section has bullet points with years and media names, separated by |.
+- The "Awards" and "Service" sections have bullet points.
+- The "Teaching" section has bullet points with course codes and titles.
+- The footer has redacted info, with some text in blue (like codenet, [NAME REDACTED]).
+
+Now, the CSS needs to be responsive. Let's think about the layout:
+
+- The page should have a max-width, maybe centered. Let's use a container with padding.
+- Font sizes: headings (like "About me") should be larger, bold.
+- Links are blue, underlined.
+- Bullet points: standard list style.
+- The footer has two columns? Wait, in the image, the footer has [NAME REDACTED] on the left, then codenet and [NAME REDACTED] in the middle, and the position on the right. Wait, looking at the image:
+
+The footer part says:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+Wait, maybe the footer is structured as:
+
+Left: [NAME REDACTED], [EMAIL REDACTED]
+
+Middle: codenet, [NAME REDACTED], [NAME REDACTED]
+
+Right: Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+But in the image, it's a bit messy. Let's check the image again.
+
+The image's footer has:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+Wait, maybe it's a two-column layout for the footer. Let's see:
+
+The image shows:
+
+Top line: [NAME REDACTED]
+
+Then two lines: [NAME REDACTED] [EMAIL REDACTED] and codenet [NAME REDACTED] [NAME REDACTED]
+
+Then the position.
+
+Wait, perhaps the footer is structured as:
+
+- A line with [NAME REDACTED]
+- Then two columns: left has [NAME REDACTED] and [EMAIL REDACTED], middle has codenet, [NAME REDACTED], [NAME REDACTED], right has the position.
+
+But maybe it's better to look at the HTML structure.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Assistant professor, CSE, IIT Delhi</h1>
+      <p>TBO Faculty Fellow</p>
+      <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+      <p>Email: ajindal AT cse.iitd.ac.in</p>
+    </header>
+    <section id="about">
+      <h2>About me</h2>
+      <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+      <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+      <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+    </section>
+    <section id="press">
+      <h2>Selected Press</h2>
+      <ul>
+        <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a></li>
+        <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a></li>
+        <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a></li>
+        <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a></li>
+      </ul>
+    </section>
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul>
+        <li>Google India Research Award, 2022.</li>
+        <li>Best Community Paper Award, MobiCom, 2022.</li>
+      </ul>
+    </section>
+    <section id="service">
+      <h2>Service</h2>
+      <p>PC member: Middleware'23, Eurosys'22</p>
+    </section>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
+        <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+        <li>[2022-2023 II] COP-290: Design Practices</li>
+        <li>[2022 Winter] WSS-22: Cloud Computing</li>
+        <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+      </ul>
+    </section>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>[NAME REDACTED]</p>
+          <p>[NAME REDACTED]</p>
+          <p>[EMAIL REDACTED]</p>
+        </div>
+        <div class="footer-middle">
+          <p>codenet</p>
+          <p>[NAME REDACTED]</p>
+          <p>[NAME REDACTED]</p>
+        </div>
+        <div class="footer-right">
+          <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+Wait, but the image's footer has the [NAME REDACTED] on the top line, then the next lines. Let's check the image again.
+
+The image's footer part:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+Ah, so the first line is [NAME REDACTED], then the next line is [NAME REDACTED] [EMAIL REDACTED], then codenet, then two [NAME REDACTED] lines, then the position.
+
+So maybe the footer is structured as:
+
+- A line with [NAME REDACTED]
+- Then a line with [NAME REDACTED] and [EMAIL REDACTED] (separated by space)
+- Then codenet
+- Then two lines of [NAME REDACTED]
+- Then the position.
+
+But in the image, it's all in the footer. Let's see the image:
+
+The footer has:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So perhaps the footer is a single block with these lines.
+
+Wait, maybe the footer is:
+
+<div class="footer">
+  <p>[NAME REDACTED]</p>
+  <p>[NAME REDACTED] [EMAIL REDACTED]</p>
+  <p>codenet</p>
+  <p>[NAME REDACTED]</p>
+  <p>[NAME REDACTED]</p>
+  <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+</div>
+
+But the image shows the "Assistant Professor..." line at the bottom.
+
+Now, the CSS:
+
+- The page should have a clean layout. Let's set a font-family, maybe Arial, sans-serif.
+- The container should have a max-width, padding, margin.
+- Headings (h2) should be bold, larger font.
+- Links should be blue, underlined.
+- The footer should have some spacing.
+
+Let's think about the styling:
+
+- The header has the title, then the other info. The title is "Assistant professor, CSE, IIT Delhi" which is bold, maybe larger font.
+- The "About me" section has paragraphs with links.
+- The "Selected Press" section has a list with bullet points, each item has a year and media names separated by |.
+- The "Awards" and "Service" sections have bullet points.
+- The "Teaching" section has bullet points with course codes.
+
+Now, the CSS:
+
+- body: font-family, margin, padding.
+-.container: max-width, margin, padding.
+- header: maybe some margin-bottom.
+- h2: font-size, margin-bottom.
+- p: margin-bottom.
+- a: color, text-decoration.
+- ul: margin, padding.
+- li: margin-bottom.
+- footer: margin-top, padding.
+
+Let's draft the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+header p {
+  margin: 2px 0;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left,.footer-middle,.footer-right {
+  flex: 1;
+  min-width: 150px;
+}
+
+Wait, but the footer in the image doesn't have columns. Let's check the image again. The footer has:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So it's a single column. So maybe the footer is a simple div with paragraphs.
+
+Let's adjust:
+
+footer {
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+Now, the header: the first line is "Assistant professor, CSE, IIT Delhi" which is bold. The next lines are "TBO Faculty Fellow", "Office:...", "Email:...".
+
+In the image, the header has the title, then the other info. So the HTML for header:
+
+<header>
+  <h1>Assistant professor, CSE, IIT Delhi</h1>
+  <p>TBO Faculty Fellow</p>
+  <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+  <p>Email: ajindal AT cse.iitd.ac.in</p>
+</header>
+
+Yes.
+
+Now, the "About me" section:
+
+<h2>About me</h2>
+<p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+<p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+<p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+
+The "Selected Press" section:
+
+<h2>Selected Press</h2>
+<ul>
+  <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a></li>
+  <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a></li>
+  <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a></li>
+  <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a></li>
+</ul>
+
+The "Awards" section:
+
+<h2>Awards</h2>
+<ul>
+  <li>Google India Research Award, 2022.</li>
+  <li>Best Community Paper Award, MobiCom, 2022.</li>
+</ul>
+
+The "Service" section:
+
+<h2>Service</h2>
+<p>PC member: Middleware'23, Eurosys'22</p>
+
+The "Teaching" section:
+
+<h2>Teaching</h2>
+<ul>
+  <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+  <li>[2022-2023 II] COP-290: Design Practices</li>
+  <li>[2022 Winter] WSS-22: Cloud Computing</li>
+  <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+</ul>
+
+The footer:
+
+<footer>
+  <p>[NAME REDACTED]</p>
+  <p>[NAME REDACTED] [EMAIL REDACTED]</p>
+  <p>codenet</p>
+  <p>[NAME REDACTED]</p>
+  <p>[NAME REDACTED]</p>
+  <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+</footer>
+
+Wait, but in the image, the footer has "codenet" as a separate line. Let's check the image:
+
+The image's footer:
+
+[NAME REDACTED]
+
+[NAME REDACTED] [EMAIL REDACTED]
+
+codenet
+
+[NAME REDACTED]
+
+[NAME REDACTED]
+
+Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+Yes, so the footer has six lines:
+
+1. [NAME REDACTED]
+2. [NAME REDACTED] [EMAIL REDACTED]
+3. codenet
+4. [NAME REDACTED]
+5. [NAME REDACTED]
+6. Assistant Professor, Department of Computer Science and Engineering, IIT Delhi
+
+So the footer HTML should have six <p> elements.
+
+Now, the CSS for the footer: maybe some spacing between the lines.
+
+Let's adjust the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+header p {
+  margin: 2px 0;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+Now, check if the image has a blue circle on the right. Wait, the image shows a blue circle on the top right. Oh, right! The image has a blue circle (probably a profile picture placeholder) on the top right. So the header should have a div for the circle.
+
+Wait, the image shows:
+
+On the top right, there's a blue circle. So the header should have a div with a blue circle.
+
+So the header structure:
+
+<header>
+  <div class="header-content">
+    <div class="header-text">
+      <h1>Assistant professor, CSE, IIT Delhi</h1>
+      <p>TBO Faculty Fellow</p>
+      <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+      <p>Email: ajindal AT cse.iitd.ac.in</p>
+    </div>
+    <div class="header-image">
+      <div class="circle"></div>
+    </div>
+  </div>
+</header>
+
+The circle is a blue circle. So in CSS,.circle should be a circle with background color blue.
+
+So add:
+
+.header-image {
+  float: right;
+  margin-left: 20px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #0000ff;
+  display: inline-block;
+}
+
+Wait, but the image shows the circle on the top right, so the header should have the text on the left and the circle on the right.
+
+So the header should be a flex container.
+
+Let's adjust the header:
+
+<header>
+  <div class="header-content">
+    <div class="header-text">
+      <h1>Assistant professor, CSE, IIT Delhi</h1>
+      <p>TBO Faculty Fellow</p>
+      <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+      <p>Email: ajindal AT cse.iitd.ac.in</p>
+    </div>
+    <div class="header-image">
+      <div class="circle"></div>
+    </div>
+  </div>
+</header>
+
+CSS for header:
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.header-image {
+  margin-left: 20px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #0000ff;
+}
+
+Yes, that's better.
+
+Now, the header has the text on the left and the circle on the right.
+
+So the HTML structure for the header is:
+
+<header>
+  <div class="header-content">
+    <div class="header-text">
+      <h1>Assistant professor, CSE, IIT Delhi</h1>
+      <p>TBO Faculty Fellow</p>
+      <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+      <p>Email: ajindal AT cse.iitd.ac.in</p>
+    </div>
+    <div class="header-image">
+      <div class="circle"></div>
+    </div>
+  </div>
+</header>
+
+Now, the CSS for the header:
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.header-image {
+  margin-left: 20px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #0000ff;
+  display: inline-block;
+}
+
+Now, check the image: the circle is blue, so background-color: #0000ff.
+
+Now, the rest of the sections.
+
+Let's put it all together.
+
+Now, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+   .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      margin-bottom: 20px;
+    }
+   .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+   .header-text {
+      flex: 1;
+    }
+   .header-image {
+      margin-left: 20px;
+    }
+   .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #0000ff;
+      display: inline-block;
+    }
+    header h1 {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    header p {
+      margin: 2px 0;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    footer {
+      margin-top: 30px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="header-text">
+          <h1>Assistant professor, CSE, IIT Delhi</h1>
+          <p>TBO Faculty Fellow</p>
+          <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+          <p>Email: ajindal AT cse.iitd.ac.in</p>
+        </div>
+        <div class="header-image">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </header>
+    <section id="about">
+      <h2>About me</h2>
+      <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+      <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+      <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+    </section>
+    <section id="press">
+      <h2>Selected Press</h2>
+      <ul>
+        <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a></li>
+        <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a></li>
+        <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a></li>
+        <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a></li>
+      </ul>
+    </section>
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul>
+        <li>Google India Research Award, 2022.</li>
+        <li>Best Community Paper Award, MobiCom, 2022.</li>
+      </ul>
+    </section>
+    <section id="service">
+      <h2>Service</h2>
+      <p>PC member: Middleware'23, Eurosys'22</p>
+    </section>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
+        <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+        <li>[2022-2023 II] COP-290: Design Practices</li>
+        <li>[2022 Winter] WSS-22: Cloud Computing</li>
+        <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+      </ul>
+    </section>
+    <footer>
+      <p>[NAME REDACTED]</p>
+      <p>[NAME REDACTED] [EMAIL REDACTED]</p>
+      <p>codenet</p>
+      <p>[NAME REDACTED]</p>
+      <p>[NAME REDACTED]</p>
+      <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+    </footer>
+  </div>
+</body>
+</html>
+
+Wait, but the image's footer has "codenet" as a separate line. Let's check the image again. Yes, the footer has "codenet" as a line.
+
+Now, check if all elements are present.
+
+- Header with text and blue circle.
+- About me section with paragraphs and links.
+- Selected Press with bullet points.
+- Awards with bullet points.
+- Service with a paragraph.
+- Teaching with bullet points.
+- Footer with the redacted lines.
+
+Yes.
+
+Now, check the CSS for responsiveness. The container has max-width 800px, which is responsive. The flex layout for the header should work on all screen sizes.
+
+Now, check the links: they are blue and underlined, which is correct.
+
+The bullet points in the lists are correct.
+
+The footer has the six lines as in the image.
+
+Now, the only thing is the "About me" section has "I received my Ph.D. from Purdue University where I worked closely with professors Y. Charlie Hu and Samuel Midkiff. I earned my undergraduate degree from IIT Kanpur." which matches the image.
+
+Yes.
+
+Now, the HTML is valid, the CSS is embedded, and the structure matches the image.
+
+Let's make sure there are no extra elements or missing elements.
+
+The image shows:
+
+- Assistant professor, CSE, IIT Delhi (header)
+- TBO Faculty Fellow
+- Office: SIT 412, Khosla School of IT, IIT Delhi
+- Email: ajindal AT cse.iitd.ac.in
+- Blue circle on the right (handled by.circle)
+- About me section
+- Selected Press section
+- Awards section
+- Service section
+- Teaching section
+- Footer with the redacted info.
+
+Yes, all present.
+
+Now, the code should be written as a single HTML file with the style inside the head.
+
+Let's write the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+   .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      margin-bottom: 20px;
+    }
+   .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+   .header-text {
+      flex: 1;
+    }
+   .header-image {
+      margin-left: 20px;
+    }
+   .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #0000ff;
+      display: inline-block;
+    }
+    header h1 {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    header p {
+      margin: 2px 0;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    footer {
+      margin-top: 30px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="header-text">
+          <h1>Assistant professor, CSE, IIT Delhi</h1>
+          <p>TBO Faculty Fellow</p>
+          <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+          <p>Email: ajindal AT cse.iitd.ac.in</p>
+        </div>
+        <div class="header-image">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </header>
+    <section id="about">
+      <h2>About me</h2>
+      <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+      <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+      <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+    </section>
+    <section id="press">
+      <h2>Selected Press</h2>
+      <ul>
+        <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a></li>
+        <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a></li>
+        <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a></li>
+        <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a></li>
+      </ul>
+    </section>
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul>
+        <li>Google India Research Award, 2022.</li>
+        <li>Best Community Paper Award, MobiCom, 2022.</li>
+      </ul>
+    </section>
+    <section id="service">
+      <h2>Service</h2>
+      <p>PC member: Middleware'23, Eurosys'22</p>
+    </section>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
+        <li>[2023-2024 I] COL-733: Cloud computing technology fundamentals</li>
+        <li>[2022-2023 II] COP-290: Design Practices</li>
+        <li>[2022 Winter] WSS-22: Cloud Computing</li>
+        <li>[2022-2023 I] COL-732: Virtualization and Cloud Computing</li>
+      </ul>
+    </section>
+    <footer>
+      <p>[NAME REDACTED]</p>
+      <p>[NAME REDACTED] [EMAIL REDACTED]</p>
+      <p>codenet</p>
+      <p>[NAME REDACTED]</p>
+      <p>[NAME REDACTED]</p>
+      <p>Assistant Professor, Department of Computer Science and Engineering, IIT Delhi</p>
+    </footer>
+  </div>
+</body>
+</html>
+```

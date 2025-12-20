@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McMahon Engineering</title>
+    <style>
+        /* General Resets */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f8f8; /* Light background to match image */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Top Bar */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 40px;
+            background-color: #0000FF;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+
+        .header-nav a {
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: #000;
+        }
+
+        /* Header Bottom Bar */
+        .header-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #800080; /* Purple */
+            padding: 10px 5%;
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        .news-events {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .news-events::after {
+            content: '▼'; /* Dropdown arrow */
+            margin-left: 8px;
+            font-size: 0.7em;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 8px 10px;
+            font-size: 0.85em;
+            outline: none;
+            width: 180px; /* Adjust width as needed */
+        }
+
+        .search-bar button {
+            background-color: #0000FF;
+            border: none;
+            color: #fff;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.85em;
+            height: 100%;
+        }
+
+        /* Main Content Area */
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 30px 5%;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-content-left {
+            flex: 2;
+            max-width: 700px;
+        }
+
+        .main-content-left h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .main-content-left h2 {
+            font-size: 1.2em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .main-content-left p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .main-content-right {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .summary-box {
+            background-color: #D8BFD8; /* Thistle - light purple */
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc; /* Subtle border */
+        }
+
+        .summary-box h2 {
+            color: #fff;
+            background-color: #800080; /* Purple */
+            padding: 8px 15px;
+            margin: -20px -20px 20px -20px; /* Adjust to cover full width */
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+
+        .summary-item {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .summary-item strong {
+            flex-basis: 35%;
+            min-width: 80px;
+            color: #555;
+        }
+
+        .summary-item span {
+            flex-basis: 65%;
+            color: #333;
+        }
+
+        .summary-box a {
+            display: block;
+            margin-top: 15px;
+            color: #0000FF;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .right-nav-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .right-nav-links li {
+            margin-bottom: 5px;
+        }
+
+        .right-nav-links a {
+            display: block;
+            padding: 12px 15px;
+            background-color: #fff;
+            border: 1px solid #eee;
+            color: #0000FF;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-nav-links a:hover {
+            background-color: #F0FFF0; /* Honeydew - light green */
+        }
+
+        /* Specific background colors for right nav links as per image */
+        .right-nav-links li:nth-child(1) a:hover { background-color: #F0FFF0; } /* Greenish */
+        .right-nav-links li:nth-child(2) a:hover { background-color: #FFFFF0; } /* Yellowish */
+        .right-nav-links li:nth-child(3) a:hover { background-color: #F0FFF0; } /* Greenish */
+        .right-nav-links li:nth-child(4) a:hover { background-color: #FFFFF0; } /* Yellowish */
+
+
+        /* Middle Blue Squares */
+        .middle-squares {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        .middle-squares .square {
+            width: 40px;
+            height: 40px;
+            background-color: #0000FF;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: #A9A9A9; /* DarkGrey */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            flex-basis: 100%;
+            margin-bottom: 15px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-squares {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-squares .square {
+            width: 30px;
+            height: 30px;
+            background-color: #0000FF;
+        }
+
+        .web-design-text {
+            margin-left: auto; /* Pushes it to the right */
+            color: #A9A9A9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .main-content-left,
+            .main-content-right {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .summary-box {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top, .header-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 3%;
+            }
+
+            .header-nav {
+                margin-top: 10px;
+                gap: 15px;
+            }
+
+            .news-events {
+                margin-bottom: 10px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: calc(100% - 50px); /* Adjust for button width */
+            }
+
+            .main-content-wrapper {
+                padding: 20px 3%;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 3%;
+            }
+
+            .footer-left {
+                margin-bottom: 10px;
+            }
+
+            .footer-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .web-design-text {
+                margin-left: 0; /* Reset margin for stacking */
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .logo-placeholder {
+                width: 80px;
+                height: 30px;
+            }
+
+            .main-content-left h1 {
+                font-size: 1.8em;
+            }
+
+            .main-content-left h2 {
+                font-size: 1.1em;
+            }
+
+            .summary-box h2 {
+                font-size: 1.1em;
+            }
+
+            .footer-squares {
+                gap: 5px;
+            }
+
+            .footer-squares .square {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-placeholder"></div>
+            <nav class="header-nav">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT US</a>
+            </nav>
+        </div>
+        <div class="header-bottom">
+            <div class="news-events">NEWS AND EVENTS</div>
+            <div class="search-bar">
+                <input type="text" placeholder="search the Rural Network">
+                <button></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content-wrapper">
+        <section class="main-content-left">
+            <h1>McMahon Engineering</h1>
+
+            <h2>PROJECT SUMMARY</h2>
+            <p>To expand and develop an existing engineering business through the purchase of specialist equipment thus enabling the manufacture of various aluminium products.</p>
+
+            <h2>BACKGROUND</h2>
+            <p>McMahon Engineering is a successful engineering works which has been established for 25 years. The business is located in a large purpose built shed beside the promoter's home.</p>
+
+            <h2>ACTIVITIES</h2>
+            <p>Funded under Axis 3, through SOAR, the promoter received funding towards an aluminium welder and aluminium shaper.</p>
+
+            <h2>BENEFITS</h2>
+            <p>The promoter had enquiries from manufacturers who specialise in the production of aluminium items and the equipment will enable the promoter to meet the demands of these new customers. One job has also been created.</p>
+        </section>
+
+        <aside class="main-content-right">
+            <div class="summary-box">
+                <h2>SUMMARY</h2>
+                <div class="summary-item"><strong>Name:</strong> <span>McMahon Engineering</span></div>
+                <div class="summary-item"><strong>Location:</strong> <span>Armagh</span></div>
+                <div class="summary-item"><strong>County:</strong> <span>Armagh</span></div>
+                <div class="summary-item"><strong>Total Cost:</strong> <span>£ 9,664.00</span></div>
+                <div class="summary-item"><strong>Axis:</strong> <span>AXIS 3 : SOAR</span></div>
+                <a href="#">Visit Web Site</a>
+            </div>
+
+            <nav class="right-nav-links">
+                <ul>
+                    <li><a href="#">CASE STUDIES</a></li>
+                    <li><a href="#">PUBLICATIONS</a></li>
+                    <li><a href="#">PROJECTS DIRECTORY</a></li>
+                    <li><a href="#">THEMATIC WORKING GROUPS</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </main>
+
+    <div class="middle-squares">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <a href="#">privacy policy</a>
+        </div>
+        <div class="footer-right">
+            <div class="footer-squares">
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+            <div class="footer-squares">
+                <div class="square"></div>
+            </div>
+            <div class="web-design-text">Web Design Belfast</div>
+        </div>
+    </footer>
+
+</body>
+</html>

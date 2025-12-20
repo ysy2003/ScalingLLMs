@@ -1,0 +1,820 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The user wants me to recreate the visual design from the image into a single HTML5 file with embedded CSS. First, I need to analyze the image content.
+
+Looking at the image, there's a table with columns: BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE. Then there are rows of data. After the table, there's a blue square, then text about "Frank Pichard Collection", some ship info, and a footer with "Statue of Liberty- Ellis Island Foundation. American Family Immigration History".
+
+First, structure the HTML. The main elements are:
+
+- A table with headers: BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE.
+- Rows of data. Let's check the data:
+
+First row: Friedrich Karl, 6 Jul 1881, Rohrbach, Kherson, Russia; 27 Feb 1957, Fresno, Calif.
+Second row:, Katharina 25 May 1882 Rohrbach, Russia; 5 Mar 1944, Dinuba, Tulare, Calif.
+Third row: dia, 13 Feb 1906 Friedrichsfeld, Russia (wait, the image shows "dia" as part of the name? Maybe it's a typo, but we have to replicate as is)
+Fourth row: iedrich, 17 Apr 1907 Friedrichsfeld, Russia; 15 Jan 1996, Fresno, California
+
+Wait, the image's table rows:
+
+First row (Friedrich Karl):
+BIRTH DATE: 6 Jul 1881
+BIRTH PLACE: Rohrbach, Kherson, Russia
+DEATH DATE: 27 Feb 1957
+DEATH PLACE: Fresno, Calif.
+
+Second row (Katharina):
+BIRTH DATE: 25 May 1882
+BIRTH PLACE: Rohrbach, Russia
+DEATH DATE: 5 Mar 1944
+DEATH PLACE: Dinuba, Tulare, Calif.
+
+Third row (dia):
+BIRTH DATE: 13 Feb 1906
+BIRTH PLACE: Friedrichsfeld, Russia
+DEATH DATE: (empty?)
+DEATH PLACE: (empty?)
+
+Fourth row (iedrich):
+BIRTH DATE: 17 Apr 1907
+BIRTH PLACE: Friedrichsfeld, Russia
+DEATH DATE: 15 Jan 1996
+DEATH PLACE: Fresno, California
+
+Wait, the image shows:
+
+First row: Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia | 27 Feb 1957 Fresno, Calif.
+
+Second row:, Kathherina 25 May 1882 Rohrbach, Russia | 5 Mar 1944 Dinuba, Tulare, Calif.
+
+Third row: dia 13 Feb 1906 Friedrichsfeld, Russia | (empty)
+
+Fourth row: iedrich 17 Apr 1907 Friedrichsfeld, Russia | 15 Jan 1996 Fresno, California
+
+So the table has four rows. Let's structure the table with <tr> and <td> elements.
+
+Then, after the table, there's a blue square. The image shows a solid blue rectangle. So we need a div with a blue background, maybe a fixed size.
+
+Then, the text: "Frank Pichard Collection" (note: the image says "Frank Pichard Collection", but the user's image might have a typo, but we have to replicate as per the image. Wait, the user's image shows "Frank Pichard Collection" as the text after the blue square.)
+
+Then, the ship info: "n & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904- during World War I. Scrapped in 1933."
+
+Then, the footer: "Statue of Liberty- Ellis Island Foundation. American Family Immigration History"
+
+Now, the design elements:
+
+- The table has headers in bold, maybe centered? The image shows the headers as bold, and the data rows have the names first, then dates and places.
+
+Wait, the image's table structure:
+
+The first row of the table (headers) is:
+
+BIRTH DATE | BIRTH PLACE | DEATH DATE | DEATH PLACE
+
+Then the data rows:
+
+First data row:
+
+Friedrich Karl | 6 Jul 1881 | Rohrbach, Kherson, Russia | 27 Feb 1957 | Fresno, Calif.
+
+Second data row:
+
+, Kathherina | 25 May 1882 | Rohrbach, Russia | 5 Mar 1944 | Dinuba, Tulare, Calif.
+
+Third data row:
+
+dia | 13 Feb 1906 | Friedrichsfeld, Russia | (empty) | (empty)
+
+Fourth data row:
+
+iedrich | 17 Apr 1907 | Friedrichsfeld, Russia | 15 Jan 1996 | Fresno, California
+
+Wait, the image shows the first column as the name, then birth date, birth place, death date, death place. So the table has 5 columns? Wait, no. Let's count:
+
+The headers are BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE. So 4 columns. But the data rows have the name in the first column, then birth date, birth place, death date, death place. Wait, no. Let's look at the image:
+
+The first line of the table:
+
+BIRTH DATE BIRTH PLACE DEATH DATE DEATH PLACE
+
+Then the first data row:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So that's 5 elements: name, birth date, birth place, death date, death place. But the headers are 4 columns. Wait, maybe the first column is the name, and the next three columns are birth date, birth place, death date, death place? No, the headers are BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE. So the table has 4 columns. So the data rows should have 4 cells each. But the first data row has "Friedrich Karl" as the first cell, then birth date, birth place, death date, death place. Wait, that's 5 cells. Hmm, maybe the image's table is structured as:
+
+First column: Name
+
+Second column: Birth Date
+
+Third column: Birth Place
+
+Fourth column: Death Date
+
+Fifth column: Death Place
+
+But the headers are BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE. So perhaps the headers are misaligned. Wait, the image shows:
+
+The top row has "BIRTH DATE BIRTH PLACE" on the left, and "DEATH DATE DEATH PLACE" on the right. So the table has two sections: left for birth, right for death. So the table has 4 columns: Birth Date, Birth Place, Death Date, Death Place.
+
+So the first data row:
+
+Friedrich Karl (name) is in the first cell, but wait, the image shows:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So the name is part of the birth date? No, the name is separate. Wait, maybe the first column is the name, then birth date, birth place, death date, death place. So the table has 5 columns. But the headers are split into two parts: left side has BIRTH DATE and BIRTH PLACE, right side has DEATH DATE and DEATH PLACE. So the table has 4 columns, but the headers are split into two groups.
+
+Wait, the image's header row is:
+
+BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+So the table has 4 columns: Birth Date, Birth Place, Death Date, Death Place.
+
+So the data rows should have 4 cells each. Let's check the first data row:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+Wait, that's 5 elements. So perhaps the name is part of the birth date? No, the name is "Friedrich Karl", then birth date is "6 Jul 1881", birth place is "Rohrbach, Kherson, Russia", death date is "27 Feb 1957", death place is "Fresno, Calif.".
+
+Ah, so the first cell is the name, then the next three cells are birth date, birth place, death date, death place. Wait, no. Let's count the elements in the first data row:
+
+1. Friedrich Karl
+2. 6 Jul 1881
+3. Rohrbach, Kherson, Russia
+4. 27 Feb 1957
+5. Fresno, Calif.
+
+So 5 elements. But the headers are 4 columns. So maybe the table has 5 columns, but the headers are split into two parts. Wait, the image shows the headers as "BIRTH DATE BIRTH PLACE" on the left and "DEATH DATE DEATH PLACE" on the right. So the table has two columns for birth (date and place) and two for death (date and place). So the table has 4 columns: Birth Date, Birth Place, Death Date, Death Place.
+
+So the first data row:
+
+- Birth Date: 6 Jul 1881
+- Birth Place: Rohrbach, Kherson, Russia
+- Death Date: 27 Feb 1957
+- Death Place: Fresno, Calif.
+
+But where is the name? The name "Friedrich Karl" is before the birth date. So perhaps the name is part of the first cell, but the image shows it as a separate line. Wait, the image's first data row is:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So the name is "Friedrich Karl", then birth date, birth place, death date, death place. So the table has 5 columns: Name, Birth Date, Birth Place, Death Date, Death Place.
+
+But the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE". So maybe the headers are misaligned. Let's look at the image again.
+
+The image shows:
+
+BIRTH DATE BIRTH PLACE
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia
+
+DEATH DATE DEATH PLACE
+
+27 Feb 1957 Fresno, Calif.
+
+Wait, no. The image's table is structured as:
+
+Top row: BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+Then the data rows:
+
+First data row:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia | 27 Feb 1957 Fresno, Calif.
+
+Second data row:
+
+, Kathherina 25 May 1882 Rohrbach, Russia | 5 Mar 1944 Dinuba, Tulare, Calif.
+
+Third data row:
+
+dia 13 Feb 1906 Friedrichsfeld, Russia | (empty)
+
+Fourth data row:
+
+iedrich 17 Apr 1907 Friedrichsfeld, Russia | 15 Jan 1996 Fresno, California
+
+Ah, so the table has two columns: left for birth (name, birth date, birth place), right for death (death date, death place). Wait, no. The headers are split into two parts: left side has "BIRTH DATE BIRTH PLACE", right side has "DEATH DATE DEATH PLACE". So the table has 4 columns: Birth Date, Birth Place, Death Date, Death Place.
+
+But the data rows have the name in the first cell, then birth date, birth place, death date, death place. So perhaps the name is part of the birth date cell. For example, the first cell is "Friedrich Karl 6 Jul 1881", but that's not correct. Wait, the image shows the name as a separate line. Let's check the image's text:
+
+The first line of the table:
+
+BIRTH DATE BIRTH PLACE
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia
+
+DEATH DATE DEATH PLACE
+
+27 Feb 1957 Fresno, Calif.
+
+Wait, no. The image's table is:
+
+The top row has "BIRTH DATE BIRTH PLACE" on the left, and "DEATH DATE DEATH PLACE" on the right. So the table has two columns: left column for birth (date and place), right column for death (date and place). But the birth date and place are in the same cell? No, the birth date and place are separate.
+
+Wait, maybe the table is structured as:
+
+- First row (headers): BIRTH DATE | BIRTH PLACE | DEATH DATE | DEATH PLACE
+
+- Data rows:
+
+  - Friedrich Karl | 6 Jul 1881 | Rohrbach, Kherson, Russia | 27 Feb 1957 | Fresno, Calif.
+
+  -, Kathherina | 25 May 1882 | Rohrbach, Russia | 5 Mar 1944 | Dinuba, Tulare, Calif.
+
+  - dia | 13 Feb 1906 | Friedrichsfeld, Russia | (empty) | (empty)
+
+  - iedrich | 17 Apr 1907 | Friedrichsfeld, Russia | 15 Jan 1996 | Fresno, California
+
+Ah, that makes sense. So the first column is the name, then birth date, birth place, death date, death place. So the table has 5 columns. But the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE", which might be a misalignment. Wait, the headers are:
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+So the headers are split into two parts: left side has "BIRTH DATE BIRTH PLACE" (two headers), right side has "DEATH DATE DEATH PLACE" (two headers). So the table has 4 columns: Birth Date, Birth Place, Death Date, Death Place.
+
+But the data rows have the name in the first cell, then birth date, birth place, death date, death place. So the name is part of the birth date cell? No, the name is separate. Let's look at the image's text:
+
+The first data row:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So the name is "Friedrich Karl", then birth date is "6 Jul 1881", birth place is "Rohrbach, Kherson, Russia", death date is "27 Feb 1957", death place is "Fresno, Calif.".
+
+So the table has 5 columns: Name, Birth Date, Birth Place, Death Date, Death Place.
+
+But the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE", which suggests that the headers are for the birth and death sections. So perhaps the table is structured as:
+
+- Left section: Birth (Date and Place)
+
+- Right section: Death (Date and Place)
+
+So the table has two columns: left for birth (with two sub-columns: date and place), right for death (with two sub-columns: date and place).
+
+But in HTML, we can use a table with 4 columns, where the first two columns are for birth (date and place), and the next two for death (date and place).
+
+Wait, the image shows the headers as:
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+So the headers are:
+
+- BIRTH DATE
+
+- BIRTH PLACE
+
+- DEATH DATE
+
+- DEATH PLACE
+
+So the table has 4 columns. The data rows should have 4 cells each.
+
+Let's check the first data row:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So the first cell is "Friedrich Karl", but that's not part of the birth date or place. Wait, maybe the name is part of the birth date cell. For example, the birth date cell is "Friedrich Karl 6 Jul 1881", but that's not correct. Alternatively, the name is a separate row.
+
+Wait, the image shows:
+
+The first line of the table:
+
+BIRTH DATE BIRTH PLACE
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia
+
+DEATH DATE DEATH PLACE
+
+27 Feb 1957 Fresno, Calif.
+
+Ah, so the table has two rows of data: one for birth and one for death. No, that's not right.
+
+Alternatively, the table is structured as:
+
+- The first row of the table is the headers: BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE.
+
+- The data rows are:
+
+  - Row 1: Friedrich Karl, 6 Jul 1881, Rohrbach, Kherson, Russia, 27 Feb 1957, Fresno, Calif.
+
+  - Row 2:, Kathherina, 25 May 1882, Rohrbach, Russia, 5 Mar 1944, Dinuba, Tulare, Calif.
+
+  - Row 3: dia, 13 Feb 1906, Friedrichsfeld, Russia, (empty), (empty)
+
+  - Row 4: iedrich, 17 Apr 1907, Friedrichsfeld, Russia, 15 Jan 1996, Fresno, California
+
+So the table has 5 columns: Name, Birth Date, Birth Place, Death Date, Death Place.
+
+But the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE", which might be a mistake. Alternatively, the headers are:
+
+- BIRTH DATE
+
+- BIRTH PLACE
+
+- DEATH DATE
+
+- DEATH PLACE
+
+So the first column is the name, then the next three columns are birth date, birth place, death date, death place. Wait, no. Let's count the elements in the first data row:
+
+1. Friedrich Karl
+
+2. 6 Jul 1881
+
+3. Rohrbach, Kherson, Russia
+
+4. 27 Feb 1957
+
+5. Fresno, Calif.
+
+So 5 elements. So the table has 5 columns. But the headers are 4 columns. This is confusing.
+
+Wait, maybe the image's table is misaligned. Let's look at the image again. The user provided an image, but since I can't see it, I have to rely on the text description.
+
+The user's image description:
+
+The image has a table with columns BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE.
+
+Rows:
+
+1. Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia | 27 Feb 1957 Fresno, Calif.
+
+2., Kathherina 25 May 1882 Rohrbach, Russia | 5 Mar 1944 Dinuba, Tulare, Calif.
+
+3. dia 13 Feb 1906 Friedrichsfeld, Russia | (empty)
+
+4. iedrich 17 Apr 1907 Friedrichsfeld, Russia | 15 Jan 1996 Fresno, California
+
+So the table has 4 columns: Birth Date, Birth Place, Death Date, Death Place.
+
+But the data rows have the name in the first cell, then birth date, birth place, death date, death place. So the name is part of the birth date cell. For example, the first cell is "Friedrich Karl 6 Jul 1881", but that's not correct. Alternatively, the name is a separate row.
+
+Wait, perhaps the first column is the name, and the next three columns are birth date, birth place, death date, death place. So the table has 5 columns. But the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE", which might be a mistake.
+
+Alternatively, the headers are:
+
+- BIRTH DATE
+
+- BIRTH PLACE
+
+- DEATH DATE
+
+- DEATH PLACE
+
+So the first data row:
+
+- Birth Date: 6 Jul 1881
+
+- Birth Place: Rohrbach, Kherson, Russia
+
+- Death Date: 27 Feb 1957
+
+- Death Place: Fresno, Calif.
+
+But where is the name? The name "Friedrich Karl" is before the birth date. So perhaps the name is part of the birth date cell. For example, the birth date cell is "Friedrich Karl 6 Jul 1881", but that's not standard.
+
+Alternatively, the name is a separate row. Wait, the image shows:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia
+
+27 Feb 1957 Fresno, Calif.
+
+So the name is on the same line as the birth date and place. So the first cell is "Friedrich Karl", then birth date, birth place, death date, death place.
+
+So the table has 5 columns: Name, Birth Date, Birth Place, Death Date, Death Place.
+
+But the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE", which suggests that the headers are for the birth and death sections. So perhaps the table is structured as:
+
+- Left section: Birth (Date and Place)
+
+- Right section: Death (Date and Place)
+
+So the table has two columns: left for birth (with two sub-columns: date and place), right for death (with two sub-columns: date and place).
+
+In HTML, we can use a table with 4 columns, where the first two columns are for birth (date and place), and the next two for death (date and place).
+
+Let's try to structure the table:
+
+<table>
+  <tr>
+    <th>BIRTH DATE</th>
+    <th>BIRTH PLACE</th>
+    <th>DEATH DATE</th>
+    <th>DEATH PLACE</th>
+  </tr>
+  <tr>
+    <td>Friedrich Karl</td>
+    <td>6 Jul 1881</td>
+    <td>Rohrbach, Kherson, Russia</td>
+    <td>27 Feb 1957</td>
+    <td>Fresno, Calif.</td>
+  </tr>
+  <!-- Wait, no, that's 5 cells. So maybe the first cell is the name, and the next four are the other columns. But the headers are 4 columns. So the table has 5 columns. -->
+
+Wait, the headers are 4 columns, so the data rows must have 4 cells each. So the name must be part of one of the cells.
+
+Looking at the first data row:
+
+Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+If we split into 4 cells:
+
+Cell 1: Friedrich Karl
+
+Cell 2: 6 Jul 1881
+
+Cell 3: Rohrbach, Kherson, Russia
+
+Cell 4: 27 Feb 1957 Fresno, Calif.
+
+But that doesn't make sense. Alternatively:
+
+Cell 1: Friedrich Karl 6 Jul 1881
+
+Cell 2: Rohrbach, Kherson, Russia
+
+Cell 3: 27 Feb 1957
+
+Cell 4: Fresno, Calif.
+
+Yes, that makes sense. So the first cell is "Friedrich Karl 6 Jul 1881", second cell is birth place, third cell is death date, fourth cell is death place.
+
+Similarly, the second data row:
+
+, Kathherina 25 May 1882 Rohrbach, Russia | 5 Mar 1944 Dinuba, Tulare, Calif.
+
+So cell 1:, Kathherina 25 May 1882
+
+cell 2: Rohrbach, Russia
+
+cell 3: 5 Mar 1944
+
+cell 4: Dinuba, Tulare, Calif.
+
+Third data row:
+
+dia 13 Feb 1906 Friedrichsfeld, Russia | (empty)
+
+cell 1: dia 13 Feb 1906
+
+cell 2: Friedrichsfeld, Russia
+
+cell 3: (empty)
+
+cell 4: (empty)
+
+Fourth data row:
+
+iedrich 17 Apr 1907 Friedrichsfeld, Russia | 15 Jan 1996 Fresno, California
+
+cell 1: iedrich 17 Apr 1907
+
+cell 2: Friedrichsfeld, Russia
+
+cell 3: 15 Jan 1996
+
+cell 4: Fresno, California
+
+Yes, this makes sense. So the table has 4 columns:
+
+1. Name and Birth Date
+
+2. Birth Place
+
+3. Death Date
+
+4. Death Place
+
+So the headers should be:
+
+BIRTH DATE (but the first column is name + birth date), BIRTH PLACE, DEATH DATE, DEATH PLACE.
+
+Wait, the headers are "BIRTH DATE BIRTH PLACE" and "DEATH DATE DEATH PLACE", which might mean that the first two headers are for birth (date and place), and the next two for death (date and place). So the table has 4 columns:
+
+- BIRTH DATE
+
+- BIRTH PLACE
+
+- DEATH DATE
+
+- DEATH PLACE
+
+But the data rows have the name in the first cell, which is part of the birth date. So the first cell is "Friedrich Karl 6 Jul 1881", which combines name and birth date.
+
+So the table structure:
+
+<table>
+  <tr>
+    <th>BIRTH DATE</th>
+    <th>BIRTH PLACE</th>
+    <th>DEATH DATE</th>
+    <th>DEATH PLACE</th>
+  </tr>
+  <tr>
+    <td>Friedrich Karl 6 Jul 1881</td>
+    <td>Rohrbach, Kherson, Russia</td>
+    <td>27 Feb 1957</td>
+    <td>Fresno, Calif.</td>
+  </tr>
+  <tr>
+    <td>, Kathherina 25 May 1882</td>
+    <td>Rohrbach, Russia</td>
+    <td>5 Mar 1944</td>
+    <td>Dinuba, Tulare, Calif.</td>
+  </tr>
+  <tr>
+    <td>dia 13 Feb 1906</td>
+    <td>Friedrichsfeld, Russia</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>iedrich 17 Apr 1907</td>
+    <td>Friedrichsfeld, Russia</td>
+    <td>15 Jan 1996</td>
+    <td>Fresno, California</td>
+  </tr>
+</table>
+
+Yes, this seems to match the image. The first column is name + birth date, second is birth place, third is death date, fourth is death place.
+
+Now, the blue square: the image shows a solid blue rectangle. So we need a div with a blue background, maybe a fixed size. Let's say 200x200 pixels.
+
+Then, the text:
+
+"Frank Pichard Collection"
+
+Then, the ship info: "n & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904- during World War I. Scrapped in 1933."
+
+Wait, the image shows "n & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904- during World War I. Scrapped in 1933."
+
+But the user's image might have a typo, but we have to replicate as is.
+
+Then, the footer: "Statue of Liberty- Ellis Island Foundation. American Family Immigration History"
+
+Now, the design elements:
+
+- The table should have a border, maybe with some padding.
+
+- The blue square is a solid color, maybe with a border.
+
+- The text should be in a serif font, as the image looks like a historical document.
+
+- The layout should be responsive, so the CSS should handle different screen sizes.
+
+Let's outline the HTML structure:
+
+- <html>
+
+- <head>
+
+  - <style> (embedded CSS)
+
+    - Table styling: border-collapse: collapse; border: 1px solid #000; padding: 5px; etc.
+
+    - Blue square: div with class "blue-square", background: blue, width: 200px, height: 200px, etc.
+
+    - Text styling: font-family: serif; etc.
+
+- </style>
+
+- </head>
+
+- <body>
+
+  - <table> (with the 4 columns as discussed)
+
+  - <div class="blue-square"></div>
+
+  - <p>Frank Pichard Collection</p>
+
+  - <p>n & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904- during World War I. Scrapped in 1933.</p>
+
+  - <p>Statue of Liberty- Ellis Island Foundation. American Family Immigration History</p>
+
+- </body>
+
+- </html>
+
+Now, let's check the CSS for responsiveness.
+
+The table should be responsive, so maybe using a table with max-width: 100%, and the cells should wrap.
+
+The blue square should be centered.
+
+The text should be left-aligned.
+
+Let's write the CSS.
+
+First, the table:
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.blue-square {
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+  margin: 20px auto;
+  display: block;
+}
+
+p {
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+Now, the HTML structure:
+
+- The table has headers: BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE.
+
+- The data rows as discussed.
+
+- The blue square.
+
+- The paragraphs.
+
+Let's check the data rows:
+
+First row:
+
+<td>Friedrich Karl 6 Jul 1881</td>
+
+<td>Rohrbach, Kherson, Russia</td>
+
+<td>27 Feb 1957</td>
+
+<td>Fresno, Calif.</td>
+
+Second row:
+
+<td>, Kathherina 25 May 1882</td>
+
+<td>Rohrbach, Russia</td>
+
+<td>5 Mar 1944</td>
+
+<td>Dinuba, Tulare, Calif.</td>
+
+Third row:
+
+<td>dia 13 Feb 1906</td>
+
+<td>Friedrichsfeld, Russia</td>
+
+<td></td>
+
+<td></td>
+
+Fourth row:
+
+<td>iedrich 17 Apr 1907</td>
+
+<td>Friedrichsfeld, Russia</td>
+
+<td>15 Jan 1996</td>
+
+<td>Fresno, California</td>
+
+Yes.
+
+Now, the text after the blue square:
+
+"Frank Pichard Collection"
+
+Then the ship info.
+
+Then the footer.
+
+Now, let's write the HTML.
+
+Make sure to close all tags.
+
+Also, the user said "Strictly and accurately recreate the visual design in the image."
+
+So the blue square is a solid blue, no border.
+
+The table has borders.
+
+The text is in a serif font.
+
+Let's put it all together.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+  }
+ .blue-square {
+    width: 200px;
+    height: 200px;
+    background-color: #0000ff;
+    margin: 20px auto;
+    display: block;
+  }
+  p {
+    margin: 15px 0;
+    font-family: "Times New Roman", Times, serif;
+  }
+ .collection-title {
+    font-weight: bold;
+    margin: 15px 0;
+  }
+ .ship-info {
+    margin: 10px 0;
+  }
+ .footer {
+    font-style: italic;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>BIRTH DATE</th>
+      <th>BIRTH PLACE</th>
+      <th>DEATH DATE</th>
+      <th>DEATH PLACE</th>
+    </tr>
+    <tr>
+      <td>Friedrich Karl 6 Jul 1881</td>
+      <td>Rohrbach, Kherson, Russia</td>
+      <td>27 Feb 1957</td>
+      <td>Fresno, Calif.</td>
+    </tr>
+    <tr>
+      <td>, Kathherina 25 May 1882</td>
+      <td>Rohrbach, Russia</td>
+      <td>5 Mar 1944</td>
+      <td>Dinuba, Tulare, Calif.</td>
+    </tr>
+    <tr>
+      <td>dia 13 Feb 1906</td>
+      <td>Friedrichsfeld, Russia</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>iedrich 17 Apr 1907</td>
+      <td>Friedrichsfeld, Russia</td>
+      <td>15 Jan 1996</td>
+      <td>Fresno, California</td>
+    </tr>
+  </table>
+  <div class="blue-square"></div>
+  <p class="collection-title">Frank Pichard Collection</p>
+  <p class="ship-info">n & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904- during World War I. Scrapped in 1933.</p>
+  <p class="footer">Statue of Liberty- Ellis Island Foundation. American Family Immigration History</p>
+</body>
+</html>
+```

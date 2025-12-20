@@ -1,0 +1,778 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS exactly.
+
+Looking at the image:
+
+- There's a top section with two blue squares (probably placeholders for logos), then a navigation bar with Home, Members (highlighted), Papers, Projects.
+- The main content is divided into sections: left column with members (coordinator, others), right column with more members, then Master Students, and a bottom section with publications.
+
+First, structure the HTML:
+
+1. **Header**: Contains the two blue squares (maybe divs with background color), then the navigation bar.
+2. **Main Content**: Divided into two columns (left and right) for the members, then a section for Master Students, then the publications list at the bottom.
+
+Let's break down each part.
+
+**Navigation Bar**:
+- The navigation has Home, Members (active), Papers, Projects. Members is highlighted (maybe with a background color, like the image shows a grayish background for Members).
+
+**Top Section**:
+- Two blue squares. The left one is larger (200x100), right one smaller (100x50). But in the image, they are just blue rectangles. So we can use divs with fixed width/height and background color.
+
+**Main Content Layout**:
+- The main content is split into two columns. The left column has a list of members (with some as links, some with descriptions), the right column has more members and Master Students section.
+
+**Styling**:
+- Need to make it responsive. So use flexbox or grid for the main content columns.
+- The navigation bar should be a horizontal menu, with active item highlighted.
+- The blue squares: left one is 200px wide, 100px tall; right one 100px wide, 50px tall. But in the image, they are positioned at the top, left and right.
+
+Wait, the image shows two blue squares at the top, left and right. So the header has two divs: one on the left (larger), one on the right (smaller), then the navigation below.
+
+Let's outline the HTML structure:
+
+- <header>
+  - <div class="logo-left"> (blue square)
+  - <div class="logo-right"> (blue square)
+  - <nav>
+    - <ul>
+      - <li><a href="#">Home</a></li>
+      - <li class="active"><a href="#">Members</a></li>
+      - <li><a href="#">Papers</a></li>
+      - <li><a href="#">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+Then the main content:
+
+- <main>
+  - <div class="content-left"> (left column)
+  - <div class="content-right"> (right column)
+</main>
+
+But the image shows the main content as two columns. Let's check the image:
+
+Left column has:
+- Pietro Manzoni [coordinator]
+- Juan Carlos Cano
+- Carlos Tavares Calafate
+- Enrique Hernández
+- C.K. Toh (description)
+- Edjair Mota (description)
+- Francisco Martinez (description)
+- Piedad Garrido (description)
+
+Right column has:
+- Alicia Sepulveda Muñoz (advisor)
+- Daniel Hernández (advisor)
+- Jamie Wubben (advisor)
+- Juan José Franco Peñaranda (advisor)
+- Master Students section with Cristian Villarroya, etc.
+
+Then at the bottom, a list of publications.
+
+So the main content is two columns, then a footer-like section for publications.
+
+Now, styling:
+
+- The navigation bar: the active item (Members) should have a background color (like the image shows a grayish background for Members). So in CSS,.nav li.active { background-color: #ccc; } or similar.
+
+- The blue squares: left one is 200px x 100px, right one 100px x 50px. So in CSS,.logo-left { width: 200px; height: 100px; background-color: blue; }.logo-right { width: 100px; height: 50px; background-color: blue; }
+
+- The main content columns: use flexbox with two columns. So.content { display: flex; }.content-left,.content-right { flex: 1; } but maybe with some padding.
+
+- The text: some names are links (blue, underlined), others are plain. In the image, the names like Pietro Manzoni are blue and underlined, so they are links. The others (like C.K. Toh) have descriptions, so they are not links.
+
+Wait, in the image, the left column has:
+
+Pietro Manzoni [coordinator] (blue, underlined)
+Juan Carlos Cano (blue, underlined)
+Carlos Tavares Calafate (blue, underlined)
+Enrique Hernández (blue, underlined)
+C.K. Toh (National Tsing Hua University... (not underlined, but maybe a link? Wait, in the image, C.K. Toh is a link? Let's check: the image shows "C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)" — the text is blue, so it's a link. Similarly, Edjair Mota, Francisco Martinez, Piedad Garrido are blue, so links.
+
+So all the names in the left and right columns (except the Master Students section) are links. The Master Students section has names that are not links (they are plain text).
+
+Wait, in the image, the Master Students section has:
+
+Cristian Villarroya (Advisor:...)
+José Daniel Padrón (Advisor:...)
+etc. — these are not links, just text.
+
+So in HTML, the left and right columns have links for the members, and the Master Students section is a list of text.
+
+Now, let's structure the HTML:
+
+- The main content has two columns (left and right). The left column has a list of members (links), the right column has more members and the Master Students section.
+
+Let's code the HTML structure:
+
+<header>
+  <div class="logo-left"></div>
+  <div class="logo-right"></div>
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li class="active"><a href="#">Members</a></li>
+      <li><a href="#">Papers</a></li>
+      <li><a href="#">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="content">
+    <div class="left-column">
+      <ul>
+        <li><a href="#">Pietro Manzoni [coordinator]</a></li>
+        <li><a href="#">Juan Carlos Cano</a></li>
+        <li><a href="#">Carlos Tavares Calafate</a></li>
+        <li><a href="#">Enrique Hernández</a></li>
+        <li><a href="#">C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)</a></li>
+        <li><a href="#">Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)</a></li>
+        <li><a href="#">Francisco Martínez (Universidad de Zaragoza, SPAIN)</a></li>
+        <li><a href="#">Piedad Garrido (Universidad de Zaragoza, SPAIN)</a></li>
+      </ul>
+    </div>
+    <div class="right-column">
+      <ul>
+        <li><a href="#">Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Periñán-Pascual)</a></li>
+        <li><a href="#">Daniel Hernández (Advisor: José María Cecilia)</a></li>
+        <li><a href="#">Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</a></li>
+        <li><a href="#">Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</a></li>
+      </ul>
+      <h2>Master Students</h2>
+      <ul>
+        <li>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</li>
+        <li>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</li>
+        <li>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</li>
+        <li>Pedro García (Advisor: José María Cecilia, Pietro Manzoni)</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <ul>
+    <li>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</li>
+    <li>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</li>
+    <li>Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019</li>
+    <li>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</li>
+  </ul>
+</footer>
+
+Wait, but the image shows the publications at the bottom, not in a footer. So maybe the main content is the two columns, and the publications are a separate section below.
+
+Wait, the image's main content is split into two columns (left and right), then below that, there's a list of publications. So the structure is:
+
+- Header (logos and nav)
+- Main content (two columns)
+- Publications section (below the main content)
+
+So the HTML would have:
+
+<header>...</header>
+<main>
+  <div class="content">...</div>
+</main>
+<section class="publications">...</section>
+
+Now, let's check the image's layout:
+
+- The two blue squares are at the top, left and right.
+- Then the navigation bar.
+- Then the main content: two columns (left and right) with members.
+- Then below the main content, the publications list.
+
+So the HTML structure is:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-left"></div>
+    <div class="logo-right"></div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Members</a></li>
+        <li><a href="#">Papers</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="content">
+      <div class="left-column">
+        <!-- left members -->
+      </div>
+      <div class="right-column">
+        <!-- right members and Master Students -->
+      </div>
+    </div>
+  </main>
+  <section class="publications">
+    <!-- publications list -->
+  </section>
+</body>
+</html>
+
+Now, styling:
+
+- The header: the logos are positioned at the top, left and right. So maybe the header has a container, and the logos are floated left and right.
+
+Wait, the image shows the two blue squares at the top, left and right, then the navigation below. So the header should have the two logos, then the navigation.
+
+So in CSS:
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo-left {
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+
+.logo-right {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin: 0 5px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+}
+
+.nav-menu.active a {
+  background-color: #ccc;
+  color: #000;
+}
+
+.content {
+  display: flex;
+  margin: 20px 0;
+}
+
+.left-column,.right-column {
+  padding: 10px;
+  flex: 1;
+}
+
+.publications {
+  margin-top: 20px;
+}
+
+Now, check the image's text:
+
+- The left column has names as links (blue, underlined). So in HTML, the <a> tags for those names.
+
+- The right column has the Master Students section with a heading "Master Students" (bold, larger font).
+
+- The publications section has each item as a list item.
+
+Let's code the HTML with these elements.
+
+Now, let's make sure the CSS is responsive. For example, on smaller screens, the two columns might stack. So use media queries.
+
+But the problem says "responsive CSS", so we need to handle that.
+
+Let's add a media query for screens smaller than 768px:
+
+@media (max-width: 768px) {
+ .content {
+    flex-direction: column;
+  }
+}
+
+Now, let's put it all together.
+
+First, the HTML structure:
+
+- The header with logos and nav.
+- The main content with two columns.
+- The publications section.
+
+Now, let's code the HTML and CSS.
+
+Check the image for exact text:
+
+Left column members:
+
+- Pietro Manzoni [coordinator]
+- Juan Carlos Cano
+- Carlos Tavares Calafate
+- Enrique Hernández
+- C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+- Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+- Francisco Martínez (Universidad de Zaragoza, SPAIN)
+- Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+Right column members:
+
+- Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Periñán-Pascual)
+- Daniel Hernández (Advisor: José María Cecilia)
+- Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)
+- Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students:
+
+- Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+- José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+- Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+- Pedro García (Advisor: José María Cecilia, Pietro Manzoni)
+
+Publications:
+
+- Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+- Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+- Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019
+- Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Now, code the HTML with these exact text.
+
+Let's write the HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-left"></div>
+    <div class="logo-right"></div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Members</a></li>
+        <li><a href="#">Papers</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="content">
+      <div class="left-column">
+        <ul>
+          <li><a href="#">Pietro Manzoni [coordinator]</a></li>
+          <li><a href="#">Juan Carlos Cano</a></li>
+          <li><a href="#">Carlos Tavares Calafate</a></li>
+          <li><a href="#">Enrique Hernández</a></li>
+          <li><a href="#">C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)</a></li>
+          <li><a href="#">Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)</a></li>
+          <li><a href="#">Francisco Martínez (Universidad de Zaragoza, SPAIN)</a></li>
+          <li><a href="#">Piedad Garrido (Universidad de Zaragoza, SPAIN)</a></li>
+        </ul>
+      </div>
+      <div class="right-column">
+        <ul>
+          <li><a href="#">Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Periñán-Pascual)</a></li>
+          <li><a href="#">Daniel Hernández (Advisor: José María Cecilia)</a></li>
+          <li><a href="#">Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</a></li>
+          <li><a href="#">Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</a></li>
+        </ul>
+        <h2>Master Students</h2>
+        <ul>
+          <li>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</li>
+          <li>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</li>
+          <li>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</li>
+          <li>Pedro García (Advisor: José María Cecilia, Pietro Manzoni)</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <section class="publications">
+    <ul>
+      <li>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</li>
+      <li>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</li>
+      <li>Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019</li>
+      <li>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</li>
+    </ul>
+  </section>
+</body>
+</html>
+
+Now, the CSS:
+
+- The logo-left and logo-right should have the correct dimensions. In the image, the left logo is larger (200x100), right is smaller (100x50). So:
+
+.logo-left {
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}
+
+.logo-right {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+}
+
+- The navigation bar: the active item (Members) has a background color. Let's use #e0e0e0 for the active item.
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin: 0 5px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  display: block;
+}
+
+.nav-menu.active a {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+- The main content: two columns. On large screens, side by side; on small screens, stacked.
+
+.content {
+  display: flex;
+  margin: 20px 0;
+}
+
+.left-column,.right-column {
+  padding: 10px;
+  flex: 1;
+}
+
+- The publications section: margin-top.
+
+.publications {
+  margin-top: 20px;
+}
+
+- Media query for responsiveness:
+
+@media (max-width: 768px) {
+ .content {
+    flex-direction: column;
+  }
+}
+
+- Also, the text in the Master Students section should be bold. So h2 { font-weight: bold; }
+
+Wait, the image shows "Master Students" as a heading, so in HTML, it's an <h2> tag, which is bold by default.
+
+Now, let's check if all elements are present.
+
+Also, the navigation bar: the image shows "Members" as highlighted, so the active class is applied to the Members list item.
+
+Now, let's write the CSS code.
+
+Putting it all together:
+
+<style>
+ .logo-left {
+    width: 200px;
+    height: 100px;
+    background-color: blue;
+  }
+ .logo-right {
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+  }
+ .nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+ .nav-menu li {
+    margin: 0 5px;
+  }
+ .nav-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    display: block;
+  }
+ .nav-menu.active a {
+    background-color: #e0e0e0;
+    color: #000;
+  }
+ .content {
+    display: flex;
+    margin: 20px 0;
+  }
+ .left-column,.right-column {
+    padding: 10px;
+    flex: 1;
+  }
+ .publications {
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+   .content {
+      flex-direction: column;
+    }
+  }
+  h2 {
+    font-weight: bold;
+  }
+</style>
+
+Wait, the image shows the Master Students heading as bold, so h2 is correct.
+
+Now, check if the HTML structure matches the image.
+
+The image has the two blue squares at the top, then the navigation. The main content is two columns. The publications are below.
+
+Yes.
+
+Now, let's make sure all text is exactly as in the image.
+
+Check the left column:
+
+- Pietro Manzoni [coordinator] — correct.
+- Juan Carlos Cano — correct.
+- Carlos Tavares Calafate — correct.
+- Enrique Hernández — correct.
+- C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks) — correct.
+- Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL) — correct.
+- Francisco Martínez (Universidad de Zaragoza, SPAIN) — correct.
+- Piedad Garrido (Universidad de Zaragoza, SPAIN) — correct.
+
+Right column:
+
+- Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Periñán-Pascual) — correct.
+- Daniel Hernández (Advisor: José María Cecilia) — correct.
+- Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano) — correct.
+- Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras) — correct.
+
+Master Students:
+
+- Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate) — correct.
+- José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano) — correct.
+- Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni) — correct.
+- Pedro García (Advisor: José María Cecilia, Pietro Manzoni) — correct.
+
+Publications:
+
+- Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020 — correct.
+- Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019 — correct.
+- Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019 — correct.
+- Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019 — correct.
+
+Now, the HTML code should be correct.
+
+Let's check for any missing elements.
+
+The navigation bar has four items: Home, Members (active), Papers, Projects.
+
+The active item has a background color, which is handled by the CSS.
+
+The two blue squares are represented by the divs with class logo-left and logo-right.
+
+The main content is split into two columns, with the left column having the first list of members, the right column having the second list and Master Students.
+
+The publications are in a section below.
+
+Now, the CSS is embedded in the style block.
+
+Let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+    }
+   .logo-left {
+      width: 200px;
+      height: 100px;
+      background-color: blue;
+    }
+   .logo-right {
+      width: 100px;
+      height: 50px;
+      background-color: blue;
+    }
+    nav {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    nav li {
+      margin: 0 5px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 5px 10px;
+      display: block;
+    }
+    nav.active a {
+      background-color: #e0e0e0;
+      color: #000;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+    }
+   .content {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+    }
+   .left-column,.right-column {
+      padding: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+   .left-column ul,.right-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+   .left-column li,.right-column li {
+      margin: 5px 0;
+    }
+   .left-column a,.right-column a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+   .right-column h2 {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+   .publications {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-top: 1px solid #eee;
+    }
+   .publications ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+   .publications li {
+      margin: 5px 0;
+    }
+    @media (max-width: 768px) {
+     .content {
+        flex-direction: column;
+      }
+     .left-column,.right-column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-left"></div>
+    <div class="logo-right"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Members</a></li>
+        <li><a href="#">Papers</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="content">
+      <div class="left-column">
+        <ul>
+          <li><a href="#">Pietro Manzoni [coordinator]</a></li>
+          <li><a href="#">Juan Carlos Cano</a></li>
+          <li><a href="#">Carlos Tavares Calafate</a></li>
+          <li><a href="#">Enrique Hernández</a></li>
+          <li><a href="#">C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)</a></li>
+          <li><a href="#">Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)</a></li>
+          <li><a href="#">Francisco Martínez (Universidad de Zaragoza, SPAIN)</a></li>
+          <li><a href="#">Piedad Garrido (Universidad de Zaragoza, SPAIN)</a></li>
+        </ul>
+      </div>
+      <div class="right-column">
+        <ul>
+          <li><a href="#">Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Periñán-Pascual)</a></li>
+          <li><a href="#">Daniel Hernández (Advisor: José María Cecilia)</a></li>
+          <li><a href="#">Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</a></li>
+          <li><a href="#">Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</a></li>
+        </ul>
+        <h2>Master Students</h2>
+        <ul>
+          <li>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</li>
+          <li>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</li>
+          <li>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</li>
+          <li>Pedro García (Advisor: José María Cecilia, Pietro Manzoni)</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <section class="publications">
+    <ul>
+      <li>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</li>
+      <li>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</li>
+      <li>Leonardo Javier Chancay García, "Evaluación y modelado de Redes Oportunistas", June 2019</li>
+      <li>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</li>
+    </ul>
+  </section>
+</body>
+</html>
+```

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boats for sale in City One</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f0f0; /* Light gray background for the main content area */
+        }
+
+        /* Global Container for content width */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #2c2c2c; /* Dark gray background */
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            padding-bottom: 20px; /* Space before the purple line */
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 50px;
+            background-color: #0000ff; /* Blue square */
+            margin-right: 20px;
+        }
+
+        .purple-line {
+            height: 5px;
+            background-color: #e0b0ff; /* Light purple/pink line */
+            width: 100%;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            background-color: #f0f0f0; /* Light gray background */
+            padding: 40px 0;
+        }
+
+        .main-content h1 {
+            font-size: 2.2em;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .main-content h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .main-content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .main-content a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+        }
+
+        .main-content a:hover {
+            text-decoration: underline;
+        }
+
+        .quotes-section {
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .quotes-section h3 {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .quotes-section p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #333; /* Dark gray background */
+            color: #ccc;
+            padding: 40px 0 20px;
+            font-size: 0.9em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px; /* Ensure columns don't get too narrow */
+            margin-bottom: 20px;
+            padding-right: 20px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: normal;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-news {
+            margin-bottom: 30px;
+        }
+
+        .footer-news p {
+            margin: 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .footer-news p:last-child {
+            border-bottom: none;
+        }
+
+        .footer-news a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-news a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        .social-icon.up-arrow {
+            background-color: #555;
+            border: 1px solid #777;
+            font-size: 1em;
+        }
+
+        .social-icon.facebook {
+            background-color: #4267B2;
+        }
+
+        .social-icon.twitter {
+            background-color: #1DA1F2;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+            }
+            .footer-column {
+                min-width: unset;
+                width: 100%;
+                padding-right: 0;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content h1 {
+                font-size: 1.8em;
+            }
+            .main-content h2 {
+                font-size: 1.4em;
+            }
+            .logo-placeholder {
+                width: 80px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-placeholder"></div>
+            </div>
+            <div class="purple-line"></div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Boats for sale in City One</h1>
+
+            <h2>Do you have a boat for sale in City One you would like to advertise?</h2>
+            <p>We would love to see your boat for sale listings here, so would our website visitors! <a href="#">advertise for free</a> your boat for sale in City One with Property Pages Hong Kong and your listing(s) will receive a marketing boost, at no cost!</p>
+            <p>If you have many listings and a data feed available for your listings, we can work with you to get them listed quickly and easily. If you don't already have a suitable feed we can assist you with preparing a data feed for your listings, direct from your own website.</p>
+
+            <div class="quotes-section">
+                <h3>Here's a few daily quotes</h3>
+                <p>I hope for my children, and for all Mexicans, that they can be proud to be Mexican, proud of their heritage, and proud that they have a peaceful, inclusive, vibrant country that is playing a role in the world. - Enrique Pena Nieto</p>
+                <p>I compose most of my tweets with care, as if they were aphorisms - they are not usually dashed-off. Sometimes I'm surprised by the high, poetic quality of Twitter - it lends itself to a surreal sort of self-expression.</p>
+                <p>Your smile will give you a positive countenance that will make people feel comfortable around you. - Les Brown</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Hong Kong Real estate</h4>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">List your property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Boats for sale in Cheung Sha Wan</h4>
+                    <ul>
+                        <li><a href="#">Boats for sale in Chi Ma Wan</a></li>
+                        <li><a href="#">Boats for sale in Choi Hung Estate</a></li>
+                        <li><a href="#">Boats for sale in Choi Wan Estate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Boats for sale in Clear Water Bay</h4>
+                    <ul>
+                        <li><a href="#">Boats for sale in Cyberport</a></li>
+                        <li><a href="#">Boats for sale in Deep Water Bay</a></li>
+                        <li><a href="#">Boats for sale in Diamond Hill</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-news">
+                <p><a href="#">Hong Kong Homebuyer Optimism Rises as China Border Reopens - Bloomberg News</a></p>
+                <p><a href="#">Hong Kong drops curbs on incoming travellers, scraps COVID app - Reuters News</a></p>
+                <p><a href="#">Hong Kong, Thailand and Singapore will likely be the biggest beneficiaries as China drops its Covid restrictions and reopens its economy - Bloomberg News</a></p>
+                <p><a href="#">China may drop quarantine for Hong Kong residents traveling into the mainland next month, according to local media reports - Bloomberg News</a></p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Copyright &copy; Property Pages Hong Kong Limited 2017 - 2023, All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon up-arrow">&#9650;</a> <!-- Up arrow character -->
+                    <a href="#" class="social-icon facebook">f</a>
+                    <a href="#" class="social-icon twitter">t</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

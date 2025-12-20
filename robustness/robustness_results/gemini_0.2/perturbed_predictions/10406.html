@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ingroove Jazzclub</title>
+    <style>
+        /* Universal box-sizing for consistent layout */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f8f8f8; /* Light gray background */
+            color: #333333; /* Dark gray for main text */
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column; /* Stack container and footer vertically */
+        }
+
+        /* Main layout container for sidebar and content */
+        .container {
+            display: flex;
+            flex-grow: 1; /* Allow container to grow and push footer down */
+        }
+
+        /* Left Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            padding: 40px 0 40px 40px; /* Top, Right, Bottom, Left padding */
+            background-color: #ffffff; /* White background for sidebar */
+            border-right: 1px solid #eeeeee; /* Subtle separator line */
+        }
+
+        .sidebar .logo {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 60px;
+            color: #333333;
+        }
+
+        .sidebar .logo p {
+            margin: 0;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .nav-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar .nav-section h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            color: #333333;
+        }
+
+        .sidebar .nav-section li {
+            font-size: 12px;
+            margin-bottom: 5px;
+            margin-left: 15px; /* Indent list items */
+            color: #666666; /* Lighter gray for list items */
+        }
+
+        /* Main Content Area Styling */
+        .content-area {
+            flex-grow: 1; /* Allow content area to take remaining space */
+            padding-top: 40px;
+            padding-left: 40px;
+            padding-right: 40px;
+            max-width: calc(100% - 250px); /* Ensure content doesn't overflow sidebar */
+        }
+
+        .main-header h1 {
+            font-size: 36px;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin: 0 0 40px 0;
+            letter-spacing: 2px;
+            color: #333333;
+        }
+
+        .blue-box {
+            background-color: #0000ff; /* Vibrant blue */
+            height: 300px; /* Fixed height as per design */
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        /* Dialogue Section Styling */
+        .dialogue-section {
+            /* Position the dialogue block starting roughly at the horizontal center of the page */
+            /* Assuming sidebar is 250px, content-area padding-left is 40px */
+            /* If page width is W, dialogue starts at W/2. Its margin-left from content-area start is W/2 - 250px - 40px */
+            /* For a typical desktop width (e.g., 1200px), this would be 600 - 250 - 40 = 310px */
+            margin-left: 310px; /* Adjust this value based on visual inspection for desired alignment */
+            max-width: 500px; /* Control line length for readability */
+            padding-bottom: 80px;
+        }
+
+        .dialogue-line {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #999999; /* Light gray for dialogue text */
+            margin-top: 0; /* Reset default paragraph margin-top */
+        }
+
+        /* Staggered indentation for dialogue lines */
+        .dialogue-line.sergej {
+            margin-left: 0; /* Sergej lines are less indented */
+        }
+
+        .dialogue-line.sterre {
+            margin-left: 50px; /* Sterre lines are more indented */
+        }
+
+        /* Back to Top Link */
+        .back-to-top {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .back-to-top a {
+            color: #666666;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Site Footer Styling */
+        .site-footer {
+            text-align: right;
+            font-size: 10px;
+            color: #cccccc; /* Very light gray for footer text */
+            padding: 20px 40px;
+            background-color: #f8f8f8; /* Match body background */
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 200px; /* Slightly smaller sidebar */
+                padding-left: 20px;
+            }
+            .content-area {
+                padding-left: 20px;
+                padding-right: 20px;
+                max-width: calc(100% - 200px);
+            }
+            .main-header h1 {
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+            .blue-box {
+                height: 250px;
+                margin-bottom: 40px;
+            }
+            .dialogue-section {
+                margin-left: 200px; /* Adjust based on new sidebar width */
+                max-width: 450px;
+            }
+            .dialogue-line.sterre {
+                margin-left: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack sidebar and content vertically */
+            }
+            .sidebar {
+                width: 100%;
+                padding: 20px;
+                border-right: none;
+                border-bottom: 1px solid #eeeeee; /* Separator at the bottom */
+            }
+            .sidebar .logo {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .sidebar .nav-section {
+                margin-bottom: 15px;
+            }
+            .sidebar .nav-section h3 {
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 5px;
+            }
+            .sidebar .nav-section li {
+                margin-left: 0; /* Remove indentation for smaller screens */
+                text-align: center;
+            }
+            .content-area {
+                padding: 20px;
+                max-width: 100%; /* Content takes full width */
+            }
+            .main-header h1 {
+                font-size: 24px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .blue-box {
+                height: 180px;
+                margin-bottom: 30px;
+            }
+            .dialogue-section {
+                margin-left: 0; /* Remove fixed left margin */
+                max-width: 100%; /* Allow dialogue to take full content width */
+                padding: 0 10px; /* Add some horizontal padding */
+            }
+            .dialogue-line.sterre {
+                margin-left: 20px; /* Less indentation for Sterre lines */
+            }
+            .site-footer {
+                text-align: center;
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <p>THE</p>
+                <p>INGROOVE</p>
+                <p>JAZZCLUB</p>
+            </div>
+            <nav>
+                <div class="nav-section">
+                    <h3>PRINCIPLES</h3>
+                    <ul>
+                        <li>Cosmopolis 2045</li>
+                        <li>This is not a Jazz Club</li>
+                        <li>Minding the Moment</li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3>PROCESSES</h3>
+                    <ul>
+                        <li>MMIIRR</li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3>PATTERNS</h3>
+                    <ul>
+                        <li>Patterns of Space</li>
+                        <li>Patterns of Communication</li>
+                        <li>Rather Refreshing</li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3>PEOPLE</h3>
+                    <ul>
+                        <li>Sergej van Middendorp</li>
+                        <li>Rik Spann</li>
+                        <li>Artwork by Sterre van Middendorp</li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <h3>PUBLICATIONS</h3>
+                    <ul>
+                        <li>Places to go</li>
+                        <li>Our Ship</li>
+                        <li>Embodying

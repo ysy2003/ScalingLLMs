@@ -1,0 +1,1088 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the exact visual design from the image. Let's break down the elements.
+
+Starting with the top navigation bar. The image shows a blue square on the left, then navigation links: Products, Who We Are, Size Chart, Policies. On the right, a cart icon with "0 / $0.00". The background is white, and the links are in a light blue color.
+
+Next, the main content: the product title "THE ROSADO WRAP BRACELET" in large, light blue text. Below that, the price "$20.00". Then a large blue image placeholder (the big blue rectangle), followed by two smaller blue rectangles below it. On the right side, there's a description text, size options, "Add to Cart" button, and a share section.
+
+Let's structure the HTML. The document should have a doctype, html, head, body.
+
+In the head, include the style block. Let's define the styles:
+
+- Body: font-family, maybe Arial or sans-serif, margin 0, padding 0.
+- Navigation: top bar, flex container. Left has the blue square (maybe a div with background blue, fixed width). The nav links are in a flex container, right-aligned. The cart info is on the right.
+- Product title: centered, large font, light blue.
+- Price: centered, below title.
+- Main content: two columns. Left column has the big image (blue div), then two smaller images (blue divs). Right column has the description, size selection, add to cart, share.
+- Buttons: "Small (S)" and "Add to Cart" should be outlined, light blue borders, white background.
+- Share section: three square icons (maybe placeholders).
+
+Let's check the colors. The blue used in the image is a bright blue, maybe #0056b3 or similar. The text color for links and title is a light blue, like #00a8d4.
+
+Let's outline the structure:
+
+- <header> for navigation
+- <main> for product details
+  - <section> for product title and price
+  - <div> for image section (left) and description (right)
+  - <div> for size selection and add to cart
+  - <div> for share
+
+Wait, the image shows the product title, price, then a large blue image on the left, and the description on the right. Below the large image, two smaller blue rectangles (maybe thumbnails). So the layout is:
+
+Top: navigation bar
+
+Middle: product title, price, then a two-column layout (left: big image, right: description text, size options, etc.)
+
+Below the big image: two smaller images (thumbnails)
+
+Let's code step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rosado Wrap Bracelet</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left">
+      <div class="blue-square"></div>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">Size Chart</a></li>
+        <li><a href="#">Policies</a></li>
+      </ul>
+      <div class="cart-info">0 / $0.00</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-header">
+      <h1>THE ROSADO WRAP BRACELET</h1>
+      <p class="price">$20.00</p>
+    </section>
+
+    <div class="product-content">
+      <div class="image-section">
+        <div class="main-image"></div>
+        <div class="thumbnail-images">
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+        </div>
+      </div>
+      <div class="description-section">
+        <p>Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!</p>
+        <p>This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $2000 each.</p>
+        <p class="note">**For sizing measurements, please refer to the Size Chart Page.**</p>
+        <p class="note">**This bracelet can be customized with silver spacers.**</p>
+        <div class="size-selector">
+          <select>
+            <option>Small (S)</option>
+          </select>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <div class="share-section">
+          <h3>SHARE</h3>
+          <div class="share-icons">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="bigcartel">bigcartel</div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS. Let's define the styles.
+
+First, reset margins and paddings.
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #00a8d4;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0f0ff;
+}
+
+.nav-left {
+  width: 50px;
+  height: 50px;
+  background-color: #0056b3;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #00a8d4;
+  font-weight: 500;
+}
+
+.cart-info {
+  margin-left: 20px;
+  color: #00a8d4;
+}
+
+.product-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.product-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.product-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.image-section {
+  flex: 1;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  background-color: #0056b3;
+  margin-bottom: 20px;
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  background-color: #0056b3;
+}
+
+.description-section {
+  flex: 1;
+}
+
+.description-section p {
+  margin: 10px 0;
+}
+
+.note {
+  font-style: italic;
+}
+
+.size-selector {
+  margin: 15px 0;
+}
+
+.size-selector select {
+  padding: 8px;
+  border: 1px solid #00a8d4;
+  border-radius: 4px;
+  background: white;
+  color: #00a8d4;
+}
+
+.add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00a8d4;
+  border-radius: 4px;
+  background: white;
+  color: #00a8d4;
+  font-weight: 500;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.share-section {
+  margin-top: 20px;
+}
+
+.share-section h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.share-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: #00a8d4;
+  border: 1px solid #e0f0ff;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-top: 1px solid #e0f0ff;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #00a8d4;
+  margin: 0 10px;
+}
+
+.bigcartel {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+Now, check if all elements are present. The image has a blue square on the top left, which is the.nav-left div. The navigation links are Products, Who We Are, Size Chart, Policies. The cart info is 0 / $0.00.
+
+The product title is "THE ROSADO WRAP BRACELET", price $20.00. The main image is a large blue rectangle, then two smaller blue rectangles below it. The description text is on the right, with the notes. The size selector is "Small (S)", add to cart button. Share section with three icons.
+
+Wait, in the image, the size selector is a text input or a select? The image shows a text box with "Small (S)", so maybe a select element. But in the image, it's a text field. Wait, the image shows a rectangle with "Small (S)" inside, so it's a select dropdown. So the code should have a select element with the option.
+
+Also, the share section has three square icons, which are the.icon divs.
+
+Let's check the colors. The blue in the image is a bright blue, so #0056b3 is a good match. The text color for the title and links is a light blue, #00a8d4.
+
+Now, check the responsive part. The problem says "responsive CSS", so we need to make sure it's responsive. Let's add some media queries for smaller screens.
+
+For example, on mobile, the navigation might stack, but the image shows a desktop layout. The task says "responsive", so we need to handle different screen sizes.
+
+Let's add a media query for max-width: 768px.
+
+@media (max-width: 768px) {
+ .product-content {
+    flex-direction: column;
+  }
+ .image-section,.description-section {
+    width: 100%;
+  }
+ .main-image {
+    height: 300px;
+  }
+ .thumbnail-images {
+    flex-direction: column;
+  }
+ .thumbnail {
+    width: 100%;
+  }
+ .nav-left {
+    width: 40px;
+    height: 40px;
+  }
+ .main-nav {
+    flex-direction: column;
+  }
+ .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+ .cart-info {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+Also, the footer: the bigcartel is on the left, Home and Contact on the right.
+
+Wait, in the image, the footer has "bigcartel" on the left, and Home, Contact on the right. So the footer structure is:
+
+<div class="footer-links">
+  <a href="#">Home</a>
+  <a href="#">Contact</a>
+</div>
+<div class="bigcartel">bigcartel</div>
+
+But in the image, "bigcartel" is on the left, and Home/Contact on the right. So the footer should have the bigcartel on the left, and the links on the right. So the footer div should have the bigcartel on the left, and the links on the right.
+
+Wait, the image shows "bigcartel" at the bottom left, and "Home" and "Contact" at the bottom right. So the footer is:
+
+<div class="footer">
+  <div class="bigcartel">bigcartel</div>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+But in the code, the footer is structured as:
+
+<footer>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="bigcartel">bigcartel</div>
+</footer>
+
+Which would put Home and Contact on the left, bigcartel on the right. But the image has bigcartel on the left. So need to adjust.
+
+Let's correct the footer:
+
+<footer>
+  <div class="bigcartel">bigcartel</div>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+And in the CSS, set the footer to flex, so bigcartel is on the left, footer-links on the right.
+
+So in the CSS:
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-top: 1px solid #e0f0ff;
+}
+
+But if bigcartel is on the left, and footer-links on the right, then the footer should have:
+
+<div class="bigcartel">bigcartel</div>
+<div class="footer-links">...</div>
+
+So the HTML for footer is:
+
+<footer>
+  <div class="bigcartel">bigcartel</div>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+And in the CSS, the footer is a flex container, so the two divs are side by side.
+
+Now, check the product title: "THE ROSADO WRAP BRACELET" is in uppercase, which is correct.
+
+The price is "$20.00", which is correct.
+
+The description text: "Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!" followed by the other paragraphs.
+
+The size selector: "Small (S)" is in a select element.
+
+The "Add to Cart" button is a button with the text.
+
+The share section has "SHARE" as a heading, then three square icons.
+
+Now, let's check the image placeholders. The main image is a large blue rectangle, the two thumbnails are smaller blue rectangles.
+
+In the CSS, the main-image has height: 400px, but on mobile, it's 300px. The thumbnails are 100x100.
+
+Now, let's make sure all elements are correctly styled.
+
+Another thing: the navigation bar has a blue square on the left. The image shows a blue square, so the.nav-left div is 50x50, background blue.
+
+The cart info is "0 / $0.00", which is in the.cart-info div.
+
+Now, let's code the HTML and CSS.
+
+Wait, the problem says "strictly and accurately recreate the visual design". So we need to match the exact elements.
+
+Let's check the image again:
+
+- Top bar: blue square on left, then navigation links (Products, Who We Are, Size Chart, Policies), then cart info (0 / $0.00).
+
+- Product title: "THE ROSADO WRAP BRACELET" in large font, centered.
+
+- Price: "$20.00" centered below title.
+
+- Left side: large blue rectangle (main image), then two smaller blue rectangles (thumbnails) below it.
+
+- Right side: description text, size selector (Small (S)), Add to Cart button, SHARE section with three icons.
+
+- Footer: bigcartel on left, Home and Contact on right.
+
+Now, let's code the HTML structure with these elements.
+
+Let's start writing the HTML.
+
+First, the doctype, html, head.
+
+In the head, the style block.
+
+Let's define the CSS with all the necessary styles.
+
+Let's check the colors:
+
+- Blue for the squares: #0056b3 (a dark blue, but the image shows a bright blue, maybe #0078d7 or similar. Let's check the image. The blue in the image is a bright blue, so #0078d7 is a good match.)
+
+- Text color for title and links: #00a8d4 (a light blue)
+
+- Border colors: #e0f0ff (light blue)
+
+- Button borders: #00a8d4
+
+- Background for buttons: white
+
+Now, let's code the CSS.
+
+Let's write the CSS step by step.
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #00a8d4;
+  line-height: 1.6;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0f0ff;
+}
+
+.nav-left {
+  width: 50px;
+  height: 50px;
+  background-color: #0078d7;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #00a8d4;
+  font-weight: 500;
+}
+
+.cart-info {
+  margin-left: 20px;
+  color: #00a8d4;
+}
+
+.product-header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.product-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.product-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.image-section {
+  flex: 1;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  background-color: #0078d7;
+  margin-bottom: 20px;
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  background-color: #0078d7;
+}
+
+.description-section {
+  flex: 1;
+}
+
+.description-section p {
+  margin: 10px 0;
+}
+
+.note {
+  font-style: italic;
+}
+
+.size-selector {
+  margin: 15px 0;
+}
+
+.size-selector select {
+  padding: 8px;
+  border: 1px solid #00a8d4;
+  border-radius: 4px;
+  background: white;
+  color: #00a8d4;
+}
+
+.add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #00a8d4;
+  border-radius: 4px;
+  background: white;
+  color: #00a8d4;
+  font-weight: 500;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.share-section {
+  margin-top: 20px;
+}
+
+.share-section h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.share-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: #00a8d4;
+  border: 1px solid #e0f0ff;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-top: 1px solid #e0f0ff;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #00a8d4;
+  margin: 0 10px;
+}
+
+.bigcartel {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+ .product-content {
+    flex-direction: column;
+  }
+ .image-section,.description-section {
+    width: 100%;
+  }
+ .main-image {
+    height: 300px;
+  }
+ .thumbnail-images {
+    flex-direction: column;
+  }
+ .thumbnail {
+    width: 100%;
+  }
+ .nav-left {
+    width: 40px;
+    height: 40px;
+  }
+ .main-nav {
+    flex-direction: column;
+  }
+ .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+ .cart-info {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+Now, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rosado Wrap Bracelet</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left"></div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">Size Chart</a></li>
+        <li><a href="#">Policies</a></li>
+      </ul>
+      <div class="cart-info">0 / $0.00</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-header">
+      <h1>THE ROSADO WRAP BRACELET</h1>
+      <p class="price">$20.00</p>
+    </section>
+
+    <div class="product-content">
+      <div class="image-section">
+        <div class="main-image"></div>
+        <div class="thumbnail-images">
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+        </div>
+      </div>
+      <div class="description-section">
+        <p>Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!</p>
+        <p>This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $2000 each.</p>
+        <p class="note">**For sizing measurements, please refer to the Size Chart Page.**</p>
+        <p class="note">**This bracelet can be customized with silver spacers.**</p>
+        <div class="size-selector">
+          <select>
+            <option>Small (S)</option>
+          </select>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <div class="share-section">
+          <h3>SHARE</h3>
+          <div class="share-icons">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="bigcartel">bigcartel</div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
+
+Wait, in the image, the "bigcartel" is at the bottom left, and Home/Contact at the bottom right. So the footer should have bigcartel on the left, and the links on the right. So the HTML for footer is:
+
+<footer>
+  <div class="bigcartel">bigcartel</div>
+  <div class="footer-links">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+Which is what's in the code.
+
+Now, check if all elements are present:
+
+- Navigation bar with blue square, links, cart info.
+
+- Product title and price.
+
+- Main image and thumbnails.
+
+- Description text, size selector, add to cart, share.
+
+- Footer with bigcartel and links.
+
+Yes.
+
+Now, check the responsive part. The media query for mobile should stack the product content.
+
+Also, the size selector is a select element with "Small (S)" as the option.
+
+The "Add to Cart" button is a button with the text.
+
+The share section has three icons.
+
+Now, let's make sure the HTML is valid. All tags are closed, no errors.
+
+The problem says "Generate ONLY one complete, valid, and fully closed HTML5 file." So the code should be a single HTML file.
+
+Now, let's write the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rosado Wrap Bracelet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #00a8d4;
+      line-height: 1.6;
+      background-color: #ffffff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid #e0f0ff;
+    }
+
+   .nav-left {
+      width: 50px;
+      height: 50px;
+      background-color: #0056b3;
+    }
+
+   .main-nav {
+      display: flex;
+      align-items: center;
+    }
+
+   .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+   .main-nav a {
+      text-decoration: none;
+      color: #00a8d4;
+      font-weight: 500;
+    }
+
+   .cart-info {
+      margin-left: 20px;
+      color: #00a8d4;
+    }
+
+   .product-header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+   .product-header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+   .price {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+   .product-content {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+   .image-section {
+      flex: 1;
+    }
+
+   .main-image {
+      width: 100%;
+      height: 400px;
+      background-color: #0056b3;
+      margin-bottom: 20px;
+    }
+
+   .thumbnail-images {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+   .thumbnail {
+      width: 100px;
+      height: 100px;
+      background-color: #0056b3;
+    }
+
+   .description-section {
+      flex: 1;
+    }
+
+   .description-section p {
+      margin: 10px 0;
+    }
+
+   .note {
+      font-style: italic;
+    }
+
+   .size-selector {
+      margin: 15px 0;
+    }
+
+   .size-selector select {
+      padding: 8px;
+      border: 1px solid #00a8d4;
+      border-radius: 4px;
+      background: white;
+      color: #00a8d4;
+    }
+
+   .add-to-cart {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #00a8d4;
+      border-radius: 4px;
+      background: white;
+      color: #00a8d4;
+      font-weight: 500;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+   .share-section {
+      margin-top: 20px;
+    }
+
+   .share-section h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+   .share-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+   .icon {
+      width: 40px;
+      height: 40px;
+      background-color: #00a8d4;
+      border: 1px solid #e0f0ff;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-top: 1px solid #e0f0ff;
+    }
+
+   .footer-links a {
+      text-decoration: none;
+      color: #00a8d4;
+      margin: 0 10px;
+    }
+
+   .bigcartel {
+      background-color: #e0e0e0;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+     .product-content {
+        flex-direction: column;
+      }
+     .image-section,.description-section {
+        width: 100%;
+      }
+     .main-image {
+        height: 300px;
+      }
+     .thumbnail-images {
+        flex-direction: column;
+      }
+     .thumbnail {
+        width: 100%;
+      }
+     .nav-left {
+        width: 40px;
+        height: 40px;
+      }
+     .main-nav {
+        flex-direction: column;
+      }
+     .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+     .cart-info {
+        margin-left: 0;
+        margin-top: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left"></div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">Size Chart</a></li>
+        <li><a href="#">Policies</a></li>
+      </ul>
+      <div class="cart-info">0 / $0.00</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-header">
+      <h1>THE ROSADO WRAP BRACELET</h1>
+      <p class="price">$20.00</p>
+    </section>
+
+    <div class="product-content">
+      <div class="image-section">
+        <div class="main-image"></div>
+        <div class="thumbnail-images">
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+        </div>
+      </div>
+      <div class="description-section">
+        <p>Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!</p>
+        <p>This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $2000 each.</p>
+        <p class="note">**For sizing measurements, please refer to the Size Chart Page.**</p>
+        <p class="note">**This bracelet can be customized with silver spacers.**</p>
+        <div class="size-selector">
+          <select>
+            <option>Small (S)</option>
+          </select>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <div class="share-section">
+          <h3>SHARE</h3>
+          <div class="share-icons">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="bigcartel">bigcartel</div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
+```

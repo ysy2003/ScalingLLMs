@@ -1,0 +1,134 @@
+<html>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Getting started</a></li>
+                <li><a href="#">Getting more from Koding</a></li>
+                <li><a href="#">Stack Documentation</a></li>
+                <li><a href="#">Configuration Providers</a></li>
+                <li><a href="#">Archive</a></li>
+                <li><a href="#">Atlas</a></li>
+                <li><a href="#">AWS</a></li>
+                <li><a href="#">Data Sources</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">aws_auto_scaling_group: foo</a></li>
+                <li><a href="#">aws_instance: aws-abc-123456789012</a></li>
+                <li><a href="#">aws_lb: listener</a></li>
+                <li><a href="#">aws_lb_target_group</a></li>
+                <li><a href="#">Azure Service Management Providers</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="example-usage">
+            <h2>Example Usage</h2>
+            <pre><code>resource:
+  aws_autoscaling_group: foo
+  foo:
+    availability_zones:
+      - us-west-2a
+    name: terraform-test-foobar5
+    health_check_type: EC2
+    termination_policies:
+      - OldInstanceTerminationPolicy
+    tag: "foo"
+    key: Foo
+    value: foo-bar
+    propagate_at_launch: true
+    autoscale_lifecycle_hook:
+      foo:
+        name: foo
+        default_result: CONTINUE
+        heartbeat_timeout: 2000
+        lifecycle_transition: 'autoscaleing:EC2 INSTANCE LAUNCHING'
+        notification_metadata: '{n} -> {"bar": "\n"}'
+        notification_target: arn:aws:sqs:us-east-1:44445556666:queue1**
+        role: arn:aws:iam:123456789012:role/S3Access'
+</code></pre>
+        <h2>Argument Reference</h2>
+        <p>The following arguments are supported:</p>
+        <ul>
+            <li><code>name</code> - (Required) The name of the lifecycle hook.
+            </li>
+            <li><code>autoscale_group_name</code> - (Required) The name of the Auto Scaling group to which you want to assign the lifecycle hook.
+            </li>
+            <li><code>default_result</code> - (Optional) Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs.
+            </li>
+            <li><code>heartbeat_timeout</code> - (Optional) Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter.
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <div class="social-media">
+            <a href="#"><img src="logo.png"></a>
+            <a href="#"><img src="logo.png"></a>
+            <a href="#"><img src="logo.png"></a>
+        </div>
+        <div class="contact">
+            <a href="#">Contact</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #f0f0f0;
+    color: white;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 1em;
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+}
+
+#example-usage {
+    margin-bottom: 2em;
+}
+
+#argument-reference {
+    margin-bottom: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.contact a {
+    display: inline-block;
+    margin-right: 1em;
+}
+</style>
+</html>

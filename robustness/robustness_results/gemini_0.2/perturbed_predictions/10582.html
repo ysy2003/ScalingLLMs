@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCC EVENT BLOG</title>
+    <style>
+        /* General Body and Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background for the page */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px; /* Fixed width as per image */
+            margin: 0 auto;
+            background-color: #fff; /* White background for the main content area */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Section */
+        header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative; /* For positioning search bar */
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: #0000FF; /* Blue color */
+            flex-shrink: 0;
+        }
+
+        .blog-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            font-size: 0.9em;
+            width: 150px;
+            box-sizing: border-box;
+        }
+
+        .search-bar button {
+            background-color: #FF8C00; /* Darker orange */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: -1px; /* Overlap border */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333; /* Dark gray */
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 20px;
+            position: relative;
+            min-height: 40px; /* Ensure height even if items wrap */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 0.95em;
+            white-space: nowrap; /* Prevent nav items from wrapping */
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            padding: 20px;
+            gap: 20px; /* Space between columns */
+        }
+
+        .left-column {
+            flex: 2; /* Takes 2/3 of available space */
+            min-width: 300px; /* Minimum width for left column */
+        }
+
+        .right-column {
+            flex: 1; /* Takes 1/3 of available space */
+            min-width: 250px; /* Minimum width for right column */
+        }
+
+        /* Left Column - Blog Post */
+        .post-section h2 {
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .post-section hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .blog-post h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .blog-post .date {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .blog-post p {
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .read-more-button {
+            background-color: #444;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            float: right;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .read-more-button:hover {
+            background-color: #666;
+        }
+
+        /* Right Column - Sidebar */
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .sidebar-section .divider {
+            border: none;
+            border-bottom: 2px solid #FF8C00; /* Darker orange */
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .upcoming-event-box {
+            background-color: #0000FF; /* Blue color */
+            height: 100px; /* Approximate height */
+            margin-bottom: 15px;
+        }
+
+        .upcoming-event-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-section ul li {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .sidebar-section ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .sidebar-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333; /* Dark gray */
+            height: 50px; /* Approximate height */
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 0;
+            }
+
+            .search-bar {
+                position: static;
+                margin-top: 15px;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .search-bar input[type="text"] {
+                width: calc(100% - 60px); /* Adjust width for button */
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+            }
+
+            nav a {
+                width: 100%;
+                box-sizing: border-box;
+                border-bottom: 1px solid #555;
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .main-content {
+                flex-direction: column;
+                padding: 15px;
+                gap: 0;
+            }
+
+            .left-column, .right-column {
+                flex: none; /* Remove flex grow/shrink */
+                width: 100%;
+                min-width: unset;
+            }
+
+            .right-column {
+                margin-top: 30px; /* Add space between stacked columns */
+            }
+
+            .read-more-button {
+                float: none;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-title {
+                font-size: 1.8em;
+            }
+
+            .post-section h2 {
+                font-size: 1.5em;
+            }
+
+            .blog-post h3 {
+                font-size: 1.3em;
+            }
+
+            .search-bar input[type="text"] {
+                width: calc(100% - 50px); /* Smaller button */
+            }
+            .search-bar button {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"></div>
+            <h1 class="blog-title">CCC EVENT BLOG</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search Blog...">
+                <button type="submit">GO</button>
+            </div>
+        </header>
+
+        <nav>
+            <a href="#">ABOUT</a>
+            <a href="#">CCC</a>
+            <a href="#">ORGA-TEAMS</a>
+            <a href="#">RECORDINGS</a>
+        </nav>
+
+        <div class="main-content">
+            <main class="left-column">
+                <section class="post-section">
+                    <h2>interpretation English</h2>
+                    <hr>
+                    <article class="blog-post">
+                        <h3>Lost in Interpretation ...</h3>
+                        <span class="date">December 27, 2008</span>
+                        <p>This year, we will continue a tradition started last year with the "spontaneous simultaneous" interpretation of the Hacker Jeopardy. As of tomorrow, we will interpret one event in Saal 1 each day.</p>
+                        <a href="#" class="read-more-button">Read more ...</a>
+                    </article>
+                    <hr style="clear: both;"> <!-- Clear float from button -->
+                </section>
+            </main>
+
+            <aside class="right-column">
+                <section class="sidebar-section">
+                    <h3>UPCOMING EVENTS</h3>
+                    <div class="divider"></div>
+                    <div class="upcoming-event-box"></div>
+                    <div class="upcoming-event-details">
+                        <span>37C3: Unlocked</span>
+                        <span>Fireshonks</span>
+                    </div>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>CONGRESS</h3>
+                    <div class="divider"></div>
+                    <ul>
+                        <li>37C3: Unlocked (2023)</li>
+                        <li>36C3: Resource Exhaustion (2019)</li>
+                        <li>35C3: Refreshing Memories (2018)</li>
+                        <li>34C3: tuwat (2017)</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>CAMP</h3>
+                    <div class="divider"></div>
+                    <ul>
+                        <li>Chaos Communication Camp 2023</li>
+                        <li>Chaos Communication Camp 2019</li>
+                        <li>Chaos Communication Camp 2015</li>
+                        <li>Chaos Communication Camp 2011</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>REMOTE CHAOS EXPERIENCE</h3>
+                    <div class="divider"></div>
+                    <ul>
+                        <li>rC3: NOWHERE (2021)</li>
+                        <li>rC3 (2020)</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>OTHER EVENTS</h3>
+                    <div class="divider"></div>
+                    <ul>
+                        <li>Datenspuren</li>
+                        <li>DiVOC</li>
+                        <li>Easterhegg</li>
+                        <li>GPN</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>SUBSCRIBE</h3>
+                    <div class="divider"></div>
+                </section>
+            </aside>
+        </div>
+
+        <footer>
+            <!-- Footer content, if any, would go here -->
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.10: Surgical Adhesive Tape</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩹</text></svg>">
+    <style>
+        :root {
+            --primary-text-color: #333;
+            --secondary-text-color: #666;
+            --link-color: #007bff; /* A common blue for links */
+            --navbar-bg: #343a40; /* Dark grey */
+            --navbar-text: #f8f9fa; /* Light grey/white */
+            --info-box-bg: #e0f7fa; /* Light cyan */
+            --info-box-border: #00bcd4; /* Cyan */
+            --footer-bg: #343a40;
+            --footer-text: #adb5bd; /* Muted grey */
+            --feedback-button-bg: #343a40;
+            --feedback-button-text: #f8f9fa;
+            --page-bg: #f8f9fa; /* Light grey background for the page */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            background-color: var(--page-bg);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--navbar-bg);
+            color: var(--navbar-text);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-right: 20px;
+            color: var(--navbar-text);
+        }
+
+        .navbar-brand .blue-square {
+            width: 15px;
+            height: 15px;
+            background-color: #007bff; /* Blue */
+            margin-right: 8px;
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            color: var(--navbar-text);
+            padding: 10px 0;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-link.has-dropdown::after {
+            content: '▼'; /* Unicode for down arrow */
+            font-size: 0.7em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--secondary-text-color);
+            margin-bottom: 30px;
+        }
+
+        .content-paragraph {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .info-box {
+            background-color: var(--info-box-bg);
+            border: 1px solid var(--info-box-border);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95em;
+        }
+
+        .info-box .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: var(--primary-text-color);
+            line-height: 1;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #212529;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 30px 20px;
+            margin-top: 50px;
+            font-size: 0.9em;
+            position: relative; /* For feedback button */
+        }
+
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-squares {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .footer-square {
+            width: 40px;
+            height: 40px;
+            background-color: #007bff; /* Blue */
+            margin-right: 10px;
+        }
+
+        .footer-text {
+            margin-bottom: 10px;
+        }
+
+        .footer-text a {
+            color: var(--footer-text);
+            text-decoration: underline;
+        }
+
+        .footer-text a:hover {
+            color: #fff;
+        }
+
+        .feedback-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--feedback-button-bg);
+            color: var(--feedback-button-text);
+            border: 1px solid #6c757d;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .feedback-button:hover {
+            background-color: #495057;
+            border-color: #495057;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                height: auto;
+                flex-wrap: wrap;
+                padding: 10px 15px;
+            }
+
+            .navbar-brand {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-item {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .nav-link {
+                padding: 5px 0;
+            }
+
+            .container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .content-paragraph, .info-box, .footer-text {
+                font-size: 0.9em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .footer {
+                padding: 20px 15px;
+            }
+
+            .footer-squares {
+                margin-bottom: 15px;
+            }
+
+            .footer-square {
+                width: 30px;
+                height: 30px;
+            }
+
+            .feedback-button {
+                position: static; /* Make it static on small screens */
+                margin-top: 20px;
+                width: fit-content;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1em;
+            }
+            .navbar-brand .blue-square {
+                width: 12px;
+                height: 12px;
+            }
+            .nav-link {
+                font-size: 0.9em;
+            }
+            h1 {
+                font-size: 1.6em;
+            }
+            .subtitle {
+                font-size: 0.9em;
+            }
+            .content-paragraph, .info-box, .footer-text {
+                font-size: 0.85em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .footer-square {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="navbar-brand">
+            <span class="blue-square"></span>
+            OpenPrescribing
+        </a>
+        <nav>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="#" class="nav-link">Analyse</a></li>
+                <li class="nav-item"><a href="#" class="nav-link has-dropdown">Area and Practice Dashboards</a></li>
+                <li class="nav-item"><a href="#" class="nav-link has-dropdown">Trends</a></li>
+                <li class="nav-item"><a href="#" class="nav-link has-dropdown">More</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>20.10: Surgical Adhesive Tape</h1>
+        <p class="subtitle">Part of chapter <a href="#">20 Dressings</a></p>
+
+        <p class="content-paragraph">
+            High-level prescribing trends for Surgical Adhesive Tape (BNF section 20.10) across all GP practices in NHS England for
+            the last five years. You can <a href="#">explore prescribing trends for this section by Sub-ICB Location</a>, or learn more <a href="#">about this site</a>.
+        </p>
+        <p class="content-paragraph">
+            <a href="#">View all matching dm+d items.</a>
+        </p>
+
+        <div class="info-box">
+            <span class="icon">&#9744;</span> <!-- Unicode for an empty checkbox -->
+            <span>
+                Do you need help with your analysis? Don't forget to check the <a href="#">FAQ page</a>, and <a href="#">get in touch</a> if you have questions.
+            </span>
+        </div>
+
+        <h3>Chemicals</h3>
+        <p><a href="#">Surgical Adhesive Tape (2010)</a></p>
+
+        <h3>Download raw data</h3>
+        <p>
+            Download CSVs: <a href="#">all data on Surgical Adhesive Tape</a> or <a href="#">data on Surgical Adhesive Tape by Sub-ICB Location</a>.
+        </p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-squares">
+                <div class="footer-square"></div>
+                <div class="footer-square"></div>
+                <div class="footer-square"></div>
+            </div>
+            <p class="footer-text">
+                Designed and built by the <a href="#">Bennett Institute for Applied Data Science</a>, Department of Primary Care Health Sciences, University of Oxford.
+            </p>
+            <p class="footer-text">
+                Please see the <a href="#">about page</a> for details of our funding. Contact us: [EMAIL REDACTED] and find us on <a href="#">Twitter</a>.
+            </p>
+        </div>
+        <button class="feedback-button">Feedback</button>
+    </footer>
+</body>
+</html>

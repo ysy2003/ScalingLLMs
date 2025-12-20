@@ -1,0 +1,586 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design exactly as shown. Let's break down the elements.
+
+The page has a blue header section. At the top right, there's "Go to EnGenius Technologies" and "English". Then a welcome message: "Welcome to Doctor EnGenius". Below that, a search bar with placeholder "Search for articles...". Then a list of categories: Frequently Asked Questions (75 articles), Wireless Networking (322 articles), Wired Networking (61 articles), Telephony Systems (61 articles), IP Surveillance Cameras (26 articles). Each category has a blue square icon on the left.
+
+First, structure the HTML. The main elements:
+
+- Header with top navigation (right-aligned links)
+- Main content: welcome message, search bar, category list
+
+Let's outline the HTML structure:
+
+1. <html> with <head> containing <style> for CSS.
+2. <body> with:
+   - A top bar (maybe a div for the header)
+   - The welcome message
+   - Search input
+   - A container for the categories (each category is a div with icon, title, article count)
+
+Now, the colors: the header is a bright blue (maybe #00a6ff or similar). The search bar is a lighter blue. The category items have a white background with a blue square icon.
+
+Let's check the design:
+
+- Top right: "Go to EnGenius Technologies" and "English" – these are links, probably in the header.
+- The main header: "Welcome to Doctor EnGenius" – centered, large font.
+- Search bar: a light blue background, rounded corners, placeholder text.
+- Each category: a white box with a blue square (left), title, and article count.
+
+Let's think about the CSS:
+
+- Body: set font, maybe some padding.
+- Header: the top bar with the two links. Let's see, the top bar is blue, so maybe a div with background color #00a6ff (or similar). The links are in the top right, so right-aligned.
+
+Wait, the image shows the top bar as blue, with "Go to EnGenius Technologies" and "English" on the right. Then below that, the main header with "Welcome to Doctor EnGenius".
+
+So the structure:
+
+- <header> or a div for the top navigation (blue background)
+  - Inside: right-aligned links: "Go to EnGenius Technologies" and "English"
+- Then a main section with:
+  - H1: "Welcome to Doctor EnGenius"
+  - Search input
+  - A container for the categories (each category is a card)
+
+Let's define the colors. The main header background is a bright blue, let's say #00a6ff. The search bar is a lighter blue, maybe #00c6ff. The category cards have white background, with a blue square icon (same as the header? Maybe #00a6ff).
+
+Let's check the image:
+
+- The top bar (where "Go to..." is) is blue. The main header (with "Welcome...") is also blue, but maybe a slightly different shade? Wait, the image shows the top part as a blue header, then the main content area is white. Wait, no: the image has a blue header (top), then the main content is white. Wait, the image:
+
+Top part: blue background, with "Go to EnGenius Technologies" and "English" on the right. Then below that, "Welcome to Doctor EnGenius" in white text on blue. Then a search bar (light blue). Then the rest is white background with the category cards.
+
+Wait, the image shows:
+
+- The top section (blue) has the "Go to..." link and "English" on the right.
+- Then the main header (blue) with "Welcome to Doctor EnGenius".
+- Then the search bar (light blue).
+- Then the white section with the category cards.
+
+So the HTML structure:
+
+- <div class="top-bar"> (blue background)
+  - <div class="top-bar-links"> (right-aligned)
+    - <a href="#">Go to EnGenius Technologies</a>
+    - <a href="#">English</a>
+- <div class="main-header"> (blue background)
+  - <h1>Welcome to Doctor EnGenius</h1>
+- <div class="search-bar"> (light blue)
+  - <input type="text" placeholder="Search for articles...">
+- <div class="categories-container">
+  - <div class="category">...</div>
+  -... (each category)
+
+Now, the category items: each has a blue square (icon), title, and article count. The icon is a small blue square (same as the header color). The category title is bold, article count is smaller.
+
+Let's code the HTML:
+
+Start with the basic structure.
+
+First, the HTML5 doctype, then <html>, <head> with <style>, then <body>.
+
+In the <head>, the <style> block will contain all the CSS.
+
+Let's define the CSS:
+
+- body: font-family, margin, padding.
+-.top-bar: background-color, display, flex, justify-content, align-items, padding.
+-.top-bar-links: display, flex, justify-content, align-items, margin, etc.
+-.main-header: background-color, padding, text-align, font-size, etc.
+-.search-bar: background-color, padding, border-radius, margin, etc.
+-.categories-container: display, flex, flex-direction, etc.
+-.category: display, flex, align-items, padding, border, etc.
+-.category-icon: background-color, width, height, etc.
+-.category-title: font-weight, etc.
+-.article-count: font-size, etc.
+
+Let's get the colors right. The top bar (where "Go to..." is) is blue. Let's check the image: the top bar is a bright blue, maybe #00a6ff. The main header (with "Welcome...") is the same blue. The search bar is a lighter blue, maybe #00c6ff. The category cards are white with a blue icon.
+
+Let's set:
+
+- top-bar: background-color: #00a6ff;
+- main-header: background-color: #00a6ff;
+- search-bar: background-color: #00c6ff;
+- category: background-color: white; border: 1px solid #e0e0e0; padding: 15px; margin-bottom: 10px;
+
+Now, the top bar links: "Go to EnGenius Technologies" and "English" – they should be white text, maybe with some margin.
+
+The main header text: "Welcome to Doctor EnGenius" – white text, centered.
+
+Search bar: input with placeholder "Search for articles...", light blue background, rounded corners.
+
+Each category: a div with a blue square (icon), title, and article count. The icon is a small square (maybe 20x20px), blue background. The title is bold, article count is smaller.
+
+Let's code the HTML step by step.
+
+First, the top bar:
+
+<div class="top-bar">
+  <div class="top-bar-links">
+    <a href="#">Go to EnGenius Technologies</a>
+    <a href="#">English</a>
+  </div>
+</div>
+
+Then the main header:
+
+<div class="main-header">
+  <h1>Welcome to Doctor EnGenius</h1>
+</div>
+
+Search bar:
+
+<div class="search-bar">
+  <input type="text" placeholder="Search for articles...">
+</div>
+
+Categories container:
+
+<div class="categories-container">
+  <div class="category">
+    <div class="category-icon"></div>
+    <div class="category-title">Frequently Asked Questions</div>
+    <div class="article-count">75 articles</div>
+  </div>
+ ... (other categories)
+</div>
+
+Now, the CSS:
+
+- body: margin: 0; padding: 0; font-family: Arial, sans-serif;
+-.top-bar: background-color: #00a6ff; display: flex; justify-content: flex-end; align-items: center; padding: 10px 20px;
+-.top-bar-links: display: flex; gap: 15px; align-items: center;
+-.top-bar-links a: color: white; text-decoration: none;
+-.main-header: background-color: #00a6ff; padding: 20px; text-align: center; color: white;
+-.search-bar: background-color: #00c6ff; padding: 10px 20px; border-radius: 5px; margin: 20px 0;
+-.categories-container: display: flex; flex-direction: column; gap: 15px; padding: 0 20px;
+-.category: display: flex; align-items: flex-start; padding: 15px; background-color: white; border: 1px solid #e0e0e0; border-radius: 5px;
+-.category-icon: width: 20px; height: 20px; background-color: #00a6ff; margin-right: 10px; border-radius: 3px;
+-.category-title: font-weight: bold; margin: 0;
+-.article-count: font-size: 14px; color: #666; margin-top: 5px;
+
+Wait, the image shows the category items as white boxes with a blue square on the left. The icon is a solid blue square, so the.category-icon should have background-color: #00a6ff.
+
+Let's check the image: the top bar has a blue square (the small blue square in the top left of the image). Wait, the image shows a blue square in the top left corner. Oh, right, the image has a blue square in the top left. So maybe the top bar has a blue square as a logo? Wait, the image shows:
+
+Top left: a blue square (maybe a logo). Then top right: "Go to EnGenius Technologies" and "English".
+
+Wait, the image provided:
+
+The top part is a blue background. On the top left, there's a blue square (maybe a logo). Then on the top right, the links. Then the main header.
+
+So the top bar (blue background) has a logo (blue square) on the left, and the links on the right.
+
+Ah, I missed that. The image shows a blue square in the top left corner. So the top bar should have a logo (blue square) on the left, then the links on the right.
+
+So the top bar structure:
+
+<div class="top-bar">
+  <div class="logo"> (blue square)
+  <div class="top-bar-links"> (right-aligned links)
+</div>
+
+So the logo is a blue square, maybe 30x30px.
+
+So in the HTML:
+
+<div class="top-bar">
+  <div class="logo"></div>
+  <div class="top-bar-links">
+    <a href="#">Go to EnGenius Technologies</a>
+    <a href="#">English</a>
+  </div>
+</div>
+
+Then the logo div has background-color: #00a6ff; width: 30px; height: 30px; border-radius: 3px; (maybe).
+
+Now, the main header: "Welcome to Doctor EnGenius" – centered, white text.
+
+Search bar: light blue background, rounded corners.
+
+Categories: each has a blue square icon (same as logo), title, article count.
+
+Let's adjust the CSS accordingly.
+
+Let's define the logo:
+
+.logo {
+  background-color: #00a6ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+
+Wait, the image shows the logo as a blue square in the top left. So the top bar has the logo on the left, then the links on the right.
+
+So the top bar is a flex container with logo on left, links on right.
+
+Now, the main header: "Welcome to Doctor EnGenius" – centered, large font.
+
+Let's code the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor EnGenius</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <!-- Top bar with logo and links -->
+  <div class="top-bar">
+    <div class="logo"></div>
+    <div class="top-bar-links">
+      <a href="#">Go to EnGenius Technologies</a>
+      <a href="#">English</a>
+    </div>
+  </div>
+  
+  <!-- Main header -->
+  <div class="main-header">
+    <h1>Welcome to Doctor EnGenius</h1>
+  </div>
+  
+  <!-- Search bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search for articles...">
+  </div>
+  
+  <!-- Categories container -->
+  <div class="categories-container">
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Frequently Asked Questions</div>
+      <div class="article-count">75 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Wireless Networking</div>
+      <div class="article-count">322 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Wired Networking</div>
+      <div class="article-count">61 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Telephony Systems</div>
+      <div class="article-count">61 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">IP Surveillance Cameras</div>
+      <div class="article-count">26 articles</div>
+    </div>
+  </div>
+  
+  <!-- Footer? The image has a blue square at the bottom, but maybe it's part of the design. Wait, the image shows a blue square at the bottom center. Maybe it's a footer logo. But the problem says to recreate the visual design. The image has a blue square at the bottom, so maybe add a footer with a blue square. But the image shows it as a small blue square. Let's check the image: the bottom has a blue square. So maybe a footer div with a blue square. But the problem says to recreate the visual design. Let's see: the image has a blue square at the bottom center. So add a div with class "footer-logo" or something. But the problem says "strictly and accurately recreate the visual design". The image shows a blue square at the bottom. So include that.
+
+Wait, the image shows:
+
+- Top left: blue square (logo)
+- Top right: links
+- Main header
+- Search bar
+- Categories
+- Bottom center: blue square
+
+So the bottom blue square is part of the design. So add a div with a blue square at the bottom.
+
+So in the HTML:
+
+<div class="footer-logo"></div>
+
+Now, the CSS for the footer logo:
+
+.footer-logo {
+  background-color: #00a6ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin: 20px auto;
+}
+
+Now, let's put all the CSS together.
+
+Let's define the body styles:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.top-bar {
+  background-color: #00a6ff;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  background-color: #00a6ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+
+.top-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-bar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-header {
+  background-color: #00a6ff;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.search-bar {
+  background-color: #00c6ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 20px;
+}
+
+.category {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.category-icon {
+  background-color: #00a6ff;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.category-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.article-count {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.footer-logo {
+  background-color: #00a6ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin: 20px auto;
+}
+
+Now, check if all elements are present:
+
+- Top bar with logo (blue square) and links (Go to... and English)
+- Main header with welcome message
+- Search bar
+- Categories (5 items)
+- Footer logo (blue square at bottom)
+
+Yes.
+
+Now, let's check the image:
+
+- The top bar has the logo (blue square) on the left, links on the right.
+- Main header: "Welcome to Doctor EnGenius" centered.
+- Search bar: light blue, placeholder text.
+- Each category: blue square icon, title, article count.
+- Bottom: blue square.
+
+Yes, that matches.
+
+Now, code the HTML with all these elements.
+
+Make sure the HTML is valid, closed, and the CSS is embedded.
+
+Let's write the HTML:
+
+Start with <!DOCTYPE html>, then <html>, <head> with <style>, then <body> with all elements.
+
+Check for any missing parts.
+
+The top bar links: "Go to EnGenius Technologies" and "English" – they are links, so <a> tags.
+
+The categories have the correct titles and article counts.
+
+The footer logo is a div with class "footer-logo".
+
+Now, let's write the code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor EnGenius</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+   .top-bar {
+      background-color: #00a6ff;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+   .logo {
+      background-color: #00a6ff;
+      width: 30px;
+      height: 30px;
+      border-radius: 3px;
+      margin-right: 15px;
+    }
+   .top-bar-links {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+   .top-bar-links a {
+      color: white;
+      text-decoration: none;
+    }
+   .main-header {
+      background-color: #00a6ff;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+   .search-bar {
+      background-color: #00c6ff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+   .categories-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 0 20px;
+    }
+   .category {
+      display: flex;
+      align-items: flex-start;
+      padding: 15px;
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+    }
+   .category-icon {
+      background-color: #00a6ff;
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+   .category-title {
+      font-weight: bold;
+      margin: 0;
+    }
+   .article-count {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+   .footer-logo {
+      background-color: #00a6ff;
+      width: 30px;
+      height: 30px;
+      border-radius: 3px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="logo"></div>
+    <div class="top-bar-links">
+      <a href="#">Go to EnGenius Technologies</a>
+      <a href="#">English</a>
+    </div>
+  </div>
+  
+  <div class="main-header">
+    <h1>Welcome to Doctor EnGenius</h1>
+  </div>
+  
+  <div class="search-bar">
+    <input type="text" placeholder="Search for articles...">
+  </div>
+  
+  <div class="categories-container">
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Frequently Asked Questions</div>
+      <div class="article-count">75 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Wireless Networking</div>
+      <div class="article-count">322 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Wired Networking</div>
+      <div class="article-count">61 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">Telephony Systems</div>
+      <div class="article-count">61 articles</div>
+    </div>
+    <div class="category">
+      <div class="category-icon"></div>
+      <div class="category-title">IP Surveillance Cameras</div>
+      <div class="article-count">26 articles</div>
+    </div>
+  </div>
+  
+  <div class="footer-logo"></div>
+</body>
+</html>
+```

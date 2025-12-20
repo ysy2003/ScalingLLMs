@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Switch Demos</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            display: flex; /* For main layout: sidebar and content side-by-side */
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Light background for the whole page */
+        }
+
+        /* Header/Sidebar */
+        .header-sidebar {
+            background-color: #223322;
+            color: white;
+            padding: 20px 30px;
+            width: 280px; /* Fixed width as per image */
+            flex-shrink: 0; /* Prevent shrinking */
+            box-sizing: border-box;
+        }
+
+        .header-sidebar h2 {
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .header-sidebar p {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .header-sidebar a {
+            color: #99cc99;
+            text-decoration: none;
+        }
+
+        .header-sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1; /* Takes remaining space */
+            background-color: white;
+            padding: 40px 50px;
+            max-width: 900px; /* Constrain content width for readability */
+            box-sizing: border-box;
+            margin-left: 20px; /* Gap between sidebar and content */
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Subtle shadow for card effect */
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-decoration: underline dotted; /* Dotted underline as per image */
+            text-underline-offset: 5px; /* Adjust position of underline */
+            text-decoration-color: #999; /* Lighter color for dotted line */
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        /* Dates */
+        .date-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* Code snippets */
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        /* Links in main content */
+        .main-content a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .main-content a:hover {
+            text-decoration: none;
+        }
+
+        /* Pattern Demos Section Item Layout */
+        .pattern-demo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-right: 10px; /* Small padding to prevent switch touching edge */
+        }
+
+        .pattern-demo-item > div:first-child {
+            flex-grow: 1; /* Allows text to take available space */
+        }
+
+        /* Base Switch Styles (for custom switches) */
+        .switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 20px; /* For oval shape */
+            transition: background-color 0.2s ease-in-out;
+            outline: none; /* Remove default outline */
+        }
+
+        .switch:focus-visible {
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Focus ring for accessibility */
+        }
+
+        /* Labeled Switch (Off/On) */
+        .switch-labeled {
+            width:

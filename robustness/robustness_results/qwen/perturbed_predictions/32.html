@@ -1,0 +1,978 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+We are going to recreate the design exactly as shown in the image.
+ Steps:
+ 1. The page has a header with "Ship Globally | Posted within 24 hours" and top right: "Log in or Create account", "Cart", "Search".
+ 2. Main title: "Zoetrope Animations & Praxinoscope"
+ 3. Navigation bar: Home, About Us, Zoetrope (with dropdown), Praxinoscope (with dropdown)
+ 4. Main content: "About Us" section with a paragraph of text.
+ 5. A large blue rectangle (which seems to be a placeholder for an image or section).
+ 6. Footer with sections: Latest News, Quick Links, Follow Us, Contact Us, Newsletter.
+
+ Important: The design is a single HTML file with embedded CSS.
+
+ Let's break down:
+
+ - The top bar: 
+   - Left: "Ship Globally | Posted within 24 hours"
+   - Right: "Log in or Create account", "Cart", "Search" (with a magnifying glass icon for search)
+
+ - The main header: centered, large font.
+
+ - Navigation: horizontal bar with links. Note: "Zoetrope" and "Praxinoscope" have dropdowns (indicated by the down arrow in the image).
+
+ - The "About Us" section: 
+   - The text is as provided.
+
+ - The blue rectangle: we'll use a div with a blue background and set the height to 400px (as per the image, it's a large block).
+
+ - Footer: 
+   - Left: "Latest News" with two news items.
+   - Middle: "Quick Links" with links.
+   - Middle: "Follow Us" with social icons (we'll use placeholders for now).
+   - Right: "Contact Us" and "Newsletter".
+
+ - Copyright at the bottom.
+
+ We note that the image has a specific layout. We'll use a responsive design with flexbox or grid.
+
+ However, note: the problem says "strictly and accurately recreate the visual design".
+
+ Let's structure the HTML:
+
+ 1. The top bar (fixed? or not) - we'll make it a top bar that spans the whole width.
+ 2. The main header (with the title) - centered.
+ 3. Navigation bar (with links, and dropdowns for Zoetrope and Praxinoscope).
+ 4. The main content (About Us section).
+ 5. The blue block.
+ 6. Footer.
+
+ We'll use a container for the main content to center it.
+
+ Important: The image shows a blue block that is a solid color. We'll set it to blue (like #0000FF) and a fixed height.
+
+ Let's code accordingly.
+
+ Steps for CSS:
+
+ - We'll set a base font and reset margins/paddings.
+ - The top bar: 
+      background: white? (the image shows a white background for the top bar, but the main page is white too)
+      However, the image shows the top bar as part of the page, so we'll have a top bar that is white and spans the whole width.
+
+ - The top bar content: 
+      Left: "Ship Globally | Posted within 24 hours" (in small font, maybe gray)
+      Right: "Log in or Create account", "Cart", "Search" (with a magnifying glass icon for search)
+
+ - The main header: 
+      centered, large font, maybe bold.
+
+ - Navigation: 
+      We'll use a flex container for the nav bar. The links will be spaced out. The dropdowns for Zoetrope and Praxinoscope will have a down arrow.
+
+ - The About Us section: 
+      We'll have a heading "About Us", then the paragraph.
+
+ - The blue block: 
+      We'll set a div with class "blue-block" and style it to be blue and a fixed height.
+
+ - Footer: 
+      We'll use a grid or flex to arrange the sections.
+
+ Let's write the HTML structure:
+
+  <body>
+    <header class="top-bar">
+      <div class="top-bar-content">
+        <span>Ship Globally | Posted within 24 hours</span>
+        <div class="top-bar-right">
+          <a href="#">Log in</a> or <a href="#">Create account</a>
+          <a href="#">Cart</a>
+          <a href="#" class="search">Search</a>
+        </div>
+      </div>
+    </header>
+
+    <header class="main-header">
+      <h1>Zoetrope Animations & Praxinoscope</h1>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li class="dropdown"><a href="#">Zoetrope</a></li>
+        <li class="dropdown"><a href="#">Praxinoscope</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="about-us">
+        <h2>About Us</h2>
+        <p>Welcome to the wonderful world of <strong>Zoetrope</strong> and <strong>Praxinoscope</strong> animations!</p>
+       ... (all the text as in the image)
+      </section>
+
+      <div class="blue-block"></div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Latest News</h3>
+          <ul>
+            <li>Back in Stock November 2020</li>
+            <li>Currently all sold out! Planning to have more stock available in November.</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Catalogue</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="icon">...</i></a>
+            <a href="#"><i class="icon">...</i></a>
+            <a href="#"><i class="icon">...</i></a>
+            <a href="#"><i class="icon">...</i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>To contact, please ring or text: UK [PHONE REDACTED] or use the contact us form.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>Sign up for the latest news, offers and styles</p>
+          <form>
+            <input type="email" placeholder="Your email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © 2023, Zoetrope Animations & Praxinoscope. Powered by Shopify</p>
+      </div>
+    </footer>
+  </body>
+
+ Now, for the CSS:
+
+ - We'll set the body to have a font-family, and reset margins.
+ - The top bar: 
+      background: white; 
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+
+ - The main header: 
+      text-align: center;
+      padding: 1rem 0;
+
+ - The nav bar: 
+      background: white;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+ - The about us section: 
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+
+ - The blue block: 
+      background: blue;
+      height: 400px;
+      margin: 2rem auto;
+      max-width: 800px;
+
+ - Footer: 
+      background: #f5f5f5;
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      text-align: left;
+
+      But note: the image shows the footer as having 5 columns? Actually, the image shows:
+        Latest News (leftmost), then Quick Links, then Follow Us, then Contact Us, then Newsletter (rightmost).
+
+      However, the image has 5 sections? Actually, the image shows 5 columns? But the image is a bit small.
+
+      Alternatively, we can use a flex container with 5 items.
+
+      But the image shows:
+        [Latest News] [Quick Links] [Follow Us] [Contact Us] [Newsletter]
+
+      So we'll set the footer to have 5 columns.
+
+      However, the image also shows that the "Latest News" section has two news items, and the others have their own.
+
+      We'll set the footer sections to have a max-width of 100% (so they take the full width of their column).
+
+      But note: the image shows the footer as having 5 columns, so we'll set:
+
+       .footer-content {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 1rem;
+        }
+
+      However, the image might have a different layout? Let's check:
+
+        The image shows:
+          Left: "Latest News" (with two news items)
+          Then: "Quick Links" (with 4 links)
+          Then: "Follow Us" (with 4 social icons)
+          Then: "Contact Us" (with a paragraph)
+          Then: "Newsletter" (with a form)
+
+      So 5 columns.
+
+      But note: the image also has a line of social icons (4 icons) in the "Follow Us" section.
+
+      We'll set the footer sections to have a max-width of 100% (so they don't overflow).
+
+      Also, the footer bottom: centered.
+
+ - We'll use a responsive design: for mobile, we can stack the columns.
+
+      We can set the grid to be 1fr for mobile? But the problem says "responsive CSS", so we'll use media queries.
+
+      However, the problem says "strictly and accurately recreate the visual design", so we'll try to match the desktop design and then add a mobile version.
+
+      But note: the image is desktop. We'll make it responsive.
+
+      Steps for responsive:
+
+        - On mobile, we want the footer to stack the columns.
+
+        We can set:
+
+         .footer-content {
+            grid-template-columns: 1fr;
+          }
+
+          @media (min-width: 768px) {
+           .footer-content {
+              grid-template-columns: repeat(5, 1fr);
+            }
+          }
+
+      But the image doesn't show the mobile version, so we'll do the desktop as in the image and then make it responsive.
+
+      However, the problem says "recreate the visual design", so we'll do the desktop design and then make it responsive.
+
+      We'll set the main content to be centered and the footer to be responsive.
+
+ Let's code accordingly.
+
+ Important: The image has a specific color for the blue block: blue (we'll use #0000FF).
+
+ Also, the top bar: 
+   - The text "Ship Globally | Posted within 24 hours" is in a small font, gray.
+   - The top bar right: "Log in or Create account" is in a small font, then "Cart" and "Search" (with a magnifying glass icon for search).
+
+ We'll use a small font for the top bar.
+
+ Implementation:
+
+  We'll use a CSS reset for simplicity? Or we can set:
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  But the problem says "valid HTML5", so we'll do a minimal reset.
+
+  Alternatively, we can set:
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+  We'll set the top bar:
+
+   .top-bar {
+      background: white;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+
+   .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+   .top-bar.top-bar-right {
+      display: flex;
+      gap: 1rem;
+    }
+
+   .top-bar.top-bar-right a {
+      text-decoration: none;
+      color: #333;
+    }
+
+   .top-bar.top-bar-right.search {
+      position: relative;
+      /* We don't have an icon, but the image shows a magnifying glass. We can use a font icon or just text. */
+      /* Since the image doesn't show an icon, we'll use text. But the problem says "accurately", so we'll use a magnifying glass icon? */
+      /* However, the image shows "Search" as text. So we'll use text. */
+    }
+
+  But note: the image shows "Search" as a text link.
+
+  We'll do:
+
+   .top-bar.top-bar-right a {
+      text-decoration: none;
+      color: #333;
+    }
+
+  For the main header:
+
+   .main-header {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+   .main-header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+  Navigation:
+
+   .main-nav {
+      background: white;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+   .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+    }
+
+   .main-nav li {
+      display: inline-block;
+    }
+
+   .main-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+   .main-nav.dropdown {
+      position: relative;
+    }
+
+   .main-nav.dropdown a {
+      padding-right: 1rem;
+    }
+
+    /* We don't have a dropdown menu in the image, but the image shows a down arrow. We'll add a down arrow for the dropdown. */
+   .main-nav.dropdown a::after {
+      content: "▼";
+      margin-left: 0.5rem;
+    }
+
+  About Us section:
+
+   .about-us {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+
+   .about-us h2 {
+      margin-bottom: 1rem;
+    }
+
+   .about-us p {
+      margin-bottom: 1rem;
+    }
+
+  Blue block:
+
+   .blue-block {
+      background: #0000FF;
+      height: 400px;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+  Footer:
+
+   .footer-content {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+   .footer-section {
+      padding: 1rem;
+    }
+
+   .footer-section h3 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+   .footer-section ul {
+      list-style: none;
+    }
+
+   .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+   .footer-section ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+   .footer-section.social-icons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+   .footer-section.social-icons a {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 50%;
+    }
+
+   .footer-section.social-icons a:hover {
+      background: #333;
+    }
+
+   .footer-bottom {
+      text-align: center;
+      padding: 1rem 0;
+      background: #f5f5f5;
+      border-top: 1px solid #eee;
+    }
+
+  Responsive:
+
+    @media (max-width: 768px) {
+     .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+     .main-nav {
+        flex-wrap: wrap;
+      }
+
+     .main-nav ul {
+        flex-wrap: wrap;
+      }
+
+     .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+     .top-bar.top-bar-right {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+     .top-bar.top-bar-right a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+     .blue-block {
+        max-width: 100%;
+      }
+    }
+
+  But note: the image doesn't show the mobile version, so we'll do the desktop as in the image and then make it responsive.
+
+  However, the problem says "recreate the visual design", so we'll do the desktop design and then add responsive for mobile.
+
+  We'll also set the body to have a max-width for the main content? Not necessary, but we can set:
+
+    body {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+  But the image doesn't show a container, so we'll set the body to have a max-width and margin auto.
+
+  Alternatively, we can set the main content to be within a container.
+
+  We'll set:
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+  But note: the top bar and footer are also part of the page.
+
+  We'll set the body to have a max-width and margin auto.
+
+  However, the image shows the entire page as white, so we'll set the body to have a white background.
+
+  Let's code accordingly.
+
+  Important: The image has a blue block that is a solid color. We'll set it to #0000FF.
+
+  Also, the text in the about us section: we'll use the exact text as in the image.
+
+  We'll copy the text exactly.
+
+  Let's write the HTML and CSS.
+
+  Note: The image has a link: "www.zoetrope.org" in red. We'll set it as a link with color: red.
+
+  Also, the "Subscribe" button is red.
+
+  We'll set:
+
+   .about-us a {
+      color: #e74c3c;
+    }
+
+   .footer-section.subscribe-button {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+  But note: the image shows the "Subscribe" button as red.
+
+  We'll set the button in the newsletter section.
+
+  Now, let's write the entire HTML.
+
+  We'll structure:
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Zoetrope Animations & Praxinoscope</title>
+      <style>
+        /* CSS here */
+      </style>
+    </head>
+    <body>
+     ... 
+    </body>
+    </html>
+
+  We'll write the CSS inside the style tag.
+
+  Let's code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoetrope Animations & Praxinoscope</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+   .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+
+   .top-bar-left {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+   .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+   .top-bar-right a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+   .top-bar-right.search {
+      position: relative;
+    }
+
+   .main-header {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+   .main-nav {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+      margin-bottom: 30px;
+    }
+
+   .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+   .main-nav li {
+      position: relative;
+    }
+
+   .main-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+   .main-nav a:hover {
+      color: #e74c3c;
+    }
+
+   .main-nav.dropdown {
+      position: relative;
+    }
+
+   .main-nav.dropdown a {
+      padding-right: 20px;
+    }
+
+   .main-nav.dropdown a::after {
+      content: "▼";
+      margin-left: 5px;
+      font-size: 0.8rem;
+    }
+
+   .about-us {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+   .about-us h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+   .about-us p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+   .about-us p strong {
+      color: #e74c3c;
+    }
+
+   .blue-block {
+      background-color: #0000ff;
+      height: 400px;
+      margin: 30px auto;
+      max-width: 800px;
+      border-radius: 8px;
+    }
+
+   .footer {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      padding: 30px 0;
+      background-color: #f5f5f5;
+      border-top: 1px solid #eee;
+    }
+
+   .footer-section {
+      padding: 15px;
+    }
+
+   .footer-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+   .footer-section ul {
+      list-style: none;
+    }
+
+   .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+   .footer-section ul li a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+   .footer-section ul li a:hover {
+      color: #e74c3c;
+    }
+
+   .social-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+   .social-icon {
+      width: 30px;
+      height: 30px;
+      background-color: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      transition: background-color 0.3s;
+    }
+
+   .social-icon:hover {
+      background-color: #e74c3c;
+    }
+
+   .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+
+   .external-link {
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+   .external-link:hover {
+      text-decoration: underline;
+    }
+
+   .subscribe-button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+   .subscribe-button:hover {
+      background-color: #c0392b;
+    }
+
+   .contact-text {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+     .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+     .main-nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+     .main-nav li {
+        width: 100%;
+        text-align: center;
+      }
+
+     .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+     .top-bar-right {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+     .top-bar-right a {
+        display: block;
+        margin: 5px 0;
+      }
+
+     .blue-block {
+        max-width: 100%;
+      }
+
+     .footer {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-left">Ship Globally | Posted within 24 hours</div>
+    <div class="top-bar-right">
+      <a href="#">Log in</a> or <a href="#">Create account</a>
+      <a href="#">Cart</a>
+      <a href="#" class="search">Search</a>
+    </div>
+  </header>
+
+  <h1 class="main-header">Zoetrope Animations & Praxinoscope</h1>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li class="dropdown"><a href="#">Zoetrope</a></li>
+      <li class="dropdown"><a href="#">Praxinoscope</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="about-us">
+      <h2>About Us</h2>
+      <p>Welcome to the wonderful world of <strong>Zoetrope</strong> and <strong>Praxinoscope</strong> animations!</p>
+      <p>I'm Jo & as you can see i love Zoetrope & Praxinoscope Optical Toys.</p>
+      <p>In 2012 i discovered i lived only a few miles away from the biggest historical collection of Zoetropes and the house where the inventor lived.</p>
+      <p>I hope you love these modern versions of the classic Victorian Optical Toys as much as i do.</p>
+      <p>There are a variety of sizes and colours available and i ship all over the world.</p>
+      <p>I'm always fascinated where they go. Often TV film companies, Museums & Galleries, plus educational uses in schools and even royalty!</p>
+      <p>The Zoetrope has been featured in many films and on TV including: BBC2 TV UK and in the Hollywood film: Woman in Black with Daniel Radcliffe.</p>
+      <p>There are 9 different products available and include 2 different colour-ways available in the mid size.</p>
+      <p>As well as being a decorative product they are also educational.</p>
+      <p>They are often used by schools, museums, country estates and in the film industry, may be you have spotted one in a latest block buster movie!!</p>
+      <p>All products are shipped from the UK within 24 hours of order.</p>
+      <p>Shipped globally signed 1st class.</p>
+      <p>Gift wrap service available.</p>
+      <p><em>Perfect gift for both children and adults a like!</em></p>
+      <p>My other website is <a href="#" class="external-link">www.zoetrope.org</a></p>
+    </section>
+
+    <div class="blue-block"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>Latest News</h3>
+      <ul>
+        <li>Back in Stock November 2020</li>
+        <li>Currently all sold out! Planning to have more stock available in November.</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Search</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Catalogue</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <span class="social-icon">f</span>
+        <span class="social-icon">t</span>
+        <span class="social-icon">i</span>
+        <span class="social-icon">y</span>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p class="contact-text">To contact, please ring or text: UK [PHONE REDACTED] or use the contact us form.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Newsletter</h3>
+      <p>Sign up for the latest news, offers and styles</p>
+      <form>
+        <input type="email" placeholder="Your email" style="padding: 8px; width: 100%; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+        <button type="submit" class="subscribe-button">Subscribe</button>
+      </form>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    <p>Copyright © 2023, Zoetrope Animations & Praxinoscope. Powered by Shopify</p>
+  </div>
+</body>
+</html>
+```

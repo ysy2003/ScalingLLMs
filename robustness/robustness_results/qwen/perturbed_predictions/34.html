@@ -1,0 +1,1080 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Starting with the structure:
+
+1. **Header Section**: 
+   - Top has a blue rectangle (maybe a logo placeholder) and a tagline "Creating Memories that last a Lifetime" in light gray.
+   - Navigation menu: WEDDINGS, PACKAGES, GALLERY, GUESTROOMS (all in uppercase, light gray, centered? Wait, in the image, the navigation is at the top, below the blue bar. Wait, the image shows a blue bar at the top, then the navigation. Wait, the image has a blue rectangle at the very top (maybe a logo), then the tagline "Creating Memories that last a Lifetime" in light gray. Then the navigation links: WEDDINGS, PACKAGES, GALLERY, GUESTROOMS. Wait, in the image, the navigation is in a light gray bar? Wait, looking at the image:
+
+The image shows:
+
+- Top: a blue rectangle (maybe logo), then a light gray tagline "Creating Memories that last a Lifetime" (small, light gray).
+- Then a navigation bar with WEDDINGS, PACKAGES, GALLERY, GUESTROOMS (all in uppercase, light gray, centered? Wait, the image's navigation is in a white bar? Wait, no. Let's check the image again.
+
+Wait, the image's layout:
+
+- Top: a blue rectangle (maybe a logo), then the tagline "Creating Memories that last a Lifetime" in light gray, centered.
+- Then a navigation bar with four links: WEDDINGS, PACKAGES, GALLERY, GUESTROOMS (all in uppercase, light gray, spaced out).
+- Then a large blue bar (maybe a section divider).
+- Then the main content: Guestbook section with text, form fields, and three blue rectangles on the right.
+- Then a footer with a pink/magenta bar, containing links, contact info, and copyright.
+
+Wait, the image's structure:
+
+1. **Top Section**:
+   - A blue rectangle (maybe a logo) at the top left (but in the image, it's a solid blue bar at the top, maybe 50px height).
+   - Then the tagline "Creating Memories that last a Lifetime" in light gray, centered, below the blue bar.
+   - Then a navigation bar with four links: WEDDINGS, PACKAGES, GALLERY, GUESTROOMS (all in uppercase, light gray, centered horizontally).
+
+2. **Main Content**:
+   - A large blue bar (maybe 200px height) as a section divider.
+   - Then the Guestbook section: 
+     - Title "Guestbook" (bold, dark gray)
+     - Subtitle "Tell us about your experience" (red, bold)
+     - Paragraph text: "Here are Crowne Plaza Philadelphia - King of Prussia, we love to hear from our guest's experience. Tell us about your experience with us and we will take your feedback to heart to help with future plans."
+     - Form fields: Name (required), Email (required), Share Your Experience (required), CAPTCHA (8+8=), Submit button.
+     - On the right side, three blue rectangles (stacked vertically).
+
+3. **Footer**:
+   - A pink/magenta bar with two columns: left has a blue rectangle, then links (Weddings, Packages, Gallery, Guestrooms), and a "Go To Crowne Plaza Philadelphia - King of Prussia" button.
+   - Right column: contact info (address, toll-free, email), "Like Us On Facebook".
+   - Copyright line: "© 2004 - 2014 Crowne Plaza Philadelphia - King of Prussia, All Rights Reserved."
+   - Website design credit: "Web Site Designed by AG Marketing Solutions"
+
+Now, let's map this to HTML structure.
+
+First, the HTML5 structure:
+
+- <html>
+  - <head>
+    - <meta charset="UTF-8">
+    - <title>Guestbook - Crowne Plaza Philadelphia</title>
+    - <style> (all CSS here)
+  - <body>
+    - <header> (top section: blue bar, tagline, navigation)
+    - <main> (blue bar, guestbook content)
+    - <footer> (footer section)
+
+Wait, but the image's top has a blue bar (maybe a logo), then the tagline, then navigation. Let's check the image's top:
+
+The image shows a blue rectangle at the very top (maybe 50px height), then the tagline "Creating Memories that last a Lifetime" in light gray, centered. Then the navigation links (WEDDINGS, etc.) in a light gray bar? Wait, no. The navigation links are in a white bar? Wait, the image's navigation is in a white background with light gray text.
+
+Wait, the image's layout:
+
+- Top: blue rectangle (height 50px), then tagline (light gray, centered, font size 12px), then navigation (white background, links in light gray, centered).
+
+Wait, the image's navigation is in a white bar. Let's check the image:
+
+The image has:
+
+- Top: a blue rectangle (maybe logo), then the tagline "Creating Memories that last a Lifetime" (light gray, centered).
+- Then a white bar with navigation links: WEDDINGS, PACKAGES, GALLERY, GUESTROOMS (all in uppercase, light gray, spaced out).
+- Then a blue bar (height 200px) as a section divider.
+- Then the Guestbook section (white background) with text and form.
+
+So the header structure:
+
+- <header>
+  - <div class="top-bar"> (blue rectangle, 50px height)
+  - <div class="tagline"> (light gray text)
+  - <nav> (navigation links)
+
+Wait, but the image's top blue bar is a solid blue, then the tagline below it. Then the navigation.
+
+Wait, the image's top part:
+
+- A blue rectangle (maybe 50px height) at the top.
+- Then the tagline "Creating Memories that last a Lifetime" in light gray, centered.
+- Then the navigation links (WEDDINGS, etc.) in a white bar.
+
+So in HTML:
+
+<header>
+  <div class="top-logo"> (blue rectangle, 50px height)
+  <div class="tagline">Creating Memories that last a Lifetime</div>
+  <nav>
+    <ul>
+      <li><a href="#">WEDDINGS</a></li>
+      <li><a href="#">PACKAGES</a></li>
+      <li><a href="#">GALLERY</a></li>
+      <li><a href="#">GUESTROOMS</a></li>
+    </ul>
+  </nav>
+</header>
+
+Then a section with a blue bar (height 200px) as a divider.
+
+Then the main content:
+
+<main>
+  <section class="guestbook">
+    <h1>Guestbook</h1>
+    <h2>Tell us about your experience</h2>
+    <p>Here are Crowne Plaza Philadelphia - King of Prussia, we love to hear from our guest's experience. Tell us about your experience with us and we will take your feedback to heart to help with future plans.</p>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="experience">Share Your Experience:</label>
+      <textarea id="experience" name="experience" required></textarea>
+      <label for="captcha">For validation, please answer following:</label>
+      <input type="text" id="captcha" name="captcha" required>
+      <p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+      <button type="submit">Submit</button>
+    </form>
+    <div class="right-column">
+      <div class="blue-box"></div>
+      <div class="blue-box"></div>
+      <div class="blue-box"></div>
+    </div>
+  </section>
+</main>
+
+Then the footer:
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-left">
+      <div class="blue-box"></div>
+      <ul>
+        <li><a href="#">Weddings</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Guestrooms</a></li>
+      </ul>
+      <a href="#">Go To Crowne Plaza Philadelphia - King of Prussia</a>
+    </div>
+    <div class="footer-right">
+      <div class="contact-info">
+        <p>[ADDRESS REDACTED]</p>
+        <p>King of Prussia, PA</p>
+        <p>Toll-Free: [PHONE REDACTED]</p>
+        <p>[PHONE REDACTED]</p>
+        <p>E: [EMAIL REDACTED]</p>
+        <p>Like Us On Facebook</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2004 - 2014 Crowne Plaza Philadelphia - King of Prussia, All Rights Reserved.</p>
+    <p>Web Site Designed by <a href="#">AG Marketing Solutions</a></p>
+  </div>
+</footer>
+
+Now, the CSS:
+
+Need to make it responsive. Let's think about the layout.
+
+- The top bar (blue rectangle) should be 50px height, background blue.
+- Tagline: light gray, centered, font size 12px, maybe italic.
+- Navigation: white background, links in light gray, centered, spaced out.
+- The blue divider bar: 200px height, background blue.
+- Guestbook section: white background, with form on left, three blue boxes on right.
+- Footer: pink/magenta background, with two columns (left and right), and bottom line.
+
+Let's define the CSS:
+
+First, reset some margins/paddings.
+
+Set body to have a font family, maybe Arial.
+
+Top bar:
+
+.top-logo {
+  height: 50px;
+  background-color: #0000FF;
+}
+
+.tagline {
+  text-align: center;
+  color: #CCCCCC;
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+nav {
+  background-color: white;
+  text-align: center;
+  padding: 5px 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav a {
+  color: #CCCCCC;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+blue divider bar:
+
+.blue-divider {
+  height: 200px;
+  background-color: #0000FF;
+}
+
+Guestbook section:
+
+.guestbook {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.guestbook h1 {
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.guestbook h2 {
+  color: #CC0000;
+  margin-bottom: 10px;
+}
+
+.guestbook p {
+  margin-bottom: 20px;
+}
+
+form {
+  width: 60%;
+  margin-right: 20px;
+}
+
+.right-column {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blue-box {
+  width: 100%;
+  height: 100px;
+  background-color: #0000FF;
+  margin: 10px 0;
+}
+
+Footer:
+
+.footer-content {
+  display: flex;
+  background-color: #CC0066;
+  padding: 10px;
+}
+
+.footer-left {
+  width: 40%;
+  padding-right: 20px;
+}
+
+.footer-left.blue-box {
+  width: 100%;
+  height: 100px;
+  background-color: #0000FF;
+  margin-bottom: 10px;
+}
+
+.footer-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.footer-left li {
+  margin: 5px 0;
+}
+
+.footer-left a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-right {
+  width: 60%;
+}
+
+.contact-info p {
+  color: white;
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  background-color: #990066;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+Now, check responsiveness. The guestbook section uses flex, so on smaller screens, it should stack. But the task says "responsive CSS", so we need to make sure it works on mobile.
+
+Let's adjust the CSS for mobile:
+
+@media (max-width: 768px) {
+ .guestbook {
+    flex-direction: column;
+  }
+  form {
+    width: 100%;
+    margin-right: 0;
+  }
+ .right-column {
+    width: 100%;
+  }
+}
+
+Also, the footer: on mobile, maybe the two columns stack.
+
+@media (max-width: 768px) {
+ .footer-content {
+    flex-direction: column;
+  }
+ .footer-left,.footer-right {
+    width: 100%;
+  }
+}
+
+Now, let's structure the HTML.
+
+First, the HTML5 boilerplate:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - Crowne Plaza Philadelphia</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-logo"></div>
+    <div class="tagline">Creating Memories that last a Lifetime</div>
+    <nav>
+      <ul>
+        <li><a href="#">WEDDINGS</a></li>
+        <li><a href="#">PACKAGES</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">GUESTROOMS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Blue Divider -->
+  <div class="blue-divider"></div>
+
+  <!-- Main Content -->
+  <main>
+    <section class="guestbook">
+      <h1>Guestbook</h1>
+      <h2>Tell us about your experience</h2>
+      <p>Here are Crowne Plaza Philadelphia - King of Prussia, we love to hear from our guest's experience. Tell us about your experience with us and we will take your feedback to heart to help with future plans.</p>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="experience">Share Your Experience:</label>
+        <textarea id="experience" name="experience" required></textarea>
+        <label for="captcha">For validation, please answer following:</label>
+        <input type="text" id="captcha" name="captcha" required>
+        <p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="right-column">
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="blue-box"></div>
+        <ul>
+          <li><a href="#">Weddings</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Guestrooms</a></li>
+        </ul>
+        <a href="#">Go To Crowne Plaza Philadelphia - King of Prussia</a>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>[ADDRESS REDACTED]</p>
+          <p>King of Prussia, PA</p>
+          <p>Toll-Free: [PHONE REDACTED]</p>
+          <p>[PHONE REDACTED]</p>
+          <p>E: [EMAIL REDACTED]</p>
+          <p>Like Us On Facebook</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2004 - 2014 Crowne Plaza Philadelphia - King of Prussia, All Rights Reserved.</p>
+      <p>Web Site Designed by <a href="#">AG Marketing Solutions</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, check the CSS for the blue boxes. The image has three blue boxes on the right of the guestbook form. In the HTML, the right-column has three.blue-box elements.
+
+Also, the top logo is a blue rectangle (50px height), so.top-logo has height: 50px; background-color: #0000FF;.
+
+The tagline is light gray, so color: #CCCCCC;.
+
+Navigation links: color: #CCCCCC;.
+
+The blue divider is 200px height, background-color: #0000FF;.
+
+In the guestbook section, the form is on the left, right-column on the right. The right-column has three blue boxes, each 100px height (as per image).
+
+Footer: the footer-content has two columns. The left column has a blue box (100px height), then links, then the "Go To..." link. The right column has contact info.
+
+Now, check the image's footer:
+
+- The footer has a pink/magenta bar (background #CC0066), then the contact info, then the bottom line (background #990066).
+
+In the CSS,.footer-content has background-color: #CC0066;.
+
+.footer-bottom has background-color: #990066;.
+
+Now, let's adjust the CSS to match the image's colors.
+
+The blue color in the image is #0000FF (standard blue).
+
+The pink/magenta in the footer is #CC0066 (lighter pink), and the bottom line is #990066 (darker pink).
+
+The tagline is light gray, #CCCCCC.
+
+Navigation links are light gray, #CCCCCC.
+
+Now, let's write the CSS with all the styles.
+
+Also, need to make sure the form fields have required attributes, as in the image (asterisks next to Name, Email, etc.).
+
+In the image, the form fields have asterisks: * Name:, * Email:, etc. So in HTML, we can use <label> with asterisks, or add the asterisk in the label text.
+
+In the HTML, the labels are:
+
+<label for="name">Name:</label> → but the image shows * Name:, so we need to include the asterisk.
+
+So the labels should be:
+
+<label for="name">* Name:</label>
+
+Similarly for Email and Share Your Experience.
+
+Also, the CAPTCHA part: "For validation, please answer following: 8 + 8 = [input]"
+
+In the image, it's "For validation, please answer following: 8 + 8 = [input]"
+
+So the HTML for that is:
+
+<label for="captcha">For validation, please answer following:</label>
+<input type="text" id="captcha" name="captcha" required>
+<p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+
+Wait, the image shows "For validation, please answer following: 8 + 8 = [input]"
+
+So the label is "For validation, please answer following:", then the input for the answer.
+
+So the HTML should have:
+
+<label for="captcha">For validation, please answer following:</label>
+<input type="text" id="captcha" name="captcha" required>
+<p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+
+Wait, but the image shows the "8 + 8 = " as part of the label. Wait, no: the image has "For validation, please answer following: 8 + 8 = [input]"
+
+So the label is "For validation, please answer following: 8 + 8 = ", and then the input.
+
+Wait, looking at the image:
+
+* For validation, please answer following:
+8 + 8 = [input]
+
+So the label is "For validation, please answer following:", then the text "8 + 8 = " followed by the input.
+
+So in HTML:
+
+<label for="captcha">For validation, please answer following:</label>
+<p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+
+But the image shows the "8 + 8 = " as part of the label. Wait, no, the image has:
+
+* For validation, please answer following:
+8 + 8 = [input]
+
+So the label is "For validation, please answer following:", and then the line "8 + 8 = [input]".
+
+So the HTML should have:
+
+<label for="captcha">For validation, please answer following:</label>
+<p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+
+Yes.
+
+Now, the Submit button: in the image, it's a purple button. So the button should have a background color, maybe #660066.
+
+In the HTML, the button is:
+
+<button type="submit">Submit</button>
+
+In CSS, we can set:
+
+button {
+  background-color: #660066;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+Also, the "Go To Crowne Plaza Philadelphia - King of Prussia" link: in the image, it's a white button with a pink background. So:
+
+<a href="#" style="background-color: #CC0066; color: white; padding: 5px 10px; text-decoration: none; display: inline-block;">Go To Crowne Plaza Philadelphia - King of Prussia</a>
+
+But in the HTML, it's a link, so we can style it with CSS.
+
+Now, let's adjust the CSS to include these styles.
+
+Also, the form fields should have a border, maybe.
+
+Let's outline the CSS:
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.top-logo {
+  height: 50px;
+  background-color: #0000FF;
+  width: 100%;
+}
+
+.tagline {
+  color: #CCCCCC;
+  font-size: 12px;
+  font-style: italic;
+  margin: 5px 0;
+}
+
+nav {
+  background-color: white;
+  padding: 5px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav a {
+  color: #CCCCCC;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Blue Divider */
+.blue-divider {
+  height: 200px;
+  background-color: #0000FF;
+  width: 100%;
+}
+
+/* Guestbook Section */
+.guestbook {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guestbook h1 {
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.guestbook h2 {
+  color: #CC0000;
+  margin-bottom: 10px;
+}
+
+.guestbook p {
+  margin-bottom: 20px;
+}
+
+form {
+  width: 60%;
+  margin-right: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+form button {
+  background-color: #660066;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.right-column {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blue-box {
+  width: 100%;
+  height: 100px;
+  background-color: #0000FF;
+  margin: 10px 0;
+}
+
+/* Footer */
+.footer-content {
+  display: flex;
+  background-color: #CC0066;
+  padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left {
+  width: 40%;
+  padding-right: 20px;
+}
+
+.footer-left.blue-box {
+  width: 100%;
+  height: 100px;
+  background-color: #0000FF;
+  margin-bottom: 10px;
+}
+
+.footer-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.footer-left li {
+  margin: 5px 0;
+}
+
+.footer-left a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-right {
+  width: 60%;
+}
+
+.contact-info p {
+  color: white;
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  background-color: #990066;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+ .guestbook {
+    flex-direction: column;
+  }
+  form {
+    width: 100%;
+    margin-right: 0;
+  }
+ .right-column {
+    width: 100%;
+  }
+ .footer-content {
+    flex-direction: column;
+  }
+ .footer-left,.footer-right {
+    width: 100%;
+  }
+}
+
+Now, check if all elements are included.
+
+- The top logo (blue bar, 50px)
+- Tagline (light gray, centered)
+- Navigation links (white bar, light gray)
+- Blue divider (200px)
+- Guestbook section with form and three blue boxes on the right
+- Footer with two columns, contact info, and bottom line
+
+Yes.
+
+Now, let's write the HTML with all these elements.
+
+Make sure the HTML is valid, closed, and the CSS is embedded.
+
+Also, the image has "WEDDINGS", "PACKAGES", etc., in uppercase, so the navigation links should be uppercase.
+
+The form fields have required attributes, as per the image (asterisks).
+
+The CAPTCHA part: "8 + 8 = [input]"
+
+The Submit button is purple.
+
+The "Go To Crowne Plaza Philadelphia - King of Prussia" link is styled as a button (white text on pink background).
+
+Now, let's code it.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - Crowne Plaza Philadelphia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+   .top-logo {
+      height: 50px;
+      background-color: #0000FF;
+      width: 100%;
+    }
+
+   .tagline {
+      color: #CCCCCC;
+      font-size: 12px;
+      font-style: italic;
+      margin: 5px 0;
+    }
+
+    nav {
+      background-color: white;
+      padding: 5px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: #CCCCCC;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+   .blue-divider {
+      height: 200px;
+      background-color: #0000FF;
+      width: 100%;
+    }
+
+   .guestbook {
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+   .guestbook h1 {
+      color: #333333;
+      margin-bottom: 5px;
+    }
+
+   .guestbook h2 {
+      color: #CC0000;
+      margin-bottom: 10px;
+    }
+
+   .guestbook p {
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 60%;
+      margin-right: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    form button {
+      background-color: #660066;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+   .right-column {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+   .blue-box {
+      width: 100%;
+      height: 100px;
+      background-color: #0000FF;
+      margin: 10px 0;
+    }
+
+   .footer-content {
+      display: flex;
+      background-color: #CC0066;
+      padding: 10px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+   .footer-left {
+      width: 40%;
+      padding-right: 20px;
+    }
+
+   .footer-left.blue-box {
+      width: 100%;
+      height: 100px;
+      background-color: #0000FF;
+      margin-bottom: 10px;
+    }
+
+   .footer-left ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+   .footer-left li {
+      margin: 5px 0;
+    }
+
+   .footer-left a {
+      color: white;
+      text-decoration: none;
+    }
+
+   .footer-right {
+      width: 60%;
+    }
+
+   .contact-info p {
+      color: white;
+      margin: 5px 0;
+    }
+
+   .footer-bottom {
+      background-color: #990066;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+     .guestbook {
+        flex-direction: column;
+      }
+      form {
+        width: 100%;
+        margin-right: 0;
+      }
+     .right-column {
+        width: 100%;
+      }
+     .footer-content {
+        flex-direction: column;
+      }
+     .footer-left,.footer-right {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-logo"></div>
+    <div class="tagline">Creating Memories that last a Lifetime</div>
+    <nav>
+      <ul>
+        <li><a href="#">WEDDINGS</a></li>
+        <li><a href="#">PACKAGES</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">GUESTROOMS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="blue-divider"></div>
+
+  <main>
+    <section class="guestbook">
+      <h1>Guestbook</h1>
+      <h2>Tell us about your experience</h2>
+      <p>Here are Crowne Plaza Philadelphia - King of Prussia, we love to hear from our guest's experience. Tell us about your experience with us and we will take your feedback to heart to help with future plans.</p>
+      <form>
+        <label for="name">* Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">* Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="experience">* Share Your Experience:</label>
+        <textarea id="experience" name="experience" required></textarea>
+        <label for="captcha">* For validation, please answer following:</label>
+        <input type="text" id="captcha" name="captcha" required>
+        <p>8 + 8 = <input type="text" name="captcha-answer" required></p>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="right-column">
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="blue-box"></div>
+        <ul>
+          <li><a href="#">Weddings</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Guestrooms</a></li>
+        </ul>
+        <a href="#">Go To Crowne Plaza Philadelphia - King of Prussia</a>
+      </div>
+      <div class="footer-right">
+        <div class="contact-info">
+          <p>[ADDRESS REDACTED]</p>
+          <p>King of Prussia, PA</p>
+          <p>Toll-Free: [PHONE REDACTED]</p>
+          <p>[PHONE REDACTED]</p>
+          <p>E: [EMAIL REDACTED]</p>
+          <p>Like Us On Facebook</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2004 - 2014 Crowne Plaza Philadelphia - King of Prussia, All Rights Reserved.</p>
+      <p>Web Site Designed by <a href="#">AG Marketing Solutions</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+```

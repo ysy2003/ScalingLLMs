@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penrose Crystal Waterford</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000;
+            --text-color: #e0e0e0;
+            --light-text-color: #a0a0a0;
+            --heading-font: 'Georgia', serif;
+            --body-font: 'Open Sans', sans-serif;
+            --input-bg: #fff;
+            --input-text: #333;
+            --join-btn-bg: #4a6d62; /* Muted green/teal */
+            --join-btn-hover-bg: #5a7d72;
+            --fb-btn-bg: #3b5998;
+            --tw-btn-bg: #1da1f2;
+            --btn-text-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .header-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .header-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: var(--heading-font);
+            font-size: 2.5em;
+            margin-bottom: 1.5em;
+            color: var(--text-color);
+            font-weight: normal;
+        }
+
+        .message {
+            font-style: italic;
+            margin-bottom: 2em;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .separator {
+            width: 50px;
+            height: 1px;
+            background-color: var(--light-text-color);
+            margin: 2em auto;
+        }
+
+        .mailing-list-prompt {
+            margin-bottom: 1.5em;
+            font-size: 1em;
+        }
+
+        .email-form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3em;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 10px; /* Space between input and button */
+        }
+
+        .email-input {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            width: 250px;
+            max-width: 100%;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            color: var(--input-text);
+        }
+
+        .email-input::placeholder {
+            color: var(--input-text);
+            opacity: 0.7;
+        }
+
+        .join-button {
+            padding: 12px 25px;
+            background-color: var(--join-btn-bg);
+            color: var(--btn-text-color);
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Prevent "Join" from wrapping */
+        }
+
+        .join-button:hover {
+            background-color: var(--join-btn-hover-bg);
+        }
+
+        .spread-word {
+            margin-bottom: 1.5em;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 4px;
+            color: var(--btn-text-color);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-button:hover {
+            opacity: 0.8;
+        }
+
+        .social-button.facebook {
+            background-color: var(--fb-btn-bg);
+        }
+
+        .social-button.twitter {
+            background-color: var(--tw-btn-bg);
+        }
+
+        .social-button .icon {
+            margin-right: 5px;
+            font-family: sans-serif; /* Ensure 'f' and 'T' are clear */
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .message {
+                font-size: 1em;
+            }
+            .email-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .email-input {
+                width: 100%;
+                max-width: 300px; /* Limit width on smaller screens */
+            }
+            .join-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            .social-buttons {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-link {
+                top: 15px;
+                right: 15px;
+                font-size: 0.8em;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .message, .mailing-list-prompt, .spread-word {
+                font-size: 0.9em;
+            }
+            .email-input, .join-button, .social-button {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="header-link">Enter using password</a>
+
+    <div class="container">
+        <h1>Penrose Crystal Waterford</h1>
+
+        <p class="message">
+            We are closed for our Annual Summer break, we look forward to being back in
+            action when we re-open on Wednesday the 20th of September! Kind Regards,
+            from all at Penrose Crystal.
+        </p>
+
+        <div class="separator"></div>
+
+        <p class="mailing-list-prompt">
+            Join the penrosecrystal.com mailing list to stay up
+            to date with all of our offers and promotions!
+        </p>
+
+        <form class="email-form" onsubmit="event.preventDefault(); alert('Joined!');">
+            <input type="email" class="email-input" placeholder="Email address" required>
+            <button type="submit" class="join-button">Join</button>
+        </form>
+
+        <p class="spread-word">Spread the word</p>
+
+        <div class="social-buttons">
+            <a href="#" class="social-button facebook">
+                <span class="icon">f</span> Share
+            </a>
+            <a href="#" class="social-button twitter">
+                <span class="icon">T</span> Tweet
+            </a>
+        </div>
+    </div>
+</body>
+</html>

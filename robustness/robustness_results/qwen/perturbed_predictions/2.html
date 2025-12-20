@@ -1,0 +1,987 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image as an HTML5 file with embedded CSS. First, I need to analyze the structure and elements in the image.
+
+Looking at the image, it's a Wikipedia-style page for a template called "Incel Forums". The main elements are:
+
+- A header with "Template : Incel Forums" as the title.
+- A note about usage: "ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM OR AN POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section."
+- A green navbox titled "Incel Forum Navbox" with three sections:
+  1. Incels.is: list of users with roles (some with (user/banned), (mod), etc.)
+  2. Love-shy.net: list of users with roles
+  3. Social Anxiety Support: list of users with roles
+- A category line: "Category : Nav box template"
+- Footer info: last edited date, access count, and links like Privacy policy, About Incel Wiki, etc.
+- Left sidebar with navigation links (Chat on Discord, Incel FAQ & History, etc.)
+- Top navigation: Template, Discussion, Edit source, View history, search bar.
+
+First, structure the HTML. The main content should have:
+
+- A header with the title.
+- A paragraph for the usage note.
+- The navbox (a table or div with sections).
+- The category line.
+- Footer info.
+
+Wait, the image shows a Wikipedia-like layout. The top has "Template : Incel Forums" as the main title. Then a paragraph. Then the green navbox. Then the category. Then the footer.
+
+Let's break down each part.
+
+1. **Top navigation bar**: The image shows "Template", "Discussion", "Edit source", "View history", and a search bar. But in the provided image, the top bar has "Template : Incel Forums" as the page title. Wait, the image's top has "Template : Incel Forums" as the main heading. The top navigation (like "Template", "Discussion") is part of the page's navigation. Wait, in the image, the top left has "Template" and "Discussion" as tabs. Then "Edit source", "View history", and a search bar.
+
+Wait, the image shows:
+
+- Top left: "Template" and "Discussion" (tabs)
+- Top right: "Edit source", "View history", search bar.
+
+So the HTML structure should have a header with these elements.
+
+Let's outline the HTML structure:
+
+- <html>
+  - <head>
+    - <title>Template : Incel Forums</title>
+    - <style> (embedded CSS)
+  - <body>
+    - <header> (top navigation)
+      - <div class="top-nav"> with "Template", "Discussion", "Edit source", "View history", search bar.
+    - <main>
+      - <h1>Template : Incel Forums</h1>
+      - <p>Usage note paragraph...</p>
+      - <div class="navbox"> (the green box)
+        - <h2>Incel Forum Navbox</h2>
+        - <table> (or divs) with three sections: Incels.is, Love-shy.net, Social Anxiety Support.
+      - <p class="category">Category : Nav box template</p>
+    - <footer> (footer info: last edited, access count, links)
+    - <aside> (left sidebar with navigation links)
+
+Wait, the image has a left sidebar. Let's check the left side of the image:
+
+Left sidebar has:
+- Chat on Discord (blue button)
+- Incel FAQ & History
+- Inceldom FAQ
+- Incelsphere
+- Timeline
+- Incel Glossary
+- Demographics Of Inceldom
+- Important Pages
+- Scientific Backpill
+- Backpill
+- PSL
+- Rules & Disclaimer
+- Editing Rules
+- General Disclaimer
+- Other
+- Random Page
+- Recent Changes
+- Special Pages
+- Tools
+- What links here
+
+So the left sidebar is an <aside> element.
+
+Now, the main content:
+
+- The title "Template : Incel Forums" is a <h1>.
+- The usage note is a <p> with the text.
+- The navbox is a green box with a title "Incel Forum Navbox", then three sections (each with a left column for the forum name and right column for the list of users).
+
+Looking at the navbox in the image:
+
+- The navbox has a green background, with a title "Incel Forum Navbox" in the center.
+- Then three rows:
+  1. Left: "Incels.is" (blue text), Right: list of users (some with (mod), (user/banned), etc.)
+  2. Left: "Love-shy.net" (red text), Right: list of users.
+  3. Left: "Social Anxiety Support" (blue text), Right: list of users.
+
+Wait, the image shows:
+
+- The first row: "Incels.is" (blue) on the left, then the list on the right.
+- Second row: "Love-shy.net" (red) on the left, list on the right.
+- Third row: "Social Anxiety Support" (blue) on the left, list on the right.
+
+So the navbox is a table with three rows, each row having two columns: left (forum name) and right (user list).
+
+Now, the CSS needs to be responsive. Let's think about the design:
+
+- The top navigation bar: fixed or fluid? The image shows it as part of the page header.
+- The main content: the title, usage note, navbox, category.
+- The left sidebar: fixed width, maybe 200px, with a list of links.
+- The navbox: green background, with a title, then the table.
+
+Let's start building the HTML.
+
+First, the <head> with title and style.
+
+The style should include:
+
+- Reset margins/paddings.
+- Layout for the top navigation.
+- Left sidebar (aside) with fixed width.
+- Main content (div) with appropriate margins.
+- Navbox: green background, table with specific styles.
+
+Let's outline the CSS:
+
+- body: font-family, margin, padding.
+-.top-nav: display flex, justify-content, align-items, background, padding, etc.
+-.sidebar: width, float, list-style, etc.
+-.main-content: margin-left, etc.
+-.navbox: background-color, padding, border-radius, etc.
+-.navbox-title: text-align, font-size, etc.
+-.navbox-row: display flex, etc.
+-.navbox-left: background, padding, etc.
+-.navbox-right: padding, etc.
+-.category: text-align, etc.
+- Footer: text-align, etc.
+
+Now, let's code the HTML structure.
+
+Start with the <html> tag.
+
+Inside <head>:
+
+- <title>Template : Incel Forums</title>
+- <style> block with all the CSS.
+
+Inside <body>:
+
+- <header> for top navigation: includes "Template", "Discussion", "Edit source", "View history", search bar.
+- <aside> for left sidebar.
+- <main> for main content: title, usage note, navbox, category, footer info.
+
+Wait, the image shows the top navigation as part of the page. Let's check the image's top:
+
+Top left: "Template" and "Discussion" (tabs), top right: "Edit source", "View history", search bar.
+
+So the top navigation is a horizontal bar. Let's structure it as:
+
+<header class="top-nav">
+  <div class="top-nav-tabs">
+    <a href="#">Template</a>
+    <a href="#">Discussion</a>
+  </div>
+  <div class="top-nav-actions">
+    <a href="#">Edit source</a>
+    <a href="#">View history</a>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search Incel Wiki">
+  </div>
+</header>
+
+Then the main content:
+
+<main>
+  <h1>Template : Incel Forums</h1>
+  <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM OR AN POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+  <div class="navbox">
+    <h2>Incel Forum Navbox</h2>
+    <div class="navbox-content">
+      <div class="navbox-row">
+        <div class="navbox-left">Incels.is</div>
+        <div class="navbox-right">
+          <ul>
+            <li>SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • BliKpall (ex-mod) • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEETandTidy (user/banned) • jet112 (user) • Limerence (user) • BrendioEEE (user/banned) • BummerDrummer (user) • mylifeistrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) • Ban appeal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbox-row">
+        <div class="navbox-left">Love-shy.net</div>
+        <div class="navbox-right">
+          <ul>
+            <li>ieatboogers (creator/admin/historian)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbox-row">
+        <div class="navbox-left">Social Anxiety Support</div>
+        <div class="navbox-right">
+          <ul>
+            <li>ChrisA (founder) • Andrew "Drew" Mohebbi (third admin/dead) • wmu'14 (member) • ravens (member) • DesireAfterAll (banned)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="category">Category : Nav box template</p>
+  <div class="footer-info">
+    <p>This page was last edited on 17 June 2022, at 14:36.</p>
+    <p>This page has been accessed 5,005 times.</p>
+    <p>
+      <a href="#">Privacy policy</a> • 
+      <a href="#">About Incel Wiki</a> • 
+      <a href="#">Disclaimers</a> • 
+      <a href="#">Mobile view</a>
+    </p>
+  </div>
+</main>
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <h3>Chat on Discord</h3>
+    <a href="#">Chat on Discord</a>
+  </div>
+  <ul>
+    <li><a href="#">Incel FAQ & History</a></li>
+    <li><a href="#">Inceldom FAQ</a></li>
+    <li><a href="#">Incelsphere</a></li>
+    <li><a href="#">Timeline</a></li>
+    <li><a href="#">Incel Glossary</a></li>
+    <li><a href="#">Demographics Of Inceldom</a></li>
+    <li><a href="#">Important Pages</a></li>
+    <li><a href="#">Scientific Backpill</a></li>
+    <li><a href="#">Backpill</a></li>
+    <li><a href="#">PSL</a></li>
+    <li><a href="#">Rules & Disclaimer</a></li>
+    <li><a href="#">Editing Rules</a></li>
+    <li><a href="#">General Disclaimer</a></li>
+    <li><a href="#">Other</a></li>
+    <li><a href="#">Random Page</a></li>
+    <li><a href="#">Recent Changes</a></li>
+    <li><a href="#">Special Pages</a></li>
+    <li><a href="#">Tools</a></li>
+    <li><a href="#">What links here</a></li>
+  </ul>
+</aside>
+
+Wait, the image's left sidebar has "Chat on Discord" as a blue button. So maybe the first item is a button, not a link. Let's check the image: the left sidebar has "Chat on Discord" in a blue button. So in the HTML, that should be a button with a blue background.
+
+So the sidebar:
+
+- First item: <button>Chat on Discord</button>
+- Then the list of links.
+
+Now, the navbox in the image is green. The title "Incel Forum Navbox" is in the center of the green box. The three sections are inside the green box.
+
+The CSS for the navbox:
+
+- background-color: #008000 (green)
+- padding: 10px
+- border-radius: 4px
+- The title: text-align: center, font-size: 1.5em, margin-bottom: 10px
+- The rows: each row has a left column (forum name) and right column (user list)
+- Left column: background: #f0f0f0, padding: 5px, font-weight: bold, etc.
+- Right column: padding: 5px, etc.
+
+Wait, in the image, the left column for "Incels.is" is blue text. Wait, no: the image shows "Incels.is" in blue, "Love-shy.net" in red, "Social Anxiety Support" in blue. So the left column text colors are different.
+
+Looking at the image:
+
+- Incels.is: blue text
+- Love-shy.net: red text
+- Social Anxiety Support: blue text
+
+So the CSS for the left column should have different colors based on the forum name.
+
+But maybe the image's left column is a background color. Wait, the image shows the left column as a light background with the forum name in blue or red.
+
+Wait, the image's navbox has three rows. Each row has a left cell (forum name) and a right cell (user list). The left cell has a light background (maybe white or light gray) and the forum name is in blue or red.
+
+Let's check the image:
+
+- Incels.is: left cell is white, text is blue.
+- Love-shy.net: left cell is white, text is red.
+- Social Anxiety Support: left cell is white, text is blue.
+
+So the left cell for each row has a background color (maybe white), and the text color is blue or red.
+
+So in CSS:
+
+.navbox-left {
+  background-color: #f9f9f9;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+For Incels.is and Social Anxiety Support, text color is blue; for Love-shy.net, red.
+
+So:
+
+.navbox-left.incels-is {
+  color: #0066cc;
+}
+
+.navbox-left.love-shy-net {
+  color: #cc0000;
+}
+
+.navbox-left.social-anxiety-support {
+  color: #0066cc;
+}
+
+But in the HTML, we can add classes to the left cells.
+
+Now, the user list in the right cell: the text is black, with some terms in red (like (user/banned), (mod), etc.). Wait, in the image, the user list has some terms in red. For example, "Jack Peterson (user/banned)" – the (user/banned) is red. But in the image, the text is black except for the (user/banned) parts. Wait, no: looking at the image, the user list has some terms in red. Let's check:
+
+In the Incels.is section:
+
+- SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • BliKpall (ex-mod) • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsoVER (user/banned) • NKL (user) • NEETandTidy (user/banned) • jet112 (user) • Limerence (user) • BrendioEEE (user/banned) • BummerDrummer (user) • mylifeistrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) • Ban appeal
+
+The (user/banned) parts are in red. So in the HTML, we need to style those parts as red.
+
+But how? Maybe using <span> with class "banned" or "mod", etc.
+
+But the task is to recreate the visual design. So the user list should have the (user/banned) parts in red.
+
+So in the HTML, for each user entry, if it has (user/banned), (mod), etc., we can wrap those parts in a span with a class that has color: red.
+
+But the image shows that the (user/banned) is red. So for example, "Jack Peterson (user/banned)" – the "(user/banned)" is red.
+
+So in the HTML, for the Incels.is list:
+
+<li>SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • BliKpall (ex-mod) • Mahlo (user) • Jack Peterson <span class="banned">(user/banned)</span> • Grotesque Subhuman <span class="banned">(user/banned)</span> • itsoVER <span class="banned">(user/banned)</span> • NKL (user) • NEETandTidy <span class="banned">(user/banned)</span> • jet112 (user) • Limerence (user) • BrendioEEE <span class="banned">(user/banned)</span> • BummerDrummer (user) • mylifeistrash <span class="banned">(user/banned)</span> • fukurou <span class="banned">(user/banned)</span> • RegisterUserName <span class="banned">(user/banned)</span> • Ban appeal</li>
+
+Similarly for other sections.
+
+But the image shows that the (user/banned) is red. So the CSS for.banned should be color: red.
+
+Now, the left sidebar: the "Chat on Discord" is a blue button. So in HTML, it's a button with background-color: #0066cc, color: white, etc.
+
+Let's structure the sidebar:
+
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <button class="chat-button">Chat on Discord</button>
+  </div>
+  <ul>
+    <li><a href="#">Incel FAQ & History</a></li>
+    <li><a href="#">Inceldom FAQ</a></li>
+    <li><a href="#">Incelsphere</a></li>
+    <li><a href="#">Timeline</a></li>
+    <li><a href="#">Incel Glossary</a></li>
+    <li><a href="#">Demographics Of Inceldom</a></li>
+    <li><a href="#">Important Pages</a></li>
+    <li><a href="#">Scientific Backpill</a></li>
+    <li><a href="#">Backpill</a></li>
+    <li><a href="#">PSL</a></li>
+    <li><a href="#">Rules & Disclaimer</a></li>
+    <li><a href="#">Editing Rules</a></li>
+    <li><a href="#">General Disclaimer</a></li>
+    <li><a href="#">Other</a></li>
+    <li><a href="#">Random Page</a></li>
+    <li><a href="#">Recent Changes</a></li>
+    <li><a href="#">Special Pages</a></li>
+    <li><a href="#">Tools</a></li>
+    <li><a href="#">What links here</a></li>
+  </ul>
+</aside>
+
+Now, the top navigation bar:
+
+The image shows "Not logged in Talk Contributions" in the top right. Wait, the image's top right has "Not logged in Talk Contributions" and then the search bar.
+
+Wait, the image's top right:
+
+- "Not logged in" (maybe a status)
+- "Talk" and "Contributions" (links)
+- Search bar
+
+So the top navigation should include:
+
+- Left: "Template", "Discussion"
+- Right: "Not logged in", "Talk", "Contributions", search bar
+
+Wait, the image shows:
+
+Top right: "Not logged in Talk Contributions" (so "Not logged in" is a status, then "Talk" and "Contributions" are links), then the search bar.
+
+So the top navigation bar:
+
+<header class="top-nav">
+  <div class="top-nav-tabs">
+    <a href="#">Template</a>
+    <a href="#">Discussion</a>
+  </div>
+  <div class="top-nav-status">
+    <span>Not logged in</span>
+    <a href="#">Talk</a>
+    <a href="#">Contributions</a>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search Incel Wiki">
+  </div>
+</header>
+
+Now, the CSS for the top navigation:
+
+-.top-nav: display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f0f0f0; border-bottom: 1px solid #ccc;
+-.top-nav-tabs: display: flex; gap: 10px;
+-.top-nav-status: display: flex; gap: 5px;
+-.search-bar: display: flex; align-items: center; gap: 5px;
+
+Now, the main content:
+
+- The title "Template : Incel Forums" is a <h1> with font-size: 1.8em; margin: 20px 0;
+- The usage note paragraph: margin: 10px 0;
+- The navbox: as discussed, green background, with the title and rows.
+- The category line: text-align: left; margin: 10px 0;
+- Footer info: text-align: left; margin: 10px 0;
+
+Now, let's put all together.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template : Incel Forums</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="top-nav-tabs">
+      <a href="#">Template</a>
+      <a href="#">Discussion</a>
+    </div>
+    <div class="top-nav-status">
+      <span>Not logged in</span>
+      <a href="#">Talk</a>
+      <a href="#">Contributions</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search Incel Wiki">
+    </div>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <button class="chat-button">Chat on Discord</button>
+      </div>
+      <ul>
+        <li><a href="#">Incel FAQ & History</a></li>
+        <li><a href="#">Inceldom FAQ</a></li>
+        <li><a href="#">Incelsphere</a></li>
+        <li><a href="#">Timeline</a></li>
+        <li><a href="#">Incel Glossary</a></li>
+        <li><a href="#">Demographics Of Inceldom</a></li>
+        <li><a href="#">Important Pages</a></li>
+        <li><a href="#">Scientific Backpill</a></li>
+        <li><a href="#">Backpill</a></li>
+        <li><a href="#">PSL</a></li>
+        <li><a href="#">Rules & Disclaimer</a></li>
+        <li><a href="#">Editing Rules</a></li>
+        <li><a href="#">General Disclaimer</a></li>
+        <li><a href="#">Other</a></li>
+        <li><a href="#">Random Page</a></li>
+        <li><a href="#">Recent Changes</a></li>
+        <li><a href="#">Special Pages</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">What links here</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <h1>Template : Incel Forums</h1>
+      <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM OR AN POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+      <div class="navbox">
+        <h2>Incel Forum Navbox</h2>
+        <div class="navbox-content">
+          <div class="navbox-row">
+            <div class="navbox-left incels-is">Incels.is</div>
+            <div class="navbox-right">
+              <ul>
+                <li>SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmiJustDreaming (mod) • Knajid (mod) • BliKpall (ex-mod) • Mahlo (user) • Jack Peterson <span class="banned">(user/banned)</span> • Grotesque Subhuman <span class="banned">(user/banned)</span> • itsoVER <span class="banned">(user/banned)</span> • NKL (user) • NEETandTidy <span class="banned">(user/banned)</span> • jet112 (user) • Limerence (user) • BrendioEEE <span class="banned">(user/banned)</span> • BummerDrummer (user) • mylifeistrash <span class="banned">(user/banned)</span> • fukurou <span class="banned">(user/banned)</span> • RegisterUserName <span class="banned">(user/banned)</span> • Ban appeal</li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbox-row">
+            <div class="navbox-left love-shy-net">Love-shy.net</div>
+            <div class="navbox-right">
+              <ul>
+                <li>ieatboogers (creator/admin/historian)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbox-row">
+            <div class="navbox-left social-anxiety-support">Social Anxiety Support</div>
+            <div class="navbox-right">
+              <ul>
+                <li>ChrisA (founder) • Andrew "Drew" Mohebbi (third admin/dead) • wmu'14 (member) • ravens (member) • DesireAfterAll (banned)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="category">Category : Nav box template</p>
+      <div class="footer-info">
+        <p>This page was last edited on 17 June 2022, at 14:36.</p>
+        <p>This page has been accessed 5,005 times.</p>
+        <p>
+          <a href="#">Privacy policy</a> • 
+          <a href="#">About Incel Wiki</a> • 
+          <a href="#">Disclaimers</a> • 
+          <a href="#">Mobile view</a>
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+- Reset some default styles.
+- Layout for the container (sidebar and main content).
+- Top navigation styles.
+- Sidebar styles (fixed width, etc.).
+- Main content styles.
+- Navbox styles (green background, etc.).
+- User list styles (banned text in red).
+
+Let's write the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Top navigation */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.top-nav-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.top-nav-tabs a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.top-nav-status {
+  display: flex;
+  gap: 5px;
+}
+
+.top-nav-status span {
+  color: #666;
+}
+
+.top-nav-status a {
+  text-decoration: none;
+  color: #000;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Container for main content and sidebar */
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #fff;
+  padding: 10px;
+  border-right: 1px solid #eee;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 10px;
+}
+
+.chat-button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 5px 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 1.8em;
+  margin: 20px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+/* Navbox */
+.navbox {
+  background-color: #008000;
+  padding: 15px;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.navbox h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.navbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navbox-row {
+  display: flex;
+  gap: 10px;
+}
+
+.navbox-left {
+  background-color: #f9f9f9;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+  flex: 0 0 150px;
+}
+
+.incels-is,.social-anxiety-support {
+  color: #0066cc;
+}
+
+.love-shy-net {
+  color: #cc0000;
+}
+
+.navbox-right {
+  padding: 8px;
+  flex: 1;
+}
+
+.navbox-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbox-right li {
+  margin: 5px 0;
+}
+
+.banned {
+  color: red;
+}
+
+/* Category */
+.category {
+  text-align: left;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+/* Footer info */
+.footer-info {
+  margin-top: 20px;
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-info a {
+  text-decoration: none;
+  color: #000;
+}
+
+Now, check if all elements are included:
+
+- Top navigation with "Template", "Discussion", "Not logged in", "Talk", "Contributions", search bar.
+- Left sidebar with "Chat on Discord" button and list of links.
+- Main content with title, usage note, navbox, category, footer info.
+- Navbox with three rows, each with forum name and user list, with banned text in red.
+- CSS styles for responsive design.
+
+Wait, the image shows the "Not logged in" as part of the top right. In the HTML, the top-nav-status has "Not logged in" as a span, then "Talk" and "Contributions" as links.
+
+Also, the search bar is in the top right.
+
+Now, check the navbox:
+
+- The navbox has a green background (color: #008000).
+- The title "Incel Forum Navbox" is centered, white text.
+- Each row has a left cell (forum name) and right cell (user list).
+- The left cell for Incels.is and Social Anxiety Support is blue text, Love-shy.net is red.
+- The user list has (user/banned) in red.
+
+The sidebar has a fixed width (200px), and the main content is flexible.
+
+The footer info has the last edited date, access count, and links.
+
+Now, check if the HTML is valid and the CSS is embedded.
+
+Let's make sure all tags are closed properly.
+
+Now, the final HTML should be:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template : Incel Forums</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+   .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #ccc;
+    }
+   .top-nav-tabs {
+      display: flex;
+      gap: 10px;
+    }
+   .top-nav-tabs a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+   .top-nav-status {
+      display: flex;
+      gap: 5px;
+    }
+   .top-nav-status span {
+      color: #666;
+    }
+   .top-nav-status a {
+      text-decoration: none;
+      color: #000;
+    }
+   .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+   .search-bar input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+   .container {
+      display: flex;
+      margin: 20px;
+    }
+   .sidebar {
+      width: 200px;
+      background-color: #fff;
+      padding: 10px;
+      border-right: 1px solid #eee;
+      height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+   .sidebar-section {
+      margin-bottom: 10px;
+    }
+   .chat-button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+    }
+   .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+   .sidebar li {
+      margin: 5px 0;
+    }
+   .sidebar a {
+      text-decoration: none;
+      color: #000;
+    }
+   .main-content {
+      flex: 1;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin: 20px 0;
+    }
+    p {
+      margin: 10px 0;
+    }
+   .navbox {
+      background-color: #008000;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+   .navbox h2 {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      color: white;
+    }
+   .navbox-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+   .navbox-row {
+      display: flex;
+      gap: 10px;
+    }
+   .navbox-left {
+      background-color: #f9f9f9;
+      padding: 8px;
+      font-weight: bold;
+      text-align: center;
+      flex: 0 0 150px;
+    }
+   .incels-is,.social-anxiety-support {
+      color: #0066cc;
+    }
+   .love-shy-net {
+      color: #cc0000;
+    }
+   .navbox-right {
+      padding: 8px;
+      flex: 1;
+    }
+   .navbox-right ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+   .navbox-right li {
+      margin: 5px 0;
+    }
+   .banned {
+      color: red;
+    }
+   .category {
+      text-align: left;
+      margin: 10px 0;
+      font-style: italic;
+    }
+   .footer-info {
+      margin-top: 20px;
+    }
+   .footer-info p {
+      margin: 5px 0;
+    }
+   .footer-info a {
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="top-nav-tabs">
+      <a href="#">Template</a>
+      <a href="#">Discussion</a>
+    </div>
+    <div class="top-nav-status">
+      <span>Not logged in</span>
+      <a href="#">Talk</a>
+      <a href="#">Contributions</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search Incel Wiki">
+    </div>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <button class="chat-button">Chat on Discord</button>
+      </div>
+      <ul>
+        <li><a href="#">Incel FAQ & History</a></li>
+        <li><a href="#">Inceldom FAQ</a></li>
+        <li><a href="#">Incelsphere</a></li>
+        <li><a href="#">Timeline</a></li>
+        <li><a href="#">Incel Glossary</a></li>
+        <li><a href="#">Demographics Of Inceldom</a></li>
+        <li><a href="#">Important Pages</a></li>
+        <li><a href="#">Scientific Backpill</a></li>
+        <li><a href="#">Backpill</a></li>
+        <li><a href="#">PSL</a></li>
+        <li><a href="#">Rules & Disclaimer</a></li>
+        <li><a href="#">Editing Rules</a></li>
+        <li><a href="#">General Disclaimer</a></li>
+        <li><a href="#">Other</a></li>
+        <li><a href="#">Random Page</a></li>
+        <li><a href="#">Recent Changes</a></li>
+        <li><a href="#">Special Pages</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">What links here</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <h1>Template : Incel Forums</h1>
+      <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE FORUM OR AN POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+      <div class="navbox">
+        <

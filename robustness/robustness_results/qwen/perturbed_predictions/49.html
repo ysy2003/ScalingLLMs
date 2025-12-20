@@ -1,0 +1,394 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the image provided. Let's break down the elements:
+
+1. **Top Section**: There's a blue square on the top left, and "Translated Labs" on the top right.
+2. **Main Content Area**: A light gray background box. Inside, a text input field with repeated text: "All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy". Below the input, a blue button "Find equilibrium" and text "or crash someone else's party" to the right of the button.
+3. **Bottom Section**: "YOU SAID:" followed by the same repeated text as the input.
+
+Now, let's structure the HTML.
+
+First, the HTML5 structure: <html>, <head>, <body>.
+
+In the <head>, we need a <style> block for responsive CSS.
+
+Let's outline the elements:
+
+- Top bar: blue square (maybe a div with background blue, fixed width/height), and "Translated Labs" on the right.
+- Main container: a div with light gray background, containing the input, button, and the "or crash..." text.
+- Bottom section: "YOU SAID:" and the repeated text.
+
+Let's check the colors and spacing.
+
+The blue square: in the image, it's a solid blue rectangle. Let's assume it's 80x80px (since it's a square). But maybe the exact size isn't critical, but we need to match the design. Wait, the image shows a blue square on the top left. Let's see the position: top left, so maybe a div with position: absolute? Or maybe it's part of the header.
+
+Wait, the image has "Translated Labs" on the top right, so the top bar is a header. Let's structure the header as a div with class "header".
+
+Header:
+- Left: blue square (div with class "blue-square")
+- Right: "Translated Labs" (span or div with class "translated-labs")
+
+Main content:
+- A div with class "main-container" (light gray background)
+- Inside, a text input (but in the image, it's a text box with the repeated text. Wait, the input field is a text area? Or a div with a border? The image shows a text box with the text inside. So maybe a div with a border, padding, and the text.
+
+Wait, the input field in the image is a text box with the text "All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy". So it's a block of text inside a box. So perhaps a div with a border, padding, and the text.
+
+Then, below the input, a blue button "Find equilibrium" (class "btn") and to the right of the button, the text "or crash someone else's party".
+
+Then, below the main container, "YOU SAID:" followed by the same repeated text.
+
+Let's think about the CSS:
+
+- Body: font-family, maybe Arial or sans-serif.
+- Header: display flex, justify-content space-between, align-items center.
+- Blue square: background blue, width 80px, height 80px, maybe rounded corners? The image shows a square, so no rounded corners.
+- Translated Labs: font size, maybe 14px, color gray.
+- Main container: background #f5f5f5, padding, margin.
+- Input box: border, padding, maybe a bit of border-radius, but the image shows a rectangular box. Wait, the input in the image is a text box with a border, so a div with border: 1px solid #ccc, padding: 10px, etc.
+- Button: blue background, white text, padding, border-radius, etc.
+- The "or crash..." text: color gray, font size smaller, positioned to the right of the button.
+
+Let's check the exact elements:
+
+- The input field in the image has the text repeated three times. So the text is "All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy".
+
+- The button is "Find equilibrium".
+
+- The "or crash someone else's party" is to the right of the button, so maybe inline with the button, but on the right side.
+
+- The "YOU SAID:" is a label, then the same text as the input.
+
+Now, let's structure the HTML:
+
+1. <html>
+2. <head>
+   - <style> block with all CSS
+3. <body>
+   - <header> with blue square and "Translated Labs"
+   - <main> or <div> for main content
+   - <div> for "YOU SAID:" and the text
+
+Wait, the image shows the main content as a light gray box. So:
+
+- <div class="container"> (maybe the main container)
+  - <div class="header"> (top bar)
+  - <div class="main-box"> (light gray background)
+    - <div class="input-box"> (the text box with the repeated text)
+    - <div class="button-row"> (button and "or crash...")
+  - <div class="you-said"> (YOU SAID: and the text)
+
+Let's define the CSS:
+
+- body: margin 0, padding 0, font-family sans-serif.
+-.header: display flex, justify-content space-between, align-items center, padding 1rem.
+-.blue-square: background #0000ff, width 80px, height 80px, border none, display inline-block.
+-.translated-labs: font-size 14px, color #666.
+-.main-box: background #f5f5f5, padding 1.5rem, margin 1rem 0.
+-.input-box: border 1px solid #ccc, padding 1rem, width 100%, box-sizing border-box, margin-bottom 1rem; (but the image shows the text as a block, so maybe no border? Wait, the image shows a text box with a border. Let's check: the input field in the image has a border. So yes, border 1px solid #ccc.)
+-.btn: background #0000ff, color white, padding 1rem 1.5rem, border none, border-radius 4px, cursor pointer, font-weight bold, display inline-block, margin-bottom 1rem; (the button is blue, text "Find equilibrium")
+-.or-crash: color #666, font-size 14px, display inline-block, margin-left 1rem; (the text "or crash someone else's party" is to the right of the button)
+-.you-said: font-weight bold, margin-top 1.5rem; (the "YOU SAID:" label)
+-.you-said-text: margin-top 0.5rem; (the repeated text)
+
+Wait, the image shows the "YOU SAID:" followed by the text. So:
+
+< div class="you-said">YOU SAID:< /div>
+< div class="you-said-text">text< /div>
+
+Now, let's check the exact text:
+
+The input text is: "All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy"
+
+The "YOU SAID:" text is the same: "All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy"
+
+Wait, in the image, the "YOU SAID:" section has the text as "All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy" — same as the input.
+
+Now, let's code the HTML structure.
+
+First, the header:
+
+<div class="header">
+  <div class="blue-square"></div>
+  <div class="translated-labs">Translated Labs</div>
+</div>
+
+Then, the main box:
+
+<div class="main-box">
+  <div class="input-box">
+    All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy
+  </div>
+  <div class="button-row">
+    <button class="btn">Find equilibrium</button>
+    <span class="or-crash">or crash someone else's party</span>
+  </div>
+</div>
+
+Then, the "YOU SAID:" section:
+
+<div class="you-said">YOU SAID:</div>
+<div class="you-said-text">
+  All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy
+</div>
+
+Now, the CSS:
+
+- body: margin 0; padding 0; font-family: Arial, sans-serif;
+-.header: display: flex; justify-content: space-between; align-items: center; padding: 1rem;
+-.blue-square: background-color: #0000ff; width: 80px; height: 80px; border: none;
+-.translated-labs: font-size: 14px; color: #666;
+-.main-box: background-color: #f5f5f5; padding: 1.5rem; margin: 1rem 0;
+-.input-box: border: 1px solid #ccc; padding: 1rem; width: 100%; box-sizing: border-box; margin-bottom: 1rem;
+-.button-row: display: flex; align-items: center;
+-.btn: background-color: #0000ff; color: white; padding: 1rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;
+-.or-crash: color: #666; font-size: 14px; margin-left: 1rem;
+-.you-said: font-weight: bold; margin-top: 1.5rem;
+-.you-said-text: margin-top: 0.5rem;
+
+Wait, but the image shows the "or crash someone else's party" text is to the right of the button, so the button-row should have the button and the span in a flex container.
+
+Let's check the image: the button is on the left, and the text is on the right, so the button-row is a flex container with the button and the span.
+
+Now, let's make sure the HTML is valid.
+
+Also, the blue square: in the image, it's a solid blue square. So the div with class blue-square has background-color #0000ff.
+
+Now, let's write the HTML.
+
+Start with:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design to Code</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Content here -->
+</body>
+</html>
+```
+
+Now, the CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.blue-square {
+  background-color: #0000ff;
+  width: 80px;
+  height: 80px;
+  border: none;
+}
+
+.translated-labs {
+  font-size: 14px;
+  color: #666;
+}
+
+.main-box {
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.input-box {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  background-color: #0000ff;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.or-crash {
+  color: #666;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.you-said {
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+.you-said-text {
+  margin-top: 0.5rem;
+}
+```
+
+Now, the HTML body:
+
+<div class="header">
+  <div class="blue-square"></div>
+  <div class="translated-labs">Translated Labs</div>
+</div>
+
+<div class="main-box">
+  <div class="input-box">
+    All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy
+  </div>
+  <div class="button-row">
+    <button class="btn">Find equilibrium</button>
+    <span class="or-crash">or crash someone else's party</span>
+  </div>
+</div>
+
+<div class="you-said">YOU SAID:</div>
+<div class="you-said-text">
+  All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy
+</div>
+
+Wait, but in the image, the "YOU SAID:" is followed by the text, so the structure is correct.
+
+Now, check if the text is exactly as in the image. The input text is three repetitions of "All work and no play makes Jack a dull boy", same as the "YOU SAID:" text.
+
+Let's verify the image:
+
+- Top left: blue square (80x80)
+- Top right: "Translated Labs"
+- Main box: light gray background, input field with the text, button "Find equilibrium", and "or crash..." to the right of the button.
+- Below: "YOU SAID:" and the same text.
+
+Yes, this should match.
+
+Now, check for responsive design. The CSS uses relative units (rem) and flexbox, so it should be responsive.
+
+Now, let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design to Code</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+   .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+    }
+   .blue-square {
+      width: 80px;
+      height: 80px;
+      background-color: #0000ff;
+    }
+   .translated-labs {
+      font-size: 14px;
+      color: #666;
+    }
+   .main-box {
+      background-color: #f5f5f5;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+   .input-box {
+      border: 1px solid #ccc;
+      padding: 1.2rem;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 1.5rem;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+   .button-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+   .btn {
+      background-color: #0000ff;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+   .or-crash {
+      color: #666;
+      font-size: 14px;
+    }
+   .you-said {
+      font-weight: bold;
+      margin-top: 1.5rem;
+      font-size: 14px;
+    }
+   .you-said-text {
+      margin-top: 0.5rem;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="blue-square"></div>
+    <div class="translated-labs">Translated Labs</div>
+  </div>
+  <div class="main-box">
+    <div class="input-box">
+      All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy
+    </div>
+    <div class="button-row">
+      <button class="btn">Find equilibrium</button>
+      <span class="or-crash">or crash someone else's party</span>
+    </div>
+  </div>
+  <div class="you-said">YOU SAID:</div>
+  <div class="you-said-text">
+    All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy All work and no play makes Jack a dull boy
+  </div>
+</body>
+</html>
+```

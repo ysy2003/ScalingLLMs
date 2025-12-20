@@ -1,0 +1,649 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Starting with the structure:
+
+1. **Header Section**: 
+   - Top bar with "RESOURCES" (but in the image, the top left has a blue rectangle, maybe a logo? Wait, the image shows a black header with navigation links: About Us, What We Do, Who We Work With, and a yellow "Reservation Request" button. Also, the top left has a blue rectangle (maybe a logo placeholder).
+   - The navigation links are in the top black bar. The "Reservation Request" is a yellow button.
+
+2. **Hero Section**: 
+   - A large blue background (probably a banner). The image shows a blue rectangle here.
+
+3. **Events Section**:
+   - Title "Events" in bold.
+   - Subtext: "Find everything you need to know about what's happening at the Innovare Advancement Center and Griffiss Institute here!"
+   - Another paragraph: "Business, STEM, academia, community events, you name it, and we can host it, create it, and even market it. We are here to support our regional and state tech community in any way we can."
+   - "Submit An Event" link on the right.
+   - Then the event details: "SBDC Wednesday Webinars - How to Excel at Excel: Creating a Dashboard" with date, time, location.
+   - Another section with "NEW!!! Microsoft Excel - Creating a Dashboard" with details.
+
+4. **Footer Section**:
+   - Black background with sections: CONTACT US, E-NEWSLETTER, OUR TEAM, CONNECT.
+   - Each section has links or text. For example, CONTACT US has phone, fax, address (redacted), Rome, NY.
+   - E-NEWSLETTER has "Sign Me Up!" and "View Privacy Policy".
+   - OUR TEAM has "DOCUMENT SUBMISSION" (maybe a link).
+   - CONNECT has social media icons (blue squares).
+   - Copyright info at the bottom.
+
+Now, let's break down each part into HTML elements.
+
+First, the HTML structure:
+
+- <html>
+  - <head>
+    - <meta> tags for charset, viewport.
+    - <title> (probably "Events - Griffiss Institute" or similar, but the image doesn't show a title, but we can infer)
+    - <style> block with CSS.
+  - <body>
+    - Header: black background with navigation.
+    - Hero: blue background (maybe a div with class "hero").
+    - Main content: Events section with title, description, event details.
+    - Footer: black background with sections.
+
+Let's handle the CSS first. Need to make it responsive.
+
+Looking at the image:
+
+- The header has a black background. The navigation links are white, "Reservation Request" is yellow with black text.
+- The hero section is a solid blue (maybe #0000FF or similar).
+- The main content has a white background.
+- The footer is black.
+
+Let's outline the CSS:
+
+- Reset some default styles (margin, padding, etc.).
+- Set font-family (probably sans-serif).
+- Header: 
+  - background: #000;
+  - display: flex;
+  - justify-content: space-between;
+  - align-items: center;
+  - padding: 10px 20px;
+- Navigation links: 
+  - color: white;
+  - text-decoration: none;
+  - margin: 0 10px;
+- "Reservation Request" button: 
+  - background: #FFFF00;
+  - color: #000;
+  - padding: 5px 15px;
+  - border-radius: 5px;
+  - text-decoration: none;
+- Hero section: 
+  - background: #0000FF;
+  - height: 300px; (approximate, but maybe set to a specific height or use min-height)
+- Events section:
+  - container with max-width, margin: 0 auto;
+  - padding: 20px;
+- Event title: 
+  - font-size: 2em;
+  - color: #00A0E9;
+- Event details: 
+  - date, time, location in smaller font.
+- Footer: 
+  - background: #000;
+  - color: #fff;
+  - padding: 20px;
+  - display: flex;
+  - flex-wrap: wrap;
+  - justify-content: space-between;
+  - gap: 20px;
+- Footer sections: 
+  - each section has a title and links.
+
+Now, let's structure the HTML:
+
+1. Header:
+   - Left: "RESOURCES" (but in the image, the top left has a blue rectangle. Wait, the image shows a blue rectangle at the top left, maybe a logo. But the text says "RESOURCES" in the top bar? Wait, the user's image description says: "the top left has a blue rectangle" and the navigation is "About Us, What We Do, Who We Work With, Reservation Request". So the header has a black background, with a blue rectangle on the left (maybe a logo), then the navigation links.
+
+Wait, the image shows:
+
+Top bar: black background. Left side: a blue rectangle (maybe logo). Then "About Us", "What We Do", "Who We Work With", and a yellow "Reservation Request" button on the right.
+
+So the header structure:
+
+<div class="header">
+  <div class="logo"> (blue rectangle, maybe a placeholder)
+  <nav>
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">What We Do</a></li>
+      <li><a href="#">Who We Work With</a></li>
+      <li><a href="#" class="reservation-btn">Reservation Request</a></li>
+    </ul>
+  </nav>
+</div>
+
+But the image shows the blue rectangle as a solid color, so maybe the logo is a div with background color blue.
+
+2. Hero section: a blue div with no content (just a background color).
+
+3. Main content:
+
+<div class="container">
+  <h1>Events</h1>
+  <p>Find everything you need to know about what's happening at the Innovare Advancement Center and Griffiss Institute here!</p>
+  <p>Business, STEM, academia, community events, you name it, and we can host it, create it, and even market it. We are here to support our regional and state tech community in any way we can.</p>
+  <a href="#" class="submit-event">Submit An Event</a>
+  <div class="event">
+    <h2>SBDC Wednesday Webinars - How to Excel at Excel: Creating a Dashboard</h2>
+    <p>Apr 17, 2019, 10:00 AM to 11:00 AM</p>
+    <p>Location: Webinar</p>
+    <h3>SBDC Wednesday Webinars - How to Excel at Excel</h3>
+    <h4>NEW!!! Microsoft Excel - Creating a Dashboard</h4>
+    <p>Wed 4/17, 10-11 am</p>
+    <p>Webinar</p>
+    <p>$20</p>
+    <p>Dashboards can increase your efficiency and communication by giving you quick, visual updates on your projects. See spreadsheet data on a dashboard that automatically updates as data changes!</p>
+    <p>Sign up today for this webinar presented by Patricia Ciero of PC Smartz IT Consulting Services to learn best practices for creating a dashboard!</p>
+    <h3>Register today!</h3>
+    <hr>
+    <a href="#" class="return-to-list">Return to List</a>
+  </div>
+</div>
+
+4. Footer:
+
+<div class="footer">
+  <div class="footer-section">
+    <h4>CONTACT US</h4>
+    <p>[PHONE REDACTED] Phone</p>
+    <p>[PHONE REDACTED] Fax</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>Rome, NY</p>
+  </div>
+  <div class="footer-section">
+    <h4>E-NEWSLETTER</h4>
+    <a href="#">Sign Me Up!</a>
+    <a href="#">View Privacy Policy</a>
+  </div>
+  <div class="footer-section">
+    <h4>OUR TEAM</h4>
+    <a href="#">DOCUMENT SUBMISSION</a>
+  </div>
+  <div class="footer-section">
+    <h4>CONNECT</h4>
+    <div class="social-icons">
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>© The Griffiss Institute (GI) is a 501(c)(3) nonprofit talent and technology accelerator for the United States Department of Defense and an international network of academic, government and industry partners. Since 2002, the GI has served the Air Force Research Laboratory Information Directorate, the Mohawk Valley region, and the United States, empowering diverse teams with talent and technology development programs that lead the nation in technical and economic impact.</p>
+    <p>Site Created by Brockett Creative Group, Inc. Content Powered by iSpark CMS</p>
+  </div>
+</div>
+
+Now, let's handle the CSS:
+
+- Reset: * { margin: 0; padding: 0; box-sizing: border-box; }
+- Body: font-family: Arial, sans-serif; line-height: 1.6; color: #333;
+- Header: 
+  - background: #000;
+  - padding: 10px 20px;
+  - display: flex;
+  - justify-content: space-between;
+  - align-items: center;
+- Logo: 
+  - width: 100px;
+  - height: 40px;
+  - background: #0000FF;
+  - display: inline-block;
+- Navigation: 
+  - display: flex;
+  - list-style: none;
+  - margin: 0;
+  - padding: 0;
+- Nav links: 
+  - color: #fff;
+  - text-decoration: none;
+  - margin: 0 10px;
+- Reservation button: 
+  - background: #FFFF00;
+  - color: #000;
+  - padding: 5px 15px;
+  - border-radius: 5px;
+  - text-decoration: none;
+- Hero: 
+  - background: #0000FF;
+  - height: 300px;
+  - display: flex;
+  - align-items: center;
+  - justify-content: center;
+- Container: 
+  - max-width: 1200px;
+  - margin: 0 auto;
+  - padding: 20px;
+- Events title: 
+  - font-size: 2.5em;
+  - margin-bottom: 10px;
+- Events description: 
+  - font-size: 1.1em;
+  - margin-bottom: 15px;
+- Submit event link: 
+  - float: right;
+  - color: #666;
+  - text-decoration: underline;
+- Event title: 
+  - color: #00A0E9;
+  - font-size: 1.8em;
+  - margin-bottom: 5px;
+- Event details: 
+  - color: #555;
+  - font-size: 0.9em;
+  - margin-bottom: 10px;
+- Event subheading: 
+  - font-weight: bold;
+  - margin-bottom: 5px;
+- Event date: 
+  - font-style: italic;
+- Event price: 
+  - font-weight: bold;
+- Register link: 
+  - font-weight: bold;
+  - color: #00A0E9;
+- Return to list: 
+  - display: block;
+  - text-align: center;
+  - margin-top: 10px;
+  - color: #666;
+  - text-decoration: underline;
+- Footer: 
+  - background: #000;
+  - color: #fff;
+  - padding: 20px;
+  - display: flex;
+  - flex-wrap: wrap;
+  - justify-content: space-between;
+  - gap: 20px;
+- Footer sections: 
+  - flex: 1;
+  - min-width: 200px;
+- Footer section titles: 
+  - margin-bottom: 10px;
+- Social icons: 
+  - display: flex;
+  - flex-wrap: wrap;
+  - gap: 10px;
+  - justify-content: center;
+- Icon: 
+  - width: 30px;
+  - height: 30px;
+  - background: #0000FF;
+  - display: inline-block;
+- Copyright: 
+  - margin-top: 20px;
+  - padding-top: 10px;
+  - border-top: 1px solid #444;
+  - text-align: center;
+
+Now, let's check for responsiveness. The CSS should use relative units (em, rem, %) and media queries if needed, but the image doesn't show mobile, so maybe just basic responsive.
+
+Wait, the image shows a desktop layout. Let's make sure the CSS is responsive.
+
+For example, the footer sections should wrap on smaller screens.
+
+Now, let's code the HTML and CSS.
+
+First, the HTML structure:
+
+- <html>
+  - <head>
+    - <meta charset="UTF-8">
+    - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    - <title>Events - Griffiss Institute</title>
+    - <style>... </style>
+  - <body>
+    - <header>
+      - <div class="logo"></div>
+      - <nav>
+        - <ul>
+          - <li><a href="#">About Us</a></li>
+          - <li><a href="#">What We Do</a></li>
+          - <li><a href="#">Who We Work With</a></li>
+          - <li><a href="#" class="reservation-btn">Reservation Request</a></li>
+        </ul>
+      </nav>
+    </header>
+    - <section class="hero"></section>
+    - <main class="container">
+      - <h1>Events</h1>
+      - <p>...</p>
+      - <p>...</p>
+      - <a href="#" class="submit-event">Submit An Event</a>
+      - <div class="event">
+        - <h2>...</h2>
+        - <p>...</p>
+        - <p>...</p>
+        - <h3>...</h3>
+        - <h4>...</h4>
+        - <p>...</p>
+        - <p>...</p>
+        - <p>...</p>
+        - <p>...</p>
+        - <h3>Register today!</h3>
+        - <hr>
+        - <a href="#" class="return-to-list">Return to List</a>
+      </div>
+    </main>
+    - <footer>
+      - <div class="footer-section">
+        - <h4>CONTACT US</h4>
+        - <p>...</p>
+        -...
+      </div>
+      -... other sections
+      - <div class="copyright">
+        - <p>...</p>
+        - <p>...</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+Now, let's fill in the details.
+
+For the logo, it's a blue rectangle, so in HTML, we can use a div with background color.
+
+The hero section is a blue div, so same.
+
+Let's code the CSS with the styles we outlined.
+
+Check for any missing elements:
+
+- The "Submit An Event" link is on the right, so in the container, it's floated right.
+
+- The event details have specific text.
+
+- The footer has the copyright text.
+
+Now, let's write the code.
+
+Important: The CSS must be embedded in a <style> block.
+
+Let's start coding.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - Griffiss Institute</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      background-color: #000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+   .logo {
+      width: 100px;
+      height: 40px;
+      background-color: #0000FF;
+      display: inline-block;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+   .reservation-btn {
+      background-color: #FFFF00;
+      color: #000;
+      padding: 5px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+   .hero {
+      background-color: #0000FF;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+   .submit-event {
+      float: right;
+      color: #666;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+   .event {
+      margin-top: 20px;
+    }
+
+   .event h2 {
+      color: #00A0E9;
+      font-size: 1.8em;
+      margin-bottom: 5px;
+    }
+
+   .event p {
+      color: #555;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+   .event h3 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+   .event h4 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+   .event.date {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+   .event.price {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+   .register-link {
+      font-weight: bold;
+      color: #00A0E9;
+      margin: 15px 0;
+    }
+
+   .return-to-list {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #666;
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+   .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+
+   .footer-section h4 {
+      margin-bottom: 10px;
+    }
+
+   .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+   .icon {
+      width: 30px;
+      height: 30px;
+      background-color: #0000FF;
+      display: inline-block;
+    }
+
+   .copyright {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #444;
+      text-align: center;
+    }
+
+   .copyright p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 10px;
+      }
+
+     .submit-event {
+        float: none;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+     .footer-section {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">What We Do</a></li>
+        <li><a href="#">Who We Work With</a></li>
+        <li><a href="#" class="reservation-btn">Reservation Request</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero"></section>
+  <main class="container">
+    <h1>Events</h1>
+    <p>Find everything you need to know about what's happening at the Innovare Advancement Center and Griffiss Institute here!</p>
+    <p>Business, STEM, academia, community events, you name it, and we can host it, create it, and even market it. We are here to support our regional and state tech community in any way we can.</p>
+    <a href="#" class="submit-event">Submit An Event</a>
+    <div class="event">
+      <h2>SBDC Wednesday Webinars - How to Excel at Excel: Creating a Dashboard</h2>
+      <p class="date">Apr 17, 2019, 10:00 AM to 11:00 AM</p>
+      <p>Location: Webinar</p>
+      <h3>SBDC Wednesday Webinars - How to Excel at Excel</h3>
+      <h4>NEW!!! Microsoft Excel - Creating a Dashboard</h4>
+      <p>Wed 4/17, 10-11 am</p>
+      <p>Webinar</p>
+      <p class="price">$20</p>
+      <p>Dashboards can increase your efficiency and communication by giving you quick, visual updates on your projects. See spreadsheet data on a dashboard that automatically updates as data changes!</p>
+      <p>Sign up today for this webinar presented by Patricia Ciero of PC Smartz IT Consulting Services to learn best practices for creating a dashboard!</p>
+      <h3 class="register-link">Register today!</h3>
+      <hr>
+      <a href="#" class="return-to-list">Return to List</a>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-section">
+      <h4>CONTACT US</h4>
+      <p>[PHONE REDACTED] Phone</p>
+      <p>[PHONE REDACTED] Fax</p>
+      <p>[ADDRESS REDACTED]</p>
+      <p>[ADDRESS REDACTED]</p>
+      <p>Rome, NY</p>
+    </div>
+    <div class="footer-section">
+      <h4>E-NEWSLETTER</h4>
+      <a href="#">Sign Me Up!</a>
+      <a href="#">View Privacy Policy</a>
+    </div>
+    <div class="footer-section">
+      <h4>OUR TEAM</h4>
+      <a href="#">DOCUMENT SUBMISSION</a>
+    </div>
+    <div class="footer-section">
+      <h4>CONNECT</h4>
+      <div class="social-icons">
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© The Griffiss Institute (GI) is a 501(c)(3) nonprofit talent and technology accelerator for the United States Department of Defense and an international network of academic, government and industry partners. Since 2002, the GI has served the Air Force Research Laboratory Information Directorate, the Mohawk Valley region, and the United States, empowering diverse teams with talent and technology development programs that lead the nation in technical and economic impact.</p>
+      <p>Site Created by Brockett Creative Group, Inc. Content Powered by iSpark CMS</p>
+    </div>
+  </footer>
+</body>
+</html>
+```

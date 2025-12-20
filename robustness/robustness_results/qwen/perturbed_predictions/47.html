@@ -1,0 +1,925 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS accurately.
+
+Looking at the image:
+
+- The top left has "vi per" with "vi" in a smaller font, "per" larger. Wait, no, the image shows "vi per" as two words, but in the image, "vi" is smaller, "per" is larger. Wait, the image's top left: "vi" is a smaller font, "per" is larger. Then the main title is "Bookstore" centered.
+
+Wait, the image has:
+
+Top left: "vi per" (with "vi" smaller, "per" larger). Then on the left side, there's a vertical menu: EXHIBITIONS, EVENTS, NEWS, ABOUT, each with a corresponding social media link (NEWSLETTER, FACEBOOK, TWITTER, INSTAGRAM) next to them.
+
+Center: "Bookstore" as the main title. Then a paragraph: "The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on [EMAIL REDACTED]."
+
+Then "OPENING HOURS" section: WED-FRI 13-19, SAT 14-18. Then a note: "It opens during the gallery opening hours."
+
+Right side: CONTACT section with [EMAIL REDACTED], [PHONE REDACTED]; CORRESPONDENCE & DELIVERY ADDRESS with address details; COMPANY & BILLING ADDRESS with address details.
+
+Bottom left: [ADDRESS REDACTED] twice, Czech Republic, then opening hours (WED-FRI 13-19, SAT 14-18), and some blue squares (maybe social media icons?).
+
+Wait, the image has a layout with a left sidebar, main content, and right sidebar.
+
+Let's break down the structure:
+
+- The page has a header with "vi per" on the left, "Bookstore" centered.
+
+- Left sidebar: vertical list of links (EXHIBITIONS, EVENTS, NEWS, ABOUT) each with a corresponding social media link (NEWSLETTER, FACEBOOK, TWITTER, INSTAGRAM) next to them. Wait, in the image, the left sidebar has:
+
+EXHIBITIONS
+NEWSLETTER
+
+EVENTS
+FACEBOOK
+
+NEWS
+TWITTER
+
+ABOUT
+INSTAGRAM
+
+So each main link (EXHIBITIONS, EVENTS, etc.) is on the left, and the social media link is on the right, aligned vertically.
+
+Main content:
+
+- Title "Bookstore" (centered, large font)
+
+- Paragraph about the bookstore
+
+- "OPENING HOURS" section with hours
+
+- Note about opening during gallery hours
+
+Right sidebar:
+
+- CONTACT: [EMAIL REDACTED], [PHONE REDACTED]
+
+- CORRESPONDENCE & DELIVERY ADDRESS: address details
+
+- COMPANY & BILLING ADDRESS: address details
+
+Bottom left: [ADDRESS REDACTED] twice, Czech Republic, opening hours, and some blue squares (maybe 3x2 grid of blue squares? The image shows 3 blue squares in a row, then 2 below, but maybe 3x2? Wait, the image shows 3 blue squares on the left, then 2 below. Wait, the image's bottom left has:
+
+[ADDRESS REDACTED]
+
+[ADDRESS REDACTED]
+
+Czech Republic
+
+WED-FRI 13-19, SAT 14-18
+
+Then three blue squares (maybe 3x1), then two blue squares (2x1). Wait, the image shows:
+
+[ADDRESS REDACTED]
+
+[ADDRESS REDACTED]
+
+Czech Republic
+
+WED-FRI 13-19, SAT 14-18
+
+Then a row of three blue squares (left to right), then a row of two blue squares (left to right). So 3 + 2 = 5 blue squares.
+
+Now, let's structure the HTML.
+
+First, the HTML5 structure:
+
+- <html>
+  - <head>
+    - <meta charset="UTF-8">
+    - <title>Bookstore</title>
+    - <style>... </style>
+  - <body>
+    - <header>
+      - <div class="logo">vi per</div>
+      - <h1>Bookstore</h1>
+    - </header>
+    - <div class="container">
+      - <aside class="sidebar-left">
+        - <ul>
+          - <li><a href="#">EXHIBITIONS</a> <span>NEWSLETTER</span></li>
+          - <li><a href="#">EVENTS</a> <span>FACEBOOK</span></li>
+          - <li><a href="#">NEWS</a> <span>TWITTER</span></li>
+          - <li><a href="#">ABOUT</a> <span>INSTAGRAM</span></li>
+        </ul>
+      </aside>
+      - <main>
+        - <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="#">[EMAIL REDACTED]</a>.</p>
+        - <h2>OPENING HOURS</h2>
+        - <p>WED-FRI 13-19, SAT 14-18</p>
+        - <p>It opens during the gallery opening hours.</p>
+      </main>
+      - <aside class="sidebar-right">
+        - <h3>CONTACT</h3>
+        - <p>[EMAIL REDACTED]</p>
+        - <p>[PHONE REDACTED]</p>
+        - <h3>CORRESPONDENCE & DELIVERY ADDRESS</h3>
+        - <p>[ADDRESS REDACTED]</p>
+        - <p>Pernerova 293/11</p>
+        - <p>186 00 Praha 8</p>
+        - <p>Czech Republic</p>
+        - <h3>COMPANY & BILLING ADDRESS</h3>
+        - <p>Ing. Jana Margoldová</p>
+        - <p>Předvoj 430/22</p>
+        - <p>162 00 Praha 6</p>
+        - <p>Czech Republic</p>
+      </aside>
+    </div>
+    - <footer>
+      - <div class="footer-left">
+        - <p>[ADDRESS REDACTED]</p>
+        - <p>[ADDRESS REDACTED]</p>
+        - <p>Czech Republic</p>
+        - <p>WED-FRI 13-19, SAT 14-18</p>
+        - <div class="social-icons">
+          - <span class="icon"></span>
+          - <span class="icon"></span>
+          - <span class="icon"></span>
+          - <span class="icon"></span>
+          - <span class="icon"></span>
+        </div>
+      </div>
+    </footer>
+  - </body>
+- </html>
+
+Wait, but the image's bottom left has the address redacted twice, then Czech Republic, then opening hours, then blue squares. So the footer left has those elements.
+
+Now, the styling:
+
+- The page should be responsive. Let's use a grid layout for the container.
+
+- The header: "vi per" on the left, "Bookstore" centered. So the header has a flex container.
+
+- The logo: "vi" is smaller, "per" is larger. Wait, in the image, "vi" is in a smaller font, "per" is larger. So maybe "vi" is a smaller font size, "per" is larger. So in HTML, we can have:
+
+<div class="logo">
+  <span class="vi">vi</span>
+  <span class="per">per</span>
+</div>
+
+But in the image, it's "vi per" as two words, with "vi" smaller. So maybe the logo is "vi per" with "vi" in a smaller font.
+
+Wait, the image shows "vi per" as the top left text. So "vi" is a smaller font, "per" is larger. So in CSS, we can set:
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.vi {
+  font-size: 1.2em;
+  margin-right: 0.5em;
+}
+
+.per {
+  font-size: 2.5em;
+}
+
+But maybe the image's "vi per" is "vi" in a smaller font, "per" in a larger font. Let's check the image: the top left has "vi" (smaller) and "per" (larger). So yes.
+
+Then the main title "Bookstore" is centered, large font.
+
+The left sidebar: vertical list of links. Each link has a main text (EXHIBITIONS, etc.) and a social media link (NEWSLETTER, etc.) next to it. So each list item has two parts: the main link and the social media link.
+
+The right sidebar has sections: CONTACT, CORRESPONDENCE & DELIVERY ADDRESS, COMPANY & BILLING ADDRESS.
+
+The footer left has the address redacted twice, Czech Republic, opening hours, and social icons (blue squares).
+
+Now, let's think about the layout. The page has a three-column layout: left sidebar, main content, right sidebar. But the footer is only on the left.
+
+Wait, the image shows:
+
+- Top: "vi per" (left), "Bookstore" (center)
+
+- Left sidebar: vertical menu (EXHIBITIONS, EVENTS, NEWS, ABOUT with social links)
+
+- Main content: paragraph, opening hours
+
+- Right sidebar: contact info
+
+- Bottom left: address info and social icons
+
+So the structure is:
+
+- Header (logo and main title)
+
+- Main container with three columns: left sidebar, main content, right sidebar
+
+- Footer (only left part)
+
+Now, for responsive design, we can use a grid layout. Let's set the container to be a grid with three columns. But on mobile, maybe stack the columns.
+
+But the problem says "responsive CSS", so we need to make it work on different screen sizes.
+
+Let's outline the CSS:
+
+- Reset margins/paddings.
+
+- Set font-family.
+
+- Header: flex container, logo on left, main title centered.
+
+- Container: grid layout with three columns. On small screens, stack the columns.
+
+- Left sidebar: width 20%, main content 50%, right sidebar 30% (adjust as needed).
+
+- Footer: left part with address info and social icons.
+
+Now, let's code the HTML structure.
+
+First, the header:
+
+<header>
+  <div class="logo">
+    <span class="vi">vi</span>
+    <span class="per">per</span>
+  </div>
+  <h1>Bookstore</h1>
+</header>
+
+Then the container:
+
+<div class="container">
+  <aside class="sidebar-left">
+    <ul>
+      <li><a href="#">EXHIBITIONS</a> <span>NEWSLETTER</span></li>
+      <li><a href="#">EVENTS</a> <span>FACEBOOK</span></li>
+      <li><a href="#">NEWS</a> <span>TWITTER</span></li>
+      <li><a href="#">ABOUT</a> <span>INSTAGRAM</span></li>
+    </ul>
+  </aside>
+  <main>
+    <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="#">[EMAIL REDACTED]</a>.</p>
+    <h2>OPENING HOURS</h2>
+    <p>WED-FRI 13-19, SAT 14-18</p>
+    <p>It opens during the gallery opening hours.</p>
+  </main>
+  <aside class="sidebar-right">
+    <h3>CONTACT</h3>
+    <p>[EMAIL REDACTED]</p>
+    <p>[PHONE REDACTED]</p>
+    <h3>CORRESPONDENCE & DELIVERY ADDRESS</h3>
+    <p>[ADDRESS REDACTED]</p>
+    <p>Pernerova 293/11</p>
+    <p>186 00 Praha 8</p>
+    <p>Czech Republic</p>
+    <h3>COMPANY & BILLING ADDRESS</h3>
+    <p>Ing. Jana Margoldová</p>
+    <p>Předvoj 430/22</p>
+    <p>162 00 Praha 6</p>
+    <p>Czech Republic</p>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <p>[ADDRESS REDACTED]</p>
+    <p>[ADDRESS REDACTED]</p>
+    <p>Czech Republic</p>
+    <p>WED-FRI 13-19, SAT 14-18</p>
+    <div class="social-icons">
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+      <span class="icon"></span>
+    </div>
+  </div>
+</footer>
+
+Now, the CSS:
+
+- Reset: * { margin: 0; padding: 0; box-sizing: border-box; }
+
+- Body: font-family Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 0 20px;
+
+- Header: display: flex; justify-content: space-between; align-items: center; padding: 20px 0;
+
+- Logo: display: flex; align-items: center; font-family: Arial, sans-serif;
+
+-.vi: font-size: 1.2em; margin-right: 0.5em;
+
+-.per: font-size: 2.5em;
+
+- H1: text-align: center; font-size: 3em; margin: 0;
+
+- Container: display: grid; grid-template-columns: 1fr 3fr 1fr; gap: 20px; padding: 20px 0;
+
+- Sidebar-left: grid-column: 1 / 2; (but maybe better to use grid-template-areas)
+
+Wait, maybe better to use grid-template-areas for the container:
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "sidebar main right"
+    "sidebar main right";
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+But on mobile, we want to stack the columns. So use media queries.
+
+For mobile (max-width: 768px):
+
+.container {
+  grid-template-areas:
+    "sidebar"
+    "main"
+    "right";
+  grid-template-columns: 1fr;
+}
+
+But let's check the image: the left sidebar is on the left, main content in the middle, right sidebar on the right. So on desktop, three columns. On mobile, stack them.
+
+Now, the left sidebar:
+
+.sidebar-left {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-left ul {
+  list-style: none;
+}
+
+.sidebar-left li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-left a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.sidebar-left span {
+  color: #666;
+}
+
+Main content:
+
+.main {
+  grid-area: main;
+}
+
+.sidebar-right {
+  grid-area: right;
+}
+
+Footer:
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 3px;
+}
+
+Now, let's check the image's elements:
+
+- The left sidebar has EXHIBITIONS, EVENTS, NEWS, ABOUT each with their social links. So each list item has a link and a span.
+
+- The main content has the paragraph, opening hours, and the note.
+
+- The right sidebar has the contact info, correspondence address, company address.
+
+- The footer left has two [ADDRESS REDACTED], Czech Republic, opening hours, and 5 blue squares.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image's "vi per" is "vi" in a smaller font, "per" in a larger font. So in the logo, "vi" is smaller, "per" is larger.
+
+Also, the main title "Bookstore" is centered.
+
+Now, let's write the HTML.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="vi">vi</span>
+      <span class="per">per</span>
+    </div>
+    <h1>Bookstore</h1>
+  </header>
+  <div class="container">
+    <aside class="sidebar-left">
+      <ul>
+        <li><a href="#">EXHIBITIONS</a> <span>NEWSLETTER</span></li>
+        <li><a href="#">EVENTS</a> <span>FACEBOOK</span></li>
+        <li><a href="#">NEWS</a> <span>TWITTER</span></li>
+        <li><a href="#">ABOUT</a> <span>INSTAGRAM</span></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="#">[EMAIL REDACTED]</a>.</p>
+      <h2>OPENING HOURS</h2>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <p>It opens during the gallery opening hours.</p>
+    </main>
+    <aside class="sidebar-right">
+      <h3>CONTACT</h3>
+      <p>[EMAIL REDACTED]</p>
+      <p>[PHONE REDACTED]</p>
+      <h3>CORRESPONDENCE &amp; DELIVERY ADDRESS</h3>
+      <p>[ADDRESS REDACTED]</p>
+      <p>Pernerova 293/11</p>
+      <p>186 00 Praha 8</p>
+      <p>Czech Republic</p>
+      <h3>COMPANY &amp; BILLING ADDRESS</h3>
+      <p>Ing. Jana Margoldová</p>
+      <p>Předvoj 430/22</p>
+      <p>162 00 Praha 6</p>
+      <p>Czech Republic</p>
+    </aside>
+  </div>
+  <footer>
+    <div class="footer-left">
+      <p>[ADDRESS REDACTED]</p>
+      <p>[ADDRESS REDACTED]</p>
+      <p>Czech Republic</p>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <div class="social-icons">
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Reset margins and paddings.
+
+- Body: font-family Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 0 20px;
+
+- Header: display: flex; justify-content: space-between; align-items: center; padding: 20px 0;
+
+- Logo: display: flex; align-items: center; font-family: Arial, sans-serif;
+
+-.vi: font-size: 1.2em; margin-right: 0.5em;
+
+-.per: font-size: 2.5em;
+
+- H1: text-align: center; font-size: 3em; margin: 0;
+
+- Container: display: grid; grid-template-columns: 1fr 3fr 1fr; gap: 20px; padding: 20px 0;
+
+- On mobile (max-width: 768px), container becomes a single column.
+
+- Sidebar-left: grid-column: 1 / 2; (but in grid, the container has three columns, so sidebar-left is first column, main is second, right is third. So in CSS, we can set:
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+ .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+- Sidebar-left: display: flex; flex-direction: column; gap: 10px;
+
+- Sidebar-left ul: list-style: none;
+
+- Sidebar-left li: display: flex; align-items: center; gap: 10px;
+
+- Sidebar-left a: text-decoration: none; color: #000; font-weight: bold;
+
+- Sidebar-left span: color: #666;
+
+- Main: padding: 20px;
+
+- Sidebar-right: padding: 20px;
+
+- Footer: display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 0;
+
+- Footer-left: display: flex; flex-direction: column; gap: 10px;
+
+- Social-icons: display: flex; gap: 5px; margin-top: 10px;
+
+- Icon: display: inline-block; width: 20px; height: 20px; background-color: #000; border-radius: 3px;
+
+Wait, the image's blue squares are 5 in total. The code has 5 spans with class "icon".
+
+Now, let's check the image's text:
+
+- The main paragraph: "The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on [EMAIL REDACTED]."
+
+- Opening hours: "WED-FRI 13-19, SAT 14-18"
+
+- Note: "It opens during the gallery opening hours."
+
+- Right sidebar:
+
+  - CONTACT: [EMAIL REDACTED], [PHONE REDACTED]
+
+  - CORRESPONDENCE & DELIVERY ADDRESS: [ADDRESS REDACTED], Pernerova 293/11, 186 00 Praha 8, Czech Republic
+
+  - COMPANY & BILLING ADDRESS: Ing. Jana Margoldová, Předvoj 430/22, 162 00 Praha 6, Czech Republic
+
+- Footer left:
+
+  - [ADDRESS REDACTED]
+
+  - [ADDRESS REDACTED]
+
+  - Czech Republic
+
+  - WED-FRI 13-19, SAT 14-18
+
+  - 5 blue squares
+
+Now, let's code the CSS to match the design.
+
+Also, the image's "vi per" is in the top left, so the logo is on the left of the header.
+
+The main title "Bookstore" is centered.
+
+Now, let's write the CSS.
+
+Let's start with the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.vi {
+  font-size: 1.2em;
+  margin-right: 0.5em;
+}
+
+.per {
+  font-size: 2.5em;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+ .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sidebar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-left ul {
+  list-style: none;
+}
+
+.sidebar-left li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-left a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.sidebar-left span {
+  color: #666;
+}
+
+.main {
+  padding: 20px;
+}
+
+.sidebar-right {
+  padding: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 3px;
+}
+
+Now, check if this matches the image.
+
+The image's left sidebar has the links, each with a social media link. The CSS for sidebar-left li has a gap between the link and the span, which matches.
+
+The main content has the paragraph, opening hours, and note.
+
+The right sidebar has the contact info, correspondence address, company address.
+
+The footer left has the address redacted twice, Czech Republic, opening hours, and 5 blue squares.
+
+Now, let's check the responsive part. On mobile, the container becomes a single column, so the left sidebar, main content, and right sidebar stack vertically. That should work.
+
+Now, let's make sure all elements are present.
+
+The HTML structure:
+
+- Header with logo and main title.
+
+- Container with three columns.
+
+- Left sidebar with the list.
+
+- Main content.
+
+- Right sidebar with contact info.
+
+- Footer with left part.
+
+Yes.
+
+Now, the code should be correct.
+
+Let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+   .logo {
+      display: flex;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+   .vi {
+      font-size: 1.2em;
+      margin-right: 0.5em;
+    }
+
+   .per {
+      font-size: 2.5em;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin: 0;
+    }
+
+   .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+     .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+   .sidebar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+   .sidebar-left ul {
+      list-style: none;
+    }
+
+   .sidebar-left li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+   .sidebar-left a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+   .sidebar-left span {
+      color: #666;
+    }
+
+   .main {
+      padding: 20px;
+    }
+
+   .sidebar-right {
+      padding: 20px;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 0;
+    }
+
+   .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+   .social-icons {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+   .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="vi">vi</span>
+      <span class="per">per</span>
+    </div>
+    <h1>Bookstore</h1>
+  </header>
+  <div class="container">
+    <aside class="sidebar-left">
+      <ul>
+        <li><a href="#">EXHIBITIONS</a> <span>NEWSLETTER</span></li>
+        <li><a href="#">EVENTS</a> <span>FACEBOOK</span></li>
+        <li><a href="#">NEWS</a> <span>TWITTER</span></li>
+        <li><a href="#">ABOUT</a> <span>INSTAGRAM</span></li>
+      </ul>
+    </aside>
+    <main class="main">
+      <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="#">[EMAIL REDACTED]</a>.</p>
+      <h2>OPENING HOURS</h2>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <p>It opens during the gallery opening hours.</p>
+    </main>
+    <aside class="sidebar-right">
+      <h3>CONTACT</h3>
+      <p>[EMAIL REDACTED]</p>
+      <p>[PHONE REDACTED]</p>
+      <h3>CORRESPONDENCE &amp; DELIVERY ADDRESS</h3>
+      <p>[ADDRESS REDACTED]</p>
+      <p>Pernerova 293/11</p>
+      <p>186 00 Praha 8</p>
+      <p>Czech Republic</p>
+      <h3>COMPANY &amp; BILLING ADDRESS</h3>
+      <p>Ing. Jana Margoldová</p>
+      <p>Předvoj 430/22</p>
+      <p>162 00 Praha 6</p>
+      <p>Czech Republic</p>
+    </aside>
+  </div>
+  <footer>
+    <div class="footer-left">
+      <p>[ADDRESS REDACTED]</p>
+      <p>[ADDRESS REDACTED]</p>
+      <p>Czech Republic</p>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <div class="social-icons">
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <span class="icon"></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```

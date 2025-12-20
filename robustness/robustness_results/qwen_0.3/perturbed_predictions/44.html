@@ -1,0 +1,636 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. The goal is to recreate the visual design from the image exactly. First, I need to analyze the structure and elements.
+
+The image shows a dark background (probably #1a1a1a or similar). The main title is "Highland Basket Hilt Broadsword" in a golden color, centered. Then there are several blue blocks (placeholders for images) with descriptive text below each. The sections are:
+
+1. Title: "Highland Basket Hilt Broadsword" with a horizontal line under it.
+2. First blue block, then text: "This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period."
+3. Second blue block, then text about the grip: "The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars. The red woolen liner is an optional extra also."
+4. Third blue block, text: "The blade on this sword is around 32 inches in length and triple fullered."
+5. Fourth blue block (maybe the blade image?).
+6. "Gallery" section with a horizontal line, then four blue blocks in a row, labeled "SWORDS" below.
+7. "Get in touch" section with text and an email placeholder.
+
+Let's break down each part.
+
+First, the HTML structure:
+
+- A container for the whole page, maybe with a dark background.
+- The title: centered, large font, golden color, with a line below.
+- Each section: image placeholder (blue block), then text.
+- Gallery section: four image placeholders in a row, with a label below.
+- Get in touch section: text and email.
+
+Now, the colors: the background is dark (let's check the image. The background is blackish, so #1a1a1a or #000000. The text is white, the title is a golden color (maybe #d4af37 or similar). The blue blocks are a bright blue, like #0000ff.
+
+Let's note the elements:
+
+- Title: "Highland Basket Hilt Broadsword" - centered, font size maybe 2.5em, color #d4af37, with a line below (maybe a thin line, 1px, same color).
+- Each image placeholder: a div with background #0000ff, rounded corners? The image in the example is a solid blue rectangle. Let's check the image: the blue blocks are solid, no rounded corners. So just a div with background color.
+- Text below each image: white, centered? Or left-aligned? The example shows the text below the blue block, left-aligned. Let's check: the text is left-aligned, with a line break between the two sentences in the grip section.
+
+Wait, the image shows:
+
+First blue block, then text: "This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period." (single line)
+
+Second blue block, then two lines of text: "The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars. The red woolen liner is an optional extra also."
+
+Third blue block, then text: "The blade on this sword is around 32 inches in length and triple fullered."
+
+Fourth blue block (maybe the blade image), then the Gallery section.
+
+Gallery section: "Gallery" as title, then four blue blocks in a row, each same size, then "SWORDS" below.
+
+Get in touch: "Get in touch" title, then text, then email.
+
+Now, the layout:
+
+- The page is a single column, with sections stacked vertically.
+
+Let's outline the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Highland Basket Hilt Broadsword</h1>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars.</p>
+      <p>The red woolen liner is an optional extra also.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>The blade on this sword is around 32 inches in length and triple fullered.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+    </div>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+    </div>
+    <p class="gallery-label">SWORDS</p>
+    <h2>Get in touch</h2>
+    <p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+    <p class="email">[EMAIL REDACTED]</p>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+- Body: background color #1a1a1a (dark gray), font-family maybe Arial, sans-serif.
+- Container: max-width, margin: 0 auto, padding: 20px.
+- H1: text-align: center; color: #d4af37; font-size: 2.5em; margin-bottom: 20px; border-bottom: 1px solid #d4af37; padding-bottom: 10px;
+- Section: margin-bottom: 30px; 
+- Image-placeholder: background: #0000ff; width: 100%; height: 300px; margin-bottom: 15px; 
+- P: color: white; line-height: 1.5; 
+- Gallery: display: flex; justify-content: space-between; margin: 20px 0;
+- Gallery-item: background: #0000ff; width: 24%; height: 150px; margin: 0 5px; 
+- Gallery-label: text-align: center; color: #d4af37; font-size: 0.9em; margin-top: 10px;
+- Email: color: #0000ff; font-weight: bold; 
+
+Wait, let's check the image dimensions. The blue blocks in the main sections: the first one is a tall rectangle, maybe 300px height. The gallery items are four, each 24% width (so 100% / 4 = 25%, but maybe 24% for spacing). The email is in a blue block, but in the image, the email is in a blue box. Wait, the image shows the "Get in touch" section has a blue block with the email. Wait, the image shows:
+
+"Get in touch" section:
+
+Text: "If you have an idea... just get in touch with me at:"
+
+Then a blue block with "[EMAIL REDACTED]"
+
+So the email is inside a blue block. So the email element should have a background color #0000ff, and the text is white.
+
+Wait, the image shows the email as a blue block. So the email element is a div with background #0000ff, and the text is white.
+
+So in the HTML, the email part should be:
+
+<p class="email">[EMAIL REDACTED]</p>
+
+But the email is inside a blue block, so the email element should have a background color. Wait, the image shows the email as a blue rectangle. So the email element is a div with background #0000ff, and the text is white.
+
+Wait, the image shows:
+
+"Get in touch" section:
+
+Text: "If you have an idea... just get in touch with me at:"
+
+Then a blue block with "[EMAIL REDACTED]"
+
+So the email is a separate element, a blue block. So the HTML should have:
+
+<p>If you have an idea... just get in touch with me at:</p>
+<div class="email-block">
+  <p>[EMAIL REDACTED]</p>
+</div>
+
+But in the image, the email is in a blue block, so the email-block has background #0000ff, and the text is white.
+
+Wait, the image shows the email as a blue rectangle. So the email element is a div with background color, and the text is inside.
+
+So let's adjust:
+
+In the Get in touch section:
+
+<h2>Get in touch</h2>
+<p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+<div class="email-block">
+  <p>[EMAIL REDACTED]</p>
+</div>
+
+Now, the email-block should have background #0000ff, padding, etc.
+
+Now, let's check the gallery section. The image shows four blue blocks in a row, labeled "SWORDS" below. So the gallery items are four, each a blue block, then the label "SWORDS" below.
+
+So the gallery section:
+
+<h2>Gallery</h2>
+<div class="gallery">
+  <div class="gallery-item"></div>
+  <div class="gallery-item"></div>
+  <div class="gallery-item"></div>
+  <div class="gallery-item"></div>
+</div>
+<p class="gallery-label">SWORDS</p>
+
+Now, the gallery items: each is a blue block, same size, arranged in a row. So the gallery container is a flex container, items are equal width.
+
+Now, the main sections: each section has an image placeholder (blue block) and text. The text is left-aligned, with the first section having one line, the second two lines, the third one line.
+
+Now, the colors:
+
+- Background: #1a1a1a (dark gray)
+- Title color: #d4af37 (golden)
+- Image placeholders: #0000ff (blue)
+- Text color: white
+- Gallery label: #d4af37
+- Email text: white, but the email block is blue.
+
+Let's define the CSS variables for better maintainability, but since it's a simple design, maybe just use hex codes.
+
+Now, the responsive part: the page should be responsive. So the container should have max-width, and the gallery items should adjust on smaller screens.
+
+Let's set up the CSS:
+
+body {
+  background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #d4af37;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 10px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.image-placeholder {
+  background-color: #0000ff;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 15px;
+}
+
+.section p {
+  line-height: 1.5;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.gallery-item {
+  background-color: #0000ff;
+  width: 24%;
+  height: 150px;
+  margin: 0 5px;
+}
+
+.gallery-label {
+  text-align: center;
+  color: #d4af37;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.email-block {
+  background-color: #0000ff;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 4px;
+}
+
+.email-block p {
+  color: white;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  color: #d4af37;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 10px;
+}
+
+Now, check the image dimensions. The main image placeholders: the first one is 300px height. The gallery items are 150px height. The email block is a bit taller, maybe 100px.
+
+Wait, the image shows the main sections: the first blue block is a tall rectangle, maybe 300px. The gallery items are smaller, 150px. The email block is a rectangle, maybe 100px.
+
+Let's adjust the image-placeholder height to 300px, gallery-item height to 150px, email-block height to 100px.
+
+Now, the text in the sections: the first section has one line, the second two lines. So the text is left-aligned, with line breaks.
+
+Now, the "Get in touch" section: the email is in a blue block, so the email-block has background #0000ff, and the text is white.
+
+Now, let's check the gallery label: "SWORDS" is below the gallery items, centered.
+
+Now, the HTML structure:
+
+- The container holds all sections.
+- Each section (except gallery and get in touch) has an image placeholder and text.
+- The gallery section has the gallery items and the label.
+- The get in touch section has the text and email block.
+
+Now, let's write the HTML.
+
+Wait, the image shows the title "Highland Basket Hilt Broadsword" with a line under it. So the h1 has a border-bottom.
+
+The gallery section: "Gallery" is a h2, with a line under it.
+
+The get in touch section: "Get in touch" is a h2, with a line under it.
+
+Now, the email is in a blue block, so the email-block is a div with background color.
+
+Now, let's code the HTML.
+
+First, the DOCTYPE, html, head, body.
+
+In the head, the style block.
+
+Now, the body:
+
+<div class="container">
+  <h1>Highland Basket Hilt Broadsword</h1>
+  <div class="section">
+    <div class="image-placeholder"></div>
+    <p>This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period.</p>
+  </div>
+  <div class="section">
+    <div class="image-placeholder"></div>
+    <p>The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars.</p>
+    <p>The red woolen liner is an optional extra also.</p>
+  </div>
+  <div class="section">
+    <div class="image-placeholder"></div>
+    <p>The blade on this sword is around 32 inches in length and triple fullered.</p>
+  </div>
+  <div class="section">
+    <div class="image-placeholder"></div>
+  </div>
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <div class="gallery-item"></div>
+    <div class="gallery-item"></div>
+    <div class="gallery-item"></div>
+    <div class="gallery-item"></div>
+  </div>
+  <p class="gallery-label">SWORDS</p>
+  <h2>Get in touch</h2>
+  <p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+  <div class="email-block">
+    <p>[EMAIL REDACTED]</p>
+  </div>
+</div>
+
+Now, check the gallery items: four, each 24% width. On smaller screens, they should stack. So the gallery container should be a flex container with wrap.
+
+Wait, the image shows the gallery items as four in a row, so on desktop, they are side by side. On mobile, they should stack. So the gallery container should have flex-wrap: wrap.
+
+So in CSS:
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.gallery-item {
+  flex: 1 0 24%;
+  background-color: #0000ff;
+  height: 150px;
+  margin: 0 5px;
+}
+
+This way, on smaller screens, the items wrap.
+
+Now, the email-block: let's set a width, maybe 100%, and padding.
+
+Now, the text in the sections: the first section has one line, the second two lines. So the text is left-aligned, with line breaks.
+
+Now, the colors:
+
+- Background: #1a1a1a
+- Title: #d4af37
+- Image placeholders: #0000ff
+- Text: white
+- Gallery label: #d4af37
+- Email block: #0000ff, text white
+
+Now, let's check the image for the email: the email is in a blue block, so the email-block has background #0000ff, and the text is white.
+
+Now, the HTML should be valid, with all elements closed.
+
+Let's write the complete HTML.
+
+Wait, the image shows the "Get in touch" section has the email as a blue block. So the email-block is a div with background color.
+
+Now, the final HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d4af37;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #d4af37;
+      padding-bottom: 10px;
+    }
+   .section {
+      margin-bottom: 30px;
+    }
+   .image-placeholder {
+      background-color: #0000ff;
+      width: 100%;
+      height: 300px;
+      margin-bottom: 15px;
+    }
+   .section p {
+      line-height: 1.5;
+    }
+    h2 {
+      text-align: center;
+      color: #d4af37;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #d4af37;
+      padding-bottom: 10px;
+    }
+   .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+   .gallery-item {
+      flex: 1 0 24%;
+      background-color: #0000ff;
+      height: 150px;
+      margin: 0 5px;
+    }
+   .gallery-label {
+      text-align: center;
+      color: #d4af37;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+   .email-block {
+      background-color: #0000ff;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+   .email-block p {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Highland Basket Hilt Broadsword</h1>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars.</p>
+      <p>The red woolen liner is an optional extra also.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>The blade on this sword is around 32 inches in length and triple fullered.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+    </div>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+    </div>
+    <p class="gallery-label">SWORDS</p>
+    <h2>Get in touch</h2>
+    <p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+    <div class="email-block">
+      <p>[EMAIL REDACTED]</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, check if this matches the image.
+
+- The title is centered, golden, with a line.
+- Each section has a blue block (image placeholder) and text.
+- The gallery has four blue blocks, labeled "SWORDS".
+- The email is in a blue block.
+
+Yes, this should match. Now, check for any missing elements.
+
+The image shows the "Get in touch" section has the email as a blue block, which is included.
+
+The gallery items are four, each a blue block.
+
+The sections are stacked vertically.
+
+The responsive part: the gallery items wrap on smaller screens, which is handled by flex-wrap.
+
+The colors are correct.
+
+Now, the code is valid HTML5, with CSS embedded.
+
+Let's make sure there are no extra elements or missing ones.
+
+Yes, this should be the correct code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d4af37;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #d4af37;
+      padding-bottom: 10px;
+    }
+   .section {
+      margin-bottom: 30px;
+    }
+   .image-placeholder {
+      background-color: #0000ff;
+      width: 100%;
+      height: 300px;
+      margin-bottom: 15px;
+    }
+   .section p {
+      line-height: 1.5;
+    }
+    h2 {
+      text-align: center;
+      color: #d4af37;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #d4af37;
+      padding-bottom: 10px;
+    }
+   .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+   .gallery-item {
+      flex: 1 0 24%;
+      background-color: #0000ff;
+      height: 150px;
+      margin: 0 5px;
+    }
+   .gallery-label {
+      text-align: center;
+      color: #d4af37;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+   .email-block {
+      background-color: #0000ff;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+   .email-block p {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Highland Basket Hilt Broadsword</h1>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars.</p>
+      <p>The red woolen liner is an optional extra also.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+      <p>The blade on this sword is around 32 inches in length and triple fullered.</p>
+    </div>
+    <div class="section">
+      <div class="image-placeholder"></div>
+    </div>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+      <div class="gallery-item"></div>
+    </div>
+    <p class="gallery-label">SWORDS</p>
+    <h2>Get in touch</h2>
+    <p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+    <div class="email-block">
+      <p>[EMAIL REDACTED]</p>
+    </div>
+  </div>
+</body>
+</html>
+```

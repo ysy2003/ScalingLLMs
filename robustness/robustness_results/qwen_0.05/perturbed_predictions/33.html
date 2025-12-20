@@ -1,0 +1,770 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the exact visual design from the image. Let's break down the elements.
+
+Starting with the top navigation bar. The image shows a blue square on the left (maybe a logo), then navigation links: Products, Who We Are, Size Chart, Policies. On the right, a cart icon with "0 / $0.00". The background is white, and the navigation is in a light blue line below.
+
+Then the main content: the product title "THE ROSADO WRAP BRACELET" in a light blue font, price "$20.00". There's a large blue image (probably a placeholder), then a description on the right. The description has text about the bracelet, sizing info, customization note. Then a size selection (Small (S)), an "Add to Cart" button, a "SHARE" section with social icons.
+
+Let's structure the HTML:
+
+- HTML5 doctype, head with meta tags for responsiveness, title.
+- Body: top nav bar, main product section, footer.
+
+For the top nav:
+- A container with logo (blue square), nav links, cart info.
+- The nav links are in a horizontal list, cart is on the right.
+
+Main product section:
+- Product title (h1), price (h2 or span).
+- Left: large image (blue rectangle), then two smaller blue rectangles below (maybe thumbnails).
+- Right: product description, size selector, add to cart button, share section.
+
+Styling:
+- Use CSS to make it responsive. The main container should be a max-width, centered.
+- Colors: the main text color is a light blue (maybe #4fc3f7 or similar), background white.
+- The blue squares: the main image is a large blue rectangle, thumbnails are smaller blue rectangles.
+- Navigation bar: top bar with a light blue line (border-bottom) maybe.
+
+Let's check the image details:
+
+Top bar:
+- Left: blue square (logo). Let's make it 50x50.
+- Nav links: Products, Who We Are, Size Chart, Policies. These are in a horizontal list, spaced out.
+- Right: cart info "0 / $0.00" in light blue.
+
+Main product:
+- Title: "THE ROSADO WRAP BRACELET" in uppercase, light blue, centered.
+- Price: "$20.00" below title, same color.
+- Left side: large blue rectangle (width 60%, height 400px maybe), then two smaller blue rectangles (width 20% each, height 50px) below.
+- Right side: description text, size selector (input or button), add to cart button, share section.
+
+Description text:
+- "Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!"
+- "This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $20.00 each."
+- "**For sizing measurements, please refer to the Size Chart Page.**"
+- "**This bracelet can be customized with silver spacers.**"
+
+Size selector: "Small (S)" in a box, maybe a select dropdown or a button.
+
+Add to Cart: a button with text.
+
+Share section: "SHARE" in uppercase, then three social icons (maybe square placeholders).
+
+Footer: "bigcartel" on the left, "Home" and "Contact" on the right.
+
+Now, let's code step by step.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rosado Wrap Bracelet</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <header>
+    <div class="container">
+      <div class="logo"> <!-- Blue square logo -->
+        <div class="logo-square"></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Who We Are</a></li>
+          <li><a href="#">Size Chart</a></li>
+          <li><a href="#">Policies</a></li>
+        </ul>
+      </nav>
+      <div class="cart-info">0 / $0.00</div>
+    </div>
+  </header>
+
+  <!-- Main product section -->
+  <main class="product-container">
+    <div class="product-header">
+      <h1>THE ROSADO WRAP BRACELET</h1>
+      <h2>$20.00</h2>
+    </div>
+    <div class="product-content">
+      <div class="product-image">
+        <div class="main-image"></div>
+        <div class="thumbnail-1"></div>
+        <div class="thumbnail-2"></div>
+      </div>
+      <div class="product-details">
+        <p>Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!</p>
+        <p>This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $20.00 each.</p>
+        <p><strong>**For sizing measurements, please refer to the Size Chart Page.**</strong></p>
+        <p><strong>**This bracelet can be customized with silver spacers.**</strong></p>
+        <div class="size-selector">
+          <select>
+            <option>Small (S)</option>
+          </select>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <div class="share-section">
+          <h3>SHARE</h3>
+          <div class="social-icons">
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-left">bigcartel</div>
+      <div class="footer-right">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS. Need to make it responsive.
+
+First, reset some margins/paddings.
+
+Set the body to have a font, maybe Arial, sans-serif.
+
+Top navigation:
+- Container with max-width, centered.
+- Logo square: 50x50, blue (maybe #0056b3).
+- Nav links: inline-block, padding, color light blue.
+- Cart info: right-aligned, same color.
+
+Product header:
+- Title: text-align center, font size large, color light blue.
+- Price: below title, same color.
+
+Product content:
+- Two columns: left for images, right for details.
+- Images: main image is large, thumbnails below.
+- Details: text, size selector, add to cart button, share section.
+
+Styling for the blue squares: the main image, thumbnails, and the logo.
+
+Let's define the colors:
+
+- Primary color: #0056b3 (dark blue for the squares)
+- Text color: #4fc3f7 (light blue)
+
+But in the image, the text is light blue, the squares are blue.
+
+Let's set:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  border-bottom: 1px solid #e0f7fa;
+  padding: 10px 0;
+}
+
+.logo-square {
+  width: 50px;
+  height: 50px;
+  background-color: #0056b3;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cart-info {
+  color: #4fc3f7;
+  float: right;
+}
+
+.product-header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.product-header h1 {
+  font-size: 2.5rem;
+  color: #4fc3f7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-header h2 {
+  font-size: 1.5rem;
+  color: #4fc3f7;
+  margin-top: 10px;
+}
+
+.product-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  background-color: #0056b3;
+  display: block;
+}
+
+.thumbnail-1,.thumbnail-2 {
+  width: 100%;
+  height: 50px;
+  background-color: #0056b3;
+  display: block;
+  margin-top: 10px;
+}
+
+.product-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+.product-details p {
+  color: #4fc3f7;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.product-details p strong {
+  color: #4fc3f7;
+}
+
+.size-selector {
+  margin: 15px 0;
+}
+
+.size-selector select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e0f7fa;
+  background-color: #ffffff;
+  color: #4fc3f7;
+  font-family: Arial, sans-serif;
+}
+
+.add-to-cart {
+  background-color: #ffffff;
+  border: 1px solid #e0f7fa;
+  color: #4fc3f7;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.share-section {
+  margin-top: 20px;
+}
+
+.share-section h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4fc3f7;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #e0f7fa;
+  border: 1px solid #e0f7fa;
+  display: inline-block;
+}
+
+footer {
+  border-top: 1px solid #e0f7fa;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer-left {
+  float: left;
+}
+
+.footer-right {
+  float: right;
+}
+
+.footer-right a {
+  color: #4fc3f7;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+Now, check responsiveness. For mobile, the product content should stack. So use flex-wrap: wrap, and adjust widths.
+
+Also, the top nav: on mobile, maybe the nav links stack, but the image doesn't show mobile, so maybe just make it responsive with max-width.
+
+Let's adjust the container to be 100% width, and the product content to have a max-width.
+
+Wait, the image shows a desktop layout, so the CSS should be responsive for all screen sizes.
+
+Let's add media queries for mobile.
+
+For example, on mobile, the product content should be a single column.
+
+But the problem says "responsive CSS", so we need to make sure it's responsive.
+
+Let's adjust the product-content to have a max-width, and on small screens, the images and details stack.
+
+Wait, the product-content is a flex container. On mobile, the flex-wrap: wrap will make them stack.
+
+But let's check the image: the main image is on the left, details on the right. On mobile, it should be one column.
+
+So the CSS for product-content:
+
+.product-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+On mobile, the images and details will stack.
+
+Also, the top nav: on mobile, the nav links should be in a column, but the image doesn't show that, so maybe the design is for desktop, but the task says responsive, so we need to handle mobile.
+
+Let's add a media query for max-width 768px.
+
+@media (max-width: 768px) {
+ .product-content {
+    flex-direction: column;
+  }
+ .product-image,.product-details {
+    width: 100%;
+  }
+}
+
+Also, the logo and nav: on mobile, the nav links might need to be stacked, but the image shows a horizontal nav, so maybe the design is for desktop, but the task says responsive, so we need to make it work on mobile.
+
+Wait, the image shows a desktop layout, but the task says "responsive CSS", so we need to make it work on all devices.
+
+Let's adjust the top nav to have a mobile menu, but the image doesn't show that. The image's top nav is horizontal, so maybe the design is for desktop, but the CSS should be responsive.
+
+Alternatively, the design is a desktop layout, but the CSS should be responsive, so the elements should adjust.
+
+Let's proceed with the CSS as above, adding media queries for mobile.
+
+Now, check the elements:
+
+- The logo square: 50x50, blue.
+- Nav links: Products, Who We Are, Size Chart, Policies. In the image, they are in a horizontal line, so the CSS for nav ul should be inline-block, with margin.
+
+- Cart info: "0 / $0.00" on the right.
+
+- Product title: "THE ROSADO WRAP BRACELET" in uppercase, light blue.
+
+- Price: "$20.00" below.
+
+- Main image: large blue rectangle.
+
+- Thumbnails: two smaller blue rectangles below the main image.
+
+- Product details: text, size selector, add to cart button, share section.
+
+- Share section: "SHARE" and three social icons.
+
+- Footer: "bigcartel" on left, Home and Contact on right.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows the main image as a large blue rectangle, then two smaller blue rectangles below it. So the product-image div has the main-image (400px height), then thumbnail-1 and thumbnail-2 (50px height) below.
+
+In the CSS, the main-image is 400px height, thumbnails are 50px.
+
+Also, the product-details has the text, size selector, etc.
+
+Let's make sure the HTML structure matches.
+
+Now, let's write the complete HTML with embedded CSS.
+
+Check for any missing elements:
+
+- The "bigcartel" in the footer: the image shows "bigcartel" on the bottom left.
+
+- The social icons: three squares, so three.social-icon elements.
+
+- The size selector: "Small (S)" in a select dropdown.
+
+- The add to cart button: "Add to Cart".
+
+- The text in product details: the description text as in the image.
+
+Now, let's code the HTML.
+
+Wait, the image shows the product title as "THE ROSADO WRAP BRACELET", which is in uppercase, so the h1 should have text-transform: uppercase.
+
+The price is "$20.00", so h2.
+
+The product details text: the first paragraph is "Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!"
+
+Then the next paragraph: "This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $20.00 each."
+
+Then the two bolded lines with asterisks.
+
+The size selector: "Small (S)".
+
+Add to Cart button.
+
+Share section: "SHARE" and three social icons.
+
+Footer: "bigcartel" on left, "Home" and "Contact" on right.
+
+Now, let's put it all together.
+
+Make sure the HTML is valid, all tags closed.
+
+Check the CSS for responsiveness.
+
+Let's write the code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rosado Wrap Bracelet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #4fc3f7;
+      background-color: #ffffff;
+      padding: 0;
+      margin: 0;
+    }
+
+   .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      border-bottom: 1px solid #e0f7fa;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+   .logo {
+      display: flex;
+      align-items: center;
+    }
+
+   .logo-square {
+      width: 50px;
+      height: 50px;
+      background-color: #0056b3;
+      margin-right: 15px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #4fc3f7;
+      font-weight: 500;
+    }
+
+   .cart-info {
+      font-weight: 500;
+      color: #4fc3f7;
+    }
+
+   .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 30px 0;
+      gap: 30px;
+    }
+
+   .product-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+   .product-header h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+   .product-header h2 {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+
+   .product-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+   .product-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+   .main-image {
+      width: 100%;
+      height: 400px;
+      background-color: #0056b3;
+      display: block;
+    }
+
+   .thumbnail-1,.thumbnail-2 {
+      width: 100%;
+      height: 50px;
+      background-color: #0056b3;
+      display: block;
+      margin-top: 10px;
+    }
+
+   .product-details {
+      flex: 1;
+      min-width: 300px;
+    }
+
+   .product-details p {
+      margin-bottom: 15px;
+    }
+
+   .product-details p strong {
+      color: #4fc3f7;
+    }
+
+   .size-selector {
+      margin: 15px 0;
+    }
+
+   .size-selector select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #e0f7fa;
+      background-color: #ffffff;
+      color: #4fc3f7;
+      font-family: Arial, sans-serif;
+    }
+
+   .add-to-cart {
+      background-color: #ffffff;
+      border: 1px solid #e0f7fa;
+      color: #4fc3f7;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+   .share-section {
+      margin-top: 20px;
+    }
+
+   .share-section h3 {
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+   .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+   .social-icon {
+      width: 40px;
+      height: 40px;
+      background-color: #e0f7fa;
+      border: 1px solid #e0f7fa;
+      display: inline-block;
+    }
+
+    footer {
+      border-top: 1px solid #e0f7fa;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+   .footer-left {
+      float: left;
+    }
+
+   .footer-right {
+      float: right;
+    }
+
+   .footer-right a {
+      color: #4fc3f7;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+     .product-content {
+        flex-direction: column;
+      }
+     .product-image,.product-details {
+        width: 100%;
+      }
+      nav ul {
+        gap: 10px;
+      }
+     .product-header h1 {
+        font-size: 2rem;
+      }
+     .product-header h2 {
+        font-size: 1.2rem;
+      }
+     .main-image {
+        height: 300px;
+      }
+     .thumbnail-1,.thumbnail-2 {
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <div class="logo-square"></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Who We Are</a></li>
+          <li><a href="#">Size Chart</a></li>
+          <li><a href="#">Policies</a></li>
+        </ul>
+      </nav>
+      <div class="cart-info">0 / $0.00</div>
+    </div>
+  </header>
+
+  <main class="product-container">
+    <div class="product-header">
+      <h1>THE ROSADO WRAP BRACELET</h1>
+      <h2>$20.00</h2>
+    </div>
+    <div class="product-content">
+      <div class="product-image">
+        <div class="main-image"></div>
+        <div class="thumbnail-1"></div>
+        <div class="thumbnail-2"></div>
+      </div>
+      <div class="product-details">
+        <p>Dyed pink wooden tube beads, 4mm turquoise beads, & gold pewter spacers strung on elastic cord to create a quadruple wrap!</p>
+        <p>This listing is for one wrap bracelet. Each wrap bracelet is sold individually at $20.00 each.</p>
+        <p><strong>**For sizing measurements, please refer to the Size Chart Page.**</strong></p>
+        <p><strong>**This bracelet can be customized with silver spacers.**</strong></p>
+        <div class="size-selector">
+          <select>
+            <option>Small (S)</option>
+          </select>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <div class="share-section">
+          <h3>SHARE</h3>
+          <div class="social-icons">
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">bigcartel</div>
+      <div class="footer-right">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```

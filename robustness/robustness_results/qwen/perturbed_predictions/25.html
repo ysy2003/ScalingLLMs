@@ -1,0 +1,970 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML and CSS exactly. Let's break down the elements.
+
+The page has a header with a tagline: "Specializing in Energy Efficient Solutions for Buildings" in red. Then a navigation bar with links: About Us, Our Focus, Projects (highlighted), Clients.
+
+On the left, there's a sidebar with a list of projects. The main content is about the Morris and Helen Belkin Art Gallery project. There's a blue placeholder image, then client info, and a description.
+
+Let's structure the HTML:
+
+- HTML5 doctype, head with meta tags for responsiveness, title, and style block.
+- Body with header, main, and footer.
+
+Header:
+- A div for the tagline, centered, red text.
+- Navigation bar with links. The Projects link is bolded (maybe red? In the image, Projects is red, others are black).
+
+Sidebar (left):
+- A list of project categories. The "Institutional" is highlighted (red). The current project is "UBC Art Gallery Humidification System Upgrade" which is red in the image.
+
+Main content:
+- Project title: "Morris and Helen Belkin Art Gallery Humidification System Upgrade Project" (bold, large font)
+- Blue image (placeholder)
+- Client info: Client: University of British Columbia, Venue:..., Year: 2007, Type: Institutional
+- Description paragraph.
+
+Footer:
+- Contact info (redacted), and links to About Us, Our Focus, Projects, Clients. Copyright info.
+
+Now, CSS considerations:
+
+- Responsive design: use flexbox or grid for layout. The main content and sidebar should be side by side on larger screens, stacked on mobile.
+- Colors: red for certain elements (tagline, Projects link, Institutional in sidebar, client info maybe? Wait, in the image, the tagline is red, Projects link is red, Institutional in sidebar is red, and the contact section has red text for "Email us at" etc. Wait, the image shows "Email us at [EMAIL REDACTED]" in red? Wait, no, the image's contact section: "Email us at [EMAIL REDACTED] Or give us a call at [PHONE REDACTED]" – the text "Email us at" and "Or give us a call at" are in red? Let me check the image.
+
+Looking at the image:
+
+- The tagline "Specializing in Energy Efficient Solutions for Buildings" is red.
+- Navigation: "Projects" is red, others black.
+- Sidebar: "Institutional" is red, others black.
+- Contact section: "Email us at" and "Or give us a call at" are in red? Wait, the image shows "DO YOU HAVE A QUESTION FOR US?" in bold, then "Email us at [EMAIL REDACTED]" – the "Email us at" is red, and the [EMAIL REDACTED] is black. Similarly for phone.
+
+Wait, the image's contact box: "Email us at [EMAIL REDACTED] Or give us a call at [PHONE REDACTED]" – the "Email us at" and "Or give us a call at" are in red, while the redacted parts are black.
+
+Also, the project title is bold, large font.
+
+Let's outline the structure:
+
+1. Header:
+   - Tagline: centered, red, font size maybe 1.2em.
+   - Navigation: horizontal menu, with Projects highlighted (red, bold).
+
+2. Main content area:
+   - Sidebar (left): list of project categories. The current category is "Institutional" (red), others black. The project list items: "All Projects", "Health Care", "Government", "Institutional", "VCHA - Hybrid Heat Recovery Systems", "Schools District 35 - Continuous Optimization and Power Factor Correction", "UBC Art Gallery Humidification System Upgrade" (this is the current project, so it's red).
+
+   - Main content (right):
+     - Project title: "Morris and Helen Belkin Art Gallery Humidification System Upgrade Project" (bold, large font)
+     - Blue image (a div with background blue, maybe 600x400px)
+     - Client info: Client:..., Venue:..., Year:..., Type: Institutional (bold labels)
+     - Description paragraph.
+
+3. Footer:
+   - Contact info (redacted) in a box, with "DO YOU HAVE A QUESTION FOR US?" above it.
+   - Footer links: About Us, Our Focus, Projects, Clients.
+   - Copyright info.
+
+Now, let's code step by step.
+
+First, HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tagline">Specializing in Energy Efficient Solutions for Buildings</div>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Focus</a></li>
+        <li><a href="#" class="active">Projects</a></li>
+        <li><a href="#">Clients</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="#">All Projects</a></li>
+          <li><a href="#">Health Care</a></li>
+          <li><a href="#">Government</a></li>
+          <li><a href="#" class="active">Institutional</a></li>
+          <li><a href="#">VCHA - Hybrid Heat Recovery Systems</a></li>
+          <li><a href="#">Schools District 35 - Continuous Optimization and Power Factor Correction</a></li>
+          <li><a href="#" class="active">UBC Art Gallery Humidification System Upgrade</a></li>
+        </ul>
+      </aside>
+
+      <article class="main-content">
+        <h1>Morris and Helen Belkin Art Gallery Humidification System Upgrade Project</h1>
+        <div class="image-placeholder" style="background-color: #0000FF; width: 600px; height: 400px;"></div>
+        <div class="project-details">
+          <p><strong>Client:</strong> University of British Columbia</p>
+          <p><strong>Venue:</strong> Morris and Helen Belkin Art Gallery</p>
+          <p><strong>Year:</strong> 2007</p>
+          <p><strong>Type:</strong> Institutional</p>
+        </div>
+        <p>This project began with a review of the existing humidification system design problems and determination of causes and the development of some redesign options. An option to replace 5 of the 8 zone humidifiers with new electric pan humidifiers was selected to replace the failing - oversized steam to steam units.</p>
+        <p>A dew-point temperature control scheme will be used to ensure tight RH control under variable conditions to well within +/- 1%RH. The new equipment was installed in March 2007.</p>
+        <p>Many thanks to UBCH staff and also to Chris Malloy at Square M for the great service and pricing for the Dristeem equipment.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contact-box">
+      <h2>DO YOU HAVE A QUESTION FOR US?</h2>
+      <div class="contact-info">
+        <p><span style="color: #c00;">Email us at</span> [EMAIL REDACTED]</p>
+        <p><span style="color: #c00;">Or give us a call at</span> [PHONE REDACTED]</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About Us</a> | <a href="#">Our Focus</a> | <a href="#">Projects</a> | <a href="#">Clients</a>
+    </div>
+    <div class="copyright">
+      © 2023 E-Factor Engineering, Incorporated<br>
+      Website Design by Eggbeater Creative Inc. | Powered By Vortex
+    </div>
+  </footer>
+</body>
+</html>
+
+Wait, but the image shows the contact box with "Email us at [EMAIL REDACTED]" and "Or give us a call at [PHONE REDACTED]" – the "Email us at" and "Or give us a call at" are in red. So in the CSS, we need to style those spans as red.
+
+Also, the sidebar's "Institutional" and "UBC Art Gallery..." are red. The navigation's "Projects" is red.
+
+Let's adjust the CSS:
+
+- The tagline is red: color: #c00;
+- Navigation: active link (Projects) is red, others black.
+- Sidebar: active items (Institutional, UBC Art Gallery) are red.
+- Contact info: "Email us at" and "Or give us a call at" are red.
+
+Also, the layout: on mobile, the sidebar and main content should stack. So use flexbox with wrap.
+
+Let's structure the CSS:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  background: #f5f5f5;
+  padding: 15px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 15px;
+}
+
+.image-placeholder {
+  background-color: #0000FF;
+  margin: 20px 0;
+}
+
+.project-details {
+  margin-bottom: 20px;
+}
+
+.contact-box {
+  background: #e0e0e0;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info span {
+  color: #c00;
+}
+
+.footer-links {
+  margin: 10px 0;
+}
+
+.tagline {
+  text-align: center;
+  color: #c00;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+nav ul li a.active {
+  color: #c00;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.sidebar ul li a.active {
+  color: #c00;
+}
+
+.sidebar ul li a:hover {
+  color: #c00;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  color: #666;
+  font-size: 0.9em;
+}
+
+Now, check the image for specific elements:
+
+- The sidebar has "Institutional" as active (red), and "UBC Art Gallery..." as active (red). So in the sidebar, the "Institutional" and "UBC Art Gallery..." links have class "active".
+
+- The main content's project title is bold, large font.
+
+- The image placeholder is blue, 600x400.
+
+- The client info has bold labels (Client:, Venue:, etc.)
+
+- The contact box has "DO YOU HAVE A QUESTION FOR US?" in bold.
+
+- The footer has links and copyright.
+
+Let's adjust the HTML to match:
+
+In the sidebar, the "Institutional" and "UBC Art Gallery..." are active, so they have class "active".
+
+In the navigation, "Projects" is active.
+
+In the contact info, the spans are red.
+
+Now, let's code the HTML with these classes.
+
+Wait, the image shows the sidebar with "Institutional" highlighted (red), and the current project is "UBC Art Gallery Humidification System Upgrade" which is also red. So both the category and the project link are red.
+
+In the sidebar, the list items:
+
+- All Projects (black)
+- Health Care (black)
+- Government (black)
+- Institutional (red)
+- VCHA... (black)
+- Schools District... (black)
+- UBC Art Gallery... (red)
+
+So the sidebar's "Institutional" and "UBC Art Gallery..." have class "active".
+
+Similarly, the navigation's "Projects" is active.
+
+Now, let's write the HTML with these classes.
+
+Also, the image placeholder is a blue rectangle. In the image, it's a solid blue, so we can use a div with background-color: #0000FF.
+
+Now, the footer:
+
+- The contact box has "DO YOU HAVE A QUESTION FOR US?" in bold.
+
+- The contact info: "Email us at [EMAIL REDACTED]" and "Or give us a call at [PHONE REDACTED]" – the "Email us at" and "Or give us a call at" are red.
+
+- Footer links: About Us | Our Focus | Projects | Clients
+
+- Copyright: © 2023 E-Factor Engineering, Incorporated<br>Website Design by Eggbeater Creative Inc. | Powered By Vortex
+
+Now, let's structure the HTML.
+
+Let's check the image's layout:
+
+- Header: tagline, navigation.
+
+- Main: sidebar (left) and main content (right).
+
+- Footer: contact box, links, copyright.
+
+Now, the CSS for responsiveness:
+
+On mobile, the sidebar and main content should stack. So the container uses flex-wrap: wrap, and the sidebar has a fixed width (e.g., 250px) on larger screens, but on mobile, it's 100%.
+
+Wait, the image shows the sidebar on the left, main content on the right. So for desktop, two columns; for mobile, one column.
+
+So the container should have:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  /* on mobile, it's 100% */
+}
+
+.main-content {
+  flex: 1;
+}
+
+But for mobile, the sidebar should take 100% width. So using media queries.
+
+Wait, the problem says "responsive CSS", so we need to handle mobile.
+
+Let's add a media query for max-width: 768px.
+
+@media (max-width: 768px) {
+ .container {
+    flex-direction: column;
+  }
+ .sidebar {
+    flex: 1;
+  }
+}
+
+But let's check the image: the sidebar is on the left, main content on the right. On mobile, it's stacked.
+
+So the CSS should have:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  background: #f5f5f5;
+  padding: 15px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+ .container {
+    flex-direction: column;
+  }
+ .sidebar {
+    flex: 1;
+  }
+}
+
+Now, let's code the HTML and CSS.
+
+Let's start with the HTML structure.
+
+Header:
+
+- Tagline: "Specializing in Energy Efficient Solutions for Buildings" – centered, red.
+
+- Navigation: links, Projects is active (red).
+
+Sidebar:
+
+- List of project categories, with Institutional and UBC Art Gallery as active.
+
+Main content:
+
+- Project title.
+
+- Blue image.
+
+- Client info.
+
+- Description.
+
+Footer:
+
+- Contact box with "DO YOU HAVE A QUESTION FOR US?" and contact info.
+
+- Footer links.
+
+- Copyright.
+
+Now, let's write the code.
+
+First, the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tagline">Specializing in Energy Efficient Solutions for Buildings</div>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Focus</a></li>
+        <li><a href="#" class="active">Projects</a></li>
+        <li><a href="#">Clients</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="#">All Projects</a></li>
+          <li><a href="#">Health Care</a></li>
+          <li><a href="#">Government</a></li>
+          <li><a href="#" class="active">Institutional</a></li>
+          <li><a href="#">VCHA - Hybrid Heat Recovery Systems</a></li>
+          <li><a href="#">Schools District 35 - Continuous Optimization and Power Factor Correction</a></li>
+          <li><a href="#" class="active">UBC Art Gallery Humidification System Upgrade</a></li>
+        </ul>
+      </aside>
+
+      <article class="main-content">
+        <h1>Morris and Helen Belkin Art Gallery Humidification System Upgrade Project</h1>
+        <div class="image-placeholder" style="background-color: #0000FF; width: 600px; height: 400px;"></div>
+        <div class="project-details">
+          <p><strong>Client:</strong> University of British Columbia</p>
+          <p><strong>Venue:</strong> Morris and Helen Belkin Art Gallery</p>
+          <p><strong>Year:</strong> 2007</p>
+          <p><strong>Type:</strong> Institutional</p>
+        </div>
+        <p>This project began with a review of the existing humidification system design problems and determination of causes and the development of some redesign options. An option to replace 5 of the 8 zone humidifiers with new electric pan humidifiers was selected to replace the failing - oversized steam to steam units.</p>
+        <p>A dew-point temperature control scheme will be used to ensure tight RH control under variable conditions to well within +/- 1%RH. The new equipment was installed in March 2007.</p>
+        <p>Many thanks to UBCH staff and also to Chris Malloy at Square M for the great service and pricing for the Dristeem equipment.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contact-box">
+      <h2>DO YOU HAVE A QUESTION FOR US?</h2>
+      <div class="contact-info">
+        <p><span style="color: #c00;">Email us at</span> [EMAIL REDACTED]</p>
+        <p><span style="color: #c00;">Or give us a call at</span> [PHONE REDACTED]</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About Us</a> | <a href="#">Our Focus</a> | <a href="#">Projects</a> | <a href="#">Clients</a>
+    </div>
+    <div class="copyright">
+      © 2023 E-Factor Engineering, Incorporated<br>
+      Website Design by Eggbeater Creative Inc. | Powered By Vortex
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Tagline: color #c00, centered.
+
+- Navigation: list-style none, flex, center, active link red.
+
+- Sidebar: background #f5f5f5, padding, list-style none, active items red.
+
+- Main content: image placeholder blue, project details bold.
+
+- Contact info: spans red.
+
+- Footer: links, copyright.
+
+Let's write the CSS:
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+  }
+
+ .tagline {
+    text-align: center;
+    color: #c00;
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    margin: 0 10px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  nav ul li a.active {
+    color: #c00;
+  }
+
+ .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+  }
+
+ .sidebar {
+    flex: 0 0 250px;
+    background: #f5f5f5;
+    padding: 15px;
+  }
+
+ .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+ .sidebar ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+ .sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+ .sidebar ul li a.active {
+    color: #c00;
+  }
+
+ .sidebar ul li a:hover {
+    color: #c00;
+  }
+
+ .main-content {
+    flex: 1;
+    padding: 15px;
+  }
+
+ .main-content h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+ .image-placeholder {
+    background-color: #0000FF;
+    margin: 20px 0;
+    width: 600px;
+    height: 400px;
+  }
+
+ .project-details {
+    margin-bottom: 20px;
+  }
+
+ .project-details p {
+    margin: 5px 0;
+  }
+
+ .project-details p strong {
+    color: #000;
+    font-weight: bold;
+  }
+
+ .contact-box {
+    background: #e0e0e0;
+    padding: 15px;
+    margin: 20px 0;
+  }
+
+ .contact-box h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+ .contact-info p {
+    margin: 10px 0;
+  }
+
+ .contact-info span {
+    color: #c00;
+  }
+
+ .footer-links {
+    margin: 10px 0;
+  }
+
+ .footer-links a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+ .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+ .copyright {
+    color: #666;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+   .container {
+      flex-direction: column;
+    }
+   .sidebar {
+      flex: 1;
+    }
+  }
+</style>
+
+Wait, but the image shows the sidebar on the left, main content on the right. The CSS for the container uses flex-wrap: wrap, which is correct.
+
+Now, check the image for specific elements:
+
+- The sidebar's "Institutional" and "UBC Art Gallery..." are red. In the CSS, the sidebar ul li a.active has color #c00, which is red.
+
+- The navigation's "Projects" is red.
+
+- The contact info spans are red.
+
+- The project title is bold.
+
+- The image placeholder is blue.
+
+- The client info has bold labels.
+
+- The footer links are separated by |.
+
+- The copyright text is as in the image.
+
+Now, let's check if all elements are present.
+
+Yes, the HTML structure matches the image.
+
+Now, the code should be valid HTML5, with all tags closed.
+
+Let's make sure there are no extra spaces or missing tags.
+
+The final code should start with ```html and end with ```.
+
+Let's write the complete code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+   .tagline {
+      text-align: center;
+      color: #c00;
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    nav ul li a.active {
+      color: #c00;
+    }
+
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 20px;
+    }
+
+   .sidebar {
+      flex: 0 0 250px;
+      background: #f5f5f5;
+      padding: 15px;
+    }
+
+   .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+   .sidebar ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+   .sidebar ul li a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+   .sidebar ul li a.active {
+      color: #c00;
+    }
+
+   .sidebar ul li a:hover {
+      color: #c00;
+    }
+
+   .main-content {
+      flex: 1;
+      padding: 15px;
+    }
+
+   .main-content h1 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+   .image-placeholder {
+      background-color: #0000FF;
+      margin: 20px 0;
+      width: 600px;
+      height: 400px;
+    }
+
+   .project-details {
+      margin-bottom: 20px;
+    }
+
+   .project-details p {
+      margin: 5px 0;
+    }
+
+   .project-details p strong {
+      color: #000;
+      font-weight: bold;
+    }
+
+   .contact-box {
+      background: #e0e0e0;
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+   .contact-box h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+   .contact-info p {
+      margin: 10px 0;
+    }
+
+   .contact-info span {
+      color: #c00;
+    }
+
+   .footer-links {
+      margin: 10px 0;
+    }
+
+   .footer-links a {
+      color: #000;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+   .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+   .copyright {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+     .container {
+        flex-direction: column;
+      }
+     .sidebar {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tagline">Specializing in Energy Efficient Solutions for Buildings</div>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Focus</a></li>
+        <li><a href="#" class="active">Projects</a></li>
+        <li><a href="#">Clients</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="#">All Projects</a></li>
+          <li><a href="#">Health Care</a></li>
+          <li><a href="#">Government</a></li>
+          <li><a href="#" class="active">Institutional</a></li>
+          <li><a href="#">VCHA - Hybrid Heat Recovery Systems</a></li>
+          <li><a href="#">Schools District 35 - Continuous Optimization and Power Factor Correction</a></li>
+          <li><a href="#" class="active">UBC Art Gallery Humidification System Upgrade</a></li>
+        </ul>
+      </aside>
+
+      <article class="main-content">
+        <h1>Morris and Helen Belkin Art Gallery Humidification System Upgrade Project</h1>
+        <div class="image-placeholder"></div>
+        <div class="project-details">
+          <p><strong>Client:</strong> University of British Columbia</p>
+          <p><strong>Venue:</strong> Morris and Helen Belkin Art Gallery</p>
+          <p><strong>Year:</strong> 2007</p>
+          <p><strong>Type:</strong> Institutional</p>
+        </div>
+        <p>This project began with a review of the existing humidification system design problems and determination of causes and the development of some redesign options. An option to replace 5 of the 8 zone humidifiers with new electric pan humidifiers was selected to replace the failing - oversized steam to steam units.</p>
+        <p>A dew-point temperature control scheme will be used to ensure tight RH control under variable conditions to well within +/- 1%RH. The new equipment was installed in March 2007.</p>
+        <p>Many thanks to UBCH staff and also to Chris Malloy at Square M for the great service and pricing for the Dristeem equipment.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contact-box">
+      <h2>DO YOU HAVE A QUESTION FOR US?</h2>
+      <div class="contact-info">
+        <p><span style="color: #c00;">Email us at</span> [EMAIL REDACTED]</p>
+        <p><span style="color: #c00;">Or give us a call at</span> [PHONE REDACTED]</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About Us</a> | <a href="#">Our Focus</a> | <a href="#">Projects</a> | <a href="#">Clients</a>
+    </div>
+    <div class="copyright">
+      © 2023 E-Factor Engineering, Incorporated<br>
+      Website Design by Eggbeater Creative Inc. | Powered By Vortex
+    </div>
+  </footer>
+</body>
+</html>
+```

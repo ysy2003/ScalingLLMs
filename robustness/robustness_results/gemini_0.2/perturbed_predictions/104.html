@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy M&Ms Easter Individual Parfaits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .button {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto; /* Pushes checkboxes to the right */
+        }
+
+        .checkbox-group label {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+
+        .serving-controls {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-top: 15px;
+            width: 100%; /* Take full width on smaller screens */
+        }
+
+        .serving-controls .button {
+            border-radius: 0;
+            padding: 8px 12px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .serving-controls .button:first-of-type {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .serving-controls .button:last-of-type {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .serving-controls input[type="number"] {
+            width: 40px;
+            padding: 8px 5px;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+            font-size: 14px;
+            -moz-appearance: textfield; /* Hide spinner for Firefox */
+        }
+
+        .serving-controls input[type="number"]::-webkit-outer-spin-button,
+        .serving-controls input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none; /* Hide spinner for Chrome/Safari */
+            margin: 0;
+        }
+
+        .serving-controls span {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .size-buttons {
+            display: flex;
+            margin-left: auto; /* Pushes size buttons to the right */
+            margin-top: 15px;
+        }
+
+        .size-buttons .button {
+            border-radius: 0;
+            border-left: none;
+        }
+
+        .size-buttons .button:first-of-type {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-left: 1px solid #ccc;
+        }
+
+        .size-buttons .button:last-of-type {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .size-buttons .button.selected {
+            background-color: #666;
+            color: #fff;
+            border-color: #666;
+        }
+
+        .size-buttons .button.selected:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .recipe-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 8px 20px;
+            margin-bottom: 30px;
+        }
+
+        .recipe-details strong {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .recipe-details span {
+            text-align: left;
+        }
+
+        .image-rating-container {
+            float: right;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .image-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            margin-bottom: 5px;
+        }
+
+        .rating-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 8px;
+        }
+
+        ul ul {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .ingredients-list strong {
+            font-weight: bold;
+        }
+
+        .nutrition-info {
+            font-size: 14px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        .nutrition-info strong {
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .header-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .checkbox-group, .size-buttons {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .serving-controls {
+                flex-wrap: wrap;
+            }
+            .serving-controls span {
+                margin-left: 0;
+                margin-top: 5px;
+                width: 100%;
+            }
+            .image-rating-container {
+                float: none;
+                margin: 20px auto;
+                width: fit-content;
+            }
+            .recipe-details {
+                grid-template-columns: 1fr; /* Stack on small screens */
+            }
+            .recipe-details strong {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-controls">
+            <a href="#" class="button">Go Back</a>
+            <a href="#" class="button">Print</a>
+            <div class="checkbox-group">
+                <label><input type="checkbox" checked> Recipe Image</label>
+                <label><input type="checkbox" checked> Nutrition Label</label>
+            </div>
+            <div class="serving-controls">
+                <button class="button">-</button>
+                <input type="number" value="4" min="1">
+                <button class="button">+</button>
+                <span>servings</span>
+            </div>
+            <div class="size-buttons">
+                <button class="button">Smaller</button>
+                <button class="button selected">Normal</button>
+                <button class="button">Larger</button>
+            </div>
+        </div>
+
+        <div class="image-rating-container">
+            <div class="image-placeholder"></div>
+            <p class="rating-text">5 from 1 vote</p>
+        </div>
+
+        <h1>Easy M&Ms Easter Individual Parfaits</h1>
+        <p class="description">A delicious and easy to make Easter dessert</p>
+
+        <div class="recipe-details">
+            <strong>Course</strong><span>Dessert</span>
+            <strong>Cuisine</strong><span>American</span>
+            <strong>Keyword</strong><span>Easter, parfait</span>
+            <strong>Prep Time</strong><span>10 minutes</span>
+            <strong>Cook Time</strong><span>0 minutes</span>
+            <strong>Total Time</strong><span>10 minutes</span>
+            <strong>Servings</strong><span>4 servings</span>
+            <strong>Calories</strong><span>280 kcal</span>
+            <strong>Author</strong><span>Debi</span>
+        </div>
+
+        <h2>Ingredients</h2>
+        <ul class="ingredients-list">
+            <li><strong>Whipped Chocolate Ganache layer:</strong>
+                <ul>
+                    <li>½ cup chocolate chips</li>
+                    <li>¼ cup heavy whipping cream</li>
+                </ul>
+            </li>
+            <li><strong>Whipped cream layer:</strong>
+                <ul>
+                    <li>½ cup heavy whipping cream</li>
+                    <li>2 tablespoons powdered sugar</li>
+                </ul>
+            </li>
+            <li><strong>Layers:</strong>
+                <ul>
+                    <li>Graham Cracker Crumbs</li>
+                    <li>M&M's Speckled Eggs</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Instructions</h2>
+        <ol>
+            <li>In a large microwave proof bowl, heat the chocolate chips and the ¼ cup cream in 30-second increments in the microwave, stirring well after each cooking time, until the chocolate is melted and smooth. Set aside to allow to cool to room temperature, you can place the chocolate mixture in the fridge, but don't allow it to get so cold that it hardens.</li>
+            <li>In a large bowl or the bowl of a stand mixer, add ½ cup whipping cream and the powdered sugar. Whip using a hand held mixer or the stand mixer until stiff peaks form.</li>
+            <li>Again, using the hand held mixer or the stand mixer, whip the chocolate ganache until soft peaks form.</li>
+            <li>Now, the layering happens!</li>
+        </ol>
+
+        <h2>Nutrition</h2>
+        <p class="nutrition-info">
+            Calories: <strong>280 kcal</strong> | Carbohydrates: <strong>21 g</strong> | Protein: <strong>2 g</strong> | Fat: <strong>21 g</strong> | Saturated Fat: <strong>14 g</strong> | Polyunsaturated Fat: <strong>1 g</strong> | Monounsaturated Fat: <strong>4 g</strong> | Trans Fat: <strong>0.04 g</strong> | Cholesterol: <strong>54 mg</strong> | Sodium: <strong>27 mg</strong> | Potassium: <strong>42 mg</strong> | Fiber: <strong>1 g</strong> | Sugar: <strong>19 g</strong> | Vitamin A: <strong>706 IU</strong> | Vitamin C: <strong>0.4 mg</strong> | Calcium: <strong>56 mg</strong> | Iron: <strong>0.3 mg</strong>
+        </p>
+    </div>
+</body>
+</html>

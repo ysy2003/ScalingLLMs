@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harlem CORE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    header h1 {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 2.5rem;
+    }
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+   .sidebar {
+      flex: 0 0 20%;
+      border-right: 1px solid #eee;
+      padding: 1rem;
+    }
+   .sidebar h2 {
+      margin-bottom: 1rem;
+    }
+   .search-box {
+      display: flex;
+      margin-bottom: 1rem;
+    }
+   .search-box input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+    }
+   .search-box button {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+   .sidebar a {
+      display: block;
+      margin: 0.5rem 0;
+      text-decoration: none;
+      color: #007bff;
+    }
+   .browse-links {
+      list-style: none;
+    }
+   .browse-links li {
+      margin: 0.5rem 0;
+    }
+   .browse-links li a {
+      text-decoration: none;
+      color: #333;
+    }
+   .main-content {
+      flex: 0 0 80%;
+      padding: 1rem;
+    }
+   .main-content h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+   .tabs {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 1.5rem;
+    }
+   .tabs button {
+      padding: 0.5rem 1rem;
+      background: #f5f5f5;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+   .tabs button.active {
+      background: white;
+      border-bottom: 2px solid #007bff;
+    }
+   .items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+   .item {
+      margin-bottom: 1.5rem;
+    }
+   .item h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+   .item p {
+      margin-bottom: 1rem;
+    }
+   .image-placeholder {
+      width: 100px;
+      height: 100px;
+      background-color: #0066cc;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+   .item p.tags {
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin-bottom: 1rem;
+    }
+    footer nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    footer a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    @media (max-width: 768px) {
+     .sidebar {
+        flex: 0 0 100%;
+        border-right: none;
+      }
+     .main-content {
+        flex: 0 0 100%;
+      }
+     .tabs {
+        flex-direction: column;
+      }
+     .tabs button {
+        width: 100%;
+      }
+     .image-placeholder {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Harlem CORE</h1>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Search</h2>
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+      </div>
+      <a href="#">Advanced Search</a>
+      <ul class="browse-links">
+        <li><a href="#">Browse Items</a></li>
+        <li><a href="#">Browse Collections</a></li>
+        <li><a href="#">Browse Exhibits</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <h2>Browse Items (4 total)</h2>
+      <div class="tabs">
+        <button class="active">Browse All</button>
+        <button>Browse by Tag</button>
+      </div>
+      <div class="items">
+        <div class="item">
+          <h3>1961 arrest photo for Gloria Bouknight as Freedom Rider</h3>
+          <p>This is the 1961 arrest photo for CORE member Gloria Bouknight as a Freedom Rider in Jackson, Mississippi. Originally from the South, she lived in New York after the rides and was roommates with Sheila Michaels.</p>
+          <div class="image-placeholder"></div>
+          <p><strong>Tags:</strong> civil rights movement, congress of racial equality, CORE, freedom riders, gloria bouknight, non-violent direct action</p>
+        </div>
+        <div class="item">
+          <h3>New York CORE chairman Clarence Funnye with family and Genevieve Hughes</h3>
+          <p>This is a photo of New York CORE chairman Clarence Funnye in the very early 1960's. He is pictured with his wife, son and Genevieve Hughes, one of the original Freedom Riders.</p>
+          <p>The photo is of a housing demonstration in the Clinton Hill section...</p>
+          <div class="image-placeholder"></div>
+          <p><strong>Tags:</strong> clarence funnye, freedom riders, harlem core, new york city, new york core</p>
+        </div>
+        <div class="item">
+          <h3>1961 arrest photo for New York CORE member Travis Britt as Freedom Rider</h3>
+          <p>This is the 1961 arrest photo for New York CORE member Travis Britt as a Freedom Rider. He was one of the three principal investigators (along with Joanne Shane, who he was dating at the time) for the Freedom Highways project and participated in the...</p>
+          <div class="image-placeholder"></div>
+          <p><strong>Tags:</strong> arrests, civil rights movement, congress of racial equality, CORE, freedom highways, freedom riders, Freedom Rides, harlem core, route 40 freedom rides</p>
+        </div>
+        <div class="item">
+          <h3>1961 arrest photo for New York CORE member Mary Hamilton as Freedom Rider</h3>
+          <p>This is the 1961 arrest photo for New York CORE member Mary Hamilton as a Freedom Rider in Jackson, Mississippi. At the time, she was 25 years old.</p>
+          <p>A Black woman, she would joke that she was 'light enough to pass' in her oral history interview when...</p>
+          <div class="image-placeholder"></div>
+          <p><strong>Tags:</strong> arrests, congress of racial equality, CORE, freedom riders, Freedom Rides, harlem core, Mary Hamilton, route 40 freedom rides</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <p>Proudly powered by Omeka.</p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Browse Items</a>
+      <a href="#">Browse Collections</a>
+      <a href="#">Browse Exhibits</a>
+    </nav>
+  </footer>
+</body>
+</html>

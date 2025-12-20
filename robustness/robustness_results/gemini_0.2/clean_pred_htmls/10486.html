@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - United Way of Henry County</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .header-logo {
+            width: 150px; /* Approximate width based on image */
+            height: 60px; /* Approximate height based on image */
+            background-color: #0000FF; /* Blue placeholder */
+            margin-right: 20px;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+            font-weight: bold;
+            flex-grow: 1; /* Allow nav to take available space */
+            justify-content: flex-start; /* Align nav items to the left */
+            flex-wrap: wrap;
+        }
+
+        .header-nav a {
+            color: #333;
+            white-space: nowrap; /* Prevent nav items from breaking */
+        }
+
+        .header-nav a:hover {
+            color: #0056b3; /* A subtle hover effect */
+            text-decoration: none;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            margin-left: auto; /* Push actions to the right */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .header-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .header-button.volunteer {
+            background-color: #2173B3; /* Dark blue */
+            color: #fff;
+        }
+
+        .header-button.volunteer:hover {
+            background-color: #1a5a8c;
+        }
+
+        .header-button.donate {
+            background-color: #E74C3C; /* Red */
+            color: #fff;
+        }
+
+        .header-button.donate:hover {
+            background-color: #c0392b;
+        }
+
+        /* Main Content - Login Form */
+        .main-content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            color: #E67E22; /* Orange */
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            gap: 20px; /* Spacing between links */
+        }
+
+        .login-options a {
+            padding: 10px 15px;
+            color: #555;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+
+        .login-options a:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .login-options .active {
+            border: 1px solid #ccc;
+            border-bottom: none;
+            background-color: #fff;
+            color: #333;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            top: 1px; /* Visually align with the border */
+        }
+
+        .login-form {
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group label .required {
+            color: #E74C3C; /* Red asterisk */
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: calc(100% - 24px); /* Account for padding and border */
+            padding: 10px;
+            border: 1px solid #ADD8E6; /* Light blue border */
+            border-radius: 4px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus {
+            border-color: #2173B3; /* Darker blue on focus */
+        }
+
+        .login-button {
+            background-color: #2173B3; /* Dark blue */
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .login-button:hover {
+            background-color: #1a5a8c;
+        }
+
+        .login-button .icon {
+            font-size: 1.2em; /* Adjust icon size */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F2F2F2; /* Light gray */
+            padding: 40px 5%;
+            margin-top: 80px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px; /* Gap between columns */
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px; /* Minimum width for columns before wrapping */
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            width: 120px; /* Smaller logo in footer */
+            height: 50px;
+            background-color: #0000FF; /* Blue placeholder */
+            margin-bottom: 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #0056b3; /* Blue links */
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column p {
+            margin: 0;
+            color: #555;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+            color: #777;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            padding-bottom: 10px; /* For wrapping */
+        }
+
+        .footer-bottom a {
+            color: #777;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 3%;
+            }
+
+            .header-logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .header-nav {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 15px;
+                gap: 15px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+
+            .main-content h1 {
+                font-size: 2em;
+            }
+
+            .login-options {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .login-options a {
+                width: 100%;
+                text-align: center;
+                padding: 8px 10px;
+            }
+
+            .login-options .active {
+                border-radius: 4px; /* Remove specific bottom radius for stacked */
+                border-bottom: 1px solid #ccc; /* Add bottom border back */
+                top: 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .footer-column ul {
+                margin-bottom: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .header-button {
+                width: 100%;
+            }
+            .login-form {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"></div>
+        <nav class="header-nav">
+            <a href="#">ABOUT US</a>
+            <a href="#">OUR WORK</a>
+            <a href="#">PROGRAMS</a>
+            <a href="#">PARTNER AGENCIES</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-button volunteer">VOLUNTEER</button>
+            <button class="header-button donate">DONATE</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Log in</h1>
+
+        <div class="login-options">
+            <a href="#" class="active">Log in</a>
+            <a href="#">Create new account</a>
+            <a href="#">Reset your password</a>
+        </div>
+
+        <form class="login-form">
+            <div class="form-group">
+                <label for="username">Username <span class="required">*</span></label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">
+                <span class="icon">&#x25A1;</span> LOG IN
+            </button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo"></div>
+            </div>
+            <div class="footer-column">
+                <h3>ABOUT US</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Board of Directors</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>OUR WORK</h3>
+                <ul>
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Health</a></li>
+                    <li><a href="#">Financial Stability</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>LOCATION</h3>
+                <p>611 N Perry St</p>
+                <p>Napoleon, OH 43545</p>
+                <p>[PHONE REDACTED]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 United Way of Henry County. All Rights Reserved.</p>
+            <p>Website by: <a href="#">OneEach Technologies</a></p>
+        </div>
+    </footer>
+</body>
+</html>

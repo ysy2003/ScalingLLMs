@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mighty Games</title>
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --primary-purple: #7d59b3;
+            --text-dark: #505050;
+            --text-light: #a8a8a8;
+            --blue-accent: #0000ff;
+            --light-gray-bg: #e0e0e0;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .top-navbar {
+            background-color: var(--primary-purple);
+            height: 40px; /* Approximate height from image */
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px; /* Adjusted for better fit based on image */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 40px; /* Spacing between left and right columns */
+            margin-top: 20px;
+        }
+
+        .left-column {
+            flex: 0 0 280px; /* Fixed width for left column */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-column {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 2.2em; /* "Mighty Games" */
+            font-weight: normal;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .blue-placeholder {
+            background-color: var(--blue-accent);
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 aspect ratio for the large blue box */
+            border-radius: 4px;
+        }
+
+        .text-box {
+            background-color: var(--light-gray-bg);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--text-dark);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+            color: var(--text-dark);
+        }
+
+        .small-blue-square {
+            width: 12px;
+            height: 12px;
+            background-color: var(--blue-accent);
+            margin-right: 8px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .tabs-container {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            color: var(--text-light);
+            background-color: var(--light-gray-bg);
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            margin-right: 2px; /* Small gap between tabs */
+            transition: background-color 0.2s, color 0.2s;
+            white-space: nowrap; /* Prevent tabs from wrapping */
+        }
+
+        .tab.active {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            border-bottom: none; /* Remove border for active tab */
+            position: relative;
+            z-index: 1;
+        }
+
+        .tab:not(.active):hover {
+            background-color: #d0d0d0;
+        }
+
+        h2 {
+            font-size: 1.6em; /* "Projects" heading */
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card-image {
+            background-color: var(--blue-accent);
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            flex-shrink: 0;
+        }
+
+        .project-card-info {
+            padding: 10px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .project-card-title {
+            font-weight: bold;
+            font-size: 0.95em;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .project-card-author {
+            font-size: 0.8em;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        footer {
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            color: var(--primary-purple);
+            font-size: 0.9em;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .language-selector {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--white);
+            padding: 10px 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+            color: var(--text-dark);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .left-column {
+                flex: auto; /* Allow left column to take full width */
+                width: 100%;
+            }
+
+            .blue-placeholder {
+                padding-bottom: 56.25%; /* 16:9 aspect ratio for better mobile fit */
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .tabs-container {
+                overflow-x: auto; /* Allow horizontal scrolling for tabs */
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Hide scrollbar for Firefox */
+            }
+            .tabs-container::-webkit-scrollbar {
+                display: none; /* Hide scrollbar for Chrome, Safari */
+            }
+
+            .tab {
+                flex-shrink: 0; /* Prevent tabs from shrinking */
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+            }
+
+            .language-selector {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr; /* Single column for footer */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-navbar"></div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="left-column">
+                <h1>Mighty Games</h1>
+                <div class="blue-placeholder"></div>
+                <div class="text-box">
+                    Hello fellow scratchers!<br>
+                    Welcome to Mighty games, a<br>
+                    studio for all your epic, swoon-<br>
+                    worthy projects!
+                </div>
+                <div>
+                    <div class="info-item">
+                        <div class="small-blue-square"></div>
+                        <span>Updated Jan 9, 2018</span>
+                    </div>
+                    <div class="info-item">
+                        <div class="small-blue-square"></div>
+                        <span>4 followers</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="tabs-container">
+                    <div class="tab active">Projects (6)</div>
+                    <div class="tab">Comments (0)</div>
+                    <div class="tab">Curators</div>
+                    <div class="tab">Activity</div>
+                </div>
+
+                <h2>Projects</h2>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-card-image"></div>
+                        <div class="project-card-info">
+                            <p class="project-card-title">Pixel Invasion</p>
+                            <p class="project-card-author">majithiaee</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"></div>
+                        <div class="project-card-info">
+                            <p class="project-card-title">Paddle Ping Pong!</p>
+                            <p class="project-card-author">anandva</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"></div>
+                        <div class="project-card-info">
+                            <p class="project-card-title">Firework display (100%..</p>
+                            <p class="project-card-author">wardli</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"></div>
+                        <div class="project-card-info">
+                            <p class="project-card-title">Minigames</p>
+                            <p class="project-card-author">wardli</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"></div>
+                        <div class="project-card-info">
+                            <p class="project-card-title">Santa Dash (A Platform...</p>
+                            <p class="project-card-author">wardli</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"></div>
+                        <div class="project-card-info">
+                            <p class="project-card-title">Space Soccer (Free Sho...</p>
+                            <p class="project-card-author">anandva</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">About Scratch</a></li>
+                    <li><a href="#">For Parents</a></li>
+                    <li><a href="#">For Educators</a></li>
+                    <li><a href="#">For Developers</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Donors</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Community Guidelines</a></li>
+                    <li><a href="#">Discussion Forums</a></li>
+                    <li><a href="#">Scratch Wiki</a></li>
+                    <li><a href="#">Statistics</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Ideas</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">DMCA</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Scratch Family</h3>
+                <ul>
+                    <li><a href="#">ScratchEd</a></li>
+                    <li><a href="#">ScratchJr</a></li>
+                    <li><a href="#">Scratch Day</a></li>
+                    <li><a href="#">Scratch Conference</a></li>
+                    <li><a href="#">Scratch Foundation</a></li>
+                    <li><a href="#">Scratch Store</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="language-selector">
+        Аҧсшәа
+    </div>
+</body>
+</html>

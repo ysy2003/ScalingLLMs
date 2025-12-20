@@ -1,0 +1,803 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image into a single HTML5 file with embedded CSS. First, I need to analyze the structure and elements of the image.
+
+Starting with the header: "DIGITAL INSPIRATION" as the main title, with a subtitle "Tips and Tricks for Google Workspace users". Then a search link on the top right. The main content has a green header with the article title, date, and then the article body. There are sections like "Related", "Popular posts", and a footer.
+
+Let's break down the components:
+
+1. **Header Section**:
+   - Top bar: left has "DIGITAL INSPIRATION" and subtitle, right has "SEARCH" link.
+   - The main header for the article: green background with white text for the title, date below it.
+
+2. **Article Content**:
+   - Date: July 25, 2007
+   - Intro paragraph with a large "R" (probably a styled letter)
+   - Two main options: mobile phone method and Hey!Spread
+   - Related link
+   - Popular posts section with multiple articles, each having title, date, excerpt, and "SHARE" and "READ MORE" links.
+
+3. **Footer**:
+   - "Digital Inspiration" section with description, and "Powered by Blogger" at the bottom.
+
+Now, let's think about the structure in HTML:
+
+- `<header>` for the top bar (with logo, subtitle, search)
+- `<main>` for the article content
+  - `<article>` for the main article
+    - `<h1>` for the article title
+    - `<time>` for the date
+    - `<p>` for the intro
+    - `<p>` for the first option
+    - `<p>` for the related link
+    - `<p>` for the second option
+    - `<p>` for the Hey!Spread details
+    - Then the popular posts section: `<section>` with multiple `<article>`s for each post
+- `<footer>` for the blog info and powered by
+
+For CSS, we need to style:
+
+- Colors: green header (maybe #00a896), white text for header, etc.
+- Fonts: probably sans-serif, like Arial or Helvetica.
+- Layout: responsive, so using flexbox or grid for the header, main content, etc.
+- Styling for the "R" in the intro: maybe a large, bold font, color green.
+- Links: "SHARE" and "READ MORE" in green, maybe underlined.
+- The popular posts section: each post has a title, date, excerpt, and two buttons.
+
+Let's outline the HTML structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Inspiration - How to Upload Videos to YouTube if Access to Website is Blocked</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">DIGITAL INSPIRATION</div>
+      <div class="subtitle">Tips and Tricks for Google Workspace users</div>
+      <a href="#" class="search-link">SEARCH</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="main-article">
+      <h1>How to Upload Videos to YouTube if Access to Website is Blocked</h1>
+      <time datetime="2007-07-25">July 25, 2007</time>
+      <p>
+        <span class="large-letter">R</span>ichard, who works for a large Fortune 100 company, recently wrote on Facebook that he cannot upload screencast video clips to YouTube since the company he works for has blocked access to YouTube and other video sharing websites though the firewall.
+      </p>
+      <p>
+        One of the available options is to use your <a href="#" class="highlight">mobile phone</a> for uploading videos on YouTube - just create a mobile profile on YouTube from a computer outside the organization's firewall and then email the video to YouTube as an MMS message.
+      </p>
+      <p>
+        Related: <a href="#">How to Access Blocked Websites</a>
+      </p>
+      <p>
+        The second more versatile option is the one-to-many <a href="#" class="highlight">Hey!Spread</a> - this is an online service to help you upload a video clip to multiple video sharing websites in one go.
+      </p>
+      <p>
+        You upload the video to Hey!Spread servers and they in turn upload it to the various other video sites including YouTube, MySpace, PhotoBucket, MetaCafe, Google, Yahoo! video, DailyMotion, etc.
+      </p>
+      <p>
+        Chances are high that access to Hey!Spread is open in your company - they'll send you an email confirmation as soon as your video is uploaded successfully to the different sites.
+      </p>
+      <a href="#" class="share-link">SHARE</a>
+    </article>
+
+    <section class="popular-posts">
+      <h2>Popular posts from this blog</h2>
+      <article class="post">
+        <h3>How to Download Contacts from Facebook To Outlook Address Book</h3>
+        <time datetime="2007-10-15">October 15, 2007</time>
+        <p>Facebook users are not too pleased with the "walled garden" approach of Facebook. The reason is simple - while you can easily import your Outlook address book and Gmail contacts into Facebook, the reverse path is closed.</p>
+        <a href="#" class="share-link">SHARE</a>
+        <a href="#" class="read-more">READ MORE</a>
+      </article>
+      <article class="post">
+        <h3>Learn to Create a Firefox Search Plugin in Less Than 2 Minutes</h3>
+        <time datetime="2006-09-23">September 23, 2006</time>
+        <p>Almost every blog has a site search form where you just type in the search query and press enter to digg through the archives of that blog. The only drawback here is that you first have to visit the site homepage to locate the search box.</p>
+        <a href="#" class="share-link">SHARE</a>
+        <a href="#" class="read-more">READ MORE</a>
+      </article>
+      <article class="post">
+        <h3>Digital Inspiration</h3>
+        <time datetime="2007-10-25">October 25, 2007</time>
+        <p>Digital Inspiration is a popular tech blog by Amit Agarwal. Our popular Google Scripts include Gmail Mail Merge (send personalized emails with Gmail), Document Studio (generate PDFs from Google Forms) and File Upload Forms (receive fil...</p>
+        <a href="#" class="share-link">SHARE</a>
+        <a href="#" class="read-more">READ MORE</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by Blogger</p>
+    <p>2004-2023 Digital Inspiration</p>
+  </footer>
+</body>
+</html>
+```
+
+Now, the CSS. Let's define the styles:
+
+- Body: font-family Arial, sans-serif; margin 0; padding 0; line-height 1.6; color #333;
+- Header: background #f5f5f5; padding 1rem; display flex; justify-content space-between; align-items center;
+- Top-bar: flex; align-items center;
+- Logo: font-size 1.5rem; font-weight bold; color #00a896;
+- Subtitle: font-size 0.9rem; color #666;
+- Search-link: color #00a896; text-decoration none; margin-left 1rem;
+- Main article: max-width 800px; margin 0 auto; padding 1rem;
+- Article title: background #00a896; color white; padding 1rem; text-align center; font-size 2rem; margin-bottom 1rem;
+- Time: color #666; font-style italic; margin-bottom 1rem;
+- Large-letter: font-size 3rem; font-weight bold; color #00a896; display inline-block; margin-right 0.5rem;
+- Highlight: color #00a896; text-decoration underline;
+- Share-link: display block; text-align right; color #00a896; text-decoration none; margin-top 1rem;
+- Popular posts: margin-top 2rem;
+- H2: color #00a896; font-size 1.5rem; margin-bottom 1rem;
+- Post: margin-bottom 1.5rem;
+- Post h3: color #00a896; font-size 1.2rem; margin-bottom 0.5rem;
+- Time in post: color #666; font-style italic; margin-bottom 0.5rem;
+- Read-more: color #00a896; text-decoration none; float right; margin-top 0.5rem;
+- Footer: text-align center; margin-top 2rem; color #666;
+
+Wait, the image shows the main article title in a green header. So the article title should be in a green div. Let's adjust:
+
+The main article title is in a green background. So:
+
+```css
+.main-article h1 {
+  background-color: #00a896;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+}
+```
+
+Also, the date is below the title, so:
+
+```css
+.main-article time {
+  color: #666;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+```
+
+The large "R" in the intro: it's a big letter, so:
+
+```css
+.large-letter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00a896;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+```
+
+The "SHARE" links: in the image, they are on the right side of the article. So for the main article, the share link is at the end, right-aligned.
+
+For the popular posts, each post has a "SHARE" and "READ MORE" link. The "READ MORE" is on the right, so:
+
+```css
+.post.read-more {
+  float: right;
+  margin-top: 0.5rem;
+}
+```
+
+Also, the "Related" link is a hyperlink, so it should be styled as a link.
+
+Let's check the image for colors:
+
+- Header background: light gray (f5f5f5)
+- Main article title background: green (#00a896)
+- Text color for main article: black
+- Links (SHARE, READ MORE) are green (#00a896)
+- Subtitle: gray
+
+Now, let's structure the CSS:
+
+- Reset some default margins/paddings.
+- Set font-family.
+- Style the header.
+- Style the main article.
+- Style the popular posts section.
+- Style the footer.
+
+Let's write the CSS:
+
+```css
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Header styles */
+header {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00a896;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.search-link {
+  color: #00a896;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+/* Main article styles */
+.main-article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.main-article h1 {
+  background-color: #00a896;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.main-article time {
+  color: #666;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.large-letter {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00a896;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.highlight {
+  color: #00a896;
+  text-decoration: underline;
+}
+
+.share-link {
+  display: block;
+  text-align: right;
+  color: #00a896;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+/* Popular posts section */
+.popular-posts {
+  margin-top: 2rem;
+}
+
+.popular-posts h2 {
+  color: #00a896;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.post {
+  margin-bottom: 1.5rem;
+}
+
+.post h3 {
+  color: #00a896;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post time {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.post p {
+  margin-bottom: 1rem;
+}
+
+.share-link {
+  display: block;
+  text-align: right;
+  color: #00a896;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.read-more {
+  color: #00a896;
+  text-decoration: none;
+  float: right;
+  margin-top: 0.5rem;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #666;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+```
+
+Wait, in the image, the "SHARE" link in the main article is on the right, so the CSS for.share-link should be right-aligned. But in the HTML, it's a block element, so adding text-align: right; to.share-link.
+
+Also, the "READ MORE" links in the popular posts are on the right, so they should be floated right.
+
+Let's check the image for the popular posts:
+
+Each post has a title, date, excerpt, then "SHARE" and "READ MORE". The "READ MORE" is on the right, so the CSS for.read-more should be float: right;.
+
+Now, let's verify the structure:
+
+- The main article has the title, date, intro paragraph with the large R, then the two options, related link, etc.
+- The popular posts section has three posts, each with title, date, excerpt, and two links.
+
+In the HTML, the popular posts section is a <section> with class "popular-posts", containing three <article> elements with class "post".
+
+Now, let's check the image for the "Digital Inspiration" post. The date is October 25, 2007, and the excerpt is "Digital Inspiration is a popular tech blog by Amit Agarwal. Our popular Google Scripts include Gmail Mail Merge (send personalized emails with Gmail), Document Studio (generate PDFs from Google Forms) and File Upload Forms (receive fil...".
+
+Also, the footer has "Powered by Blogger" and "2004-2023 Digital Inspiration".
+
+Now, let's make sure all elements are included:
+
+- The top bar with logo, subtitle, search.
+- Main article with title, date, intro, options, related, etc.
+- Popular posts section with three posts.
+- Footer.
+
+Now, let's check the HTML structure again for accuracy.
+
+In the image, the main article title is "How to Upload Videos to YouTube if Access to Website is Blocked", which is in the green header. So the h1 is inside the main-article, with background green.
+
+The date is "July 25, 2007", which is a time element.
+
+The intro paragraph starts with "R" (large letter), then "ichard...".
+
+The first option: "One of the available options is to use your mobile phone for uploading videos on YouTube - just create a mobile profile on YouTube from a computer outside the organization's firewall and then email the video to YouTube as an MMS message."
+
+Then "Related: How to Access Blocked Websites" as a link.
+
+Second option: "The second more versatile option is the one-to-many Hey!Spread - this is an online service to help you upload a video clip to multiple video sharing websites in one go."
+
+Then the details about Hey!Spread.
+
+Then the "SHARE" link.
+
+The popular posts section has three posts:
+
+1. "How to Download Contacts from Facebook To Outlook Address Book" (October 15, 2007)
+2. "Learn to Create a Firefox Search Plugin in Less Than 2 Minutes" (September 23, 2006)
+3. "Digital Inspiration" (October 25, 2007)
+
+Each post has a "SHARE" and "READ MORE" link.
+
+Footer: "Powered by Blogger" and "2004-2023 Digital Inspiration".
+
+Now, let's code the HTML with these elements.
+
+Wait, in the image, the "SHARE" link in the main article is on the right, so in the HTML, it's a <a> tag inside the main-article, after the paragraph. So the structure is:
+
+<main>
+  <article class="main-article">
+    <h1>...</h1>
+    <time>...</time>
+    <p>...</p>
+    <p>...</p>
+    <p>...</p>
+    <p>...</p>
+    <a href="#" class="share-link">SHARE</a>
+  </article>
+</main>
+
+Yes.
+
+For the popular posts, each post has:
+
+<article class="post">
+  <h3>...</h3>
+  <time>...</time>
+  <p>...</p>
+  <a href="#" class="share-link">SHARE</a>
+  <a href="#" class="read-more">READ MORE</a>
+</article>
+
+Yes.
+
+Now, let's check the CSS for the "READ MORE" links. In the image, they are on the right, so the CSS for.read-more should be float: right;.
+
+Also, the "SHARE" links in the popular posts are on the left, so they are not floated, but the "READ MORE" is on the right.
+
+Wait, in the image, for the popular posts, the "SHARE" is on the left, and "READ MORE" is on the right. So the HTML structure for each post is:
+
+<p>excerpt</p>
+<a href="#" class="share-link">SHARE</a>
+<a href="#" class="read-more">READ MORE</a>
+
+So the CSS for.share-link should be left-aligned, and.read-more right-aligned.
+
+But in the CSS, we can set.share-link to display: block; text-align: left; and.read-more to float: right;.
+
+Wait, in the CSS I wrote earlier, for the popular posts, the.share-link is:
+
+.share-link {
+  display: block;
+  text-align: right;
+  color: #00a896;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+But that would align the "SHARE" to the right. But in the image, the "SHARE" is on the left. So that's a mistake.
+
+Ah, right! In the image, for the popular posts, the "SHARE" is on the left, and "READ MORE" is on the right. So the CSS for.share-link should be text-align: left; and.read-more should be float: right;.
+
+So let's correct that.
+
+For the main article's share link: it's on the right, so text-align: right;.
+
+For the popular posts' share links: text-align: left;.
+
+So:
+
+.main-article.share-link {
+  display: block;
+  text-align: right;
+  color: #00a896;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.popular-posts.share-link {
+  display: block;
+  text-align: left;
+  color: #00a896;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.read-more {
+  color: #00a896;
+  text-decoration: none;
+  float: right;
+  margin-top: 0.5rem;
+}
+
+Yes, that makes sense.
+
+Now, let's adjust the CSS accordingly.
+
+Also, the "Related" link is a hyperlink, so it should be styled as a link. The CSS for links:
+
+a {
+  color: #00a896;
+  text-decoration: none;
+}
+
+So the "Related" link will be green and underlined.
+
+Now, let's check the image for the "Related" link: it's "How to Access Blocked Websites", which is a link.
+
+Now, let's put all together.
+
+Let's write the HTML with the correct structure and CSS.
+
+Wait, the image shows the main article's "SHARE" link is on the right, so the CSS for.share-link in the main article is text-align: right;.
+
+For the popular posts, each post has "SHARE" on the left and "READ MORE" on the right.
+
+Now, let's code the HTML.
+
+Also, the "Digital Inspiration" post in the popular posts has a date of October 25, 2007, and the excerpt is "Digital Inspiration is a popular tech blog by Amit Agarwal. Our popular Google Scripts include Gmail Mail Merge (send personalized emails with Gmail), Document Studio (generate PDFs from Google Forms) and File Upload Forms (receive fil...".
+
+Now, let's make sure all elements are present.
+
+Let's start coding the HTML.
+
+First, the DOCTYPE, html, head, body.
+
+In the head, the meta tags for charset and viewport.
+
+The title should be "Digital Inspiration - How to Upload Videos to YouTube if Access to Website is Blocked".
+
+The style block with the CSS.
+
+Now, the HTML structure:
+
+- header with top-bar
+- main with main-article and popular-posts
+- footer
+
+Let's write the HTML.
+
+Wait, the image shows the "Digital Inspiration" logo at the top, so the header has "DIGITAL INSPIRATION" as the logo.
+
+The subtitle is "Tips and Tricks for Google Workspace users".
+
+The search link is on the top right.
+
+Now, let's code the HTML.
+
+Let's check the image for the "SHARE" link in the main article: it's a green link, right-aligned.
+
+In the popular posts, each post has "SHARE" (left) and "READ MORE" (right).
+
+Now, let's code the HTML.
+
+I think that's all. Now, let's write the complete HTML with the CSS embedded.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Inspiration - How to Upload Videos to YouTube if Access to Website is Blocked</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+   .top-bar {
+      display: flex;
+      align-items: center;
+    }
+
+   .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00a896;
+    }
+
+   .subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      margin-left: 0.5rem;
+    }
+
+   .search-link {
+      color: #00a896;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+   .main-article {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+   .main-article h1 {
+      background-color: #00a896;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      margin: 0;
+    }
+
+   .main-article time {
+      color: #666;
+      font-style: italic;
+      margin: 0.5rem 0;
+    }
+
+   .large-letter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #00a896;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+   .highlight {
+      color: #00a896;
+      text-decoration: underline;
+    }
+
+   .share-link {
+      display: block;
+      text-align: right;
+      color: #00a896;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+   .popular-posts {
+      margin-top: 2rem;
+    }
+
+   .popular-posts h2 {
+      color: #00a896;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+   .post {
+      margin-bottom: 1.5rem;
+    }
+
+   .post h3 {
+      color: #00a896;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+   .post time {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+   .post p {
+      margin-bottom: 1rem;
+    }
+
+   .popular-posts.share-link {
+      display: block;
+      text-align: left;
+      color: #00a896;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+
+   .read-more {
+      color: #00a896;
+      text-decoration: none;
+      float: right;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #666;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+
+    a {
+      color: #00a896;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="logo">DIGITAL INSPIRATION</div>
+      <div class="subtitle">Tips and Tricks for Google Workspace users</div>
+      <a href="#" class="search-link">SEARCH</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="main-article">
+      <h1>How to Upload Videos to YouTube if Access to Website is Blocked</h1>
+      <time datetime="2007-07-25">July 25, 2007</time>
+      <p>
+        <span class="large-letter">R</span>ichard, who works for a large Fortune 100 company, recently wrote on Facebook that he cannot upload screencast video clips to YouTube since the company he works for has blocked access to YouTube and other video sharing websites though the firewall.
+      </p>
+      <p>
+        One of the available options is to use your <a href="#" class="highlight">mobile phone</a> for uploading videos on YouTube - just create a mobile profile on YouTube from a computer outside the organization's firewall and then email the video to YouTube as an MMS message.
+      </p>
+      <p>
+        Related: <a href="#">How to Access Blocked Websites</a>
+      </p>
+      <p>
+        The second more versatile option is the one-to-many <a href="#" class="highlight">Hey!Spread</a> - this is an online service to help you upload a video clip to multiple video sharing websites in one go.
+      </p>
+      <p>
+        You upload the video to Hey!Spread servers and they in turn upload it to the various other video sites including YouTube, MySpace, PhotoBucket, MetaCafe, Google, Yahoo! video, DailyMotion, etc.
+      </p>
+      <p>
+        Chances are high that access to Hey!Spread is open in your company - they'll send you an email confirmation as soon as your video is uploaded successfully to the different sites.
+      </p>
+      <a href="#" class="share-link">SHARE</a>
+    </article>
+
+    <section class="popular-posts">
+      <h2>Popular posts from this blog</h2>
+      <article class="post">
+        <h3>How to Download Contacts from Facebook To Outlook Address Book</h3>
+        <time datetime="2007-10-15">October 15, 2007</time>
+        <p>Facebook users are not too pleased with the "walled garden" approach of Facebook. The reason is simple - while you can easily import your Outlook address book and Gmail contacts into Facebook, the reverse path is closed.</p>
+        <a href="#" class="share-link">SHARE</a>
+        <a href="#" class="read-more">READ MORE</a>
+      </article>
+      <article class="post">
+        <h3>Learn to Create a Firefox Search Plugin in Less Than 2 Minutes</h3>
+        <time datetime="2006-09-23">September 23, 2006</time>
+        <p>Almost every blog has a site search form where you just type in the search query and press enter to digg through the archives of that blog. The only drawback here is that you first have to visit the site homepage to locate the search box.</p>
+        <a href="#" class="share-link">SHARE</a>
+        <a href="#" class="read-more">READ MORE</a>
+      </article>
+      <article class="post">
+        <h3>Digital Inspiration</h3>
+        <time datetime="2007-10-25">October 25, 2007</time>
+        <p>Digital Inspiration is a popular tech blog by Amit Agarwal. Our popular Google Scripts include Gmail Mail Merge (send personalized emails with Gmail), Document Studio (generate PDFs from Google Forms) and File Upload Forms (receive fil...</p>
+        <a href="#" class="share-link">SHARE</a>
+        <a href="#" class="read-more">READ MORE</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by Blogger</p>
+    <p>2004-2023 Digital Inspiration</p>
+  </footer>
+</body>
+</html>
+```

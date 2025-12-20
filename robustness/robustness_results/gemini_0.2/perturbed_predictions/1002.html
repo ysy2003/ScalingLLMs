@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exciting News</title>
+    <style>
+        /* Universal box-sizing for consistent layout */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* A common sans-serif font that matches the visual style */
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* White background as seen in the image */
+            color: #333333; /* Dark gray text color */
+            line-height: 1.6; /* Standard line height for readability */
+            display: flex; /* Use flexbox to center the content horizontally */
+            justify-content: center;
+            padding-top: 50px; /* Top padding to match the whitespace above the content */
+        }
+
+        .container {
+            max-width: 600px; /* Maximum width for the content area */
+            width: 90%; /* Responsive width, takes 90% of viewport width */
+            margin: 0 auto; /* Centers the container horizontally */
+            padding: 20px; /* Internal padding for the content */
+        }
+
+        .blue-box {
+            width: 150px; /* Width of the blue rectangle */
+            height: 100px; /* Height of the blue rectangle */
+            background-color: #0000ff; /* Solid blue color */
+            margin-bottom: 40px; /* Space below the blue box */
+            margin-left: 0; /* Aligns the box to the left within its container */
+        }
+
+        h1 {
+            font-size: 28px; /* Font size for the main heading */
+            font-weight: bold; /* Bold font weight */
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 20px; /* Space below the heading */
+            color: #222222; /* Slightly darker color for the heading */
+        }
+
+        p {
+            font-size: 16px; /* Default font size for paragraphs */
+            margin-bottom: 15px; /* Space between paragraphs */
+        }
+
+        p.info-text {
+            margin-top: 30px; /* More space above "Need more information?" paragraph */
+            margin-bottom: 15px;
+        }
+
+        strong {
+            font-weight: bold; /* Ensures bold text within paragraphs */
+        }
+
+        .button {
+            display: inline-block; /* Allows setting width/height and aligns with text flow */
+            padding: 12px 25px; /* Padding for the button */
+            border-radius: 4px; /* Slightly rounded corners */
+            text-decoration: none; /* Remove underline from anchor tags */
+            font-weight: normal; /* Buttons text does not appear bold */
+            cursor: pointer; /* Indicate it's clickable */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            border: none; /* No border for the buttons */
+            text-align: center; /* Center text within the button */
+        }
+
+        .primary-button {
+            background-color: #4a4a4a; /* Dark gray background for the primary button */
+            color: #ffffff; /* White text color */
+            font-size: 16px; /* Font size for the primary button */
+            margin-top: 10px; /* Space above the primary button */
+            margin-bottom: 30px; /* Space below the primary button */
+        }
+
+        .primary-button:hover {
+            background-color: #5a5a5a; /* Slightly lighter gray on hover */
+        }
+
+        .secondary-button {
+            background-color: #4a4a4a; /* Dark gray background for the secondary button */
+            color: #ffffff; /* White text color */
+            font-size: 14px; /* Smaller font size for the secondary button */
+            padding: 10px 20px; /* Smaller padding for the secondary button */
+            margin-top: 0; /* No extra top margin, follows the info-text paragraph */
+        }
+
+        .secondary-button:hover {
+            background-color: #5a5a5a; /* Slightly lighter gray on hover */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px; /* Reduce padding on medium screens */
+            }
+            h1 {
+                font-size: 24px; /* Adjust heading size */
+            }
+            p {
+                font-size: 15px; /* Adjust paragraph size */
+            }
+            .button {
+                padding: 10px 20px; /* Adjust button padding */
+                font-size: 15px; /* Adjust button font size */
+            }
+            .secondary-button {
+                padding: 8px 18px; /* Further adjust secondary button padding */
+                font-size: 13px; /* Further adjust secondary button font size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 30px; /* Reduce top padding on very small screens */
+            }
+            .container {
+                padding: 10px; /* Further reduce padding on small screens */
+            }
+            h1 {
+                font-size: 22px; /* Further adjust heading size */
+            }
+            p {
+                font-size: 14px; /* Further adjust paragraph size */
+            }
+            .blue-box {
+                width: 120px; /* Smaller blue box */
+                height: 80px;
+                margin-bottom: 30px; /* Adjust spacing */
+            }
+            .button {
+                display: block; /* Make buttons block-level to stack them */
+                width: 100%; /* Full width buttons */
+                margin-bottom: 15px; /* Add space between stacked buttons */
+            }
+            .primary-button {
+                margin-bottom: 20px; /* Adjust spacing for primary button */
+            }
+            .secondary-button {
+                margin-bottom: 0; /* No bottom margin for the last button */
+            }
+            p.info-text {
+                margin-top: 20px; /* Adjust spacing */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blue-box"></div>
+        <h1>We Have Some Exciting News!</h1>
+        <p><strong>DisplayCabinets2Go</strong> has joined the Displays2go family!</p>
+        <p>Displays2go has all of the same industry-leading products you'd find on this site, and much more! We will continue to put you first with our responsive and dedicated customer service.</p>
+        <p>Get to your favorite items right away by browsing a similar selection of products on Displays2go.com.</p>
+        <a href="#" class="button primary-button">Shop this Category on Displays2go.com</a>
+        <p class="info-text">Need more information?</p>
+        <a href="#" class="button secondary-button">FAQs</a>
+    </div>
+</body>
+</html>

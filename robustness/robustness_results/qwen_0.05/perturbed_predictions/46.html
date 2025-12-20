@@ -1,0 +1,583 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design exactly as shown. Let's break down the elements.
+
+The page has a blue header with "Welcome to Doctor EnGenius" and a search bar. Then a list of categories with icons, titles, and article counts.
+
+First, the HTML structure. The main elements:
+
+- A header section with the welcome text and search bar.
+- A main section with the category cards.
+
+Let's start with the HTML skeleton.
+
+The header: background color #00a0ff (from the image, the top bar is blue). The welcome text is white, centered. The search bar is a light blue (maybe #4aafff) with placeholder text "Search for articles...".
+
+Then the main content: each category is a card with a blue square icon (maybe a small square, like 20x20), the category name, and the article count.
+
+Looking at the image, the header is a solid blue. The search bar is a rounded rectangle, light blue. The category cards are white with a subtle border, each has a blue square on the left, then the text.
+
+Let's check the colors:
+
+- Header background: #00a0ff (the top blue)
+- Search bar background: #4aafff (lighter blue)
+- Category cards: white background, maybe a light gray border (like #f0f0f0)
+- Icon: solid blue square (maybe #00a0ff, same as header)
+- Text: dark gray or black for category names, lighter gray for article counts.
+
+Now, the structure:
+
+- <header> with the welcome text and search bar.
+- <main> with the category cards.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor EnGenius</title>
+    <style>
+        /* CSS here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Doctor EnGenius</h1>
+        <input type="text" placeholder="Search for articles...">
+    </header>
+    <main>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Frequently Asked Questions</h2>
+            <p>75 articles</p>
+        </div>
+        <!-- Repeat for other categories -->
+    </main>
+</body>
+</html>
+
+Now, the CSS. Let's make it responsive.
+
+First, the header:
+
+- Background color #00a0ff.
+- The h1 is white, centered, maybe some padding.
+- The search bar: input with background #4aafff, rounded corners, padding, margin.
+
+The category cards:
+
+- Each card is a white box with a border (maybe 1px solid #e0e0e0), rounded corners (maybe 8px), padding.
+- The icon is a blue square (same as header color) on the left, maybe 20x20.
+- The h2 is bold, dark gray (like #333).
+- The p is lighter gray (like #666).
+
+Let's set up the CSS.
+
+First, reset some default styles to make it consistent.
+
+Set box-sizing: border-box; for everything.
+
+Header:
+
+header {
+    background-color: #00a0ff;
+    padding: 20px 20px 10px;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+input {
+    background-color: #4aafff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto;
+    font-size: 16px;
+    color: #333;
+}
+
+Then the main section:
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.category-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-color: #00a0ff;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+Now, check responsiveness. The search bar should be responsive, so using max-width: 600px and width: 80% makes it adjust.
+
+Also, the category cards should stack vertically, which they do with margin-bottom.
+
+Let's check the image: the header is blue, search bar is light blue, category cards are white with a border.
+
+Wait, in the image, the category cards have a light gray border, which is #e0e0e0. The icon is a solid blue square.
+
+Let's test the colors:
+
+- Header: #00a0ff (matches the top blue)
+- Search bar: #4aafff (lighter blue)
+- Icon: #00a0ff (same as header)
+- Category card background: white
+- Border: #e0e0e0 (light gray)
+
+Yes.
+
+Now, the text:
+
+- "Frequently Asked Questions" is bold, 75 articles is smaller.
+
+Let's make sure the HTML structure matches. Each category card has the icon, h2, p.
+
+Now, let's code the HTML with all the categories.
+
+The categories are:
+
+1. Frequently Asked Questions - 75 articles
+2. Wireless Networking - 322 articles
+3. Wired Networking - 61 articles
+4. Telephony Systems - 61 articles
+5. IP Surveillance Cameras - 26 articles
+
+So in the main section, five category-card divs.
+
+Let's put it all together.
+
+Check for any missing elements. The image shows the header with the welcome text, search bar, then the category cards.
+
+Now, the CSS should be embedded in a style block.
+
+Let's write the full HTML.
+
+Start with the doctype, html, head, body.
+
+In the head, the style block.
+
+Make sure all elements are closed properly.
+
+Let's check the search bar: input type text, placeholder.
+
+The header h1 is centered.
+
+Now, let's code.
+
+Wait, the image shows the header with a blue bar, and the search bar is inside the header.
+
+Yes.
+
+Now, let's write the code.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor EnGenius</title>
+    <style>
+        /* CSS styles */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Doctor EnGenius</h1>
+        <input type="text" placeholder="Search for articles...">
+    </header>
+    <main>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Frequently Asked Questions</h2>
+            <p>75 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Wireless Networking</h2>
+            <p>322 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Wired Networking</h2>
+            <p>61 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Telephony Systems</h2>
+            <p>61 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>IP Surveillance Cameras</h2>
+            <p>26 articles</p>
+        </div>
+    </main>
+</body>
+</html>
+
+Now, the CSS:
+
+We need to style the header, input, main, category-card, icon, h2, p.
+
+Let's define the CSS:
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #00a0ff;
+    padding: 20px 20px 10px;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+input {
+    background-color: #4aafff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto;
+    font-size: 16px;
+    color: #333;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.category-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-color: #00a0ff;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+Let's check if this matches the image.
+
+- Header: blue background, white text, centered.
+- Search bar: light blue, rounded, centered.
+- Category cards: white, light gray border, each has a blue square icon, then the title and article count.
+
+Yes.
+
+Now, check for responsiveness. The max-width on main and input should make it responsive.
+
+Also, the box-sizing: border-box ensures padding and borders are included in the element's total width and height.
+
+Now, let's make sure all elements are properly closed.
+
+The HTML is well-formed.
+
+Now, the task says to generate only one complete HTML file, with CSS in a style block.
+
+So the final code should be:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor EnGenius</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #00a0ff;
+            padding: 20px 20px 10px;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        input {
+            background-color: #4aafff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            width: 80%;
+            max-width: 600px;
+            margin: 10px auto;
+            font-size: 16px;
+            color: #333;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+       .category-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+       .icon {
+            width: 20px;
+            height: 20px;
+            background-color: #00a0ff;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Doctor EnGenius</h1>
+        <input type="text" placeholder="Search for articles...">
+    </header>
+    <main>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Frequently Asked Questions</h2>
+            <p>75 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Wireless Networking</h2>
+            <p>322 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Wired Networking</h2>
+            <p>61 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Telephony Systems</h2>
+            <p>61 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>IP Surveillance Cameras</h2>
+            <p>26 articles</p>
+        </div>
+    </main>
+</body>
+</html>
+```
+
+Wait, the image shows the header with a blue bar, and the search bar is inside. The code has that.
+
+Check the colors:
+
+- Header background: #00a0ff (correct)
+- Search bar background: #4aafff (correct)
+- Icon: #00a0ff (correct)
+- Category card border: #e0e0e0 (correct)
+- Text colors: h2 is #333, p is #666 (correct)
+
+The structure matches the image.
+
+Yes, this should be the correct code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor EnGenius</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #00a0ff;
+            padding: 20px 20px 10px;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        input {
+            background-color: #4aafff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            width: 80%;
+            max-width: 600px;
+            margin: 10px auto;
+            font-size: 16px;
+            color: #333;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+       .category-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+       .icon {
+            width: 20px;
+            height: 20px;
+            background-color: #00a0ff;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Doctor EnGenius</h1>
+        <input type="text" placeholder="Search for articles...">
+    </header>
+    <main>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Frequently Asked Questions</h2>
+            <p>75 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Wireless Networking</h2>
+            <p>322 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Wired Networking</h2>
+            <p>61 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>Telephony Systems</h2>
+            <p>61 articles</p>
+        </div>
+        <div class="category-card">
+            <div class="icon"></div>
+            <h2>IP Surveillance Cameras</h2>
+            <p>26 articles</p>
+        </div>
+    </main>
+</body>
+</html>
+```

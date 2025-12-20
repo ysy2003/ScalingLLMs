@@ -1,0 +1,1324 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image and recreate the HTML structure with the correct CSS. Let's break it down step by step.
+
+First, the overall structure. The image shows a webpage for LibriVox, with a header, main content, and sidebar. Let's identify the elements:
+
+- Header: Top right has "About | Contact | Forum | Help", a search bar with "Search by Author, Title or Reader" and "Advanced search".
+- Main content: Left sidebar with "Donate to LibriVox", "Thank a reader", "Listen/Download" options, "Production details", "Links". Right main content: Book details, sections with chapters, readers, times.
+
+Let's start with the HTML5 structure.
+
+1. **DOCTYPE and html**: Start with <!DOCTYPE html>, then <html lang="en">.
+
+2. **Head section**:
+   - Meta tags: charset, viewport.
+   - Title: "Biography of an American Bondman, By His Daughter - LibriVox"
+   - Style block: All CSS here.
+
+3. **Body**:
+   - Header: Contains the top navigation (About | Contact | Forum | Help), search bar.
+   - Main: Divided into two columns: left sidebar and right main content.
+
+Let's outline the elements:
+
+**Header**:
+- Top right: "About | Contact | Forum | Help" (links, maybe)
+- Search bar: input with placeholder, "Advanced search" link.
+
+**Left Sidebar**:
+- "Donate to LibriVox" (green background, maybe)
+- "Thank a reader" (light blue background)
+- "Listen/Download (help?)" section with buttons: Download, iTunes, RSS, Torrent.
+- "Production details" with info.
+- "Links" section.
+
+**Right Main Content**:
+- Book title: "Biography of an American Bondman, By His Daughter" by Josephine Brown (1839-1874)
+- Description paragraph.
+- Genre and Language.
+- Sections table with Chapter, Reader, Time.
+
+Now, let's check the colors and styles from the image:
+
+- The main background is white.
+- The top navigation (About | Contact | Forum | Help) is in the top right, probably small text.
+- Search bar: light gray background, input field, "Advanced search" below.
+- Left sidebar: "Donate to LibriVox" has a light green background. "Thank a reader" has light blue. The buttons (Download, iTunes, RSS, Torrent) are green with white text.
+- The book details section: title in bold, author in smaller font.
+- The sections table: headers (SECTION, CHAPTER, READER, TIME) in light blue, rows with light gray background for even rows.
+
+Let's start coding.
+
+First, the HTML structure:
+
+- <header> with top navigation and search.
+- <main> with two columns: <aside> for sidebar, <article> for main content.
+
+Let's handle the header:
+
+Top right: "About | Contact | Forum | Help" – these are links, so <a> tags.
+
+Search bar: <div> with <input type="text" placeholder="Search by Author, Title or Reader"> and <a href="#">Advanced search</a>.
+
+Then the main content:
+
+Left aside:
+
+- "Donate to LibriVox" as a section with a green background.
+- "Thank a reader" as a section with light blue.
+- "Listen/Download (help?)" with a link to help.
+- Buttons: Download (green), iTunes (green), RSS (green), Torrent (green).
+- Production details: list of info.
+- Links: list of links.
+
+Right article:
+
+- Book title: "Biography of an American Bondman, By His Daughter" (bold, large font)
+- Author: Josephine Brown (1839 - 1874)
+- Description paragraph.
+- Genre and Language.
+- Sections table: headers, then rows for each chapter.
+
+Now, CSS:
+
+- Reset margins/paddings for consistency.
+- Colors: 
+  - Header background: white.
+  - Top navigation: maybe gray, small font.
+  - Search bar: light gray background.
+  - Donate section: #e6f7e6 (light green)
+  - Thank a reader: #e6f7f7 (light blue)
+  - Buttons: #008000 (green), white text.
+  - Sections table: header row light blue, rows alternating light gray.
+  - Font sizes: appropriate for headings, body.
+
+Let's structure the CSS:
+
+- Body: font-family, margin, padding.
+- Header: display flex, justify-content, align-items.
+- Top nav: right-aligned, small font.
+- Search bar: input, link.
+- Main: display flex, gap.
+- Aside: width, padding.
+- Article: width, padding.
+- Sections: table, table headers, rows.
+
+Let's code step by step.
+
+First, the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biography of an American Bondman, By His Daughter - LibriVox</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-nav">
+      <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Forum</a> | <a href="#">Help</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search by Author, Title or Reader">
+      <a href="#">Advanced search</a>
+    </div>
+  </header>
+  <main>
+    <aside class="sidebar">
+      <section class="donate-section">
+        <h3>Donate to LibriVox</h3>
+      </section>
+      <section class="thank-section">
+        <h3>Thank a reader</h3>
+        <p>LibriVox recordings are Public Domain in the USA. If you are not in the USA, please verify the copyright status of these works in your own country before downloading, otherwise you may be violating copyright laws.</p>
+      </section>
+      <section class="listen-download">
+        <h3>Listen/Download (<a href="#">help?</a>)</h3>
+        <div class="download-options">
+          <div class="option">
+            <span>Whole book (zip file)</span>
+            <a href="#" class="btn">Download</a>
+          </div>
+          <div class="option">
+            <span>Subscribe by iTunes</span>
+            <a href="#" class="btn">iTunes</a>
+          </div>
+          <div class="option">
+            <span>RSS Feed</span>
+            <a href="#" class="btn">RSS</a>
+          </div>
+          <div class="option">
+            <span>Download torrent</span>
+            <a href="#" class="btn">Torrent</a>
+          </div>
+        </div>
+      </section>
+      <section class="production-details">
+        <h3>Production details</h3>
+        <ul>
+          <li>Running Time: 02:32:05</li>
+          <li>Zip file size: 71MB</li>
+          <li>Catalog date: 2018-09-12</li>
+          <li>Read by: <a href="#">Jim Locke</a></li>
+          <li>Book Coordinator: <a href="#">Jim Locke</a></li>
+          <li>Meta Coordinator: <a href="#">DaveC</a></li>
+          <li>Proof Listener: <a href="#">DaveC</a></li>
+        </ul>
+      </section>
+      <section class="links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Internet Archive Page</a></li>
+          <li><a href="#">Online text</a></li>
+          <li><a href="#">Wikipedia - Josephine Brown</a></li>
+          <li><a href="#">M4B Audiobook (70MB)</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="main-content">
+      <div class="book-info">
+        <h1>Biography of an American Bondman, By His Daughter</h1>
+        <h2>Josephine Brown (1839 - 1874)</h2>
+        <p>Josephine Brown's Biography of an American Bondsmen faithfully follows the trajectory of her father's life as previously explored in his own narratives. She distills and summarizes the major revelatory moments of his autobiography while she also incorporates new anecdotal information and offers her own perspective on Brown's life.</p>
+        <p><strong>Genre(s):</strong> Biography & Autobiography</p>
+        <p><strong>Language:</strong> English</p>
+        <div class="cover-art">
+          <div class="cover-placeholder"></div>
+          <div class="cover-actions">
+            <a href="#">Download cover art</a>
+            <a href="#">Download CD case insert</a>
+          </div>
+        </div>
+      </div>
+      <table class="chapters-table">
+        <thead>
+          <tr>
+            <th>SECTION</th>
+            <th>CHAPTER</th>
+            <th>READER</th>
+            <th>TIME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Chapters 1 and 2</td>
+            <td>Jim Locke</td>
+            <td>00:14:18</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Chapters 3 and 4</td>
+            <td>Jim Locke</td>
+            <td>00:07:04</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Chapters 5 and 6</td>
+            <td>Jim Locke</td>
+            <td>00:09:26</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </main>
+</body>
+</html>
+
+Now, the CSS. Let's define the styles.
+
+First, reset:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.top-nav {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.top-nav a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-bar a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  width: 250px;
+}
+
+.donate-section {
+  background-color: #e6f7e6;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.thank-section {
+  background-color: #e6f7f7;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.listen-download {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.listen-download h3 {
+  margin-bottom: 10px;
+}
+
+.download-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #008000;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.production-details {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.production-details h3 {
+  margin-bottom: 10px;
+}
+
+.production-details ul {
+  list-style: none;
+}
+
+.production-details li {
+  margin-bottom: 5px;
+}
+
+.links {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.links h3 {
+  margin-bottom: 10px;
+}
+
+.links ul {
+  list-style: none;
+}
+
+.links li {
+  margin-bottom: 5px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.book-info {
+  margin-bottom: 20px;
+}
+
+.book-info h1 {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+.book-info h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.book-info p {
+  margin-bottom: 10px;
+}
+
+.cover-art {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cover-placeholder {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  margin: 0 auto;
+  display: block;
+}
+
+.cover-actions {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cover-actions a {
+  display: block;
+  margin: 5px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.chapters-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.chapters-table th {
+  background-color: #e6f7f7;
+  padding: 10px;
+  text-align: left;
+}
+
+.chapters-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.chapters-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.chapters-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+Now, check if all elements match the image.
+
+- The top navigation: "About | Contact | Forum | Help" – correct.
+- Search bar: input and "Advanced search" – correct.
+- Left sidebar: Donate section (green), Thank a reader (light blue), Listen/Download with buttons – correct.
+- Production details: all the info – correct.
+- Links: correct.
+- Main content: book title, author, description, genre, language, cover art, chapters table – correct.
+
+Check the colors:
+
+- Donate section: #e6f7e6 (light green) – matches the image.
+- Thank a reader: #e6f7f7 (light blue) – matches.
+- Buttons: green (#008000) – matches.
+- Cover art: blue square – correct.
+
+Check the structure:
+
+- The main content has the book info, then the table.
+
+Also, the responsive part: the CSS uses flexbox, so it should be responsive.
+
+Now, check for any missing elements. The image has a blue square at the top left (the logo), but in the HTML, the user might not have included it, but the task says to recreate the visual design. Wait, the image shows a blue square at the top left, which is probably the LibriVox logo. But in the provided HTML structure, the user didn't include it. Wait, the image has "Acoustical liberation of books in the public domain" below the blue square. So maybe the blue square is a logo, but in the HTML, we can add a placeholder.
+
+Wait, looking back at the image:
+
+Top left: blue square (logo), then "Acoustical liberation of books in the public domain".
+
+So in the HTML, the header should have that.
+
+Ah, I missed that. So the header should have:
+
+- A blue square (logo) on the left, then the text "Acoustical liberation of books in the public domain".
+
+So let's adjust the header.
+
+Header structure:
+
+- Left: blue square (div with class "logo")
+- Right: top navigation and search bar.
+
+So:
+
+<header>
+  <div class="logo"></div>
+  <div class="top-nav">...</div>
+  <div class="search-bar">...</div>
+</header>
+
+The logo is a blue square, so:
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  margin-right: 20px;
+  float: left;
+}
+
+But in the image, the logo is at the top left, then the text "Acoustical liberation of books in the public domain" below it.
+
+Wait, the image shows:
+
+Top left: blue square (logo), then below it: "Acoustical liberation of books in the public domain".
+
+So the header should have:
+
+- Logo (blue square)
+- Text: "Acoustical liberation of books in the public domain"
+- Top navigation and search bar.
+
+So let's adjust the header:
+
+<header>
+  <div class="logo"></div>
+  <div class="slogan">Acoustical liberation of books in the public domain</div>
+  <div class="top-nav">...</div>
+  <div class="search-bar">...</div>
+</header>
+
+So add the logo and slogan.
+
+Now, the logo is a blue square, so:
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.slogan {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+Now, the top navigation is to the right of the logo and slogan.
+
+So the header should be structured as:
+
+- Logo (left)
+- Slogan (below logo)
+- Top navigation (right)
+- Search bar (right)
+
+So the header's display should be flex, with logo and slogan on the left, and top nav and search on the right.
+
+Let's adjust the header CSS:
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  margin-bottom: 10px;
+}
+
+.slogan {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.top-nav {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+Now, the main content: the left sidebar and right main content.
+
+Also, the image shows "BROWSE THE CATALOG" with tabs: Author, Title, Genre/Subject, Language. Wait, in the image, there's a section "BROWSE THE CATALOG" with tabs. Did I miss that?
+
+Looking at the image:
+
+Top of the main content, there's a section "BROWSE THE CATALOG" with tabs: Author, Title, Genre/Subject, Language.
+
+Ah, right! So the main content has a "BROWSE THE CATALOG" section with tabs.
+
+So the structure should be:
+
+- Header (logo, slogan, top nav, search)
+- Then a section "BROWSE THE CATALOG" with tabs
+- Then the main content (sidebar and article)
+
+Wait, the image shows:
+
+After the header, there's "BROWSE THE CATALOG" with tabs, then the main content.
+
+So the HTML should have:
+
+<header>...</header>
+<section class="browse-catalog">
+  <h2>BROWSE THE CATALOG</h2>
+  <div class="tabs">
+    <a href="#">Author</a>
+    <a href="#">Title</a>
+    <a href="#">Genre/Subject</a>
+    <a href="#">Language</a>
+  </div>
+</section>
+<main>...</main>
+
+Yes, that's missing in my initial structure.
+
+So let's add that section.
+
+So the body structure:
+
+- header
+- browse-catalog section
+- main
+
+So:
+
+<body>
+  <header>...</header>
+  <section class="browse-catalog">
+    <h2>BROWSE THE CATALOG</h2>
+    <div class="tabs">
+      <a href="#">Author</a>
+      <a href="#">Title</a>
+      <a href="#">Genre/Subject</a>
+      <a href="#">Language</a>
+    </div>
+  </section>
+  <main>...</main>
+</body>
+
+Now, the browse-catalog section: the tabs are in a row, each with a link.
+
+So the CSS for the tabs:
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tabs a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs a.active {
+  border-bottom: 2px solid #0000ff;
+}
+
+But in the image, the tabs are not active, so just the links.
+
+Now, let's adjust the HTML.
+
+So the body:
+
+<body>
+  <header>
+    <div class="logo"></div>
+    <div class="slogan">Acoustical liberation of books in the public domain</div>
+    <div class="top-nav">
+      <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Forum</a> | <a href="#">Help</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search by Author, Title or Reader">
+      <a href="#">Advanced search</a>
+    </div>
+  </header>
+  <section class="browse-catalog">
+    <h2>BROWSE THE CATALOG</h2>
+    <div class="tabs">
+      <a href="#">Author</a>
+      <a href="#">Title</a>
+      <a href="#">Genre/Subject</a>
+      <a href="#">Language</a>
+    </div>
+  </section>
+  <main>
+    <aside class="sidebar">...</aside>
+    <article class="main-content">...</article>
+  </main>
+</body>
+
+Now, the browse-catalog section: the tabs are in a light blue background, as per the image.
+
+So the CSS for.browse-catalog:
+
+.browse-catalog {
+  background-color: #e6f7f7;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  background-color: #e6f7f7;
+  padding: 5px;
+}
+
+.tabs a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+}
+
+Now, check the image: the tabs are in a light blue background, so the.browse-catalog section has a light blue background.
+
+Also, the "BROWSE THE CATALOG" heading is bold.
+
+Now, let's adjust the CSS for the browse-catalog.
+
+Now, the main content: the left sidebar and right article.
+
+Also, the image shows that the main content has the book info, then the cover art, then the chapters table.
+
+Now, let's check the cover art section: in the image, there's a blue square (cover art), then "Download cover art" and "Download CD case insert" below it.
+
+So the cover-art div has a placeholder (blue square) and the actions.
+
+Now, the CSS for the cover-art:
+
+.cover-art {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cover-placeholder {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  margin: 0 auto;
+  display: block;
+}
+
+.cover-actions {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cover-actions a {
+  display: block;
+  margin: 5px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+Now, let's check the chapters table: the headers are in light blue, rows alternate.
+
+The CSS for the table:
+
+.chapters-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.chapters-table th {
+  background-color: #e6f7f7;
+  padding: 10px;
+  text-align: left;
+}
+
+.chapters-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.chapters-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+Now, let's check the production details: the list items.
+
+Also, the "Listen/Download" section has the buttons: Download, iTunes, RSS, Torrent.
+
+The buttons are green, so the CSS for.btn is correct.
+
+Now, let's check the colors:
+
+- The donate section: #e6f7e6 (light green)
+- Thank a reader: #e6f7f7 (light blue)
+- The browse-catalog section: #e6f7f7 (light blue)
+- The tabs: #e6f7f7 (light blue)
+
+Now, let's make sure all elements are present.
+
+Also, the image shows "BROWSE THE CATALOG" with tabs, which we added.
+
+Now, let's adjust the HTML to include all these elements.
+
+Let's restructure the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biography of an American Bondman, By His Daughter - LibriVox</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <div class="slogan">Acoustical liberation of books in the public domain</div>
+    <div class="top-nav">
+      <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Forum</a> | <a href="#">Help</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search by Author, Title or Reader">
+      <a href="#">Advanced search</a>
+    </div>
+  </header>
+  <section class="browse-catalog">
+    <h2>BROWSE THE CATALOG</h2>
+    <div class="tabs">
+      <a href="#">Author</a>
+      <a href="#">Title</a>
+      <a href="#">Genre/Subject</a>
+      <a href="#">Language</a>
+    </div>
+  </section>
+  <main>
+    <aside class="sidebar">
+      <section class="donate-section">
+        <h3>Donate to LibriVox</h3>
+      </section>
+      <section class="thank-section">
+        <h3>Thank a reader</h3>
+        <p>LibriVox recordings are Public Domain in the USA. If you are not in the USA, please verify the copyright status of these works in your own country before downloading, otherwise you may be violating copyright laws.</p>
+      </section>
+      <section class="listen-download">
+        <h3>Listen/Download (<a href="#">help?</a>)</h3>
+        <div class="download-options">
+          <div class="option">
+            <span>Whole book (zip file)</span>
+            <a href="#" class="btn">Download</a>
+          </div>
+          <div class="option">
+            <span>Subscribe by iTunes</span>
+            <a href="#" class="btn">iTunes</a>
+          </div>
+          <div class="option">
+            <span>RSS Feed</span>
+            <a href="#" class="btn">RSS</a>
+          </div>
+          <div class="option">
+            <span>Download torrent</span>
+            <a href="#" class="btn">Torrent</a>
+          </div>
+        </div>
+      </section>
+      <section class="production-details">
+        <h3>Production details</h3>
+        <ul>
+          <li>Running Time: 02:32:05</li>
+          <li>Zip file size: 71MB</li>
+          <li>Catalog date: 2018-09-12</li>
+          <li>Read by: <a href="#">Jim Locke</a></li>
+          <li>Book Coordinator: <a href="#">Jim Locke</a></li>
+          <li>Meta Coordinator: <a href="#">DaveC</a></li>
+          <li>Proof Listener: <a href="#">DaveC</a></li>
+        </ul>
+      </section>
+      <section class="links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Internet Archive Page</a></li>
+          <li><a href="#">Online text</a></li>
+          <li><a href="#">Wikipedia - Josephine Brown</a></li>
+          <li><a href="#">M4B Audiobook (70MB)</a></li>
+        </ul>
+      </section>
+    </aside>
+    <article class="main-content">
+      <div class="book-info">
+        <h1>Biography of an American Bondman, By His Daughter</h1>
+        <h2>Josephine Brown (1839 - 1874)</h2>
+        <p>Josephine Brown's Biography of an American Bondsmen faithfully follows the trajectory of her father's life as previously explored in his own narratives. She distills and summarizes the major revelatory moments of his autobiography while she also incorporates new anecdotal information and offers her own perspective on Brown's life.</p>
+        <p><strong>Genre(s):</strong> Biography & Autobiography</p>
+        <p><strong>Language:</strong> English</p>
+        <div class="cover-art">
+          <div class="cover-placeholder"></div>
+          <div class="cover-actions">
+            <a href="#">Download cover art</a>
+            <a href="#">Download CD case insert</a>
+          </div>
+        </div>
+      </div>
+      <table class="chapters-table">
+        <thead>
+          <tr>
+            <th>SECTION</th>
+            <th>CHAPTER</th>
+            <th>READER</th>
+            <th>TIME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Chapters 1 and 2</td>
+            <td>Jim Locke</td>
+            <td>00:14:18</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Chapters 3 and 4</td>
+            <td>Jim Locke</td>
+            <td>00:07:04</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Chapters 5 and 6</td>
+            <td>Jim Locke</td>
+            <td>00:09:26</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </main>
+</body>
+</html>
+
+Now, the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  margin-bottom: 10px;
+}
+
+.slogan {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.top-nav {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.top-nav a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-bar a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.browse-catalog {
+  background-color: #e6f7f7;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.browse-catalog h2 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  background-color: #e6f7f7;
+  padding: 5px;
+}
+
+.tabs a {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  width: 250px;
+}
+
+.donate-section {
+  background-color: #e6f7e6;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.thank-section {
+  background-color: #e6f7f7;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.listen-download {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.listen-download h3 {
+  margin-bottom: 10px;
+}
+
+.download-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #008000;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.production-details {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.production-details h3 {
+  margin-bottom: 10px;
+}
+
+.production-details ul {
+  list-style: none;
+}
+
+.production-details li {
+  margin-bottom: 5px;
+}
+
+.links {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.links h3 {
+  margin-bottom: 10px;
+}
+
+.links ul {
+  list-style: none;
+}
+
+.links li {
+  margin-bottom: 5px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.book-info {
+  margin-bottom: 20px;
+}
+
+.book-info h1 {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+.book-info h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.book-info p {
+  margin-bottom: 10px;
+}
+
+.cover-art {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cover-placeholder {
+  width: 150px;
+  height: 150px;
+  background-color: #0000ff;
+  margin: 0 auto;
+  display: block;
+}
+
+.cover-actions {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cover-actions a {
+  display: block;
+  margin: 5px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.chapters-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.chapters-table th {
+  background-color: #e6f7f7;
+  padding: 10px;
+  text-align: left;
+}
+
+.chapters-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.chapters-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.chapters-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+Now, check if all elements are present:
+
+- Logo (blue square) in header.
+- Slogan below logo.
+- Top navigation.
+- Search bar.
+- Browse catalog section with tabs.
+- Left sidebar with donate, thank, listen/download, production details, links.
+- Right main content with book info, cover art, chapters table.
+
+Yes, this should match the image.
+
+Now, check for any typos or missing elements.
+
+The image shows "Biography of an American Bondman, By His Daughter" – correct.
+
+The author is Josephine Brown (1839 - 1874) – correct.
+
+The description paragraph: "Josephine Brown's Biography of an American Bondsmen faithfully follows the trajectory of her father's life as previously explored in his own narratives. She distills and summarizes the major revelatory moments of his autobiography while she also incorporates new anecdotal information and offers her own perspective on Brown's life." – correct.
+
+Genre: Biography & Autobiography, Language: English – correct.
+
+Cover art: blue square, download links – correct.
+
+Chapters table: sections 01, 02, 03 with chapters, reader Jim Locke, times – correct.
+
+Production details: all info – correct.
+
+Links: all links – correct.
+
+Now, the CSS is embedded in the style block.
+
+The HTML is valid, closed, and the code starts with ```html and ends with ```.
+
+Let's write the final code.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biography of an American Bondman, By His Daughter - LibriVox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+   .logo {
+      width: 150px;
+      height: 150px;
+      background-color: #0000ff;
+      margin-bottom: 10px;
+    }
+
+   .slogan {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+   .top-nav {
+      text-align: right;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+   .top-nav a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 2px;
+    }
+
+   .search-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+   .search-bar input {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+   .search-bar a {
+      color: #666;
+      text-decoration: none;
+      font

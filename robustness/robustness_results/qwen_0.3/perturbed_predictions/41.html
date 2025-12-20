@@ -1,0 +1,632 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image. First, I need to analyze the structure and styling of the image.
+
+Looking at the image, the top has a light yellow background with "obsolete Term Information" and a small square icon. Then there's a list of sections: Accession, Name, Ontology, etc., each with labels and values. The text is in a monospace font, maybe? The sections are left-aligned, with labels in bold, values in regular. The "obsolete" in the title is probably a specific style.
+
+First, the HTML structure. The main container should have a header with the title. Then a list of terms. Let's break down each part.
+
+Header: "obsolete Term Information" with a small square icon. The image shows "obsolete" in a different color (maybe gray) and "Term Information" in black. Wait, the image's header is "obsolete Term Information" with a small square icon. So the header text is "obsolete Term Information" and there's a small square icon (maybe a placeholder for an icon, but in the image it's a square). Wait, the image shows "obsolete Term Information" with a small square icon next to it. So the header is a div with that text and an icon.
+
+Then the main content is a list of terms. Each term has a label (like Accession, Name) and a value. The labels are bold, values are regular. The "obsolete" in the title is probably a specific style. Let's check the image:
+
+- The header: "obsolete Term Information" – "obsolete" is in a lighter color (maybe gray) and "Term Information" is black. The image shows "obsolete" as a separate word, so maybe "obsolete" is styled differently.
+
+Wait, the image's header is "obsolete Term Information" with a small square icon. So the header text is "obsolete Term Information" and there's a small square icon (maybe a placeholder for an icon, but in the image it's a square). So the header is a div with that text and an icon.
+
+Looking at the image, the header has "obsolete" in a lighter color (maybe gray) and "Term Information" in black. The square icon is a small square, maybe a placeholder.
+
+Then the main content: each section (Accession, Name, etc.) has a label (bold) and a value. The "Definition" section has "OBSOLETE" in uppercase, and the comment says "This term was obsolete because...".
+
+Also, the "Related" section has links with "Link" in bold, and the links are in blue.
+
+The styling: the background of the header is light yellow (like #fff9e6). The main content has a white background. The text is in a monospace font? The image shows the text as monospace, so maybe use a monospace font like 'Courier New','monospace'.
+
+Let's outline the HTML structure:
+
+- <html>
+  - <head>
+    - <style> with all the CSS
+  - <body>
+    - <header> with the title and icon
+    - <main> with the term information sections
+
+Now, the CSS:
+
+- The header has a light yellow background (#fff9e6), padding, maybe a border-bottom.
+- The header text: "obsolete" is in gray (maybe #666), "Term Information" is black. The icon is a small square, maybe a placeholder (like a square with a border, but in the image it's a small square, so maybe a div with a border).
+- The main content: each section (Accession, Name, etc.) has a label (bold) and value. The labels are left-aligned, values are indented. The "Definition" section has "OBSOLETE" in uppercase, bold, maybe a different color (like red or gray). The "Comment" section has a note. The "Related" section has links with "Link" in bold, and the links are blue. The "Feedback" section has links to "Planteome feedback" and "GO issue tracker on GitHub".
+
+Let's check the image's structure:
+
+- Accession: GO:0051704
+- Name: obsolete multi-organism process
+- Ontology: biological_process
+- Synonyms: interaction between organisms,... (with a line break)
+- Alternate: GO:0051706
+- Definition: OBSOLETE. A biological process which involves another organism... Source: GOC:jl
+- Comment: This term was obsolete because...
+- History: See term history for GO:0051704 at QuickGO
+- Subset: None
+- Related: three links (each with "Link" and a description)
+- Feedback: Contact the Planteome feedback... and comments...
+
+Now, the styling:
+
+- The header: "obsolete Term Information" with a small square icon. Let's assume the icon is a small square (maybe a div with a border, but in the image it's a square, so perhaps a placeholder). The text "obsolete" is in a lighter color (gray), "Term Information" is black.
+
+- The main content: each section is a block. The labels (Accession, Name, etc.) are bold, the values are regular. The "Definition" section has "OBSOLETE" in uppercase, maybe bold and a different color (like gray or red). The "Comment" section has a note. The "Related" section has links with "Link" in bold, and the links are blue. The "Feedback" section has links to "Planteome feedback" and "GO issue tracker on GitHub".
+
+Let's think about the CSS:
+
+- Body: font-family: monospace; maybe 'Courier New','monospace'; color: #333; line-height: 1.5; margin: 0; padding: 0;
+- Header: background-color: #fff9e6; padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; (but the image shows "obsolete Term Information" with a small square icon, so maybe the icon is a small square, like a div with a border)
+- The header text: "obsolete" is in gray (color: #666), "Term Information" is black. So maybe the header text is split: "obsolete" and "Term Information" as two spans.
+
+Wait, the image shows "obsolete Term Information" with a small square icon. So the header is "obsolete Term Information" and the icon is a small square. So the header text is "obsolete Term Information" and the icon is a small square (maybe a div with a border, like a square).
+
+Let's structure the header:
+
+<header>
+  <span style="color: #666;">obsolete</span>
+  <span>Term Information</span>
+  <div style="width: 16px; height: 16px; border: 1px solid #ccc; margin-left: 5px;"></div>
+</header>
+
+But the image shows the icon as a small square, so maybe a square with a border.
+
+Now, the main content:
+
+Each section is a div with a label and value. The labels are bold, the values are regular. The sections are left-aligned.
+
+For example:
+
+<div class="term-section">
+  <strong>Accession</strong>
+  <span>GO:0051704</span>
+</div>
+
+But the image shows the labels and values as separate lines. So each section is a block with label on the left, value on the right.
+
+Wait, the image shows:
+
+Accession GO:0051704
+
+Name obsolete multi-organism process
+
+So each line is label followed by value, with the label in bold.
+
+So the structure for each section is:
+
+<strong>Label</strong> <span>Value</span>
+
+But the "Definition" section has "OBSOLETE" in uppercase, so maybe:
+
+<strong>Definition</strong>
+<span>OBSOLETE. A biological process which involves another organism of the same or different species. Source: GOC:jl</span>
+
+The "Comment" section has a note.
+
+The "Related" section has three links, each with "Link" in bold, and the link text.
+
+The "Feedback" section has two links.
+
+Now, the CSS for the main content:
+
+- The main content has a white background, padding.
+- Each term section has a margin-bottom.
+- The labels are bold, the values are regular.
+- The "Definition" section has "OBSOLETE" in uppercase, maybe a different color (like gray or red).
+- The "Related" section has "Link" in bold, and the links are blue.
+- The "Feedback" section has links to "Planteome feedback" and "GO issue tracker on GitHub".
+
+Let's check the image's colors:
+
+- The header background is light yellow (like #fff9e6).
+- The main content is white.
+- The text is black, except for "obsolete" in the header (gray), "OBSOLETE" in the definition (maybe gray or red), and links (blue).
+
+Let's define the CSS:
+
+- body {
+  font-family: 'Courier New', monospace;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+- header {
+  background-color: #fff9e6;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+- header span:first-child {
+  color: #666;
+}
+
+- header span:last-child {
+  color: #333;
+}
+
+- header div {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+-.term-section {
+  margin-bottom: 8px;
+}
+
+-.term-section strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+-.term-section span {
+  display: block;
+}
+
+-.definition {
+  color: #666;
+}
+
+-.related-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+-.related-link:hover {
+  text-decoration: underline;
+}
+
+-.feedback-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+-.feedback-link:hover {
+  text-decoration: underline;
+}
+
+Wait, the "Definition" section has "OBSOLETE" in uppercase. So maybe the "Definition" section's value starts with "OBSOLETE" in uppercase. So in the HTML, for the Definition section, the value is "OBSOLETE. A biological process which involves another organism of the same or different species. Source: GOC:jl", so the "OBSOLETE" is part of the value.
+
+The "Comment" section has a note: "This term was obsolete because it was not a biologically meaningful grouping class."
+
+The "History" section: "See term history for GO:0051704 at QuickGO"
+
+The "Subset" section: "None"
+
+The "Related" section has three links:
+
+- Link to all annotated objects annotated to obsolete multi-organism process.
+
+- Link to all direct and indirect annotations to obsolete multi-organism process.
+
+- Link to all direct and indirect annotations download (limited to first 10,000) for obsolete multi-organism process.
+
+Each of these has "Link" in bold, and the link text.
+
+The "Feedback" section has:
+
+- Contact the Planteome feedback if you find mistakes or have concerns about the data you find here.
+
+- Comments, changes to terms, or requests for new ontology terms can be made at GO issue tracker on GitHub.
+
+Now, the HTML structure:
+
+- <header>
+  <span>obsolete</span>
+  <span>Term Information</span>
+  <div style="width: 16px; height: 16px; border: 1px solid #ccc; margin-left: 5px;"></div>
+</header>
+
+- <main>
+  <div class="term-section">
+    <strong>Accession</strong>
+    <span>GO:0051704</span>
+  </div>
+  <div class="term-section">
+    <strong>Name</strong>
+    <span>obsolete multi-organism process</span>
+  </div>
+  <div class="term-section">
+    <strong>Ontology</strong>
+    <span>biological_process</span>
+  </div>
+  <div class="term-section">
+    <strong>Synonyms</strong>
+    <span>interaction between organisms, physiological interaction between organisms, physiological interaction with other organism</span>
+  </div>
+  <div class="term-section">
+    <strong>Alternate...</strong>
+    <span>GO:0051706</span>
+  </div>
+  <div class="term-section definition">
+    <strong>Definition</strong>
+    <span>OBSOLETE. A biological process which involves another organism of the same or different species. Source: GOC:jl</span>
+  </div>
+  <div class="term-section">
+    <strong>Comment</strong>
+    <span>This term was obsolete because it was not a biologically meaningful grouping class.</span>
+  </div>
+  <div class="term-section">
+    <strong>History</strong>
+    <span>See term <a href="#">history for GO:0051704</a> at QuickGO</span>
+  </div>
+  <div class="term-section">
+    <strong>Subset</strong>
+    <span>None</span>
+  </div>
+  <div class="term-section">
+    <strong>Related</strong>
+    <span>
+      <strong>Link</strong> to all annotated objects annotated to obsolete multi-organism process.<br>
+      <strong>Link</strong> to all direct and indirect <a href="#">annotations</a> to obsolete multi-organism process.<br>
+      <strong>Link</strong> to all direct and indirect <a href="#">annotations download</a> (limited to first 10,000) for obsolete multi-organism process.
+    </span>
+  </div>
+  <div class="term-section">
+    <strong>Feedback</strong>
+    <span>
+      Contact the <a href="#">Planteome feedback</a> if you find mistakes or have concerns about the data you find here.<br>
+      Comments, changes to terms, or requests for new ontology terms can be made at <a href="#">GO issue tracker on GitHub</a>.
+    </span>
+  </div>
+</main>
+
+Wait, the "History" section has a link to "history for GO:0051704", so the link text is "history for GO:0051704".
+
+The "Related" section has three links, each with "Link" in bold, and the link text. The "annotations" and "annotations download" are links.
+
+The "Feedback" section has two links: "Planteome feedback" and "GO issue tracker on GitHub".
+
+Now, the CSS for the "Definition" section: the value starts with "OBSOLETE", so maybe the "OBSOLETE" is in uppercase and a different color. So in the CSS, for the.definition class, the span has color: #666; or maybe bold.
+
+Wait, the image shows "OBSOLETE" in uppercase, so maybe the "OBSOLETE" is part of the value, so the value is "OBSOLETE. A biological process...". So the "OBSOLETE" is in uppercase, so in the HTML, it's written as "OBSOLETE.".
+
+Now, the "Related" section: each "Link" is in bold, so the <strong>Link</strong> is bold.
+
+The "Feedback" section: the links are blue, so the a tags have color: #0066cc;.
+
+Now, let's check the image's layout:
+
+- The header is at the top, light yellow background.
+
+- The main content is below, with each section as a block.
+
+- The text is monospace, so font-family: 'Courier New', monospace;.
+
+- The "obsolete" in the header is gray, "Term Information" is black.
+
+- The "Definition" section's "OBSOLETE" is in uppercase, maybe gray.
+
+- The links are blue.
+
+Now, let's write the HTML and CSS.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <span style="color: #666;">obsolete</span>
+    <span>Term Information</span>
+    <div style="width: 16px; height: 16px; border: 1px solid #ccc; margin-left: 5px;"></div>
+  </header>
+  <main>
+    <div class="term-section">
+      <strong>Accession</strong>
+      <span>GO:0051704</span>
+    </div>
+    <div class="term-section">
+      <strong>Name</strong>
+      <span>obsolete multi-organism process</span>
+    </div>
+    <div class="term-section">
+      <strong>Ontology</strong>
+      <span>biological_process</span>
+    </div>
+    <div class="term-section">
+      <strong>Synonyms</strong>
+      <span>interaction between organisms, physiological interaction between organisms, physiological interaction with other organism</span>
+    </div>
+    <div class="term-section">
+      <strong>Alternate...</strong>
+      <span>GO:0051706</span>
+    </div>
+    <div class="term-section definition">
+      <strong>Definition</strong>
+      <span>OBSOLETE. A biological process which involves another organism of the same or different species. Source: GOC:jl</span>
+    </div>
+    <div class="term-section">
+      <strong>Comment</strong>
+      <span>This term was obsolete because it was not a biologically meaningful grouping class.</span>
+    </div>
+    <div class="term-section">
+      <strong>History</strong>
+      <span>See term <a href="#">history for GO:0051704</a> at QuickGO</span>
+    </div>
+    <div class="term-section">
+      <strong>Subset</strong>
+      <span>None</span>
+    </div>
+    <div class="term-section">
+      <strong>Related</strong>
+      <span>
+        <strong>Link</strong> to all annotated objects annotated to obsolete multi-organism process.<br>
+        <strong>Link</strong> to all direct and indirect <a href="#">annotations</a> to obsolete multi-organism process.<br>
+        <strong>Link</strong> to all direct and indirect <a href="#">annotations download</a> (limited to first 10,000) for obsolete multi-organism process.
+      </span>
+    </div>
+    <div class="term-section">
+      <strong>Feedback</strong>
+      <span>
+        Contact the <a href="#">Planteome feedback</a> if you find mistakes or have concerns about the data you find here.<br>
+        Comments, changes to terms, or requests for new ontology terms can be made at <a href="#">GO issue tracker on GitHub</a>.
+      </span>
+    </div>
+  </main>
+</body>
+</html>
+
+Now, the CSS:
+
+- body {
+  font-family: 'Courier New', monospace;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+- header {
+  background-color: #fff9e6;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+- header span:first-child {
+  color: #666;
+}
+
+- header div {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+}
+
+-.term-section {
+  margin-bottom: 8px;
+}
+
+-.term-section strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+-.term-section span {
+  display: block;
+}
+
+-.definition {
+  color: #666;
+}
+
+-.term-section a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+-.term-section a:hover {
+  text-decoration: underline;
+}
+
+Wait, the "Definition" section's value has "OBSOLETE" in uppercase, so maybe the color is gray. So the.definition class sets the color to #666.
+
+The "Related" and "Feedback" sections have links, so the a tags are styled to be blue and underlined on hover.
+
+Now, check if the HTML is valid. The main content is a <main> element, which is valid in HTML5.
+
+The header has a span for "obsolete" (gray), span for "Term Information" (black), and a div for the icon.
+
+The term sections are each a div with class "term-section", containing a strong (label) and span (value).
+
+The "Definition" section has a class "definition" to style the value.
+
+The links in "Related" and "Feedback" are a tags.
+
+Now, check the image's text:
+
+- Accession: GO:0051704
+
+- Name: obsolete multi-organism process
+
+- Ontology: biological_process
+
+- Synonyms: interaction between organisms, physiological interaction between organisms, physiological interaction with other organism
+
+- Alternate...: GO:0051706
+
+- Definition: OBSOLETE. A biological process which involves another organism of the same or different species. Source: GOC:jl
+
+- Comment: This term was obsolete because it was not a biologically meaningful grouping class.
+
+- History: See term history for GO:0051704 at QuickGO
+
+- Subset: None
+
+- Related: three links as described.
+
+- Feedback: two links as described.
+
+The HTML matches this.
+
+Now, the CSS:
+
+- The header's background is #fff9e6.
+
+- The header's text: "obsolete" is #666, "Term Information" is #333.
+
+- The icon is a 16x16 square with a border.
+
+- The term sections have margin-bottom: 8px.
+
+- The labels (strong) are bold, with margin-bottom: 2px.
+
+- The values (span) are block elements.
+
+- The definition's value is gray.
+
+- The links are blue, underlined on hover.
+
+Now, let's write the complete HTML with the CSS inside the style block.
+
+Make sure there are no extra characters before or after the code block.
+
+Start with ```html, then the HTML code, then close with ```.
+
+Let's put it all together.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+    header {
+      background-color: #fff9e6;
+      padding: 10px 20px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+    header span:first-child {
+      color: #666;
+    }
+    header span:last-child {
+      color: #333;
+    }
+    header div {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #ccc;
+      margin-left: 5px;
+    }
+   .term-section {
+      margin-bottom: 8px;
+    }
+   .term-section strong {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+   .term-section span {
+      display: block;
+    }
+   .definition {
+      color: #666;
+    }
+   .term-section a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+   .term-section a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span>obsolete</span>
+    <span>Term Information</span>
+    <div></div>
+  </header>
+  <main>
+    <div class="term-section">
+      <strong>Accession</strong>
+      <span>GO:0051704</span>
+    </div>
+    <div class="term-section">
+      <strong>Name</strong>
+      <span>obsolete multi-organism process</span>
+    </div>
+    <div class="term-section">
+      <strong>Ontology</strong>
+      <span>biological_process</span>
+    </div>
+    <div class="term-section">
+      <strong>Synonyms</strong>
+      <span>interaction between organisms, physiological interaction between organisms, physiological interaction with other organism</span>
+    </div>
+    <div class="term-section">
+      <strong>Alternate...</strong>
+      <span>GO:0051706</span>
+    </div>
+    <div class="term-section definition">
+      <strong>Definition</strong>
+      <span>OBSOLETE. A biological process which involves another organism of the same or different species. Source: GOC:jl</span>
+    </div>
+    <div class="term-section">
+      <strong>Comment</strong>
+      <span>This term was obsolete because it was not a biologically meaningful grouping class.</span>
+    </div>
+    <div class="term-section">
+      <strong>History</strong>
+      <span>See term <a href="#">history for GO:0051704</a> at QuickGO</span>
+    </div>
+    <div class="term-section">
+      <strong>Subset</strong>
+      <span>None</span>
+    </div>
+    <div class="term-section">
+      <strong>Related</strong>
+      <span>
+        <strong>Link</strong> to all annotated objects annotated to obsolete multi-organism process.<br>
+        <strong>Link</strong> to all direct and indirect <a href="#">annotations</a> to obsolete multi-organism process.<br>
+        <strong>Link</strong> to all direct and indirect <a href="#">annotations download</a> (limited to first 10,000) for obsolete multi-organism process.
+      </span>
+    </div>
+    <div class="term-section">
+      <strong>Feedback</strong>
+      <span>
+        Contact the <a href="#">Planteome feedback</a> if you find mistakes or have concerns about the data you find here.<br>
+        Comments, changes to terms, or requests for new ontology terms can be made at <a href="#">GO issue tracker on GitHub</a>.
+      </span>
+    </div>
+  </main>
+</body>
+</html>
+```

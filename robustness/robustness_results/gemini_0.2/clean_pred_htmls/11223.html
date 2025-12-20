@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapinot's home page</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif; /* Closely matches the sans-serif font in the image */
+            color: #333; /* Dark grey for main text */
+            background-color: #fff; /* White background */
+            line-height: 1.6;
+        }
+
+        /* Header - Site Title */
+        header {
+            padding: 20px 50px 0 0; /* Top, Right, Bottom, Left padding */
+            text-align: right;
+        }
+
+        .site-title {
+            font-size: 2em; /* Adjust as needed to match visual size */
+            color: #f0e68c; /* Light goldenrod yellow, matches image */
+            font-weight: normal; /* Appears normal weight in image */
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            margin-top: 20px;
+            text-align: center; /* Center the navigation items */
+            font-size: 0.9em; /* Slightly smaller font size */
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: inline-flex; /* Use inline-flex to center the group of items */
+            gap: 10px; /* Space between navigation items */
+        }
+
+        .main-nav li {
+            white-space: nowrap; /* Prevent wrapping of separator '|' */
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .main-nav .active {
+            font-weight: bold; /* "Software" is bold in the image */
+        }
+
+        /* Main Content Area Layout */
+        .container {
+            display: flex;
+            max-width: 960px; /* Max width for the content area */
+            margin: 40px auto; /* Center the container horizontally, add vertical space */
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            flex: 0 0 150px; /* Fixed width for sidebar */
+            padding-right: 30px; /* Space between sidebar and main content */
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 5px; /* Space between sidebar items */
+        }
+
+        .sidebar-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9em; /* Similar font size to main nav */
+        }
+
+        .sidebar-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-nav .indent {
+            margin-left: 20px; /* Indent for sub-items like Autobuild, Birds, etc. */
+        }
+
+        /* Main Content */
+        .content {
+            flex-grow: 1; /* Allow content to take remaining space */
+            padding-left: 30px; /* Space between sidebar and main content */
+        }
+
+        .content h1 {
+            font-size: 1.8em; /* Larger heading for "Projects" */
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 20px;
+            font-weight: normal; /* Appears normal weight in image */
+        }
+
+        .content h2 {
+            font-size: 1.3em; /* Sub-headings like KDE/APT, Bird flock simulation */
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: normal; /* Appears normal weight in image */
+        }
+
+        .content p {
+            font-size: 0.9em; /* Slightly smaller font size for paragraphs */
+            margin-bottom: 1em;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack sidebar and content vertically */
+                max-width: 100%; /* Allow container to take full width */
+            }
+
+            .sidebar {
+                flex: none; /* Remove fixed width */
+                width: auto; /* Allow sidebar to take full width */
+                padding-right: 0;
+                margin-bottom: 20px; /* Space between stacked sidebar and content */
+                text-align: center; /* Center sidebar nav items */
+            }
+
+            .sidebar-nav ul {
+                display: flex;
+                flex-wrap: wrap; /* Allow items to wrap */
+                justify-content: center; /* Center items horizontally */
+                gap: 10px;
+            }
+
+            .sidebar-nav li {
+                margin-bottom: 0; /* Remove vertical margin when items are horizontal */
+            }
+
+            .sidebar-nav .indent {
+                margin-left: 0; /* Remove indent on small screens */
+            }
+
+            .content {
+                padding-left: 0; /* Remove left padding when stacked */
+            }
+
+            header {
+                padding-right: 20px; /* Adjust header padding for smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 1.5em; /* Further reduce title size on very small screens */
+            }
+            .main-nav ul {
+                flex-wrap: wrap; /* Allow main nav items to wrap */
+                justify-content: center;
+            }
+            .main-nav li {
+                margin-bottom: 5px; /* Add some vertical spacing when main nav items wrap */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="site-title">Lapinot's home page</div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>|</li>
+            <li><a href="#">Debian</a></li>
+            <li>|</li>
+            <li><a href="#" class="active">Software</a></li>
+            <li>|</li>
+            <li><a href="#">Links</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#">Projects</a></li>
+                    <li class="indent"><a href="#">Autobuild</a></li>
+                    <li class="indent"><a href="#">Birds</a></li>
+                    <li class="indent"><a href="#">Karamba theme</a></li>
+                    <li class="indent"><a href="#">KDE/APT</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Projects</h1>
+
+            <section>
+                <h2>KDE/APT</h2>
+                <p>KDE/APT is made of two software packages: KIO/APT and KPkgManager. The first one gives access to apt-cache -like functionalities in Konqueror. The second allows very simple package management: install, remove and update/upgrade. It is designed to provide a simple but lightweight tool for everyday use while more complete tools like aptitude are still necessary sometimes.</p>
+            </section>
+
+            <section>
+                <h2>Bird flock simulation</h2>
+                <p>An OpenGL-based bird flock simulation</p>
+            </section>
+
+            <section>
+                <h2>Karamba theme</h2>
+                <p>For people like me who like to have the KasBar and gkrellm for monitoring, I adapted the smooth theme for Karamba to make it thiner. Just check a small screenshot (320x200) and a wider one (1024x768).</p>
+                <p>You can download it here. The theme file is doudou.theme. Be warned that I didn't adapt all the modules that are available.</p>
+            </section>
+
+            <section>
+                <h2>Autobuild (on RubyForge)</h2>
+                <p>A ruby-based autobuilder. Look at the readme too.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

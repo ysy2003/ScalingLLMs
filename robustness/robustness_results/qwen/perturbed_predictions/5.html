@@ -1,0 +1,918 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design recreation. First, I need to analyze the image provided. The main elements are:
+
+- A blue square at the top left (probably a logo or header element).
+- The title "PILLARS" in bold, centered.
+- Several paragraphs of text explaining the program.
+- A section titled "DESIGNING YOUR PROGRAM..." with a table.
+- Two example sections for undergrad and grad students.
+
+Let's break down the structure:
+
+1. **Header with blue square**: The image has a blue square (maybe 200x200) on the top left. In HTML, we can use a div with a background color.
+
+2. **Title "PILLARS"**: Centered, large font, bold.
+
+3. **Paragraphs**: The text content under the title.
+
+4. **Table**: The table has three columns: Pillar, Main Task, Notes. Need to replicate the rows as in the image.
+
+5. **Example sections**: Two sections with bullet points.
+
+6. **Responsive design**: The CSS should make it responsive, so using flexbox or grid for layout, maybe media queries.
+
+Let's outline the HTML structure:
+
+- <html>
+  - <head>
+    - <style> (all CSS here)
+  - <body>
+    - <div class="header"> (blue square)
+    - <h1>PILLARS</h1>
+    - <p>... paragraphs...</p>
+    - <h2>DESIGNING YOUR PROGRAM...</h2>
+    - <table> with rows
+    - <h2>AN EXAMPLE OF AN UNDERGRADUATE...</h2>
+    - <ul> with bullet points
+    - <h2>AN EXAMPLE OF A GRADUATE...</h2>
+    - <ul> with bullet points
+    - <p>note at the bottom</p>
+
+Now, the CSS:
+
+- The blue square: position absolute? Or maybe a block element. Let's see the image: the blue square is top left, so maybe a div with class "logo" that's 200x200, background blue, position fixed or relative.
+
+Wait, the image shows the blue square as a solid blue rectangle at the top left. So in the HTML, we can have a div with class "logo" that's 200px by 200px, background color #0000FF (blue), positioned at the top left.
+
+But the problem says "recreate the visual design in the image". The image has the blue square, then the title "PILLARS" below it. So the structure is:
+
+[Blue square] (top left)
+[PILLARS] (centered, large)
+[Text]
+
+So in HTML, the blue square can be a div with class "logo" inside the body, maybe floated left, but the image shows it as a square at the top left, so maybe:
+
+<div class="logo"></div>
+<h1>PILLARS</h1>
+
+But the image's blue square is a solid color, so the div would have a background color.
+
+Let's check the image: the blue square is a solid blue rectangle, no text. So the HTML would have a div with class "logo" that's 200x200, background blue.
+
+Now, the text content: the paragraphs are left-aligned, with some bold text for section titles.
+
+The table: needs to have three columns. The image shows the table with headers "Pillar", "Main Task", "Notes". The rows are:
+
+Pillar 1: Research project... (Main Task: Undergraduate Students will often complete a summer research internship... Graduate Students Required thesis or dissertation. Notes: All students will be required to present work at the annual summer CREATE H2O conference...)
+
+Pillar 2: Water sciences... (Main Task: Courses, workshops, conference presentations. Notes: Courses already completed...)
+
+Pillar 3: Indigenous theory... (Main Task: same as Pillar 2. Notes: same as Pillar 2.)
+
+The example sections: bullet points with specific items.
+
+Now, for responsive design: the CSS should make the page look good on different screen sizes. So using a container for the main content, maybe max-width 1200px, centered.
+
+Let's structure the CSS:
+
+- Reset some margins/paddings.
+- Set font-family to something like Arial, sans-serif.
+- The logo: position absolute? Or maybe a block element with margin. Wait, the image shows the blue square at the top left, so maybe:
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+}
+
+But maybe the image has the blue square as part of the header. Alternatively, the blue square is a separate element, but the problem says "recreate the visual design", so we need to match the layout.
+
+Wait, the image shows the blue square at the top left, then the title "PILLARS" centered below it. So the HTML structure would be:
+
+<body>
+  <div class="logo"></div>
+  <h1>PILLARS</h1>
+  <p>...</p>
+ ... rest of content...
+
+But the logo is a solid blue square, so the div has a background color.
+
+Now, the text content: the paragraphs are left-aligned, with some bold text for section titles.
+
+The table: needs to have a border, maybe. The image shows the table with lines, so we can add border-collapse: collapse; and borders.
+
+Let's outline the CSS:
+
+- body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+-.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+}
+
+- h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+- p {
+  margin: 15px 0;
+  text-align: justify;
+}
+
+- h2 {
+  text-align: center;
+  margin: 25px 0 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+- table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+- th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+- th {
+  background-color: #f2f2f2;
+}
+
+- ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+- li {
+  margin-bottom: 5px;
+}
+
+-.example {
+  margin: 20px 0;
+}
+
+Wait, but the image's table has three columns. Let's check the image:
+
+The table in the image has:
+
+Pillar | Main Task | Notes
+
+So the HTML table would have:
+
+<table>
+  <tr>
+    <th>Pillar</th>
+    <th>Main Task</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Pillar 1 - Research project...</td>
+    <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+    <td>All students will be required to present work at the annual summer CREATE H2O conference. (The first one in June 2014 will be at the University of Manitoba.)</td>
+  </tr>
+ ... etc.
+
+Now, the example sections: the undergrad example has bullet points, same for grad.
+
+Also, the note at the bottom: "Note that these are general examples. Each student’s background will be assessed by supervisors at the start of the program to design a specific set of unit requirements that will complement the student’s strengths."
+
+Now, let's make sure the HTML is valid. The structure should be:
+
+- <html>
+  - <head>
+    - <style> (all CSS)
+  - <body>
+    - <div class="logo"></div>
+    - <h1>PILLARS</h1>
+    - <p>First paragraph...</p>
+    - <p>Second paragraph...</p>
+    - <h2>DESIGNING YOUR PROGRAM...</h2>
+    - <table>...</table>
+    - <h2>AN EXAMPLE OF AN UNDERGRADUATE...</h2>
+    - <ul>...</ul>
+    - <h2>AN EXAMPLE OF A GRADUATE...</h2>
+    - <ul>...</ul>
+    - <p>Note at the bottom...</p>
+
+Now, let's check the text content from the image:
+
+First paragraph: "The CREATE H2O program includes five pillars offering in-depth training."
+
+Second: "Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student’s educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security."
+
+Third: "Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student’s career path and goals."
+
+Fourth: "Students accepted into the program will receive financial support consisting of a stipend and travel awards."
+
+Then the section "DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY"
+
+Then the table.
+
+Then the example sections.
+
+Now, the HTML should have all these text elements.
+
+Let's code the HTML step by step.
+
+First, the logo div:
+
+<div class="logo"></div>
+
+Then the h1:
+
+<h1>PILLARS</h1>
+
+Then the paragraphs:
+
+<p>The CREATE H2O program includes five pillars offering in-depth training.</p>
+<p>Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student’s educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security.</p>
+<p>Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student’s career path and goals.</p>
+<p>Students accepted into the program will receive financial support consisting of a <span class="highlight">stipend</span> and <span class="highlight">travel</span> awards.</p>
+
+Wait, the image has "stipend" and "travel" in bold or highlighted. The image shows "stipend" and "travel" as bold. So in HTML, we can use <strong> or <span class="highlight">. Let's check the image: the text says "stipend and travel awards" with "stipend" and "travel" in bold. So we can use <strong> for those.
+
+So:
+
+<p>Students accepted into the program will receive financial support consisting of a <strong>stipend</strong> and <strong>travel</strong> awards.</p>
+
+Then the section title:
+
+<h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY</h2>
+
+Then the paragraph under that:
+
+<p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and a professional work term (Pillar 5). In addition, undergraduate students are required to complete 8 portfolio units across at least two of the other three program pillars before you graduate.</p>
+
+Then the table:
+
+<table>
+  <tr>
+    <th>Pillar</th>
+    <th>Main Task</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>Pillar 1 - Research project and dissemination in collaboration with one or more First Nation communities.</td>
+    <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+    <td>All students will be required to present work at the annual summer CREATE H2O conference. (The first one in June 2014 will be at the University of Manitoba.)</td>
+  </tr>
+  <tr>
+    <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+    <td>Courses, workshops, conference presentations</td>
+    <td>Courses already completed by students as part of their degree program may qualify. See approved undergraduate and graduate courses and workshops.</td>
+  </tr>
+  <tr>
+    <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+    <td>Courses, workshops, conference presentations</td>
+    <td>Courses already completed by students as part of their degree program may qualify. See approved and graduate courses and workshops.</td>
+  </tr>
+</table>
+
+Then the example sections:
+
+<h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+<ul>
+  <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+  <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+  <li>One non-science course from approved list (pillar 3): 3 units</li>
+  <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+</ul>
+
+<h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+<ul>
+  <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+  <li>Two science courses from approved list (pillar 2): 3X2 = 6 units</li>
+  <li>One non-science course from approved list (pillar 3): 3 units</li>
+  <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+</ul>
+
+Then the note:
+
+<p>(See this student’s <a href="#">sample spreadsheet</a> showing calculation of pillar units and approval signature slots.)</p>
+<p>Note that these are general examples. Each student’s background will be assessed by supervisors at the start of the program to design a specific set of unit requirements that will complement the student’s strengths.</p>
+
+Now, the CSS:
+
+We need to make it responsive. Let's set the body to have a max-width, and center the content.
+
+Also, the logo: position absolute, but maybe better to have it as a block element with margin. Wait, the image shows the blue square at the top left, so maybe:
+
+.logo {
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+But the image's blue square is a solid color, so that's correct.
+
+Then, the main content should be centered. So:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.logo {
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+p {
+  margin: 15px 0;
+  text-align: justify;
+}
+
+h2 {
+  text-align: center;
+  margin: 25px 0 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+ .logo {
+    float: none;
+    margin: 0 auto 10px;
+    width: 100%;
+    height: 100px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+Wait, but the image's table is probably not too wide, so maybe the responsive part is to make the table scrollable on small screens.
+
+But the problem says "responsive CSS", so we need to include media queries.
+
+Now, let's check the image's layout:
+
+- The blue square is top left.
+- The title "PILLARS" is centered below the blue square.
+- The paragraphs are left-aligned, with the text flowing.
+
+In the HTML, the logo is floated left, then the h1 is centered, which will be after the logo. But in the image, the logo is at the top left, and the title is centered, so the logo is a separate element, and the title is centered.
+
+Wait, the image shows the blue square at the top left, then the title "PILLARS" centered. So the HTML structure should have the logo as a block element, then the h1 centered.
+
+But in HTML, if we have:
+
+<div class="logo"></div>
+<h1>PILLARS</h1>
+
+The logo will be at the top left (if floated left), and the h1 will be centered.
+
+Yes.
+
+Now, let's code the HTML.
+
+Also, the image has a blue square, so the logo div has background color #0000ff.
+
+Now, let's put it all together.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+  <h1>PILLARS</h1>
+  <p>The CREATE H2O program includes five pillars offering in-depth training.</p>
+  <p>Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student’s educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security.</p>
+  <p>Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student’s career path and goals.</p>
+  <p>Students accepted into the program will receive financial support consisting of a <strong>stipend</strong> and <strong>travel</strong> awards.</p>
+  <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY</h2>
+  <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and a professional work term (Pillar 5). In addition, undergraduate students are required to complete 8 portfolio units across at least two of the other three program pillars before you graduate.</p>
+  <table>
+    <tr>
+      <th>Pillar</th>
+      <th>Main Task</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Pillar 1 - Research project and dissemination in collaboration with one or more First Nation communities.</td>
+      <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+      <td>All students will be required to present work at the annual summer CREATE H2O conference. (The first one in June 2014 will be at the University of Manitoba.)</td>
+    </tr>
+    <tr>
+      <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+      <td>Courses, workshops, conference presentations</td>
+      <td>Courses already completed by students as part of their degree program may qualify. See approved undergraduate and graduate courses and workshops.</td>
+    </tr>
+    <tr>
+      <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+      <td>Courses, workshops, conference presentations</td>
+      <td>Courses already completed by students as part of their degree program may qualify. See approved and graduate courses and workshops.</td>
+    </tr>
+  </table>
+  <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+  <ul>
+    <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+    <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+    <li>One non-science course from approved list (pillar 3): 3 units</li>
+    <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+  </ul>
+  <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+  <ul>
+    <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+    <li>Two science courses from approved list (pillar 2): 3X2 = 6 units</li>
+    <li>One non-science course from approved list (pillar 3): 3 units</li>
+    <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+  </ul>
+  <p>(See this student’s <a href="#">sample spreadsheet</a> showing calculation of pillar units and approval signature slots.)</p>
+  <p>Note that these are general examples. Each student’s background will be assessed by supervisors at the start of the program to design a specific set of unit requirements that will complement the student’s strengths.</p>
+</body>
+</html>
+
+Now, the CSS:
+
+We need to style the logo, the h1, the paragraphs, the table, etc.
+
+Let's write the CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+.logo {
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-color: #0000ff;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333333;
+}
+
+p {
+  margin: 15px 0;
+  text-align: justify;
+  line-height: 1.8;
+  color: #333333;
+}
+
+h2 {
+  text-align: center;
+  margin: 25px 0 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+  list-style-type: disc;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+ .logo {
+    float: none;
+    margin: 0 auto 10px;
+    width: 100%;
+    height: 100px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+Wait, but the image's table is probably not too wide, so the responsive part is to make the table scrollable on small screens.
+
+Now, check if the HTML is valid. The logo is a div with class "logo", which is styled in CSS.
+
+Also, the image has the blue square, which is the logo div.
+
+Now, let's check the text content:
+
+- The first paragraph: "The CREATE H2O program includes five pillars offering in-depth training." Correct.
+
+- Second paragraph: "Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student’s educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security." Correct.
+
+- Third paragraph: "Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student’s career path and goals." Correct.
+
+- Fourth paragraph: "Students accepted into the program will receive financial support consisting of a stipend and travel awards." With "stipend" and "travel" in bold. Correct.
+
+- Section title: "DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY" Correct.
+
+- Paragraph under section title: "Undergraduate students must choose between a relevant research-based project (Pillar 1) and a professional work term (Pillar 5). In addition, undergraduate students are required to complete 8 portfolio units across at least two of the other three program pillars before you graduate." Correct.
+
+- Table: three rows, correct.
+
+- Example sections: correct.
+
+- Note at the bottom: correct.
+
+Now, the CSS should make it responsive. The media query for max-width 768px adjusts the logo to be centered and smaller, and the table to be scrollable.
+
+Now, let's check if the HTML is properly closed. The body ends with </body>, and the html ends with </html>.
+
+Now, the problem says "BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```."
+
+So the final code should be:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+    }
+   .logo {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background-color: #0000ff;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #333333;
+    }
+    p {
+      margin: 15px 0;
+      text-align: justify;
+      line-height: 1.8;
+      color: #333333;
+    }
+    h2 {
+      text-align: center;
+      margin: 25px 0 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+      list-style-type: disc;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+     .logo {
+        float: none;
+        margin: 0 auto 10px;
+        width: 100%;
+        height: 100px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+  <h1>PILLARS</h1>
+  <p>The CREATE H2O program includes five pillars offering in-depth training.</p>
+  <p>Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student’s educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security.</p>
+  <p>Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student’s career path and goals.</p>
+  <p>Students accepted into the program will receive financial support consisting of a <strong>stipend</strong> and <strong>travel</strong> awards.</p>
+  <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY</h2>
+  <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and a professional work term (Pillar 5). In addition, undergraduate students are required to complete 8 portfolio units across at least two of the other three program pillars before you graduate.</p>
+  <table>
+    <tr>
+      <th>Pillar</th>
+      <th>Main Task</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Pillar 1 - Research project and dissemination in collaboration with one or more First Nation communities.</td>
+      <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+      <td>All students will be required to present work at the annual summer CREATE H2O conference. (The first one in June 2014 will be at the University of Manitoba.)</td>
+    </tr>
+    <tr>
+      <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+      <td>Courses, workshops, conference presentations</td>
+      <td>Courses already completed by students as part of their degree program may qualify. See approved undergraduate and graduate courses and workshops.</td>
+    </tr>
+    <tr>
+      <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+      <td>Courses, workshops, conference presentations</td>
+      <td>Courses already completed by students as part of their degree program may qualify. See approved and graduate courses and workshops.</td>
+    </tr>
+  </table>
+  <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+  <ul>
+    <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+    <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+    <li>One non-science course from approved list (pillar 3): 3 units</li>
+    <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+  </ul>
+  <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+  <ul>
+    <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+    <li>Two science courses from approved list (pillar 2): 3X2 = 6 units</li>
+    <li>One non-science course from approved list (pillar 3): 3 units</li>
+    <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+  </ul>
+  <p>(See this student’s <a href="#">sample spreadsheet</a> showing calculation of pillar units and approval signature slots.)</p>
+  <p>Note that these are general examples. Each student’s background will be assessed by supervisors at the start of the program to design a specific set of unit requirements that will complement the student’s strengths.</p>
+</body>
+</html>
+```
+
+Wait, but in the image, the "stipend" and "travel" are bold, so using <strong> is correct.
+
+Also, the table in the image has the correct content.
+
+Now, check if the HTML is valid. The table has proper rows and columns.
+
+Yes, this should match the visual design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+    }
+   .logo {
+      float: left;
+      width: 200px;
+      height: 200px;
+      background-color: #0000ff;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #333333;
+    }
+    p {
+      margin: 15px 0;
+      text-align: justify;
+      line-height: 1.8;
+      color: #333333;
+    }
+    h2 {
+      text-align: center;
+      margin: 25px 0 15px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 5px;
+      list-style-type: disc;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+     .logo {
+        float: none;
+        margin: 0 auto 10px;
+        width: 100%;
+        height: 100px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo"></div>
+  <h1>PILLARS</h1>
+  <p>The CREATE H2O program includes five pillars offering in-depth training.</p>
+  <p>Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student’s educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security.</p>
+  <p>Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student’s career path and goals.</p>
+  <p>Students accepted into the program will receive financial support consisting of a <strong>stipend</strong> and <strong>travel</strong> awards.</p>
+  <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY</h2>
+  <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and a professional work term (Pillar 5). In addition, undergraduate students are required to complete 8 portfolio units across at least two of the other three program pillars before you graduate.</p>
+  <table>
+    <tr>
+      <th>Pillar</th>
+      <th>Main Task</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Pillar 1 - Research project and dissemination in collaboration with one or more First Nation communities.</td>
+      <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+      <td>All students will be required to present work at the annual summer CREATE H2O conference. (The first one in June 2014 will be at the University of Manitoba.)</td>
+    </tr>
+    <tr>
+      <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+      <td>Courses, workshops, conference presentations</td>
+      <td>Courses already completed by students as part of their degree program may qualify. See approved undergraduate and graduate courses and workshops.</td>
+    </tr>
+    <tr>
+      <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+      <td>Courses, workshops, conference presentations</td>
+      <td>Courses already completed by students as part of their degree program may qualify. See approved and graduate courses and workshops.</td>
+    </tr>
+  </table>
+  <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+  <ul>
+    <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+    <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+    <li>One non-science course from approved list (pillar 3): 3 units</li>
+    <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+  </ul>
+  <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+  <ul>
+    <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+    <li>Two science courses from approved list (pillar 2): 3X2 = 6 units</li>
+    <li>One non-science course from approved list (pillar 3): 3 units</li>
+    <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+  </ul>
+  <p>(See this student’s <a href="#">sample spreadsheet</a> showing calculation of pillar units and approval signature slots.)</p>
+  <p>Note that these are general examples. Each student’s background will be assessed by supervisors at the start of the program to design a specific set of unit requirements that will complement the student’s strengths.</p>
+</body>
+</html>
+```

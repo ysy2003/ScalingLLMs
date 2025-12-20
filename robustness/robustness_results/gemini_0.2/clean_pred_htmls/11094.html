@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Line Trailers</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #214060;
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            overflow: hidden; /* To contain the absolute positioned 22% NEWS */
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            background-color: #0000FF;
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .social-icon {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ccc;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #214060; /* Icon color if any */
+            font-size: 14px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            margin-left: auto; /* Pushes to the right */
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav li a {
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .main-nav li a.has-dropdown::after {
+            content: ' \25BE'; /* Down arrow */
+            font-size: 0.8em;
+            vertical-align: middle;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-info span::before {
+            font-family: 'Arial', sans-serif; /* Using a generic font for icons */
+            font-size: 1em;
+            vertical-align: middle;
+        }
+
+        .contact-info span:first-child::before {
+            content: '\260E'; /* Phone icon */
+        }
+
+        .contact-info span:last-child::before {
+            content: '\2709'; /* Email icon */
+        }
+
+        .news-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 100px; /* Adjust as needed */
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            line-height: 0.8;
+            text-align: right;
+            pointer-events: none; /* Allow clicks through */
+            z-index: 0;
+            padding-right: 20px;
+            transform: translateY(-10px); /* Adjust vertical position */
+        }
+
+        .news-overlay span {
+            display: block;
+            font-size: 0.3em; /* NEWS is smaller */
+            margin-top: -0.2em; /* Adjust spacing */
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .title-icon {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #333;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .title-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #333;
+            transform: translateY(-50%);
+        }
+
+        .section-title h1 {
+            font-size: 28px;
+            font-weight: normal;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .total-tag {
+            background-color: #888;
+            color: white;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: normal;
+        }
+
+        .description-text {
+            margin-bottom: 30px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .description-text p {
+            margin: 0 0 10px 0;
+        }
+
+        .description-text strong {
+            font-weight: bold;
+        }
+
+        .pagination-top, .pagination-bottom {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .pagination-top span, .pagination-bottom span {
+            margin-right: 15px;
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pagination-controls a {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            color: #555;
+            border-radius: 3px;
+        }
+
+        .pagination-controls a.active {
+            background-color: #214060;
+            color: white;
+            border-color: #214060;
+        }
+
+        .pagination-controls .separator {
+            margin: 0 5px;
+            color: #ccc;
+        }
+
+        .trailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .trailer-item {
+            background-color: white;
+            border: 1px solid #eee;
+            padding-bottom: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .trailer-image-placeholder {
+            width: 100%;
+            height: 180px;
+            background-color: #0000FF;
+            margin-bottom: 15px;
+        }
+
+        .trailer-item p {
+            font-size: 14px;
+            color: #555;
+            margin: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer-section {
+            background-color: #E0E6EB;
+            padding: 40px 0;
+            color: #214060;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .back-to-top {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 14px;
+            color: #214060;
+            font-weight: bold;
+            padding: 10px 0;
+        }
+
+        .back-to-top::after {
+            content: ' \2191'; /* Up arrow */
+            margin-left: 5px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px 30px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #214060;
+            font-weight: bold;
+            white-space: nowrap; /* Prevent wrapping for single links */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #c0c0c0;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .footer-bottom .copyright {
+            flex-basis: 60%; /* Allow it to take more space */
+            min-width: 300px;
+        }
+
+        .footer-bottom .developer {
+            flex-basis: auto;
+            text-align: right;
+            min-width: 150px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+                margin-left: 0;
+            }
+
+            .main-nav ul {
+                gap: 15px;
+            }
+
+            .contact-info {
+                gap: 10px;
+            }
+
+            .news-overlay {
+                font-size: 80px;
+                right: 10px;
+            }
+
+            .trailer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .header-right {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .news-overlay {
+                font-size: 60px;
+                right: 5px;
+                top: 10px;
+            }
+
+            .main-content {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .section-title h1 {
+                font-size: 24px;
+            }
+
+            .description-text {
+                font-size: 14px;
+            }
+
+            .pagination-top, .pagination-bottom {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .trailer-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+
+            .footer-container {
+                padding: 0 15px;
+            }
+
+            .back-to-top {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-bottom .copyright,
+            .footer-bottom .developer {
+                min-width: unset;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-placeholder {
+                width: 100px;
+                height: 35px;
+            }
+            .social-icon {
+                width: 22px;
+                height: 22px;
+                font-size: 12px;
+            }
+            .news-overlay {
+                font-size: 40px;
+                top: 20px;
+            }
+            .section-title h1 {
+                font-size: 20px;
+            }
+            .total-tag {
+                font-size: 11px;
+                padding: 3px 6px;
+            }
+            .pagination-top, .pagination-bottom {
+                font-size: 13px;
+            }
+            .pagination-controls a {
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-top">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo-placeholder"></div>
+                <div class="social-icons">
+                    <div class="social-icon"></div>
+                    <div class="social-icon"></div>
+                </div>
+            </div>
+            <div class="header-right">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#" class="has-dropdown">TRAILERS</a></li>
+                        <li><a href="#" class="has-dropdown">SERVICES</a></li>
+                        <li><a href="#">NEWS</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-info">
+                    <span>1.[PHONE REDACTED]</span>
+                    <span>[EMAIL REDACTED]</span>
+                </div>
+            </div>
+        </div>
+        <div class="news-overlay">
+            22%
+            <span>NEWS</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-title">
+            <div class="title-icon"></div>
+            <h1>Multi-Axle Trailers & Heavy Haul <span class="total-tag">Total: 30</span></h1>
+        </div>
+
+        <div class="description-text">
+            <p>
+                <strong style="font-weight: bold;">Staying ahead of the competition</strong> just got easier! <strong style="font-weight: bold;">K-Line has the manufacturing capacity and qualified experience to build</strong>.
+            </p>
+            <p>
+                For maximum multi-wheel capacity and lowest profile, 16-24 wheel groups are used with jeeps, boosters, and dollies. <strong style="font-weight: bold;">Let's work together</strong> ... our goal is to listen to your needs and develop a solution specifically suited to your transport demands.
+            </p>
+        </div>
+
+        <div class="pagination-top">
+            <span>showing <strong style="font-weight: bold;">19</strong> to <strong style="font-weight: bold;">30</strong> of <strong style="font-weight: bold;">30</strong> on page <strong style="font-weight: bold;">2</strong></span>
+            <div class="pagination-controls">
+                <a href="#">&lt;</a>
+                <span class="separator">|</span>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">&gt;</a>
+            </div>
+        </div>
+
+        <div class="trailer-grid">
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>Paving Trailer (45T shown)</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>Tridem Jeep, 85T Hydraulic G/N, Hydraulic Booster</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>Single Axle Jeep, 55T Hydraulic G/N Trailer, Single Axle Booster</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>Pin Together 70T Quad Folding Gooseneck</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>Tridem Jeep, 75T Hydraulic G/N, Tridem Booster</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>Tandem Jeep with Hydraulic Lift Tower, 50T Oil Field Float, S/A Booster</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>180T Quad Axle Fixed G/N</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>45T Tilt Slider</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>70T Tridem Folding G/N</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>19-Axle Transporter</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>400T Crane Transporter and Loading Ramps</p>
+            </div>
+            <div class="trailer-item">
+                <div class="trailer-image-placeholder"></div>
+                <p>48-Wheel Dual Lane Transporter</p>
+            </div>
+        </div>
+
+        <div class="pagination-bottom">
+            <span>showing <strong style="font-weight: bold;">19</strong> to <strong style="font-weight: bold;">30</strong> of <strong style="font-weight: bold;">30</strong> on page <strong style="font-weight: bold;">2</strong></span>
+            <div class="pagination-controls">
+                <a href="#">&lt;</a>
+                <span class="separator">|</span>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">&gt;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <a href="#" class="back-to-top">Back to top</a>
+
+            <div class="footer-links">
+                <a href="#">Truck Transfer Trailers</a>
+                <a href="#">Pony Trailers</a>
+                <a href="#">End Dump Trailers</a>
+                <a href="#">Side Dumps & Demolition Trailers</a>
+                <a href="#">Specialty Products</a>
+                <a href="#">Mine Equipment</a>
+                <a href="#">Custom Cutting and Forming</a>
+                <a href="#">News & Events</a>
+                <a href="#">Services</a>
+                <a href="#">Careers</a>
+                <a href="#">Videos</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2023 K-Line Trailers Ltd. | klinetrailers.com | [ADDRESS REDACTED] | T: 1.[PHONE REDACTED]
+                </div>
+                <div class="developer">
+                    developed by www.GoOnline.ca
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

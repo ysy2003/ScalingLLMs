@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alchemie IP</title>
+    <style>
+        /* General Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333; /* Dark grey for general text */
+            line-height: 1.6;
+            background-color: #f8f8f8; /* Light grey background for the page */
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%; /* Padding on sides */
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0; /* Thin grey line below header */
+        }
+
+        .logo-placeholder {
+            width: 180px; /* Approximate width from image */
+            height: 60px; /* Approximate height from image */
+            background-color: #0000ff; /* Blue color */
+            margin-left: 0; /* Align to left */
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 0; /* No gap, separators will handle spacing */
+        }
+
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+            padding: 0 15px; /* Padding for each nav item */
+        }
+
+        .nav-menu li:not(:last-child) {
+            border-right: 1px solid #ccc; /* Vertical separator */
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #0000ff; /* Blue color for nav links */
+            font-weight: bold;
+            font-size: 0.9em;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        /* Main Banner */
+        .main-banner {
+            background-color: #0000ff; /* Blue color */
+            height: 250px; /* Approximate height from image */
+            width: 100%;
+            margin-bottom: 40px; /* Space below banner */
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 960px; /* Max width for content */
+            margin: 0 auto; /* Center content */
+            padding: 0 20px; /* Padding on sides for smaller screens */
+            margin-bottom: 60px; /* Space above footer */
+        }
+
+        .content-section h1 {
+            color: #0000ff; /* Blue color for heading */
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: normal; /* Looks like normal weight in image */
+        }
+
+        .content-section p {
+            margin-bottom: 20px;
+            color: #555; /* Slightly darker grey for paragraphs */
+            font-size: 1em;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #2a4d8c; /* Darker blue for footer */
+            color: #fff;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items to the top */
+            font-size: 0.85em;
+        }
+
+        .footer-left, .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Space between lines of text */
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+
+            .logo-placeholder {
+                margin-bottom: 15px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                justify-content: center; /* Center nav items if they wrap */
+                width: 100%;
+            }
+
+            .nav-menu li {
+                padding: 5px 10px; /* Reduce padding */
+                border-right: none; /* Remove vertical separator on wrap */
+            }
+
+            .nav-menu li:not(:last-child) {
+                border-right: none;
+            }
+
+            .nav-menu li::after { /* Add a small separator for wrapped items */
+                content: '|';
+                color: #ccc;
+                margin-left: 10px;
+            }
+
+            .nav-menu li:last-child::after {
+                content: none; /* No separator after the last item */
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-left, .footer-right {
+                align-items: center;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu li {
+                padding: 5px 5px;
+                font-size: 0.8em;
+            }
+            .nav-menu li::after {
+                margin-left: 5px;
+            }
+            .content-section h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-placeholder"></div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">OUR APPROACH</a></li>
+                <li><a href="#">ATTORNEYS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-banner"></div>
+
+    <main class="content-section">
+        <h1>Our Clients</h1>
+        <p>We work for a broad range of clients which include individuals, small and medium enterprises, start-up companies, universities and multi-national companies. These clients are based in the UK and overseas.</p>
+        <p>We also provide a consultancy service to other firms of patent attorneys and to industrial IP departments to assist you when over-stretched (e.g. single or multiple assignments, maternity and/or paternity leave cover, and periods of recruitment).</p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span>Legal Notices</span>
+            <span>Privacy Notice</span>
+            <span>© Alchemie IP Ltd 2018 - all rights reserved.</span>
+        </div>
+        <div class="footer-right">
+            <span>T: Cardiff [PHONE REDACTED]</span>
+            <span>E: [EMAIL REDACTED]</span>
+        </div>
+    </footer>
+</body>
+</html>

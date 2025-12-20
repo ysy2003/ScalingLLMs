@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Articles for Founders</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px; /* Base font size for main content */
+        }
+
+        .header-title {
+            text-align: center;
+            margin: 40px auto 40px auto; /* Top/bottom margin, auto for centering */
+            font-size: 16px;
+            color: #555; /* Slightly lighter than main text */
+            max-width: 900px; /* Match container width */
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .container {
+            max-width: 900px; /* Approximate width based on visual */
+            margin: 0 auto; /* Centering the main content area */
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            gap: 40px; /* Space between columns */
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            flex: 0 0 180px; /* Fixed width for sidebar */
+            padding-top: 10px; /* Align with main content */
+        }
+
+        .main-content {
+            flex: 1; /* Takes remaining space */
+            min-width: 300px; /* Minimum width for main content before wrapping */
+        }
+
+        /* Sidebar styles */
+        .sidebar-nav a {
+            display: block;
+            color: #c00; /* Red color */
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px; /* Slightly smaller than main text */
+        }
+
+        .sidebar-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-nav .founder-library {
+            margin-bottom: 20px; /* Space after founder's library */
+        }
+
+        .sidebar-info {
+            margin-top: 30px;
+            font-size: 13px; /* Smaller font for info text */
+            color: #666; /* Lighter color */
+            line-height: 1.5;
+        }
+
+        .sidebar-info a {
+            color: #c00; /* Red link */
+            text-decoration: none;
+            font-weight: normal; /* Override bold from general nav */
+        }
+
+        .sidebar-info a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-info p {
+            margin-bottom: 1em;
+        }
+
+        .sidebar-info .more-articles {
+            font-size: 14px; /* Slightly larger for this specific text */
+            color: #555; /* Darker than the rest of sidebar-info */
+            margin-bottom: 10px;
+        }
+
+        /* Main content styles */
+        .highlight-box {
+            background-color: #fcfce0; /* Light yellow/green */
+            border: 1px solid #e0e0c0; /* Subtle border */
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 14px; /* Slightly smaller text in box */
+            line-height: 1.5;
+        }
+
+        .highlight-box a {
+            color: #c00; /* Red link */
+            text-decoration: none;
+        }
+
+        .highlight-box a:hover {
+            text-decoration: underline;
+        }
+
+        .article-section h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .article-section h2 span {
+            font-weight: normal; /* For the asterisk */
+        }
+
+        .article-section h3 {
+            font-size: 15px;
+            font-weight: normal; /* Greg Bayer is not bold */
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .article-section p {
+            margin-bottom: 1.2em;
+        }
+
+        .article-section p strong {
+            font-weight: bold;
+        }
+
+        .article-section .quote-box {
+            background-color: #f8f8f8; /* Light gray for quote */
+            border-left: 3px solid #ccc;
+            padding: 10px 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .article-section .quote-box p {
+            margin: 0;
+        }
+
+        .article-section a {
+            color: #c00;
+            text-decoration: none;
+        }
+
+        .article-section a:hover {
+            text-decoration: underline;
+        }
+
+        .article-footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+
+        .article-footer .retweet-link {
+            color: #c00;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: auto; /* Pushes retweet to the right */
+        }
+
+        .article-footer .retweet-link:hover {
+            text-decoration: underline;
+        }
+
+        .library-links {
+            margin-top: 50px;
+            text-align: right;
+            width: 100%; /* Takes full width */
+        }
+
+        .library-links strong {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .library-links a {
+            display: block;
+            color: #c00;
+            text-decoration: none;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .library-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-title {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .container {
+                flex-direction: column; /* Stack columns vertically */
+                gap: 20px;
+            }
+
+            .sidebar {
+                flex: 0 0 auto; /* Allow sidebar to take natural width */
+                width: 100%;
+                padding-top: 0;
+                text-align: center; /* Center sidebar content */
+            }
+
+            .sidebar-nav a {
+                display: inline-block; /* Make links inline for centering */
+                margin: 0 10px 10px;
+            }
+
+            .sidebar-info {
+                margin-top: 20px;
+            }
+
+            .main-content {
+                width: 100%;
+                min-width: unset; /* Remove min-width constraint */
+            }
+
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .article-footer .retweet-link {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .library-links {
+                text-align: left; /* Align library links left on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-title">
+        daily articles for founders
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#">all posts</a>
+                <a href="#">latest</a>
+                <a href="#" class="founder-library">founder's library</a>
+            </nav>
+            <div class="sidebar-info">
+                <p class="more-articles">More recent<br>articles of mine<br>can be found on<br><a href="http://danieltenner.com">danieltenner.com</a></p>
+                <p>Swombat.com is no<br>longer actively<br>maintained, but all<br>the posts here are<br>still available for your<br>use. The original<br>objective was to<br>regularly summarise<br>and comment on the<br>best articles for<br>founders each day, as<br>well as occasionally<br>post our my own<br>thoughts and advice,<br>so that you could<br>read the most useful<br>articles while<br>focusing on building<br>your own startup.</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="highlight-box">
+                Running a startup in the UK (or with a UK subsidiary)? Get<br>in touch with my company, <a href="#">GrantTree</a>. We help with<br>government funding.
+            </div>
+            <div class="article-section">
+                <h2>Play/life balance <span>*</span></h2>
+                <h3>Greg Bayer :</h3>
+                <p>Working for a startup usually means putting in more hours<br>than others. Recently, I spent two days on less than 3<br>hours of sleep in order to push out our new Pulse.me<br>release.</p>
+                <p>Chasing after dreams is an essential part of my life. The<br>feeling of fulfillment I get from doing so makes me a much<br>happier / more content person, and this in turn positively<br>affects my relationships.</p>
+                <p>I've argued before that hours are not a measure of<br><strong>productivity</strong>, but that's not Greg's claim in this post. He's<br>saying, quite rightly, that working on your startup is not work,<br>it's play - and so, unlike working stupid hours on a job,<br>working stupid hours on a startup is a blessing, not a curse.</p>
+                <p>I'm reminded of an old saying:</p>
+                <div class="quote-box">
+                    <p>Why work for someone else from nine to five for a daily<br>wage, when you can work twenty-four hours a day for<br>yourself for free?</p>
+                </div>
+                <p>So which view is right? <strong>is</strong> worth pursuing with far more energy<br>than the typical job - but life is what happens while you're<br>busy working on your startup.</p>
+                <p>I'll finish with an observation: I feel most happy, most rested,<br>and most productive when I have had a solid 8 hours of sleep,<br>starting and ending at the same time each day. This plus a<br>good task list has more effect on my productivity than<br>anything else - other than, perhaps, the pressure of an<br>immediate deadline.</p>
+                <p>If you read this far, you should <a href="#">follow me on twitter here</a>.</p>
+            </div>
+            <div class="article-footer">
+                <span>Friday, 03 June 2011</span>
+                <a href="#" class="retweet-link">Retweet</a>
+            </div>
+            <div class="library-links">
+                <strong>More from the library :</strong>
+                <a href="#">&rarr; Recruiting in the Valley: the recruiter honeypot</a>
+                <a href="#">&rarr; The Startup resume</a>
+                <a href="#">&rarr; Focus on the power users</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

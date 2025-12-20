@@ -1,0 +1,892 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML structure and styling.
+
+Looking at the image:
+
+- The top has two blue squares (probably part of the header). Then a navigation bar with Home, Members (highlighted), Papers, Projects.
+- The main content is divided into sections. On the left, there's a list of people (coordinator, etc.), then some other names with descriptions. On the right, more names, then a "Master Students" section.
+- At the bottom, there's a list of papers with titles and dates.
+- Footer has "EMAIL REDACTED | Last update: January 15, 2020"
+
+First, structure the HTML:
+
+- <header> with the two blue squares (maybe divs with background color) and the navigation.
+- <main> with two columns (left and right) for the main content.
+- <footer> for the bottom info.
+
+Let's break down each part.
+
+Header:
+- Two blue rectangles. The image shows them as top-left and top-right. So maybe two divs with class "blue-square" in the header.
+- Navigation: Home, Members (active), Papers, Projects. Members is highlighted (gray background, maybe bold).
+
+Main content:
+- Left column: 
+  - "Pietro Manzoni [coordinator]" (blue text)
+  - Then names: Juan Carlos Cano, Carlos Tavares Calafate, Enrique Hernández (blue)
+  - Then a section with C.K. Toh, Edjair Mota, etc., each with descriptions.
+
+- Right column:
+  - Names: Alicia Sepulveda Muñoz, Daniel Hernández, etc.
+  - Then "Master Students" heading, followed by names and advisors.
+
+Footer:
+- The text about emails and last update.
+
+Now, styling:
+
+- The blue squares: probably fixed width, height, background color #0000FF (blue).
+- Navigation: horizontal, with active item (Members) having a different background (gray, #e0e0e0) and maybe bold.
+- Main content: two columns. The left column has a left margin, right column has a right margin. Maybe using flexbox or grid for the main content.
+- Text colors: some names are blue (links?), others black. The "Master Students" heading is bold, maybe larger font.
+
+Let's outline the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="blue-square"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Members</a></li>
+        <li><a href="#">Papers</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+    <div class="blue-square"></div>
+  </header>
+
+  <main>
+    <div class="content-left">
+      <!-- Left content -->
+    </div>
+    <div class="content-right">
+      <!-- Right content -->
+    </div>
+  </main>
+
+  <footer>
+    <!-- Footer text -->
+  </footer>
+</body>
+</html>
+
+Now, styling details:
+
+- Header: 
+  - The blue squares: position absolute? Or maybe in the header, two divs. Let's see the image: the blue squares are at the top corners. So maybe the header has a container, and the blue squares are inside, positioned top-left and top-right.
+
+Wait, the image shows the header with two blue squares (top-left and top-right), then the navigation. So the header's width is 100%, and the blue squares are fixed width, height, positioned at the top corners.
+
+Let's set the header as a container with display: flex, justify-content: space-between, align-items: center. Then the two blue squares are divs with background color blue, fixed width (maybe 100px), height (50px), and positioned at the top corners.
+
+Wait, but in the image, the blue squares are at the top, so maybe the header has a background, and the blue squares are part of the header. Alternatively, the header is a section with the two blue squares as part of the header.
+
+Alternatively, the header is a div with two blue squares (left and right) and the navigation in the middle.
+
+Let's check the image: the top has two blue squares (left and right), then the navigation. So the header structure:
+
+<header>
+  <div class="blue-square"></div>
+  <nav>...</nav>
+  <div class="blue-square"></div>
+</header>
+
+But the blue squares are probably the same size. Let's set them to 100px width and 50px height, with background color #0000FF.
+
+Navigation: the active item (Members) has a gray background. So the nav ul has list-style: none, display: flex, etc.
+
+Main content: two columns. The left column has the first list, then the C.K. Toh section. The right column has the other names, then Master Students.
+
+Let's check the layout:
+
+The image shows the main content split into two columns. Left column has:
+
+- Pietro Manzoni [coordinator]
+- Juan Carlos Cano
+- Carlos Tavares Calafate
+- Enrique Hernández
+- C.K. Toh (with description)
+- Edjair Mota (with description)
+- Francisco Martinez (with description)
+- Piedad Garrido (with description)
+
+Right column has:
+
+- Alicia Sepulveda Muñoz (with advisors)
+- Daniel Hernández (with advisors)
+- Jamie Wubben (with advisors)
+- Juan José Franco Peñaranda (with advisors)
+- Master Students (heading)
+- Cristian Villarroya (with advisors)
+- José Daniel Padrón (with advisors)
+- Julio José Fernández (with advisors)
+- Pedro Garcia (with advisors)
+
+So the main content is two columns. Let's use a flex container for the main content, with two child divs (left and right), each taking 50% width.
+
+Footer: "EMAIL REDACTED | Last update: January 15, 2020" in a gray bar.
+
+Now, let's code the HTML and CSS.
+
+First, the HTML structure:
+
+- The header has two blue squares (left and right) and the navigation.
+- The main content is split into two columns.
+- The footer is a div with the text.
+
+Now, styling:
+
+- Body: font-family, maybe Arial or sans-serif.
+- Header: background color? Maybe white. The blue squares are blue.
+- Navigation: list-style: none, display: flex, justify-content: center, etc.
+- Active navigation item: background color #e0e0e0, font-weight bold.
+- Main content: display: flex, gap: 20px, margin: 20px.
+- Left and right content: width: 50%, padding: 10px.
+- The blue text for some names (like coordinator, etc.) should be blue (link color).
+- The "Master Students" heading is bold, maybe larger font.
+
+Let's code the CSS step by step.
+
+First, the blue squares:
+
+.blue-square {
+  width: 100px;
+  height: 50px;
+  background-color: #0000FF;
+  display: inline-block;
+}
+
+But in the header, they are positioned at the top corners. Wait, the image shows the blue squares at the top, so maybe the header has a container, and the blue squares are inside. Let's set the header as a flex container with the blue squares on the sides.
+
+<header>
+  <div class="blue-square"></div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li class="active"><a href="#">Members</a></li>
+      <li><a href="#">Papers</a></li>
+      <li><a href="#">Projects</a></li>
+    </ul>
+  </nav>
+  <div class="blue-square"></div>
+</header>
+
+But the blue squares are probably fixed width and height, and the navigation is in the middle. So the header's width is 100%, and the blue squares are on the left and right, with the navigation in the middle.
+
+So the header should have:
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+But the blue squares are part of the header. So the header's children are the left blue square, the nav, and the right blue square.
+
+Now, the navigation:
+
+nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+nav.active a {
+  background-color: #e0e0e0;
+}
+
+Now, the main content:
+
+main {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.content-left,.content-right {
+  flex: 1;
+  padding: 10px;
+}
+
+The left column has some text with blue links. Let's see: "Pietro Manzoni [coordinator]" is blue. So those are links? Or just styled as blue. The image shows them as blue, so maybe:
+
+.coordinator-link {
+  color: #0000FF;
+}
+
+But in the image, the names like "Pietro Manzoni [coordinator]" are blue, so maybe they are links. But the problem says to recreate the visual design, so we can use color: #0000FF for those.
+
+Wait, the image shows:
+
+Pietro Manzoni [coordinator] (blue)
+Juan Carlos Cano (blue)
+Carlos Tavares Calafate (blue)
+Enrique Hernández (blue)
+C.K. Toh (black, but with description)
+Edjair Mota (black)
+Francisco Martinez (black)
+Piedad Garrido (black)
+
+Wait, no: the first four names (Pietro, Juan Carlos, Carlos, Enrique) are blue. Then the next section (C.K. Toh, etc.) are black. So maybe the first four are links (blue), the others are regular text.
+
+But the problem says to recreate the visual design, so we need to match the colors.
+
+Looking at the image:
+
+- The names "Pietro Manzoni [coordinator]", "Juan Carlos Cano", "Carlos Tavares Calafate", "Enrique Hernández" are blue.
+- The other names (C.K. Toh, Edjair Mota, etc.) are black.
+- The "Master Students" heading is bold, black.
+
+So in CSS:
+
+.blue-text {
+  color: #0000FF;
+}
+
+But how to apply it. For example, the first four names in the left column:
+
+<p class="blue-text">Pietro Manzoni [coordinator]</p>
+<p class="blue-text">Juan Carlos Cano</p>
+etc.
+
+But maybe the image shows them as links, but the problem says to recreate the visual design, so we can use color: #0000FF for those.
+
+Now, the right column:
+
+The names like Alicia Sepulveda Muñoz are black, then the advisors in parentheses are black.
+
+The "Master Students" heading is bold, so:
+
+h3 {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+Now, the footer:
+
+footer {
+  background-color: #e0e0e0;
+  padding: 10px;
+  text-align: center;
+}
+
+Now, let's structure the HTML content.
+
+Left column content:
+
+- Pietro Manzoni [coordinator] (blue)
+- Juan Carlos Cano (blue)
+- Carlos Tavares Calafate (blue)
+- Enrique Hernández (blue)
+- C.K. Toh (National Tsing Hua University Honor Chair Professor of EECs, TAIWAN, considered one of the fathers of mobile ad hoc networks) (black)
+- Edjair Mota (Institute of Computing at the Federal University of Amazonas - UFAM, BRASIL) (black)
+- Francisco Martinez (Universidad de Zaragoza, SPAIN) (black)
+- Piedad Garrido (Universidad de Zaragoza, SPAIN) (black)
+
+Right column content:
+
+- Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Perián-Pascual) (black)
+- Daniel Hernández (Advisor: José María Cecilia) (black)
+- Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano) (black)
+- Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras) (black)
+- Master Students (heading)
+- Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate) (black)
+- José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano) (black)
+- Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni) (black)
+- Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni) (black)
+
+Footer:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+Leonardo Javier Chancy García, "Evaluación y modelado de Redes Oportunistas", June 2019
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Wait, no: the footer in the image is the list of papers. Wait, the image shows:
+
+At the bottom, there's a list of papers:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+Leonardo Javier Chancy García, "Evaluación y modelado de Redes Oportunistas", June 2019
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Then the footer: [EMAIL REDACTED] | Last update: January 15, 2020
+
+Wait, the image shows the papers list above the footer. So the main content is the two columns, then the papers list, then the footer.
+
+Wait, the image structure:
+
+- Header (blue squares, navigation)
+- Main content (two columns)
+- Then a section with the papers list (Francisco José Fabra Collado, etc.)
+- Then the footer (EMAIL REDACTED |...)
+
+So the HTML structure:
+
+<body>
+  <header>...</header>
+  <main>
+    <div class="content-left">...</div>
+    <div class="content-right">...</div>
+  </main>
+  <section class="papers">
+    <p>Francisco José Fabra Collado,...</p>
+    <p>Jorge Zambrano,...</p>
+   ...
+  </section>
+  <footer>...</footer>
+</body>
+
+Now, let's code the HTML.
+
+First, the header:
+
+<header>
+  <div class="blue-square"></div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li class="active"><a href="#">Members</a></li>
+      <li><a href="#">Papers</a></li>
+      <li><a href="#">Projects</a></li>
+    </ul>
+  </nav>
+  <div class="blue-square"></div>
+</header>
+
+The blue squares: let's set them to 100px width and 50px height.
+
+Now, the main content:
+
+<main>
+  <div class="content-left">
+    <p class="blue-text">Pietro Manzoni [coordinator]</p>
+    <p class="blue-text">Juan Carlos Cano</p>
+    <p class="blue-text">Carlos Tavares Calafate</p>
+    <p class="blue-text">Enrique Hernández</p>
+    <p>C.K. Toh (National Tsing Hua University Honor Chair Professor of EECs, TAIWAN, considered one of the fathers of mobile ad hoc networks)</p>
+    <p>Edjair Mota (Institute of Computing at the Federal University of Amazonas - UFAM, BRASIL)</p>
+    <p>Francisco Martinez (Universidad de Zaragoza, SPAIN)</p>
+    <p>Piedad Garrido (Universidad de Zaragoza, SPAIN)</p>
+  </div>
+  <div class="content-right">
+    <p>Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Perián-Pascual)</p>
+    <p>Daniel Hernández (Advisor: José María Cecilia)</p>
+    <p>Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</p>
+    <p>Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</p>
+    <h3>Master Students</h3>
+    <p>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</p>
+    <p>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</p>
+    <p>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</p>
+    <p>Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)</p>
+  </div>
+</main>
+
+Then the papers section:
+
+<section class="papers">
+  <p>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</p>
+  <p>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</p>
+  <p>Leonardo Javier Chancy García, "Evaluación y modelado de Redes Oportunistas", June 2019</p>
+  <p>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</p>
+</section>
+
+Footer:
+
+<footer>
+  <p>[EMAIL REDACTED] | Last update: January 15, 2020</p>
+</footer>
+
+Now, styling:
+
+- Body: font-family: Arial, sans-serif; margin: 0; padding: 0;
+- Header: background-color: white; display: flex; justify-content: space-between; align-items: center; padding: 10px;
+- Blue squares: width: 100px; height: 50px; background-color: #0000FF;
+- Nav: display: flex; gap: 20px; list-style: none; margin: 0; padding: 0;
+- Nav li: display: inline-block;
+- Nav a: text-decoration: none; color: #000; font-weight: bold;
+- Nav.active a: background-color: #e0e0e0;
+- Main: display: flex; gap: 20px; margin: 20px 0;
+- Content-left, content-right: flex: 1; padding: 10px;
+- Blue-text: color: #0000FF;
+- Papers section: margin-top: 20px;
+- Footer: background-color: #e0e0e0; padding: 10px; text-align: center;
+
+Let's check if all elements are included.
+
+Now, let's write the CSS.
+
+Wait, the image shows the blue squares at the top, so the header should have the blue squares as part of the header. So the header's width is 100%, and the blue squares are on the left and right.
+
+Now, let's code the HTML and CSS.
+
+Make sure to close all tags properly.
+
+Let's start writing the HTML.
+
+First, the DOCTYPE, html, head, body.
+
+In the head, the style block.
+
+Let's code the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
+
+.blue-square {
+  width: 100px;
+  height: 50px;
+  background-color: #0000FF;
+  display: inline-block;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+nav.active a {
+  background-color: #e0e0e0;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.content-left,.content-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.blue-text {
+  color: #0000FF;
+}
+
+.papers {
+  margin-top: 20px;
+}
+
+footer {
+  background-color: #e0e0e0;
+  padding: 10px;
+  text-align: center;
+}
+
+Now, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="blue-square"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Members</a></li>
+        <li><a href="#">Papers</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+    <div class="blue-square"></div>
+  </header>
+
+  <main>
+    <div class="content-left">
+      <p class="blue-text">Pietro Manzoni [coordinator]</p>
+      <p class="blue-text">Juan Carlos Cano</p>
+      <p class="blue-text">Carlos Tavares Calafate</p>
+      <p class="blue-text">Enrique Hernández</p>
+      <p>C.K. Toh (National Tsing Hua University Honor Chair Professor of EECs, TAIWAN, considered one of the fathers of mobile ad hoc networks)</p>
+      <p>Edjair Mota (Institute of Computing at the Federal University of Amazonas - UFAM, BRASIL)</p>
+      <p>Francisco Martinez (Universidad de Zaragoza, SPAIN)</p>
+      <p>Piedad Garrido (Universidad de Zaragoza, SPAIN)</p>
+    </div>
+    <div class="content-right">
+      <p>Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Perián-Pascual)</p>
+      <p>Daniel Hernández (Advisor: José María Cecilia)</p>
+      <p>Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</p>
+      <p>Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</p>
+      <h3>Master Students</h3>
+      <p>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</p>
+      <p>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</p>
+      <p>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</p>
+      <p>Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)</p>
+    </div>
+  </main>
+
+  <section class="papers">
+    <p>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</p>
+    <p>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</p>
+    <p>Leonardo Javier Chancy García, "Evaluación y modelado de Redes Oportunistas", June 2019</p>
+    <p>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</p>
+  </section>
+
+  <footer>
+    <p>[EMAIL REDACTED] | Last update: January 15, 2020</p>
+  </footer>
+</body>
+</html>
+
+Wait, but the image shows the papers list as part of the main content? Or is it below the main content? The image shows the papers list at the bottom, after the two columns. So the structure is:
+
+- Header
+- Main (two columns)
+- Papers section
+- Footer
+
+Yes, that's what the image shows.
+
+Now, check if all elements are present.
+
+- The blue squares: two divs with class blue-square.
+- Navigation: Home, Members (active), Papers, Projects.
+- Left column: the four blue-text names, then the other names.
+- Right column: the names, then Master Students heading.
+- Papers section: four entries.
+- Footer: EMAIL REDACTED and last update.
+
+Now, check the CSS for responsiveness. The problem says "responsive CSS", so we need to make sure it's responsive.
+
+For example, on smaller screens, the main content should stack vertically. So we can use media queries.
+
+But the problem says "strictly and accurately recreate the visual design in the image". The image is a desktop view, so maybe the design is for desktop, but the CSS should be responsive.
+
+Wait, the problem says "responsive CSS must be fully embedded within a <style> block". So we need to add media queries for responsiveness.
+
+Let's add a media query for screens smaller than 768px.
+
+For example:
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+ .content-left,.content-right {
+    width: 100%;
+  }
+}
+
+This way, on smaller screens, the two columns stack.
+
+Also, the header's blue squares: on smaller screens, maybe they are hidden or adjusted.
+
+But the image is a desktop view, so the design is for desktop, but the CSS should be responsive.
+
+Let's add the media query.
+
+So in the CSS:
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+ .content-left,.content-right {
+    width: 100%;
+  }
+ .blue-square {
+    width: 80px;
+    height: 40px;
+  }
+}
+
+This makes the blue squares smaller on mobile.
+
+Also, the navigation: on mobile, maybe the nav items stack vertically. But the image doesn't show that, but since it's responsive, we should handle it.
+
+Wait, the problem says "recreate the visual design in the image", which is a desktop view. But the CSS must be responsive, so we need to make it work on different screen sizes.
+
+So the media query for the main content to stack on small screens.
+
+Let's add that.
+
+Now, the final CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+}
+
+.blue-square {
+  width: 100px;
+  height: 50px;
+  background-color: #0000FF;
+  display: inline-block;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+nav.active a {
+  background-color: #e0e0e0;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.content-left,.content-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.blue-text {
+  color: #0000FF;
+}
+
+.papers {
+  margin-top: 20px;
+}
+
+footer {
+  background-color: #e0e0e0;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+ .content-left,.content-right {
+    width: 100%;
+  }
+ .blue-square {
+    width: 80px;
+    height: 40px;
+  }
+}
+
+Now, check if all elements are correctly styled.
+
+- The blue squares are 100px x 50px on desktop, 80x40 on mobile.
+- Navigation items are horizontal on desktop, stack vertically on mobile (but the image doesn't show mobile, but the CSS is responsive).
+- Main content is two columns on desktop, stack on mobile.
+- The blue text for the first four names is correctly styled.
+
+Now, let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: white;
+    }
+
+   .blue-square {
+      width: 100px;
+      height: 50px;
+      background-color: #0000FF;
+      display: inline-block;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    nav.active a {
+      background-color: #e0e0e0;
+    }
+
+    main {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+   .content-left,.content-right {
+      flex: 1;
+      padding: 10px;
+    }
+
+   .blue-text {
+      color: #0000FF;
+    }
+
+   .papers {
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #e0e0e0;
+      padding: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+     .content-left,.content-right {
+        width: 100%;
+      }
+     .blue-square {
+        width: 80px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="blue-square"></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Members</a></li>
+        <li><a href="#">Papers</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+    <div class="blue-square"></div>
+  </header>
+
+  <main>
+    <div class="content-left">
+      <p class="blue-text">Pietro Manzoni [coordinator]</p>
+      <p class="blue-text">Juan Carlos Cano</p>
+      <p class="blue-text">Carlos Tavares Calafate</p>
+      <p class="blue-text">Enrique Hernández</p>
+      <p>C.K. Toh (National Tsing Hua University Honor Chair Professor of EECs, TAIWAN, considered one of the fathers of mobile ad hoc networks)</p>
+      <p>Edjair Mota (Institute of Computing at the Federal University of Amazonas - UFAM, BRASIL)</p>
+      <p>Francisco Martinez (Universidad de Zaragoza, SPAIN)</p>
+      <p>Piedad Garrido (Universidad de Zaragoza, SPAIN)</p>
+    </div>
+    <div class="content-right">
+      <p>Alicia Sepulveda Muñoz (Advisor: José M. Cecilia, Carlos Perián-Pascual)</p>
+      <p>Daniel Hernández (Advisor: José María Cecilia)</p>
+      <p>Jamie Wubben (Advisor: Carlos Tavares Calafate, Juan Carlos Cano)</p>
+      <p>Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</p>
+      <h3>Master Students</h3>
+      <p>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</p>
+      <p>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</p>
+      <p>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</p>
+      <p>Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)</p>
+    </div>
+  </main>
+
+  <section class="papers">
+    <p>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</p>
+    <p>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</p>
+    <p>Leonardo Javier Chancy García, "Evaluación y modelado de Redes Oportunistas", June 2019</p>
+    <p>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</p>
+  </section>
+
+  <footer>
+    <p>[EMAIL REDACTED] | Last update: January 15, 2020</p>
+  </footer>
+</body>
+</html>
+```

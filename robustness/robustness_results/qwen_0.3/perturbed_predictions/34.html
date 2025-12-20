@@ -1,0 +1,1013 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to understand the structure and elements.
+
+The image shows a webpage with a header, a main content area for a guestbook, and a footer. Let's break it down:
+
+1. **Header Navigation**: At the top, there are three links: PACKAGES, GALLERY, GUESTROOMS. They are in a light gray bar.
+
+2. **Main Section**: 
+   - A blue background section at the top (maybe a hero image or banner, but in the image it's solid blue).
+   - Below that, a section with a title "Share your experience" (the text "k" is cut off, but the rest is "Share your experience").
+   - There's a paragraph about The Plaza Philadelphia - King of Prussia, inviting guests to share feedback.
+   - Then there are form fields: name, email, experience, and a question to answer.
+   - On the right side, three blue rectangular blocks (maybe placeholders for images or sections).
+
+3. **Footer**: 
+   - A magenta background with three columns: left column has links (Weddings, Packages, Gallery, Guestrooms), middle has Home, Special Events, Area Info, Guestbook, right has address, toll-free, email, and a Facebook link.
+
+Now, let's map this to HTML structure.
+
+First, the HTML5 structure:
+
+- <html>
+  - <head>
+    - <meta> tags for charset, viewport (responsive)
+    - <title> (maybe "Guestbook - The Plaza Philadelphia")
+    - <style> block with CSS
+  - <body>
+    - Header with navigation
+    - Main content: blue banner, guestbook form, right-side blue blocks
+    - Footer with three columns
+
+Let's handle each part.
+
+**Header Navigation**:
+- The navigation is a horizontal bar. In the image, it's a light gray background. The links are PACKAGES, GALLERY, GUESTROOMS. They should be centered or aligned. Let's use a <nav> with a container.
+
+**Main Section**:
+- The blue banner: a <div> with class "banner" or similar, full width, blue background.
+- Then the content area: a container with two columns (left for form, right for blue blocks). The form has:
+  - Title: "Share your experience" (the text in the image is "k" followed by "Share your experience", but the "k" is probably a typo or cut-off. Wait, the image shows "k" at the top left, then "Share your experience". Wait, the text says "k" then "Share your experience". Wait, the original image's text: "k" is part of the title? Maybe it's "Share your experience" but the first letter is cut off. Wait, the user's image description says: "k" then "Share your experience". Wait, no, the user's image has "k" as the first part, but maybe it's a typo. Wait, the actual text in the image: the title is "Share your experience" but the first letter is missing? Wait, no, the user's image shows "k" followed by "Share your experience". Wait, maybe it's "Share your experience" but the "S" is missing? No, the user's image has "k" as the first character. Wait, maybe it's a mistake, but the correct title is "Share your experience". Let's check the image description: "k" is the first part, then "Share your experience". Wait, the user's image shows "k" as the first word, but that's probably a typo. Wait, the actual text in the image: the title is "Share your experience". Let's assume the title is "Share your experience".
+
+So the main content has:
+
+- A section with the title "Share your experience" (in red? The image shows "Share your experience" in red. Wait, the image has "k" (maybe a typo) and then "Share your experience" in red. Wait, the user's image description says: "k" then "Share your experience". Wait, maybe it's "Share your experience" but the first letter is cut off. Let's check the image: the text says "k" followed by "Share your experience". Wait, no, the user's image shows "k" as the first part, but that's likely a mistake. Wait, the correct title is "Share your experience".
+
+Wait, the image shows:
+
+"Share your experience"
+
+So the title is "Share your experience", which is in red. Let's confirm: the text "Share your experience" is in red. So the title element should have a red color.
+
+Then the paragraph: "The Plaza Philadelphia - King of Prussia, we love to hear from our guest's...". Wait, the image shows "The Plaza Philadelphia - King of Prussia, we love to hear from our guest's...".
+
+Then the form fields:
+
+- Name: input field
+- Email: input field
+- Experience: textarea
+- Question: "please answer following: " followed by a textarea
+
+On the right side, three blue rectangles (each is a div with blue background, maybe 100% width, height 200px or so).
+
+**Footer**:
+
+- Magenta background.
+- Three columns:
+  - Left: Weddings, Packages, Gallery, Guestrooms (links)
+  - Middle: Home, Special Events, Area Info, Guestbook (links)
+  - Right: Address, Toll-Free, Email, Facebook link.
+
+Now, let's structure the HTML.
+
+First, the HTML5 boilerplate:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - The Plaza Philadelphia</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">PACKAGES</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">GUESTROOMS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="banner"></section>
+    <section class="content">
+      <div class="form-container">
+        <h1>Share your experience</h1>
+        <p>The Plaza Philadelphia - King of Prussia, we love to hear from our guest's feedback about your experience with us and we will take your feedback to improve our services and plan future plans.</p>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="experience">Experience:</label>
+          <textarea id="experience" name="experience" rows="5" required></textarea>
+          <label for="question">Please answer following:</label>
+          <textarea id="question" name="question" rows="3" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="right-section">
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <ul>
+          <li><a href="#">Weddings</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Guestrooms</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Special Events</a></li>
+          <li><a href="#">Area Info</a></li>
+          <li><a href="#">Guestbook</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p>[ADDRESS REDACTED]</p>
+        <p>King of Prussia, PA</p>
+        <p>Toll-Free: [PHONE REDACTED]</p>
+        <p>[PHONE REDACTED]</p>
+        <p>E: [EMAIL REDACTED]</p>
+        <p>Like Us On Facebook</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, the CSS. Let's make it responsive.
+
+First, reset some default styles:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+Then, body:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+Header:
+
+header {
+  background-color: #eee;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+Main section:
+
+.banner {
+  background-color: #0000ff;
+  height: 200px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.form-container {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 20px;
+}
+
+h1 {
+  color: #c00;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #0000ff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0000cc;
+}
+
+.right-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blue-block {
+  background-color: #0000ff;
+  height: 150px;
+  border-radius: 4px;
+}
+
+Footer:
+
+footer {
+  background-color: #c00;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  padding: 0 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-column p {
+  color: white;
+}
+
+Now, check responsiveness. For mobile, the content should stack. So the.content should be a flex container that wraps. The form-container and right-section should be 100% width on mobile.
+
+Also, the header navigation should be responsive. Maybe use a media query for mobile.
+
+Let's add media queries for mobile:
+
+@media (max-width: 768px) {
+ .content {
+    flex-direction: column;
+  }
+ .form-container,.right-section {
+    width: 100%;
+  }
+ .right-section {
+    padding-top: 10px;
+  }
+}
+
+Also, the footer columns should stack on mobile.
+
+@media (max-width: 768px) {
+ .footer-container {
+    flex-direction: column;
+  }
+ .footer-column {
+    width: 100%;
+  }
+}
+
+Now, check the colors:
+
+- Banner: blue (#0000ff)
+- Footer: magenta (#c00) but wait, the image shows the footer as magenta. Wait, the image's footer is a magenta color. The code above uses #c00 which is red. Wait, the image's footer is a pinkish magenta. Let's check the image: the footer is a dark pink/magenta. The hex code for magenta is #ff00ff, but the image's footer is a darker shade. Wait, the image shows the footer as a magenta color. Let's see: the image's footer is a solid magenta. Let's use #c00080 or similar. Wait, the user's image shows the footer as a magenta color. Let's check the image: the footer is a dark pink/magenta. Let's use #c00080 for the footer background.
+
+Wait, the image's footer is a magenta color. Let's confirm: the image shows the footer as a magenta background. So in the CSS, footer { background-color: #c00080; }.
+
+Also, the blue blocks in the right section: the image shows them as solid blue. So blue-block { background-color: #0000ff; }.
+
+The header navigation: the image shows a light gray background. So header { background-color: #eee; }.
+
+The title "Share your experience" is in red. So h1 { color: #c00; }.
+
+Now, let's adjust the CSS accordingly.
+
+Also, the form fields: the image shows the form fields as input boxes. The textarea for experience is larger.
+
+Now, let's write the CSS with these adjustments.
+
+Also, the image shows the "k" as part of the title. Wait, the user's image has "k" followed by "Share your experience". Wait, maybe it's a typo, but the correct title is "Share your experience". Let's proceed with that.
+
+Now, let's structure the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  background-color: #eee;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.banner {
+  background-color: #0000ff;
+  height: 200px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.form-container {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 20px;
+}
+
+h1 {
+  color: #c00;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #0000ff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0000cc;
+}
+
+.right-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blue-block {
+  background-color: #0000ff;
+  height: 150px;
+  border-radius: 4px;
+}
+
+footer {
+  background-color: #c00080;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  padding: 0 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-column p {
+  color: white;
+}
+
+@media (max-width: 768px) {
+ .content {
+    flex-direction: column;
+  }
+ .form-container,.right-section {
+    width: 100%;
+  }
+ .right-section {
+    padding-top: 10px;
+  }
+ .footer-container {
+    flex-direction: column;
+  }
+ .footer-column {
+    width: 100%;
+  }
+}
+
+Now, check if all elements are present.
+
+- Header with navigation: yes.
+- Banner: blue div.
+- Content section with form and right-side blue blocks: yes.
+- Footer with three columns: yes.
+
+Now, check the form fields:
+
+- Name input
+- Email input
+- Experience textarea
+- Question textarea
+- Submit button
+
+Yes.
+
+The right section has three blue blocks: yes.
+
+Footer columns:
+
+- Left: Weddings, Packages, Gallery, Guestrooms
+- Middle: Home, Special Events, Area Info, Guestbook
+- Right: Address, Toll-Free, Email, Facebook
+
+Yes.
+
+Now, check the colors:
+
+- Banner: blue (#0000ff)
+- Footer: magenta (#c00080)
+- Title: red (#c00)
+- Blue blocks: blue (#0000ff)
+
+Yes.
+
+Now, check responsiveness:
+
+- On mobile, the content stacks (form and right section on top of each other).
+- Footer columns stack.
+
+Yes.
+
+Now, let's write the HTML with the CSS inside the style block.
+
+Wait, the user's image shows the "k" as part of the title. Wait, the image has "k" followed by "Share your experience". Maybe it's a typo, but the correct title is "Share your experience". Let's proceed.
+
+Now, the HTML structure:
+
+- The header has the navigation links.
+- The main section has the banner, then the content with form and right section.
+- The footer has the three columns.
+
+Now, let's code it.
+
+Wait, the image shows the "k" as the first part of the title. Wait, the user's image description says: "k" then "Share your experience". Maybe it's a mistake, but the actual title is "Share your experience". Let's assume that.
+
+Now, let's write the HTML.
+
+Also, the image shows the form fields as input boxes. The textarea for experience is larger.
+
+Now, the code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - The Plaza Philadelphia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background-color: #eee;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav li {
+      margin: 0 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+   .banner {
+      background-color: #0000ff;
+      height: 200px;
+    }
+   .content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+   .form-container {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 20px;
+    }
+    h1 {
+      color: #c00;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #0000ff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0000cc;
+    }
+   .right-section {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+   .blue-block {
+      background-color: #0000ff;
+      height: 150px;
+      border-radius: 4px;
+    }
+    footer {
+      background-color: #c00080;
+      padding: 20px 0;
+    }
+   .footer-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+   .footer-column {
+      flex: 1;
+      min-width: 200px;
+      padding: 0 10px;
+    }
+   .footer-column ul {
+      list-style: none;
+    }
+   .footer-column li {
+      margin-bottom: 5px;
+    }
+   .footer-column a {
+      text-decoration: none;
+      color: white;
+    }
+   .footer-column p {
+      color: white;
+    }
+    @media (max-width: 768px) {
+     .content {
+        flex-direction: column;
+      }
+     .form-container,.right-section {
+        width: 100%;
+      }
+     .right-section {
+        padding-top: 10px;
+      }
+     .footer-container {
+        flex-direction: column;
+      }
+     .footer-column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">PACKAGES</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">GUESTROOMS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="banner"></section>
+    <section class="content">
+      <div class="form-container">
+        <h1>Share your experience</h1>
+        <p>The Plaza Philadelphia - King of Prussia, we love to hear from our guest's feedback about your experience with us and we will take your feedback to improve our services and plan future plans.</p>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="experience">Experience:</label>
+          <textarea id="experience" name="experience" rows="5" required></textarea>
+          <label for="question">Please answer following:</label>
+          <textarea id="question" name="question" rows="3" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="right-section">
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <ul>
+          <li><a href="#">Weddings</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Guestrooms</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Special Events</a></li>
+          <li><a href="#">Area Info</a></li>
+          <li><a href="#">Guestbook</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p>[ADDRESS REDACTED]</p>
+        <p>King of Prussia, PA</p>
+        <p>Toll-Free: [PHONE REDACTED]</p>
+        <p>[PHONE REDACTED]</p>
+        <p>E: [EMAIL REDACTED]</p>
+        <p>Like Us On Facebook</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```
+
+Wait, the image shows the "k" as part of the title. Wait, the user's image has "k" followed by "Share your experience". Maybe it's a typo, but the correct title is "Share your experience". Let's check the image again. The user's image shows "k" as the first part, but that's likely a mistake. The actual title is "Share your experience".
+
+Another thing: the image shows the form fields as input boxes. The textarea for experience is larger, which is handled by rows="5".
+
+The right section has three blue blocks, which are the.blue-block divs.
+
+The footer has the three columns with the correct links and text.
+
+The CSS includes media queries for responsiveness.
+
+Now, check if all elements are present and styled correctly.
+
+Yes, this should match the design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook - The Plaza Philadelphia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      background-color: #eee;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav li {
+      margin: 0 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+   .banner {
+      background-color: #0000ff;
+      height: 200px;
+    }
+   .content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+   .form-container {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 20px;
+    }
+    h1 {
+      color: #c00;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #0000ff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0000cc;
+    }
+   .right-section {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+   .blue-block {
+      background-color: #0000ff;
+      height: 150px;
+      border-radius: 4px;
+    }
+    footer {
+      background-color: #c00080;
+      padding: 20px 0;
+    }
+   .footer-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+   .footer-column {
+      flex: 1;
+      min-width: 200px;
+      padding: 0 10px;
+    }
+   .footer-column ul {
+      list-style: none;
+    }
+   .footer-column li {
+      margin-bottom: 5px;
+    }
+   .footer-column a {
+      text-decoration: none;
+      color: white;
+    }
+   .footer-column p {
+      color: white;
+    }
+    @media (max-width: 768px) {
+     .content {
+        flex-direction: column;
+      }
+     .form-container,.right-section {
+        width: 100%;
+      }
+     .right-section {
+        padding-top: 10px;
+      }
+     .footer-container {
+        flex-direction: column;
+      }
+     .footer-column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">PACKAGES</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">GUESTROOMS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="banner"></section>
+    <section class="content">
+      <div class="form-container">
+        <h1>Share your experience</h1>
+        <p>The Plaza Philadelphia - King of Prussia, we love to hear from our guest's feedback about your experience with us and we will take your feedback to improve our services and plan future plans.</p>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="experience">Experience:</label>
+          <textarea id="experience" name="experience" rows="5" required></textarea>
+          <label for="question">Please answer following:</label>
+          <textarea id="question" name="question" rows="3" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="right-section">
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <ul>
+          <li><a href="#">Weddings</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Guestrooms</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Special Events</a></li>
+          <li><a href="#">Area Info</a></li>
+          <li><a href="#">Guestbook</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p>[ADDRESS REDACTED]</p>
+        <p>King of Prussia, PA</p>
+        <p>Toll-Free: [PHONE REDACTED]</p>
+        <p>[PHONE REDACTED]</p>
+        <p>E: [EMAIL REDACTED]</p>
+        <p>Like Us On Facebook</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```

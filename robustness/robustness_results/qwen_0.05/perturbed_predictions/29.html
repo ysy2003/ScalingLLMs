@@ -1,0 +1,1056 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the provided image to recreate the HTML structure and CSS styling accurately.
+
+Starting with the overall layout. The image shows a webpage with a header, navigation, main content, sidebar, footer, and some blue blocks. Let's break it down.
+
+Header section: There's a top bar with "Home" on the left and "22q11.2DS Quick Facts" on the right. Then a navigation menu with several links: "Info for Patients and Families", "Info for Medical Professionals", "Info for Educators", "Info for Police Officers", "About the Clinic", "Our Research", "Same Name Campaign", "Resources", "Donate".
+
+Sidebar on the left: "In This Section..." with bullet points: "Info for Patients and Families", "COVID-19 Information", "What is 22q? Genetics Q&A", "How is 22q11.2 Deletion Syndrome diagnosed?".
+
+Main content: Title "Healthy Sexuality And Pregnancy", then sections for "Websites on Healthy Sexuality" and "Websites on Pregnancy", each with links and descriptions.
+
+Footer: Copyright info, support info, contact details (email, phone, fax, website), and a blue block.
+
+Now, let's structure the HTML.
+
+First, the HTML5 doctype, then <html>, <head>, <body>.
+
+In the head, include the style block with CSS. Need to handle responsive design, so maybe use flexbox or grid for layout.
+
+Let's outline the structure:
+
+- Header: top bar with Home and Quick Facts, then navigation menu.
+- Main: two columns (sidebar and content). Sidebar on left, content on right.
+- Footer: copyright, contact info, blue block.
+
+Wait, the image shows a blue block at the top left and a blue block at the bottom right. Let's check:
+
+Top left: blue rectangle (maybe a logo placeholder). Bottom right: blue rectangle (maybe another logo or background).
+
+Looking at the image:
+
+Top left: blue square (probably a logo area). Then the header with Home and Quick Facts.
+
+Navigation menu: 3 rows, each with 3 links (except maybe the first row has two? Wait, the image shows:
+
+First row: Home (left), 22q11.2DS Quick Facts (right)
+
+Second row: Info for Patients and Families, Info for Medical Professionals, Info for Educators
+
+Third row: Info for Police Officers, About the Clinic, Our Research
+
+Fourth row: Same Name Campaign, Resources, Donate
+
+So the navigation is a grid of 4 rows, 3 columns.
+
+Then the main content: left sidebar with "In This Section..." and links, right content with the title and websites.
+
+Footer: copyright, contact info, blue block.
+
+Let's start coding.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Sexuality And Pregnancy</title>
+    <style>
+        /* CSS here */
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <a href="#">Home</a>
+            <a href="#">22q11.2DS Quick Facts</a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Info for Patients and Families</a></li>
+                <li><a href="#">Info for Medical Professionals</a></li>
+                <li><a href="#">Info for Educators</a></li>
+                <li><a href="#">Info for Police Officers</a></li>
+                <li><a href="#">About the Clinic</a></li>
+                <li><a href="#">Our Research</a></li>
+                <li><a href="#">Same Name Campaign</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>In This Section...</h3>
+            <ul>
+                <li><a href="#">Info for Patients and Families</a></li>
+                <li><a href="#">COVID-19 Information</a></li>
+                <li><a href="#">What is 22q? Genetics Q&A</a></li>
+                <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Healthy Sexuality And Pregnancy</h1>
+            <section>
+                <h2>Websites on Healthy Sexuality</h2>
+                <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+                <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+                <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+                <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+            </section>
+            <section>
+                <h2>Websites on Pregnancy</h2>
+                <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+                <p>The Pregnancy section of Toronto Public Health’s website can answer many health-related questions for pregnant women.</p>
+                <p><a href="www.marchofdimes.com">www.marchofdimes.com</a></p>
+                <p>Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved.</p>
+            <p>The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+            <div class="contact-info">
+                <a href="#">[EMAIL REDACTED]</a>
+                <span>Phone [PHONE REDACTED]</span>
+                <span>Fax [PHONE REDACTED]</span>
+                <a href="https://22q.ca/">https://22q.ca/</a>
+            </div>
+        </div>
+        <div class="footer-blue-block"></div>
+    </footer>
+</body>
+</html>
+
+Now, the CSS. Need to make it responsive. Let's think about the layout.
+
+The top bar: two links, maybe centered or aligned. The main navigation: 3 columns, 4 rows. Wait, the image shows the navigation as a grid. Let's check the image:
+
+The navigation has 9 links, arranged in 3 rows of 3. So 3 columns, 4 rows (since the first row has two items: Home and Quick Facts, but wait, the image shows:
+
+Top bar: Home (left), 22q11.2DS Quick Facts (right) → so that's a separate top bar.
+
+Then the main navigation: 3 columns, 3 rows? Wait, the image shows:
+
+First row: Info for Patients and Families, Info for Medical Professionals, Info for Educators
+
+Second row: Info for Police Officers, About the Clinic, Our Research
+
+Third row: Same Name Campaign, Resources, Donate
+
+So 3 rows, 3 columns. So the main navigation is a 3x3 grid.
+
+So the top bar is a separate div, then the main nav is a grid.
+
+Let's adjust the HTML:
+
+Header:
+
+- top-bar: two links, left and right.
+
+- main-nav: a grid of 3 columns, 3 rows (9 items).
+
+Wait, the image shows the main navigation as 3 columns, 3 rows (9 links). So the main-nav should be a grid with 3 columns and 3 rows.
+
+So in the HTML, the main-nav ul should have 9 li elements, each with a link.
+
+Now, the sidebar and content: the image shows a left sidebar and right content. So the container should be a flex container with two columns.
+
+The blue blocks: top left and bottom right. The image has a blue rectangle at the top left (probably a logo area) and a blue rectangle at the bottom right (maybe a footer logo or background). Let's check the image:
+
+Top left: blue square (maybe a placeholder for a logo). So in the HTML, maybe the top bar has a blue block on the left. Wait, the image shows the top left as a blue rectangle. So perhaps the top bar has a blue block on the left, then the Home and Quick Facts links.
+
+Wait, the image's top left is a blue rectangle. So maybe the header has a blue block on the left, then the top bar.
+
+Wait, looking at the image:
+
+The top part has a blue rectangle on the left (top left corner), then the header with Home and Quick Facts. So the header's left side has a blue block.
+
+So the header structure:
+
+- A blue block (div) on the left, then the top bar (with Home and Quick Facts).
+
+Wait, the image shows:
+
+Top left: blue rectangle (maybe a logo area). Then to the right of that, the "Home" link and "22q11.2DS Quick Facts" link.
+
+So the header should have:
+
+<div class="header">
+    <div class="header-blue-block"></div>
+    <div class="header-top-bar">
+        <a href="#">Home</a>
+        <a href="#">22q11.2DS Quick Facts</a>
+    </div>
+</div>
+
+Then the main navigation.
+
+Wait, the image shows the top bar as a horizontal bar with Home on the left and Quick Facts on the right. So the top bar is a horizontal bar, and the blue block is to the left of that.
+
+Wait, the image's top left is a blue rectangle. So the header has a blue block (left), then the top bar (with Home and Quick Facts).
+
+So let's adjust the header:
+
+<header>
+    <div class="header-blue-block"></div>
+    <div class="header-top-bar">
+        <a href="#">Home</a>
+        <a href="#">22q11.2DS Quick Facts</a>
+    </div>
+    <nav class="main-nav">
+        <!-- 9 links in 3x3 grid -->
+    </nav>
+</header>
+
+Now, the main content: left sidebar and right content. The sidebar is "In This Section...", and the content is the main article.
+
+The footer has a blue block on the right. So the footer should have a blue block on the right.
+
+Let's structure the CSS.
+
+First, reset some margins/paddings.
+
+Set the body to have a font, maybe Arial.
+
+The container for the main content should be a flex container with two columns: sidebar (width 20%) and content (width 80%).
+
+The sidebar should have a light background, maybe #f5f5f5.
+
+The main content should have a white background.
+
+The top bar: maybe a light gray background.
+
+The main navigation: a grid of 3 columns, 3 rows. Each link should be in a box with some padding.
+
+The blue blocks: top left (header-blue-block) and bottom right (footer-blue-block).
+
+Let's outline the CSS:
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.header-blue-block {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.header-top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.header-top-bar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.main-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    display: block;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #000;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Container for main content */
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content {
+    width: 80%;
+    padding: 15px;
+}
+
+.content h1 {
+    margin-top: 0;
+}
+
+.content section {
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.content p {
+    margin: 5px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-blue-block {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin-left: 10px;
+}
+
+Now, check the image for specific elements:
+
+- The top bar has "Home" and "22q11.2DS Quick Facts". The image shows "Home" on the left, "22q11.2DS Quick Facts" on the right. So the header-top-bar should have those two links.
+
+- The main navigation: 9 links, 3 columns, 3 rows. So the main-nav grid should have 3 columns, and 3 rows (each row has 3 items).
+
+- The sidebar: "In This Section..." with bullet points. The image shows bullet points, so the sidebar ul should have list-style: disc.
+
+- The main content: the title "Healthy Sexuality And Pregnancy" is a h1. Then sections with h2 for "Websites on Healthy Sexuality" and "Websites on Pregnancy".
+
+- The footer: copyright info, support info, contact info (email, phone, fax, website), and a blue block on the right.
+
+Wait, the image's footer has a blue block on the right. So the footer-blue-block should be on the right side of the footer.
+
+In the HTML, the footer has a div with class "footer-content" (which contains the text) and a div with class "footer-blue-block" (the blue block). So the footer should be a flex container with the content on the left and the blue block on the right.
+
+Wait, the image shows the footer as:
+
+- Left: copyright, support info, contact info.
+
+- Right: blue block.
+
+So the footer should have:
+
+<div class="footer">
+    <div class="footer-content">
+        <!-- text -->
+    </div>
+    <div class="footer-blue-block"></div>
+</div>
+
+But in the image, the blue block is on the right, so the footer-content should be on the left, and the blue block on the right.
+
+So the footer should be a flex container with two columns: left (content) and right (blue block).
+
+So adjust the footer CSS:
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-blue-block {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+}
+
+Wait, but the image shows the blue block as a square, so maybe the footer-blue-block has a fixed size.
+
+Now, check the image for the blue blocks:
+
+- Top left: blue rectangle (header-blue-block). The image shows it as a square, so maybe 200x100px.
+
+- Bottom right: blue rectangle (footer-blue-block). Also a square, 200x100px.
+
+Now, the main navigation: the image shows the links as white background with blue text? Wait, the image shows the navigation links as white background with blue text. Wait, the image's navigation has white boxes with blue text. So the main-nav a should have a white background, blue text, and a border.
+
+Wait, the image shows the navigation links as white boxes with blue text. So the main-nav a should have:
+
+background-color: white;
+
+color: #0000ff;
+
+border: 1px solid #ccc;
+
+border-radius: 4px;
+
+padding: 5px;
+
+So in the CSS, the main-nav a should have those styles.
+
+Also, the top bar: the image shows "Home" and "22q11.2DS Quick Facts" as blue text. Wait, the image's top bar has "Home" and "22q11.2DS Quick Facts" as blue text. So the header-top-bar a should have color: #0000ff;
+
+Wait, the image shows the top bar links as blue. So:
+
+.header-top-bar a {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+Now, the sidebar: the image shows the sidebar as a light gray background. So the sidebar should have background-color: #f5f5f5;
+
+The main content: white background.
+
+Now, let's adjust the CSS accordingly.
+
+Also, the image shows the "Return to top" links. Wait, the image has "[ Return to top ]" at the end of each section. But the image provided doesn't show that, but the user's image might have it. Wait, the user's image shows:
+
+In the main content, after the first website section, there's "[ Return to top ]" but it's cut off. But the user's image might not have it, but the task is to recreate the visual design in the image. Let's check the image again.
+
+The user's image shows:
+
+After the first website section (www.sexandu.ca), there's a "[ Return to top ]" link. Similarly, after the pregnancy section. But the image might have it, but the user's image might not. Wait, the user's image shows:
+
+In the main content, after the first website section, there's "[ Return to top ]" but it's partially visible. So we need to include that.
+
+Wait, the image shows:
+
+"www.sexandu.ca" section, then a line with "[ Return to top ]" on the right.
+
+So in the HTML, after each section, there's a link "[ Return to top ]".
+
+So in the content section, after the paragraphs, add a link:
+
+<a href="#">[ Return to top ]</a>
+
+But the image shows it as "[ Return to top ]", so the HTML should have that.
+
+So in the content section:
+
+<p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+<a href="#">[ Return to top ]</a>
+
+Similarly for the pregnancy section.
+
+Now, let's adjust the HTML.
+
+So the content section for Healthy Sexuality:
+
+<section>
+    <h2>Websites on Healthy Sexuality</h2>
+    <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+    <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+    <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+    <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+    <a href="#">[ Return to top ]</a>
+</section>
+
+Same for the pregnancy section.
+
+Now, the footer: the image shows the contact info as:
+
+[EMAIL REDACTED] Phone [PHONE REDACTED] Fax [PHONE REDACTED] https://22q.ca/
+
+So the contact-info div should have:
+
+<a href="#">[EMAIL REDACTED]</a>
+<span>Phone [PHONE REDACTED]</span>
+<span>Fax [PHONE REDACTED]</span>
+<a href="https://22q.ca/">https://22q.ca/</a>
+
+Now, let's check the image for the blue blocks:
+
+- Top left: blue rectangle (header-blue-block). So in the header, there's a div with class "header-blue-block" that's a blue square.
+
+- Bottom right: blue rectangle (footer-blue-block). In the footer, a div with class "footer-blue-block" that's a blue square.
+
+Now, let's code the HTML and CSS.
+
+Let's start with the HTML structure.
+
+First, the doctype, html, head, body.
+
+In the head, the style block.
+
+Now, let's write the HTML.
+
+Wait, the image shows the top bar as "Home" and "22q11.2DS Quick Facts". So the header-top-bar has two links.
+
+The main navigation has 9 links, arranged in 3 rows of 3.
+
+The sidebar has "In This Section..." with 4 links.
+
+The main content has two sections.
+
+The footer has copyright, support info, contact info, and a blue block.
+
+Now, let's code the HTML.
+
+Also, the image shows the main navigation as white boxes with blue text. So the main-nav a should have white background, blue text.
+
+Let's adjust the CSS for main-nav a:
+
+.main-nav a {
+    background-color: white;
+    color: #0000ff;
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+Now, the header-top-bar a:
+
+.header-top-bar a {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+Now, the sidebar:
+
+.sidebar {
+    background-color: #f5f5f5;
+}
+
+Now, the main content:
+
+.content {
+    background-color: white;
+}
+
+Now, the footer:
+
+.footer-content {
+    background-color: #f5f5f5;
+}
+
+Now, let's put it all together.
+
+Wait, the image shows the top bar as a horizontal bar with Home on the left and Quick Facts on the right. So the header-top-bar should have those two links.
+
+Let's code the HTML.
+
+Also, the image shows the main navigation as a grid of 3 columns, 3 rows. So the main-nav ul should have 9 li elements.
+
+Now, let's write the HTML.
+
+Wait, the image shows the main navigation as:
+
+Row 1: Info for Patients and Families, Info for Medical Professionals, Info for Educators
+
+Row 2: Info for Police Officers, About the Clinic, Our Research
+
+Row 3: Same Name Campaign, Resources, Donate
+
+So the main-nav ul has 9 li elements.
+
+Now, the HTML for the main-nav:
+
+<nav class="main-nav">
+    <ul>
+        <li><a href="#">Info for Patients and Families</a></li>
+        <li><a href="#">Info for Medical Professionals</a></li>
+        <li><a href="#">Info for Educators</a></li>
+        <li><a href="#">Info for Police Officers</a></li>
+        <li><a href="#">About the Clinic</a></li>
+        <li><a href="#">Our Research</a></li>
+        <li><a href="#">Same Name Campaign</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">Donate</a></li>
+    </ul>
+</nav>
+
+Now, the sidebar:
+
+<aside class="sidebar">
+    <h3>In This Section...</h3>
+    <ul>
+        <li><a href="#">Info for Patients and Families</a></li>
+        <li><a href="#">COVID-19 Information</a></li>
+        <li><a href="#">What is 22q? Genetics Q&A</a></li>
+        <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+    </ul>
+</aside>
+
+Now, the main content:
+
+<main class="content">
+    <h1>Healthy Sexuality And Pregnancy</h1>
+    <section>
+        <h2>Websites on Healthy Sexuality</h2>
+        <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+        <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+        <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+        <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+        <a href="#">[ Return to top ]</a>
+    </section>
+    <section>
+        <h2>Websites on Pregnancy</h2>
+        <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+        <p>The Pregnancy section of Toronto Public Health’s website can answer many health-related questions for pregnant women.</p>
+        <p><a href="www.marchofdimes.com">www.marchofdimes.com</a></p>
+        <p>Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.</p>
+        <a href="#">[ Return to top ]</a>
+    </section>
+</main>
+
+Now, the footer:
+
+<footer>
+    <div class="footer-content">
+        <p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved.</p>
+        <p>The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+        <div class="contact-info">
+            <a href="#">[EMAIL REDACTED]</a>
+            <span>Phone [PHONE REDACTED]</span>
+            <span>Fax [PHONE REDACTED]</span>
+            <a href="https://22q.ca/">https://22q.ca/</a>
+        </div>
+    </div>
+    <div class="footer-blue-block"></div>
+</footer>
+
+Now, the CSS:
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.header-blue-block {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.header-top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.header-top-bar a {
+    text-decoration: none;
+    color: #0000ff;
+}
+
+.main-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    display: block;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #0000ff;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Container for main content */
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content {
+    width: 80%;
+    padding: 15px;
+}
+
+.content h1 {
+    margin-top: 0;
+}
+
+.content section {
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.content p {
+    margin: 5px 0;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-blue-block {
+    background-color: #0000ff;
+    width: 200px;
+    height: 100px;
+}
+
+Now, check if all elements are included.
+
+- Header with blue block, top bar, main navigation.
+
+- Sidebar with "In This Section..." and links.
+
+- Main content with title and sections.
+
+- Footer with copyright, support info, contact info, blue block.
+
+Now, let's check the image for any missing elements.
+
+The image shows the main navigation as white boxes with blue text. The CSS for main-nav a has background-color: white; color: #0000ff; which matches.
+
+The top bar links are blue, which matches.
+
+The sidebar has a light gray background, which matches.
+
+The main content has white background.
+
+The footer has a light gray background.
+
+The blue blocks are present.
+
+The "Return to top" links are present.
+
+Now, let's write the complete HTML file.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Sexuality And Pregnancy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f5f5f5;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+       .header-blue-block {
+            background-color: #0000ff;
+            width: 200px;
+            height: 100px;
+            margin-right: 10px;
+        }
+       .header-top-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+       .header-top-bar a {
+            text-decoration: none;
+            color: #0000ff;
+        }
+       .main-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 10px 0;
+        }
+       .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+       .main-nav li {
+            display: block;
+        }
+       .main-nav a {
+            text-decoration: none;
+            color: #0000ff;
+            background-color: white;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+       .container {
+            display: flex;
+            margin: 20px;
+        }
+       .sidebar {
+            width: 20%;
+            background-color: #f5f5f5;
+            padding: 15px;
+        }
+       .sidebar h3 {
+            margin-top: 0;
+        }
+       .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+       .sidebar li {
+            margin-bottom: 10px;
+        }
+       .sidebar a {
+            text-decoration: none;
+            color: #000;
+        }
+       .content {
+            width: 80%;
+            padding: 15px;
+        }
+       .content h1 {
+            margin-top: 0;
+        }
+       .content section {
+            margin-bottom: 20px;
+        }
+       .content h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+       .content p {
+            margin: 5px 0;
+        }
+       .content a {
+            text-decoration: none;
+            color: #0000ff;
+        }
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin-top: 20px;
+        }
+       .footer-content {
+            flex: 1;
+            margin-right: 20px;
+        }
+       .footer-content p {
+            margin: 5px 0;
+        }
+       .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+       .footer-blue-block {
+            background-color: #0000ff;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-blue-block"></div>
+        <div class="header-top-bar">
+            <a href="#">Home</a>
+            <a href="#">22q11.2DS Quick Facts</a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Info for Patients and Families</a></li>
+                <li><a href="#">Info for Medical Professionals</a></li>
+                <li><a href="#">Info for Educators</a></li>
+                <li><a href="#">Info for Police Officers</a></li>
+                <li><a href="#">About the Clinic</a></li>
+                <li><a href="#">Our Research</a></li>
+                <li><a href="#">Same Name Campaign</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h3>In This Section...</h3>
+            <ul>
+                <li><a href="#">Info for Patients and Families</a></li>
+                <li><a href="#">COVID-19 Information</a></li>
+                <li><a href="#">What is 22q? Genetics Q&A</a></li>
+                <li><a href="#">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <h1>Healthy Sexuality And Pregnancy</h1>
+            <section>
+                <h2>Websites on Healthy Sexuality</h2>
+                <p><a href="www.sexandu.ca">www.sexandu.ca</a></p>
+                <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+                <p><a href="www.teenhealthsource.com">www.teenhealthsource.com</a></p>
+                <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+                <a href="#">[ Return to top ]</a>
+            </section>
+            <section>
+                <h2>Websites on Pregnancy</h2>
+                <p><a href="www.toronto.ca/health/pregnancy">www.toronto.ca/health/pregnancy</a></p>
+                <p>The Pregnancy section of Toronto Public Health’s website can answer many health-related questions for pregnant women.</p>
+                <p><a href="www.marchofdimes.com">www.marchofdimes.com</a></p>
+                <p>Please see the Pregnancy and Newborn section. The March of Dimes is an excellent source of information for women who are planning a pregnancy or are currently pregnant.</p>
+                <a href="#">[ Return to top ]</a>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>©2012-2023 The Dalglish Family 22q Clinic. All rights reserved.</p>
+            <p>The clinic is supported through The W. Garfield Weston Foundation in association with the UHN Health Network.</p>
+            <div class="contact-info">
+                <a href="#">[EMAIL REDACTED]</a>
+                <span>Phone [PHONE REDACTED]</span>
+                <span>Fax [PHONE REDACTED]</span>
+                <a href="https://22q.ca/">https://22q.ca/</a>
+            </div>
+        </div>
+        <div class="footer-blue-block"></div>
+    </footer>
+</body>
+</html>
+```

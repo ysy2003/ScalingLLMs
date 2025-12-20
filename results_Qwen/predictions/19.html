@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locale Pulse Trackball Plugin</title>
+  <style>
+    body {
+      background-color: #e0f0ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #d0e0ff;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 5px 10px;
+      margin-right: 5px;
+    }
+
+    nav a:last-child {
+      background-color: #4a90e2;
+      color: white;
+    }
+
+   .search-bar {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+   .search-bar input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 80%;
+    }
+
+   .search-bar button {
+      background: none;
+      border: none;
+      color: #333;
+      cursor: pointer;
+      padding: 5px 10px;
+      margin-left: 5px;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+   .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+   .btn {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+   .tags {
+      margin-top: 20px;
+    }
+
+   .tag {
+      display: inline-block;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding-top: 10px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">Chris Boyle</a>
+      <a href="#">Blog</a>
+      <a href="#">CV</a>
+      <a href="#">Projects</a>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <button type="submit"><i>🔍</i></button>
+    </div>
+  </header>
+  <main>
+    <h1>Locale pulse trackball plugin</h1>
+    <div class="action-buttons">
+      <button class="btn"><i>📱</i> APK</button>
+      <button class="btn"><i>🐙</i> GitHub</button>
+    </div>
+    <p>On the Nexus One, there is a setting under Sound & Display: Pulse notification light. I wanted to set this differently in different environments, using Locale, so I wrote a plugin.</p>
+    <p>The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system setting accordingly when the action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below it is just what I have observed that the system setting does.</p>
+    <p>There is no published Android/Google API for this setting as far as I know. I determined the name of the system setting (notification_light_pulse) by inspecting my own device, to which I have root access. Accordingly, Google has every right to break this in a future update, but for now, I publish it in the hope that it will be useful.</p>
+    <h2>Recent Posts</h2>
+    <ul>
+      <li>Controlling GRUB from the network</li>
+      <li>The puzzle of the cancel button</li>
+      <li>Hello, Hugo!</li>
+      <li>Passwordless disk encryption on Linux</li>
+    </ul>
+    <h2>Tags</h2>
+    <div class="tags">
+      <span class="tag"><i>🏷️</i> acpi</span>
+      <span class="tag"><i>🏷️</i> android</span>
+      <span class="tag"><i>🏷️</i> boot</span>
+      <span class="tag"><i>🏷️</i> c</span>
+      <span class="tag"><i>🏷️</i> c++</span>
+      <span class="tag"><i>🏷️</i> debian</span>
+      <span class="tag"><i>🏷️</i> django</span>
+      <span class="tag"><i>🏷️</i> flying</span>
+      <span class="tag"><i>🏷️</i> gnupg</span>
+      <span class="tag"><i>🏷️</i> go</span>
+      <span class="tag"><i>🏷️</i> gplus</span>
+      <span class="tag"><i>🏷️</i> guitar</span>
+      <span class="tag"><i>🏷️</i> hack</span>
+      <span class="tag"><i>🏷️</i> identity</span>
+      <span class="tag"><i>🏷️</i> ipv6</span>
+      <span class="tag"><i>🏷️</i> java</span>
+      <span class="tag"><i>🏷️</i> locale</span>
+      <span class="tag"><i>🏷️</i> meta</span>
+      <span class="tag"><i>🏷️</i> metawatch</span>
+      <span class="tag"><i>🏷️</i> nymwars</span>
+      <span class="tag"><i>🏷️</i> python</span>
+      <span class="tag"><i>🏷️</i> ruby</span>
+      <span class="tag"><i>🏷️</i> security</span>
+    </div>
+  </main>
+  <footer>
+    <p>© Chris Boyle | <a href="#">Credits</a></p>
+  </footer>
+</body>
+</html>

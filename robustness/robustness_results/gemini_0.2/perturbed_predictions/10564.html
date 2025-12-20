@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Feedback</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background for the page */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 0;
+            text-align: left;
+            font-size: 28px;
+            font-weight: bold;
+            padding-left: 15%; /* Aligns with main content */
+        }
+
+        /* Main Content Area */
+        .main-content {
+            background-color: #fff;
+            max-width: 70%; /* Adjust as needed to match image width */
+            margin: 20px auto;
+            padding: 30px 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .intro-paragraph {
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        /* Form Styling */
+        .form-grid {
+            display: grid;
+            grid-template-columns: auto 1fr auto 1fr; /* Label, Input, Label, Input */
+            gap: 10px 15px; /* Row gap, Column gap */
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-grid label {
+            text-align: right;
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap; /* Prevent labels from wrapping */
+        }
+
+        .form-grid input[type="text"],
+        .form-grid select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        /* Specific grid item adjustments */
+        .form-grid .full-width-input {
+            grid-column: span 3; /* Make input span remaining columns */
+        }
+        .form-grid .full-width-label {
+            grid-column: 1 / span 1; /* Ensure label stays in first column */
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        .textarea-group {
+            margin-bottom: 30px;
+        }
+
+        .textarea-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .textarea-group textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .button-group {
+            text-align: left; /* Buttons are left-aligned in the image */
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .button-group .submit-btn {
+            background-color: #428bca; /* Blue */
+            color: #fff;
+        }
+
+        .button-group .reset-btn {
+            background-color: #5bc0de; /* Light blue */
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 30px 15%;
+            font-size: 13px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px; /* Ensure columns don't get too narrow */
+            margin-right: 20px;
+        }
+
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+
+        .footer-column h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .main-content {
+                max-width: 85%;
+                padding: 25px 30px;
+            }
+            .header, .footer {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                max-width: 95%;
+                padding: 20px;
+            }
+            .form-grid {
+                grid-template-columns: auto 1fr; /* Stack labels and inputs on smaller screens */
+            }
+            .form-grid label {
+                text-align: left; /* Align labels left when stacked */
+            }
+            .form-grid .full-width-input {
+                grid-column: span 1; /* Reset span for single column */
+            }
+            .form-grid .full-width-label {
+                grid-column: 1 / span 1;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 24px;
+                padding: 10px 5%;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .intro-paragraph, .form-grid label, .form-grid input, .form-grid select, .textarea-group label, .textarea-group textarea, .button-group button {
+                font-size: 13px;
+            }
+            .button-group button {
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        Solutions
+    </header>
+
+    <main class="main-content">
+        <h1>Product Feedback</h1>
+        <p class="intro-paragraph">
+            Use this form to leave feedback on products that are developed by Internet Software Solutions. We at Internet Software Solutions value your comments about our products, and we will do our best to accommodate our customers needs.
+        </p>
+
+        <form>
+            <div class="form-grid">
+                <label for="select-product">Select</label>
+                <select id="select-product" name="select-product">
+                    <option value="">Select Product</option>
+                    <!-- Add more options here if needed -->
+                </select>
+
+                <label for="product-version">Product Version:</label>
+                <input type="text" id="product-version" name="product-version">
+
+                <label for="product-registration">Product: Registration</label>
+                <input type="text" id="product-registration" name="product-registration">
+
+                <label for="registered-to">Registered To</label>
+                <input type="text" id="registered-to" name="registered-to">
+
+                <label for="key">Key:</label>
+                <input type="text" id="key" name="key">
+
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+
+                <label for="your-name">Your Name:</label>
+                <input type="text" id="your-name" name="your-name">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="contact-phone">Contact Phone:</label>
+                <input type="text" id="contact-phone" name="contact-phone">
+
+                <label for="phone-ext">Phone Ext:</label>
+                <input type="text" id="phone-ext" name="phone-ext">
+
+                <label for="email" class="full-width-label">EMail:</label>
+                <input type="text" id="email" name="email" class="full-width-input">
+
+                <label for="address" class="full-width-label">Address:</label>
+                <input type="text" id="address" name="address" class="full-width-input">
+            </div>
+
+            <hr>
+
+            <div class="textarea-group">
+                <label for="description">Please give a detailed description of your problem, include any relevant error messages, network information, and connection information.</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">In The News</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Solutions</h3>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Resellers</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2017 by "Internet Software Solutions" &middot; All Rights reserved &middot; E-Mail: [EMAIL REDACTED]
+        </div>
+    </footer>
+</body>
+</html>

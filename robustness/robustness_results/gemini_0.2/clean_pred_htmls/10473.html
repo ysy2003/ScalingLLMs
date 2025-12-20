@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOOM Game</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+            font-size: 12px; /* Base font size for most text */
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* Stacks header, main-content-area, footer */
+            min-height: 100vh; /* Ensure container takes full viewport height */
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee; /* Subtle separator */
+        }
+
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #0000ff; /* Blue square */
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-right: 15px;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #800000; /* Dark red */
+            font-weight: normal;
+        }
+
+        .header-content p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+        }
+
+        /* Main Content Area (Sidebar + Main Content) */
+        .main-content-area {
+            display: flex;
+            flex-grow: 1; /* Allows this section to grow and fill available space */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px; /* Fixed width for sidebar on larger screens */
+            padding: 15px;
+            border-right: 1px dotted #ccc; /* Dotted separator */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 2px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 3px 0;
+            color: #000080; /* Dark blue links */
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .content {
+            flex-grow: 1; /* Allows content to take remaining space */
+            padding: 15px;
+        }
+
+        .content h2 {
+            font-size: 16px;
+            color: #800000; /* Dark red */
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .content p {
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .content p a {
+            color: #000080;
+            text-decoration: underline;
+        }
+
+        /* Game Embed Area */
+        .game-embed {
+            border: 1px solid #ccc;
+            height: 250px; /* Placeholder height */
+            margin-top: 15px;
+            background-color: #f9f9f9; /* Slightly different background for visual distinction */
+        }
+
+        .game-options {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .game-options a {
+            color: #000080;
+            text-decoration: none;
+            margin: 0 3px;
+        }
+
+        .game-options a:hover {
+            text-decoration: underline;
+        }
+
+        .game-info {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .game-info strong {
+            color: #000; /* Ensure ZOOM is black */
+        }
+
+        /* Game Grids (Related, New, Top Zuma) */
+        .game-grid {
+            display: grid;
+            /* Default to 5 columns for larger screens, adjust for smaller */
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .game-thumbnail {
+            text-align: center;
+            font-size: 11px;
+            color: #333; /* Ensure text is dark, not default link blue */
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .game-thumbnail-box {
+            width: 60px;
+            height: 60px;
+            background-color: #0000ff; /* Blue square */
+            border-radius: 8px; /* Rounded corners */
+            margin: 0 auto 5px auto; /* Center and add space below */
+        }
+
+        .game-thumbnail-text {
+            display: block; /* Ensure text wraps */
+            word-wrap: break-word;
+            white-space: normal;
+            line-height: 1.3;
+        }
+
+        .section-zuma-text {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #e0e0e0; /* Lighter gray */
+            padding: 10px 15px;
+            margin-top: auto; /* Pushes footer to the bottom if content is short */
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+            border-top: 1px dotted #ccc; /* Dotted separator */
+        }
+
+        .footer-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #0000ff; /* Blue square */
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-content-area {
+                flex-direction: column; /* Stack sidebar and content */
+            }
+
+            .sidebar {
+                width: auto; /* Allow sidebar to take full width */
+                border-right: none;
+                border-bottom: 1px dotted #ccc; /* Add bottom border */
+            }
+
+            .game-grid {
+                grid-template-columns: repeat(auto

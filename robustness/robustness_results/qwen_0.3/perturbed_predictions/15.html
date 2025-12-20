@@ -1,0 +1,1118 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the image into a single HTML5 file with embedded CSS. First, I need to analyze the structure of the provided image.
+
+Looking at the image, it's a list of names and some descriptions, divided into sections. Let's break it down:
+
+- There are several names at the top, some with advisors. Then a section for "Master Students" with names and advisors. Below that, there's a list of publications with authors, titles, and dates.
+
+First, the structure:
+
+1. Top section: Names (Juan Carlos Cano, Carlos Tavares Calafate, Enrique Hernández) on the left, and some other names with advisors on the right. Wait, the image shows two columns? Let me check.
+
+Wait, the image has two columns. Left column: C.K. Toh, Edjair Mota, Francisco Martinez, Piedad Garrido. Right column: Daniel Hernández, Jamie Wubben, Juan José Franco Peñaranda, then "Master Students" section with Cristian Villarroya, etc. Wait, no, the image as given in the problem statement:
+
+The user provided an image description. Let's parse the text:
+
+The text has:
+
+Left side (maybe a column):
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+Right side:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+Then below, a list of publications:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Wait, but the image might have a two-column layout for the first part, then a single column for the publications.
+
+Wait, the problem says "recreate the visual design in the image". Let's check the structure:
+
+The image has:
+
+- Top: two columns of names (left and right), each with some names and advisors.
+
+- Then a section titled "Master Students" with a list of students and advisors.
+
+- Then a list of publications.
+
+So, the HTML structure should have:
+
+- A container for the two columns (maybe a flex container or grid).
+
+- Then a section for "Master Students" with a heading and list.
+
+- Then a section for the publications.
+
+Now, let's think about the CSS. The design is probably using a two-column layout for the first part, with some text alignment.
+
+First, the top part: two columns. Let's see the original text. The left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+The right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Then "Master Students" section.
+
+Wait, but in the image, the first part is two columns. Let's check the original text:
+
+The user's input shows:
+
+Left side (first part):
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+Right side:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+Then the publications.
+
+So, the structure is:
+
+- Two columns (left and right) for the first part.
+
+- Then a section for "Master Students" (which is a heading, then a list of students).
+
+- Then a list of publications.
+
+Now, to recreate this in HTML.
+
+First, the HTML structure:
+
+- A <div> for the two columns (using flex or grid).
+
+- Then a <section> for "Master Students".
+
+- Then a <section> for the publications.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="two-columns">
+    <div class="column left">
+      <p>Juan Carlos Cano</p>
+      <p>Carlos Tavares Calafate</p>
+      <p>Enrique Hernández</p>
+      <p>C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)</p>
+      <p>Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)</p>
+      <p>Francisco Martinez (Universidad de Zaragoza, SPAIN)</p>
+      <p>Piedad Garrido (Universidad de Zaragoza, SPAIN)</p>
+    </div>
+    <div class="column right">
+      <p>Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)</p>
+      <p>Jamie Wubben (Advisor: José María Cecilia)</p>
+      <p>Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)</p>
+      <h2>Master Students</h2>
+      <p>Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)</p>
+      <p>José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)</p>
+      <p>Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)</p>
+      <p>Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)</p>
+    </div>
+  </div>
+  <section class="publications">
+    <p>Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020</p>
+    <p>Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019</p>
+    <p>Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019</p>
+    <p>Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019</p>
+  </section>
+</body>
+</html>
+
+Now, the CSS. Let's think about the design.
+
+The original image probably has:
+
+- The two columns are side by side, with some spacing.
+
+- The "Master Students" heading is bold, maybe larger font.
+
+- The publications are a list, maybe with some line spacing.
+
+Let's define the CSS:
+
+- Set the body font to a sans-serif, maybe Arial.
+
+- The two-column container: display: flex; gap: 20px; to separate the columns.
+
+- Each column: width: 50%; to make them equal.
+
+- The "Master Students" heading: font-weight: bold; font-size: 1.2em; maybe margin-top: 10px.
+
+- The publications section: maybe a list, but in the image it's just paragraphs. So each publication is a paragraph.
+
+Wait, the original image's text for the first part: the left column has names, some with descriptions. The right column has names with advisors, then the Master Students section.
+
+Let's check the original text:
+
+In the user's input, the first part (left column) has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+Right column:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+Then the publications.
+
+So, the HTML structure as above.
+
+Now, the CSS:
+
+- The body should have a clean look, maybe some padding.
+
+- The two columns: each should have a width of 50%, but maybe using flex with wrap.
+
+- The "Master Students" heading should be bold and larger.
+
+- The publications should be a list, but in the image it's just paragraphs, so each publication is a paragraph.
+
+Let's write the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+.two-columns {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column p {
+  margin: 5px 0;
+}
+
+.column h2 {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.publications {
+  margin-top: 20px;
+}
+
+.publications p {
+  margin: 5px 0;
+}
+
+Wait, but in the image, the first part (two columns) has the left column with names and descriptions, and the right column with names and advisors, then the Master Students section. So the right column has the "Master Students" heading.
+
+Wait, in the HTML structure, the right column's content includes the "Master Students" heading. So the right column's div has a h2 element.
+
+Now, let's check if the original image has the two columns as equal width. The user's input shows that the left column has 7 items, right column has 3 items (Daniel, Jamie, Juan José) plus the Master Students section. So the right column is longer, but in the image, it's probably two columns of equal width.
+
+So the CSS for the two columns: each column is 50% width.
+
+Now, let's make sure the HTML is correct.
+
+Wait, the user's input shows that the first part (top) has:
+
+Left column:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+Right column:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the right column has the "Master Students" heading, which is a section title.
+
+Now, the HTML structure:
+
+- The two columns are in a container.
+
+- The left column has 7 paragraphs.
+
+- The right column has 3 paragraphs (Daniel, Jamie, Juan José), then a h2 for Master Students, then 4 paragraphs.
+
+Now, the CSS should make the two columns side by side, with the right column containing the Master Students heading.
+
+Let's check the original image's text. The user's input shows that the first part (top) has two columns. So the HTML structure as outlined is correct.
+
+Now, the publications section: it's a list of four items, each as a paragraph.
+
+Now, let's write the CSS to make it look like the image.
+
+Possible adjustments:
+
+- The two columns should have some padding.
+
+- The "Master Students" heading should be bold and larger.
+
+- The paragraphs should have consistent spacing.
+
+Let's define the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  color: #333;
+}
+
+.two-columns {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+}
+
+.column p {
+  margin: 5px 0;
+}
+
+.column h2 {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.publications {
+  margin-top: 20px;
+}
+
+.publications p {
+  margin: 5px 0;
+}
+
+This should make the two columns side by side, with the right column having the Master Students heading.
+
+Now, let's check if the HTML is correctly structured.
+
+Wait, the user's input shows that the first part (top) has:
+
+Left column:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+Right column:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So in the HTML, the left column's div has 7 <p> elements, and the right column's div has 3 <p> elements (Daniel, Jamie, Juan José), then a <h2> for Master Students, then 4 <p> elements.
+
+Yes.
+
+Now, the publications section is a separate <section> with 4 <p> elements.
+
+Now, let's check if the HTML is valid.
+
+The HTML structure:
+
+- <div class="two-columns"> with two <div class="column">.
+
+- Each column has the content.
+
+- Then the publications section.
+
+Yes.
+
+Now, the CSS is embedded in the <style> block.
+
+Now, let's write the complete HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+
+Carlos Tavares Calafate
+
+Enrique Hernández
+
+C.K. Toh (National Tsing Hua University Honor Chair Professor of EECS, TAIWAN, considered one of the fathers of mobile ad hoc networks)
+
+Edjair Mota (Institute of Computing at the Federal University of Amazonas – UFAM, BRASIL)
+
+Francisco Martinez (Universidad de Zaragoza, SPAIN)
+
+Piedad Garrido (Universidad de Zaragoza, SPAIN)
+
+So the first three are just names, then the rest have descriptions.
+
+In the HTML, each of these is a <p> element.
+
+Similarly, the right column has:
+
+Daniel Hernández (Advisor: José M. Cecilia, Carlos Perinian-Pascual)
+
+Jamie Wubben (Advisor: José María Cecilia)
+
+Juan José Franco Peñaranda (Advisor: José M. Cecilia, Joaquín Lasheras)
+
+Master Students
+
+Cristian Villarroya (Advisor: Juan Carlos Cano, Carlos Calafate)
+
+José Daniel Padrón (Advisor: Carlos Calafate, Juan Carlos Cano)
+
+Julio José Fernández (Advisor: José María Cecilia, Pietro Manzoni)
+
+Pedro Garcia (Advisor: José María Cecilia, Pietro Manzoni)
+
+So the first three are <p> elements, then a <h2> for Master Students, then four <p> elements.
+
+Yes.
+
+Now, the publications section:
+
+Francisco José Fabra Collado, "Flight coordination solutions for multirotor unmanned aerial vehicles", June 2020
+
+Jorge Zambrano, "Efficient Traffic Management in Urban Environments", September 2019
+
+Leonardo Javier Chancay García, "Evaluación y modelado de Redes Opportunistas", June 2019
+
+Subhadeep Patra, "Development and evaluation of smartphone-based ITS applications for vehicular networks", June 2019
+
+Each as a <p> element.
+
+Now, let's write the HTML.
+
+Wait, the user's input shows that the first part (top) has the names in the left column, but in the image, the left column has:
+
+Juan Carlos Cano
+

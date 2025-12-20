@@ -1,0 +1,775 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the provided image into a single HTML5 file with embedded CSS. First, I need to analyze the structure and elements of the image.
+
+Looking at the image:
+
+- The background is black.
+- The top has "GLYCOFRAGWORK" in white, centered.
+- Below that, a welcome section with yellow text: "Welcome to GlycoFragwork" and some description.
+- Then sections: NEWS, CONTACT, Current Version, Funding.
+- The NEWS section has a date and "First release version to public. NEW!!"
+- CONTACT has three people with names and emails.
+- Current Version shows "Version 0.9"
+- Funding has a grant info.
+- Footer with copyright and web design credit.
+
+First, structure the HTML. The main elements:
+
+- <header> for the title.
+- <main> with sections: welcome, news, contact, current version, funding.
+- <footer> for copyright and design credit.
+
+Now, the CSS. Need to set:
+
+- Body: background black, font-family (probably Arial or sans-serif), color white for most text, yellow for headings like "Welcome", "NEWS", etc.
+- The title "GLYCOFRAGWORK" is white, centered, maybe larger font.
+- The welcome section: yellow heading, then paragraph text.
+- Sections: NEWS, CONTACT, Current Version, Funding. These headings should be orange (or yellow? Wait, in the image, NEWS is orange, Current Version is orange, Funding is orange. Let's check: in the image, NEWS is orange, CONTACT is orange, Current Version is orange, Funding is orange. Wait, the image shows:
+
+NEWS: orange text
+
+Current Version: orange text
+
+Funding: orange text
+
+CONTACT: orange text
+
+The welcome heading is yellow.
+
+So, let's define:
+
+- h1: "GLYCOFRAGWORK" - white, centered, maybe font-size 24px or so.
+- h2: "Welcome to GlycoFragwork" - yellow, larger.
+- Then the paragraphs: white text.
+- The section headings (NEWS, CONTACT, Current Version, Funding) are orange (let's say #FF6600 or similar).
+- The text under sections: white.
+
+Also, the layout: the image has a two-column layout for NEWS and CONTACT on the left, Current Version and Funding on the right. Wait, looking at the image:
+
+The left side has NEWS and CONTACT, right side has Current Version and Funding. So the structure is:
+
+- Top: title
+- Then a welcome section (full width)
+- Then two columns: left (NEWS, CONTACT), right (Current Version, Funding)
+
+Wait, in the image, the NEWS section is under a horizontal line, then CONTACT. Similarly, Current Version is under a horizontal line, then Funding. So the main content is divided into two columns.
+
+Let's check the image:
+
+The page has:
+
+- Header: GLYCOFRAGWORK
+- Welcome section (full width)
+- Then a horizontal line, then two columns:
+  - Left column: NEWS (with date and text), CONTACT (with three people)
+  - Right column: Current Version (with version), Funding (with grant info)
+
+So the HTML structure would be:
+
+<header>
+  <h1>GLYCOFRAGWORK</h1>
+</header>
+
+<main>
+  <section class="welcome">
+    <h2>Welcome to GlycoFragwork</h2>
+    <p>...</p>
+    <p>...</p>
+  </section>
+
+  <div class="content">
+    <div class="left-column">
+      <h2>NEWS</h2>
+      <p>2013.03.23 First release version to public. NEW!!</p>
+      <h2>CONTACT</h2>
+      <p>Advisor: Haku Tang<br>Email: hata ng at indiana.edu</p>
+      <p>Anoop Mayapurath<br>Email: ammayam at indiana.edu</p>
+      <p>Chuan-Yih Yu<br>Email: chuyu at indiana.edu</p>
+    </div>
+
+    <div class="right-column">
+      <h2>Current Version</h2>
+      <p>Version 0.9</p>
+      <h2>Funding</h2>
+      <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© Copyright 2009 COL Group, Indiana University</p>
+  <p>Web design released by Flash Gallery</p>
+</footer>
+
+Now, the CSS:
+
+- Body: background #000, color #fff, font-family Arial, sans-serif.
+- h1: text-align center, color #fff, font-size 24px (or similar).
+- h2: color #FF6600 (orange), font-size 18px, margin-bottom 10px.
+- The welcome h2: color #FFD700 (yellow), font-size 24px.
+- The paragraphs: color #fff, line-height 1.5.
+- The content div: display flex, justify-content space-between, margin-top 20px.
+- Left and right columns: width 45% (so 45% and 45%, with some margin).
+- The horizontal lines: maybe a border-bottom, but in the image, there are horizontal lines between sections. Wait, in the image, the NEWS section has a horizontal line above it? Wait, looking at the image:
+
+The image shows:
+
+- After the welcome section, there's a horizontal line, then NEWS, then CONTACT. Similarly, Current Version is after a horizontal line.
+
+Wait, the image's structure:
+
+- Welcome section (full width)
+- Then a horizontal line (maybe a border-bottom)
+- Then two columns: left (NEWS, CONTACT), right (Current Version, Funding)
+
+Wait, the image shows:
+
+The "NEWS" section is under a horizontal line, then "CONTACT" is under another horizontal line. Similarly, "Current Version" is under a horizontal line, then "Funding" is under another.
+
+Wait, looking at the image:
+
+The text "NEWS" is in a box with a horizontal line above it. Similarly, "CONTACT" is in a box with a horizontal line above it. Wait, no, the image shows:
+
+The page has:
+
+- Welcome section (full width)
+- Then a horizontal line (maybe a border-bottom)
+- Then the left column: NEWS (with text), then CONTACT (with text)
+- Then a horizontal line (maybe a border-bottom)
+- Then the right column: Current Version (with text), then Funding (with text)
+
+Wait, no, the image shows the left column has NEWS and CONTACT as separate sections, each with their own horizontal line. Wait, the image's layout:
+
+The left side has:
+
+- NEWS (heading)
+- Text: 2013.03.23...
+- CONTACT (heading)
+- Then the three contacts.
+
+Similarly, the right side has:
+
+- Current Version (heading)
+- Version 0.9
+- Funding (heading)
+- Grant info.
+
+So the structure is:
+
+- Welcome section (full width)
+- Then two columns (left and right), each column has two sections (NEWS/CONTACT on left, Current Version/Funding on right).
+
+So the CSS for the content div: display flex, flex-direction row, justify-content space-between, margin-top 20px.
+
+Each column: width 45%, padding 10px.
+
+The headings (NEWS, CONTACT, Current Version, Funding) are h2 elements, color orange.
+
+The text under them: white.
+
+Now, the footer: two lines, left and right.
+
+Also, the "download" link in the top right. Wait, the image shows "download" in the top right corner. Let's check:
+
+The image has "GLYCOFRAGWORK" at the top, then to the right, "download" (maybe a link). So the header should have a link for download.
+
+Wait, the image shows:
+
+At the top, "GLYCOFRAGWORK" centered, and to the right, "download" (maybe a link). So the header should have:
+
+<header>
+  <h1>GLYCOFRAGWORK</h1>
+  <a href="#" class="download">download</a>
+</header>
+
+But in the image, the "download" is in the top right, so the header should have the h1 centered, and the download link on the right.
+
+So the header:
+
+<div class="header">
+  <h1>GLYCOFRAGWORK</h1>
+  <a href="#" class="download">download</a>
+</div>
+
+But the image shows "download" as a link, so we need to include that.
+
+Wait, the image's top right has "download" (probably a link). So the header should have the title and the download link.
+
+So the header structure:
+
+<header>
+  <h1>GLYCOFRAGWORK</h1>
+  <a href="#" class="download">download</a>
+</header>
+
+But the image shows "download" in the top right, so the header should have the h1 centered, and the download link on the right.
+
+So in CSS, the header should be a flex container, justify-content space-between.
+
+Let's outline the HTML structure:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlycoFragwork</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GLYCOFRAGWORK</h1>
+    <a href="#" class="download">download</a>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome to GlycoFragwork</h2>
+      <p>GlycoFragwork analyzes multiple pre-aligned LC-MS/MS datasets, and reports a list (termed as a 'glycomap') of identified intact glycopeptides with their mass, elution time and abundance</p>
+      <p>Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+    </section>
+
+    <div class="content">
+      <div class="left-column">
+        <h2>NEWS</h2>
+        <p>2013.03.23 First release version to public. NEW!!</p>
+        <h2>CONTACT</h2>
+        <p>Advisor: <strong>Haku Tang</strong><br>Email: hata ng at indiana.edu</p>
+        <p><strong>Anoop Mayapurath</strong><br>Email: ammayam at indiana.edu</p>
+        <p><strong>Chuan-Yih Yu</strong><br>Email: chuyu at indiana.edu</p>
+      </div>
+
+      <div class="right-column">
+        <h2>Current Version</h2>
+        <p>Version 0.9</p>
+        <h2>Funding</h2>
+        <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Copyright 2009 COL Group, Indiana University</p>
+    <p>Web design released by <a href="#">Flash Gallery</a></p>
+  </footer>
+</body>
+</html>
+
+Now, the CSS:
+
+- Body: background #000, color #fff, font-family Arial, sans-serif, margin 0, padding 0.
+- header: display flex, justify-content space-between, align-items center, padding 10px.
+- h1: color #fff, font-size 24px, text-align center.
+-.download: color #fff, text-decoration none, font-size 14px.
+-.welcome: margin 20px 0;
+- h2 (welcome): color #FFD700, font-size 24px, margin-bottom 10px;
+- p (welcome): color #fff, line-height 1.5;
+-.content: display flex, justify-content space-between, margin 20px 0;
+-.left-column,.right-column: width 45%, padding 10px;
+- h2 (section headings): color #FF6600, font-size 18px, margin-bottom 10px;
+- p (section content): color #fff, line-height 1.5;
+- footer: display flex, justify-content space-between, padding 10px;
+- footer p: color #fff, line-height 1.5;
+- footer a: color #FFD700, text-decoration none;
+
+Wait, the image shows the "download" link in the top right, so the header should have the h1 centered and the download link on the right.
+
+Also, the "NEW!!" in the NEWS section is in yellow. Wait, in the image, the NEWS section has "NEW!!" in yellow. So the text "NEW!!" should be yellow.
+
+So in the NEWS paragraph: "2013.03.23 First release version to public. <span style="color: #FFD700;">NEW!!</span>"
+
+But to do this with CSS, maybe the "NEW!!" is a span with color yellow.
+
+Alternatively, in the HTML, the text "NEW!!" is part of the paragraph, so we can style it with a class.
+
+But to keep it simple, maybe in the HTML, the "NEW!!" is in a span with class "highlight" or something.
+
+But the image shows "NEW!!" in yellow, so we need to make that text yellow.
+
+So in the NEWS paragraph:
+
+<p>2013.03.23 First release version to public. <span class="highlight">NEW!!</span></p>
+
+Then in CSS:
+
+.highlight { color: #FFD700; }
+
+Now, let's check the image for other details:
+
+- The "download" link: in the image, it's "download" (no underline, maybe gray or white). Wait, the image shows "download" in the top right, probably white text.
+
+- The footer: "Web design released by Flash Gallery" – "Flash Gallery" is yellow.
+
+So in the footer, the link "Flash Gallery" should be yellow.
+
+So the footer's second paragraph: <p>Web design released by <a href="#">Flash Gallery</a></p>
+
+And the CSS for the footer a: color #FFD700.
+
+Now, let's structure the CSS:
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+
+header.download {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.welcome {
+  margin: 20px 0;
+}
+
+.welcome h2 {
+  color: #FFD700;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  color: #fff;
+  line-height: 1.5;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.left-column,.right-column {
+  width: 45%;
+  padding: 10px;
+}
+
+h2 {
+  color: #FF6600;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #fff;
+  line-height: 1.5;
+}
+
+.highlight {
+  color: #FFD700;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+footer p {
+  color: #fff;
+  line-height: 1.5;
+}
+
+footer a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+Now, check the image for the "download" link: in the image, it's "download" (probably a link), so the HTML has <a href="#" class="download">download</a>.
+
+Also, the "NEW!!" is in yellow, so the span with class "highlight" is used.
+
+Now, let's check the text content:
+
+- Welcome section: "GlycoFragwork analyzes multiple pre-aligned LC-MS/MS datasets, and reports a list (termed as a 'glycomap') of identified intact glycopeptides with their mass, elution time and abundance"
+
+- "Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed."
+
+- NEWS: "2013.03.23 First release version to public. NEW!!"
+
+- CONTACT: Advisor: Haku Tang, Email: hata ng at indiana.edu (wait, the image shows "hata ng at indiana.edu" – but that's probably a typo, but we need to copy exactly as in the image. Wait, the image shows "hata ng at indiana.edu" – but in the image, it's "hata ng at indiana.edu" (maybe "hata" is a typo for "hata" but we need to copy as is).
+
+Wait, the image's CONTACT section:
+
+Advisor: Haku Tang
+
+Email: hata ng at indiana.edu
+
+Anoop Mayapurath
+
+Email: ammayam at indiana.edu
+
+Chuan-Yih Yu
+
+Email: chuyu at indiana.edu
+
+So the emails are "hata ng at indiana.edu" (probably "hata" is a typo, but we need to copy exactly as in the image).
+
+Similarly, the funding section: "This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems."
+
+Now, the HTML structure:
+
+- The header has h1 and download link.
+
+- The welcome section has h2 and two paragraphs.
+
+- The content div has left and right columns.
+
+- The footer has two paragraphs.
+
+Now, let's check the image for the "download" link: it's in the top right, so the header's flex container has h1 on the left and download on the right.
+
+Now, let's code the HTML and CSS.
+
+Wait, the image shows "GLYCOFRAGWORK" in the top, so the h1 is "GLYCOFRAGWORK".
+
+The "download" link is in the top right, so the header's structure is correct.
+
+Now, the CSS for the body: background black, text color white.
+
+The welcome h2 is yellow.
+
+The section headings (NEWS, CONTACT, Current Version, Funding) are orange.
+
+The "NEW!!" is yellow.
+
+The footer's "Flash Gallery" is yellow.
+
+Now, let's write the HTML.
+
+Also, the image shows a horizontal line between sections. Wait, in the image, there are horizontal lines between the welcome section and the content, and between the sections in the content. But in the provided image, the horizontal lines are not visible as borders, but maybe they are part of the design. Wait, looking at the image:
+
+The image shows:
+
+- After the welcome section, there's a horizontal line (maybe a border-bottom), then the content.
+
+- In the content, the left column has NEWS and CONTACT, each with a horizontal line above them? Wait, no, the image shows:
+
+The left column has:
+
+- NEWS (heading)
+- Text
+- CONTACT (heading)
+- Text
+
+Similarly, the right column has:
+
+- Current Version (heading)
+- Text
+- Funding (heading)
+- Text
+
+So the horizontal lines are probably the borders between the sections. But in the image, the sections are separated by the headings. So maybe the CSS doesn't need explicit borders, but the structure is as per the HTML.
+
+Now, let's code the HTML.
+
+Wait, the image shows the "download" link in the top right, so the header should have the h1 and the download link.
+
+Now, let's put it all together.
+
+Check for any missing elements:
+
+- The image has "download" in the top right, so the header includes that.
+
+- The footer has "Web design released by Flash Gallery" with "Flash Gallery" in yellow.
+
+- The "NEW!!" is in yellow.
+
+Now, let's write the code.
+
+Make sure the HTML is valid, with proper tags.
+
+Also, the CSS is embedded in a style block.
+
+Now, the final HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlycoFragwork</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    header h1 {
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+    }
+    header.download {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+   .welcome {
+      margin: 20px 0;
+    }
+   .welcome h2 {
+      color: #FFD700;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+   .welcome p {
+      color: #fff;
+      line-height: 1.5;
+    }
+   .content {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+   .left-column,.right-column {
+      width: 45%;
+      padding: 10px;
+    }
+    h2 {
+      color: #FF6600;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #fff;
+      line-height: 1.5;
+    }
+   .highlight {
+      color: #FFD700;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    footer p {
+      color: #fff;
+      line-height: 1.5;
+    }
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GLYCOFRAGWORK</h1>
+    <a href="#" class="download">download</a>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome to GlycoFragwork</h2>
+      <p>GlycoFragwork analyzes multiple pre-aligned LC-MS/MS datasets, and reports a list (termed as a 'glycomap') of identified intact glycopeptides with their mass, elution time and abundance</p>
+      <p>Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+    </section>
+
+    <div class="content">
+      <div class="left-column">
+        <h2>NEWS</h2>
+        <p>2013.03.23 First release version to public. <span class="highlight">NEW!!</span></p>
+        <h2>CONTACT</h2>
+        <p>Advisor: <strong>Haku Tang</strong><br>Email: hata ng at indiana.edu</p>
+        <p><strong>Anoop Mayapurath</strong><br>Email: ammayam at indiana.edu</p>
+        <p><strong>Chuan-Yih Yu</strong><br>Email: chuyu at indiana.edu</p>
+      </div>
+
+      <div class="right-column">
+        <h2>Current Version</h2>
+        <p>Version 0.9</p>
+        <h2>Funding</h2>
+        <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Copyright 2009 COL Group, Indiana University</p>
+    <p>Web design released by <a href="#">Flash Gallery</a></p>
+  </footer>
+</body>
+</html>
+
+Wait, check the image for the "download" link: in the image, it's "download" (no "href" specified, but we can use href="#" as a placeholder).
+
+Also, the "NEW!!" is in yellow, so the span with class "highlight" is correct.
+
+The emails: "hata ng at indiana.edu" – the image shows "hata ng at indiana.edu" (probably a typo, but we need to copy exactly as in the image).
+
+The funding section: "NSF grant DBI-0642897, 1R01GM093322-03" – the image shows "DBI-0642897, 1R01GM093322-03".
+
+Now, check the CSS for the h2 elements: they are orange, which is #FF6600.
+
+The welcome h2 is yellow, #FFD700.
+
+The footer's "Flash Gallery" is yellow.
+
+The "NEW!!" is yellow.
+
+The body background is black.
+
+The text color is white.
+
+The font-family is Arial.
+
+The layout is two columns for the content.
+
+This should match the image.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlycoFragwork</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    header h1 {
+      color: #fff;
+      font-size: 24px;
+      text-align: center;
+    }
+    header.download {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+   .welcome {
+      margin: 20px 0;
+    }
+   .welcome h2 {
+      color: #FFD700;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+   .welcome p {
+      color: #fff;
+      line-height: 1.5;
+    }
+   .content {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+   .left-column,.right-column {
+      width: 45%;
+      padding: 10px;
+    }
+    h2 {
+      color: #FF6600;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #fff;
+      line-height: 1.5;
+    }
+   .highlight {
+      color: #FFD700;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    footer p {
+      color: #fff;
+      line-height: 1.5;
+    }
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GLYCOFRAGWORK</h1>
+    <a href="#" class="download">download</a>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Welcome to GlycoFragwork</h2>
+      <p>GlycoFragwork analyzes multiple pre-aligned LC-MS/MS datasets, and reports a list (termed as a 'glycomap') of identified intact glycopeptides with their mass, elution time and abundance</p>
+      <p>Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+    </section>
+
+    <div class="content">
+      <div class="left-column">
+        <h2>NEWS</h2>
+        <p>2013.03.23 First release version to public. <span class="highlight">NEW!!</span></p>
+        <h2>CONTACT</h2>
+        <p>Advisor: <strong>Haku Tang</strong><br>Email: hata ng at indiana.edu</p>
+        <p><strong>Anoop Mayapurath</strong><br>Email: ammayam at indiana.edu</p>
+        <p><strong>Chuan-Yih Yu</strong><br>Email: chuyu at indiana.edu</p>
+      </div>
+
+      <div class="right-column">
+        <h2>Current Version</h2>
+        <p>Version 0.9</p>
+        <h2>Funding</h2>
+        <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Copyright 2009 COL Group, Indiana University</p>
+    <p>Web design released by <a href="#">Flash Gallery</a></p>
+  </footer>
+</body>
+</html>
+```

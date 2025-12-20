@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producer Application</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+   .blue-bar {
+      height: 100px;
+      background-color: #0000ff;
+      width: 100%;
+    }
+   .pink-header {
+      background-color: #ff00ff;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+   .intro-text {
+      margin-top: 10px;
+      color: #333;
+    }
+   .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+   .form-group {
+      margin-bottom: 15px;
+    }
+   .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+   .form-group input[type="text"],
+   .form-group input[type="email"],
+   .form-group input[type="tel"],
+   .form-group input[type="checkbox"],
+   .form-group input[type="radio"],
+   .form-group select,
+   .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+   .form-group textarea {
+      min-height: 100px;
+    }
+   .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+   .form-group p {
+      margin: 0 0 10px 0;
+      font-style: italic;
+      color: #666;
+    }
+   .form-group a {
+      color: #0000ff;
+      text-decoration: none;
+    }
+   .form-group a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="blue-bar"></div>
+  <div class="pink-header">Producer Application</div>
+  <p class="intro-text">Tell us a little about you and your experience. <a href="#">FAQ</a> for more information.</p>
+  <form>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="first-name">First Name *</label>
+        <input type="text" id="first-name" name="first-name" required>
+      </div>
+      <div class="form-group">
+        <label for="last-name">Last Name *</label>
+        <input type="text" id="last-name" name="last-name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="location">Where Do You Live? *</label>
+      <input type="text" id="location" name="location" required>
+    </div>
+    <div class="form-group">
+      <label>I am at Least 18 Years of Age *</label>
+      <input type="checkbox" id="age" name="age" required>
+      <label for="age">Yes</label>
+    </div>
+    <div class="form-group">
+      <label>Do You Have a Production Company? *</label>
+      <input type="radio" id="company-yes" name="company" value="yes" required>
+      <label for="company-yes">Yes</label>
+      <input type="radio" id="company-no" name="company" value="no" required>
+      <label for="company-no">No</label>
+    </div>
+    <div class="form-group">
+      <label for="about">Tell Us More About You. *</label>
+      <textarea id="about" name="about" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="genre">Preferred Genre *</label>
+      <select id="genre" name="genre" required>
+        <option value="">Select a genre</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="documentary">Documentary</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Are You Confident You Can Create Full-Length Episodes (12-25 minutes) on a Low-Budget and Continue to Create Episodes if they are Renewed by Candivan Subscribers? *</label>
+      <input type="radio" id="confident-yes" name="confident" value="yes" required>
+      <label for="confident-yes">Yes</label>
+      <input type="radio" id="confident-no" name="confident" value="no" required>
+      <label for="confident-no">No</label>
+    </div>
+    <div class="form-group">
+      <label>If Selected as a Winner, Would You be Able to Start Production by this May or June (2019)? *</label>
+      <input type="radio" id="production-yes" name="production" value="yes" required>
+      <label for="production-yes">Yes</label>
+      <input type="radio" id="production-no" name="production" value="no" required>
+      <label for="production-no">No</label>
+    </div>
+    <div class="form-group">
+      <label for="collaborate">Names of Others Plan to Collaborate with (if Applicable)</label>
+      <textarea id="collaborate" name="collaborate"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Are you a member of the PGA? *</label>
+      <input type="radio" id="pga-yes" name="pga" value="yes" required>
+      <label for="pga-yes">Yes</label>
+      <input type="radio" id="pga-no" name="pga" value="no" required>
+      <label for="pga-no">No</label>
+    </div>
+    <div class="form-group">
+      <p>OPTIONAL: Those with large social networks are preferable. Feel free to list any large networks you are part of or your Twitter.</p>
+      <textarea id="social" name="social"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="source">How did you find out about us?</label>
+      <select id="source" name="source">
+        <option value="">Select an option</option>
+        <option value="social-media">Social Media</option>
+        <option value="website">Website</option>
+        <option value="friend">Friend</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </form>
+</body>
+</html>

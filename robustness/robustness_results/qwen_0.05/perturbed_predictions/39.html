@@ -1,0 +1,664 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's break down the elements.
+
+The page has a dark blue background. At the top, there's a navigation bar with three links: "Follow on Facebook", "Follow on Twitter", "Switch to Mac Site". Then a white content area. The main heading is "Giveaway of Sothink Flash Menu is over!". Below that, there's a section with two columns: left is a light blue box with "Sothink Flash Menu" description, right is a section with "Get the following products with 20% OFF:" and two product cards.
+
+Let's outline the structure:
+
+- HTML structure: <html>, <head>, <body>
+- Head: title, meta (charset, viewport), style block with CSS
+- Body: top navigation bar, main content with heading, two columns (left and right), footer
+
+First, the top navigation. The image shows three links in the top right. Let's check the colors: the background is dark blue (maybe #003366 or similar). The links are white text.
+
+Main content: the heading is blue, "Giveaway of Sothink Flash Menu is over!". Then the left column has a light blue box (maybe #e6f7ff) with a blue square at the top, then the product description. The right column has the coupon info and two product sections.
+
+Looking at the image:
+
+- The main background is dark blue (let's say #003366).
+- The content area is white (background: white).
+- The left column's box is light blue (maybe #e6f7ff).
+- The product cards (Sothink SWF Decompiler and Sothink SWF Quicker) have blue squares as placeholders.
+
+Let's note the elements:
+
+1. Top navigation bar:
+   - Background: dark blue (#003366)
+   - Links: "Follow on Facebook", "Follow on Twitter", "Switch to Mac Site" (white text, maybe with some spacing)
+   - Positioned at the top, right-aligned.
+
+2. Main content area:
+   - Background: white
+   - Heading: "Giveaway of Sothink Flash Menu is over!" (blue text, maybe #0099ff)
+   - Left column:
+     - A light blue box (border-radius: 10px, padding: 20px)
+     - Inside: a blue square (top, maybe 20x20), then the "Sothink Flash Menu" title, then the description.
+     - The description has text: "An ultimate Flash menu builder creates stylish & stunning cross-browser Flash drop down menu in clicks. 68 built-in templates, 50 amazing special effects, 35 preset styles and image library of 4 categories, make SE friendly navigation bar without Flash and ActionScript skills."
+     - Another blue square at the bottom.
+
+   - Right column:
+     - Heading: "Get the following products with 20% OFF:" (20% OFF in red)
+     - Coupon code: "COUPON: D5S6F42F4"
+     - Two product sections, each with a blue square, product name, description, and "Learn more" link.
+
+3. Footer:
+   - Background: dark blue (#003366)
+   - Text: "Sothink is a trademark of SourceTec Software Co., LTD. Sothink Software: SWF Decompiler, Flash to HTML5, Logo Maker, Logo Design Software, Mac Decompiler, Video Converter. Sothink is a trademark of SourceTec Software Co., LTD. Flash is a trademark of Adobe."
+   - Navigation links: Support, Tutorials, Subscribe, Blog (with blue squares as icons)
+
+Now, let's think about the CSS. Need to make it responsive. Let's set up the structure.
+
+First, the HTML structure:
+
+- <header> for top navigation
+- <main> for the main content
+  - <h1> for the giveaway heading
+  - <div class="container"> for the two columns (left and right)
+    - <div class="left-column"> with the light blue box
+    - <div class="right-column"> with the products
+- <footer> for the footer
+
+Let's check the image's layout. The main content has the heading, then the two columns side by side. The left column is a light blue box, right column is the products.
+
+Now, colors:
+
+- Background: #003366 (dark blue)
+- Content background: white
+- Light blue box: #e6f7ff
+- Blue squares: #003366 (same as background? Wait, in the image, the blue squares are darker than the light blue box. Wait, the image shows blue squares. Let's check the image: the left column has a blue square at the top, then a blue rectangle, then another blue square at the bottom. The right column has two blue squares. So the blue squares are the same as the top background? Maybe #003366.
+
+Wait, the image's background is dark blue, and the blue squares are the same color as the background. So the blue squares are #003366.
+
+Let's confirm:
+
+- Top navigation: background #003366, text white.
+- Main content: background white.
+- Left column: background #e6f7ff (light blue), with blue squares (#003366).
+- Right column: white background, with blue squares (#003366).
+- Footer: background #003366, text white.
+
+Now, the heading "Giveaway of Sothink Flash Menu is over!" is blue. Let's use #0099ff.
+
+The "20% OFF" is red, so #ff0000.
+
+The coupon code is black.
+
+The product descriptions are black.
+
+The "Learn more" links are blue.
+
+Now, let's structure the HTML.
+
+First, the top navigation:
+
+<div class="top-nav">
+  <div class="nav-links">
+    <a href="#">Follow on Facebook</a>
+    <a href="#">Follow on Twitter</a>
+    <a href="#">Switch to Mac Site</a>
+  </div>
+</div>
+
+Then the main content:
+
+<div class="main-content">
+  <h1>Giveaway of Sothink Flash Menu is over!</h1>
+  <div class="content-container">
+    <div class="left-column">
+      <div class="blue-square"></div>
+      <div class="product-box">
+        <h2>Sothink Flash Menu</h2>
+        <p>An ultimate Flash menu builder creates stylish & stunning cross-browser Flash drop down menu in clicks. 68 built-in templates, 50 amazing special effects, 35 preset styles and image library of 4 categories, make SE friendly navigation bar without Flash and ActionScript skills.</p>
+        <div class="blue-square"></div>
+      </div>
+    </div>
+    <div class="right-column">
+      <h2>Get the following products with <span class="red">20% OFF:</span></h2>
+      <p>COUPON: D5S6F42F4</p>
+      <div class="product-card">
+        <div class="blue-square"></div>
+        <h3>Sothink SWF Decompiler</h3>
+        <p>A high-performance Flash decompiler for you to convert SWF to FLA or FLEX precisely; Easily extract all Flash resources; Convert Flash to html5 files; Replace image/shape/text/sound for SWF. It is the first decompiler to get XFL from Flash CS5 SWF.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div class="product-card">
+        <div class="blue-square"></div>
+        <h3>Sothink SWF Quicker</h3>
+        <p>Provide a much Quicker way to build your own flash animation, powerful but easy-to-use. (With almost all the function that Adobe Flash has, but much cheaper than it)Stronger functions but lower price!</p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+Footer:
+
+<footer>
+  <div class="footer-content">
+    <p>Sothink is a trademark of SourceTec Software Co., LTD. Sothink Software: SWF Decompiler, Flash to HTML5, Logo Maker, Logo Design Software, Mac Decompiler, Video Converter. Sothink is a trademark of SourceTec Software Co., LTD. Flash is a trademark of Adobe.</p>
+    <div class="footer-links">
+      <a href="#">Support</a>
+      <a href="#">Tutorials</a>
+      <a href="#">Subscribe</a>
+      <a href="#">Blog</a>
+    </div>
+  </div>
+</footer>
+
+Now, the CSS. Let's make it responsive.
+
+First, reset some margins/paddings.
+
+Set the body to have font-family, maybe Arial, sans-serif.
+
+Top navigation: flex container, justify-content: flex-end, padding: 10px, background: #003366, color: white.
+
+Main content: background: white, padding: 20px.
+
+The heading: text-align: center, color: #0099ff, font-size: 24px.
+
+Content container: display: flex, flex-wrap: wrap, gap: 20px.
+
+Left column: width: 45%, padding: 20px, background: #e6f7ff, border-radius: 10px.
+
+Blue square: width: 20px, height: 20px, background: #003366, margin: 10px 0.
+
+Product box: margin-top: 10px.
+
+Right column: width: 55%, padding: 20px.
+
+Product card: margin-bottom: 20px.
+
+Red text: color: #ff0000.
+
+Coupon code: font-style: italic.
+
+Footer: background: #003366, color: white, padding: 20px.
+
+Footer content: display: flex, flex-direction: column, gap: 10px.
+
+Footer links: display: flex, gap: 20px.
+
+Now, let's code the CSS.
+
+Also, need to make sure the layout is responsive. For mobile, the two columns should stack.
+
+So, in the content container, set flex-wrap: wrap, and for mobile, the columns should be 100%.
+
+Let's structure the CSS:
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #003366;
+  color: #333;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: #003366;
+}
+
+.top-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.main-content {
+  background-color: white;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #0099ff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 300px;
+  background-color: #e6f7ff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.blue-square {
+  width: 20px;
+  height: 20px;
+  background-color: #003366;
+  margin: 10px 0;
+}
+
+.product-box h2 {
+  margin-bottom: 10px;
+}
+
+.product-box p {
+  line-height: 1.5;
+}
+
+.right-column {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.right-column h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.right-column h2 span.red {
+  color: #ff0000;
+}
+
+.right-column p {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.product-card {
+  margin-bottom: 20px;
+}
+
+.product-card.blue-square {
+  width: 100%;
+  height: 100px;
+  background-color: #003366;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  line-height: 1.5;
+}
+
+.product-card a {
+  color: #0099ff;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+Now, check if the structure matches the image.
+
+Wait, the left column in the image has a blue square at the top, then the product description, then another blue square at the bottom. So the blue-square elements are two: one at the top of the left column, and one at the bottom.
+
+In the HTML, the left column has:
+
+<div class="blue-square"></div> (top)
+<div class="product-box">... </div>
+<div class="blue-square"></div> (bottom)
+
+Yes.
+
+The right column has two product cards, each with a blue square (the placeholder).
+
+The footer has the text and the links.
+
+Now, let's check the image's text:
+
+- Top navigation: "Follow on Facebook", "Follow on Twitter", "Switch to Mac Site" (correct)
+- Main heading: "Giveaway of Sothink Flash Menu is over!" (correct)
+- Left column: "Sothink Flash Menu" description (correct)
+- Right column: "Get the following products with 20% OFF:" (correct), coupon code D5S6F42F4 (correct)
+- Product 1: "Sothink SWF Decompiler" description (correct)
+- Product 2: "Sothink SWF Quicker" description (correct)
+- Footer: the trademark text (correct)
+
+Now, let's code the HTML.
+
+Start with the HTML5 structure.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sothink Flash Menu Giveaway</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <!-- Top navigation -->
+  <div class="top-nav">
+    <div class="nav-links">
+      <a href="#">Follow on Facebook</a>
+      <a href="#">Follow on Twitter</a>
+      <a href="#">Switch to Mac Site</a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <h1>Giveaway of Sothink Flash Menu is over!</h1>
+    <div class="content-container">
+      <div class="left-column">
+        <div class="blue-square"></div>
+        <div class="product-box">
+          <h2>Sothink Flash Menu</h2>
+          <p>An ultimate Flash menu builder creates stylish & stunning cross-browser Flash drop down menu in clicks. 68 built-in templates, 50 amazing special effects, 35 preset styles and image library of 4 categories, make SE friendly navigation bar without Flash and ActionScript skills.</p>
+          <div class="blue-square"></div>
+        </div>
+      </div>
+      <div class="right-column">
+        <h2>Get the following products with <span class="red">20% OFF:</span></h2>
+        <p>COUPON: D5S6F42F4</p>
+        <div class="product-card">
+          <div class="blue-square"></div>
+          <h3>Sothink SWF Decompiler</h3>
+          <p>A high-performance Flash decompiler for you to convert SWF to FLA or FLEX precisely; Easily extract all Flash resources; Convert Flash to html5 files; Replace image/shape/text/sound for SWF. It is the first decompiler to get XFL from Flash CS5 SWF.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div class="product-card">
+          <div class="blue-square"></div>
+          <h3>Sothink SWF Quicker</h3>
+          <p>Provide a much Quicker way to build your own flash animation, powerful but easy-to-use. (With almost all the function that Adobe Flash has, but much cheaper than it)Stronger functions but lower price!</p>
+          <a href="#">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>Sothink is a trademark of SourceTec Software Co., LTD. Sothink Software: SWF Decompiler, Flash to HTML5, Logo Maker, Logo Design Software, Mac Decompiler, Video Converter. Sothink is a trademark of SourceTec Software Co., LTD. Flash is a trademark of Adobe.</p>
+      <div class="footer-links">
+        <a href="#">Support</a>
+        <a href="#">Tutorials</a>
+        <a href="#">Subscribe</a>
+        <a href="#">Blog</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+Now, check the CSS for responsiveness. The content-container uses flex-wrap: wrap, so on small screens, the columns stack. The left and right columns have min-width: 300px, so they won't collapse too much.
+
+Also, check the colors:
+
+- Top-nav background: #003366
+- Main-content background: white
+- Left-column background: #e6f7ff
+- Blue-square background: #003366
+- Red text: #ff0000
+- Links: #0099ff
+
+Yes.
+
+Now, check if all elements are present.
+
+Top navigation: three links.
+
+Main heading: correct.
+
+Left column: blue square, product name, description, blue square.
+
+Right column: heading with 20% OFF, coupon code, two product cards with blue squares, product names, descriptions, "Learn more" links.
+
+Footer: trademark text, links.
+
+Looks good.
+
+Now, make sure the HTML is valid and closed.
+
+Check for any missing tags. All tags are closed.
+
+The CSS is embedded in the style block.
+
+The response starts with ```html and ends with ```.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sothink Flash Menu Giveaway</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #003366;
+      color: #333;
+    }
+
+   .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+      background-color: #003366;
+    }
+
+   .top-nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+   .main-content {
+      background-color: white;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0099ff;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+   .content-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+   .left-column {
+      flex: 1;
+      min-width: 300px;
+      background-color: #e6f7ff;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+   .blue-square {
+      width: 20px;
+      height: 20px;
+      background-color: #003366;
+      margin: 10px 0;
+    }
+
+   .product-box h2 {
+      margin-bottom: 10px;
+    }
+
+   .product-box p {
+      line-height: 1.5;
+    }
+
+   .right-column {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+
+   .right-column h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+   .right-column h2 span.red {
+      color: #ff0000;
+    }
+
+   .right-column p {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+   .product-card {
+      margin-bottom: 20px;
+    }
+
+   .product-card.blue-square {
+      width: 100%;
+      height: 100px;
+      background-color: #003366;
+      margin-bottom: 10px;
+    }
+
+   .product-card h3 {
+      margin-bottom: 10px;
+    }
+
+   .product-card p {
+      line-height: 1.5;
+    }
+
+   .product-card a {
+      color: #0099ff;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+   .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+   .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+   .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <div class="nav-links">
+      <a href="#">Follow on Facebook</a>
+      <a href="#">Follow on Twitter</a>
+      <a href="#">Switch to Mac Site</a>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1>Giveaway of Sothink Flash Menu is over!</h1>
+    <div class="content-container">
+      <div class="left-column">
+        <div class="blue-square"></div>
+        <div class="product-box">
+          <h2>Sothink Flash Menu</h2>
+          <p>An ultimate Flash menu builder creates stylish & stunning cross-browser Flash drop down menu in clicks. 68 built-in templates, 50 amazing special effects, 35 preset styles and image library of 4 categories, make SE friendly navigation bar without Flash and ActionScript skills.</p>
+          <div class="blue-square"></div>
+        </div>
+      </div>
+      <div class="right-column">
+        <h2>Get the following products with <span class="red">20% OFF:</span></h2>
+        <p>COUPON: D5S6F42F4</p>
+        <div class="product-card">
+          <div class="blue-square"></div>
+          <h3>Sothink SWF Decompiler</h3>
+          <p>A high-performance Flash decompiler for you to convert SWF to FLA or FLEX precisely; Easily extract all Flash resources; Convert Flash to html5 files; Replace image/shape/text/sound for SWF. It is the first decompiler to get XFL from Flash CS5 SWF.</p>
+          <a href="#">Learn more</a>
+        </div>
+        <div class="product-card">
+          <div class="blue-square"></div>
+          <h3>Sothink SWF Quicker</h3>
+          <p>Provide a much Quicker way to build your own flash animation, powerful but easy-to-use. (With almost all the function that Adobe Flash has, but much cheaper than it)Stronger functions but lower price!</p>
+          <a href="#">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>Sothink is a trademark of SourceTec Software Co., LTD. Sothink Software: SWF Decompiler, Flash to HTML5, Logo Maker, Logo Design Software, Mac Decompiler, Video Converter. Sothink is a trademark of SourceTec Software Co., LTD. Flash is a trademark of Adobe.</p>
+      <div class="footer-links">
+        <a href="#">Support</a>
+        <a href="#">Tutorials</a>
+        <a href="#">Subscribe</a>
+        <a href="#">Blog</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+```

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unauthorized Access</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif; /* Default sans-serif for body text */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Section */
+        .header-top-bar {
+            background-color: #fff; /* Appears white in the image */
+            padding: 10px 0;
+            text-align: right;
+            border-bottom: 1px solid #eee; /* Subtle separator */
+        }
+
+        .header-top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .header-top-bar-content a {
+            color: #333;
+            margin-left: 15px;
+            padding-left: 15px;
+            border-left: 1px solid #ccc;
+        }
+
+        .header-top-bar-content a:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .header-main {
+            background-color: #78963C; /* Olive green from image */
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .header-main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 150px; /* Estimated width */
+            height: 80px; /* Estimated height */
+            background-color: #0000FF; /* Blue color */
+            margin-right: 20px;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px; /* Spacing between nav items */
+            font-family: 'Georgia', serif; /* Serif font for main nav */
+            font-size: 26px; /* Estimated font size */
+            color: #fff;
+            flex-wrap: wrap;
+            justify-content: flex-end; /* Align to right */
+            flex-grow: 1; /* Allow nav to take available space */
+        }
+
+        .main-nav a {
+            color: #fff;
+            white-space: nowrap; /* Prevent breaking words */
+        }
+
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .content-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .unauthorized-message {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .large-blue-box {
+            width: 100%; /* Take full width of content area */
+            max-width: 600px; /* Estimated max width */
+            height: 300px; /* Estimated height */
+            background-color: #0000FF; /* Blue color */
+            margin-bottom: 60px;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #fff; /* White background */
+            padding: 60px 0 30px;
+            border-top: 1px solid #eee; /* Subtle separator */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px; /* Space between columns */
+        }
+
+        .footer-column {
+            flex: 1; /* Allow columns to grow */
+            min-width: 250px; /* Minimum width before wrapping */
+        }
+
+        .footer-heading {
+            font-family: 'Georgia', serif; /* Serif font for headings */
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-info p {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #78963C; /* Green link color */
+            font-size: 16px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-nav {
+            margin-top: 40px; /* Space between contact/connect and this nav */
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav li {
+            margin-bottom: 10px;
+        }
+
+        .footer-nav a {
+            color: #78963C; /* Green link color */
+            font-size: 16px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright-section {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #666;
+            text-align: left;
+        }
+
+        .copyright-section a {
+            color: #78963C; /* Green link color */
+        }
+
+        .copyright-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            .header-main-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo-placeholder {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+
+            .main-nav {
+                justify-content: flex-start;
+                gap: 15px;
+                font-size: 22px;
+                width: 100%;
+            }
+
+            .main-nav a {
+                margin-right: 15px; /* Add some spacing between wrapped items */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top-bar-content {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .header-top-bar-content a {
+                margin: 5px 10px;
+                padding-left: 0;
+                border-left: none;
+            }
+            .header-top-bar-content a:first-child {
+                margin-left: 0;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                font-size: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-column {
+                min-width: unset; /* Remove min-width for stacking */
+                width: 100%;
+            }
+            .footer-nav {
+                margin-top: 0; /* Remove extra margin when stacked */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-placeholder {
+                width: 120px;
+                height: 60px;
+            }
+            .main-nav {
+                font-size: 18px;
+            }
+            .header-top-bar-content {
+                font-size: 12px;
+            }
+            .content-section, .footer-content, .copyright-section {
+                padding: 0 15px;
+            }
+            .large-blue-box {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top-bar">
+            <div class="header-top-bar-content">
+                <a href="#">Donor Login</a>
+                <a href="#">Grantee Login</a>
+                <a href="#">Professional Advisors</a>
+                <a href="#">Scholarships</a>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-main-content">
+                <div class="logo-placeholder"></div>
+                <nav class="main-nav">
+                    <a href="#">Giving</a>
+                    <a href="#">Grantmaking</a>
+                    <a href="#">Community Leadership</a>
+                    <a href="#">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <p class="unauthorized-message">You are not authorized to access this page.</p>
+            <div class="large-blue-box"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-heading">CONTACT</h3>
+                <div class="contact-info">
+                    <p>The Community Foundation</p>
+                    <p>of Westmoreland County</p>
+                    <p>[ADDRESS REDACTED]</p>
+                    <p>[ADDRESS REDACTED]</p>
+                    <p>Phone: [PHONE REDACTED]</p>
+                    <p><a href="#">Contact Us</a></p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">CONNECT</h3>
+                <!-- Placeholder for social media icons or similar, not visible in image -->
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-column footer-nav">
+                <ul>
+                    <li><a href="#">Donor Login</a></li>
+                    <li><a href="#">Grantee Login</a></li>
+                    <li><a href="#">Professional Advisors</a></li>
+                    <li><a href="#">Scholarships</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <!-- Empty column to balance layout or for future content -->
+            </div>
+        </div>
+        <div class="copyright-section">
+            <p>&copy; 2023 The Community Foundation of Westmoreland County. All rights reserved. <a href="#">Privacy Policy</a>.</p>
+        </div>
+    </footer>
+</body>
+</html>

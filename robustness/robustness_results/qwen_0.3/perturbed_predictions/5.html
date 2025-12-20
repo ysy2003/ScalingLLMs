@@ -1,0 +1,561 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The user wants me to recreate the visual design from the provided image as an HTML5 file with embedded CSS. First, I need to analyze the structure of the image.
+
+The image has a title "PILLARS" at the top, then several sections: an introduction about the CREATE H2O program's pillars, a section about assigning professors, financial support, then a section titled "DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN WATER AND SANITATION SECURITY", a table with pillars, and examples for undergrad and grad students.
+
+First, the HTML structure. The main content should have a header with the title "PILLARS", then paragraphs, a section with a heading, a table, and two example sections.
+
+Looking at the image, the text is in a dark gray on a light background. The title "PILLARS" is bold, large, centered. The sections have headings. The table has three columns: Pillar, Main Task, and another column (probably "Additional Details" or similar, but in the image it's cut off). The examples are under headings.
+
+Let's break down the elements:
+
+1. **Header**: "PILLARS" as a main title, centered, large font, bold.
+2. **Introduction paragraphs**: The first few paragraphs explaining the program.
+3. **Section heading**: "DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN WATER AND SANITATION SECURITY" – this is a section title, bold, centered or left-aligned?
+4. **Table**: Three columns. The image shows Pillar 1, 2, 3 with their details. The table has rows for each pillar.
+5. **Example sections**: "AN EXAMPLE OF AN UNDERGRADUATE STUDENT..." and "AN EXAMPLE OF A GRADUATE STUDENT...", each with bullet points.
+
+Now, styling considerations:
+
+- The background is light gray (maybe #f5f5f5) for the main content area.
+- Text color is dark gray (#333).
+- The title "PILLARS" should be large, maybe 2.5em, bold, centered.
+- Section headings (like "DESIGNING YOUR PROGRAM...") should be bold, maybe 1.5em, centered or left-aligned.
+- The table should have a border, maybe with a light gray border, and rows with alternating background colors (but the image doesn't show that, so maybe just a simple table).
+- The examples have bullet points, so using <ul> with <li> elements.
+
+Wait, the image's text has some parts cut off, but we need to recreate what's visible. Let's check the text in the image:
+
+First paragraph: "CREATE H2O program includes five pillars offering in-depth training. In each of these pillars, there are many options from which students may choose. For each program, the pillar requirements are tailored to the student’s educational background, degree... (truncated)."
+
+Then: "A student accepted into the program is assigned two professors who will act as mentors. A program co-ordinator, these professors will assist students in designing the pillar structure and the student’s career path and goals."
+
+"Students accepted into the program will receive financial support consisting of a stipend and..."
+
+Then the section title: "DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN WATER AND SANITATION SECURITY"
+
+Next: "Undergraduate students must choose between a relevant research-based project (Pillar 1) and... In addition, undergraduate students are required to complete 8 portfolio units across at least 3 program pillars before you graduate."
+
+Then the table:
+
+Pillar | Main Task | (third column)
+
+Pillar 1: Research project and... (text cut off) | Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation | All students will be... (cut off)
+
+Pillar 2: Water sciences and wastewater systems knowledge | Courses, workshops, conference presentations | Courses already... (cut off)
+
+Pillar 3: Indigenous theory, law and methodology skills | Courses, workshops, conference presentations | Courses already... (cut off)
+
+Then the examples:
+
+"AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM"
+
+- Summer research project...
+- One three-credit-hour science course...
+- One non-science course...
+- Present H2O research...
+
+"AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM"
+
+- Research thesis...
+- Two science courses...
+- One non-science course...
+- Present H2O research...
+
+Also, the note at the end: "Note that these are general examples. Each student’s background will be assessed by supervisors at the..."
+
+Now, for the HTML structure:
+
+- <header> with the title "PILLARS"
+- <main> containing the paragraphs, the section with the heading, the table, and the example sections.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE H2O Program Pillars</title>
+    <style>
+        /* CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PILLARS</h1>
+    </header>
+    <main>
+        <p>CREATE H2O program includes five pillars offering in-depth training.</p>
+        <p>In each of these pillars, there are many options from which students may choose. For each program, the pillar requirements are tailored to the student’s educational background, degree... (truncated)</p>
+        <p>A student accepted into the program is assigned two professors who will act as mentors. A program co-ordinator, these professors will assist students in designing the pillar structure and the student’s career path and goals.</p>
+        <p>Students accepted into the program will receive financial support consisting of a stipend and...</p>
+        
+        <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN WATER AND SANITATION SECURITY</h2>
+        <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and... In addition, undergraduate students are required to complete 8 portfolio units across at least 3 program pillars before you graduate.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Pillar</th>
+                    <th>Main Task</th>
+                    <th>Additional Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pillar 1 - Research project and... (truncated)</td>
+                    <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+                    <td>All students will be... (truncated)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already... (truncated)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already... (truncated)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+            <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+        </ul>
+        
+        <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+            <li>Two science courses from approved list (pillar 2): 3x2 = 6 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+        </ul>
+        
+        <p>Note that these are general examples. Each student’s background will be assessed by supervisors at the... (truncated)</p>
+    </main>
+</body>
+</html>
+
+Now, the CSS. The image has a light background, dark text. Let's set the body background to #f5f5f5, text color to #333. The header should have a background color, maybe #e9e9e9, and the title centered. The section headings (h2) should be bold, maybe 1.5em. The table should have a border-collapse: collapse; and maybe a light border. The paragraphs should have some margin.
+
+Wait, the image's background is light gray, so body background #f5f5f5. The header (PILLARS) is a dark gray background? Wait, the image shows the title "PILLARS" on a white background? Wait, looking at the image: the top part has "PILLARS" in bold, dark text on a white background. The rest of the content is on a light gray background. Wait, the image's background is light gray, so body background #f5f5f5.
+
+Let's check the image again. The text is dark gray on a light gray background. The title "PILLARS" is bold, large, centered. So:
+
+- body { background-color: #f5f5f5; color: #333; font-family: Arial, sans-serif; line-height: 1.6; }
+- header { text-align: center; margin-bottom: 20px; }
+- h1 { font-size: 2.5em; margin: 0; }
+- h2 { font-size: 1.5em; margin-top: 25px; margin-bottom: 15px; }
+- p { margin-bottom: 15px; }
+- table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+- th, td { border: 1px solid #ddd; padding: 10px; }
+- th { background-color: #f2f2f2; }
+- ul { margin-left: 20px; margin-top: 10px; }
+- li { margin-bottom: 8px; }
+
+Also, the image has a blue bar at the top? Wait, the user's image shows a blue bar at the top, but the problem says "recreate the visual design in the image". Wait, the image provided by the user starts with a blue bar. Wait, the user's image has a blue bar at the top, but the text says "PILLARS" below it. Wait, looking at the user's input: the first line is "PILLARS" with a blue bar above it. Wait, the user's image shows a blue bar at the top, then "PILLARS" in bold. So maybe the header has a blue bar.
+
+Wait, the user's image: the top has a blue bar (maybe a header), then "PILLARS" as the title. So perhaps the HTML should have a div with a blue background for the top bar, but the user's image shows "PILLARS" as the main title. Wait, the user's image starts with "PILLARS" in bold, so maybe the blue bar is part of the design. Wait, the user's image has a blue bar at the top, then the title "PILLARS". Let's check the user's input:
+
+The user's image description starts with "PILLARS" in bold, and the first line is "PILLARS" with a blue bar above it. So perhaps the HTML should have a header with a blue bar, then the title.
+
+Wait, the user's image shows:
+
+[Blue bar at top]
+
+PILLARS
+
+Then the text.
+
+So in HTML, maybe:
+
+<header>
+    <div class="top-bar"></div>
+    <h1>PILLARS</h1>
+</header>
+
+But the user's image has the blue bar as a background. Let's see: the blue bar is a horizontal bar at the top, maybe 10px height, blue color. So:
+
+.top-bar {
+    background-color: #0066cc;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+But the user's image shows the blue bar above the "PILLARS" title. So the HTML structure would have a top bar, then the title.
+
+Wait, the user's image: the first line is "PILLARS" in bold, so the blue bar is above it. So the HTML should have a div with the blue bar, then the h1.
+
+Let's adjust the HTML:
+
+<body>
+    <div class="top-bar"></div>
+    <header>
+        <h1>PILLARS</h1>
+    </header>
+    <main>...</main>
+</body>
+
+But the user's image shows the blue bar as part of the header. Alternatively, the blue bar is a background for the header. Let's check the image again. The user's image has a blue bar at the top, then the title "PILLARS" in bold. So the blue bar is a horizontal strip at the top of the page.
+
+So in CSS:
+
+.top-bar {
+    background-color: #0066cc;
+    height: 10px;
+    width: 100%;
+}
+
+Then the header with the title.
+
+Now, the text in the image: the first paragraph starts with "CREATE H2O program includes five pillars...", so the HTML should have that.
+
+Also, the image has some text cut off, but we need to recreate what's visible. For example, the first paragraph: "CREATE H2O program includes five pillars offering in-depth training. In each of these pillars, there are many options from which students may choose. For each program, the pillar requirements are tailored to the student’s educational background, degree... (truncated)".
+
+So in the HTML, the paragraphs should have the text as visible.
+
+Now, the table: the image shows three columns. The third column is cut off, but in the HTML, we can name it "Additional Details" as a placeholder.
+
+The examples use bullet points, so <ul> with <li>.
+
+Now, the CSS should make the page responsive. So using a max-width for the main content, centered.
+
+Let's structure the CSS:
+
+- body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; margin: 0; padding: 0; }
+-.top-bar { background-color: #0066cc; height: 10px; width: 100%; }
+- header { text-align: center; margin: 10px 0; }
+- h1 { font-size: 2.5em; margin: 0; }
+- h2 { font-size: 1.5em; margin-top: 25px; margin-bottom: 15px; }
+- p { margin-bottom: 15px; }
+- main { max-width: 800px; margin: 0 auto; padding: 20px; }
+- table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+- th, td { border: 1px solid #ddd; padding: 10px; }
+- th { background-color: #f2f2f2; }
+- ul { margin-left: 20px; margin-top: 10px; }
+- li { margin-bottom: 8px; }
+
+Now, check if the image has any specific styling. The image's text is left-aligned, except the title which is centered. The section headings (h2) are bold, centered? The image shows the section title "DESIGNING YOUR PROGRAM..." as a bold heading, probably left-aligned. Wait, the image's section title is left-aligned. So h2 should be left-aligned.
+
+Also, the image has a line break after "PILLARS", so the h1 is followed by the paragraphs.
+
+Now, let's put it all together.
+
+Wait, the user's image has a blue bar at the top, so the top-bar div is necessary.
+
+Let's write the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE H2O Program Pillars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+       .top-bar {
+            background-color: #0066cc;
+            height: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        header {
+            text-align: center;
+            margin: 10px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    <header>
+        <h1>PILLARS</h1>
+    </header>
+    <main>
+        <p>CREATE H2O program includes five pillars offering in-depth training.</p>
+        <p>In each of these pillars, there are many options from which students may choose. For each program, the pillar requirements are tailored to the student’s educational background, degree...</p>
+        <p>A student accepted into the program is assigned two professors who will act as mentors. A program co-ordinator, these professors will assist students in designing the pillar structure and the student’s career path and goals.</p>
+        <p>Students accepted into the program will receive financial support consisting of a stipend and...</p>
+        
+        <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN WATER AND SANITATION SECURITY</h2>
+        <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and... In addition, undergraduate students are required to complete 8 portfolio units across at least 3 program pillars before you graduate.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Pillar</th>
+                    <th>Main Task</th>
+                    <th>Additional Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pillar 1 - Research project and... (truncated)</td>
+                    <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+                    <td>All students will be... (truncated)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already... (truncated)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already... (truncated)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+            <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+        </ul>
+        
+        <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+            <li>Two science courses from approved list (pillar 2): 3x2 = 6 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+        </ul>
+        
+        <p>Note that these are general examples. Each student’s background will be assessed by supervisors at the...</p>
+    </main>
+</body>
+</html>
+
+Wait, the user's image has the text "stipend" in blue, but in the HTML, we can't change the color unless specified. The image shows "stipend" as a hyperlink (blue), but the user's image might have it as a link. However, the problem says to recreate the visual design. Since the image shows "stipend" in blue, maybe it's a hyperlink. But the user's image might not have it as a link, just blue text. But the problem says "strictly and accurately recreate the visual design". However, the user's image shows "stipend" as a blue word, which is likely a hyperlink. But in the provided text, it's written as "stipend" in blue. So in HTML, we can make it a link, but the problem says to recreate the visual design. However, the user's image might not have it as a link, just a blue color. But since the problem says "accurately", maybe we should leave it as plain text with blue color. But the user's image shows "stipend" as a hyperlink (blue, underlined). Wait, the user's image has "stipend" in blue, which is likely a hyperlink. But the problem says to recreate the visual design. However, the user's image might not have it as a link, but as a blue word. Let's check the user's input:
+
+"Students accepted into the program will receive financial support consisting of a stipend and..."
+
+In the user's image, "stipend" is blue. So in HTML, we can make it a link, but the problem says to recreate the visual design. However, the problem says "strictly and accurately recreate the visual design", so if the image shows "stipend" as blue, we can style it as blue. But since it's a text, maybe it's a hyperlink. But the user's image might not have it as a link, just a blue color. Let's see: the user's image shows "stipend" in blue, so we can use <span style="color: #0066cc;">stipend</span> or make it a link. But the problem says to recreate the visual design, so if it's a hyperlink, we should make it a link. However, the user's image might not have it as a link, but as a blue word. Let's check the original text: "stipend" is in blue. So in HTML, we can use <span style="color: #0066cc;">stipend</span> to make it blue.
+
+But the user's image might have it as a hyperlink. However, the problem says to recreate the visual design, so we need to check. The user's image shows "stipend" as blue, so we can style it as blue. Let's adjust the first paragraph:
+
+<p>Students accepted into the program will receive financial support consisting of a <span style="color: #0066cc;">stipend</span> and...</p>
+
+But the problem says to recreate the visual design. However, the user's image might have it as a hyperlink, but since the problem says "visual design", the color is important. So we can add the color.
+
+Wait, the user's image shows "stipend" in blue, so we need to make it blue. So in the HTML, the first paragraph should have "stipend" as blue.
+
+Let's update the first paragraph:
+
+<p>Students accepted into the program will receive financial support consisting of a <span style="color: #0066cc;">stipend</span> and...</p>
+
+Now, check the image: the text "stipend" is blue, so this is correct.
+
+Also, the image has a line break after "PILLARS", so the h1 is followed by the paragraphs.
+
+Now, the table: the image shows the third column as "All students will be..." etc., so we can keep the table as is.
+
+The examples: the user's image shows the examples with bullet points, so the <ul> is correct.
+
+The note at the end: "Note that these are general examples. Each student’s background will be assessed by supervisors at the..." – the image shows this as a paragraph.
+
+Now, the CSS: the top-bar is blue, 10px height. The body background is light gray, text color dark gray.
+
+Let's check the responsiveness: the main content has max-width 800px, centered.
+
+Now, the HTML should be valid, closed, and the CSS embedded.
+
+Let's write the final HTML.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE H2O Program Pillars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+       .top-bar {
+            background-color: #0066cc;
+            height: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        header {
+            text-align: center;
+            margin: 10px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+       .stipend {
+            color: #0066cc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    <header>
+        <h1>PILLARS</h1>
+    </header>
+    <main>
+        <p>CREATE H2O program includes five pillars offering in-depth training.</p>
+        <p>In each of these pillars, there are many options from which students may choose. For each program, the pillar requirements are tailored to the student’s educational background, degree...</p>
+        <p>A student accepted into the program is assigned two professors who will act as mentors. A program co-ordinator, these professors will assist students in designing the pillar structure and the student’s career path and goals.</p>
+        <p>Students accepted into the program will receive financial support consisting of a <span class="stipend">stipend</span> and...</p>
+        
+        <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN WATER AND SANITATION SECURITY</h2>
+        <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and... In addition, undergraduate students are required to complete 8 portfolio units across at least 3 program pillars before you graduate.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Pillar</th>
+                    <th>Main Task</th>
+                    <th>Additional Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pillar 1 - Research project and... (truncated)</td>
+                    <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+                    <td>All students will be... (truncated)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already... (truncated)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already... (truncated)</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+            <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+        </ul>
+        
+        <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+            <li>Two science courses from approved list (pillar 2): 3x2 = 6 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+        </ul>
+        
+        <p>Note that these are general examples. Each student’s background will be assessed by supervisors at the...</p>
+    </main>
+</body>
+</html>
+```

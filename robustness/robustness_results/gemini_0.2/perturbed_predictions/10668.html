@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeeKnow's Grotto</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px; /* Padding around the entire content area */
+            background-color: #f0f0f0; /* A very light grey for the page background */
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Main container to center content and provide a white background */
+        .container {
+            max-width: 1000px; /* Approximate width from image */
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px; /* Inner padding for the white content area */
+            box-sizing: border-box;
+        }
+
+        /* Header styling */
+        .site-header {
+            margin-bottom: 20px;
+        }
+
+        .site-header h1 {
+            color: #483D8B; /* DarkSlateBlue, matching the image */
+            font-size: 2.2em; /* Larger font size */
+            font-weight: normal; /* Looks like normal weight */
+            margin: 0;
+            padding-bottom: 10px; /* Space below title */
+        }
+
+        /* Main content area (sidebar + main content) */
+        .main-content-area {
+            display: flex;
+            gap: 20px; /* Space between sidebar and content */
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            width: 180px; /* Fixed width for sidebar */
+            padding-right: 10px; /* Space between sidebar elements and content */
+            box-sizing: border-box;
+        }
+
+        /* Content area styling */
+        .content-area {
+            flex-grow: 1; /* Allow content area to take remaining space */
+            padding-left: 10px; /* Space from sidebar */
+            box-sizing: border-box;
+        }
+
+        /* Blue boxes */
+        .blue-box {
+            background-color: blue;
+            margin-bottom: 15px;
+        }
+
+        .blue-box.small {
+            width: 50px;
+            height: 70px;
+        }
+
+        .blue-box.large {
+            width: 150px;
+            height: 200px;
+            float: right; /* Float to the right of the content */
+            margin-left: 20px; /* Space between box and text */
+            margin-bottom: 20px; /* Space below box */
+        }
+
+        /* Main navigation */
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-nav li {
+            margin-bottom: 2px; /* Small space between nav items */
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 5px 10px;
+            background-color: #FFFACD; /* LemonChiffon, matching the image */
+            border-left: 5px solid #8B4513; /* SaddleBrown, matching the image */
+            text-decoration: none;
+            color: black;
+            font-size: 0.95em;
+        }
+
+        .main-nav a:hover {
+            background-color: #FFEBCD; /* BlanchedAlmond, slightly darker yellow on hover */
+        }
+
+        /* Site search */
+        .site-search {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .site-search p {
+            margin: 0 0 5px 0;
+            font-size: 0.95em;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Include padding and border in the element's total width */
+        }
+
+        /* Contents list */
+        .contents {
+            margin-top: 20px;
+        }
+
+        .contents p {
+            margin: 0 0 10px 0;
+            font-weight: bold; /* Contents label looks bold */
+            font-size: 0.95em;
+        }
+
+        .contents ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contents li {
+            margin-bottom: 3px;
+        }
+
+        .contents a {
+            text-decoration: underline;
+            color: blue;
+            font-size: 0.85em; /* Smaller font for contents list */
+        }
+
+        .contents a:hover {
+            color: #00008B; /* DarkBlue on hover */
+        }
+
+        /* Main content area text */
+        .content-area h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 0; /* Remove default h2 top margin */
+            margin-bottom: 15px;
+        }
+
+        .highlight-paragraph {
+            background-color: #FFFACD; /* LemonChiffon, matching the image */
+            padding: 10px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .content-area p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+            text-align: justify; /* Text looks justified in the image */
+        }
+
+        .content-area p a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-content-area {
+                flex-direction: column; /* Stack sidebar and content */
+            }
+
+            .sidebar {
+                width: 100%; /* Sidebar takes full width */
+                padding-right: 0;
+                margin-bottom: 20px; /* Space between sidebar and main content */
+            }
+
+            .content-area {
+                padding-left: 0;
+            }
+
+            .blue-box.large {
+                float: none; /* Remove float */
+                margin: 0 auto 20px auto; /* Center and add bottom margin */
+                display: block; /* Ensure it behaves as a block */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .site-header h1 {
+                font-size: 1.8em;
+            }
+            .content-area h2 {
+                font-size: 1.3em;
+            }
+            .main-nav a, .site-search p, .search-input, .contents p, .contents a, .content-area p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <h1>DeeKnow's Grotto</h1>
+        </header>
+        <div class="main-content-area">
+            <aside class="sidebar">
+                <div class="blue-box small"></div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Wiki</a></li>
+                    </ul>
+                </nav>
+                <div class="site-search">
+                    <p>Site search</p>
+                    <input type="text" class="search-input">
+                </div>
+                <div class="contents">
+                    <p>Contents:</p>
+                    <ul>
+                        <li><a href="#">Dyno</a></li>
+                        <li><a href="#">Zope</a></li>
+                        <li><a href="#">Spam</a></li>
+                        <li><a href="#">Māori</a></li>
+                        <li><a href="#">Israel</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Skiing</a></li>
+                        <li><a href="#">Beliefs</a></li>
+                        <li><a href="#">Photos</a></li>
+                        <li><a href="#">Wisdom</a></li>
+                        <li><a href="#">WishList</a></li>
+                        <li><a href="#">Prophecy</a></li>
+                        <li><a href="#">WebCam</a></li>
+                        <li><a href="#">Tongariro</a></li>
+                        <li><a href="#">Flight-sim</a></li>
+                        <li><a href="#">Motorbike</a></li>
+                        <li><a href="#">Tech Stuff</a></li>
+                        <li><a href="#">Funny Shit</a></li>
+                        <li><a href="#">Hong Kong</a></li>
+                        <li><a href="#">PlayStation2</a></li>
+                        <li><a href="#">Freemasonry</a></li>
+                        <li><a href="#">Webmastering</a></li>
+                        <li><a href="#">Haircuts from Hell</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="content-area">
+                <div class="blue-box large"></div>
+                <h2>Webmaster: Master of What?</h2>
+                <p class="highlight-paragraph">The name means different things to different people and the role varies greatly between organisations of various types and sizes. Ask two people and you'll get three opinions, it really is something of a grey area.</p>
+                <p>If you have a web server installed on your computer at home, and you installed your O/S and web server yourself, and you perform backups, design and build your own web sites, then technically, you are a webmaster. Although you are master of a fairly small domain.</p>
+                <p>Large organisations such as Hospitals, Government Departments, Big Corporates or Universities often run many web servers which store thousands of web pages for many clients with different needs. In organisations of this scale there is a need to split web design and management roles amongst multiple people who may be formed into a <a href="#">web team</a> with a dedicated Webmaster</p>
+                <p>In such a web team, the Webmaster is able to better focus on the Web service and servers and surrounding technologies and leave the other roles to the respective specialists in their areas, but the webmaster's responsibilities will often overlap with those of the other team members.</p>
+                <p>In smaller organisations a dedicated webmaster would be a luxury. This is where the role and your talents are generally spread the furtherst and where a webmaster must truely be a jack-of-all-trades possibly absorbing many of the other roles normally filled by a <a href="#">web team</a> in a larger organisation.</p>
+                <p>Often, if required to be involved on smaller web projects, a web master may be project manager, spec writer, programmer, administrator as well as being a kind of mediator or liasion between the client and other project staff such as graphic artists an DBA's.</p>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

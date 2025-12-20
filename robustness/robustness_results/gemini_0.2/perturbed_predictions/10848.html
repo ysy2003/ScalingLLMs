@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allegion - Ask Your Question</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #e0e0e0; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            overflow: hidden; /* Ensures shadow and border-radius apply correctly */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #444; /* Dark grey header */
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 0.9em;
+        }
+
+        .header-logo {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: #f58220; /* Orange hover */
+        }
+
+        .ask-question-section {
+            padding: 25px 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ask-question-section h2 {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .ask-question-section h2 span {
+            font-weight: bold;
+        }
+
+        .ask-question-section p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-form input[type="text"] {
+            flex-grow: 1;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            background-color: #f58220; /* Orange button */
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-form button:hover {
+            background-color: #e0721a; /* Darker orange on hover */
+        }
+
+        .tabs {
+            display: flex;
+            background-color: #eee; /* Light grey tabs background */
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tab-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            color: #555;
+            border-right: 1px solid #ddd;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tab-item:last-child {
+            border-right: none;
+        }
+
+        .tab-item.active {
+            background-color: #f58220; /* Active tab orange */
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .tab-item:not(.active):hover {
+            background-color: #e0e0e0;
+        }
+
+        .quote-section {
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 1.5em;
+            color: #f58220; /* Orange quote */
+            font-weight: bold;
+            background-color: #fcfcfc; /* Slightly different background for quote section */
+            border-bottom: 1px solid #eee;
+        }
+
+        .related-faqs {
+            padding: 20px 30px;
+        }
+
+        .related-faqs h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .faq-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .faq-table th {
+            background-color: #f0f0f0; /* Table header background */
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: normal;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .faq-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .faq-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .faq-table .question-col {
+            width: 35%;
+            color: #f58220; /* Orange question text */
+            font-weight: bold;
+        }
+
+        .faq-table .answer-col {
+            width: 65%;
+        }
+
+        .footer {
+            background-color: #f0f0f0; /* Footer background */
+            padding: 20px 30px;
+            font-size: 0.8em;
+            color: #777;
+            line-height: 1.5;
+            border-top: 1px solid #eee;
+        }
+
+        .footer a {
+            color: #777;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f58220;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 15px;
+            }
+
+            .header-nav {
+                margin-top: 10px;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+
+            .header-nav a {
+                margin-left: 0;
+                margin-right: 15px;
+                margin-bottom: 5px;
+            }
+
+            .ask-question-section,
+            .related-faqs,
+            .footer {
+                padding: 15px 20px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-form input[type="text"] {
+                width: auto; /* Reset flex-grow behavior */
+                margin-bottom: 10px;
+            }
+
+            .search-form button {
+                width: 100%;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab-item {
+                flex-basis: 100%; /* Each tab takes full width */
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            .tab-item:last-child {
+                border-bottom: none;
+            }
+
+            .faq-table th,
+            .faq-table td {
+                padding: 10px 15px;
+                display: block; /* Stack table cells */
+                width: auto;
+            }
+
+            .faq-table .question-col {
+                width: auto;
+                border-bottom: none; /* Remove border between question/answer when stacked */
+            }
+            .faq-table .answer-col {
+                width: auto;
+                padding-top: 0; /* Reduce space between stacked question/answer */
+            }
+            .faq-table tr {
+                border-bottom: 1px solid #eee; /* Add border between rows */
+            }
+            .faq-table tr:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-logo">Allegion</div>
+            <nav class="header-nav">
+                <a href="#">Frequently Asked Questions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="ask-question-section">
+                <h2><span>Ask your question</span> Entering your question as a complete sentence will provide more accurate results than keywords or phrases.</h2>
+                <form class="search-form">
+                    <input type="text" placeholder="Ask your question">
+                    <button type="submit">Search</button>
+                </form>
+            </section>
+
+            <nav class="tabs">
+                <div class="tab-item active">User questions</div>
+                <div class="tab-item">FAQs</div>
+                <div class="tab-item">Category List</div>
+            </nav>
+
+            <section class="quote-section">
+                &ldquo; maximum weight for auto operator &rdquo;
+            </section>
+
+            <section class="related-faqs">
+                <h3>RELATED FAQS</h3>
+                <table class="faq-table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="question-col">What is maximum width, height and weight for IVES butt hinges?</td>
+                            <td class="answer-col">Resolution: Butt hinges can be used on doors up to 4' wide and 200 pounds. There is no maximum door height, just need to add a hinge for every 30" or part there of over 7'.:</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">What is the maximum door weight recommended for LCN closers?</td>
+                            <td class="answer-col">Resolution: The maximum recommended door weight for LCN closers is 225 lbs.:</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">How deep of a reveal will an 8200 Falcon Operator accommodate?</td>
+                            <td class="answer-col">Resolution: The maximum reveal for an 8200 Falcon Operator is: 8230 (pull side) -- 1/8" 8240 (push side) -- 6" The Benchmark long rod and shoe (9140-79LR) can be use with the Falcon 8242 for reveal from ...:</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">What is maximum reveal for the 9140?</td>
+                            <td class="answer-col">Resolution: Reveal should not exceed: 6" for the REGULAR ARM 9 3/4" for the LONG ARM:</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">What would cause a Senior Swing to open too far?</td>
+                            <td class="answer-col">Resolution: The Senior Swing operator is designed to power open the door to 90°.</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">What is the minimum and maximum reveal for a 9500 Series Senior Swing operator?</td>
+                            <td class="answer-col">Resolution: The 9542, 9553, 9563 surface mounted Senior Swing with a regular arm, mounted on the push side of the door, can handle a reveal from 1 1/8" up to 10". The 9542, 9553, 9563 surface mounted Senior S...:</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">What is the minimum and maximum PSI applied to a 4800 operator?</td>
+                            <td class="answer-col">Resolution: The pneumatic operators are designed to function with an input air pressure to the 7901/7902 Series control box of 80 (min) 100 (max) PSI, and an output pressure of 60 to 80 PSI to the pneumatic (2...:</td>
+                        </tr>
+                        <tr>
+                            <td class="question-col">What is the maximum reveal for a regular arm 4642 operator?</td>
+                            <td class="answer-col">Resolution: Max. reveal for a 4642: 4640 Regular arm - 4.5" 4640 Long arm - 8" 4640 x ST-3088 (custom made - extra long rod) -- 8" to 11" No special mounting instructions required, just standard templ...:</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p><a href="#">Privacy Policy</a> | <a href="#">About Allegion</a></p>
+            <p>&copy; Allegion plc, 2014 | [ADDRESS REDACTED]</p>
+            <p>REGISTERED IN IRELAND WITH LIMITED LIABILITY REGISTERED NUMBER 527370</p>
+            <p>Allegion is an equal oppurtunity and affirmative action employer.</p>
+        </footer>
+    </div>
+</body>
+</html>

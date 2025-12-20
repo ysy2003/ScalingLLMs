@@ -1,0 +1,1292 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to analyze the image provided. The main elements are:
+
+- A header with "BALTIC" in large, bold text.
+- Navigation links: WEB MENU, MASTER LIST, MANIFEST (in a light orange color, probably a menu bar).
+- A table with columns: ID#, NAME, BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE. The table has four rows of data.
+- A blue square (probably a placeholder image).
+- A caption: "BALTIC - Photo: Frank Pichardo Collection"
+- A paragraph about the ship: Built by Harlan & Wolff Limited... etc.
+- A source citation at the bottom.
+
+Let's break down each part.
+
+First, the HTML structure. The document should be a single HTML5 file. So start with <!DOCTYPE html>, then <html>, <head>, <body>.
+
+In the <head>, we need a <style> block for responsive CSS. Let's think about the layout:
+
+- The header "BALTIC" should be centered, large font, maybe bold.
+- The navigation bar (WEB MENU, MASTER LIST, MANIFEST) should be horizontal, maybe with some spacing. The text color is light orange, so we can set that.
+- The table: need to style it so that the columns are aligned properly. The table has headers: ID#, NAME, BIRTH DATE, BIRTH PLACE, DEATH DATE, DEATH PLACE. The data rows follow.
+- The blue square: it's a div with a blue background, maybe fixed size (like 200x200).
+- The caption and paragraph: need to be styled, maybe with some line height or spacing.
+- The source: smaller font, maybe italic.
+
+Let's outline the CSS:
+
+- Body: font-family, maybe Arial or sans-serif. Padding for spacing.
+- Header: text-align center, font-size large, bold.
+- Navigation: display flex, justify-content space-around, maybe some margin.
+- Table: border-collapse, maybe some padding, borders. The headers should be bold.
+- Blue square: width and height, background color blue, maybe rounded corners? Wait, the image shows a solid blue square, so no rounded corners. Just a div with background blue.
+- Caption: maybe a line below the blue square, with a specific font style.
+- Paragraph: line-height, maybe some margin.
+- Source: smaller font, italic.
+
+Now, let's check the exact elements:
+
+Header: "BALTIC" – in the image, it's centered, large, bold. So in CSS, maybe font-size: 3em; text-align: center; margin-bottom: 20px; etc.
+
+Navigation links: WEB MENU, MASTER LIST, MANIFEST. In the image, they are in a horizontal bar, light orange (like #e6b87d or similar). So color: #e6b87d; text-decoration: none; padding: 5px 10px; etc.
+
+Table structure:
+
+The table has headers: ID# NAME, BIRTH DATE BIRTH PLACE, DEATH DATE DEATH PLACE. Wait, the image shows:
+
+ID# NAME | BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+So the headers are:
+
+First column: ID# NAME
+
+Second column: BIRTH DATE BIRTH PLACE
+
+Third column: DEATH DATE DEATH PLACE
+
+Wait, no. Let's look at the image:
+
+The table has columns:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+Wait, the image shows:
+
+The first row of the table has:
+
+ID# NAME | BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+Then the data rows:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+Wait, no. Let's parse the table:
+
+The table has six columns? Wait, the headers are:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+Wait, no. Let's count the columns in the image.
+
+Looking at the image:
+
+The first row of the table (headers) is:
+
+ID# NAME | BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+Wait, no. Let's see:
+
+The image shows:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+Wait, no. Let's check the data rows:
+
+First data row:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+Wait, that's 6 columns:
+
+ID# (1), 231 (maybe part of ID?), NAME (WIEST, Friedrich Karl), BIRTH DATE (6 Jul 1881), BIRTH PLACE (Rohrbach, Kherson, Russia), DEATH DATE (27 Feb 1957), DEATH PLACE (Fresno, Calif.)
+
+Wait, the headers are:
+
+ID# NAME | BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+Wait, no. The headers are:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+Wait, the image shows:
+
+The first header is "ID# NAME", then "BIRTH DATE BIRTH PLACE", then "DEATH DATE DEATH PLACE". So three columns? But the data rows have more entries.
+
+Wait, let's look at the image again. The table has:
+
+First column: ID# NAME (so ID# and NAME are in the same column)
+
+Second column: BIRTH DATE BIRTH PLACE (BIRTH DATE and BIRTH PLACE)
+
+Third column: DEATH DATE DEATH PLACE (DEATH DATE and DEATH PLACE)
+
+Wait, no. Let's count the data entries:
+
+First data row:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So:
+
+ID# is 1 231 (so two parts: 1 and 231)
+
+NAME is WIEST, Friedrich Karl
+
+BIRTH DATE is 6 Jul 1881
+
+BIRTH PLACE is Rohrbach, Kherson, Russia
+
+DEATH DATE is 27 Feb 1957
+
+DEATH PLACE is Fresno, Calif.
+
+So the table has six columns:
+
+1. ID# (with 1 and 231)
+
+2. NAME
+
+3. BIRTH DATE
+
+4. BIRTH PLACE
+
+5. DEATH DATE
+
+6. DEATH PLACE
+
+Wait, but the headers are written as:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+So the headers are:
+
+First header: "ID# NAME" (so columns 1 and 2)
+
+Second header: "BIRTH DATE BIRTH PLACE" (columns 3 and 4)
+
+Third header: "DEATH DATE DEATH PLACE" (columns 5 and 6)
+
+Wait, but in the image, the headers are split into three sections. Let's check the image:
+
+The image shows:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+Yes, so the table has three columns of headers, each combining two data columns.
+
+So the table structure is:
+
+<th>ID# NAME</th>
+
+<th>BIRTH DATE BIRTH PLACE</th>
+
+<th>DEATH DATE DEATH PLACE</th>
+
+Then the data rows:
+
+<tr>
+
+<td>1 231</td>
+
+<td>WIEST, Friedrich Karl</td>
+
+<td>6 Jul 1881</td>
+
+<td>Rohrbach, Kherson, Russia</td>
+
+<td>27 Feb 1957</td>
+
+<td>Fresno, Calif.</td>
+
+</tr>
+
+Wait, but the first data row in the image is:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So the first cell is "1 231", then "WIEST, Friedrich Karl", then "6 Jul 1881", then "Rohrbach, Kherson, Russia", then "27 Feb 1957", then "Fresno, Calif."
+
+So the table has six columns. The headers are:
+
+ID# NAME (columns 1 and 2)
+
+BIRTH DATE BIRTH PLACE (columns 3 and 4)
+
+DEATH DATE DEATH PLACE (columns 5 and 6)
+
+Wait, no. The headers are written as:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+So each header is a single cell spanning two columns. So the table has three columns, each with two sub-columns.
+
+Wait, maybe the headers are:
+
+First column: ID# NAME
+
+Second column: BIRTH DATE BIRTH PLACE
+
+Third column: DEATH DATE DEATH PLACE
+
+So the table has three columns, each with two data columns.
+
+So the HTML table would be:
+
+<table>
+
+  <tr>
+
+    <th>ID# NAME</th>
+
+    <th>BIRTH DATE BIRTH PLACE</th>
+
+    <th>DEATH DATE DEATH PLACE</th>
+
+  </tr>
+
+  <tr>
+
+    <td>1 231</td>
+
+    <td>WIEST, Friedrich Karl</td>
+
+    <td>6 Jul 1881</td>
+
+    <td>Rohrbach, Kherson, Russia</td>
+
+    <td>27 Feb 1957</td>
+
+    <td>Fresno, Calif.</td>
+
+  </tr>
+
+ ... etc.
+
+Wait, no. Because the first data row has six entries, so the table must have six columns. Therefore, the headers are six columns, but grouped into three pairs.
+
+Wait, the image shows the headers as:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+So each header is a single cell, but the content is two parts. So the table has six columns, and the headers are:
+
+Column 1: ID#
+
+Column 2: NAME
+
+Column 3: BIRTH DATE
+
+Column 4: BIRTH PLACE
+
+Column 5: DEATH DATE
+
+Column 6: DEATH PLACE
+
+But the headers are written as "ID# NAME" (so columns 1 and 2), "BIRTH DATE BIRTH PLACE" (columns 3 and 4), "DEATH DATE DEATH PLACE" (columns 5 and 6).
+
+So in HTML, the headers would be:
+
+<th>ID# NAME</th> (but this is for columns 1 and 2)
+
+Wait, no. The correct way is to have six columns, with the first two columns under "ID# NAME", etc.
+
+Wait, maybe the headers are:
+
+First header cell: "ID# NAME"
+
+Second header cell: "BIRTH DATE BIRTH PLACE"
+
+Third header cell: "DEATH DATE DEATH PLACE"
+
+But that would make three columns, but the data has six entries. So that can't be.
+
+Wait, looking at the image again:
+
+The table has:
+
+ID# NAME | BIRTH DATE BIRTH PLACE | DEATH DATE DEATH PLACE
+
+So the table is divided into three sections, each section having two columns. So the table has three columns, each with two sub-columns.
+
+For example:
+
+Section 1: ID# and NAME
+
+Section 2: BIRTH DATE and BIRTH PLACE
+
+Section 3: DEATH DATE and DEATH PLACE
+
+So the HTML table would have three columns, each with two cells (but in the header, it's a single cell per section).
+
+Wait, no. Let's look at the data rows:
+
+First data row:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So:
+
+- ID# is 1 231 (so two parts: 1 and 231)
+
+- NAME is WIEST, Friedrich Karl
+
+- BIRTH DATE is 6 Jul 1881
+
+- BIRTH PLACE is Rohrbach, Kherson, Russia
+
+- DEATH DATE is 27 Feb 1957
+
+- DEATH PLACE is Fresno, Calif.
+
+So the table has six columns. Therefore, the headers must be six columns, but the image shows the headers as grouped into three pairs.
+
+So the headers are:
+
+Column 1: ID#
+
+Column 2: NAME
+
+Column 3: BIRTH DATE
+
+Column 4: BIRTH PLACE
+
+Column 5: DEATH DATE
+
+Column 6: DEATH PLACE
+
+But the image displays the headers as:
+
+ID# NAME
+
+BIRTH DATE BIRTH PLACE
+
+DEATH DATE DEATH PLACE
+
+So each header is a combination of two columns. So in HTML, the header row would have three <th> elements, each spanning two columns.
+
+Wait, yes. For example:
+
+<tr>
+
+  <th colspan="2">ID# NAME</th>
+
+  <th colspan="2">BIRTH DATE BIRTH PLACE</th>
+
+  <th colspan="2">DEATH DATE DEATH PLACE</th>
+
+</tr>
+
+Then the data rows would have six <td> elements.
+
+Let's check the first data row:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+So:
+
+- First cell: 1 231 (ID#)
+
+- Second cell: WIEST, Friedrich Karl (NAME)
+
+- Third cell: 6 Jul 1881 (BIRTH DATE)
+
+- Fourth cell: Rohrbach, Kherson, Russia (BIRTH PLACE)
+
+- Fifth cell: 27 Feb 1957 (DEATH DATE)
+
+- Sixth cell: Fresno, Calif. (DEATH PLACE)
+
+Yes, that makes sense. So the header row has three <th> elements, each spanning two columns.
+
+Now, the blue square: it's a div with a blue background, probably 200x200 pixels. The image shows it as a solid blue square.
+
+The caption: "BALTIC - Photo: Frank Pichardo Collection" – this should be below the blue square.
+
+The paragraph: "Built by Harlan & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904-05. Troopship during World War I. Scrapped in 1933."
+
+The source: "Source: The Statue of Liberty- Ellis Island Foundation. American Family Immigration History Center"
+
+Now, let's structure the HTML:
+
+- <header> for the "BALTIC" title.
+
+- <nav> for the menu items: WEB MENU, MASTER LIST, MANIFEST.
+
+- <main> for the table, blue square, caption, paragraph, source.
+
+Wait, but the image doesn't have a <header> or <nav> tags, but we can use semantic HTML.
+
+Let's outline the HTML structure:
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <style>
+
+    /* CSS styles here */
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>BALTIC</h1>
+
+  <nav>
+
+    <a href="#">WEB MENU</a>
+
+    <a href="#">MASTER LIST</a>
+
+    <a href="#">MANIFEST</a>
+
+  </nav>
+
+  <table>
+
+    <tr>
+
+      <th colspan="2">ID# NAME</th>
+
+      <th colspan="2">BIRTH DATE BIRTH PLACE</th>
+
+      <th colspan="2">DEATH DATE DEATH PLACE</th>
+
+    </tr>
+
+    <tr>
+
+      <td>1 231</td>
+
+      <td>WIEST, Friedrich Karl</td>
+
+      <td>6 Jul 1881</td>
+
+      <td>Rohrbach, Kherson, Russia</td>
+
+      <td>27 Feb 1957</td>
+
+      <td>Fresno, Calif.</td>
+
+    </tr>
+
+    <tr>
+
+      <td>1230</td>
+
+      <td>CROISSANT, Katharina</td>
+
+      <td>25 May 1882</td>
+
+      <td>Rohrbach, Russia</td>
+
+      <td>5 Mar 1944</td>
+
+      <td>Dinuba, Tulare, Calif.</td>
+
+    </tr>
+
+    <tr>
+
+      <td>1236</td>
+
+      <td>WIEST, Lydia</td>
+
+      <td>13 Feb 1906</td>
+
+      <td>Friedrichsfeld, Russia</td>
+
+      <td>15 Jan 1996</td>
+
+      <td>Fresno, California</td>
+
+    </tr>
+
+    <tr>
+
+      <td>1237</td>
+
+      <td>WIEST, Friedrich</td>
+
+      <td>17 Apr 1907</td>
+
+      <td>Friedrichsfeld, Russia</td>
+
+      <td>15 Jan 1996</td>
+
+      <td>Fresno, California</td>
+
+    </tr>
+
+  </table>
+
+  <div style="background-color: blue; width: 200px; height: 200px;"></div>
+
+  <p>BALTIC - Photo: Frank Pichardo Collection</p>
+
+  <p>Built by Harlan & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904-05. Troopship during World War I. Scrapped in 1933.</p>
+
+  <p>Source: The Statue of Liberty- Ellis Island Foundation. American Family Immigration History Center</p>
+
+</body>
+
+</html>
+
+Wait, but the image shows the table with the data rows as:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+1230 CROISSANT, Katharina 25 May 1882 Rohrbach, Russia 5 Mar 1944 Dinuba, Tulare, Calif.
+
+1236 WIEST, Lydia 13 Feb 1906 Friedrichsfeld, Russia 15 Jan 1996 Fresno, California
+
+1237 WIEST, Friedrich 17 Apr 1907 Friedrichsfeld, Russia 15 Jan 1996 Fresno, California
+
+Wait, the third row's death date is 15 Jan 1996, but in the image, the third row (1236) has death date 15 Jan 1996, and the fourth row (1237) also has 15 Jan 1996. Wait, the image shows:
+
+1236 WIEST, Lydia 13 Feb 1906 Friedrichsfeld, Russia 15 Jan 1996 Fresno, California
+
+1237 WIEST, Friedrich 17 Apr 1907 Friedrichsfeld, Russia 15 Jan 1996 Fresno, California
+
+Yes, so the death date for both 1236 and 1237 is 15 Jan 1996.
+
+Now, the CSS:
+
+- The header "BALTIC" should be centered, large font. Let's set font-size: 3em; text-align: center; margin: 20px 0;
+
+- The navigation links: display flex, justify-content space-around, margin: 10px 0; color: #e6b87d; text-decoration: none; padding: 5px 10px; etc.
+
+- The table: border-collapse: collapse; width: 100%; margin: 20px 0; border: 1px solid #000; etc.
+
+- The table headers: background-color: #f2f2f2; padding: 8px; text-align: left;
+
+- The table cells: padding: 8px; border: 1px solid #000;
+
+- The blue square: margin: 20px 0; display: block;
+
+- The caption: font-style: italic; margin: 10px 0;
+
+- The paragraph: line-height: 1.5; margin: 10px 0;
+
+- The source: font-size: 0.9em; color: #666; margin: 10px 0;
+
+Let's write the CSS.
+
+Also, the navigation links should be in a horizontal bar, so using flexbox.
+
+Let's structure the CSS:
+
+body {
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1.6;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+h1 {
+
+  text-align: center;
+
+  font-size: 3em;
+
+  margin: 20px 0;
+
+}
+
+nav {
+
+  display: flex;
+
+  justify-content: space-around;
+
+  margin: 10px 0;
+
+}
+
+nav a {
+
+  color: #e6b87d;
+
+  text-decoration: none;
+
+  padding: 5px 10px;
+
+}
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin: 20px 0;
+
+}
+
+th, td {
+
+  border: 1px solid #000;
+
+  padding: 8px;
+
+  text-align: left;
+
+}
+
+th {
+
+  background-color: #f2f2f2;
+
+}
+
+tr:nth-child(even) {
+
+  background-color: #f9f9f9;
+
+}
+
+/* For the blue square */
+
+.blue-square {
+
+  background-color: blue;
+
+  width: 200px;
+
+  height: 200px;
+
+  margin: 20px 0;
+
+  display: block;
+
+}
+
+/* Caption */
+
+.caption {
+
+  font-style: italic;
+
+  margin: 10px 0;
+
+}
+
+/* Paragraph */
+
+.paragraph {
+
+  line-height: 1.5;
+
+  margin: 10px 0;
+
+}
+
+/* Source */
+
+.source {
+
+  font-size: 0.9em;
+
+  color: #666;
+
+  margin: 10px 0;
+
+}
+
+Wait, but the image shows the blue square as a solid blue square, so we can use a div with style.
+
+Now, let's check the table structure. The headers are three columns, each spanning two columns. So the header row has three <th> elements with colspan="2".
+
+Yes.
+
+Now, the data rows:
+
+First row:
+
+ID# NAME: 1 231 and WIEST, Friedrich Karl
+
+BIRTH DATE BIRTH PLACE: 6 Jul 1881 and Rohrbach, Kherson, Russia
+
+DEATH DATE DEATH PLACE: 27 Feb 1957 and Fresno, Calif.
+
+Second row:
+
+ID# NAME: 1230 and CROISSANT, Katharina
+
+BIRTH DATE BIRTH PLACE: 25 May 1882 and Rohrbach, Russia
+
+DEATH DATE DEATH PLACE: 5 Mar 1944 and Dinuba, Tulare, Calif.
+
+Third row:
+
+ID# NAME: 1236 and WIEST, Lydia
+
+BIRTH DATE BIRTH PLACE: 13 Feb 1906 and Friedrichsfeld, Russia
+
+DEATH DATE DEATH PLACE: 15 Jan 1996 and Fresno, California
+
+Fourth row:
+
+ID# NAME: 1237 and WIEST, Friedrich
+
+BIRTH DATE BIRTH PLACE: 17 Apr 1907 and Friedrichsfeld, Russia
+
+DEATH DATE DEATH PLACE: 15 Jan 1996 and Fresno, California
+
+Yes.
+
+Now, the blue square: in the image, it's a solid blue square, so we can use a div with style.
+
+The caption: "BALTIC - Photo: Frank Pichardo Collection" – this should be below the blue square.
+
+The paragraph: the text about the ship.
+
+The source: the citation.
+
+Now, let's code the HTML.
+
+Wait, the image shows the table with the data rows as:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+But in the HTML table, the first row of data is:
+
+<tr>
+
+  <td>1 231</td>
+
+  <td>WIEST, Friedrich Karl</td>
+
+  <td>6 Jul 1881</td>
+
+  <td>Rohrbach, Kherson, Russia</td>
+
+  <td>27 Feb 1957</td>
+
+  <td>Fresno, Calif.</td>
+
+</tr>
+
+Yes.
+
+Now, the CSS for the table: we need to make sure the columns are aligned. The image shows the table with the data aligned properly.
+
+Also, the navigation links: in the image, they are in a horizontal bar, so using flexbox.
+
+Let's write the complete HTML.
+
+First, the DOCTYPE, html, head, style.
+
+Then body.
+
+Let's check the exact text:
+
+- The header: "BALTIC" – correct.
+
+- Navigation: WEB MENU, MASTER LIST, MANIFEST – correct.
+
+- Table headers: ID# NAME, BIRTH DATE BIRTH PLACE, DEATH DATE DEATH PLACE – correct.
+
+- Data rows: as per the image.
+
+- Blue square: correct.
+
+- Caption: "BALTIC - Photo: Frank Pichardo Collection" – correct.
+
+- Paragraph: "Built by Harlan & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904-05. Troopship during World War I. Scrapped in 1933." – correct.
+
+- Source: "Source: The Statue of Liberty- Ellis Island Foundation. American Family Immigration History Center" – correct.
+
+Now, let's code the HTML.
+
+Wait, the image shows the table with the ID# as "1 231", "1230", etc. So the first data row's ID# is "1 231", which is two parts: 1 and 231. So in the HTML, the first cell is "1 231".
+
+Yes.
+
+Now, the CSS:
+
+We need to make it responsive. So maybe using max-width for the table, but the image is a fixed layout. However, the task says "responsive CSS", so we should make it responsive.
+
+For example, the table can have a max-width, and the navigation can be responsive.
+
+But the image is a static layout, so the CSS should match the visual design.
+
+Let's proceed.
+
+Now, let's write the code.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles */
+  </style>
+</head>
+<body>
+  <!-- Content -->
+</body>
+</html>
+
+Now, the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  margin: 20px 0;
+  color: #5a4a3a; /* Dark brown for "BALTIC" */
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  padding: 5px 0;
+}
+
+nav a {
+  color: #e6b87d; /* Light orange */
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.blue-square {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+  margin: 20px 0;
+  display: block;
+}
+
+.caption {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.paragraph {
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.source {
+  font-size: 0.9em;
+  color: #666;
+  margin: 10px 0;
+}
+
+Now, the HTML content:
+
+<h1>BALTIC</h1>
+
+<nav>
+  <a href="#">WEB MENU</a>
+  <a href="#">MASTER LIST</a>
+  <a href="#">MANIFEST</a>
+</nav>
+
+<table>
+  <tr>
+    <th colspan="2">ID# NAME</th>
+    <th colspan="2">BIRTH DATE BIRTH PLACE</th>
+    <th colspan="2">DEATH DATE DEATH PLACE</th>
+  </tr>
+  <tr>
+    <td>1 231</td>
+    <td>WIEST, Friedrich Karl</td>
+    <td>6 Jul 1881</td>
+    <td>Rohrbach, Kherson, Russia</td>
+    <td>27 Feb 1957</td>
+    <td>Fresno, Calif.</td>
+  </tr>
+  <tr>
+    <td>1230</td>
+    <td>CROISSANT, Katharina</td>
+    <td>25 May 1882</td>
+    <td>Rohrbach, Russia</td>
+    <td>5 Mar 1944</td>
+    <td>Dinuba, Tulare, Calif.</td>
+  </tr>
+  <tr>
+    <td>1236</td>
+    <td>WIEST, Lydia</td>
+    <td>13 Feb 1906</td>
+    <td>Friedrichsfeld, Russia</td>
+    <td>15 Jan 1996</td>
+    <td>Fresno, California</td>
+  </tr>
+  <tr>
+    <td>1237</td>
+    <td>WIEST, Friedrich</td>
+    <td>17 Apr 1907</td>
+    <td>Friedrichsfeld, Russia</td>
+    <td>15 Jan 1996</td>
+    <td>Fresno, California</td>
+  </tr>
+</table>
+
+<div class="blue-square"></div>
+
+<p class="caption">BALTIC - Photo: Frank Pichardo Collection</p>
+
+<p class="paragraph">Built by Harlan & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904-05. Troopship during World War I. Scrapped in 1933.</p>
+
+<p class="source">Source: The Statue of Liberty- Ellis Island Foundation. American Family Immigration History Center</p>
+
+Wait, but the image shows the table with the data rows as:
+
+1 231 WIEST, Friedrich Karl 6 Jul 1881 Rohrbach, Kherson, Russia 27 Feb 1957 Fresno, Calif.
+
+But in the HTML, the first row of data is:
+
+<tr>
+  <td>1 231</td>
+  <td>WIEST, Friedrich Karl</td>
+  <td>6 Jul 1881</td>
+  <td>Rohrbach, Kherson, Russia</td>
+  <td>27 Feb 1957</td>
+  <td>Fresno, Calif.</td>
+</tr>
+
+Yes.
+
+Now, check the blue square: in the image, it's a solid blue square, so the div with class "blue-square" is correct.
+
+The caption is "BALTIC - Photo: Frank Pichardo Collection" – correct.
+
+The paragraph: correct.
+
+The source: correct.
+
+Now, check the CSS for responsiveness. The table is set to 100% width, which is responsive. The navigation is flex, which is responsive.
+
+Now, let's check if all elements are present.
+
+Yes.
+
+Now, the code should be:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin: 20px 0;
+      color: #5a4a3a;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      margin: 10px 0;
+      background-color: #f9f9f9;
+      padding: 5px 0;
+    }
+    nav a {
+      color: #e6b87d;
+      text-decoration: none;
+      padding: 5px 10px;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+   .blue-square {
+      background-color: blue;
+      width: 200px;
+      height: 200px;
+      margin: 20px 0;
+      display: block;
+    }
+   .caption {
+      font-style: italic;
+      margin: 10px 0;
+    }
+   .paragraph {
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+   .source {
+      font-size: 0.9em;
+      color: #666;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>BALTIC</h1>
+  <nav>
+    <a href="#">WEB MENU</a>
+    <a href="#">MASTER LIST</a>
+    <a href="#">MANIFEST</a>
+  </nav>
+  <table>
+    <tr>
+      <th colspan="2">ID# NAME</th>
+      <th colspan="2">BIRTH DATE BIRTH PLACE</th>
+      <th colspan="2">DEATH DATE DEATH PLACE</th>
+    </tr>
+    <tr>
+      <td>1 231</td>
+      <td>WIEST, Friedrich Karl</td>
+      <td>6 Jul 1881</td>
+      <td>Rohrbach, Kherson, Russia</td>
+      <td>27 Feb 1957</td>
+      <td>Fresno, Calif.</td>
+    </tr>
+    <tr>
+      <td>1230</td>
+      <td>CROISSANT, Katharina</td>
+      <td>25 May 1882</td>
+      <td>Rohrbach, Russia</td>
+      <td>5 Mar 1944</td>
+      <td>Dinuba, Tulare, Calif.</td>
+    </tr>
+    <tr>
+      <td>1236</td>
+      <td>WIEST, Lydia</td>
+      <td>13 Feb 1906</td>
+      <td>Friedrichsfeld, Russia</td>
+      <td>15 Jan 1996</td>
+      <td>Fresno, California</td>
+    </tr>
+    <tr>
+      <td>1237</td>
+      <td>WIEST, Friedrich</td>
+      <td>17 Apr 1907</td>
+      <td>Friedrichsfeld, Russia</td>
+      <td>15 Jan 1996</td>
+      <td>Fresno, California</td>
+    </tr>
+  </table>
+  <div class="blue-square"></div>
+  <p class="caption">BALTIC - Photo: Frank Pichardo Collection</p>
+  <p class="paragraph">Built by Harlan & Wolff Limited, Belfast, Northern Ireland, 1904. New York service. Largest ship afloat, 1904-05. Troopship during World War I. Scrapped in 1933.</p>
+  <p class="source">Source: The Statue of Liberty- Ellis Island Foundation. American Family Immigration History Center</p>
+</body>
+</html>
+```
+
+Wait, but the image shows the table with the ID# as "1 231", which is correct. The data rows are as per the image.
+
+Also, the navigation links are in the correct order: WEB MENU, MASTER LIST, MANIFEST.
+
+The blue square is present.
+
+The caption, paragraph, and source are correct.
+
+Now, check if the CSS is embedded correctly. Yes, in the <style> block.
+
+The HTML is valid, closed properly.
+
+Yes, this should match the visual design.
+</think>
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin: 20px 0;
+      color: #5a4a3a;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      margin: 10px 0;
+      background-color: #f9f9f9;
+      padding: 5px 0;
+    }
+    nav a {
+      color: #e6b87d;
+      text-decoration: none;
+      padding: 5px 10px;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+   .blue-square {
+      background-color: blue;
+      width: 200px;
+      height: 200px;
+      margin: 20px 0;
+      display: block;
+    }
+   .caption {
+      font-style: italic;
+      margin: 10px 0;
+    }
+   .paragraph {
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+   .source {
+      font-size: 0.9em;
+      color: #666;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>BALTIC</h1>
+  <nav>
+    <a href="#">WEB MENU</a>
+    <a href="#">MASTER LIST</a>
+    <a href="#">MANIFEST</a>
+  </nav>
+  <table>
+    <tr>
+      <th colspan="2">ID# NAME</th>
+      <th colspan="2">BIRTH DATE BIRTH PLACE</th>
+      <th colspan="2">DEATH DATE DEATH PLACE</th>
+    </tr>
+    <tr>
+      <td>1 231</td>
+      <td>WIEST, Friedrich Karl</td>
+      <td>6 Jul 1881</td>
+      <td>Rohrbach, Kherson, Russia</td>
+      <td>27 Feb 1957</td>
+      <td>Fresno, Calif.</td>
+    </tr>
+    <tr>
+      <td>1230</td>
+      <td>CROISSANT, Katharina</td>
+      <td>25 May 1882</td>
+      <td>Rohrbach, Russia</td>
+      <td>5 Mar 1944</td>
+      <td>Dinuba, Tulare, Calif.</td>
+    </tr>
+    <tr>
+      <td>1236</td>
+      <td>WIEST, Lydia</td>
+      <td>13 Feb 1906</td>
+      <td>Friedrichsfeld, Russia</td>
+      <td>15 Jan 1996</td>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Articles for Founders</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333; /* Dark gray for main text */
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            font-size: 15px; /* Base font size */
+        }
+
+        .container {
+            max-width: 960px; /* Max width of the content area */
+            margin: 0 auto; /* Center the container */
+            padding: 20px;
+        }
+
+        /* Header */
+        .site-header {
+            text-align: center;
+            color: #999; /* Lighter gray for header text */
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-transform: lowercase; /* Based on visual */
+        }
+
+        /* Main content wrapper for sidebar and article */
+        .main-content-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Space between sidebar and article */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px; /* Fixed width for sidebar */
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+            padding-top: 10px; /* Align with article content */
+        }
+
+        .sidebar p {
+            margin-bottom: 5px; /* Tighter spacing for sidebar items */
+        }
+
+        .sidebar a {
+            text-decoration: none;
+        }
+
+        .red-link {
+            color: #c00; /* Red color for specific links */
+        }
+
+        .sidebar-section-title {
+            font-size: 14px;
+            color: #666; /* Slightly lighter gray */
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .black-link {
+            color: #000;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .sidebar-text {
+            font-size: 13px; /* Smaller font for the descriptive text */
+            color: #666; /* Lighter gray */
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+
+        /* Article Content */
+        .article-content {
+            flex-grow: 1; /* Allow article content to take remaining space */
+            max-width: 680px; /* Max width for article content to prevent it from being too wide */
+        }
+
+        .article-content p {
+            margin-bottom: 1em; /* Standard paragraph spacing */
+        }
+
+        .highlight-box {
+            background-color: #f0f8e0; /* Light yellowish-green */
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e8d0; /* Subtle border */
+        }
+
+        .green-link {
+            color: #669933; /* Green color for GrantTree link */
+            text-decoration: none;
+        }
+
+        .article-section-title {
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 0.5em;
+        }
+
+        .red-text {
+            color: #c00;
+        }
+
+        .asterisk {
+            color: #c00;
+            font-size: 0.8em; /* Smaller asterisk */
+            vertical-align: super; /* Raise asterisk */
+        }
+
+        .author-name {
+            font-weight: bold;
+            margin-bottom: 1.5em; /* More space after author name */
+        }
+
+        .quote-box {
+            font-style: italic;
+            color: #666;
+            margin-left: 40px; /* Indent blockquote */
+            padding-left: 10px; /* Visual padding */
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .retweet-link {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee; /* Subtle separator */
+        }
+
+        .footer-date {
+            text-align: left;
+            color: #666;
+            font-size: 14px;
+            margin-left: 240px; /* Align with article content start (sidebar width + gap) */
+            margin-bottom: 40px;
+        }
+
+        .footer-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-link-item {
+            text-align: left;
+            padding-left: 380px; /* Indent footer links (240px + half of article width - some offset) */
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .site-header {
+                margin-bottom: 30px;
+            }
+
+            .main-content-wrapper {
+                flex-direction: column; /* Stack sidebar and article */
+                gap: 30px;
+            }
+
+            .sidebar {
+                width: 100%; /* Sidebar takes full width */
+                padding-right: 0;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee; /* Separator between sidebar and article */
+            }
+
+            .article-content {
+                max-width: 100%; /* Article takes full width */
+                padding-left: 0;
+            }
+
+            .footer-date {
+                margin-left: 0; /* Remove left margin */
+                text-align: center; /* Center date */
+            }
+
+            .footer-link-item {
+                padding-left: 0; /* Remove indentation */
+                text-align: center; /* Center footer links */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            daily articles for founders
+        </header>
+
+        <div class="main-content-wrapper">
+            <aside class="sidebar">
+                <p><a href="#" class="red-link">all posts</a></p>
+                <p><a href="#" class="red-link">latest</a></p>
+                <p><a href="#" class="red-link">founder's library</a></p>
+
+                <p class="sidebar-section-title">More recent<br>articles of mine<br>can be found on</p>
+                <p><a href="http://danieltenner.com" class="black-link bold">danieltenner.com</a></p>
+
+                <p class="sidebar-text">
+                    Swombat.com is no longer actively maintained, but all the posts here are still available for your use. The original objective was to regularly summarise and comment on the best articles for founders each day, as well as occasionally post our my own thoughts and advice, so that you could read the most useful articles while focusing on building your own startup.
+                </p>
+            </aside>
+
+            <main class="article-content">
+                <div class="highlight-box">
+                    Running a startup in the UK (or with a UK subsidiary)? Get in touch with my company, <a href="#" class="green-link">GrantTree</a>. We help with government funding.
+                </div>
+
+                <p class="article-section-title"><span class="red-text">Play/life balance</span> <span class="asterisk">*</span></p>
+                <p class="author-name"><strong>Greg Bayer :</strong></p>
+
+                <p>
+                    Working for a startup usually means putting in more hours than others. Â Recently, I spent two days on less than 3 hours of sleep in order to push out our new Pulse.me release.
+                </p>
+                <p>
+                    Chasing after dreams is an essential part of my life. Â The feeling of fulfillment I get from doing so makes me a much happier / more content person, and this in turn positively affects my relationships.
+                </p>
+
+                <p>
+                    I've argued before that <span class="red-text bold">hours are not a measure of productivity</span>, but that's not Greg's claim in this post. He's saying, quite rightly, that working on your startup is not work, it's play - and so, unlike working stupid hours on a job, working stupid hours on a startup is a blessing, not a curse.
+                </p>
+
+                <p>I'm reminded of an old saying:</p>
+
+                <blockquote class="quote-box">
+                    Why work for someone else from nine to five for a daily wage, when you can work twenty-four hours a day for yourself for free?
+                </blockquote>
+
+                <p>
+                    So which view is right? <span class="italic">is</span> worth pursuing with far more energy than the typical job - but life is what happens while you're busy working on your startup.
+                </p>
+
+                <p>
+                    I'll finish with an observation: I feel most happy, most rested, and most productive when I have had a solid 8 hours of sleep, starting and ending at the same time each day. This plus a good task list has more effect on my productivity than anything else - other than, perhaps, the pressure of an immediate deadline.
+                </p>
+
+                <p>
+                    If you read this far, you should <a href="#" class="black-link">follow me on twitter here</a>.
+                </p>
+                <p class="retweet-link"><a href="#" class="black-link">Retweet</a></p>
+            </main>
+        </div>
+
+        <footer class="site-footer">
+            <p class="footer-date">Friday, 03 June 2011</p>
+            <p class="footer-title">More from the library :</p>
+            <p class="footer-link-item">&rarr; <a href="#" class="black-link">Recruiting in the Valley: the recruiter honeypot</a></p>
+            <p class="footer-link-item">&rarr; <a href="#" class="black-link">The Startup resume</a></p>
+            <p class="footer-link-item">&rarr; <a href="#" class="black-link">Focus on the power users</a></p>
+        </footer>
+    </div>
+</body>
+</html>

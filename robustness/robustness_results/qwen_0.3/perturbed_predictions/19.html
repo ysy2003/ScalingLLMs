@@ -1,0 +1,768 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The user wants a complete HTML5 file that matches the visual design in the image. First, I need to analyze the image content.
+
+Looking at the image, there's text about a plugin, then a "Recent Posts" section with a list of posts, and a "Tags" section with tags in a grid. The design seems to have a clean layout with some text, sections, and tags.
+
+First, structure the HTML. The main content should have a container. Let's see:
+
+- The top part is the plugin description text.
+- Then "Recent Posts" as a heading, followed by a list of posts (each post is a line, maybe with some styling).
+- Then "Tags" as a heading, followed by a grid of tags (each tag is a small box with a label, maybe with a small icon or just text).
+
+Wait, the image shows the text, then "Recent Posts" with items like "Controlling GRUB from the network", etc. Then "Tags" with tags like "acpi", "android", etc., each in a light blue box with a small square icon.
+
+So, let's outline the HTML structure:
+
+- <html>
+  - <head>
+    - <style> with CSS for responsive design
+  - <body>
+    - <main> or <div> for content
+      - Paragraphs for the plugin description
+      - H2 for "Recent Posts"
+      - List of recent posts (maybe unordered list or just divs)
+      - H2 for "Tags"
+      - Grid of tags (each tag is a div with a small icon and text)
+
+Now, the CSS needs to be responsive. Let's think about the design:
+
+- The text is left-aligned.
+- The "Recent Posts" and "Tags" headings are bold, maybe larger font.
+- The tags are in a grid, each with a small square (like a checkbox icon) and the tag name. The tags have a light blue background, maybe rounded corners.
+
+Looking at the image, the tags are in a grid, each with a small square on the left. So each tag element should have a small square (maybe a checkbox-like icon) and the text. The tags are in a grid layout, so using CSS grid or flexbox.
+
+Let's check the image's tag elements: they have a small square (like a checkbox) on the left, then the tag name. The tags are in a grid, so each tag is a div with a small icon and text.
+
+For the CSS:
+
+- Body: font-family, maybe sans-serif, padding.
+- Paragraphs: margin, line-height.
+- H2: bold, maybe larger font size.
+- Recent Posts list: each item is a line, maybe with some margin.
+- Tags: grid layout, each tag is a grid item with a small square (using a pseudo-element or an icon), and the text.
+
+Wait, the image shows the tags as small boxes with a square on the left. So each tag element could be a div with a small square (like a checkbox) and the text. The square is probably a small box, maybe 10px by 10px, with a border.
+
+Let's structure the tags:
+
+Each tag is a <div class="tag"> with a <span class="tag-icon"> (the square) and <span class="tag-text"> (the tag name).
+
+For the grid, we can use display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); to make the tags wrap.
+
+Now, the text content:
+
+The plugin description text is as in the image. Let's copy the text:
+
+"environments, using Locale, so I wrote a plugin.
+
+The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system set action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below that the system setting does.
+
+There is no published Android/Google API for this setting as far as I know. I determined the name of the system notification_light_pulse ) by inspecting my own device, to which I have root access. Accordingly, Google has a future update, but for now, I publish it in the hope that it will be useful.
+
+Recent Posts
+
+Controlling GRUB from the network
+
+The puzzle of the cancel button
+
+Hello, Hugo!
+
+Passwordless disk encryption on Linux
+
+Tags
+
+acpi android boot c c++ debian django flying gnupg go gplus guitar hack identity ipv6 java locale meta metawatch nymwars python ruby"
+
+Wait, the image shows the text as:
+
+"environments, using Locale, so I wrote a plugin.
+
+The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system set action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below that the system setting does.
+
+There is no published Android/Google API for this setting as far as I know. I determined the name of the system notification_light_pulse ) by inspecting my own device, to which I have root access. Accordingly, Google has a future update, but for now, I publish it in the hope that it will be useful.
+
+Recent Posts
+
+Controlling GRUB from the network
+
+The puzzle of the cancel button
+
+Hello, Hugo!
+
+Passwordless disk encryption on Linux
+
+Tags
+
+acpi android boot c c++ debian django flying gnupg go gplus guitar hack identity ipv6 java locale meta metawatch nymwars python ruby"
+
+Wait, the image's text has some parts. Let's check the original image:
+
+The first paragraph: "environments, using Locale, so I wrote a plugin."
+
+Then: "The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system set action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below that the system setting does."
+
+Wait, the image shows "set action is fired" — maybe a typo, but we have to copy as is.
+
+Then: "There is no published Android/Google API for this setting as far as I know. I determined the name of the system notification_light_pulse ) by inspecting my own device, to which I have root access. Accordingly, Google has a future update, but for now, I publish it in the hope that it will be useful."
+
+Then "Recent Posts" with the list.
+
+Then "Tags" with the tags.
+
+Now, the HTML structure:
+
+- The body should have the text, then the Recent Posts section, then the Tags section.
+
+Let's code the HTML:
+
+Start with <!DOCTYPE html>, then <html>, <head> with <style>, then <body>.
+
+In the style, define:
+
+- body: font-family, padding, margin.
+- p: margin, line-height.
+- h2: font-weight, margin.
+-.recent-posts: margin-top, maybe a list.
+-.tag: display: inline-block, background-color, padding, border-radius, etc.
+
+Wait, the tags in the image are in a grid, so each tag is a div with a grid layout.
+
+Let's outline the CSS:
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.recent-posts {
+  margin-top: 20px;
+}
+
+.recent-posts li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.tags {
+  margin-top: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e6f7ff;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+  color: #0066cc;
+}
+
+.tag-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #0066cc;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+Wait, but the image shows the tags as having a small square on the left. So each tag has a square (like a checkbox) and the text. So the tag element should have a span for the icon and a span for the text.
+
+Alternatively, the icon could be a pseudo-element, but maybe easier to use a span.
+
+Wait, the image shows the tags as:
+
+acpi (with a small square on the left), android, boot, etc.
+
+So each tag is a div with a small square (like a checkbox) and the text.
+
+So in HTML:
+
+<div class="tag">
+  <span class="tag-icon"></span>
+  <span class="tag-text">acpi</span>
+</div>
+
+Then in CSS, the tag-icon is a small square, maybe 10px by 10px, with a border.
+
+Wait, the image's tags have a small square (like a checkbox) on the left. So the icon is a small square, maybe with a border.
+
+Let's adjust the CSS for the tag-icon:
+
+.tag-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #0066cc;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+But the image's tags have a light blue background for the tag, and the icon is a small square (maybe filled with a color).
+
+Alternatively, the icon is a small square with a border, and the text is next to it.
+
+Now, the grid for the tags: to make them wrap, use display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));.
+
+So the.tags container should have:
+
+.tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+Then each.tag is a grid item.
+
+Wait, but the image shows the tags as a list, but in the image, they are arranged in a grid. So the tags should be in a grid layout.
+
+Now, let's structure the HTML:
+
+- The body has the text paragraphs, then a h2 for "Recent Posts", then a ul with the recent posts (each li is a post), then a h2 for "Tags", then a div with class "tags" containing the tag elements.
+
+Wait, the image shows the recent posts as a list of items, each on a new line. So maybe a ul with li elements.
+
+Let's code the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <p>environments, using Locale, so I wrote a plugin.</p>
+  <p>The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system set action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below that the system setting does.</p>
+  <p>There is no published Android/Google API for this setting as far as I know. I determined the name of the system notification_light_pulse ) by inspecting my own device, to which I have root access. Accordingly, Google has a future update, but for now, I publish it in the hope that it will be useful.</p>
+  
+  <h2>Recent Posts</h2>
+  <ul class="recent-posts">
+    <li>Controlling GRUB from the network</li>
+    <li>The puzzle of the cancel button</li>
+    <li>Hello, Hugo!</li>
+    <li>Passwordless disk encryption on Linux</li>
+  </ul>
+  
+  <h2>Tags</h2>
+  <div class="tags">
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">acpi</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">android</span>
+    </div>
+    <!--... other tags... -->
+  </div>
+</body>
+</html>
+
+Now, the CSS needs to be responsive. Let's adjust the CSS:
+
+- Body: max-width, margin auto, padding.
+- Paragraphs: margin-bottom.
+- H2: margin-top, font-size.
+- Recent posts list: margin-top, list-style none.
+- Tags: grid layout, gap, etc.
+
+Let's write the CSS:
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.recent-posts {
+  margin-top: 20px;
+}
+
+.recent-posts li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+.tag {
+  background-color: #e6f7ff;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #0066cc;
+  display: flex;
+  align-items: center;
+}
+
+.tag-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #0066cc;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+.tag-text {
+  font-weight: bold;
+}
+
+Wait, but the image shows the tags as having a small square (like a checkbox) on the left. So the icon is a small square, maybe filled with a color. Alternatively, the icon is a small square with a border.
+
+In the image, the tags have a light blue background, and the icon is a small square (maybe a checkbox). So the icon could be a small square with a border, and the text is next to it.
+
+Let's check the image: the tags are in a grid, each with a small square on the left. So the icon is a small square, maybe 10x10, with a border.
+
+Now, the tags in the image are:
+
+acpi, android, boot, c, c++, debian, django, flying, gnupg, go, gplus, guitar, hack, identity, ipv6, java, locale, meta, metawatch, nymwars, python, ruby.
+
+Wait, the image shows the tags as:
+
+acpi, android, boot, c, c++, debian, django, flying, gnupg, go, gplus, guitar, hack, identity, ipv6, java, locale, meta, metawatch, nymwars, python, ruby.
+
+So we need to list all these tags in the HTML.
+
+Wait, the image shows the tags as:
+
+acpi, android, boot, c, c++, debian, django, flying, gnupg, go, gplus, guitar, hack, identity, ipv6, java, locale, meta, metawatch, nymwars, python, ruby.
+
+So in the HTML, the.tags div should have 23 tag elements (each with the tag name).
+
+Now, let's code the HTML with all the tags.
+
+Wait, the image shows the tags as:
+
+acpi, android, boot, c, c++, debian, django, flying, gnupg, go, gplus, guitar, hack, identity, ipv6, java, locale, meta, metawatch, nymwars, python, ruby.
+
+Let's count: 23 tags.
+
+Now, the CSS for the tags:
+
+- The.tag has a light blue background (#e6f7ff), rounded corners, padding, and the text is dark blue (#0066cc).
+
+- The tag-icon is a small square (10x10) with a border (1px solid #0066cc), and the text is next to it.
+
+Now, let's write the complete HTML.
+
+First, the HTML structure:
+
+- The body has the paragraphs, then the Recent Posts section (h2 and ul), then the Tags section (h2 and div with tags).
+
+Now, the CSS:
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.recent-posts {
+  margin-top: 20px;
+}
+
+.recent-posts li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+.tag {
+  background-color: #e6f7ff;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #0066cc;
+  display: flex;
+  align-items: center;
+}
+
+.tag-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #0066cc;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+.tag-text {
+  font-weight: bold;
+}
+
+Now, the HTML content:
+
+The paragraphs:
+
+<p>environments, using Locale, so I wrote a plugin.</p>
+<p>The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system set action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below that the system setting does.</p>
+<p>There is no published Android/Google API for this setting as far as I know. I determined the name of the system notification_light_pulse ) by inspecting my own device, to which I have root access. Accordingly, Google has a future update, but for now, I publish it in the hope that it will be useful.</p>
+
+Then Recent Posts:
+
+<h2>Recent Posts</h2>
+<ul class="recent-posts">
+  <li>Controlling GRUB from the network</li>
+  <li>The puzzle of the cancel button</li>
+  <li>Hello, Hugo!</li>
+  <li>Passwordless disk encryption on Linux</li>
+</ul>
+
+Then Tags:
+
+<h2>Tags</h2>
+<div class="tags">
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">acpi</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">android</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">boot</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">c</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">c++</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">debian</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">django</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">flying</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">gnupg</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">go</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">gplus</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">guitar</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">hack</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">identity</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">ipv6</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">java</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">locale</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">meta</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">metawatch</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">nymwars</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">python</span>
+  </div>
+  <div class="tag">
+    <span class="tag-icon"></span>
+    <span class="tag-text">ruby</span>
+  </div>
+</div>
+
+Wait, but the image shows the tags as having a small square on the left. The.tag-icon is a small square with a border, so the CSS for.tag-icon should have a border.
+
+In the CSS,.tag-icon has border: 1px solid #0066cc; which makes it a small square with a border.
+
+Now, check if the design matches:
+
+- The text paragraphs are left-aligned, with proper margins.
+- Recent Posts is a heading, followed by a list of items.
+- Tags is a heading, followed by a grid of tags with the icon and text.
+
+Now, the HTML should be valid, with all tags closed.
+
+Let's check for any missing parts.
+
+The HTML starts with <!DOCTYPE html>, then <html>, <head> with meta tags and style, then <body> with the content.
+
+The CSS is inside the style block.
+
+Now, let's write the complete HTML.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    p {
+      margin-bottom: 15px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+   .recent-posts {
+      margin-top: 20px;
+    }
+    
+   .recent-posts li {
+      margin-bottom: 10px;
+      list-style: none;
+    }
+    
+   .tags {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 5px;
+    }
+    
+   .tag {
+      background-color: #e6f7ff;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: #0066cc;
+      display: flex;
+      align-items: center;
+    }
+    
+   .tag-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #0066cc;
+      border-radius: 2px;
+      margin-right: 5px;
+    }
+    
+   .tag-text {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p>environments, using Locale, so I wrote a plugin.</p>
+  <p>The plugin is a standard Locale action, with a single toggle that will set the Pulse notification light system set action is fired. The plugin makes no attempt to control detailed behaviour of the light; the hint shown below that the system setting does.</p>
+  <p>There is no published Android/Google API for this setting as far as I know. I determined the name of the system notification_light_pulse ) by inspecting my own device, to which I have root access. Accordingly, Google has a future update, but for now, I publish it in the hope that it will be useful.</p>
+  
+  <h2>Recent Posts</h2>
+  <ul class="recent-posts">
+    <li>Controlling GRUB from the network</li>
+    <li>The puzzle of the cancel button</li>
+    <li>Hello, Hugo!</li>
+    <li>Passwordless disk encryption on Linux</li>
+  </ul>
+  
+  <h2>Tags</h2>
+  <div class="tags">
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">acpi</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">android</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">boot</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">c</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">c++</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">debian</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">django</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">flying</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">gnupg</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">go</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">gplus</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">guitar</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">hack</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">identity</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">ipv6</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">java</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">locale</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">meta</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">metawatch</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">nymwars</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">python</span>
+    </div>
+    <div class="tag">
+      <span class="tag-icon"></span>
+      <span class="tag-text">ruby</span>
+    </div>
+  </div>
+</body>
+</html>
+```

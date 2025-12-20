@@ -1,0 +1,688 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this design-to-code task. First, I need to recreate the visual design from the image. Let's analyze the elements.
+
+The main elements are:
+- A large "Bookstore" heading at the top.
+- A paragraph explaining the bookstore (specializes in architecture, email order).
+- "OPENING HOURS" as a section title.
+- The opening hours details (WED-FRI 13-19, SAT 14-18) and a note about gallery hours.
+- Some contact info on the right, but the image shows partial text like "CONTACT", "EMAIL", "PHONE", "CORR", etc. But the main content is the bookstore section.
+
+Wait, the image shows the main content: "Bookstore" as the main title, then the paragraph, then "OPENING HOURS" section. The right side has some contact info, but maybe the design is a single column with the main content, and the contact info is on the right. But the user's image might have the main content centered, with the contact info on the right.
+
+Looking at the image: The top is "Bookstore" (large, centered). Then a paragraph. Then "OPENING HOURS" (bold, centered). Then the hours. Then a note. On the right, there's contact info (but in the image, it's partially visible: CONTACT, EMAIL, PHONE, CORR & DEL, ADDRESS, etc.)
+
+But the task is to strictly recreate the visual design. Let's check the structure.
+
+First, the HTML structure:
+
+- A container for the main content. Maybe a div with class "container" to center content.
+- The main title "Bookstore" as h1, centered.
+- Then a paragraph with the description.
+- Then a section for "OPENING HOURS" as h2, centered.
+- Then the hours and note.
+- On the right, a sidebar with contact info. But the image shows the contact info on the right, so maybe a two-column layout? But the image might be a single column with the contact info on the right.
+
+Wait, the image shows the main content (Bookstore, paragraph, opening hours) and on the right, some contact info. So the design is a two-column layout: left column for the main content, right column for contact info.
+
+But let's check the image again. The user's image has "Bookstore" at the top, then the paragraph, then "OPENING HOURS", then the hours. On the right, there's "CONTACT", "EMAIL", "PHONE", "CORR & DEL", "ADDRESS", etc.
+
+So the structure should be:
+
+- A container with two columns: left (main content), right (contact info).
+
+But the image might have the main content as the primary, and the contact info as a sidebar.
+
+Let's outline the HTML:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <style>
+    /* CSS styles here */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-content">
+      <h1>Bookstore</h1>
+      <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on [EMAIL REDACTED].</p>
+      <h2>OPENING HOURS</h2>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <p>It opens during the gallery opening hours.</p>
+    </div>
+    <div class="contact-info">
+      <h3>CONTACT</h3>
+      <p>[EMAIL]</p>
+      <p>[PHONE]</p>
+      <h3>CORR & DEL</h3>
+      <p>[ADDRESS]</p>
+      <p>Perne</p>
+      <p>186 0</p>
+      <p>Czech</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS needs to be responsive. Let's think about the layout.
+
+The main content should be centered, and the contact info on the right. For responsiveness, on smaller screens, maybe stack the columns.
+
+So, using flexbox for the container. The container is a flex container with direction row, wrap, and justify content space-between.
+
+For the main content, it should take up 60% of the width on larger screens, and the contact info 40%. On smaller screens, they stack.
+
+Also, the text should be centered for the main title and section titles.
+
+Let's define the CSS:
+
+- Reset margins/paddings for body.
+- Container: max-width 1200px, margin auto, padding 20px.
+- Main content: flex, order 1, width 60% on large screens, padding 0 20px.
+- Contact info: flex, order 2, width 40% on large screens, padding 0 20px.
+- On small screens, flex-direction column, so they stack.
+
+Also, the h1 "Bookstore" should be large, centered. The paragraph should be normal. The "OPENING HOURS" as h2, centered.
+
+Let's write the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 0 0 60%;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+
+.contact-info {
+  flex: 0 0 40%;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 20px 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0 10px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h3 {
+  margin: 10px 0 5px;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+ .main-content,.contact-info {
+    flex: 1 0 100%;
+    margin: 0;
+  }
+}
+
+Wait, but the image shows the contact info on the right, so the main content is left, contact info right. On small screens, they should stack. So the container is flex, and on small screens, flex-direction column.
+
+Wait, the container is flex, so on small screens, the two columns stack. So the CSS for the container:
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 0 0 60%;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+
+.contact-info {
+  flex: 0 0 40%;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+ .main-content,.contact-info {
+    flex: 1 0 100%;
+    margin: 0;
+  }
+}
+
+But maybe the main content should be 70% and contact 30% on larger screens. Let's check the image. The main content is more prominent, so 60-40 split.
+
+Also, the text in the contact info: "CONTACT", "EMAIL", etc. The image shows "CONTACT" as a heading, then [EMAIL], [PHONE], then "CORR & DEL", etc.
+
+Now, check the image's text:
+
+The main content:
+
+- Bookstore (h1)
+- The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on [EMAIL REDACTED].
+- OPENING HOURS (h2)
+- WED-FRI 13-19, SAT 14-18
+- It opens during the gallery opening hours.
+
+Contact info on the right:
+
+- CONTACT
+- [EMAIL]
+- [PHONE]
+- CORR & DEL
+- [ADDRESS]
+- Perne
+- 186 0
+- Czech
+
+Wait, the image shows "CORR & DEL" as a heading, then [ADDRESS], then Perne, 186 0, Czech.
+
+So the contact info structure:
+
+<h3>CONTACT</h3>
+<p>[EMAIL]</p>
+<p>[PHONE]</p>
+<h3>CORR & DEL</h3>
+<p>[ADDRESS]</p>
+<p>Perne</p>
+<p>186 0</p>
+<p>Czech</p>
+
+Now, the CSS should make the main content centered, and the contact info aligned to the right.
+
+Wait, the image shows the main content (Bookstore, paragraph, opening hours) as the main part, and the contact info on the right. So the main content is left-aligned, contact info right-aligned.
+
+But in the HTML structure, the container is flex, so the main content is first, then contact info. So the main content is on the left, contact info on the right.
+
+Now, the CSS for the main content: the h1 should be centered, the paragraph left-aligned, the h2 centered, etc.
+
+Wait, the image shows the "Bookstore" as centered, the paragraph left-aligned, "OPENING HOURS" centered, the hours left-aligned, the note left-aligned.
+
+Wait, the image's main content:
+
+- "Bookstore" is centered.
+- The paragraph is left-aligned.
+- "OPENING HOURS" is centered.
+- The hours are left-aligned.
+- The note is left-aligned.
+
+So the main content should have:
+
+h1 centered.
+
+p left-aligned.
+
+h2 centered.
+
+p left-aligned.
+
+p left-aligned.
+
+So in CSS, for the main content:
+
+.main-content {
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+Yes, that's correct.
+
+Now, the contact info: the headings (CONTACT, CORR & DEL) should be bold, maybe.
+
+Let's adjust the CSS:
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 0 0 60%;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+
+.contact-info {
+  flex: 0 0 40%;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 20px 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0 10px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h3 {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+ .main-content,.contact-info {
+    flex: 1 0 100%;
+    margin: 0;
+  }
+}
+
+Wait, but the contact info's text: the image shows "CONTACT" as a heading, then [EMAIL], [PHONE], then "CORR & DEL", etc. So the h3 elements are for those headings.
+
+Now, check the image's contact info:
+
+The image shows "CONTACT" on the right, then [EMAIL], [PHONE], then "CORR & DEL", [ADDRESS], Perne, 186 0, Czech.
+
+So the contact info structure is correct.
+
+Now, the main content's paragraph: "The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on [EMAIL REDACTED]."
+
+The [EMAIL REDACTED] is a link, but in the image, it's underlined. So in HTML, it should be a link with <a href="...">[EMAIL REDACTED]</a>, but the image shows it as text. Wait, the image shows "[EMAIL REDACTED]" as a link (underlined), so in the HTML, it should be an anchor tag.
+
+Wait, the image says: "It is also possible to order books via email on [EMAIL REDACTED]."
+
+So the [EMAIL REDACTED] is a hyperlink. So in HTML, it should be:
+
+<p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="mailto:...">[EMAIL REDACTED]</a>.</p>
+
+But the task is to recreate the visual design. The visual design shows [EMAIL REDACTED] as underlined, so it's a link. So we need to include the <a> tag.
+
+But the image doesn't show the actual email, so we can use [EMAIL REDACTED] as the text inside the anchor.
+
+So the paragraph becomes:
+
+<p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="mailto:example@example.com">[EMAIL REDACTED]</a>.</p>
+
+But the task is to strictly recreate the visual design. The visual design has [EMAIL REDACTED] as a link (underlined), so the HTML should have the anchor tag.
+
+Now, the opening hours: "WED-FRI 13-19, SAT 14-18" is a paragraph, and the note is another paragraph.
+
+Now, the contact info: the image shows "CORR & DEL" as a heading, so h3.
+
+Now, let's put it all together.
+
+The HTML structure:
+
+- The body has a container with two columns.
+- Main content: h1, paragraph with link, h2, two paragraphs.
+- Contact info: h3, p, p, h3, p, p, p, p.
+
+Now, the CSS should make the main content centered for the h1 and h2, and the contact info aligned to the right.
+
+Wait, the image shows the main content as the main part, so the main content is left-aligned, contact info right-aligned.
+
+But in the container, the main content is first, so it's on the left, contact info on the right.
+
+Now, the CSS for the container: flex direction row, so main content is left, contact info right.
+
+Now, the responsive part: on small screens, the two columns stack.
+
+Now, let's write the HTML and CSS.
+
+Wait, the user's image shows the main content (Bookstore, paragraph, opening hours) and the contact info on the right. So the design is a two-column layout.
+
+Now, the HTML code:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+   .main-content {
+      flex: 0 0 60%;
+      padding: 0 20px;
+      margin-right: 20px;
+    }
+   .contact-info {
+      flex: 0 0 40%;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3.5rem;
+      margin: 20px 0;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0 10px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    h3 {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+   .main-content h1 {
+      text-align: center;
+    }
+   .main-content h2 {
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+     .main-content,.contact-info {
+        flex: 1 0 100%;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-content">
+      <h1>Bookstore</h1>
+      <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="mailto:example@example.com">[EMAIL REDACTED]</a>.</p>
+      <h2>OPENING HOURS</h2>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <p>It opens during the gallery opening hours.</p>
+    </div>
+    <div class="contact-info">
+      <h3>CONTACT</h3>
+      <p>[EMAIL]</p>
+      <p>[PHONE]</p>
+      <h3>CORR & DEL</h3>
+      <p>[ADDRESS]</p>
+      <p>Perne</p>
+      <p>186 0</p>
+      <p>Czech</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Wait, but the image shows the contact info as "CORR & DEL" (maybe "CORR" is "CORRESPONDENCE" or something, but the image shows "CORR & DEL"). So the text is as in the image.
+
+Now, check if the HTML is valid. The <a> tag is correctly used for the email link.
+
+The CSS is responsive, using media query for small screens.
+
+The container is flex, so on large screens, main content is 60%, contact info 40%. On small screens, they stack.
+
+The h1 and h2 in main content are centered.
+
+The contact info's h3 are bold.
+
+Now, check the image's text:
+
+- The main content's paragraph: "The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on [EMAIL REDACTED]."
+
+- Opening hours: "WED-FRI 13-19, SAT 14-18"
+
+- Note: "It opens during the gallery opening hours."
+
+- Contact info: "CONTACT", "[EMAIL]", "[PHONE]", "CORR & DEL", "[ADDRESS]", "Perne", "186 0", "Czech"
+
+Yes, that's all included.
+
+Now, the code should be enclosed in ```html and ```.
+
+Wait, the user said: "BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```."
+
+So the response should start with ```html, then the HTML code, then ```.
+
+Let me check the code again.
+
+The HTML is:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+   .main-content {
+      flex: 0 0 60%;
+      padding: 0 20px;
+      margin-right: 20px;
+    }
+   .contact-info {
+      flex: 0 0 40%;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3.5rem;
+      margin: 20px 0;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0 10px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    h3 {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+   .main-content h1 {
+      text-align: center;
+    }
+   .main-content h2 {
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+     .main-content,.contact-info {
+        flex: 1 0 100%;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-content">
+      <h1>Bookstore</h1>
+      <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="mailto:example@example.com">[EMAIL REDACTED]</a>.</p>
+      <h2>OPENING HOURS</h2>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <p>It opens during the gallery opening hours.</p>
+    </div>
+    <div class="contact-info">
+      <h3>CONTACT</h3>
+      <p>[EMAIL]</p>
+      <p>[PHONE]</p>
+      <h3>CORR & DEL</h3>
+      <p>[ADDRESS]</p>
+      <p>Perne</p>
+      <p>186 0</p>
+      <p>Czech</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Yes, this should recreate the visual design.
+
+Wait, the image shows the contact info as "CORR & DEL" (maybe "CORR" is "CORRESPONDENCE" but the image shows "CORR & DEL"), so the text is correct.
+
+The email link is correctly formatted.
+
+The CSS is responsive, with the two columns stacking on small screens.
+
+The main content's h1 and h2 are centered, as per the image.
+
+The contact info is on the right, as per the image.
+
+I think this is correct.
+</think>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+   .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+   .main-content {
+      flex: 0 0 60%;
+      padding: 0 20px;
+      margin-right: 20px;
+    }
+   .contact-info {
+      flex: 0 0 40%;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3.5rem;
+      margin: 20px 0;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0 10px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    h3 {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+   .main-content h1 {
+      text-align: center;
+    }
+   .main-content h2 {
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+     .main-content,.contact-info {
+        flex: 1 0 100%;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-content">
+      <h1>Bookstore</h1>
+      <p>The gallery space includes a bookstore that specialises in architecture. It is also possible to order books via email on <a href="mailto:example@example.com">[EMAIL REDACTED]</a>.</p>
+      <h2>OPENING HOURS</h2>
+      <p>WED-FRI 13-19, SAT 14-18</p>
+      <p>It opens during the gallery opening hours.</p>
+    </div>
+    <div class="contact-info">
+      <h3>CONTACT</h3>
+      <p>[EMAIL]</p>
+      <p>[PHONE]</p>
+      <h3>CORR & DEL</h3>
+      <p>[ADDRESS]</p>
+      <p>Perne</p>
+      <p>186 0</p>
+      <p>Czech</p>
+    </div>
+  </div>
+</body>
+</html>
+```

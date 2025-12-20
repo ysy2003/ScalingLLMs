@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Git Repositories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --text-color: #333;
+            --link-color: #007bff; /* A standard blue for links */
+            --link-hover-color: #0056b3;
+            --background-color: #f8f8f8; /* Light gray background for the page */
+            --container-bg-color: #fff; /* White background for the main content area */
+            --border-color: #eee;
+            --code-bg-color: #f0f0f0; /* Light gray for code blocks */
+            --code-border-color: #ddd;
+            --nav-link-hover-bg: #f0f0f0; /* Light gray for nav link hover */
+            --footer-border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--link-hover-color);
+        }
+
+        /* Main Container */
+        .container {
+            width: 100%;
+            max-width: 960px; /* Based on visual estimation */
+            background-color: var(--container-bg-color);
+            padding: 40px; /* Adjust padding as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+            gap: 40px; /* Space between nav and content */
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 30px;
+            padding-bottom: 10px; /* Add some space below the header */
+            border-bottom: 1px solid var(--border-color); /* Subtle separator */
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: normal;
+        }
+
+        .header .about-links {
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .about-links a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .header .about-links a:hover {
+            text-decoration: underline;
+        }
+
+        .header .about-links span {
+            font-family: sans-serif; /* For the square icons */
+            font-size: 0.8em;
+            vertical-align: middle;
+        }
+
+        /* Navigation */
+        .navigation {
+            flex: 0 0 200px; /* Fixed width for navigation */
+            padding-right: 20px; /* Space between nav and content */
+        }
+
+        .navigation h3 {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navigation li {
+            margin-bottom: 5px;
+        }
+
+        .navigation a {
+            display: block;
+            padding: 5px 10px;
+            color: var(--text-color);
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .navigation a:hover {
+            background-color: var(--nav-link-hover-bg);
+            text-decoration: none;
+        }
+
+        .navigation .icon {
+            display: inline-block;
+            margin-top: 20px;
+            font-family: sans-serif; /* For the square icon */
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1; /* Takes remaining space */
+            min-width: 400px; /* Ensure content doesn't get too narrow */
+        }
+
+        .content h1 {
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: normal; /* Looks like normal weight in the image */
+        }
+
+        .content .post-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .content .post-meta em {
+            font-style: normal; /* The image shows "Jeremy Minton" not italicized, but "9 years ago" is. */
+        }
+
+        .content p {
+            margin-bottom: 1em;
+        }
+
+        .content h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: var(--code-bg-color);
+            border: 1px solid var(--code-border-color);
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto; /* Allows horizontal scrolling for long lines */
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            display: block; /* Ensures code takes full width of pre */
+            white-space: pre-wrap; /* Allows wrapping within code block */
+            word-break: break-all; /* Breaks long words */
+        }
+
+        /* Specific styling for "Repository creation" in code block */
+        pre .string {
+            color: #c00; /* Red color for string literals */
+        }
+
+        /* Footer Section */
+        .footer-section {
+            width: 100%;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-border-color);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .footer-section .post-date {
+            font-size: 0.9em;
+            color: #666;
+            flex: 1;
+            min-width: 200px; /* Ensure it doesn't get too small */
+        }
+
+        .footer-section .share-link {
+            font-size: 0.9em;
+            color: var(--link-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-section .share-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section .share-link .icon {
+            font-family: sans-serif; /* For the share icon */
+            font-size: 0.8em;
+            vertical-align: middle;
+        }
+
+        .footer-section .you-might-like {
+            width: 100%; /* Takes full width below date/share */
+            margin-top: 20px;
+        }
+
+        .footer-section .you-might-like p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-section .you-might-like ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .footer-section .you-might-like li {
+            margin-bottom: 5px;
+            font-size: 0.95em;
+        }
+
+        .footer-section .you-might-like a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .footer-section .you-might-like a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                flex-direction: column; /* Stack navigation and content */
+                gap: 20px;
+            }
+
+            .navigation {
+                flex: none; /* Remove fixed width */
+                width: 100%; /* Take full width */
+                padding-right: 0;
+                border-bottom: 1px solid var(--border-color); /* Separator */
+                padding-bottom: 20px;
+            }
+
+            .content {
+                min-width: unset; /* Remove min-width */
+                width: 100%;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .header .about-links {
+                margin-top: 10px;
+            }
+
+            .footer-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-section .post-date,
+            .footer-section .share-link {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header h2 {
+                font-size: 1.3em;
+            }
+
+            .content h1 {
+                font-size: 1.8em;
+            }
+
+            .content h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2>Jeremy Minton</h2>
+            <div class="about-links">
+                <a href="#">About</a>
+                <span>&#9724;</span> <!-- Unicode square character -->
+                <span>&#9724;</span> <!-- Unicode square character -->
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Me</a></li>
+                <li><a href="#">Documents</a></li>
+                <li><a href="#">Technical Notes</a></li>
+            </ul>
+            <div class="icon">&#9724;</div> <!-- Unicode square character -->
+        </nav>
+
+        <main class="content">
+            <h1>Creating Git Repositories</h1>
+            <p class="post-meta">Posted by <em>Jeremy Minton</em>, 9 years ago,</p>
+
+            <p>I have recently been thoroughly sold by the benefits of Git. It is a revelation that came slower to me than many of you, probably because I haven't worked on projects large enough or high risk enough to warrant that sort versioning and I have never seriously been in a situation with that level of collaboration.</p>
+            <p>Recently, however, I was writing some code to implement a mathematical model I had developed and I decided to invest in properly learning to use git. It almost immediately paid itself off as I could track the many subtle tweaks one makes while chasing sign errors or factors of two as well as using branching to more safely test theories about what may be going wrong.</p>
+            <p>I don't need to add to the dozens of Git tutorials out there already so instead I am writing this as a reference (to myself mostly) about how to do some typical tasks in git. <a href="#">this site</a> as very accessible instruction of git functionality.</p>
+
+            <h2>Converting an existing folder to a git Repository</h2>
+            <p>Firstly, create a bare git repository, so on the server (or where you keep your repository)</p>
+            <pre><code>mkdir &lt;repositoryFolder&gt;.git; cd &lt;repositoryFolder&gt;
+git --bare init</code></pre>
+
+            <p>Now on your local machine, create a repository out of the current directory and add the bare repository created before.</p>
+            <pre><code>cd &lt;workingFolder&gt;/..; mv &lt;workingFolder&gt;.bak -R
+git clone ssh://[EMAIL REDACTED]:/absolute/address/to/&lt;repositoryFolder
+&gt;.git
+cp &lt;workingFolder&gt;.bak/\* &lt;repositoryName&gt;</code></pre>
+
+            <p>Then do the usual add, commit, push</p>
+            <pre><code>git add *
+git commit -m <span class="string">"Repository creation"</span>
+git push</code></pre>
+        </main>
+
+        <footer class="footer-section">
+            <p class="post-date">Posted Saturday 4 October 2014</p>
+            <a href="#" class="share-link">
+                <span class="icon">&#x21B7;</span> <!-- Unicode share icon (curved arrow) -->
+                Share
+            </a>
+            <div class="you-might-like">
+                <p>You might also like:</p>
+                <ul>
+                    <li><a href="#">Frequentist hypothesis testing</a></li>
+                    <li><a href="#">Fixing ctrl+arrow to jump words in Alacritty terminal.</a></li>
+                    <li><a href="#">Developing in Docker containers</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
