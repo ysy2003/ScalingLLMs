@@ -1,0 +1,412 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGF Members Invited To Attend Open Houses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: #444;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Top Bar */
+        .header-top {
+            background-color: #213764; /* Dark blue */
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 10px; /* Gap between nav and right section */
+        }
+
+        .header-top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px; /* Gap between nav items */
+        }
+
+        .header-top-nav a {
+            color: #fff;
+            font-size: 0.9em;
+            padding-right: 15px;
+            border-right: 1px solid rgba(255, 255, 255, 0.5);
+            white-space: nowrap; /* Prevent nav items from breaking */
+        }
+
+        .header-top-nav a:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .header-top-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap; /* Allow wrapping */
+            margin-left: auto; /* Push to the right */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #213764; /* Dark blue, same as background */
+            border: 1px solid #fff; /* White border */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 0.8em; /* Placeholder text size */
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 0.9em;
+            width: 180px;
+        }
+
+        /* Main Header & Navigation */
+        .header-main {
+            background-color: #f26522; /* Orange */
+            padding: 20px 0;
+        }
+
+        .header-main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap; /* Allow wrapping */
+            gap: 20px; /* Gap between logo and nav */
+        }
+
+        .logo-placeholder {
+            width: 200px; /* Approximate width from image */
+            height: 80px; /* Approximate height from image */
+            background-color: #0000ff; /* Blue as in image */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .main-nav {
+            margin-left: auto; /* Push to the right */
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: flex-end; /* Align to right if wrapped */
+        }
+
+        .main-nav a {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+            white-space: nowrap; /* Prevent nav items from breaking */
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px; /* Content narrower than header */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .main-content h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .share-this {
+            color: #f26522; /* Orange */
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block; /* Ensure it takes its own line */
+        }
+
+        .main-content p {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #444;
+        }
+
+        .main-content h2 {
+            font-size: 1.4em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .event-list {
+            list-style: none; /* Remove default bullets */
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .event-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+        }
+
+        .event-list li::before {
+            content: '•'; /* Custom bullet point */
+            color: #333;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .event-list strong {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .event-list p {
+            margin-bottom: 5px; /* Less space between event details */
+            margin-top: 0;
+            font-size: 1em;
+        }
+
+        .event-list p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .event-list em {
+            font-style: italic;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .main-content .last-paragraph {
+            margin-top: 30px;
+        }
+
+        .main-content .last-paragraph a {
+            color: #f26522; /* Orange */
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333; /* Dark gray */
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        .footer-nav {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px; /* Gap between items when wrapped */
+        }
+
+        .footer-nav a {
+            color: #ccc;
+            margin: 0 10px;
+            padding: 0 10px;
+            border-right: 1px solid rgba(204, 204, 204, 0.5);
+            white-space: nowrap;
+        }
+
+        .footer-nav a:last-child {
+            border-right: none;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer a.dev-link {
+            color: #007bff; /* Light blue */
+            font-weight: 600;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .header-main-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo-placeholder {
+                margin-bottom: 20px;
+            }
+            .main-nav {
+                margin-left: 0; /* Remove auto margin */
+                width: 100%; /* Take full width */
+            }
+            .main-nav ul {
+                justify-content: flex-start;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header-top-nav {
+                margin-bottom: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+            .header-top-right {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .main-content h1 {
+                font-size: 2em;
+            }
+            .footer-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-nav a {
+                border-right: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top-nav a {
+                padding-right: 10px;
+                font-size: 0.8em;
+            }
+            .social-icon {
+                width: 25px;
+                height: 25px;
+            }
+            .main-content h1 {
+                font-size: 1.8em;
+            }
+            .main-content h2 {
+                font-size: 1.2em;
+            }
+            .event-list li {
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <nav class="header-top-nav">
+                    <a href="#">ABOUT</a>
+                    <a href="#">NEWS ARCHIVES</a>
+                    <a href="#">SHOP</a>
+                    <a href="#">RESULTS</a>
+                </nav>
+                <div class="header-top-right">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"></a>
+                        <a href="#" class="social-icon"></a>
+                        <a href="#" class="social-icon"></a>
+                        <a href="#" class="social-icon"></a>
+                        <a href="#" class="social-icon"></a>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-main-content">
+                <div class="logo-placeholder"></div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">PROGRAMS</a></li>
+                        <li><a href="#">CALENDAR OF EVENTS</a></li>
+                        <li><a href="#">COURSES</a></li>
+                        <li><a href="#">MEMBERSHIP</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>AGF Members Invited To Attend Open Houses On April 13 & May 10</h1>
+
+        <a href="#" class="share-this">Share this</a>
+
+        <p>The Alberta Gymnastics Federation (AGF) recognizes that the past year has been particularly challenging for the gymnastics community. These challenges have ranged from; high profile coaching misconduct cases in Canada and the United States, to growing demands on sporting organizations to undergo reforms that ensure systems are in place to prioritize athlete safety and wellbeing, to rising insurance costs and trampoline restrictions that have directly impacted club operations.</p>
+
+        <p>The AGF Board of Directors is hosting two Open Houses during the upcoming Provincial Championship competitions in Calgary and Edmonton to provide more information, hear from our members, and facilitate discussion. Topics to be covered will include insurance and risk management, Safe Sport initiatives, discipline, and finances.</p>
+
+        <h2>AGF Open Houses</h2>
+
+        <ul class="event-list">
+            <li>
+                <p><strong>Artistic & Acrobatic Provincial Championships (Edmonton)</strong></p>
+                <p><strong>Date:</strong> Saturday, April 13, 2019</p>
+                <p><strong>Time:</strong> 11 a.m.</p>
+                <p><strong>Location:</strong> [ADDRESS REDACTED] located along the upstairs running track overseeing the competition gym.</p>
+                <p><strong>Special Guest:</strong> Ian Moss, CEO of Gymnastics Canada</p>
+            </li>
+            <li>
+                <p><strong>Trampoline & Tumbling Provincial Championships (Calgary)</strong></p>
+                

@@ -1,0 +1,86 @@
+============================================================
+QWEN MODEL - ROBUSTNESS EVALUATION REPORT
+Generated: 2025-12-17 05:01:07
+============================================================
+
+CONFIGURATION:
+  Model:              qwen
+  Total Samples:      50
+  Perturbation:       Crop + Brightness + Contrast + Blur
+  Perturbation Strength: 0.2
+
+============================================================
+1. VISUAL FIDELITY (CLIP + IoU)
+============================================================
+
+Combined Visual Fidelity = (CLIP + IoU) / 2
+  Clean:     0.4056
+  Perturbed: 0.4353
+
+1.1 CLIP Score (range: [0, 1], higher is better):
+  Clean Predictions:
+    Mean:   0.6734
+    Std:    0.1477
+    Count:  50
+  Perturbed Predictions:
+    Mean:   0.7419
+    Std:    0.1213
+    Count:  50
+
+1.2 IoU Score (range: [0, 1], higher is better):
+  Clean Predictions:
+    Mean:   0.1379
+    Std:    0.0778
+    Count:  50
+  Perturbed Predictions:
+    Mean:   0.1287
+    Std:    0.0619
+    Count:  50
+
+============================================================
+2. STRUCTURAL ALIGNMENT (Semantic + Accessibility + Tree Edit)
+============================================================
+
+Combined Score = (Semantic + Accessibility + Tree Edit) / 3
+
+  Clean Predictions:
+    Combined Mean:   0.1956
+    Std:             0.1329
+    Count:           50
+    - Semantic HTML: 0.3524
+    - Accessibility: 0.0300
+    - Tree Edit Sim: 0.2044
+
+  Perturbed Predictions:
+    Combined Mean:   0.1346
+    Std:             0.1234
+    Count:           50
+    - Semantic HTML: 0.2312
+    - Accessibility: N/A
+    - Tree Edit Sim: 0.1726
+
+============================================================
+3. ROBUSTNESS METRICS (Performance Degradation Rate)
+============================================================
+
+Degradation Rate (range: [0%, 100%], lower is better):
+  Formula: (clean - perturbed) / clean
+
+  Visual Fidelity Drop:      0.00%
+  Structural Alignment Drop: 31.19%
+
+  Average Degradation:       15.60%
+
+  Rating: MODERATE (10-20% degradation)
+
+============================================================
+OUTPUT FILES
+============================================================
+  Reference images:      robustness_results/qwen_0.2/reference_images
+  Perturbed images:      robustness_results/qwen_0.2/perturbed_images
+  Perturbed predictions: robustness_results/qwen_0.2/perturbed_predictions
+  Perturbed rendered:    robustness_results/qwen_0.2/perturbed_rendered
+
+============================================================
+END OF REPORT
+============================================================

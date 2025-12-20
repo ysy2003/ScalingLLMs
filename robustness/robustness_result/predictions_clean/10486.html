@@ -1,0 +1,397 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - United Way of Henry County</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-logo {
+            width: 150px;
+            height: 100px;
+            background-color: #0000FF; /* Solid blue as per image */
+            flex-shrink: 0;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+            flex-grow: 1;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .header-nav a {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+            padding: 5px 0;
+            white-space: nowrap;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .header-button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .header-button.volunteer {
+            background-color: #176999; /* Darker blue for volunteer */
+        }
+
+        .header-button.donate {
+            background-color: #E74C3C; /* Red for donate */
+        }
+
+        /* Main Content - Login Section */
+        .login-section {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .login-title {
+            font-size: 2.5em;
+            color: #E67E22; /* Orange color */
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        .login-tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .login-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: #3498DB; /* Blue for inactive tabs */
+            white-space: nowrap;
+        }
+
+        .login-tab.active {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            color: #333; /* Darker text for active tab */
+            font-weight: bold;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .login-form label .required {
+            color: red;
+            margin-left: 3px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .login-form .btn-login {
+            background-color: #176999; /* Darker blue for login button */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
+        }
+
+        .login-form .btn-login .icon {
+            font-size: 1.2em; /* Adjust icon size */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F2F2F2; /* Light gray background */
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns for desktop */
+            gap: 20px;
+            align-items: start;
+            margin-top: 50px;
+        }
+
+        .footer-logo {
+            width: 100px;
+            height: 60px;
+            background-color: #0000FF; /* Solid blue as per image */
+        }
+
+        .footer-column h3 {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #3498DB; /* Blue for footer links */
+            font-size: 0.95em;
+        }
+
+        .footer-column p {
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1; /* Span all columns */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .header-nav {
+                justify-content: flex-start; /* Align nav items to start on smaller screens */
+                width: 100%; /* Take full width */
+                order: 2; /* Place nav below logo and buttons */
+            }
+            .header-actions {
+                order: 1; /* Place buttons next to logo */
+            }
+            .header-logo {
+                order: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: flex-start;
+                margin-top: 15px;
+            }
+            .footer {
+                grid-template-columns: 1fr 1fr; /* 2 columns for tablet */
+            }
+            .footer-logo {
+                grid-column: span 2; /* Logo spans 2 columns */
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px 3%;
+            }
+            .header-nav a {
+                font-size: 0.9em;
+            }
+            .header-button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .login-title {
+                font-size: 2em;
+            }
+            .login-tab {
+                padding: 8px 10px;
+                font-size: 0.9em;
+            }
+            .login-form input {
+                font-size: 0.9em;
+            }
+            .login-form .btn-login {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .footer {
+                grid-template-columns: 1fr; /* 1 column for mobile */
+                padding: 30px 3%;
+            }
+            .footer-logo {
+                grid-column: span 1;
+                width: 80px;
+                height: 50px;
+            }
+            .footer-column h3 {
+                font-size: 1.1em;
+                margin-top: 20px;
+            }
+            .footer-column ul li a,
+            .footer-column p {
+                font-size: 0.9em;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-bottom p {
+                text-align: left;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo"></div>
+        <nav class="header-nav">
+            <a href="#">ABOUT US</a>
+            <a href="#">OUR WORK</a>
+            <a href="#">PROGRAMS</a>
+            <a href="#">PARTNER AGENCIES</a>
+        </nav>
+        <div class="header-actions">
+            <button class="header-button volunteer">VOLUNTEER</button>
+            <button class="header-button donate">DONATE</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-section">
+            <h1 class="login-title">Log in</h1>
+
+            <div class="login-tabs">
+                <div class="login-tab active">Log in</div>
+                <a href="#" class="login-tab">Create new account</a>
+                <a href="#" class="login-tab">Reset your password</a>
+            </div>
+
+            <form class="login-form">
+                <label for="username">Username <span class="required">*</span></label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="btn-login">
+                    <span class="icon">&#x23F8;</span> LOG IN
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo"></div>
+
+        <div class="footer-column">
+            <h3>ABOUT US</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Board of Directors</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>OUR WORK</h3>
+            <ul>
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Health</a></li>
+                <li><a href="#">Financial Stability</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>LOCATION</h3>
+            <p>611 N Perry St</p>
+            <p>Napoleon, OH 43545</p>
+            <p>[PHONE REDACTED]</p>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 United Way of Henry County. All Rights Reserved.</p>
+            <p>Website by: OneEach Technologies</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

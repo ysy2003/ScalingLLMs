@@ -1,0 +1,147 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Recreation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Ensure white background */
+        }
+
+        .navbar {
+            background-color: #000;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 50px auto 30px auto; /* Top margin, auto horizontal for centering */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: fit-content; /* Adjust width to content */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; /* Spacing between nav items */
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 5px 0;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .content-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .content-section a {
+            color: #00bcd4; /* Light blue/cyan color */
+            text-decoration: underline;
+            font-size: 1.4em;
+            font-weight: normal;
+        }
+
+        .blue-boxes-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Spacing between blue boxes */
+            margin-top: 30px;
+            padding: 0 20px; /* Add some horizontal padding to prevent boxes from touching screen edges on small viewports */
+            box-sizing: border-box;
+        }
+
+        .blue-box {
+            width: 150px; /* Approximate width */
+            height: 100px; /* Approximate height */
+            background-color: #0000ff; /* Solid blue */
+            flex-shrink: 0; /* Prevent boxes from shrinking */
+        }
+
+        /* Basic responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            .navbar {
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 10px 15px;
+            }
+
+            .navbar ul {
+                gap: 20px;
+            }
+
+            .navbar a {
+                font-size: 1em;
+            }
+
+            .content-section a {
+                font-size: 1.2em;
+            }
+
+            .blue-boxes-container {
+                flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
+                justify-content: center;
+            }
+
+            .blue-box {
+                width: 120px; /* Slightly smaller boxes on small screens */
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                border-radius: 5px;
+                padding: 8px 10px;
+            }
+            .navbar ul {
+                gap: 15px;
+            }
+            .navbar a {
+                font-size: 0.9em;
+            }
+            .content-section a {
+                font-size: 1em;
+            }
+            .blue-box {
+                width: 100px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Photos</a></li>
+            <li><a href="#">Music</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-section">
+        <a href="#">Wednesday nights with White Rose</a>
+    </div>
+
+    <div class="blue-boxes-container">
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+        <div class="blue-box"></div>
+    </div>
+
+</body>
+</html>
+```

@@ -1,0 +1,618 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mighty Games Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+        :root {
+            --bg-color: #f9f9fc;
+            --text-color: #575e75;
+            --blue-color: #4d4dff;
+            --purple-active: #855cd6;
+            --light-gray-bg: #f0f0f5;
+            --inactive-tab-bg: #e0e0e0;
+            --border-color: #ccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background-color: var(--bg-color);
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-right: 20px; /* Adjust for alignment with main content */
+        }
+
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        /* Main Content Layout */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px; /* Adjusted to match visual width */
+        }
+
+        .right-column {
+            flex: 2;
+            min-width: 600px;
+        }
+
+        /* Left Column Elements */
+        .studio-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .large-blue-box {
+            background-color: var(--blue-color);
+            width: 100%;
+            padding-bottom: 65%; /* Aspect ratio for the box */
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .text-box {
+            background-color: var(--light-gray-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .text-box p:first-child {
+            margin-bottom: 5px;
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .small-blue-square {
+            width: 16px;
+            height: 16px;
+            background-color: var(--blue-color);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* Right Column Elements */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .tab.active {
+            background-color: var(--purple-active);
+            color: white;
+        }
+
+        .tab:not(.active) {
+            background-color: var(--inactive-tab-bg);
+            color: var(--text-color);
+        }
+
+        .tab-color-box {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            background-color: white; /* Default for active tab */
+        }
+
+        .tab-color-box.inactive {
+            background-color: var(--blue-color); /* For inactive tabs, the color box is blue */
+        }
+
+        .projects-heading {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-thumbnail {
+            background-color: var(--blue-color);
+            width: 100%;
+            padding-bottom: 65%; /* Aspect ratio for the thumbnail */
+        }
+
+        .project-details {
+            padding: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .project-details .small-blue-square {
+            margin-top: 2px; /* Align with text baseline */
+        }
+
+        .project-text {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+
+        .project-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 2px;
+        }
+
+        .project-author {
+            font-size: 12px;
+            color: var(--text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px; /* To control column width on larger screens */
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            font-size: 13px;
+            color: var(--text-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px; /* Align with main content */
+        }
+
+        .footer-bottom input[type="text"] {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+            color: var(--text-color);
+            width: 150px;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .main-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-column, .right-column {
+                max-width: 100%;
+                min-width: unset;
+                width: 100%;
+            }
+
+            .left-column {
+                max-width: 600px; /* Limit width for better readability on medium screens */
+            }
+
+            .right-column {
+                max-width: 600px; /* Limit width for better readability on medium screens */
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+
+            .footer-content {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .footer-column {
+                min-width: 120px;
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                justify-content: center;
+                padding-right: 0;
+            }
+
+            .header-nav ul {
+                gap: 15px;
+            }
+
+            .main-wrapper {
+                padding: 0 15px;
+            }
+
+            .studio-title {
+                font-size: 28px;
+            }
+
+            .projects-heading {
+                font-size: 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+
+            .header-nav ul {
+                font-size: 14px;
+                gap: 10px;
+            }
+
+            .studio-title {
+                font-size: 24px;
+            }
+
+            .text-box {
+                font-size: 13px;
+            }
+
+            .info-item {
+                font-size: 13px;
+            }
+
+            .tab {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+
+            .projects-heading {
+                font-size: 18px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+
+            .project-title {
+                font-size: 13px;
+            }
+
+            .project-author {
+                font-size: 11px;
+            }
+
+            .footer-column h3 {
+                font-size: 15px;
+            }
+
+            .footer-column ul li a {
+                font-size: 12px;
+            }
+
+            .footer-bottom input[type="text"] {
+                width: 120px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-nav">
+        <nav>
+            <ul>
+                <li><a href="#">Create</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Ideas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-wrapper">
+        <div class="left-column">
+            <h1 class="studio-title">Mighty Games</h1>
+            <div class="large-blue-box"></div>
+            <div class="text-box">
+                <p>Hello fellow scratchers!</p>
+                <p>Welcome to Mighty games, a studio for all your epic, swoon-worthy projects!</p>
+            </div>
+            <div class="info-section">
+                <div class="info-item">
+                    <div class="small-blue-square"></div>
+                    <span>Updated Jan 9, 2018</span>
+                </div>
+                <div class="info-item">
+                    <div class="small-blue-square"></div>
+                    <span>4 followers</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="tabs">
+                <button class="tab active">
+                    <div class="tab-color-box"></div>
+                    Projects (6)
+                </button>
+                <button class="tab">
+                    <div class="tab-color-box inactive"></div>
+                    Comments (0)
+                </button>
+                <button class="tab">
+                    <div class="tab-color-box inactive"></div>
+                    Curators
+                </button>
+                <button class="tab">
+                    <div class="tab-color-box inactive"></div>
+                    Activity
+                </button>
+            </div>
+
+            <h2 class="projects-heading">Projects</h2>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-details">
+                        <div class="small-blue-square"></div>
+                        <div class="project-text">
+                            <div class="project-title">Pixel Invasion</div>
+                            <div class="project-author">majithiaee</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-details">
+                        <div class="small-blue-square"></div>
+                        <div class="project-text">
+                            <div class="project-title">Paddle Ping Pong!</div>
+                            <div class="project-author">anandva</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-details">
+                        <div class="small-blue-square"></div>
+                        <div class="project-text">
+                            <div class="project-title">Firework display (100%...</div>
+                            <div class="project-author">wardli</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-details">
+                        <div class="small-blue-square"></div>
+                        <div class="project-text">
+                            <div class="project-title">Minigames</div>
+                            <div class="project-author">wardli</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-details">
+                        <div class="small-blue-square"></div>
+                        <div class="project-text">
+                            <div class="project-title">Santa Dash (A Platform...</div>
+                            <div class="project-author">wardli</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-details">
+                        <div class="small-blue-square"></div>
+                        <div class="project-text">
+                            <div class="project-title">Space Soccer(Free Sho...</div>
+                            <div class="project-author">anandva</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">About Scratch</a></li>
+                    <li><a href="#">For Parents</a></li>
+                    <li><a href="#">For Educators</a></li>
+                    <li><a href="#">For Developers</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Donors</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Community Guidelines</a></li>
+                    <li><a href="#">Discussion Forums</a></li>
+                    <li><a href="#">Scratch Wiki</a></li>
+                    <li><a href="#">Statistics</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Ideas</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">DMCA</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Scratch Family</h3>
+                <ul>
+                    <li><a href="#">ScratchEd</a></li>
+                    <li><a href="#">ScratchJr</a></li>
+                    <li><a href="#">Scratch Day</a></li>
+                    <li><a href="#">Scratch Conference</a></li>
+                    <li><a href="#">Scratch Foundation</a></li>
+                    <li><a href="#">Scratch Store</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <input type="text" value="Аҧсшәа">
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,437 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get friendly with the Natives</title>
+    <style>
+        :root {
+            --text-color: #333;
+            --light-text-color: #666;
+            --lighter-text-color: #999;
+            --link-color: #007bff;
+            --link-hover-color: #0056b3;
+            --border-color: #eee;
+            --code-bg: #f8f8f8;
+            --code-border: #e0e0e0;
+            --code-keyword: #800080; /* Purple */
+            --code-string: #a52a2a; /* Brown */
+            --code-number: #008080; /* Teal */
+            --code-comment: #888; /* Gray */
+            --code-function: #0000cd; /* Medium Blue */
+            --code-this: #cc0000; /* Dark Red */
+            --code-variable: #000; /* Black */
+            --code-operator: #000; /* Black */
+            --code-builtin: #0000cd; /* Medium Blue */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            font-size: 15px; /* Adjusted for visual match */
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--link-hover-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            width: 100px; /* Placeholder for blue square */
+            height: 30px;
+            background-color: #0000ff; /* Blue square */
+            margin-left: 20px; /* To match image spacing */
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            margin-right: 20px; /* To match image spacing */
+        }
+
+        .header-right a {
+            color: var(--light-text-color);
+        }
+
+        .header-right input[type="search"] {
+            border: 1px solid var(--border-color);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: var(--light-text-color);
+            width: 150px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: var(--text-color);
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: var(--text-color);
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .post-meta {
+            font-size: 0.85em;
+            color: var(--lighter-text-color);
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .post-meta a {
+            color: var(--lighter-text-color);
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--code-border);
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            border-radius: 3px;
+        }
+
+        pre code {
+            display: block;
+            white-space: pre;
+        }
+
+        /* Syntax Highlighting */
+        .code-keyword { color: var(--code-keyword); }
+        .code-string { color: var(--code-string); }
+        .code-number { color: var(--code-number); }
+        .code-comment { color: var(--code-comment); font-style: italic; }
+        .code-function { color: var(--code-function); }
+        .code-this { color: var(--code-this); }
+        .code-builtin { color: var(--code-builtin); }
+        .code-variable { color: var(--code-variable); }
+        .code-operator { color: var(--code-operator); }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+            margin-bottom: 1em;
+        }
+
+        ul.no-indent {
+            margin-left: 0;
+            list-style-type: none;
+        }
+
+        ul.no-indent li {
+            margin-bottom: 0.5em;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            margin-top: 50px;
+            font-size: 0.85em;
+            color: var(--light-text-color);
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-section a {
+            color: var(--light-text-color);
+        }
+
+        .footer-copyright {
+            flex-basis: 100%;
+            margin-top: 20px;
+            text-align: left;
+            color: var(--lighter-text-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-right {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+            .header-right input[type="search"] {
+                width: 100%;
+                max-width: 200px;
+            }
+            .header-left {
+                margin-left: 0;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            h3 { font-size: 1.1em; }
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-section {
+                min-width: unset;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .header-right {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .header-right input[type="search"] {
+                max-width: none;
+            }
+            .header-left {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left"></div>
+        <div class="header-right">
+            <a href="#">Core</a>
+            <a href="#">More</a>
+            <a href="#">Blog</a>
+            <a href="#">Forge</a>
+            <input type="search" placeholder="Search in the site">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Get friendly with the Natives</h1>
+        <p class="post-meta">
+            Written by <a href="#">Ryan Florence</a> on 24 March 2010 – Posted under <a href="#">all</a>, <a href="#">tips</a>
+        </p>
+
+        <p>Have you extended a Native lately? It's an incredibly helpful thing.</p>
+
+        <h2>The Difference:</h2>
+        <p>I've seen stuff like this:</p>
+        <pre><code><span class="code-function">fn1</span>(<span class="code-function">fn2</span>(<span class="code-number">10</span>, <span class="code-function">fn3</span>(<span class="code-string">'house'</span>)));</code></pre>
+        <p>Hard to figure out what's happening. Instead you can write code like:</p>
+        <pre><code><span class="code-function">fn3</span>(<span class="code-string">'house'</span>).<span class="code-function">fn2</span>(<span class="code-number">10</span>).<span class="code-function">fn1</span>();</code></pre>
+
+        <h2>A Useful, Real Example, zeroPad</h2>
+        <p>I've used this in a couple scripts, it takes a number and returns a string with zeros padded in front: 123 becomes '000123'. Really handy for filenames and the like.</p>
+
+        <h3>Functionally Based Example</h3>
+        <pre><code><span class="code-keyword">function</span> <span class="code-function">zeroPad</span>(<span class="code-variable">num</span>, <span class="code-variable">zeros</span>){
+  <span class="code-variable">zeros</span> <span class="code-operator">=</span> <span class="code-variable">zeros</span> <span class="code-operator">||</span> <span class="code-number">3</span>;
+  <span class="code-keyword">var</span> <span class="code-variable">str</span> <span class="code-operator">=</span> <span class="code-string">''</span> <span class="code-operator">+</span> <span class="code-variable">num</span>;
+  <span class="code-variable">zeros</span>.<span class="code-function">times</span>(<span class="code-keyword">function</span>(){ <span class="code-variable">str</span> <span class="code-operator">=</span> <span class="code-string">'0'</span><span class="code-operator">+</span><span class="code-variable">str</span>; });
+  <span class="code-keyword">return</span> <span class="code-variable">str</span>;
+};
+
+<span class="code-comment">// usage</span>
+<span class="code-function">doSomething</span>(<span class="code-function">zeroPad</span>(<span class="code-builtin">document</span>.<span class="code-function">getElementById</span>(<span class="code-string">'myInput'</span>).<span class="code-variable">value</span>, <span class="code-number">3</span>));</code></pre>
+
+        <h3>Native Extentions Based Example</h3>
+        <pre><code><span class="code-builtin">Number</span>.<span class="code-function">implement</span>({
+  <span class="code-function">zeroPad</span>: <span class="code-keyword">function</span>(<span class="code-variable">zeros</span>){
+    <span class="code-keyword">var</span> <span class="code-variable">str</span> <span class="code-operator">=</span> <span class="code-string">''</span> <span class="code-operator">+</span> <span class="code-this">this</span>;
+    <span class="code-variable">zeros</span>.<span class="code-function">times</span>(<span class="code-keyword">function</span>(){ <span class="code-variable">str</span> <span class="code-operator">=</span> <span class="code-string">'0'</span><span class="code-operator">+</span><span class="code-variable">str</span>; });
+    <span class="code-keyword">return</span> <span class="code-variable">str</span>;
+  }
+});
+
+<span class="code-comment">// so that it works on both numbers and strings</span>
+<span class="code-builtin">String</span>.<span class="code-function">implement</span>({
+  <span class="code-function">zeroPad</span>: <span class="code-keyword">function</span>(<span class="code-variable">zeros</span>){
+    <span class="code-keyword">return</span> <span class="code-this">this</span>.<span class="code-function">toInt</span>().<span class="code-function">zeroPad</span>(<span class="code-variable">zeros</span>);
+  }
+});
+
+<span class="code-comment">// usage</span>
+<span class="code-function">$</span>(<span class="code-string">'myInput'</span>).<span class="code-function">get</span>(<span class="code-string">'value'</span>).<span class="code-function">zeroPad</span>(<span class="code-number">3</span>).<span class="code-function">doSomething</span>();</code></pre>
+
+        <h3>Side by Side:</h3>
+        <pre><code><span class="code-function">doSomething</span>(<span class="code-function">zeroPad</span>(<span class="code-builtin">document</span>.<span class="code-function">getElementById</span>(<span class="code-string">'myInput'</span>).<span class="code-variable">value</span>, <span class="code-number">3</span>));
+<span class="code-comment">// vs</span>
+<span class="code-function">$</span>(<span class="code-string">'myInput'</span>).<span class="code-function">get</span>(<span class="code-string">'value'</span>).<span class="code-function">zeroPad</span>(<span class="code-number">3</span>).<span class="code-function">doSomething</span>();</code></pre>
+
+        <p>Awesome? Yes.</p>
+        <ul class="no-indent">
+            <li>Array</li>
+            <li>Function</li>
+            <li>Number</li>
+            <li>String</li>
+        </ul>
+        <p>Some say extending natives is a bad idea. Personally, I think it's awesome—but this topic is a sore spot for some.</p>
+
+        <h2>Flippin' Sweet Array methods</h2>
+        <p>Arian Stolwijk created this amazing gem: <a href="#">Array.Math</a>. Code samples often tell the story faster:</p>
+        <pre><code>[<span class="code-number">2</span>,<span class="code-number">5</span>,<span class="code-number">1</span>,<span class="code-number">6</span>].<span class="code-function">sum</span>(); <span class="code-comment">// 14</span>
+[<span class="code-number">2</span>,<span class="code-number">5</span>,<span class="code-number">6</span>,<span class="code-number">2</span>].<span class="code-function">product</span>(<span class="code-number">3</span>); <span class="code-comment">// [6,15,18,6]</span>
+[<span class="code-number">9</span>,<span class="code-number">12</span>,<span class="code-number">15</span>].<span class="code-function">quotient</span>(<span class="code-number">3</span>) <span class="code-comment">// [3,4,5]</span></code></pre>
+        <p>This is all made possible by extending the <strong>Array</strong> native, see?</p>
+        <pre><code><span class="code-builtin">Array</span>.<span class="code-function">implement</span> ({
+  <span class="code-function">sum</span>: <span class="code-keyword">function</span> (<span class="code-variable">start</span>, <span class="code-variable">length</span>) {
+    <span class="code-keyword">var</span> <span class="code-variable">sum</span> <span class="code-operator">=</span> <span class="code-number">0</span>,
+        <span class="code-variable">start</span> <span class="code-operator">=</span> <span class="code-variable">start</span> <span class="code-operator">?</span> <span class="code-variable">start</span> <span class="code-operator">:</span> <span class="code-number">0</span>,
+        <span class="code-variable">length</span> <span class="code-operator">=</span> <span class="code-variable">length</span> <span class="code-operator">?</span> <span class="code-variable">length</span> <span class="code-operator">:</span> <span class="code-this">this</span>.<span class="code-function">count</span>()<span class="code-operator">-</span><span class="code-variable">start</span>;
+        <span class="code-variable">length</span> <span class="code-operator">=</span> <span class="code-variable">start</span> <span class="code-operator">?</span> <span class="code-variable">length</span> <span class="code-operator">+</span> <span class="code-number">2</span> <span class="code-operator">:</span> <span class="code-variable">length</span>; <span class="code-comment">// This line seems to have a typo in the original image, assuming it's part of the code.</span>
+    <span class="code-keyword">for</span> (<span class="code-keyword">var</span> <span class="code-variable">i</span><span class="code-operator">=</span><span class="code-variable">start</span>;<span class="code-variable">i</span><span class="code-operator">&lt;</span><span class="code-variable">length</span>; <span class="code-variable">i</span><span class="code-operator">++</span>) <span class="code-variable">sum</span> <span class="code-operator">+=</span> <span class="code-this">this</span>[<span class="code-variable">i</span>];
+    <span class="code-keyword">return</span> <span class="code-variable">sum</span>;
+  },
+
+  <span class="code-function">product</span>: <span class="code-keyword">function</span>(<span class="code-variable">p</span>) {
+    <span class="code-keyword">var</span> <span class="code-variable">arr</span> <span class="code-operator">=</span> <span class="code-function">$type</span>(<span class="code-variable">p</span>) <span class="code-operator">==</span> <span class="code-string">'array'</span>;
+    <span class="code-keyword">return</span> <span class="code-this">this</span>.<span class="code-function">map</span>(<span class="code-keyword">function</span>(<span class="code-variable">entity</span>, <span class="code-variable">i</span>) {
+      <span class="code-keyword">return</span> <span class="code-variable">arr</span> <span class="code-operator">?</span> (<span class="code-variable">entity</span> <span class="code-operator">*</span> <span class="code-variable">p</span>[<span class="code-variable">i</span>]) <span class="code-operator">:</span> (<span class="code-variable">entity</span> <span class="code-operator">*</span> <span class="code-variable">p</span>);
+    });
+  },
+
+  <span class="code-function">quotient</span>: <span class="code-keyword">function</span> (<span class="code-variable">q</span>) {
+    <span class="code-keyword">var</span> <span class="code-variable">arr</span> <span class="code-operator">=</span> <span class="code-function">$type</span>(<span class="code-variable">q</span>) <span class="code-operator">==</span> <span class="code-string">'array'</span>;
+    <span class="code-keyword">return</span> <span class="code-this">this</span>.<span class="code-function">map</span>(<span class="code-keyword">function</span>(<span class="code-variable">entity</span>, <span class="code-variable">i</span>) {
+      <span class="code-keyword">return</span> <span class="code-variable">arr</span> <span class="code-operator">?</span> (<span class="code-variable">entity</span> <span class="code-operator">/</span> <span class="code-variable">q</span>[<span class="code-variable">i</span>]) <span class="code-operator">:</span> (<span class="code-variable">entity</span> <span class="code-operator">/</span> <span class="code-variable">q</span>);
+    });
+  }
+  <span class="code-comment">// and a whole lot more awesome ...</span>
+});</code></pre>
+
+        <h3>Quick Tips</h3>
+        <ul>
+            <li><strong>this</strong> is the number or string, or whatever, when inside the method.</li>
+            <li>Return something that makes sense (usually <strong>this</strong>).</li>
+            <li>You can implement several methods all in the same code block.</li>
+        </ul>
+        <p>This is just one more great tool to help keep your code organized and readable.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-copyright">
+                Copyright © 2006-2023<br>
+                Valerio Proietti & MooTools Developers
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Merchandising</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">User Group</a></li>
+                    <li><a href="#">The MooTorial</a></li>
+                    <li><a href="#">Stack Overflow</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect with us</h4>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Google+</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="#">MooTools Core</a></li>
+                    <li><a href="#">MooTools More</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

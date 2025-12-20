@@ -1,0 +1,113 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enagic Client ID</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            font-family: Arial, sans-serif; /* A common sans-serif font */
+            color: #FFFFFF; /* White text color */
+            text-align: center; /* Center text within its container */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Space between elements */
+            max-width: 90%; /* Ensure container doesn't get too wide on small screens */
+            padding: 20px; /* Add some padding around the content */
+        }
+
+        .blue-box {
+            width: 300px; /* Estimated width */
+            height: 200px; /* Estimated height */
+            background-color: #0000FF; /* Blue color */
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+
+        .question-text {
+            font-size: 1.2em; /* Slightly larger text */
+            line-height: 1.4;
+            margin: 0; /* Reset default paragraph margin */
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            justify-content: center;
+            width: 100%; /* Ensure button group takes full width of its parent */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens if needed */
+        }
+
+        .button {
+            background-color: #FFA500; /* Orange color */
+            color: #FFFFFF; /* White text */
+            border: none;
+            padding: 15px 30px; /* Padding for button size */
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px; /* Slightly rounded corners */
+            min-width: 100px; /* Minimum width for buttons */
+            flex-grow: 1; /* Allow buttons to grow if space allows */
+            max-width: 150px; /* Max width to prevent them from becoming too large */
+            box-sizing: border-box; /* Include padding in width calculation */
+            text-decoration: none; /* Remove underline if it were an anchor */
+            display: flex; /* Use flex to center text vertically if needed */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button:hover {
+            opacity: 0.9; /* Slight hover effect */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .blue-box {
+                width: 80vw; /* Make blue box responsive to viewport width */
+                height: 50vw; /* Maintain aspect ratio roughly */
+                max-width: 300px; /* But don't exceed original size */
+                max-height: 200px;
+            }
+
+            .question-text {
+                font-size: 1em;
+            }
+
+            .button-group {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+                gap: 15px;
+            }
+
+            .button {
+                width: 100%; /* Full width for stacked buttons */
+                max-width: 200px; /* Limit max width even when stacked */
+                margin: 0 auto; /* Center stacked buttons */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blue-box"></div>
+        <p class="question-text">Do you have an Enagic Client ID Number?</p>
+        <div class="button-group">
+            <button class="button">YES</button>
+            <button class="button">NO</button>
+        </div>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,439 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratchings - The randomness that spews forth from my mind</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #444;
+            background-color: #f0f0f0;
+            font-size: 15px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #363636;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .site-title {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            font-weight: normal;
+            margin-bottom: 5px;
+            color: #f0f0f0; /* Lighter than #fff to match image */
+        }
+
+        .site-tagline {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        .header-nav {
+            background-color: #666;
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+
+        .header-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-nav ul li {
+            margin-right: 20px;
+        }
+
+        .header-nav ul li a {
+            color: #fff;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 5px 0;
+            display: block;
+        }
+
+        .header-nav ul li a:hover {
+            color: #eee;
+            text-decoration: none;
+        }
+
+        /* Main Content Layout */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            max-width: 960px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            padding-right: 40px; /* Space between content and sidebar */
+            border-right: 1px solid #eee; /* Visual separator */
+        }
+
+        .sidebar {
+            width: 280px; /* Fixed width for sidebar */
+            padding-left: 40px;
+        }
+
+        /* Article Styling */
+        .post-meta {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .post-meta .date {
+            margin-right: 5px;
+        }
+
+        .post-title {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .post-title .icon {
+            font-size: 20px;
+            color: #888;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .post-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dotted #ccc;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dotted #ccc;
+        }
+
+        .post-navigation a {
+            color: #007bff;
+            font-size: 14px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .search-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #007bff;
+        }
+
+        .search-button {
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-left: none;
+            padding: 8px 12px;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .search-button:hover {
+            background-color: #ddd;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+        }
+
+        .sidebar-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-section ul li a {
+            color: #007bff;
+            font-size: 14px;
+            display: block;
+        }
+
+        .sidebar-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-section ul li .repo-description {
+            font-size: 12px;
+            color: #777;
+            margin-top: 2px;
+            display: block;
+            line-height: 1.4;
+        }
+
+        .sidebar-section ul li .repo-description.indent {
+            margin-left: 15px;
+        }
+
+        .sidebar-section ul li .github-link {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #363636;
+            color: #aaa;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding: 15px;
+                margin: 15px auto;
+            }
+
+            .content-area {
+                padding-right: 0;
+                border-right: none;
+                margin-bottom: 30px;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding-left: 0;
+            }
+
+            .header-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-nav ul li {
+                margin-bottom: 5px;
+            }
+
+            .site-title {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 32px;
+            }
+
+            .site-tagline {
+                font-size: 14px;
+            }
+
+            .post-title {
+                font-size: 28px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-input {
+                border-radius: 3px;
+                margin-bottom: 10px;
+            }
+
+            .search-button {
+                border-radius: 3px;
+                border-left: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-content">
+                <h1 class="site-title">Scratchings</h1>
+                <p class="site-tagline">The randomness that spews forth from my mind</p>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Archives</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <main class="content-area">
+            <article>
+                <p class="post-meta">
+                    <span class="date">JUN 23 RD, 2013</span> &bull;
+                </p>
+                <h2 class="post-title"><span class="icon">&#x221E;</span> Revenge</h2>
+
+                <div class="post-content">
+                    <p>I rinse the blade in the stream. Blood clouds the water.</p>
+                    <p>I always return to the stream. When His man pitched me over the bridge, so long ago, these rocks broke my fall, broke my body.</p>
+                    <p>As the sunlight fades I walk the mile to the woodcutter's shed. I must sleep before mother comes.</p>
+                    <p>Even before I see the shed I can hear the woodcutter hunting for the axe. It is no longer his, if it really ever was.</p>
+                    <p>I shout to him: "As I tell you every night: I have your axe. I will cut the wood.</p>
+                    <p>He still smells of rot. He sees the axe, grunts, and sits down next to the shed.</p>
+                    <p>I go inside. I return things to their shelves, right the table and cot.</p>
+                    <p>I sleep. I dream of the axe.</p>
+                    <p>Rocks slip under my hands as I crawl from the stream. Bloody hair splits my vision.</p>
+                    <p>His hearing must have been poor, yet he hears me crawling in the brush. He splits a final log and walks over.</p>
+                    <p>I awake sometime later on the cot. In my arms is the axe.</p>
+                    <p>It is daytime. When I step outside the sky is steel gray.</p>
+                    <p>I do not scream. I return to the shed, find some salted fish, and eat.</p>
+                    <p>I awake to my mother calling me from outside. I get up and step outside.</p>
+                    <p>I begin to walk towards her but she tells me to stop. She says I must avenge her.</p>
+                    <p>Something twists in my gut. Something draws me back to the shed.</p>
+                    <p>I wake. The moonlight streams through the doorway again.</p>
+                    <p>I feel the axe. It wants to be in my hand.</p>
+                    <p>Hours later we reach Dormsmort It looks much like the other forts we have visited over the years. She leads me to an overturned cart some yards from the fort.</p>
+                    <p>I follow the steps with axe in hand, blindly making my way down a long hallway. As I walk, the sounds of feasting get louder.</p>
+                    <p>Ahead, a line of light slowly comes into focus, revealing itself to be a slit between two small doors. I move to the slit and peer out.</p>
+                    <p>A voice shouts for a toast, tables are pounded, and legs rush past the slit. I wait, slowly open the doors, and enter the kitchen.</p>
+                    <p>I walk back, pull it out, and see I was mistaken. He did not have His face.</p>
+                    <p>I carry the boy deeper into the kitchen and take his uniform. After stuffing his body into a cupboard, I dump flour over the blood stains.</p>
+                    <p>Somewhere, my mother is laughing.</p>
+                </div>
+
+                <p class="post-footer">
+                    Posted by Shane Liebling &bull; Jun 23rd, 2013
+                </p>
+            </article>
+
+            <nav class="post-navigation">
+                <a href="#">&laquo; Questions</a>
+                <a href="#">Journals and Zines &raquo;</a>
+            </nav>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <form class="search-form">
+                    <input type="search" class="search-input" placeholder="Search">
+                    <!-- The image shows a search icon, but for simplicity and without external assets, a button is used. -->
+                    <!-- If an icon is strictly needed, an SVG or font icon library would be required. -->
+                    <!-- For this task, a simple button or placeholder for the icon is sufficient. -->
+                    <!-- The image implies a search button or icon, but no text. I'll omit the button for a cleaner look matching the input field's end. -->
+                </form>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Recent Posts</h3>
+                <ul>
+                    <li><a href="#">We All Die Alone...</a></li>
+                    <li><a href="#">Limbo</a></li>
+                    <li><a href="#">Zine Reviews</a></li>
+                    <li><a href="#">Journals and Zines</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>GitHub Repos</h3>
+                <ul>
+                    <li>
+                        <a href="#">refuge</a>
+                        <span class="repo-description">A Game Scheduling Platform</span>
+                    </li>
+                    <li>
+                        <a href="#">roller</a>
+                        <span class="repo-description">Dice roller written in Go and Javascript to run on Google Appengine</span>
+                    </li>
+                    <li>
+                        <a href="#">itdr</a>
+                        <span class="repo-description indent">Into the Dungeon: Revived &mdash; Rules for fantastic adventure games playable with paper and pencil and polyhedral dice.</span>
+                    </li>
+                    <li>
+                        <a href="#">indigo</a>
+                        <span class="repo-description">An IndieWeb-friendly custom theme for Hugo</span>
+                    </li>
+                    <li>
+                        <a href="#" class="github-link">@shanel on GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright &copy; 2013 - Shane Liebling - Powered by Octopress</p>
+    </footer>
+</body>
+</html>
+```

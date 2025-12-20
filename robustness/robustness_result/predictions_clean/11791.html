@@ -1,0 +1,537 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Harder for Shorties to Lose Weight, Says Specialist</title>
+    <style>
+        :root {
+            --primary-text-color: #333;
+            --secondary-text-color: #666;
+            --light-gray-bg: #f8f8f8;
+            --dark-bg: #222;
+            --blue-placeholder: #0000FF; /* A vibrant blue for placeholders */
+            --border-color: #eee;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--primary-text-color);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-text-color);
+        }
+
+        a:hover {
+            color: #007bff; /* A common hover color */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #fff;
+        }
+
+        .header-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        .header-nav a {
+            font-weight: bold;
+            color: var(--primary-text-color);
+            font-size: 15px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .article-section {
+            flex: 3;
+            min-width: 300px; /* Ensure it doesn't get too small */
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 250px; /* Ensure it doesn't get too small */
+        }
+
+        /* Article Section */
+        .breadcrumbs {
+            font-size: 13px;
+            color: var(--secondary-text-color);
+            margin-bottom: 15px;
+        }
+
+        .breadcrumbs a {
+            color: var(--secondary-text-color);
+        }
+
+        .breadcrumbs span {
+            margin: 0 5px;
+        }
+
+        .article-title {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: var(--secondary-text-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ccc; /* Default color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .social-icon.facebook { background-color: #3b5998; }
+        .social-icon.twitter { background-color: #1da1f2; }
+        .social-icon.pinterest { background-color: #bd081c; }
+        .social-icon.linkedin { background-color: #0077b5; }
+        .social-icon.email { background-color: #dd4b39; }
+        .social-icon.whatsapp { background-color: #25d366; }
+        .social-icon.telegram { background-color: #0088cc; }
+
+
+        .article-intro {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .article-image-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: var(--blue-placeholder);
+            margin-bottom: 30px;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Sidebar */
+        .sidebar-block {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .popular-posts ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popular-posts li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .popular-posts .post-thumbnail {
+            width: 70px;
+            height: 70px;
+            background-color: var(--blue-placeholder);
+            flex-shrink: 0;
+        }
+
+        .popular-posts .post-title {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1.4;
+            color: var(--primary-text-color);
+        }
+
+        .popular-posts .post-title:hover {
+            color: #007bff;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 20px;
+        }
+
+        .categories-grid a {
+            font-size: 15px;
+            color: var(--primary-text-color);
+        }
+
+        .categories-grid a:hover {
+            color: #007bff;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        .pagination-link {
+            flex: 1;
+            padding: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary-text-color);
+            font-size: 15px;
+        }
+
+        .pagination-link:first-child {
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .newsletter-input::placeholder {
+            color: #aaa;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 14px;
+            color: #ccc;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .article-section, .sidebar {
+                flex: none;
+                width: 100%;
+            }
+            .article-title {
+                font-size: 32px;
+            }
+            .header-nav ul {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                justify-content: center;
+            }
+            .header-nav {
+                width: 100%;
+                text-align: center;
+            }
+            .header-nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .article-title {
+                font-size: 28px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .pagination {
+                flex-direction: column;
+            }
+            .pagination-link:first-child {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .header {
+                padding: 10px 15px;
+            }
+            .header-nav a {
+                font-size: 14px;
+            }
+            .article-title {
+                font-size: 24px;
+            }
+            .article-content p, .article-intro {
+                font-size: 15px;
+            }
+            .sidebar-title {
+                font-size: 16px;
+            }
+            .popular-posts .post-title {
+                font-size: 14px;
+            }
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-column h4 {
+                font-size: 16px;
+            }
+            .footer-column p, .footer-column a, .copyright {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Fitness</a></li>
+                <li><a href="#">Nutrition</a></li>
+                <li><a href="#">Weight Loss</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container main-content">
+        <main class="article-section">
+            <div class="breadcrumbs">
+                <a href="#">Home</a> <span>&gt;</span> <a href="#">facts</a> <span>&gt;</span> <a href="#">lose weight</a> <span>&gt;</span> weight loss
+            </div>
+
+            <h1 class="article-title">IT'S HARDER FOR SHORTIES TO LOSE WEIGHT, SAYS SPECIALIST</h1>
+
+            <div class="article-meta">
+                <span>Joy</span> <span>9 Apr, 2019</span>
+            </div>
+
+            <div class="social-share">
+                <div class="social-icon facebook"></div>
+                <div class="social-icon twitter"></div>
+                <div class="social-icon pinterest"></div>
+                <div class="social-icon linkedin"></div>
+                <div class="social-icon email"></div>
+                <div class="social-icon whatsapp"></div>
+                <div class="social-icon telegram"></div>
+            </div>
+
+            <p class="article-intro">According to the Association of Medicine for Obesity for shorties is more difficult to lose weight, here we explain why.</p>
+
+            <div class="article-image-placeholder"></div>
+
+            <div class="article-content">
+                <p>It's harder for shorties to lose weight because their metabolisms are slower, said Craig Primack, president of the Obesity Medicine Association. We know, it sounds sad, but it's real.</p>
+                <p>As if that weren't enough, when a woman gains weight, even if it's a couple of pounds, it's more noticeable than a tall one. In addition, they can lose weight very easily, while the short ones have to "kill themselves" to achieve that goal.</p>
+                <p>The specialist explained that a woman of average height has a basal metabolic rate of 1,400 calories per day, which means that if she remains immobile for 24 hours they will burn that amount of calories.</p>
+                <p>However, in those that are less than 5 feet that rate is only 1200 calories; in contrast to the high ones, that is to say, those that have a greater size to the one referred to above are capable of burning up to 1750 calories per day.</p>
+                <p>In simple words, the specialist's words mean that the smaller your body is, the less energy it needs and that's why it burns less, which is why losing weight is complicated.</p>
+                <p>Obviously this is bad news, however, what you must do to make the diet work is to eat according to your needs, for which, ideally, you should visit a nutritionist who designs a feeding plan for you.</p>
+                <p>But not everything is bad, because there is also a study that states that shopping helps you lose weight.</p>
+                <p>We suggest you exercise. Running is a good way to speed up your metabolism and burn fat, ideally combined with a little gym to build lean muscles.</p>
+                <p>You should also increase your intake of vitamins, minerals, and fiber.</p>
+                <p>Remember that health is beauty, so take care of yourself. To help you in the process we share these tricks to lose 10 pounds in a month.</p>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="pagination-link">Next Post</a>
+                <a href="#" class="pagination-link">Previous Post</a>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-block popular-posts">
+                <h3 class="sidebar-title">POPULAR POSTS</h3>
+                <ul>
+                    <li>
+                        <div class="post-thumbnail"></div>
+                        <a href="#" class="post-title">APPLE AND CINNAMON DETOX WATER: A SWEET AND HEALTHY DRINK FOR WEIGHT LOSS</a>
+                    </li>
+                    <li>
+                        <div class="post-thumbnail"></div>
+                        <a href="#" class="post-title">15-MINUTE AB WORKOUT WITH A DUMBBELL: EFFECTIVE AND QUICK CIRCUIT FOR STRONG ABS</a>
+                    </li>
+                    <li>
+                        <div class="post-thumbnail"></div>
+                        <a href="#" class="post-title">1000 STEP CHALLENGE WITH STEP: CORE AND CONDITIONING WORKOUT GUIDE</a>
+                    </li>
+                    <li>
+                        <div class="post-thumbnail"></div>
+                        <a href="#" class="post-title">HOW TO LOSE 10 POUNDS IN A WEEK - 8 PROVEN TIPS THAT HELPED ME TO LOSE 10 POUNDS IN ONE WEEK</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-block categories">
+                <h3 class="sidebar-title">CATEGORIES</h3>
+                <div class="categories-grid">
+                    <a href="#">1200 calorie diet</a>
+                    <a href="#">detox</a>
+                    <a href="#">keto</a>
+                    <a href="#">low calorie</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column about-us">
+                <h4>ABOUT US</h4>
+                <p>Your guide to fitness, health and positivity. We show you how to get fit and healthy, look good and be happy.</p>
+            </div>
+            <div class="footer-column learn-more">
+                <h4>LEARN MORE</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies Policies</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-column follow-us">
+                <h4>FOLLOW US</h4>
+                <div class="footer-social-icons">
+                    <div class="footer-social-icon"></div>
+                    <div class="footer-social-icon"></div>
+                    <div class="footer-social-icon"></div>
+                    <div class="footer-social-icon"></div>
+                    <div class="footer-social-icon"></div>
+                    <div class="footer-social-icon"></div>
+                </div>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>NEWSLETTER</h4>
+                <p>Stay up to date with the latest news and relevant updates from us.</p>
+                <input type="email" class="newsletter-input" placeholder="Email Address">
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>Copyright © 2023 FITBODYUSA</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

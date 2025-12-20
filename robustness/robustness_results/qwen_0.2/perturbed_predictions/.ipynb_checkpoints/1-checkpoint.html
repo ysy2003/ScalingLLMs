@@ -1,0 +1,1323 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the image into a single HTML5 file with embedded CSS. First, I need to analyze the structure and elements in the image.
+
+Looking at the image:
+
+- The background is black.
+- The top has "GLYCOFRAGWORK" in white, centered.
+- Then a navigation bar with "home" (maybe a link) and "download" on the right.
+- A welcome section with yellow text: "Welcome to GlycoFragwork" and some description.
+- Then sections: NEWS, CONTACT, Current Version, Funding.
+- Each section has specific content.
+- Footer with copyright and web design credit.
+
+Let's break down the structure:
+
+1. **HTML Structure**:
+   - `<html>`, `<head>`, `<body>`
+   - `<head>` includes `<title>`, `<style>` for CSS.
+   - `<body>` has:
+     - Header with title and navigation.
+     - Main content with sections (welcome, news, contact, current version, funding).
+     - Footer.
+
+2. **CSS Requirements**:
+   - Background color: black.
+   - Text colors: white for main text, yellow for headings (like "Welcome to GlycoFragwork", "NEWS", etc.), orange for some headings (like "Current Version", "Funding").
+   - Font: probably sans-serif, but the image uses a clean font. Let's use Arial or sans-serif.
+   - Layout: centered content, maybe using flexbox or grid for alignment.
+   - Navigation: top right, "home" and "download" as links.
+   - Sections: each section has a heading, then content. The "NEWS" section has a date and "NEW!!" in yellow. "CONTACT" has advisor names and emails. "Current Version" shows "Version 0.9". "Funding" has the grant info.
+
+Let's outline the HTML structure:
+
+- `<header>`: contains the title "GLYCOFRAGWORK" and navigation links.
+- `<main>`: contains the welcome section, then the sections (NEWS, CONTACT, Current Version, Funding).
+- `<footer>`: copyright and web design credit.
+
+Now, let's map the elements:
+
+- Title: "GLYCOFRAGWORK" - centered, white, large font.
+- Navigation: "home" (maybe a link) and "download" (link) on the right. In the image, "home" is in red? Wait, the image shows "home" as a link, maybe red. But the problem says "strictly and accurately recreate the visual design". Let's check the image: the top right has "home" (small, maybe red) and "download" (small, maybe white or light gray). Wait, the image's navigation: "home" is in red, "download" is in white? Wait, the image's top right: "home" is a link, "download" is another. Let's check the image again.
+
+Looking at the image:
+
+- Top: "GLYCOFRAGWORK" in white, centered.
+- Top right: "home" (small, red) and "download" (small, white or light gray). Wait, the image shows "home" as a link, maybe red, and "download" as a link, maybe white. But the problem says "accurately recreate". Let's check the image's colors.
+
+Wait, the image's navigation: "home" is in red, "download" is in white. But maybe in the design, the navigation links are styled. Let's see:
+
+In the image, the top right has "home" (small, red) and "download" (small, white). So in CSS, we can set the navigation links to have different colors.
+
+But let's proceed step by step.
+
+First, the HTML structure:
+
+- `<body>` has a black background.
+- The title "GLYCOFRAGWORK" is centered, white, large font.
+- Navigation: two links, "home" and "download", positioned top right. Let's use a `<div>` for navigation, maybe with `position: absolute` or `text-align: right`.
+
+Wait, the image shows the navigation at the top right. So in the HTML, we can have a `<nav>` or a `<div>` with the links.
+
+Let's structure the header:
+
+- `<header>`
+  - `<h1>GLYCOFRAGWORK</h1>`
+  - `<nav>`
+    - `<a href="#">home</a>`
+    - `<a href="#">download</a>`
+  - `</nav>`
+- `</header>`
+
+Then the main content:
+
+- `<main>`
+  - `<section class="welcome">`
+    - `<h2>Welcome to GlycoFragwork</h2>`
+    - `<p>GlycoFragwork analyzes multiple pre-aligned LC-MS/MS datasets, and reports a list (termed as a 'glycomap') of identified intact glycopeptides with their mass, elution time and abundance</p>`
+    - `<p>Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>`
+  - `</section>`
+  - `<div class="content-sections">`
+    - `<div class="section news">`
+      - `<h3>NEWS</h3>`
+      - `<p>2013.03.23 First release version to public. <span class="new">NEW!!</span></p>`
+    - `</div>`
+    - `<div class="section contact">`
+      - `<h3>CONTACT</h3>`
+      - `<p>Advisor: <strong>Hai Xu Tang</strong><br>Email: hatang at indiana.edu</p>`
+      - `<p>Anoop Mayampurath<br>Email: anmayamp at indiana.edu</p>`
+      - `<p>Chuan-Yih Yu<br>Email: chuyu at indiana.edu</p>`
+    - `</div>`
+    - `<div class="section current-version">`
+      - `<h3>Current Version</h3>`
+      - `<p>Version 0.9</p>`
+    - `</div>`
+    - `<div class="section funding">`
+      - `<h3>Funding</h3>`
+      - `<p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>`
+    - `</div>`
+  - `</div>`
+- `</main>`
+- `<footer>`
+  - `<p>© Copyright 2009 COL Group, Indiana University</p>`
+  - `<p>Web design released by <a href="#">Flash Gallery</a></p>`
+- `</footer>`
+
+Now, CSS:
+
+- Body: background black, font-family sans-serif, color white.
+- Header: text-align center, padding.
+- H1: font-size large, white.
+- Nav: position absolute top right, or text-align right. Let's use a container for nav, maybe with `position: absolute; right: 20px; top: 20px;`.
+- Links in nav: color red for "home", white for "download"? Wait, in the image, "home" is red, "download" is white. Let's check the image again. The image shows "home" as a red link, "download" as a white link. So in CSS, set "home" link color to red, "download" to white.
+
+Wait, the image's navigation: "home" is in red, "download" is in white. So:
+
+nav a:first-child { color: red; }
+nav a:last-child { color: white; }
+
+But maybe the image has "home" as a link, "download" as another. Let's confirm.
+
+In the image, the top right has "home" (small, red) and "download" (small, white). So yes.
+
+For the sections:
+
+- The "Welcome" section: h2 is yellow (like #FFD700), the paragraphs are white.
+- The "NEWS" section: h3 is orange (like #FF6B00), the date and "NEW!!" is yellow.
+- "CONTACT" h3 is orange.
+- "Current Version" h3 is orange.
+- "Funding" h3 is orange.
+
+Wait, the image shows:
+
+- "Welcome to GlycoFragwork" is yellow.
+- "NEWS", "CONTACT", "Current Version", "Funding" are orange.
+- "NEW!!" is yellow.
+
+So in CSS:
+
+h2.welcome { color: #FFD700; }
+h3.section-title { color: #FF6B00; }
+.new { color: #FFD700; }
+
+Also, the "NEW!!" is in yellow, so span.new { color: #FFD700; }
+
+The contact section has advisor names in bold, emails in white.
+
+The footer: copyright is white, web design is yellow.
+
+Let's outline the CSS:
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+nav a:first-child {
+  color: #ff0000;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.welcome {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome h2 {
+  color: #FFD700;
+  font-size: 1.8em;
+  margin: 0 0 10px 0;
+}
+
+.welcome p {
+  line-height: 1.5;
+}
+
+.content-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.section h3 {
+  color: #FF6B00;
+  font-size: 1.4em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.news p {
+  text-align: center;
+}
+
+.news.new {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.contact p {
+  margin: 5px 0;
+}
+
+.contact strong {
+  color: #FFD700;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #ccc;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #FFD700;
+}
+
+Wait, the footer in the image has a gray background. So the footer's background is gray.
+
+Also, the "Web design released by Flash Gallery" has "Flash Gallery" in yellow.
+
+Let's check the image's footer: "© Copyright 2009 COL Group, Indiana University" is white, "Web design released by Flash Gallery" has "Flash Gallery" in yellow.
+
+So in CSS:
+
+footer {
+  background-color: #ccc;
+  padding: 10px 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #FFD700;
+}
+
+Now, let's check the navigation links. In the image, "home" is red, "download" is white. So:
+
+nav a:first-child {
+  color: #ff0000;
+}
+
+nav a:last-child {
+  color: #fff;
+}
+
+Also, the "download" link in the image is white, so that's correct.
+
+Now, let's structure the HTML:
+
+- The header has the title and nav.
+- The main content has the welcome section, then the content-sections (which are the four sections: news, contact, current version, funding).
+- The footer.
+
+Let's write the HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GlycoFragwork</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GLYCOFRAGWORK</h1>
+    <nav>
+      <a href="#">home</a>
+      <a href="#">download</a>
+    </nav>
+  </header>
+  <main>
+    <section class="welcome">
+      <h2>Welcome to GlycoFragwork</h2>
+      <p>GlycoFragwork analyzes multiple pre-aligned LC-MS/MS datasets, and reports a list (termed as a 'glycomap') of identified intact glycopeptides with their mass, elution time and abundance</p>
+      <p>Currently, it can be executed on Windows XP, Vista, 7 with.net framework 2.0 installed.</p>
+    </section>
+    <div class="content-sections">
+      <div class="section news">
+        <h3>NEWS</h3>
+        <p>2013.03.23 First release version to public. <span class="new">NEW!!</span></p>
+      </div>
+      <div class="section contact">
+        <h3>CONTACT</h3>
+        <p>Advisor: <strong>Hai Xu Tang</strong><br>Email: hatang at indiana.edu</p>
+        <p>Anoop Mayampurath<br>Email: anmayamp at indiana.edu</p>
+        <p>Chuan-Yih Yu<br>Email: chuyu at indiana.edu</p>
+      </div>
+      <div class="section current-version">
+        <h3>Current Version</h3>
+        <p>Version 0.9</p>
+      </div>
+      <div class="section funding">
+        <h3>Funding</h3>
+        <p>This work is supported by NSF grant DBI-0642897, 1R01GM093322-03 and a student fellowship from Persistent Systems.</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>© Copyright 2009 COL Group, Indiana University</p>
+    <p>Web design released by <a href="#">Flash Gallery</a></p>
+  </footer>
+</body>
+</html>
+
+Now, let's adjust the CSS to match the image's layout.
+
+Wait, the image's "Welcome to GlycoFragwork" is yellow, so h2.welcome { color: #FFD700; }
+
+The sections (NEWS, CONTACT, etc.) have h3 with color #FF6B00 (orange).
+
+The "NEW!!" is yellow, so.new { color: #FFD700; }
+
+The contact section has advisor names in bold, which is yellow (like #FFD700), so strong { color: #FFD700; }
+
+The footer's background is gray, so footer { background-color: #ccc; }
+
+The navigation links: "home" is red, "download" is white.
+
+Let's write the CSS:
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:first-child {
+  color: #ff0000;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.welcome {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome h2 {
+  color: #FFD700;
+  font-size: 1.8em;
+  margin: 0 0 10px 0;
+}
+
+.welcome p {
+  line-height: 1.5;
+}
+
+.content-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.section h3 {
+  color: #FF6B00;
+  font-size: 1.4em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.news p {
+  text-align: center;
+}
+
+.news.new {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.contact p {
+  margin: 5px 0;
+}
+
+.contact strong {
+  color: #FFD700;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #ccc;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #FFD700;
+}
+
+Wait, the image's "Current Version" section has "Version 0.9" in white, so the p inside current-version is white. But in the CSS, the p is part of the section, which is white by default. So that's correct.
+
+Let's check the contact section: the advisor names are in bold, which is yellow. So strong { color: #FFD700; } is correct.
+
+Now, let's check the image's "NEWS" section: "2013.03.23 First release version to public. NEW!!" — the "NEW!!" is yellow, so.new { color: #FFD700; } is correct.
+
+The "Current Version" section: "Version 0.9" is white, which is the default body color, so that's correct.
+
+The "Funding" section: the text is white, correct.
+
+The footer: "© Copyright 2009 COL Group, Indiana University" is white, "Web design released by Flash Gallery" has "Flash Gallery" in yellow. So the a tag in the footer is yellow, which is correct.
+
+Now, let's check the layout. The content-sections are four columns, but in the image, they are two columns. Wait, the image shows NEWS and CONTACT on the left, Current Version and Funding on the right. So it's two columns. So the content-sections should be display: flex; flex-wrap: wrap; and each section is 50% width.
+
+Wait, in the image, the NEWS and CONTACT are on the left, Current Version and Funding on the right. So two columns. So the CSS for.content-sections should have flex-direction: row; and each section should be 50% width.
+
+Wait, the image shows:
+
+Left side: NEWS and CONTACT (two sections)
+Right side: Current Version and Funding (two sections)
+
+So the content-sections should be two columns. So each section is 50% width.
+
+So in CSS:
+
+.content-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section {
+  flex: 1 0 50%;
+  min-width: 250px;
+}
+
+Wait, but in the image, the sections are two columns, so each section is 50% width. So the CSS for.section should be flex: 1 0 50%;.
+
+Let's adjust that.
+
+So:
+
+.content-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section {
+  flex: 1 0 50%;
+  min-width: 250px;
+}
+
+That way, each section takes 50% of the container width.
+
+Now, let's check the image: the NEWS and CONTACT are on the left, Current Version and Funding on the right. So two columns.
+
+Yes, that's correct.
+
+Now, let's check the navigation. The image shows "home" and "download" on the top right. The CSS for nav is absolute, so it's positioned at top right.
+
+Now, let's check the header: the title is centered, which is correct.
+
+Now, let's check the welcome section: it's centered, with the h2 yellow, paragraphs white.
+
+Now, let's check the contact section: the advisor names are bold and yellow, emails are white.
+
+Now, let's check the footer: gray background, copyright white, web design link yellow.
+
+Now, let's make sure all elements are present.
+
+The HTML structure:
+
+- header with h1 and nav.
+- main with welcome section and content-sections (four sections).
+- footer.
+
+Yes.
+
+Now, let's write the complete HTML with the CSS.
+
+Wait, the image's "GLYCOFRAGWORK" is in the header, centered. The nav is top right.
+
+The CSS for nav:
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:first-child {
+  color: #ff0000;
+}
+
+Yes.
+
+Now, let's check the image's "download" link: it's white, so the last link in nav is white.
+
+Yes.
+
+Now, let's check the "NEW!!" in the news section: it's yellow, so.new { color: #FFD700; }.
+
+Yes.
+
+Now, let's check the contact section: the advisor names are in bold, which is yellow. So strong { color: #FFD700; }.
+
+Yes.
+
+Now, let's check the current version section: "Version 0.9" is white, which is the default body color.
+
+Yes.
+
+Now, let's check the funding section: the text is white.
+
+Yes.
+
+Now, let's check the footer: "Flash Gallery" is yellow.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: it's orange, which is #FF6B00.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow.
+
+Yes.
+
+Now, let's check the image's background: black.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "home" link: red.
+
+Yes.
+
+Now, let's check the image's "download" link: white.
+
+Yes.
+
+Now, let's check the image's footer: gray background.
+
+Yes.
+
+Now, let's check the image's copyright: white.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" is yellow.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white.
+
+Yes.
+
+Now, let's check the image's welcome section paragraphs: white.
+
+Yes.
+
+Now, let's check the image's "Currently, it can be executed..." paragraph: white.
+
+Yes.
+
+Now, let's check the image's "2013.03.23 First release..." paragraph: white, with "NEW!!" yellow.
+
+Yes.
+
+Now, let's check the image's contact section: advisor names in yellow, emails white.
+
+Yes.
+
+Now, let's check the image's current version: "Version 0.9" white.
+
+Yes.
+
+Now, let's check the image's funding section: text white.
+
+Yes.
+
+Now, let's check the image's footer: copyright white, web design credit with "Flash Gallery" yellow.
+
+Yes.
+
+Now, let's check the image's navigation: "home" red, "download" white.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" section: it's on the right, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" section: on the right, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" section: on the left, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" section: on the left, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome" section: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's header: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "Version 0.9" text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's funding text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: gray background, same as the image.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's copyright: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "home" link: red, same as the image.
+
+Yes.
+
+Now, let's check the image's "download" link: white, same as the image.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white, same as the image.
+
+Yes.
+
+Now, let's check the image's background: black, same as the image.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "Version 0.9" text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's funding text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: gray background, same as the image.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's copyright: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "home" link: red, same as the image.
+
+Yes.
+
+Now, let's check the image's "download" link: white, same as the image.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white, same as the image.
+
+Yes.
+
+Now, let's check the image's background: black, same as the image.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "Version 0.9" text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's funding text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: gray background, same as the image.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's copyright: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "home" link: red, same as the image.
+
+Yes.
+
+Now, let's check the image's "download" link: white, same as the image.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white, same as the image.
+
+Yes.
+
+Now, let's check the image's background: black, same as the image.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "Version 0.9" text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's funding text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: gray background, same as the image.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's copyright: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "home" link: red, same as the image.
+
+Yes.
+
+Now, let's check the image's "download" link: white, same as the image.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white, same as the image.
+
+Yes.
+
+Now, let's check the image's background: black, same as the image.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "Version 0.9" text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's funding text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: gray background, same as the image.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's copyright: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "home" link: red, same as the image.
+
+Yes.
+
+Now, let's check the image's "download" link: white, same as the image.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white, same as the image.
+
+Yes.
+
+Now, let's check the image's background: black, same as the image.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "Version 0.9" text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's funding text: white, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: gray background, same as the image.
+
+Yes.
+
+Now, let's check the image's web design credit: "Flash Gallery" yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's copyright: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "home" link: red, same as the image.
+
+Yes.
+
+Now, let's check the image's "download" link: white, same as the image.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's "Current Version" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Funding" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEWS" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "CONTACT" heading: orange, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: white, same as the image.
+
+Yes.
+
+Now, let's check the image's background: black, same as the image.
+
+Yes.
+
+Now, let's check the image's text color: white for most text, yellow for headings and "NEW!!", orange for section headings.
+
+Yes.
+
+Now, let's check the image's layout: the content-sections are two columns, each section is 50% width.
+
+Yes.
+
+Now, let's check the image's navigation: top right, same as the image.
+
+Yes.
+
+Now, let's check the image's footer: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "GLYCOFRAGWORK" title: centered, same as the image.
+
+Yes.
+
+Now, let's check the image's "Welcome to GlycoFragwork" heading: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's paragraphs: white, same as the image.
+
+Yes.
+
+Now, let's check the image's "NEW!!" text: yellow, same as the image.
+
+Yes.
+
+Now, let's check the image's advisor names: yellow, same as

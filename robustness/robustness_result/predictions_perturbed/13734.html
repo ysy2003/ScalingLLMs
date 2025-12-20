@@ -1,0 +1,486 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Hotels in Venice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0000FF; /* Pure blue as seen in image */
+            --dark-text: #222;
+            --light-text: #666;
+            --border-color: #eee;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --rating-bg: #212121; /* Dark background for rating number */
+            --footer-bg: #f8f8f8;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header-blue-bar {
+            background-color: var(--primary-blue);
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Main Title */
+        .main-title {
+            text-align: center;
+            padding: 80px 20px 40px; /* Adjusted padding to account for fixed header */
+        }
+
+        .main-title h1 {
+            font-size: 2.8em;
+            margin: 0;
+        }
+
+        /* Hotel Cards Section */
+        .hotel-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px 60px;
+        }
+
+        .hotel-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-card-image-placeholder {
+            background-color: var(--primary-blue);
+            height: 180px;
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .hotel-card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .hotel-card-content h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hotel-card-content p {
+            font-size: 0.95em;
+            color: var(--light-text);
+            margin-bottom: 20px;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .book-now-btn {
+            background-color: var(--primary-blue);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .book-now-btn:hover {
+            background-color: #0000CC;
+        }
+
+        .hotel-card-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto; /* Pushes rating to the bottom */
+        }
+
+        .rating-score {
+            background-color: var(--rating-bg);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .rating-text {
+            font-size: 0.85em;
+            color: var(--light-text);
+            line-height: 1.3;
+        }
+
+        .rating-text strong {
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        /* Sygic Travel Section */
+        .sygic-travel-section {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #f9f9f9; /* Slightly off-white background */
+            margin-top: 60px;
+        }
+
+        .sygic-travel-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .sygic-travel-section p {
+            font-size: 1.1em;
+            color: var(--light-text);
+            margin-bottom: 30px;
+        }
+
+        .app-store-placeholder {
+            background-color: var(--primary-blue);
+            width: 180px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+        }
+
+        .app-search-text {
+            font-size: 0.95em;
+            color: var(--light-text);
+        }
+
+        /* More Interesting Places Section */
+        .more-places-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .more-places-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .places-grid div {
+            padding: 10px 0;
+        }
+
+        .places-grid a {
+            display: block;
+            color: var(--light-text);
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+
+        .places-grid a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #fff; /* Appears white in the image */
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .copyright {
+            font-size: 0.8em;
+            color: var(--light-text);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-title h1 {
+                font-size: 2em;
+            }
+
+            .hotel-cards-grid {
+                grid-template-columns: 1fr;
+                padding: 0 15px 40px;
+            }
+
+            .hotel-card-content {
+                padding: 20px;
+            }
+
+            .hotel-card-content h3 {
+                font-size: 1.3em;
+            }
+
+            .hotel-card-content p {
+                font-size: 0.9em;
+            }
+
+            .book-now-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .sygic-travel-section h2 {
+                font-size: 2em;
+            }
+
+            .sygic-travel-section p {
+                font-size: 1em;
+            }
+
+            .app-store-placeholder {
+                width: 150px;
+                height: 50px;
+            }
+
+            .more-places-section h2 {
+                font-size: 2em;
+            }
+
+            .places-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                padding: 0 15px;
+            }
+
+            .footer-links a {
+                margin: 0 10px;
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                padding-top: 70px;
+            }
+            .main-title h1 {
+                font-size: 1.8em;
+            }
+            .sygic-travel-section h2 {
+                font-size: 1.8em;
+            }
+            .more-places-section h2 {
+                font-size: 1.8em;
+            }
+            .places-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-links a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-blue-bar"></div>
+
+    <div class="main-title">
+        <h1>Best Budget Hotels in Venice</h1>
+    </div>
+
+    <div class="container hotel-cards-grid">
+        <div class="hotel-card">
+            <div class="hotel-card-image-placeholder"></div>
+            <div class="hotel-card-content">
+                <h3>Hotel Lisbona</h3>
+                <p>Hotel Lisbona is located 100 metres from Saint Mark's Square, and the closest water-bus station is Vallaresso.</p>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+                <div class="hotel-card-rating">
+                    <span class="rating-score">8.4</span>
+                    <div class="rating-text">
+                        <strong>Very good</strong><br>
+                        100% verified reviews
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-card-image-placeholder"></div>
+            <div class="hotel-card-content">
+                <h3>Hotel Altieri</h3>
+                <p>Hotel Altieri offers a free car park and free Wi-Fi access. Public bus number 19 will take you to Venice in about 20 minutes.</p>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+                <div class="hotel-card-rating">
+                    <span class="rating-score">8.1</span>
+                    <div class="rating-text">
+                        <strong>Very good</strong><br>
+                        100% verified reviews
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-card-image-placeholder"></div>
+            <div class="hotel-card-content">
+                <h3>Hotel Marco Polo</h3>
+                <p>The Marco Polo is a modern hotel only 3 km from Venice Airport. It offers free parking, free Wi-Fi and air-conditioned rooms.</p>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+                <div class="hotel-card-rating">
+                    <span class="rating-score">8</span>
+                    <div class="rating-text">
+                        <strong>Very good</strong><br>
+                        100% verified reviews
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-card-image-placeholder"></div>
+            <div class="hotel-card-content">
+                <h3>Base Hotel to Stay</h3>
+                <p>Located a 2-minute drive from the A4 motorway exit in Noventa Di Piave, Base Hotel To Stay offers modern air-conditioned accommodation with...</p>
+                <a href="#" class="book-now-btn">BOOK NOW</a>
+                <div class="hotel-card-rating">
+                    <span class="rating-score">8.6</span>
+                    <div class="rating-text">
+                        <strong>Very good</strong><br>
+                        100% verified reviews
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sygic-travel-section">
+        <h2>Sygic Travel - A Travel Guide in Your Pocket</h2>
+        <p>Download for free and plan your trips with ease</p>
+        <div class="app-store-placeholder"></div>
+        <p class="app-search-text">Or just search for "Sygic Travel" in App Store or<br>Google Play.</p>
+    </div>
+
+    <div class="more-places-section">
+        <h2>More interesting places</h2>
+        <div class="places-grid">
+            <div>
+                <a href="#">Best Countryside Hotels in Venice</a>
+                <a href="#">What to See in Europe</a>
+                <a href="#">What to See in Italy</a>
+                <a href="#">Best Hotels with Free Wifi in Mestre</a>
+            </div>
+            <div>
+                <a href="#">Best Hotels with Free Wifi in Treviso</a>
+                <a href="#">What to See in Padua</a>
+                <a href="#">What to See in Vicenza</a>
+                <a href="#">What to See in Ferrara</a>
+                <a href="#">What to See in Ravenna</a>
+            </div>
+            <div>
+                <a href="#">What to See in Udine</a>
+                <a href="#">What to See in Venezia</a>
+                <a href="#">What to See in Burano</a>
+                <a href="#">What to See in Giudecca</a>
+                <a href="#">Best Hotels with Free Wifi in Lido di Venezia</a>
+            </div>
+            <div>
+                <a href="#">Best Budget Hotels in San Marco</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">SUPPORT</a>
+            <a href="#">TERMS</a>
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">STOCK 360° TRAVEL VIDEOS</a>
+        </div>
+        <div class="social-icons">
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+            <div class="social-icon"></div>
+        </div>
+        <p class="copyright">&copy; 2023 TRIPOMATIC S.R.O. ALL RIGHTS RESERVED</p>
+    </footer>
+</body>
+</html>
+```

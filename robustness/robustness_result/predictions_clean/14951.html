@@ -1,0 +1,379 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen and Alisa Walton</title>
+    <style>
+        /* Global Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            display: flex; /* Use flexbox for the main layout */
+            justify-content: center; /* Center the content */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        a {
+            color: #a07e3d; /* Brownish-orange link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px; /* Max width for the entire layout */
+            background-color: #fff;
+        }
+
+        /* Left Border Column */
+        .left-border-column {
+            width: 40px; /* Fixed width for the left border */
+            background-color: #e0d8c7; /* Light beige/brown color */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Main Content Area */
+        .main-content-area {
+            flex-grow: 1; /* Allow content to take remaining space */
+            padding: 20px 30px; /* Padding around the content */
+            max-width: calc(100% - 40px); /* Ensure it doesn't overflow */
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: space-between;
+            align-items: flex-end; /* Align items to the bottom */
+            margin-bottom: 30px;
+            position: relative; /* For positioning the blue box */
+        }
+
+        .header-left {
+            flex-grow: 1;
+            min-width: 200px; /* Ensure title has enough space */
+        }
+
+        .header h1 {
+            font-size: 2.5em; /* Large font size for title */
+            font-weight: normal; /* Looks like normal weight, not bold */
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: -1px; /* Adjust letter spacing to match image */
+        }
+
+        .header-nav {
+            margin-top: 10px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-nav a {
+            margin-right: 10px;
+            color: #333; /* Nav links are dark */
+        }
+
+        .header-nav a:last-child {
+            margin-right: 0;
+        }
+
+        .header-right {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: #a07e3d; /* Search link color */
+            margin-left: 20px; /* Space from nav */
+            white-space: nowrap; /* Prevent search from wrapping */
+        }
+
+        .header-blue-box {
+            position: absolute;
+            bottom: -10px; /* Position relative to header bottom */
+            left: 0;
+            width: 150px; /* Approximate width */
+            height: 30px; /* Approximate height */
+            background-color: #0000FF;
+            z-index: 1; /* Ensure it's above other content if needed */
+        }
+
+        /* Post Section */
+        .post-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            margin-top: 40px; /* Space after header */
+        }
+
+        .post-sidebar {
+            width: 150px; /* Fixed width for the left sidebar */
+            flex-shrink: 0;
+            padding-right: 20px;
+            font-size: 0.85em;
+            line-height: 1.8;
+        }
+
+        .post-sidebar h3 {
+            font-size: 1em;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .post-sidebar ul {
+            list-style: none;
+        }
+
+        .post-sidebar ul li {
+            margin-bottom: 5px;
+        }
+
+        .post-sidebar ul li a {
+            color: #a07e3d;
+        }
+
+        .post-content {
+            flex-grow: 1;
+            max-width: calc(100% - 150px); /* Ensure it doesn't overflow */
+            padding-left: 20px; /* Space from sidebar */
+            border-left: 1px solid #eee; /* Subtle separator */
+        }
+
+        .post-meta {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-size: 1.8em;
+            font-weight: normal;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px; /* Space for the underline */
+        }
+
+        .post-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px; /* Length of the underline */
+            height: 2px;
+            background-color: #333;
+        }
+
+        .post-body p {
+            margin-bottom: 1em;
+            font-size: 0.95em;
+        }
+
+        .post-image-placeholder {
+            width: 100%;
+            height: 300px; /* Approximate height for images */
+            background-color: #0000FF;
+            margin: 20px 0;
+        }
+
+        .image-caption {
+            font-size: 0.8em;
+            color: #666;
+            text-align: center;
+            margin-top: -10px; /* Pull up closer to image */
+            margin-bottom: 20px;
+        }
+
+        .post-footer-links {
+            margin-top: 30px;
+            font-size: 0.85em;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .post-footer-links a {
+            margin-right: 10px;
+            color: #a07e3d;
+        }
+
+        .post-footer-labels {
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #333;
+        }
+
+        .post-footer-labels span {
+            font-weight: bold;
+        }
+
+        .post-footer-labels a {
+            color: #a07e3d;
+            margin-right: 5px;
+        }
+
+        .comments-heading {
+            margin-top: 40px;
+            font-size: 1em;
+            font-weight: normal;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            text-align: right;
+            font-size: 0.75em;
+            color: #666;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack columns on smaller screens */
+                max-width: 100%;
+            }
+
+            .left-border-column {
+                width: 100%; /* Full width for the border */
+                height: 10px; /* Make it a horizontal line */
+            }
+
+            .main-content-area {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            .header {
+                flex-direction: column; /* Stack header items */
+                align-items: flex-start;
+            }
+
+            .header-right {
+                margin-top: 10px;
+                margin-left: 0;
+            }
+
+            .header-blue-box {
+                width: 100px; /* Smaller blue box */
+                height: 20px;
+                bottom: -5px;
+            }
+
+            .post-section {
+                flex-direction: column; /* Stack post sidebar and content */
+            }
+
+            .post-sidebar {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #eee; /* Separator */
+                padding-bottom: 15px;
+            }
+
+            .post-content {
+                max-width: 100%;
+                padding-left: 0;
+                border-left: none;
+            }
+
+            .post-image-placeholder {
+                height: 200px; /* Smaller image placeholders */
+            }
+
+            .footer {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .post-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-border-column"></div>
+        <div class="main-content-area">
+            <header class="header">
+                <div class="header-left">
+                    <h1>STEPHEN AND ALISA WALTON</h1>
+                    <nav class="header-nav">
+                        <a href="#">HOME</a> ·
+                        <a href="#">ABOUT US</a> ·
+                        <a href="#">WHY IRELAND</a> ·
+                        <a href="#">OUR MISSION</a>
+                    </nav>
+                </div>
+                <div class="header-right">
+                    <a href="#">SEARCH</a>
+                </div>
+                <div class="header-blue-box"></div>
+            </header>
+
+            <div class="post-section">
+                <aside class="post-sidebar">
+                    <h3><a href="#">Share</a></h3>
+                    <h3>Labels</h3>
+                    <ul>
+                        <li><a href="#">Central Christian College of the Bible</a></li>
+                        <li><a href="#">Mission Trip</a></li>
+                        <li><a href="#">visitors</a></li>
+                    </ul>
+                </aside>
+
+                <article class="post-content">
+                    <p class="post-meta">Posted by Alisa · April 01, 2019</p>
+                    <h2 class="post-title">CCCB TEAM</h2>
+                    <p class="post-body">On the 22nd of March a group of four from Central Christian College of the Bible arrived to help serve our church and also the Baptist church in the city.</p>
+                    <div class="post-image-placeholder"></div>
+                    <p class="post-body">The first Sunday one of the girls on our trip helped teach the lesson to the kids.</p>
+                    <div class="post-image-placeholder"></div>
+                    <p class="image-caption">Picking up pizzas for the youth event</p>
+                    <p class="post-body">They were able to attend a Connacht Rugby match on the evening they arrived.</p>
+                    <p class="post-body">One of the girls from the CCCB team we had a couple years ago actually led this trip. It was fun to hear her get all excited about the things she would be able to experience again.</p>
+                    <p class="post-body">We are glad they came!</p>
+
+                    <div class="post-footer-links">
+                        <a href="#">Share</a> <a href="#">Email Post</a>
+                    </div>
+                    <div class="post-footer-labels">
+                        <span>Labels:</span>
+                        <a href="#">Central Christian College of the Bible</a> ,
+                        <a href="#">Mission Trip</a> ,
+                        <a href="#">visitors</a>
+                    </div>
+
+                    <h3 class="comments-heading">COMMENTS</h3>
+                </article>
+            </div>
+
+            <footer class="footer">
+                <p>Powered by Blogger</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+```

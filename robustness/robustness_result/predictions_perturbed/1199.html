@@ -1,0 +1,301 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Functions</title>
+    <style>
+        /* Basic Reset & Body */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 960px; /* Standard content width */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding for smaller screens */
+        }
+
+        /* Header */
+        .main-header {
+            background: linear-gradient(to right, #006633, #008000); /* Dark green to slightly lighter green */
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 28px; /* Adjust as per image */
+            font-weight: normal; /* Appears normal, not bold */
+        }
+
+        /* Breadcrumbs & Help Contact */
+        .breadcrumbs-nav {
+            background-color: #f8f8f8; /* Very light gray, almost white */
+            padding: 10px 0;
+            border-bottom: 1px solid #eee; /* Subtle separator */
+        }
+
+        .breadcrumbs-content {
+            display: flex; /* Use flexbox for alignment */
+            justify-content: space-between; /* Space between breadcrumbs and help contact */
+            align-items: center; /* Vertically align */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .breadcrumbs-content p {
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+            flex-grow: 1; /* Allow breadcrumbs to take available space */
+        }
+
+        .breadcrumbs-content a {
+            color: #008000; /* Green for links */
+            text-decoration: none;
+        }
+
+        .breadcrumbs-content a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs-content .help-contact { /* Specific style for help contact in breadcrumbs */
+            font-size: 13px; /* Match breadcrumb font size */
+            color: #008000; /* Green */
+            text-decoration: none;
+            white-space: nowrap; /* Prevent "Help Contact" from wrapping */
+            margin-left: 15px; /* Space between breadcrumbs and help contact if they are on the same line */
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #000; /* Ensure headings are black */
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        a {
+            color: #008000; /* Default link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Table Styling */
+        .function-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .function-table th,
+        .function-table td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .function-table thead th {
+            background-color: #f0f0f0; /* Light gray for header */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .function-table .function-name {
+            background-color: #f0f0f0; /* Light gray for function column */
+            color: #008000; /* Green for function names */
+            font-weight: bold; /* Appears bold in image */
+        }
+
+        /* List Styling for Further Information */
+        .further-information ul {
+            list-style: none; /* Remove default bullet points */
+            padding-left: 0;
+        }
+
+        .further-information li {
+            margin-bottom: 15px; /* Space between list items */
+        }
+
+        .further-information li a {
+            font-weight: bold;
+            display: block; /* Make link take full width and push span to next line */
+            margin-bottom: 5px; /* Space between link and description */
+        }
+
+        .further-information li span {
+            display: block; /* Ensure description is on its own line */
+            font-size: 14px; /* Adjust if needed */
+        }
+
+        /* Footer */
+        .main-footer {
+            padding: 20px 0;
+            font-size: 12px;
+            color: #666;
+            text-align: left; /* Aligned left in the image */
+        }
+
+        .main-footer hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .main-footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-header h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .function-table th,
+            .function-table td {
+                padding: 6px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-header h1 {
+                margin-bottom: 5px;
+            }
+            /* Help Contact is now in breadcrumbs, so no need to adjust here */
+
+            .breadcrumbs-content {
+                flex-direction: column; /* Stack breadcrumbs and help contact */
+                align-items: flex-start; /* Align items to the start */
+            }
+            .breadcrumbs-content p {
+                margin-bottom: 5px; /* Add space between breadcrumbs and help contact */
+                width: 100%; /* Ensure breadcrumbs take full width */
+            }
+            .breadcrumbs-content .help-contact {
+                align-self: flex-end; /* Push help contact to the right if it's a column */
+                margin-top: 5px; /* Add some space */
+                margin-left: 0; /* Remove left margin when stacked */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <h1>Selection Functions</h1>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs-nav">
+        <div class="container breadcrumbs-content">
+            <p>
+                <a href="#">Fernhill SCADA</a> &raquo;
+                <a href="#">Help</a> &raquo;
+                <a href="#">IEC 61131-3</a> &raquo;
+                <a href="#">Common Elements</a>
+            </p>
+            <a href="#" class="help-contact">Help Contact</a>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <section class="introduction">
+            <h2>Introduction</h2>
+            <p>The IEC 61131-3 <strong>Selection Functions</strong> choose one value from a set of values. These selection functions are supported:</p>
+            <table class="function-table">
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="function-name">MOVE</td>
+                        <td>Assign one value to another.</td>
+                    </tr>
+                    <tr>
+                        <td class="function-name">SEL</td>
+                        <td>Returns one of two values depending on a BOOL value.</td>
+                    </tr>
+                    <tr>
+                        <td class="function-name">MAX</td>
+                        <td>Returns the highest value input.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="standards-compliance">
+            <h2>Standards Compliance</h2>
+            <p>IEC 61131-3 Second Edition: Table 27.</p>
+            <p>IEC 61131-3 Third Edition: Table 32.</p>
+        </section>
+
+        <section class="further-information">
+            <h2>Further Information</h2>
+            <ul>
+                <li>
+                    <a href="#">Common Elements</a>
+                    <span>To learn about other common language elements.</span>
+                </li>
+                <li>
+                    <a href="#">Glossary</a>
+                    <span>For the meaning of terms used in <strong>Fernhill SCADA</strong>.</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <hr>
+            <p>Fernhill SCADA Version 4.0 (20231031.2). Copyright © 2012-2023 Fernhill Software Ltd: All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```

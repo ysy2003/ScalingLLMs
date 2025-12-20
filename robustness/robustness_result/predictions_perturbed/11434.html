@@ -1,0 +1,312 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Projects</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif; /* Default font for the page */
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header-top-bar {
+            background-color: #0000FF;
+            height: 20px; /* Approximate height */
+            width: 100%;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            max-width: 1000px; /* Max width for content, adjusted to match image */
+            margin: 0 auto; /* Center content */
+        }
+
+        .header-content .left-text {
+            font-size: 14px;
+            font-weight: normal;
+            color: #333;
+        }
+
+        .header-content .right-text {
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .header-bottom-bar {
+            background-color: #0000FF;
+            height: 20px; /* Approximate height */
+            width: 100%;
+            margin-bottom: 30px; /* Space below header */
+        }
+
+        /* Main Content Layout */
+        .main-container {
+            display: flex;
+            max-width: 1000px; /* Match header content width */
+            margin: 0 auto;
+            padding: 0 20px; /* Padding for smaller screens */
+            gap: 40px; /* Space between sidebar and main content */
+        }
+
+        /* Left Navigation */
+        .sidebar {
+            flex: 0 0 200px; /* Fixed width for sidebar */
+            background-color: #f0f0f0; /* Light gray background */
+            border: 1px solid #ccc; /* Light border */
+            padding: 10px 0;
+            box-sizing: border-box;
+            height: fit-content; /* Adjust height to content */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            padding: 8px 15px;
+            font-size: 15px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .sidebar li.active {
+            background-color: #e0e0e0; /* Slightly darker gray for active item */
+            font-weight: bold; /* Active item appears bold */
+        }
+
+        /* Main Content Area */
+        .content-area {
+            flex-grow: 1;
+            padding-bottom: 50px; /* Space above footer */
+        }
+
+        .content-area h1 {
+            font-size: 28px;
+            font-weight: normal; /* Appears normal weight in image */
+            margin-top: 0;
+            margin-bottom: 30px;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .project-entry {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+            margin-bottom: 30px;
+            gap: 30px; /* Space between text and blue box */
+        }
+
+        .project-text {
+            flex-grow: 1;
+            font-family: 'Courier New', monospace; /* Monospace font for descriptions */
+            font-size: 14px;
+            color: #333;
+        }
+
+        .project-text h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            display: inline; /* Keep title and date on same line */
+            font-family: 'Courier New', monospace;
+        }
+
+        .project-text .launch-date {
+            font-size: 12px;
+            color: #666;
+            margin-left: 5px;
+            display: inline;
+            font-weight: normal;
+        }
+
+        .project-text p {
+            margin: 5px 0 0 0;
+        }
+
+        .project-image-placeholder {
+            flex-shrink: 0; /* Prevent shrinking */
+            width: 150px; /* Fixed width */
+            height: 100px; /* Fixed height */
+            background-color: #0000FF;
+            border: 1px solid #0000FF; /* To ensure border is visible if background changes */
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid #ccc; /* Thin gray line */
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            margin-top: 50px; /* Space above footer */
+        }
+
+        .footer a {
+            margin: 0 5px;
+            color: #333;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .header-content .right-text {
+                text-align: left;
+                margin-top: 5px;
+            }
+
+            .main-container {
+                flex-direction: column;
+                padding: 0 15px;
+                gap: 20px;
+            }
+
+            .sidebar {
+                flex: none; /* Remove fixed width */
+                width: 100%; /* Take full width */
+                border: none; /* Remove border for cleaner look when stacked */
+                background-color: transparent; /* Remove background */
+                padding: 0;
+            }
+
+            .sidebar ul {
+                display: flex; /* Make navigation items horizontal */
+                flex-wrap: wrap;
+                justify-content: center;
+                border: 1px solid #ccc; /* Add border back to the whole nav block */
+                background-color: #f0f0f0;
+            }
+
+            .sidebar li {
+                flex: 1 1 auto; /* Allow items to grow and shrink */
+                text-align: center;
+                border-right: 1px solid #ccc; /* Separator between items */
+            }
+            .sidebar li:last-child {
+                border-right: none;
+            }
+            .sidebar li.active {
+                background-color: #e0e0e0;
+            }
+
+            .content-area {
+                padding-top: 20px; /* Add some space after stacked nav */
+            }
+
+            .project-entry {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .project-image-placeholder {
+                width: 100%; /* Full width on small screens */
+                max-width: 250px; /* But not too wide */
+                height: 150px; /* Adjust height */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar li {
+                flex: 1 1 100%; /* Stack nav items vertically */
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+            }
+            .sidebar li:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top-bar"></div>
+    <header class="header-content">
+        <div class="left-text">Web Solutions for Local Businesses</div>
+        <div class="right-text">
+            Luis R. Mercado<br>
+            [EMAIL REDACTED]
+        </div>
+    </header>
+    <div class="header-bottom-bar"></div>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services and Rates</a></li>
+                <li class="active"><a href="#">Past Projects</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <h1>Past Projects</h1>
+
+            <div class="project-entry">
+                <div class="project-text">
+                    <h2>Action Issues</h2> <span class="launch-date">(launched Mar. 17, 2012)</span>
+                    <p>Action Issues will provide information about the issues that are most important to Americans.</p>
+                </div>
+                <div class="project-image-placeholder"></div>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-text">
+                    <h2>HAPPEX Collaboration</h2> <span class="launch-date">(launched Mar. 8, 2012)</span>
+                    <p>My dissertation work was in the field of particle physics.</p>
+                </div>
+                <div class="project-image-placeholder"></div>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-text">
+                    <h2>East Coast Poker League, Inc.</h2> <span class="launch-date">(latest version launched Jan. 2, 2012)</span>
+                    <p>For the new year, we wanted to create an update that would make the interface as user friendly as possible.</p>
+                </div>
+                <div class="project-image-placeholder"></div>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-text">
+                    <h2>Somos Amigos</h2> <span class="launch-date">(launched July 29, 2011)</span>
+                    <p>This website was created within 24 hours for a Spanish instructor in Amherst, MA.</p>
+                </div>
+                <div class="project-image-placeholder"></div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <a href="#">Home</a> |
+        <a href="#">Services</a> |
+        <a href="#">Past Projects</a> |
+        <a href="#">About Us</a>
+    </footer>
+</body>
+</html>
+```

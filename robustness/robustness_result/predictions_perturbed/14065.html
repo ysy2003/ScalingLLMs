@@ -1,0 +1,463 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>59er Diner & Cabins</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #555555;
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #218c8d; /* Teal */
+            color: #ffffff;
+            padding: 15px 20px;
+        }
+
+        .header-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            color: #ffffff;
+            margin-left: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 30px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            color: #333333;
+            font-weight: normal;
+        }
+
+        .hero-section .location {
+            font-size: 1em;
+            margin-bottom: 25px;
+        }
+
+        .blue-banner {
+            background-color: #0000ff;
+            height: 250px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 20px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            color: #333333;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        /* Address Section */
+        .address-section a {
+            color: #e74c3c; /* Red-orange for links */
+            text-decoration: underline;
+        }
+
+        /* Pictures Section */
+        .picture-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .picture-item {
+            flex: 1 1 calc(25% - 15px); /* Roughly 4 items per row, accounting for gap */
+            min-width: 180px; /* Minimum width before wrapping */
+            text-align: left;
+        }
+
+        .picture-item .blue-placeholder {
+            background-color: #0000ff;
+            height: 120px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .picture-item p {
+            font-size: 0.85em;
+            line-height: 1.4;
+            margin-bottom: 0;
+        }
+
+        /* Prices Section */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            vertical-align: top; /* Align content to top */
+        }
+
+        table th {
+            background-color: #f9f9f9;
+            font-weight: normal;
+            color: #333333;
+        }
+
+        table td:nth-child(2), /* Daily column */
+        table td:nth-child(3), /* Weekdays column */
+        table td:nth-child(4), /* Weekends column */
+        table td:nth-child(5) { /* Holidays column */
+            text-align: center; /* Center align price columns */
+        }
+
+        /* Buttons Section */
+        .buttons-section {
+            padding: 30px 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back {
+            background-color: #f0f0f0;
+            color: #555555;
+            border: 1px solid #cccccc;
+        }
+
+        .btn-back:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-book-now {
+            background-color: #e74c3c; /* Red-orange */
+            color: #ffffff;
+        }
+
+        .btn-book-now:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4a4a4a; /* Darker gray */
+            color: #cccccc;
+            padding: 40px 20px 20px;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #666666;
+        }
+
+        .footer-column h3 {
+            font-size: 1em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #cccccc;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            max-width: 960px;
+            margin: 20px auto 0;
+            text-align: center;
+            font-size: 0.8em;
+            color: #aaaaaa;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+
+            .picture-grid {
+                justify-content: center;
+            }
+
+            .picture-item {
+                flex: 1 1 calc(50% - 10px); /* 2 items per row on medium screens */
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+            }
+
+            table {
+                display: block;
+                overflow-x: auto; /* Allow horizontal scrolling for tables */
+                white-space: nowrap;
+            }
+            table thead {
+                display: none; /* Hide header on small screens if table is too wide */
+            }
+            table tbody tr {
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: 1px solid #dddddd;
+                padding: 10px 0;
+            }
+            table tbody td {
+                flex: 1 1 100%;
+                border-bottom: none;
+                padding: 5px 0;
+            }
+            table tbody td:first-child {
+                font-weight: bold;
+                color: #333;
+            }
+            table tbody td:not(:first-child)::before {
+                content: attr(data-label);
+                font-weight: bold;
+                display: inline-block;
+                width: 80px; /* Adjust as needed */
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .picture-item {
+                flex: 1 1 100%; /* 1 item per row on small screens */
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+
+            .buttons-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px; /* Limit button width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">ebReserv</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Booking System</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>59er Diner & Cabins</h1>
+            <p class="location">Leavenworth, WA</p>
+            <div class="blue-banner"></div>
+        </section>
+
+        <section class="about-section">
+            <h2>About 59er Diner & Cabins</h2>
+            <p>This place is "cool" man...</p>
+            <p>This cozy cabin will take you back in time...to time of poodle skirts, Sinatra, Elvis, sock hops, American Bandstand, TV, leather jackets, and the sounds of rock & roll.</p>
+            <p>"We were on our way back home after playing in the snow and we thought it would be fun to spend the night somewhere so we could play more the next day.</p>
+            <p>The Gerson Family<br>Everett, WA</p>
+        </section>
+
+        <section class="address-section">
+            <h2>Address</h2>
+            <p>59er Diner & Cabins<br>15361 Hwy 2<br>Leavenworth, WA</p>
+            <p>Phone: 509 763 2267</p>
+            <p><a href="http://59erdiner.com">http://59erdiner.com</a></p>
+            <p><a href="#">Contact 59er Diner & Cabins</a></p>
+        </section>
+
+        <section class="pictures-section">
+            <h2>Pictures</h2>
+            <div class="picture-grid">
+                <div class="picture-item">
+                    <div class="blue-placeholder"></div>
+                    <p>Boppers Bungalo nestled in the pines.</p>
+                </div>
+                <div class="picture-item">
+                    <div class="blue-placeholder"></div>
+                    <p>Decorated with a blast from the past 50's decor.</p>
+                </div>
+                <div class="picture-item">
+                    <div class="blue-placeholder"></div>
+                    <p>The perfect place for some rest and relaxation.</p>
+                </div>
+                <div class="picture-item">
+                    <div class="blue-placeholder"></div>
+                    <p>Conveinent Kitchenette</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="prices-section">
+            <h2>Prices</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Daily</th>
+                        <th>Weekdays</th>
+                        <th>Weekends</th>
+                        <th>Holidays</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Standard Rates<br>(1/1/10 - 11/30/13)</td>
+                        <td data-label="Daily">$99.95<br>per day</td>
+                        <td data-label="Weekdays"></td>
+                        <td data-label="Weekends"></td>
+                        <td data-label="Holidays"></td>
+                        <td data-label="Notes">Standard rates</td>
+                    </tr>
+                    <tr>
+                        <td>Snowmobiles<br>(12/1/10 - 5/31/25)</td>
+                        <td data-label="Daily"></td>
+                        <td data-label="Weekdays"></td>
+                        <td data-label="Weekends"></td>
+                        <td data-label="Holidays"></td>
+                        <td data-label="Notes">Snowmobiles</td>
+                    </tr>
+                    <tr>
+                        <td>Standard Rates as of July 1, 2011<br>(7/1/11 - 11/30/13)</td>
+                        <td data-label="Daily">$99.95<br>per day</td>
+                        <td data-label="Weekdays"></td>
+                        <td data-label="Weekends"></td>
+                        <td data-label="Holidays"></td>
+                        <td data-label="Notes">Standard rates as of July 1, 2011</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="buttons-section">
+            <button class="btn btn-back">BACK</button>
+            <button class="btn btn-book-now">BOOK NOW</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Find a business</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Directory</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>General</h3>
+                <ul>
+                    <li><a href

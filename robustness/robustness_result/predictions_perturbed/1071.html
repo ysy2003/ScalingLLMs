@@ -1,0 +1,227 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stampin' Pad</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Container for overall layout */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            padding-bottom: 10px; /* Visual spacing */
+            border-bottom: 1px solid #eee; /* Subtle separator */
+        }
+
+        .header-content h1 {
+            font-size: 36px;
+            font-weight: normal;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .header-content p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+
+        .search-link {
+            color: #00a651;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Article Section */
+        .main-article-wrapper {
+            display: grid;
+            grid-template-columns: 120px 1fr; /* Left column for share, right for content */
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .share-left-column {
+            text-align: right;
+            padding-top: 2px; /* Align with date */
+        }
+
+        .share-link-left {
+            color: #00a651;
+            text-decoration: none;
+            font-size: 12px;
+            display: inline-block; /* Allows text-align to work */
+        }
+
+        .article-content-column .date {
+            font-size: 12px;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .article-content-column h2 {
+            font-size: 28px;
+            font-weight: normal;
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+
+        .title-underline {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 10px 0 20px;
+            width: 50px; /* Short underline */
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 300px;
+            background-color: #0000FF;
+            margin-bottom: 20px;
+        }
+
+        .article-content-column p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .green-link {
+            color: #00a651;
+            text-decoration: none;
+        }
+
+        .share-link-bottom {
+            color: #00a651;
+            text-decoration: none;
+            font-size: 12px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* Comments and Popular Posts Sections */
+        .comments-section,
+        .popular-posts {
+            margin-bottom: 40px;
+        }
+
+        .comments-section h3,
+        .popular-posts h3 {
+            font-size: 18px;
+            font-weight: normal;
+            margin: 0 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Popular Posts Items */
+        .post-item {
+            margin-bottom: 30px;
+        }
+
+        .placeholder-image-small {
+            width: 100%;
+            height: 150px;
+            background-color: #0000FF;
+            margin-bottom: 10px;
+        }
+
+        .post-item .date {
+            font-size: 12px;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .post-item h4 {
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0 0 10px;
+            line-height: 1.3;
+        }
+
+        .post-links a {
+            color: #00a651;
+            text-decoration: none;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: right;
+            font-size: 12px;
+            color: #999;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 30px;
+            }
+
+            .search-link {
+                margin-top: 10px;
+            }
+
+            .main-article-wrapper {
+                grid-template-columns: 1fr; /* Single column layout */
+                gap: 0;
+            }
+
+            .share-left-column {
+                text-align: left;
+                margin-bottom: 15px;
+                padding-top: 0; /* Reset padding */
+            }
+
+            .share-link-left {
+                display: inline-block;
+            }
+
+            .header-content h1 {
+                font-size: 30px;
+            }
+
+            .article-content-column h2 {
+                font-size: 24px;
+            }
+
+            .comments-section h3,
+            .popular-posts h3 {
+                font-size: 16px;
+            }
+
+            .post-item h

@@ -1,0 +1,371 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIA Switch Demos</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* Header */
+        .header {
+            background-color: #223322; /* Dark green/grey */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0 0 10px 0;
+            font-weight: normal;
+        }
+
+        .header p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .header a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            border-bottom: 2px dotted #ccc; /* Dotted underline for H1 */
+            padding-bottom: 5px;
+            display: inline-block; /* To make border-bottom only under text */
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .date-info {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .pattern-demo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .pattern-demo-item > span:first-child {
+            flex-grow: 1;
+        }
+
+        /* Custom Switch Styles */
+
+        /* Base switch container for simple toggles */
+        .switch-container {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px; /* Half of height for pill shape */
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border: 1px solid #999; /* Border for the track */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .switch-container.checked {
+            background-color: #888; /* Darker grey when checked */
+        }
+
+        .switch-container .slider {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s;
+            box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        }
+
+        .switch-container.checked .slider {
+            transform: translateX(20px); /* Move slider to the right (40px width - 16px slider width - 2*1px border = 22px, so 20px for visual centering) */
+        }
+
+        .switch-container.disabled {
+            background-color: #e0e0e0; /* Lighter grey */
+            border-color: #bbb; /* Lighter border */
+            cursor: not-allowed;
+        }
+        .switch-container.disabled .slider {
+            background-color: #f0f0f0; /* Slightly off-white for slider */
+            box-shadow: none;
+        }
+
+        /* Hidden checkbox for accessibility (used for disabled example) */
+        .switch-checkbox {
+            display: none;
+        }
+
+        /* Switch with "Off" / "On" labels */
+        .switch-toggle-labels {
+            display: flex;
+            border: 1px solid #333;
+            border-radius: 3px;
+            overflow: hidden;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1; /* Adjust line height for compact labels */
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .switch-toggle-labels .label-off,
+        .switch-toggle-labels .label-on {
+            padding: 3px 8px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .switch-toggle-labels .label-off {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .switch-toggle-labels .label-on {
+            background-color: #eee;
+            color: #333;
+        }
+
+        .switch-toggle-labels.checked .label-off {
+            background-color: #eee;
+            color: #333;
+        }
+
+        .switch-toggle-labels.checked .label-on {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Pattern Details */
+        .pattern-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pattern-details ul li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px; /* Space for custom bullet */
+        }
+
+        .pattern-details ul li::before {
+            content: '►'; /* Custom triangle bullet */
+            position: absolute;
+            left: 0;
+            color: #333; /* Color of the bullet */
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .pattern-details p {
+            margin-bottom: 1em;
+        }
+
+        code {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        /* Usage Note */
+        .usage-note {
+            margin-top: 40px;
+        }
+
+        /* Continue Reading */
+        .continue-reading {
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .header-content, .main-content {
+                padding: 0 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .pattern-demo-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pattern-demo-item > span:first-child {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>Accessible Styled Form Controls</h1>
+            <p>See source on <a href="#">GitHub</a>, <a href="#">Index of styled form controls</a></p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>ARIA Switch Demos</h1>
+        <p class="date-info">Published: March 20, 2017</p>
+        <p class="date-info">Last updated: January 23, 2022</p>
+
+        <h2>Pattern Demos</h2>
+
+        <div class="pattern-demo-item">
+            <span>&lt;button&gt; base</span>
+            <div class="switch-container" role="switch" aria-checked="false" tabindex="0">
+                <div class="slider"></div>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>Enable dark mode</span>
+            <div class="switch-container" role="switch" aria-checked="false" tabindex="0">
+                <div class="slider"></div>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>&lt;span&gt; base</span>
+            <div class="switch-container" role="switch" aria-checked="false" tabindex="0">
+                <div class="slider"></div>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>Enable dark mode (no visible state labels)</span>
+            <div class="switch-container" role="switch" aria-checked="false" tabindex="0">
+                <div class="slider"></div>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>&lt;input type=checkbox&gt; base</span>
+            <label class="switch-container disabled" role="switch" aria-checked="false" aria-disabled="true">
+                <input type="checkbox" class="switch-checkbox" disabled>
+                <div class="slider"></div>
+            </label>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>Enable dark mode (disabled example)</span>
+            <label class="switch-container disabled" role="switch" aria-checked="false" aria-disabled="true">
+                <input type="checkbox" class="switch-checkbox" disabled>
+                <div class="slider"></div>
+            </label>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>&lt;div&gt; base</span>
+            <div class="switch-toggle-labels" role="switch" aria-checked="false" tabindex="0">
+                <span class="label-off">Off</span>
+                <span class="label-on">On</span>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>Enable the next switch</span>
+            <div class="switch-toggle-labels" role="switch" aria-checked="false" tabindex="0">
+                <span class="label-off">Off</span>
+                <span class="label-on">On</span>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>&lt;a&gt; base</span>
+            <div class="switch-toggle-labels" role="switch" aria-checked="false" tabindex="0">
+                <span class="label-off">Off</span>
+                <span class="label-on">On</span>
+            </div>
+        </div>
+
+        <div class="pattern-demo-item">
+            <span>Enable something else</span>
+            <div class="switch-toggle-labels" role="switch" aria-checked="false" tabindex="0">
+                <span class="label-off">Off</span>
+                <span class="label-on">On</span>
+            </div>
+        </div>
+
+        <h2 class="pattern-details">Pattern Details</h2>
+        <div class="pattern-details">
+            <ul>
+                <li>Pattern Markup (before script runs)</li>
+                <li>Pattern Markup (after script runs)</li>
+            </ul>
+            <p>A switch is meant to function similarly to a checkbox or toggle button, but assistive technologies are meant to announce it in a manner that is consistent with its on-screen appearance as an on/off sort of UI component.</p>
+            <p>This particular pattern uses a &lt;button&gt; as the base element that is then modified into a <code style="font-family: monospace;">role="switch"</code> with JavaScript. When a &lt;button&gt; is modified to be exposed as a switch, the <code style="font-family: monospace;">aria-checked</code> attribute needs to be added, and managed, to appropriately convey the current state to assistive technologies (AT).</p>
+            <p>For more information about switches and how AT, such as screen readers, interpret them, please review <a href="#">the checkbox switch pattern</a>.</p>
+            <p>For more information on the JavaScript and markup used, please see the <a href="#">ReadMe on the GitHub repo for this pattern</a>.</p>
+        </div>
+
+        <h2 class="usage-note">Usage note</h2>
+        <div class="usage-note-content">
+            <p>Presently there are <a href="#">inconsistencies with screen readers and ARIA switches</a>. Please review them to understand how the role is treated depending on screen reader and browser pairings, and if there are any gaps you may need to consider when considering the use of this role.</p>
+        </div>
+
+        <h2 class="continue-reading

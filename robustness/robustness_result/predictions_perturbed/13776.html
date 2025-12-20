@@ -1,0 +1,351 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christiaan Conover - My First Time-Lapse</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px; /* Standard content width */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-blue-box {
+            width: 40px;
+            height: 40px;
+            background-color: #0000FF;
+            margin-right: 15px;
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .header-nav a {
+            margin-left: 20px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .header-nav a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0 80px;
+        }
+
+        .post-category {
+            font-size: 2.5rem; /* Adjusted to match visual size */
+            font-weight: 300;
+            color: #6c757d; /* Light gray */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-category .icon {
+            font-size: 2.2rem; /* Icon size */
+            margin-right: 10px;
+            line-height: 1; /* Align icon vertically */
+        }
+
+        .post-feed-link {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-feed-link a {
+            color: #007bff;
+        }
+
+        .post-feed-link .icon {
+            font-size: 0.8rem;
+            margin-right: 5px;
+            line-height: 1;
+        }
+
+        .post-title {
+            font-size: 2.8rem; /* Adjusted to match visual size */
+            font-weight: 500;
+            color: #007bff;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .post-body {
+            font-size: 1.1rem;
+            color: #444;
+            max-width: 700px; /* Limit paragraph width for readability */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #212529; /* Dark gray */
+            color: #adb5bd; /* Light gray */
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section.copyright {
+            flex-basis: 30%; /* Adjust width for copyright */
+            min-width: 250px; /* Ensure it doesn't get too small */
+        }
+
+        .footer-section.links {
+            flex-basis: 20%; /* Adjust width for links */
+            min-width: 150px;
+        }
+
+        .footer-section.feeds {
+            flex-basis: 20%; /* Adjust width for feeds */
+            min-width: 150px;
+        }
+
+        .footer-section.social {
+            flex-basis: 15%; /* Adjust width for social */
+            min-width: 100px;
+            text-align: right; /* Align social icons to the right */
+        }
+
+        .footer-section h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section ul li .icon {
+            margin-right: 8px;
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+
+        .footer-section ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-social-icons a {
+            color: #adb5bd;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+
+        .footer-social-icons a:hover {
+            color: #fff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .header-nav {
+                margin-top: 10px;
+            }
+
+            .header-nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+
+            .post-category {
+                font-size: 2rem;
+            }
+
+            .post-title {
+                font-size: 2.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-section {
+                flex-basis: 100%;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .footer-section.social {
+                text-align: left;
+            }
+
+            .footer-social-icons a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-blue-box {
+                width: 30px;
+                height: 30px;
+            }
+
+            .header-title {
+                font-size: 1.2rem;
+            }
+
+            .post-category {
+                font-size: 1.8rem;
+            }
+
+            .post-title {
+                font-size: 1.8rem;
+            }
+
+            .post-body {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <div class="header-blue-box"></div>
+                <span class="header-title">Christiaan Conover</span>
+            </div>
+            <nav class="header-nav">
+                <a href="#">&#x25A1; Blog</a>
+                <a href="#">&#x25A1; About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="post-category"><span class="icon">&#x25A1;</span> time lapse</h1>
+            <p class="post-feed-link"><span class="icon">&#x25A1;</span> <span class="icon">&#x1F517;</span> <a href="#">"time lapse" feed</a></p>
+
+            <h2 class="post-title">My First Time-Lapse</h2>
+            <p class="post-meta">May 3, 2013 &middot; 0 minute read</p>
+
+            <p class="post-body">
+                The camera in Android 4.0 introduced a very cool feature: time-lapse video.
+                Despite how awesome I think it is, I've never actually used it - until today.
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section copyright">
+                &copy; Copyright 2007-2019 Christiaan Conover. All rights reserved.
+            </div>
+            <div class="footer-section links">
+                <h4></h4> <!-- Empty h4 to match spacing in image -->
+                <ul>
+                    <li><a href="#"><span class="icon">&#x25A1;</span> Blog</a></li>
+                    <li><a href="#"><span class="icon">&#x25A1;</span> About</a></li>
+                    <li><a href="#"><span class="icon">&#x25A1;</span> Code Projects</a></li>
+                    <li><a href="#"><span class="icon">&#x25A1;</span> W3RTX</a></li>
+                </ul>
+            </div>
+            <div class="footer-section feeds">
+                <h4>Feeds</h4>
+                <ul>
+                    <li><a href="#"><span class="icon">&#x25A1;</span> Blog</a></li>
+                    <li><a href="#"><span class="icon">&#x25A1;</span> Everything</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <div class="footer-social-icons">
+                    <a href="#">&#x25A1;</a>
+                    <a href="#">&#x25A1;</a>
+                    <a href="#">&#x25A1;</a>
+                    <a href="#">&#x25A1;</a>
+                    <a href="#">&#x25A1;</a>
+                    <a href="#">&#x25A1;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,177 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wylie House Exhibits</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #336699; /* Blue link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header - Top Bar */
+        .top-header {
+            background-color: #800000; /* Maroon */
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            min-height: 60px; /* To match the height implied by the blue square */
+        }
+
+        .top-header .blue-square {
+            width: 40px;
+            height: 40px;
+            background-color: #0000FF; /* Bright Blue */
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+
+        .top-header .university-name {
+            color: white;
+            font-family: Georgia, serif; /* Serif font */
+            font-size: 1.5em;
+            margin-left: 10px;
+            white-space: nowrap; /* Prevent wrapping on one line */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 20px 0;
+            position: relative;
+            max-width: 1200px; /* Max width for the header content */
+            margin: 0 auto; /* Center the header content */
+        }
+
+        .main-header h1 {
+            font-family: Georgia, serif; /* Serif font */
+            font-size: 2.8em; /* Adjusted for visual match */
+            color: #336699; /* Darker blue */
+            text-transform: uppercase;
+            margin: 0; /* Reset margin */
+            padding-left: 10%; /* Indent from left edge of its container */
+            line-height: 1.1;
+            font-weight: normal;
+        }
+
+        .search-container {
+            position: absolute;
+            top: 20px; /* Align with top of h1 */
+            right: 10%; /* Align with right edge of its container */
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input[type="text"] {
+            border: 1px solid #ccc;
+            padding: 8px;
+            width: 200px;
+            font-size: 0.9em;
+            outline: none;
+        }
+
+        .search-container button {
+            background-color: #336699; /* Darker blue */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            cursor: pointer;
+            height: 36px; /* Match input height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold; /* For the '88' */
+        }
+
+        /* Navigation */
+        .main-nav {
+            background-color: #f8f8f8; /* Light gray background */
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            max-width: 1200px;
+            justify-content: flex-start; /* Align items to the start */
+        }
+
+        .main-nav li {
+            border-right: 1px solid #eee; /* Separator between items */
+        }
+        .main-nav li:last-child {
+            border-right: none;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover {
+            background-color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            max-width: 1000px; /* Slightly narrower than header/nav for visual separation */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #eee;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        .breadcrumbs {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+        }
+
+        .content-title {
+            font-size: 2.2em;
+            color: #336699;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: normal;
+        }
+
+        .media-text-section {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 20px; /* Space between blue

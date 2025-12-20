@@ -1,0 +1,232 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotaryFly</title>
+    <style>
+        /* Basic Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #444; /* Dark gray background */
+            color: #333; /* Default text color */
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            max-width: 1000px; /* Max width for content */
+            margin: 0 auto; /* Center the wrapper */
+            /* Background color is handled by individual sections */
+        }
+
+        /* Hero Section (Blue part) */
+        .hero-section {
+            background-color: #0000FF; /* Bright blue */
+            min-height: 500px; /* Estimated height based on image */
+            padding: 20px; /* Padding inside the blue section */
+            display: flex;
+            justify-content: flex-end; /* Align nav to the right */
+            align-items: flex-start; /* Align nav to the top */
+        }
+
+        .hero-section nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 25px; /* Space between nav items */
+        }
+
+        .hero-section nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 16px;
+            white-space: nowrap; /* Prevent links from breaking */
+        }
+
+        .hero-section nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Us Section */
+        .contact-us-section {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-top: 1px solid #E0E0E0; /* Light gray border at the top */
+        }
+
+        .contact-us-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .contact-us-section p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #555; /* Slightly lighter text for body */
+        }
+
+        .contact-us-section .contact-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #E0E0E0; /* Horizontal line */
+        }
+
+        .contact-us-section .contact-details p {
+            margin-bottom: 5px;
+        }
+
+        .contact-us-section .contact-details a {
+            color: #0000FF; /* Blue for email link */
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        /* Site Footer */
+        .site-footer {
+            background-color: #FFFFFF;
+            padding: 20px 30px;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #E0E0E0; /* Another light gray border */
+            font-size: 13px;
+            color: #555;
+        }
+
+        .site-footer .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px; /* Smaller gap for footer links */
+        }
+
+        .site-footer .footer-nav a {
+            color: #555;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .site-footer .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .site-footer .footer-nav span {
+            color: #555;
+        }
+
+        .site-footer .copyright {
+            margin-top: 0; /* Default, adjusted for wrap below */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .wrapper {
+                margin: 0 15px; /* Add side margins on smaller screens */
+            }
+
+            .hero-section {
+                min-height: 300px; /* Reduce height on smaller screens */
+                padding: 15px;
+            }
+
+            .hero-section nav ul {
+                justify-content: center; /* Center nav items if they wrap */
+                width: 100%; /* Take full width */
+                gap: 15px;
+            }
+
+            .contact-us-section {
+                padding: 20px;
+            }
+
+            .contact-us-section h2 {
+                font-size: 20px;
+            }
+
+            .site-footer {
+                flex-direction: column; /* Stack footer items */
+                align-items: flex-start; /* Align stacked items to the left */
+                padding: 15px 20px;
+            }
+
+            .site-footer .footer-nav {
+                margin-bottom: 10px;
+            }
+            
+            .site-footer .copyright {
+                margin-top: 10px; /* Space when copyright wraps below nav */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                margin: 0 10px;
+            }
+            .hero-section nav ul {
+                flex-direction: column; /* Stack nav items vertically */
+                align-items: flex-end; /* Keep them right-aligned */
+            }
+            .hero-section nav li {
+                margin-left: 0;
+                margin-bottom: 5px;
+            }
+            .site-footer .footer-nav {
+                flex-direction: column; /* Stack footer links */
+                align-items: flex-start;
+            }
+            .site-footer .footer-nav span {
+                display: none; /* Hide pipes when stacked */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="hero-section">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Learn More</a></li>
+                    <li><a href="#">FAQ'S</a></li>
+                    <li><a href="#">Order Status</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="contact-us-section">
+            <h2>Contact Us</h2>
+            <p>NotaryFly.com prides itself on outstanding customer service. If you have any questions, comments or suggestions about our site, please contact us.</p>
+
+            <div class="contact-details">
+                <p>NotaryFly.com</p>
+                <p>[ADDRESS REDACTED]</p>
+                <p>[ADDRESS REDACTED]</p>
+                <p>Phone: [PHONE REDACTED]</p>
+                <p><a href="mailto:email@redacted.com">[EMAIL REDACTED]</a></p>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-nav">
+                <a href="#">Home</a> <span>|</span>
+                <a href="#">Learn More</a> <span>|</span>
+                <a href="#">Contact Us</a> <span>|</span>
+                <a href="#">Terms of Use</a> <span>|</span>
+            </div>
+            <div class="copyright">
+                <p>&copy; Copyright 2012-2014 NotaryFly</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+```

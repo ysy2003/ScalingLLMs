@@ -1,0 +1,329 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Sutra Review - Atha Yoga Nusasanam</title>
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E0F0E0; /* Light green background */
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Header - Blue Bar */
+        .header-blue-bar {
+            height: 100px; /* Height as seen in the image */
+            background-color: #0000FF; /* Pure blue */
+        }
+
+        /* Main Header Section */
+        .main-header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #E0F0E0; /* Ensure background color extends */
+        }
+
+        .logo {
+            font-size: 36px;
+            font-family: Georgia, serif; /* Approximating the serif font */
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .logo-atha, .logo-nusasanam {
+            color: #666666; /* Dark gray */
+        }
+
+        .logo-yoga {
+            color: #FFFF00; /* Pure yellow */
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666666; /* Dark gray */
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation Bar */
+        .main-nav {
+            background-color: #C0B0A0; /* Beige/brown */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: #FFFFFF; /* White */
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 14px;
+            white-space: nowrap; /* Prevent links from wrapping */
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px; /* Add horizontal padding for smaller screens */
+            background-color: #E0F0E0; /* Ensure background color extends */
+        }
+
+        .sutra-review-form h1 {
+            font-size: 28px;
+            color: #666666; /* Dark gray */
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .sutra-review-form p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .form-inputs {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .form-inputs input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid #CCCCCC;
+            border-radius: 3px;
+            font-size: 16px;
+            width: 180px; /* Fixed width for inputs */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .form-inputs button {
+            padding: 8px 20px;
+            background-color: #E0E0E0; /* Light gray */
+            border: 1px solid #CCCCCC;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333333;
+            box-sizing: border-box;
+        }
+
+        .form-inputs button:hover {
+            background-color: #D0D0D0;
+        }
+
+        .translations-header {
+            color: #0000FF; /* Blue */
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .sutra-translations h2 {
+            color: #0000FF; /* Blue */
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .sutra-block {
+            margin-bottom: 25px;
+        }
+
+        .sutra-block .source {
+            font-size: 12px;
+            color: #666666; /* Dark gray */
+            margin-bottom: 5px;
+        }
+
+        .sutra-block .sutra-text {
+            font-size: 18px;
+            color: #333333; /* Dark gray */
+            line-height: 1.5;
+        }
+
+        .sutra-block .sanskrit {
+            font-weight: bold;
+        }
+
+        /* Footer Section */
+        .main-footer {
+            background-color: #E0F0E0; /* Light green */
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid #D0D0D0; /* Light gray border */
+            margin-top: 40px; /* Space above footer */
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #666666; /* Dark gray */
+            margin-bottom: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: #666666; /* Dark gray */
+            text-decoration: none;
+            margin: 0 5px;
+            white-space: nowrap;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .header-blue-bar {
+                height: 70px; /* Slightly smaller blue bar on small screens */
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+                margin: 0 4px;
+            }
+
+            .sutra-review-form h1 {
+                font-size: 24px;
+            }
+
+            .sutra-review-form p {
+                font-size: 14px;
+            }
+
+            .form-inputs input[type="text"] {
+                width: calc(50% - 15px); /* Adjust width for two inputs on one line */
+                min-width: 120px; /* Ensure inputs don't get too small */
+            }
+
+            .form-inputs button {
+                width: auto; /* Button can take natural width */
+            }
+
+            .sutra-translations h2 {
+                font-size: 20px;
+            }
+
+            .sutra-block .sutra-text {
+                font-size: 16px;
+            }
+
+            .footer-text, .footer-links a {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .form-inputs {
+                flex-direction: column; /* Stack inputs and button vertically */
+                align-items: center;
+            }
+            .form-inputs input[type="text"],
+            .form-inputs button {
+                width: 80%; /* Make inputs and button wider */
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-blue-bar"></div>
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-atha">atha</span> <span class="logo-yoga">yoga</span> <span class="logo-nusasanam">nusasanam</span>
+        </div>
+        <p class="subtitle">the online yoga sutra study resource</p>
+    </header>
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="#">HOME</a> | <a href="#">BROWSE PADAS</a> | <a href="#">BROWSE SUTRAS</a> | <a href="#">SEARCH SUTRAS</a>
+        </div>
+    </nav>
+    <main class="content-area">
+        <section class="sutra-review-form">
+            <h1>Single sutra review</h1>
+            <p>Study a single sutra by selecting the pada (chapter) and then the sutra (verse).</p>
+            <div class="form-inputs">
+                <input type="text" placeholder="Select Pada">
+                <input type="text">
+                <button type="submit">View</button>
+            </div>
+        </section>
+        <section class="sutra-translations">
+            <p class="translations-header">All translations and transliterations for</p>
+            <h2>Yoga Sutra 2:27</h2>
+
+            <div class="sutra-block">
+                <p class="source">Source: Sanskrit transliteration from The Yoga Sutras of Patanjali (Sri Swami Satchidananda)</p>
+                <p class="sutra-text sanskrit">TASYA SAPTADHA PRANTABHUMIH PRAJNA.</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: English translation from The Yoga Sutras of Patanjali (Sri Swami Satchidananda)</p>
+                <p class="sutra-text english">One's wisdom in the final stage is sevenfold. [One experiences the end of 1) desire to know anything more; 2) desire to stay away from any thing; 3) desire to gain anything new; 4) desire to do anything; 5) sorrow; 6) fear; 7) delusion.]</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: Sanskrit transliteration from Light on the Yoga Sutras of Patanjali (B.K.S. Iyengar)</p>
+                <p class="sutra-text sanskrit">tasya saptadha prantabhumih prajna</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: English translation from Light on the Yoga Sutras of Patanjali (B.K.S. Iyengar)</p>
+                <p class="sutra-text english">Through this unbroken flow of discriminative awareness, one gains perfect knowledge which has seven spheres.</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: How to Know God: The Yoga Aphorisms of Patanjali (Swami Prabhavananda, Christopher Isherwood)</p>
+                <p class="sutra-text english">The experiencer gains this knowledge in seven stages, advancing toward the highest.</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: English translation from The Heart of Yoga (T.K.V. Desikachar)</p>
+                <p class="sutra-text english">The attainment of clarity is a gradual process.</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: Sanskrit transliteration of the Yoga Sutras of Patanjali (Swami Jnaneshvara Bharati)</p>
+                <p class="sutra-text sanskrit">tasya saptadha pranta bhumih prajna</p>
+            </div>
+
+            <div class="sutra-block">
+                <p class="source">Source: English translation of the Yoga Sutras of Patanjali (Swami Jnaneshvara Bharati)</p>
+                <p class="sutra-text english">Seven kinds of ultimate insight come to one who has attained this degree of discrimination.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <p class="footer-text">Yoga has endured and evolved as the result of devoted practice and study over generations. For those who continue in such tradition, this website exists to serve you.</p>
+        <p class="footer-links">
+            <a href="#">ATHAYOGANUSASANAM.COM</a> | <a href="#">HOME</a> | <a href="#">GIVE FEEDBACK</a>
+        </p>
+    </footer>
+</body>
+</html>
+```

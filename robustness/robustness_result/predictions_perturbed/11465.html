@@ -1,0 +1,379 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glam Shoe Makeover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px; /* Adjusted to match visual density */
+        }
+
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px; /* Adjusted to match visual */
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: normal; /* Appears normal in image */
+        }
+
+        .tags {
+            color: #558B2F; /* Dark green from image */
+            font-size: 12px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .main-content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between columns */
+        }
+
+        .left-column {
+            flex: 1;
+            min-width: 400px; /* Ensure it doesn't get too small before wrapping */
+            max-width: 600px; /* Approximate width for the main content */
+        }
+
+        .right-column {
+            width: 200px; /* Fixed width for the right column */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-left: 20px; /* Space from left column */
+        }
+
+        .main-blue-box {
+            background-color: #0000FF; /* Solid blue */
+            height: 250px; /* Approximate height */
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        h5 {
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        .article-link {
+            margin-top: 20px;
+            display: block;
+        }
+
+        .article-link a {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .side-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .side-blue-box {
+            background-color: #0000FF; /* Solid blue */
+            width: 100px; /* Approximate width */
+            height: 70px; /* Approximate height */
+            margin-bottom: 5px;
+        }
+
+        .side-item p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        .watch-episode {
+            color: #D2691E; /* Orange/brown from image */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .watch-episode:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #E0F2D4; /* Light green from image */
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer h3 {
+            color: #558B2F; /* Dark green from image */
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            width: 100%; /* Takes full width */
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px; /* Ensure columns don't get too narrow */
+            margin-right: 20px; /* Space between columns */
+        }
+
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 5px;
+        }
+
+        .footer-column a {
+            color: #558B2F; /* Dark green from image */
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .main-content-wrapper {
+                flex-direction: column;
+                gap: 30px; /* More space when stacked */
+            }
+
+            .left-column {
+                min-width: unset;
+                max-width: 100%;
+            }
+
+            .right-column {
+                width: 100%;
+                margin-left: 0;
+                flex-direction: row; /* Arrange side items horizontally */
+                flex-wrap: wrap;
+                justify-content: space-around; /* Distribute items */
+                gap: 20px;
+            }
+
+            .side-item {
+                flex: 1 1 auto; /* Allow items to grow/shrink */
+                min-width: 150px; /* Minimum width for side items */
+                align-items: center; /* Center content when horizontal */
+                text-align: center;
+            }
+
+            .side-blue-box {
+                width: 80px;
+                height: 60px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-column {
+                min-width: unset;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+            .tags {
+                font-size: 11px;
+            }
+            .side-item {
+                min-width: 120px;
+            }
+            .side-blue-box {
+                width: 70px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Glam Shoe Makeover</h1>
+            <p class="tags">TAGS: Deals, Bargain Looks, DIY Fashion, Style: Shoes, Deals</p>
+        </div>
+
+        <div class="main-content-wrapper">
+            <div class="left-column">
+                <div class="main-blue-box"></div>
+
+                <h3>Pin It</h3>
+                <p>From fabulous flats to head turning heels, this "shoe redo" segment will show you how to turn regular ol' shoes into designer-inspired creations - all on a budget!</p>
+                <p>Want to makeover your shoes from boring to beautiful? Kesha Chatman of Glam Authority shows us how.</p>
+                <p>"I love finding good deals, and I will not pay full price for anything," says Kesha.</p>
+
+                <h4>Monogrammed Slipper Shoes</h4>
+                <p>For her first project, Kesha shows how to make a pair of trendy monogrammed slipper shoes.</p>
+                <p>"If you visit the mall or look online, mongrammed slipper shoes are everywhere," says Kesha. "They're the latest rage."</p>
+                <p>If you go to a craft store, the monogrammed letters are usually $1.99 or less. Kesha purchased these glittery slipper shoes on sale at a big box store.</p>
+                <h5>Materials:</h5>
+                <ul>
+                    <li>Gloves</li>
+                    <li>Glue gun</li>
+                    <li>Glue sticks</li>
+                    <li>Monogrammed letters</li>
+                </ul>
+                <h5>Directions:</h5>
+                <p>Make sure the shoe surface where the monograms will be placed is clean and free of lint and dirt.</p>
+
+                <h4>Tasselled Ballet Flats</h4>
+                <p>Simple embellishments at major glam to these plain ballet flats.</p>
+                <p>"If we were to go out and buy a pair of tasselled ballet flats at the store, I'd say they'd probably cost anywhere from $50 to $75," says Kesha. "Ours are a total cost of about $7.50."</p>
+                <p>Four mini-tassels can be purchased at a craft store for less than $2.</p>
+                <h5>Materials:</h5>
+                <ul>
+                    <li>A pair of gloves</li>
+                    <li>Mini tassels</li>
+                    <li>Masking tape</li>
+                    <li>Bobby pins</li>
+                </ul>
+                <h5>Directions:</h5>
+                <p>Clean the surface.</p>
+
+                <h4>Glittered Platform Heels</h4>
+                <p>Channel your inner party girl with these sparkly heels.</p>
+                <p>"I want to show you how to add glitter to your favorite pair of platform shoes to create a high-end look," says Kesha.</p>
+                <h5>Materials:</h5>
+                <ul>
+                    <li>Gloves</li>
+                    <li>Newspaper</li>
+                    <li>Masking tape</li>
+                    <li>Spray fabric or craft glue</li>
+                </ul>
+                <h5>Directions:</h5>
+                <p>Use the masking tape to tape off the boundaries of the platform and the heel of the shoe.</p>
+                <p class="article-link">For more from Kesha Chapman, visit <a href="#">glamauthority.com</a>.</p>
+            </div>
+
+            <div class="right-column">
+                <div class="side-item">
+                    <div class="side-blue-box"></div>
+                    <p>Lipsticks and<br>Dipsticks</p>
+                    <a href="#" class="watch-episode">WATCH EPISODE</a>
+                </div>
+                <div class="side-item">
+                    <div class="side-blue-box"></div>
+                    <p>Summer Survival Kit</p>
+                    <a href="#" class="watch-episode">WATCH EPISODE</a>
+                </div>
+                <div class="side-item">
+                    <div class="side-blue-box"></div>
+                    <p>DIY Draperies</p>
+                    <a href="#" class="watch-episode">WATCH EPISODE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <h3>The Live Well Network</h3>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Knock It Off!</a></li>
+                    <li><a href="#">My Family Recipe Rocks!</a></li>
+                    <li><a href="#">Let's Dish</a></li>
+                    <li><a href="#">Home with Lisa Quinn</a></li>
+                    <li><a href="#">Military Makeover</a></li>
+                    <li><a href="#">Pickler and Ben</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Mirror/Mirror</a></li>
+                    <li><a href="#">Food Rush</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">Hiring America</a></li>
+                    <li><a href="#">The Balancing Act</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">Live Big with Ali Vincent</a></li>
+                    <li><a href="#">We Owe What?</a></li>
+                    <li><a href="#">Mexico: One Plate at a Time</a></li>
+                    <li><a href="#">Children's Programming</a></li>
+                    <li><a href="#">Motion</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,163 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Recreation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Ensure white background as per image */
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #000;
+            border-radius: 8px; /* Slight rounding on corners */
+            padding: 15px 25px;
+            display: flex;
+            justify-content: flex-start; /* Align items to the start */
+            align-items: center;
+            width: fit-content; /* Shrink to content width */
+            margin: 50px auto 0 auto; /* Center horizontally, space from top */
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px; /* Space between nav items */
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Headline Text */
+        .headline {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 24px;
+        }
+
+        .headline a {
+            color: #00aaff; /* Bright blue color */
+            text-decoration: underline;
+        }
+
+        /* Blue Blocks Section */
+        .blue-blocks-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between blocks */
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow blocks to wrap on smaller screens */
+            max-width: 660px; /* (150px * 4) + (10px * 3 gaps) = 630px, plus some buffer */
+            margin-left: auto;
+            margin-right: auto; /* Center the container of blocks */
+        }
+
+        .blue-block {
+            width: 150px;
+            height: 100px;
+            background-color: #0000ff; /* Solid blue */
+            flex-shrink: 0; /* Prevent blocks from shrinking by default */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px;
+                margin-top: 30px;
+            }
+
+            .navbar ul {
+                gap: 20px;
+            }
+
+            .navbar a {
+                font-size: 16px;
+            }
+
+            .headline {
+                margin-top: 30px;
+                font-size: 20px;
+            }
+
+            .blue-blocks-container {
+                margin-top: 20px;
+                gap: 8px;
+            }
+
+            .blue-block {
+                width: 120px; /* Smaller blocks on medium screens */
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                width: 90%; /* Allow navbar to take more width */
+                justify-content: space-around; /* Distribute items evenly */
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .navbar ul {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                justify-content: center;
+                gap: 10px;
+            }
+            .navbar li {
+                margin-right: 0; /* Remove extra margin if wrapping */
+            }
+
+            .headline {
+                font-size: 18px;
+                margin-top: 25px;
+            }
+
+            .blue-blocks-container {
+                gap: 5px;
+                max-width: 320px; /* Adjust max-width for 2 blocks per row */
+            }
+
+            .blue-block {
+                width: calc(50% - 5px); /* Two blocks per row with gap */
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Photos</a></li>
+            <li><a href="#">Music</a></li>
+        </ul>
+    </nav>
+
+    <div class="headline">
+        <a href="#">Wednesday nights with White Rose</a>
+    </div>
+
+    <div class="blue-blocks-container">
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+        <div class="blue-block"></div>
+    </div>
+</body>
+</html>
+```

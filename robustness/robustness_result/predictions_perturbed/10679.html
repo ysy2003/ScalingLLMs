@@ -1,0 +1,289 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE H2O Program</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Georgia:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            line-height: 1.6;
+            font-size: 15px; /* Adjusted for visual match */
+        }
+
+        .header-nav {
+            background-color: #222; /* Dark grey/black */
+            padding: 10px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 10%; /* Align with content below */
+            box-sizing: border-box;
+        }
+
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 25px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content-wrapper {
+            max-width: 850px; /* Adjusted for visual match */
+            margin: 30px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .top-section {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .blue-box {
+            width: 180px; /* Adjusted for visual match */
+            height: 180px; /* Adjusted for visual match */
+            background-color: #0000FF; /* Pure blue */
+            margin-right: 40px; /* Space between box and text */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .pillars-heading-container {
+            flex-grow: 1;
+            padding-top: 60px; /* Align "PILLARS" with the top of the blue box */
+        }
+
+        h1.pillars-heading {
+            font-family: 'Georgia', serif;
+            font-size: 40px; /* Adjusted for visual match */
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: #0000EE; /* Standard link blue */
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 22px; /* Adjusted for visual match */
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            font-size: 14px; /* Adjusted for visual match */
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0; /* Light grey for header */
+            font-weight: bold;
+        }
+
+        /* Column widths based on visual estimation */
+        th:nth-child(1), td:nth-child(1) {
+            width: 28%;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 32%;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 40%;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-nav {
+                padding-left: 20px;
+            }
+            .content-wrapper {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+            .top-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .blue-box {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .pillars-heading-container {
+                padding-top: 0;
+                text-align: center;
+            }
+            h1.pillars-heading {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 18px;
+                text-align: center;
+            }
+            table, th, td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            th {
+                text-align: center;
+            }
+            td {
+                border-top: none;
+            }
+            td:first-child {
+                border-top: 1px solid #000;
+            }
+            th:nth-child(1), td:nth-child(1),
+            th:nth-child(2), td:nth-child(2),
+            th:nth-child(3), td:nth-child(3) {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 15px;
+            }
+            .header-nav a {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            .blue-box {
+                width: 120px;
+                height: 120px;
+            }
+            h1.pillars-heading {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 16px;
+            }
+            body {
+                font-size: 14px;
+            }
+            table {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="header-nav">
+        <a href="#">Back</a>
+        <a href="#">Financial Support</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="top-section">
+            <div class="blue-box"></div>
+            <div class="pillars-heading-container">
+                <h1 class="pillars-heading">PILLARS</h1>
+            </div>
+        </div>
+
+        <p>The CREATE H2O program includes five pillars offering in-depth training.</p>
+        <p>Within each of these pillars, there are many options from which students may choose. For each student accepted into the program, the pillar requirements are tailored to the student's educational background, degree course requirements, and the focus area the student wishes to pursue in First Nations water and sanitation security.</p>
+        <p>Each student accepted into the program is assigned two professors who will act as mentors. Along with the CREATE H2O program co-ordinator, these professors will assist students in designing the pillar structure and activities that best match each student's career path and goals.</p>
+        <p>Students accepted into the program will receive financial support consisting of a <a href="#">stipend</a> and <a href="#">travel</a> awards.</p>
+
+        <h2>DESIGNING YOUR PROGRAM TO OBTAIN A CO-CURRICULAR RECORD IN FIRST NATIONS WATER AND SANITATION SECURITY</h2>
+
+        <p>Undergraduate students must choose between a relevant research-based project (Pillar 1) and a professional work term (Pillar 5). In addition, undergraduate students are required to complete 8 portfolio units across at least two of the other three program pillars before you graduate.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pillar</th>
+                    <th>Main Task</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pillar 1 - Research project and dissemination in collaboration with one or more First Nation communities.</td>
+                    <td>Undergraduate Students will often complete a summer research internship Graduate Students Required thesis or dissertation</td>
+                    <td>All students will be required to present work at the annual summer CREATE H2O conference. (The first one in June 2014 will be at the University of Manitoba.)</td>
+                </tr>
+                <tr>
+                    <td>Pillar 2 - Water sciences and wastewater systems knowledge</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already completed by students as part of their degree program may qualify. See approved undergraduate and graduate courses and workshops.</td>
+                </tr>
+                <tr>
+                    <td>Pillar 3 - Indigenous theory, law and methodology skills</td>
+                    <td>Courses, workshops, conference presentations</td>
+                    <td>Courses already completed by students as part of their degree program may qualify. See approved and graduate courses and workshops.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>AN EXAMPLE OF AN UNDERGRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Summer research project under the leadership of professors at the University of Manitoba or Trent University (pillar 1)</li>
+            <li>One three-credit-hour science course from approved list (pillar 2): 3 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at Indigenous knowledge conference (pillar 3): 1 unit</li>
+        </ul>
+
+        <h2>AN EXAMPLE OF A GRADUATE STUDENT ENROLLED IN THE CREATE H2O PROGRAM</h2>
+        <ul>
+            <li>Research thesis under the leadership of professors at the University of Manitoba or Trent University</li>
+            <li>Two science courses from approved list (pillar 2): 3X2 = 6 units</li>
+            <li>One non-science course from approved list (pillar 3): 3 units</li>
+            <li>Present H2O research at conference (pillar 2 or 3): 1 unit</li>
+        </ul>
+
+        <p>(See this student's <a href="#">sample spreadsheet</a> showing calculation of pillar units and approval signature slots.)</p>
+        <p>Note that these are general examples. Each student's background will be assessed by supervisors at the start of the program to design a specific set of unit requirements that will complement the student's strengths.</p>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,200 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-size: 15px; /* Base font size to match visual density */
+        }
+
+        .container {
+            max-width: 800px; /* Approximate content width from image */
+            margin: 40px auto; /* Centered with top/bottom margin */
+            padding: 0 20px; /* Padding on sides for smaller screens */
+            position: relative; /* For positioning the blue circle */
+        }
+
+        h2 {
+            font-size: 20px; /* Slightly larger than body text */
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: normal; /* Headings appear normal weight in image */
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #0000EE; /* Standard link blue */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Added for better user experience */
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+            margin-bottom: 10px;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Styling for the blue circle */
+        .blue-circle {
+            width: 120px; /* Approximate size from image */
+            height: 120px;
+            background-color: #0000FF; /* Bright blue */
+            border-radius: 50%;
+            position: absolute; /* Position relative to .container */
+            top: 0;
+            right: 0;
+        }
+
+        /* Adjust positioning for the text next to the blue circle */
+        .header-info {
+            margin-right: 140px; /* Make space for the circle */
+        }
+
+        /* Footer section styling */
+        .footer-section {
+            margin-top: 60px; /* Space from content above */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            font-size: 14px; /* Slightly smaller font for footer */
+            line-height: 1.4;
+        }
+
+        .footer-column {
+            flex: 1; /* Distribute space */
+            min-width: 200px; /* Ensure columns don't get too narrow before wrapping */
+            margin-right: 20px; /* Space between columns */
+        }
+
+        .footer-column:last-child {
+            margin-right: 0; /* No margin on the last column */
+        }
+
+        .footer-column p {
+            margin-bottom: 5px; /* Tighter spacing in footer paragraphs */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            .blue-circle {
+                position: static; /* Remove absolute positioning */
+                float: none; /* Remove float */
+                margin: 20px auto 30px auto; /* Center it and add bottom margin */
+                display: block; /* Make it a block element to center */
+            }
+
+            .header-info {
+                margin-right: 0; /* Remove margin when circle is not floated */
+            }
+
+            .footer-section {
+                flex-direction: column; /* Stack columns vertically */
+            }
+
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 15px; /* Space between stacked columns */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            .blue-circle {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blue-circle"></div>
+        <div class="header-info">
+            <p>Assistant professor, <a href="#">CSE, IIT Delhi</a></p>
+            <p>TBO Faculty Fellow</p>
+            <p>Office: SIT 412, Khosla School of IT, IIT Delhi</p>
+            <p>Email: ajindal AT cse.iitd.ac.in</p>
+        </div>
+
+        <h2>About me</h2>
+        <p>I am an assistant professor at CSE, IIT Delhi and am broadly interested in systems. Prior to joining IIT Delhi, I spent an year at <a href="#">Instabase</a> and another couple years as the CTO of <a href="#">Mobile Enerlytics</a>, a startup I co-founded.</p>
+        <p>I received my Ph.D. from <a href="#">Purdue University</a> where I worked closely with professors <a href="#">Y. Charlie Hu</a> and <a href="#">Samuel Midkiff</a>. I earned my undergraduate degree from <a href="#">IIT Kanpur</a>.</p>
+        <p><a href="#">Publications</a> / <a href="#">LinkedIn</a> / <a href="#">Google Scholar</a> / <a href="#">CV</a></p>
+
+        <h2>Selected Press</h2>
+        <ul>
+            <li><a href="#">Mobile Enerlytics</a>, 2014+: <a href="#">BGR</a> | <a href="#">Mashable</a> | <a href="#">Gizmodo</a> |</li>
+            <li><a href="#">DiffProf</a>, 2018: <a href="#">Communication of the ACM</a> | <a href="#">The Register</a> | <a href="#">The Week</a> |</li>
+            <li><a href="#">Hush</a>, 2015: <a href="#">BBC</a> | <a href="#">SlashDot</a> | <a href="#">Zee News</a> |</li>
+            <li><a href="#">No-Sleep Bugs</a>, 2012: <a href="#">The Verge</a> | <a href="#">NBC</a> | <a href="#">Times of India</a> |</li>
+        </ul>
+
+        <h2>Awards</h2>
+        <ul>
+            <li>Google India Research Award, 2022.</li>
+            <li>Best Community Paper Award, MobiCom, 2022.</li>
+        </ul>
+
+        <h2>Service</h2>
+        <p>PC member: Middleware'23, Eurosys'22</p>
+
+        <h2>Teaching</h2>
+        <ul>
+            <li><a href="#">[2023-2024 I] COL-733: Cloud computing technology fundamentals</a></li>
+            <li><a href="#">[2022-2023 II] COP-290: Design Practices</a></li>
+            <li><a href="#">[2022 Winter] WSS-22: Cloud Computing</a></li>
+            <li><a href="#">[2022-2023 I] COL-732: Virtualization and Cloud Computing</a></li>
+        </ul>
+
+        <div class="footer-section">
+            <div class="footer-column">
+                <p>[NAME REDACTED]</p>
+                <p>[NAME REDACTED]</p>
+                <p><a href="#">[EMAIL REDACTED]</a></p>
+            </div>
+            <div class="footer-column">
+                <p>codenet</p>
+                <p>[NAME</p>
+                <p>REDACTED]</p>
+                <p>[NAME</p>
+                <p>REDACTED]</p>
+            </div>
+            <div class="footer-column">
+                <p>Assistant Professor, Department of</p>
+                <p>Computer Science and Engineering, IIT</p>
+                <p>Delhi</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```

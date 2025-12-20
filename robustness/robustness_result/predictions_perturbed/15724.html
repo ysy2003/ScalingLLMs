@@ -1,0 +1,215 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Recreation</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background-color: #fff;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            color: #333; /* Default text color for links */
+        }
+
+        /* Header section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 60px; /* Adjust padding to match image */
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .blue-box {
+            width: 100px; /* Estimated size */
+            height: 100px; /* Estimated size */
+            background-color: blue;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 80px; /* Gap between the two columns of links */
+        }
+
+        .nav-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Gap between links in a column */
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #333; /* Dark grey text for links */
+            font-size: 16px;
+            line-height: 1.2; /* Adjust line height for spacing */
+        }
+
+        /* Main content area */
+        .main-content-area {
+            flex-grow: 1; /* Takes up remaining vertical space */
+            position: relative; /* For absolute positioning of children */
+            width: 100%; /* Ensure it spans full width */
+        }
+
+        .z-economy {
+            position: absolute;
+            top: 20%; /* Adjust vertical position */
+            left: 60px; /* Match left padding of header */
+            font-size: 32px;
+            font-weight: bold;
+            text-decoration: underline;
+            color: #000;
+            margin: 0; /* Remove default margin */
+        }
+
+        .main-art-wrapper {
+            position: absolute;
+            top: 50%; /* Vertically center */
+            left: 60%; /* Adjust to move it more to the right */
+            transform: translate(-50%, -50%); /* Center horizontally and vertically relative to its own size */
+            white-space: nowrap; /* Prevent "Art" from wrapping */
+        }
+
+        .main-art-text {
+            font-size: 90px;
+            font-weight: normal; /* Looks like normal weight */
+            color: #000;
+            margin: 0; /* Remove default margin */
+            position: relative; /* For the pseudo-element underline */
+            display: inline-block; /* To make pseudo-element relative to text width */
+        }
+
+        .main-art-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -8px; /* Adjust position of underline below the text */
+            height: 2px; /* Thickness of underline */
+            background-color: #000;
+            width: 100%; /* Underline spans full width of text */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .header {
+                padding: 30px 40px;
+            }
+            .blue-box {
+                width: 80px;
+                height: 80px;
+            }
+            .main-nav {
+                gap: 60px;
+            }
+            .z-economy {
+                left: 40px;
+                font-size: 28px;
+            }
+            .main-art-wrapper {
+                left: 65%; /* Adjust for smaller screens */
+            }
+            .main-art-text {
+                font-size: 70px;
+            }
+            .main-art-text::after {
+                bottom: -6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+            .main-nav {
+                margin-top: 20px;
+                gap: 30px;
+            }
+            .blue-box {
+                width: 70px;
+                height: 70px;
+            }
+            .main-content-area {
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Center items horizontally */
+                justify-content: center; /* Center items vertically */
+                padding: 20px;
+            }
+            .z-economy {
+                position: static; /* Reset absolute positioning */
+                margin-bottom: 40px; /* Add space below */
+                font-size: 24px;
+                text-align: center;
+                left: auto; /* Reset left */
+                top: auto; /* Reset top */
+            }
+            .main-art-wrapper {
+                position: static; /* Reset absolute positioning */
+                transform: none; /* Reset transform */
+                left: auto; /* Reset left */
+                top: auto; /* Reset top */
+            }
+            .main-art-text {
+                font-size: 55px;
+            }
+            .main-art-text::after {
+                bottom: -5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-column {
+                align-items: center;
+            }
+            .z-economy {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+            .main-art-text {
+                font-size: 45px;
+            }
+            .main-art-text::after {
+                bottom: -4px;
+                height: 1.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="blue-box"></div>
+        <nav class="main-nav">
+            <div class="nav-column">
+                <a href="#">Z Painting</a>
+                <a href="#">Z Securities</a>
+                <a href="#">Art</a>
+            </div>
+            <div class="nav-column">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Boutique</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content-area">
+        <h2 class="z-economy">ZEconomy</h2>
+        <div class="main-art-wrapper">
+            <h1 class="main-art-text">Art</h1>
+        </div>
+    </div>
+</body>
+</html>
+```

@@ -1,0 +1,913 @@
+user
+DESIGN TO CODE TASK:
+Strictly and accurately recreate the visual design in the image.
+
+1.  **Generate ONLY one complete, valid, and fully closed HTML5 file.**
+2.  The **responsive CSS** must be fully embedded within a **<style>** block inside the HTML <head>.
+3.  Do not include any text before or after the code block.
+4.  **BEGIN THE RESPONSE WITH ```html AND DO NOT STOP GENERATING until the entire file, ending in </html>, is complete and the code block is closed with ```.**
+assistant
+<think>
+Got it, let's tackle this task. The goal is to recreate the visual design from the image exactly. First, I need to analyze the structure and elements in the image.
+
+Looking at the image, it's a Wikipedia-style template page. The main elements are:
+
+- A header with "Template : Incel Forums" and some instructions.
+- A green box titled "Incel Forum Navbox" with a table inside.
+- The table has three rows, each with a left column (site name) and a right column (list of users with roles).
+- The left column has "Incel.is", "Love-shy.net", "Social Anxiety Support".
+- The right columns have lists of users with roles like (former admin), (mod), (user), etc.
+- The top has a navigation bar with "Template", "Discussion", "Edit source", "View history", "Search Incel W...".
+- Left sidebar with links like "Chat on Discord", "FAQ & History", etc.
+- Bottom has "Category : Nav box template".
+
+First, structure the HTML. Let's outline the sections:
+
+1. The main page structure: header, main content, sidebar, footer.
+2. The header includes the navigation bar (Template, Discussion, etc.).
+3. The main content has the title "Template : Incel Forums", the instructions, the green navbox table.
+4. The sidebar on the left with links.
+5. The footer with the category.
+
+Now, let's break down each part.
+
+Starting with the HTML5 structure:
+
+- <html>
+  - <head>
+    - <title>Template : Incel Forums</title>
+    - <style> (all CSS here)
+  - <body>
+    - <div class="container"> (to hold main content and sidebar)
+      - <div class="sidebar"> (left sidebar)
+      - <div class="main-content"> (main content)
+        - <h1>Template : Incel Forums</h1>
+        - <p>Instructions text...</p>
+        - <div class="navbox"> (the green box)
+          - <h2>Incel Forum Navbox</h2>
+          - <table> (with three rows)
+        - <p>Category: Nav box template</p>
+      - </div>
+    - </div>
+
+Wait, the image shows a Wikipedia-like layout. The top has a navigation bar with "Template", "Discussion", "Edit source", "View history", "Search Incel W...". So the header should have that.
+
+Let's check the image's top:
+
+- Left: "Template" (active), "Discussion"
+- Right: "Edit source", "View history", "Search Incel W..."
+
+So the header has a navigation bar. Let's structure that as a <div> with class "header".
+
+Also, the left sidebar has links like "Chat on Discord", "FAQ & History", etc. The image shows:
+
+Left sidebar:
+- Chat on Discord (blue button)
+- FAQ & History
+- Form FAQ
+- Sphere
+- Glossary
+- Graphics Of
+- tant Pages
+- tific Blackpill
+- pill
+- & Disclaimer
+- g Rules
+- ral Disclaimer
+
+Wait, the image's left sidebar is a vertical list. Let's list the visible items:
+
+- Chat on Discord (blue background)
+- FAQ & History
+- Form FAQ
+- Sphere
+- Glossary
+- Graphics Of
+- tant Pages
+- tific Blackpill
+- pill
+- & Disclaimer
+- g Rules
+- ral Disclaimer
+
+But maybe it's a truncated list. The key is to replicate the structure.
+
+Now, the main content:
+
+- Title: "Template : Incel Forums"
+- Instructions: "ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section."
+- The green navbox with the table.
+
+The navbox is a green box with a table. The table has three rows:
+
+Row 1:
+- Left: "Incel.is" (blue text)
+- Right: list of users with roles (e.g., SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) •...)
+
+Row 2:
+- Left: "Love-shy.net" (blue text)
+- Right: "ieatboogers (creator/admin/historian)"
+
+Row 3:
+- Left: "Social Anxiety Support" (blue text)
+- Right: "ChrisA (founder) • Andrew "Drew" Mohobbi (third admin/dead) • wmu'14 (member) • ravens (member) • DesiseAfterAll (banned)"
+
+The navbox has a green background, and the table inside has a border.
+
+Now, the CSS needs to be responsive. Let's think about the layout.
+
+The page should have a two-column layout: left sidebar (width 200px) and main content (width 100% - 200px). But the image shows the sidebar on the left, main content on the right.
+
+Wait, the image's left sidebar is a vertical list, and the main content is on the right. So the HTML structure would be:
+
+<div class="container">
+  <div class="sidebar">... </div>
+  <div class="main">... </div>
+</div>
+
+The sidebar should have a fixed width, and the main content should take the remaining space.
+
+Now, let's outline the HTML structure step by step.
+
+First, the header:
+
+- A top bar with "Template", "Discussion" on the left, and "Edit source", "View history", "Search Incel W..." on the right.
+
+So:
+
+<div class="header">
+  <div class="header-left">
+    <a href="#">Template</a>
+    <a href="#">Discussion</a>
+  </div>
+  <div class="header-right">
+    <a href="#">Edit source</a>
+    <a href="#">View history</a>
+    <a href="#">Search Incel W...</a>
+  </div>
+</div>
+
+Then, the main content area:
+
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar-item">Chat on Discord</div>
+    <div class="sidebar-item">FAQ & History</div>
+    <div class="sidebar-item">Form FAQ</div>
+    <div class="sidebar-item">Sphere</div>
+    <div class="sidebar-item">Glossary</div>
+    <div class="sidebar-item">Graphics Of</div>
+    <div class="sidebar-item">tant Pages</div>
+    <div class="sidebar-item">tific Blackpill</div>
+    <div class="sidebar-item">pill</div>
+    <div class="sidebar-item">& Disclaimer</div>
+    <div class="sidebar-item">g Rules</div>
+    <div class="sidebar-item">ral Disclaimer</div>
+  </div>
+  <div class="main-content">
+    <h1>Template : Incel Forums</h1>
+    <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+    <div class="navbox">
+      <h2>Incel Forum Navbox</h2>
+      <table>
+        <tr>
+          <td class="navbox-site">Incel.is</td>
+          <td class="navbox-users">
+            SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsOVER (user/banned) • NKL (user) • NEETandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEEE (user/banned) • BummerDrummer (user) • mylifeattrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+          </td>
+        </tr>
+        <tr>
+          <td class="navbox-site">Love-shy.net</td>
+          <td class="navbox-users">
+            ieatboogers (creator/admin/historian)
+          </td>
+        </tr>
+        <tr>
+          <td class="navbox-site">Social Anxiety Support</td>
+          <td class="navbox-users">
+            ChrisA (founder) • Andrew "Drew" Mohobbi (third admin/dead) • wmu'14 (member) • ravens (member) • DesiseAfterAll (banned)
+          </td>
+        </tr>
+      </table>
+    </div>
+    <p>Category : Nav box template</p>
+  </div>
+</div>
+
+Now, the CSS. Let's think about the styles:
+
+- The page should have a clean, Wikipedia-like look.
+- The header: background color, maybe light gray.
+- The sidebar: fixed width, maybe 200px, with a light background.
+- The main content: white background, padding.
+- The navbox: green background, with a table inside. The table should have a border, and the cells should be structured.
+- The text colors: the site names (Incel.is, etc.) should be blue, as in the image.
+- The user roles: some are in red (like banned), some in blue (mod, admin), etc. Wait, in the image, the user names have different colors based on their role. For example, "SergeantIncel (former admin)" is blue, "Jack Peterson (user/banned)" is red? Wait, no. Let's check the image.
+
+Looking at the image:
+
+- The first row (Incel.is) has:
+  - SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsOVER (user/banned) • NKL (user) • NEETandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEEE (user/banned) • BummerDrummer (user) • mylifeattrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+
+In the image, the text for "user/banned" is red, while others (mod, admin, etc.) are blue. Wait, no. Let's check the image:
+
+The image shows that "user/banned" is in red, while "mod", "admin", etc., are in blue. For example, "Fat Link (mod)" is blue, "Jack Peterson (user/banned)" is red.
+
+So in the HTML, we need to style the text based on the role. But the image's text has different colors for different roles. However, the task is to recreate the visual design. So we need to replicate the colors.
+
+But how? The image shows that:
+
+- "mod", "admin", "ex-mod", "creator", "founder", "third admin/dead", "member" are in blue.
+- "user/banned" is in red.
+
+Wait, let's check the image:
+
+In the first row, "SergeantIncel (former admin)" is blue, "Master (former admin)" is blue, "Fat Link (mod)" is blue, "AmIjustDreaming (mod)" is blue, "Krajid (mod)" is blue, "Blickpall (ex-mod)" is blue, "Mahlo (user)" is blue, "Jack Peterson (user/banned)" is red, "Grotesque Subhuman (user/banned)" is red, etc.
+
+Yes, so "user/banned" is red, others are blue.
+
+So in the HTML, we need to have the text for "user/banned" in red, and others in blue.
+
+But how to do that? We can use CSS to style the text based on the content. However, the task is to recreate the visual design, so we need to have the exact text and colors.
+
+Alternatively, maybe the image uses different colors for different roles, so we need to apply the same.
+
+But since the task is to generate the HTML and CSS, we can use inline styles or classes.
+
+Wait, the problem says "strictly and accurately recreate the visual design". So we need to have the exact text, and the exact colors for the roles.
+
+So for the "user/banned" part, the text should be red, others blue.
+
+But how to handle that in CSS? We can use a class for "user/banned" and style it red, and others blue.
+
+But the text is a list of names with roles. So for example, "Jack Peterson (user/banned)" should be red, while "SergeantIncel (former admin)" is blue.
+
+So in the HTML, we can structure the text as:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • Jack Peterson (user/banned) •...
+
+But to style "user/banned" as red, we can wrap those parts in a span with a class.
+
+Wait, but the image shows that the entire text for "user/banned" is red. So for example, "Jack Peterson (user/banned)" is red, while "SergeantIncel (former admin)" is blue.
+
+So in the HTML, we can have:
+
+<span class="blue-text">SergeantIncel (former admin)</span> • <span class="blue-text">Master (former admin)</span> • <span class="blue-text">Fat Link (mod)</span> •... • <span class="red-text">Jack Peterson (user/banned)</span> •...
+
+But the problem is that the image's text is a single string. However, to accurately recreate the colors, we need to have the text with the correct colors.
+
+Alternatively, maybe the image uses different colors for different roles, so we can use CSS to style the text based on the role.
+
+But since the task is to generate the HTML, we can use inline styles or classes.
+
+Wait, the problem says "generate ONLY one complete, valid, and fully closed HTML5 file". So we can use inline styles in the <style> block.
+
+Let's think about the CSS:
+
+- The page should have a clean layout.
+- The header: background color #f0f0f0, padding, etc.
+- The sidebar: width 200px, background #f9f9f9, padding, etc.
+- The main content: padding, etc.
+- The navbox: background #008000 (green), border, padding, etc.
+- The table inside navbox: border-collapse: collapse, etc.
+- The site names (Incel.is, etc.) should be blue, so color: #0000ff.
+- The user roles: "user/banned" should be red, so color: #ff0000; others blue.
+
+Wait, but in the image, the site names (Incel.is, Love-shy.net, Social Anxiety Support) are blue. So their color is #0000ff.
+
+The user names with roles: "mod", "admin", etc., are blue, while "user/banned" is red.
+
+So in the HTML, for the site names, we can set color: #0000ff.
+
+For the user roles, we can have:
+
+- For "user/banned", color: #ff0000.
+- For others, color: #0000ff.
+
+But how to apply this? We can use CSS to target the text.
+
+Alternatively, since the text is a list, we can wrap the "user/banned" parts in a span with a class.
+
+But the problem is that the image's text is a single string. However, to accurately recreate the colors, we need to have the text with the correct colors.
+
+Let's look at the image again. The "Incel.is" row has:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • Jack Peterson (user/banned) • Grotesque Subhuman (user/banned) • itsOVER (user/banned) • NKL (user) • NEETandTidy (user/banned) • jet112 (user) • Limerencel (user) • BrendioEEE (user/banned) • BummerDrummer (user) • mylifeattrash (user/banned) • fukurou (user/banned) • RegisterUserName (user/banned) | Ban appeal
+
+In the image, "user/banned" is red, others are blue.
+
+So for example, "Jack Peterson (user/banned)" is red, while "SergeantIncel (former admin)" is blue.
+
+So in the HTML, we can have:
+
+<span style="color: #0000ff;">SergeantIncel (former admin)</span> • <span style="color: #0000ff;">Master (former admin)</span> • <span style="color: #0000ff;">Fat Link (mod)</span> •... • <span style="color: #ff0000;">Jack Peterson (user/banned)</span> •...
+
+But this would require manually adding the style for each part, which is tedious. However, since the task is to recreate the visual design, we need to have the exact colors.
+
+Alternatively, maybe the image uses a different approach. Let's check the image's text colors.
+
+Looking at the image:
+
+- The site names (Incel.is, Love-shy.net, Social Anxiety Support) are blue.
+- The user names with roles: "mod", "admin", etc., are blue; "user/banned" is red.
+
+So for the site names, we can set color: #0000ff.
+
+For the user roles, we can have:
+
+- If the role contains "user/banned", color: #ff0000.
+- Otherwise, color: #0000ff.
+
+But how to do that in CSS? We can use a class for the user roles.
+
+Wait, but the text is a single string. So perhaps the best way is to use inline styles for the specific parts.
+
+But the problem is that the task requires the code to be accurate. So we need to have the exact text and colors.
+
+Alternatively, maybe the image uses a different color scheme. Let's check the image's navbox: it's a green box. The text inside is white? No, the text is black, but the site names are blue.
+
+Wait, the image shows the navbox as a green background, and the text inside is black, except for the site names which are blue, and the "user/banned" which is red.
+
+So the navbox has a green background, and the text inside is black, except for the site names (blue) and "user/banned" (red).
+
+So in the CSS:
+
+.navbox {
+  background-color: #008000;
+  color: #000000;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+
+.navbox-site {
+  color: #0000ff;
+  font-weight: bold;
+}
+
+.navbox-users {
+  color: #000000;
+}
+
+But for the "user/banned" parts, we need to make them red. So we can have:
+
+.navbox-users span.user-banned {
+  color: #ff0000;
+}
+
+But how to apply this? We need to wrap the "user/banned" parts in a span with class "user-banned".
+
+But the problem is that the text is a single string. So in the HTML, we can do:
+
+<span class="user-banned">Jack Peterson (user/banned)</span>
+
+But the image shows that the entire text for "user/banned" is red, so we need to wrap each occurrence.
+
+This is going to be tedious, but necessary for accuracy.
+
+Let's list the occurrences in the first row:
+
+- Jack Peterson (user/banned)
+- Grotesque Subhuman (user/banned)
+- itsOVER (user/banned)
+- NEETandTidy (user/banned)
+- BrendioEEE (user/banned)
+- mylifeattrash (user/banned)
+- fukurou (user/banned)
+- RegisterUserName (user/banned)
+
+These should be red.
+
+The others (SergeantIncel (former admin), Master (former admin), Fat Link (mod), AmIjustDreaming (mod), Krajid (mod), Blickpall (ex-mod), Mahlo (user), NKL (user), jet112 (user), Limerencel (user), BummerDrummer (user)) should be blue.
+
+Wait, but "user" is blue, "user/banned" is red. So "Mahlo (user)" is blue, "Jack Peterson (user/banned)" is red.
+
+So in the HTML, for the first row:
+
+SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • <span class="user-banned">Jack Peterson (user/banned)</span> • Grotesque Subhuman (user/banned) • <span class="user-banned">itsOVER (user/banned)</span> • NKL (user) • <span class="user-banned">NEETandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span class="user-banned">BrendioEEE (user/banned)</span> • BummerDrummer (user) • <span class="user-banned">mylifeattrash (user/banned)</span> • <span class="user-banned">fukurou (user/banned)</span> • <span class="user-banned">RegisterUserName (user/banned)</span> | Ban appeal
+
+Similarly for the other rows.
+
+But the problem is that the task requires the code to be accurate, so we need to include these spans.
+
+Now, the second row (Love-shy.net) has "ieatboogers (creator/admin/historian)" which is blue.
+
+Third row (Social Anxiety Support) has:
+
+ChrisA (founder) • Andrew "Drew" Mohobbi (third admin/dead) • wmu'14 (member) • ravens (member) • DesiseAfterAll (banned)
+
+Here, "banned" is red, others blue.
+
+So "DesiseAfterAll (banned)" is red.
+
+So in the third row, we need to wrap "DesiseAfterAll (banned)" in a span with class "user-banned".
+
+Now, let's structure the HTML for the navbox table.
+
+First, the navbox:
+
+<div class="navbox">
+  <h2>Incel Forum Navbox</h2>
+  <table>
+    <tr>
+      <td class="navbox-site">Incel.is</td>
+      <td class="navbox-users">
+        SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • <span class="user-banned">Jack Peterson (user/banned)</span> • Grotesque Subhuman (user/banned) • <span class="user-banned">itsOVER (user/banned)</span> • NKL (user) • <span class="user-banned">NEETandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span class="user-banned">BrendioEEE (user/banned)</span> • BummerDrummer (user) • <span class="user-banned">mylifeattrash (user/banned)</span> • <span class="user-banned">fukurou (user/banned)</span> • <span class="user-banned">RegisterUserName (user/banned)</span> | Ban appeal
+      </td>
+    </tr>
+    <tr>
+      <td class="navbox-site">Love-shy.net</td>
+      <td class="navbox-users">
+        ieatboogers (creator/admin/historian)
+      </td>
+    </tr>
+    <tr>
+      <td class="navbox-site">Social Anxiety Support</td>
+      <td class="navbox-users">
+        ChrisA (founder) • Andrew "Drew" Mohobbi (third admin/dead) • wmu'14 (member) • ravens (member) • <span class="user-banned">DesiseAfterAll (banned)</span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+Now, the CSS for the user-banned class:
+
+.user-banned {
+  color: #ff0000;
+}
+
+And the navbox-site class:
+
+.navbox-site {
+  color: #0000ff;
+  font-weight: bold;
+}
+
+The navbox-users class:
+
+.navbox-users {
+  color: #000000;
+}
+
+Now, the header:
+
+The header has "Template", "Discussion" on the left, and "Edit source", "View history", "Search Incel W..." on the right.
+
+So:
+
+<div class="header">
+  <div class="header-left">
+    <a href="#">Template</a>
+    <a href="#">Discussion</a>
+  </div>
+  <div class="header-right">
+    <a href="#">Edit source</a>
+    <a href="#">View history</a>
+    <a href="#">Search Incel W...</a>
+  </div>
+</div>
+
+The sidebar:
+
+The sidebar has a blue "Chat on Discord" button, and other links.
+
+So:
+
+<div class="sidebar">
+  <div class="sidebar-item" style="background-color: #4a86e8; color: white; padding: 5px; margin: 5px 0;">Chat on Discord</div>
+  <div class="sidebar-item">FAQ & History</div>
+  <div class="sidebar-item">Form FAQ</div>
+  <div class="sidebar-item">Sphere</div>
+  <div class="sidebar-item">Glossary</div>
+  <div class="sidebar-item">Graphics Of</div>
+  <div class="sidebar-item">tant Pages</div>
+  <div class="sidebar-item">tific Blackpill</div>
+  <div class="sidebar-item">pill</div>
+  <div class="sidebar-item">& Disclaimer</div>
+  <div class="sidebar-item">g Rules</div>
+  <div class="sidebar-item">ral Disclaimer</div>
+</div>
+
+The main content:
+
+<h1>Template : Incel Forums</h1>
+<p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+<div class="navbox">... </div>
+<p>Category : Nav box template</p>
+
+Now, the CSS for the container:
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.header {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+}
+
+.header-right {
+  display: flex;
+}
+
+.header a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbox {
+  background-color: #008000;
+  color: #000;
+  padding: 10px;
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.navbox h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.navbox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.navbox td {
+  padding: 5px;
+}
+
+.navbox-site {
+  color: #0000ff;
+  font-weight: bold;
+}
+
+.navbox-users {
+  color: #000;
+}
+
+.user-banned {
+  color: #ff0000;
+}
+
+Now, let's check if all elements are included.
+
+The image shows the "Template : Incel Forums" title, the instructions, the navbox, the category.
+
+The sidebar has the "Chat on Discord" button (blue), and other links.
+
+The header has the navigation links.
+
+Now, let's write the HTML.
+
+First, the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Template : Incel Forums</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <!-- sidebar items -->
+    </div>
+    <div class="main-content">
+      <h1>Template : Incel Forums</h1>
+      <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+      <div class="navbox">
+        <h2>Incel Forum Navbox</h2>
+        <table>
+          <tr>
+            <td class="navbox-site">Incel.is</td>
+            <td class="navbox-users">
+              SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • <span class="user-banned">Jack Peterson (user/banned)</span> • Grotesque Subhuman (user/banned) • <span class="user-banned">itsOVER (user/banned)</span> • NKL (user) • <span class="user-banned">NEETandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span class="user-banned">BrendioEEE (user/banned)</span> • BummerDrummer (user) • <span class="user-banned">mylifeattrash (user/banned)</span> • <span class="user-banned">fukurou (user/banned)</span> • <span class="user-banned">RegisterUserName (user/banned)</span> | Ban appeal
+            </td>
+          </tr>
+          <tr>
+            <td class="navbox-site">Love-shy.net</td>
+            <td class="navbox-users">
+              ieatboogers (creator/admin/historian)
+            </td>
+          </tr>
+          <tr>
+            <td class="navbox-site">Social Anxiety Support</td>
+            <td class="navbox-users">
+              ChrisA (founder) • Andrew "Drew" Mohobbi (third admin/dead) • wmu'14 (member) • ravens (member) • <span class="user-banned">DesiseAfterAll (banned)</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>Category : Nav box template</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.header {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+}
+
+.header-right {
+  display: flex;
+}
+
+.header a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbox {
+  background-color: #008000;
+  color: #000;
+  padding: 10px;
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.navbox h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.navbox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.navbox td {
+  padding: 5px;
+}
+
+.navbox-site {
+  color: #0000ff;
+  font-weight: bold;
+}
+
+.navbox-users {
+  color: #000;
+}
+
+.user-banned {
+  color: #ff0000;
+}
+
+Wait, but the image shows the header with "Template", "Discussion" on the left, and "Edit source", "View history", "Search Incel W..." on the right. So we need to include the header in the HTML.
+
+Ah, right! I forgot the header. The image has a header at the top with those links.
+
+So the HTML should have a header section.
+
+Let's add the header:
+
+<div class="header">
+  <div class="header-left">
+    <a href="#">Template</a>
+    <a href="#">Discussion</a>
+  </div>
+  <div class="header-right">
+    <a href="#">Edit source</a>
+    <a href="#">View history</a>
+    <a href="#">Search Incel W...</a>
+  </div>
+</div>
+
+So the container should include the header.
+
+Wait, the image shows the header at the top, then the sidebar and main content.
+
+So the structure should be:
+
+<body>
+  <div class="header">... </div>
+  <div class="container">
+    <div class="sidebar">... </div>
+    <div class="main-content">... </div>
+  </div>
+</body>
+
+Yes, because the header is above the sidebar and main content.
+
+So the HTML structure:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Template : Incel Forums</title>
+  <style>
+    /* CSS here */
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <a href="#">Template</a>
+      <a href="#">Discussion</a>
+    </div>
+    <div class="header-right">
+      <a href="#">Edit source</a>
+      <a href="#">View history</a>
+      <a href="#">Search Incel W...</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-item" style="background-color: #4a86e8; color: white; padding: 5px; margin: 5px 0;">Chat on Discord</div>
+      <div class="sidebar-item">FAQ & History</div>
+      <div class="sidebar-item">Form FAQ</div>
+      <div class="sidebar-item">Sphere</div>
+      <div class="sidebar-item">Glossary</div>
+      <div class="sidebar-item">Graphics Of</div>
+      <div class="sidebar-item">tant Pages</div>
+      <div class="sidebar-item">tific Blackpill</div>
+      <div class="sidebar-item">pill</div>
+      <div class="sidebar-item">& Disclaimer</div>
+      <div class="sidebar-item">g Rules</div>
+      <div class="sidebar-item">ral Disclaimer</div>
+    </div>
+    <div class="main-content">
+      <h1>Template : Incel Forums</h1>
+      <p>ONLY USE THIS FOR NOTABLE PEOPLE, DO NOT ADD FORUM MEMBERS WHO HAVE NO PUBLIC PRESENCE OUTSIDE THEIR RESPECTIVE POSITION OF AUTHORITY. If you have made a Forum-Admin-related page please add it to this list under the appropriate section.</p>
+      <div class="navbox">
+        <h2>Incel Forum Navbox</h2>
+        <table>
+          <tr>
+            <td class="navbox-site">Incel.is</td>
+            <td class="navbox-users">
+              SergeantIncel (former admin) • Master (former admin) • Fat Link (mod) • AmIjustDreaming (mod) • Krajid (mod) • Blickpall (ex-mod) • Mahlo (user) • <span class="user-banned">Jack Peterson (user/banned)</span> • Grotesque Subhuman (user/banned) • <span class="user-banned">itsOVER (user/banned)</span> • NKL (user) • <span class="user-banned">NEETandTidy (user/banned)</span> • jet112 (user) • Limerencel (user) • <span class="user-banned">BrendioEEE (user/banned)</span> • BummerDrummer (user) • <span class="user-banned">mylifeattrash (user/banned)</span> • <span class="user-banned">fukurou (user/banned)</span> • <span class="user-banned">RegisterUserName (user/banned)</span> | Ban appeal
+            </td>
+          </tr>
+          <tr>
+            <td class="navbox-site">Love-shy.net</td>
+            <td class="navbox-users">
+              ieatboogers (creator/admin/historian)
+            </td>
+          </tr>
+          <tr>
+            <td class="navbox-site">Social Anxiety Support</td>
+            <td class="navbox-users">
+              ChrisA (founder) • Andrew "Drew" Mohobbi (third admin/dead) • wmu'14 (member) • ravens (member) • <span class="user-banned">DesiseAfterAll (banned)</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p>Category : Nav box template</p>
+    </div>
+  </div>
+</body>
+</html>
+
+Now, the CSS:
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.header {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+}
+
+.header-right {
+  display: flex;
+}
+
+.header a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbox {
+  background-color: #008000;
+  color: #000;
+  padding: 10px;
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.navbox h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.navbox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.navbox td {
+  padding: 5px;
+}
+
+.navbox-site {
+  color: #0000ff;
+  font-weight: bold;
+}
+
+.navbox-users {
+  color: #000;
+}
+
+.user-banned {
+  color: #ff0000;
+}
+
+Now, check if all elements are present:
+
+- Header with Template, Discussion, Edit source, View history, Search Incel W...
+- Sidebar with Chat on Discord (blue), and other links.
+- Main content with title, instructions, navbox, category.
+
+The navbox has the three rows with the correct text and colors.
+
+The site names are blue, "user/banned" is red.
+
+The header has the correct links.
+
+The sidebar has the correct items.
+
+The CSS is embedded in the <style> block.
+
+Now, let's check for any missing elements.
+
+The image shows the "Template : Incel Forums" title, which is in the main

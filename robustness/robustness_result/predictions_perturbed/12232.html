@@ -1,0 +1,234 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Player Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .header {
+            background-color: #0000FF; /* Pure blue */
+            height: 50px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .search-input {
+            border: 1px solid #ccc;
+            padding: 5px 8px;
+            font-size: 14px;
+            margin-right: 10px;
+            width: 120px; /* Adjusted width to match image */
+        }
+
+        .search-button {
+            background-color: #e0e0e0; /* Light gray, similar to default button */
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .container {
+            max-width: 960px; /* A common desktop width, adjust as needed */
+            margin: 20px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .top-player-section h2 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .top-player-section hr {
+            border: none;
+            border-top: 1px solid #0000FF; /* Blue line */
+            margin-bottom: 20px;
+            width: 100%; /* Ensure it spans the container width */
+            box-sizing: border-box;
+        }
+
+        .player-list {
+            margin-bottom: 40px;
+        }
+
+        .player-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .blue-square {
+            width: 20px;
+            height: 20px;
+            background-color: #0000FF;
+            margin-right: 15px;
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-top: 2px; /* Align with text baseline */
+        }
+
+        .player-details p {
+            margin: 0;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        .advantages-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .advantages-section p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .advantages-section h4 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                justify-content: center;
+                padding: 10px;
+                height: auto;
+                flex-wrap: wrap;
+            }
+            .search-input {
+                margin-bottom: 10px;
+                width: 100%;
+                max-width: 250px;
+                margin-right: 0;
+            }
+            .search-button {
+                width: 100%;
+                max-width: 250px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 0 15px;
+            }
+            .top-player-section h2,
+            .advantages-section h3,
+            .advantages-section h4 {
+                font-size: 16px;
+            }
+            .player-details p,
+            .advantages-section p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 5px;
+            }
+            .search-input, .search-button {
+                font-size: 13px;
+                padding: 4px 8px;
+            }
+            .container {
+                padding: 0 10px;
+            }
+            .top-player-section h2,
+            .advantages-section h3,
+            .advantages-section h4 {
+                font-size: 15px;
+            }
+            .player-details p,
+            .advantages-section p {
+                font-size: 12px;
+            }
+            .blue-square {
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <input type="text" class="search-input" placeholder="">
+        <button class="search-button">Search player</button>
+    </header>
+
+    <div class="container">
+        <section class="top-player-section">
+            <h2>Top Player</h2>
+            <hr>
+            <div class="player-list">
+                <div class="player-item">
+                    <div class="blue-square"></div>
+                    <div class="player-details">
+                        <p>Shalom Luani</p>
+                        <p>Tafuna Jets</p>
+                        <p>striker</p>
+                        <p>05.08.1994</p>
+                    </div>
+                </div>
+                <div class="player-item">
+                    <div class="blue-square"></div>
+                    <div class="player-details">
+                        <p>Alfonso Luna</p>
+                        <p>Venados FC Yucatán</p>
+                        <p>defence</p>
+                        <p>23.01.1990</p>
+                    </div>
+                </div>
+                <div class="player-item">
+                    <div class="blue-square"></div>
+                    <div class="player-details">
+                        <p>Ronan Finn</p>
+                        <p>Shamrock Rovers</p>
+                        <p>midfield - Offensives midfield</p>
+                        <p>21.12.1987</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <h3>The advantages and disadvantages of a career as a football professional</h3>
+            <p>Numerous boys and girls dream of a career as a professional footballer in the early childhood.</p>
+
+            <h4>Football play with highest merit</h4>
+            <p>Every enthusiastic hobby footballer would give a lot for his life support by playing football.</p>
+
+            <h4>Varied trips to foreign countries</h4>
+            <p>In addition to these two factors, which would make a career change for most people, professional footballers have the opportunity to travel to many foreign countries.</p>
+
+            <h4>Professional footballers suffer from immense performance pressure</h4>
+            <p>Together with these clear advantages, there are of course also some disadvantages.</p>
+
+            <h4>Absolute discipline with little space for self-development</h4>
+            <p>In addition, a career as a professional footballer offers very little room for self-development.</p>
+
+            <h4>Demanding careers with high benefits</h4>
+            <p>The career as a professional footballer offers numerous attractive advantages for the performance athletes.</p>
+        </section>
+    </div>
+</body>
+</html>
+```

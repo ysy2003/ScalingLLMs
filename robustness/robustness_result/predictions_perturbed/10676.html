@@ -1,0 +1,229 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Service</title>
+    <style>
+        /* CSS Variables for consistent styling */
+        :root {
+            --bg-green: #6B9933; /* Sampled background green */
+            --text-light: #E0E0E0; /* Light gray for body text */
+            --text-dark: #333333; /* Darker gray for heading */
+            --nav-text: #FFFFFF; /* White for navigation links */
+            --blue-box: #0000FF; /* Pure blue for the box */
+            --line-color: #FFFFFF; /* White for the separator line */
+        }
+
+        /* Basic Reset and Body Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Sans-serif font, Arial as a common fallback */
+            background-color: var(--bg-green);
+            color: var(--text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        /* Header and Navigation Styling */
+        header {
+            display: flex;
+            justify-content: flex-end; /* Align navigation to the right */
+            align-items: center;
+            padding: 20px 50px; /* Padding around the header content */
+            margin-bottom: 50px; /* Space between header and main content */
+        }
+
+        nav {
+            position: relative; /* For positioning the line relative to the nav */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 40px; /* Space between navigation items */
+        }
+
+        nav a {
+            color: var(--nav-text);
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: normal;
+            white-space: nowrap; /* Prevent nav items from wrapping prematurely */
+        }
+
+        /* Horizontal line below navigation */
+        nav::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; /* Position below the nav items */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for true centering */
+            width: 80%; /* Make it slightly shorter than the nav */
+            height: 1px;
+            background-color: var(--line-color);
+            opacity: 0.5; /* Slightly transparent as seen in image */
+        }
+
+        /* Main Content Container */
+        .container {
+            display: flex;
+            flex-grow: 1; /* Allow container to take remaining vertical space */
+            align-items: center; /* Vertically center content within the container */
+            justify-content: center; /* Horizontally center content within the container */
+            padding: 0 50px; /* Horizontal padding for the main content area */
+            max-width: 1200px; /* Max width for the content block */
+            margin: 0 auto; /* Center the container horizontally */
+            gap: 80px; /* Space between text content and blue box */
+        }
+
+        /* Text Content Section */
+        .text-content {
+            flex: 1; /* Allow text content to grow and shrink */
+            max-width: 500px; /* Limit the width of the text block */
+        }
+
+        .text-content h1 {
+            font-size: 2.5em;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .text-content p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .text-content p:last-of-type {
+            margin-bottom: 0; /* No bottom margin for the last paragraph */
+        }
+
+        /* Blue Box Section */
+        .blue-box {
+            flex-shrink: 0; /* Prevent blue box from shrinking */
+            width: 500px; /* Estimated width */
+            height: 350px; /* Estimated height */
+            background-color: var(--blue-box);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            header {
+                padding: 20px 40px;
+                margin-bottom: 40px;
+                justify-content: center; /* Center nav on smaller screens */
+            }
+            nav::after {
+                bottom: -15px; /* Adjust line position */
+                width: 70%; /* Adjust line width */
+            }
+            .container {
+                flex-direction: column; /* Stack content vertically */
+                gap: 40px;
+                padding: 40px;
+            }
+            .text-content {
+                max-width: 100%; /* Allow text to take full width */
+                text-align: center; /* Center text for stacked layout */
+            }
+            .blue-box {
+                width: 80%; /* Adjust width for smaller screens */
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                margin-bottom: 30px;
+            }
+            nav ul {
+                gap: 20px;
+            }
+            nav a {
+                font-size: 1em;
+            }
+            nav::after {
+                bottom: -10px;
+                width: 60%;
+            }
+            .container {
+                padding: 30px 20px;
+                gap: 30px;
+            }
+            .text-content h1 {
+                font-size: 2em;
+            }
+            .text-content p {
+                font-size: 1em;
+            }
+            .blue-box {
+                width: 90%;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+                margin-bottom: 20px;
+            }
+            nav ul {
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                justify-content: center;
+                gap: 15px;
+            }
+            nav a {
+                font-size: 0.9em;
+            }
+            nav::after {
+                bottom: -8px;
+                width: 50%;
+            }
+            .container {
+                padding: 20px 15px;
+                gap: 25px;
+            }
+            .text-content h1 {
+                font-size: 1.8em;
+            }
+            .text-content p {
+                font-size: 0.9em;
+            }
+            .blue-box {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Construction</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="text-content">
+            <h1>Maintenance</h1>
+            <p>Our award winning maintenance division provides complete professional landscape maintenance service including weekly maintenance, irrigation repairs, landscape upgrades, tree service, weed abatement and seasonal color change. We customize each maintenance project to fit your budget and time constraints, working with you, our #1 priority, to make sure you are completely satisfied.</p>
+            <p>Let us, your "green partner" show you what we can do for you.</p>
+        </div>
+        <div class="blue-box"></div>
+    </div>
+</body>
+</html>
+```

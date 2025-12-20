@@ -1,0 +1,761 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seesaw Activity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple-dark: #6933B5;
+            --purple-light: #8A4CDA; /* For "Learn more." */
+            --blue-primary: #3366FF;
+            --green-primary: #28A745;
+            --gray-bg: #F8F8F8;
+            --gray-light: #E0E0E0;
+            --text-dark: #333333;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --white: #FFFFFF;
+            --footer-bg: #333333;
+        }
+
+        body {
+            font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--gray-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--purple-dark);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .header-left a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .header-logo {
+            width: 30px;
+            height: 30px;
+            background-color: var(--blue-primary); /* Placeholder for logo */
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .header-right a {
+            background-color: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Main Title Section */
+        .main-title-section {
+            text-align: center;
+            padding: 60px 20px 40px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Activity Card */
+        .activity-card-wrapper {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 60px;
+        }
+
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1.2fr 2fr; /* Adjust column ratio as needed */
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .activity-card-left {
+            padding: 30px;
+            border-right: 1px solid var(--gray-light);
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .activity-card-right {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .teacher-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--blue-primary);
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .teacher-name {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .activity-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: -60px; /* Pull up to align with teacher info */
+            margin-bottom: 20px;
+        }
+
+        .btn-try-it {
+            background-color: var(--purple-dark);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+
+        .save-activity-link {
+            color: var(--purple-dark);
+            text-decoration: none;
+            font-size: 14px;
+            margin-right: 15px;
+            white-space: nowrap;
+        }
+
+        .activity-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .activity-details p {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .activity-details strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .student-instructions {
+            margin-top: 25px;
+        }
+
+        .student-instructions h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .student-instructions ol {
+            padding-left: 20px;
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .student-instructions li {
+            margin-bottom: 8px;
+        }
+
+        .student-instructions .blue-square {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: var(--blue-primary);
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        /* Related Activities Section */
+        .related-activities-section {
+            padding: 40px 0 60px;
+            background-color: var(--white);
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .related-activities-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            color: var(--text-dark);
+        }
+
+        .related-activities-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 0 20px;
+            -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+
+        .related-activities-grid::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .related-activity-card {
+            flex: 0 0 220px; /* Fixed width for each card */
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid var(--gray-light);
+        }
+
+        .related-activity-card .card-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .related-activity-card .teacher-avatar {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+        }
+
+        .related-activity-card .teacher-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .related-activity-card .activity-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--text-dark);
+        }
+
+        .related-activity-card .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-medium);
+        }
+
+        .related-activity-card .assessment-tag {
+            display: flex;
+            align-items: center;
+        }
+
+        .related-activity-card .blue-square {
+            width: 12px;
+            height: 12px;
+            background-color: var(--blue-primary);
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+
+        .related-activity-card .count {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Inspire Section */
+        .inspire-section {
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .inspire-content {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .inspire-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        .inspire-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-medium);
+        }
+
+        .inspire-content p a {
+            color: var(--purple-light);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .btn-signup-free {
+            background-color: var(--green-primary);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .inspire-image-placeholder {
+            width: 300px;
+            height: 250px;
+            background-color: var(--blue-primary);
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--footer-bg);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-title-section {
+                font-size: 28px;
+                padding: 40px 15px 30px;
+            }
+
+            .activity-card {
+                grid-template-columns: 1fr; /* Stack columns on smaller screens */
+                margin: 0 15px;
+            }
+
+            .activity-card-left {
+                border-right: none;
+                border-bottom: 1px solid var(--gray-light);
+                padding: 20px;
+                font-size: 16px;
+            }
+
+            .activity-card-right {
+                padding: 20px;
+            }
+
+            .activity-actions {
+                justify-content: space-between;
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+
+            .save-activity-link {
+                margin-right: 0;
+            }
+
+            .btn-try-it {
+                margin-left: 0;
+            }
+
+            .activity-title {
+                font-size: 20px;
+            }
+
+            .student-instructions h3 {
+                font-size: 15px;
+            }
+
+            .student-instructions ol, .student-instructions li {
+                font-size: 13px;
+            }
+
+            .related-activities-section h2 {
+                font-size: 20px;
+                padding-left: 15px;
+            }
+
+            .related-activities-grid {
+                padding: 0 15px;
+            }
+
+            .related-activity-card {
+                flex: 0 0 180px; /* Smaller fixed width for cards */
+                padding: 12px;
+            }
+
+            .related-activity-card .activity-title {
+                font-size: 14px;
+            }
+
+            .inspire-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 15px;
+                gap: 40px;
+            }
+
+            .inspire-content {
+                max-width: 100%;
+            }
+
+            .inspire-content h2 {
+                font-size: 30px;
+            }
+
+            .inspire-content p {
+                font-size: 16px;
+            }
+
+            .inspire-image-placeholder {
+                width: 250px;
+                height: 200px;
+            }
+
+            .footer-links {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+
+            .header-logo {
+                width: 25px;
+                height: 25px;
+            }
+
+            .header-right a {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+
+            .main-title-section {
+                font-size: 24px;
+                padding: 30px 10px 25px;
+            }
+
+            .activity-card-left {
+                font-size: 15px;
+                padding: 15px;
+            }
+
+            .activity-card-right {
+                padding: 15px;
+            }
+
+            .activity-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .save-activity-link, .btn-try-it {
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .activity-title {
+                font-size: 18px;
+            }
+
+            .activity-details p {
+                font-size: 13px;
+            }
+
+            .student-instructions h3 {
+                font-size: 14px;
+            }
+
+            .student-instructions ol, .student-instructions li {
+                font-size: 12px;
+            }
+
+            .related-activities-section h2 {
+                font-size: 18px;
+                padding-left: 10px;
+            }
+
+            .related-activities-grid {
+                padding: 0 10px;
+                gap: 15px;
+            }
+
+            .related-activity-card {
+                flex: 0 0 160px;
+                padding: 10px;
+            }
+
+            .related-activity-card .activity-title {
+                font-size: 13px;
+            }
+
+            .related-activity-card .teacher-name {
+                font-size: 12px;
+            }
+
+            .related-activity-card .card-bottom {
+                font-size: 11px;
+            }
+
+            .inspire-section {
+                padding: 40px 10px;
+            }
+
+            .inspire-content h2 {
+                font-size: 26px;
+            }
+
+            .inspire-content p {
+                font-size: 15px;
+            }
+
+            .btn-signup-free {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            .inspire-image-placeholder {
+                width: 200px;
+                height: 160px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="#">About Seesaw</a>
+            <div class="header-logo"></div>
+        </div>
+        <div class="header-right">
+            <a href="#">Sign Up</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-title-section">
+            Teachers, save “Higher Order Thinking Questions_1” to assign it to your class.
+        </section>
+
+        <section class="activity-card-wrapper">
+            <div class="activity-card">
+                <div class="activity-card-left">
+                    1) If the hummingbird had not sent a message to Jade, what would have happened to Jade? 2) Why do you think Mountain Spirit was pleased?
+                </div>
+                <div class="activity-card-right">
+                    <div class="activity-actions">
+                        <a href="#" class="save-activity-link">Save Activity</a>
+                        <a href="#" class="btn-try-it">Try It</a>
+                    </div>
+                    <div class="teacher-info">
+                        <div class="teacher-avatar"></div>
+                        <span class="teacher-name">Hamimah Flynn</span>
+                    </div>
+                    <h2 class="activity-title">Higher Order Thinking Questions_1</h2>
+                    <div class="activity-details">
+                        <p><strong>Grades:</strong> 2nd Grade</p>
+                        <p><strong>Subjects:</strong> English Language Learners, English Language Arts</p>
+                    </div>
+                    <div class="student-instructions">
+                        <h3>Student Instructions</h3>
+                        <p>You guys came up with some really good questions. Well done!</p>
+                        <ol>
+                            <li>Read the question carefully.</li>
+                            <li>Type your answer out on the line.</li>
+                            <li>Click on <span class="blue-square"></span> when you have finished.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-activities-section">
+            <div class="container">
+                <h2>Related Activities</h2>
+                <div class="related-activities-grid">
+                    <div class="related-activity-card">
+                        <div class="card-top">
+                            <div class="teacher-avatar"></div>
+                            <span class="teacher-name">Alex Keeney</span>
+                        </div>
+                        <h3 class="activity-title">Short Vowel Practice (a, e, i, o, u)</h3>
+                        <div class="card-bottom">
+                            <div class="assessment-tag">
+                                <span class="blue-square"></span>
+                                <span>Assessment</span>
+                            </div>
+                            <div class="count">
+                                <span class="blue-square"></span>
+                                <span>482</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related-activity-card">
+                        <div class="card-top">
+                            <div class="teacher-avatar"></div>
+                            <span class="teacher-name">Alex Keeney</span>
+                        </div>
+                        <h3 class="activity-title">Short Vowel Practice (short i)</h3>
+                        <div class="card-bottom">
+                            <div class="assessment-tag">
+                                <span class="blue-square"></span>
+                                <span>Assessment</span>
+                            </div>
+                            <div class="count">
+                                <span class="blue-square"></span>
+                                <span>37</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related-activity-card">
+                        <div class="card-top">
+                            <div class="teacher-avatar"></div>
+                            <span class="teacher-name">Ms. Howe</span>
+                        </div>
+                        <h3 class="activity-title">Word Sort -eg, en, -ead (2)</h3>
+                        <div class="card-bottom">
+                            <div class="assessment-tag">
+                                <span class="blue-square"></span>
+                                <span>Assessment</span>
+                            </div>
+                            <div class="count">
+                                <span class="blue-square"></span>
+                                <span>163</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related-activity-card">
+                        <div class="card-top">
+                            <div class="teacher-avatar"></div>
+                            <span class="teacher-name">Alex Keeney</span>
+                        </div>
+                        <h3 class="activity-title">Short Vowel Practice (short u)</h3>
+                        <div class="card-bottom">
+                            <div class="assessment-tag">
+                                <span class="blue-square"></span>
+                                <span>Assessment</span>
+                            </div>
+                            <div class="count">
+                                <span class="blue-square"></span>
+                                <span>3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related-activity-card">
+                        <div class="card-top">
+                            <div class="teacher-avatar"></div>
+                            <span class="teacher-name">Tamara Letter</span>
+                        </div>
+                        <h3 class="activity-title">Reading Fluency Practice (K-2)</h3>
+                        <div class="card-bottom">
+                            <div class="assessment-tag">
+                                <span class="blue-square"></span>
+                                <span>Assessment</span>
+                            </div>
+                            <div class="count">
+                                <span class="blue-square"></span>
+                                <span>110</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More related activities would go here if available -->
+                </div>
+            </div>
+        </section>
+
+        <section class="inspire-section">
+            <div class="inspire-content">
+                <h2>Inspire your students to do their best</h2>
+                <p>Explore thousands of teacher-tested classroom activities to engage your students and save you time. <a href="#">Learn more.</a></p>
+                <a href="#" class="btn-signup-free">Sign Up Free</a>
+            </div>
+            <div class="inspire-image-placeholder"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Browse Classroom Activities</a>
+            <a href="#">About Seesaw</a>
+            <a href="#">Get the App</a>
+            <a href="#">Privacy Center</a>
+        </div>
+    </footer>
+</body>
+</html>
+```

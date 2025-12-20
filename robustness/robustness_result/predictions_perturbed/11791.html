@@ -1,0 +1,352 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Harder for Shorties to Lose Weight</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .site-header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            background-color: #0000FF;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            color: #333;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content Layout */
+        .site-main {
+            padding: 40px 0;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Article takes 2 parts, sidebar 1 part */
+            gap: 40px;
+        }
+
+        /* Article Content */
+        .article-content {
+            color: #444;
+        }
+
+        .breadcrumbs {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: #888;
+        }
+
+        .article-title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            color: #333;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .share-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #ccc; /* Default */
+        }
+
+        /* Specific social icon colors */
+        .share-icon.blue { background-color: #3B5998; } /* Facebook */
+        .share-icon.light-blue { background-color: #55ACEE; } /* Twitter */
+        .share-icon.red { background-color: #DD4B39; } /* Google+ / Pinterest */
+        .share-icon.dark-blue { background-color: #007BB6; } /* LinkedIn */
+        .share-icon.dark-gray { background-color: #333; } /* Generic/Email */
+        .share-icon.green { background-color: #25D366; } /* WhatsApp */
+        .share-icon.teal { background-color: #008282; } /* Generic Share */
+
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .article-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #0000FF;
+            margin-bottom: 30px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .pagination a {
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Sidebar */
+        .sidebar h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .popular-posts {
+            margin-bottom: 40px;
+        }
+
+        .popular-posts .post-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .popular-posts .post-thumbnail {
+            width: 60px;
+            height: 60px;
+            background-color: #0000FF;
+            margin-right: 15px;
+            flex-shrink: 0; /* Prevent thumbnail from shrinking */
+        }
+
+        .popular-posts a {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+            font-weight: bold; /* Popular posts links are bold */
+        }
+
+        .categories .category-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 10px;
+        }
+
+        .categories a {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Four columns */
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+        .newsletter input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .newsletter input::placeholder {
+            color: #aaa;
+        }
+
+        .copyright {
+            background-color: #111;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .main-grid {
+                grid-template-columns: 1fr; /* Stack article and sidebar */
+                gap: 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr; /* Two columns for footer */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .article-title {
+                font-size: 30px; /* Smaller title on mobile */
+            }
+            .footer-grid {
+                grid-template-columns: 1fr; /* Single column for footer */
+            }
+            .footer-section {
+                text-align: center; /* Center footer sections */
+            }
+            .social-icons {
+                justify-content: center; /* Center social icons */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <div class="logo-placeholder"></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Fitness</a></li>
+                    <li><a href="#">Nutrition</a></li>
+                    <li><a href="#">Weight Loss</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container main-grid">
+            <article class="article-content">
+                <nav class="breadcrumbs">
+                    <a href="#">Home</a> &gt; <a href="#">facts</a> &gt; <a href="#">lose weight</a> &gt; <a href="#">weight loss</a>
+                </nav>
+                <h1 class="article-title">IT'S HARDER FOR SHORTIES TO LOSE WEIGHT, SAYS SPECIALIST</h1>
+                <div class="article-meta">
+                    <span class="author">Joy</span> <span class="date">9 Apr, 2019</span>
+                </div>
+                <div class="social-share">
+                    <div class="share-icon blue"></div>
+                    <div class="share-icon light-blue"></div>
+                    <div class="share-icon red"></div>
+                    <div class="share-icon dark-blue"></div>
+                    <div class="share-icon dark-gray"></div>
+                    <div class="share-icon green"></div>
+                    <div class="share-icon teal"></div>
+                </div>
+                <p>According to the Association of Medicine for Obesity for shorties is more difficult to lose weight, here we explain why.</p>
+                <div class="article-image-placeholder"></div>
+                <p>It's harder for shorties to lose weight because their metabolisms are slower, said Craig Primack, president of the Obesity Medicine Association. We know, it sounds sad, but it's real.</p>
+                <p>As if that weren't enough, when a woman gains weight, even if it's a couple of pounds, it's more noticeable than a tall one. In addition, they can lose weight very easily, while the short ones have to "kill themselves" to achieve that goal.</p>
+                <p>The specialist explained that a woman of average height has a basal metabolic rate of 1,400 calories per day, which means that if she remains immobile for 24 hours they will burn that amount of calories.</p>
+                <p>However, in those that are less than 5 feet that rate is only 1200 calories; in contrast to the high ones, that is to say, those that have a greater size to the one referred to above are capable of burning up to 1750 calories per day.</p>
+                <p>In simple words, the specialist's words mean that the smaller your body is, the less energy it needs and that's why it burns less, which is why losing weight is complicated.</p>
+                <p>Obviously this is bad news, however, what you must do to make the diet work is to eat according to your needs, for which, ideally, you should visit a nutritionist who designs a feeding plan for you.</p>
+                <p>But

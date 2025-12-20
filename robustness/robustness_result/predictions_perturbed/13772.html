@@ -1,0 +1,412 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nor Cal Fish Report</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header-top-blue-bar {
+            background-color: #0000FF; /* Bright blue */
+            height: 100px; /* Placeholder height */
+            width: 100%;
+        }
+
+        .navbar {
+            background-color: #000;
+            color: #fff;
+            padding: 0 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 40px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .navbar ul li {
+            position: relative;
+            margin-right: 25px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar ul li a.has-dropdown::after {
+            content: ' \25BC'; /* Unicode for a small black down-pointing triangle */
+            font-size: 0.7em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Main Content Area */
+        .main-content-wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background for the main content area */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .page-title {
+            color: #4CAF50; /* Green */
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .report-navigation-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 0 10px; /* Align with card padding */
+        }
+
+        .report-navigation-top .button {
+            background-color: #e0e0e0; /* Light gray for inactive look */
+            color: #555;
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .report-navigation-top .button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .content-columns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+        }
+
+        .main-report-column {
+            flex: 2; /* Takes more space */
+            min-width: 300px; /* Minimum width before wrapping */
+        }
+
+        .more-reports-column {
+            flex: 1; /* Takes less space */
+            min-width: 250px; /* Minimum width before wrapping */
+        }
+
+        .report-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .report-card h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .report-card .location-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .report-card .image-placeholder {
+            background-color: #0000FF; /* Blue placeholder */
+            height: 250px; /* Example height */
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .report-card .image-placeholder.small {
+            height: 150px;
+        }
+
+        .report-card .author-date {
+            text-align: center;
+            font-size: 0.85em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .report-card h4 {
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .report-card p {
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .report-card .read-more {
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .report-navigation-bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .report-navigation-bottom .button {
+            background-color: #007bff; /* Blue button */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .report-navigation-bottom .button:hover {
+            background-color: #0056b3;
+        }
+
+        .more-reports-column h4 {
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #333;
+        }
+
+        .more-report-item {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .more-report-item .title-link {
+            font-size: 1em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .more-report-item .reservoir-name {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .more-report-item .date-description {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer-gradient-bar {
+            height: 20px;
+            background: linear-gradient(to right, #4CAF50, #FFD700); /* Green to Gold/Yellow */
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0; /* Match body background */
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        .footer-blue-placeholder {
+            background-color: #0000FF; /* Blue placeholder */
+            height: 100px; /* Example height */
+            width: 200px; /* Example width */
+            margin-right: 20px; /* Space between placeholder and text */
+        }
+
+        .footer-text {
+            text-align: right;
+            font-size: 0.85em;
+            color: #666;
+            flex-grow: 1; /* Allow text to take available space */
+        }
+        .footer-text a {
+            color: #007bff;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 10px;
+            }
+            .navbar ul {
+                flex-direction: column; /* Stack nav items */
+                align-items: flex-start;
+            }
+            .navbar ul li {
+                margin-right: 0;
+                width: 100%;
+            }
+            .navbar ul li a {
+                padding: 8px 0;
+            }
+
+            .main-content-wrapper {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: 2em;
+            }
+
+            .page-subtitle {
+                font-size: 1em;
+            }
+
+            .content-columns {
+                flex-direction: column; /* Stack columns vertically */
+            }
+
+            .main-report-column,
+            .more-reports-column {
+                flex: none; /* Remove flex grow/shrink */
+                width: 100%; /* Take full width */
+            }
+
+            .report-navigation-top,
+            .report-navigation-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .report-navigation-top .button,
+            .report-navigation-bottom .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-blue-placeholder {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            .footer-text {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top-blue-bar {
+                height: 70px;
+            }
+            .navbar {
+                min-height: auto;
+            }
+            .navbar ul li a {
+                font-size: 0.8em;
+            }
+            .page-title {
+                font-size: 1.8em;
+            }
+            .page-subtitle {
+                font-size: 0.9em;
+            }
+            .report-card h3 {
+                font-size: 1.3em;
+            }
+            .report-card .image-placeholder {
+                height: 180px;
+            }
+            .report-card .image-placeholder.small {
+                height: 100px;
+            }
+            .more-reports-column h4 {
+                font-size: 1.1em;
+            }
+            .footer-blue-placeholder {
+                width: 150px;
+                height: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top-blue-bar"></div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#" class="has-dropdown">FISH REPORTS</a></li>
+            <li><a href="#" class="has-dropdown">NEWS</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content-wrapper">
+        <h1 class="page-title">Nor Cal Fish Report</h1>
+        <h2 class="page-subtitle">San Pablo Reservoir Fish Report for 9-11-2016</h2>
+
+        <div class="report-navigation-top">
+            <button class="button">&lt; Previous Report</button>
+            <button class="button">Next Report &gt;</button>
+        </div>
+
+        <div class="content-columns">
+            <div class="main-report-column">
+                <div class="report-card">
+                    <h3>San Pablo Reservoir Fishing Report</h3>
+                    <p class="location-info"><a href="#">San Pablo Reservoir</a> - El Sobrante, CA (Contra Costa County)</p>
+                    <div class="image-placeholder"></div>
+                    <p class="author-date">by San Pablo Reservoir<br>9-11-2016</p>
+
+                    <h4>Cat Fishing</h4>
+                    <p>The catfish were biting this week in scow canyon and at V's landing power-bait catfish, anchovies and chicken liver were the bait that was used.</p>
+
+                    <h4>Lake Conditions</h4>
+                    <p>Lake Level: 307.3<br>Surface Temp: 71<br>Fish Plant: We did not plant catfish this week</p>
+
+                    <h4>Fish Tales</h4>
+                    <p>Paul Eastron of Pioneer caught a 9.25lb catfish using power-bait catfish fishing in scow canyon on 9-4-16.</p>
+                    <p>Dominic Gutierrez of concord caught a 4.5 lb catfish no bait given in scow canyon on 9-4-16.</p>
+                    <p>Arturo and Bret of El Sobrante caught 1 catfish weighing 15.5 lbs using chicken liver on 9-8-1

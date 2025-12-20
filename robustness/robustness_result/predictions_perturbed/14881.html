@@ -1,0 +1,138 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securing WebMail</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            background-color: #40484f; /* Dark grayish blue */
+            color: #b0b8c0; /* Light gray for body text */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px; /* Padding around the whole content */
+            box-sizing: border-box;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+
+        .container {
+            max-width: 700px; /* Max width of the content area */
+            width: 100%;
+            margin: 0 auto; /* Center the container */
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5em; /* Large title */
+            color: #ffffff; /* White */
+            margin-bottom: 0.5em;
+            font-weight: normal; /* Title appears to be normal weight */
+        }
+
+        .metadata {
+            font-size: 0.9em;
+            color: #b0b8c0;
+            margin-top: 0;
+            margin-bottom: 2em; /* Space before the first horizontal rule */
+        }
+
+        .separator {
+            border: none;
+            border-top: 1px solid #6c757d; /* Darker gray for separator lines */
+            margin: 2em 0; /* Space above and below horizontal rules */
+            width: 100%; /* Full width of the container */
+        }
+
+        main p {
+            margin-bottom: 1em;
+            font-size: 1em;
+        }
+
+        pre {
+            background-color: transparent; /* Same as body background */
+            border: 1px solid #6c757d; /* Border around the code block */
+            padding: 0.8em 1em;
+            margin: 1.5em 0;
+            overflow-x: auto; /* Allows horizontal scrolling for long lines */
+            font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.95em;
+            color: #b0b8c0; /* Same as body text */
+            white-space: pre-wrap; /* Allows text to wrap */
+            word-break: break-all; /* Breaks long words to prevent overflow */
+        }
+
+        code {
+            font-family: inherit; /* Inherit font from pre */
+            font-size: inherit;
+            color: inherit;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin-top: 2em;
+            font-size: 0.9em;
+        }
+
+        .footer-nav a {
+            color: #b0b8c0; /* Same as body text */
+            text-decoration: underline;
+            margin: 0 0.5em; /* Spacing between links */
+        }
+
+        .footer-nav a:hover {
+            color: #ffffff; /* Slightly brighter on hover for interactivity */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            body {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7em;
+            }
+            .metadata, main p, pre, .footer-nav {
+                font-size: 0.9em;
+            }
+            body {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Securing WebMail (if only just a little bit)</h1>
+            <p class="metadata">Sun Nov 19, 2006 &middot; 65 words</p>
+            <hr class="separator">
+        </header>
+
+        <main>
+            <p>By default, the squirrelmail conf only allows plaintext, but you don't have to enable that just because of your webmail users. To fix it, just do:</p>
+            <pre><code>sudo /etc/squirrelmail/config/config.pl</code></pre>
+            <p>And set Server Settings &gt; Update IMAP Settings &gt; Authentication type &gt; cram-md5. There are a bunch of other useful settings there that should be checked as well.</p>
+        </main>
+
+        <footer>
+            <hr class="separator">
+            <p class="footer-nav">
+                <a href="#">back</a> &middot;
+                <a href="#">essays</a> &middot;
+                <a href="#">credits</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+```

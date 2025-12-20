@@ -1,0 +1,236 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niels K. - Japanese input in Fedora23</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0A212D;
+            --text-color: #E0E0E0;
+            --link-color: #E0E0E0;
+            --accent-blue: #0000FF;
+            --accent-green: #00B0B0;
+            --code-bg-color: #1A3440;
+            --max-content-width: 700px;
+            --padding-x: 20px;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: 18px; /* Base font size for body text */
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 40px var(--padding-x);
+        }
+
+        /* Header */
+        .header {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .logo-square {
+            width: 80px;
+            height: 40px;
+            background-color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .site-title {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            line-height: 1.1;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        /* Article Content */
+        .article-meta {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin: 0 0 30px 0;
+            line-height: 1.2;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2em;
+        }
+
+        .article-content h3 {
+            font-size: 1.2em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .code-block {
+            background-color: var(--code-bg-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            white-space: pre; /* Preserve whitespace and line breaks */
+        }
+
+        .article-date {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            margin-top: 50px;
+            margin-bottom: 80px;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        .footer {
+            padding-top: 40px;
+            padding-bottom: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        .footer p {
+            font-size: 0.7em;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2.2em;
+            }
+            .article-title {
+                font-size: 1.8em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .container {
+                padding: 30px var(--padding-x);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 1.8em;
+            }
+            .article-title {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 15px;
+            }
+            .logo-square {
+                width: 60px;
+                height: 30px;
+            }
+            .nav-links li a {
+                font-size: 0.75em;
+            }
+            .article-meta, .article-date, .footer p {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-square"></div>
+            <h1 class="site-title">Niels K.</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">ARCHIVE</a></li>
+                    <li><a href="#">DATENSCHUTZ</a></li>
+                    <li><a href="#">SEARCH</a></li>
+                    <li><a href="#">RSS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+                <p class="article-meta">JAPANISCH, COMPUTER, RECHNERKRAM, LINUX</p>
+                <h2 class="article-title">Japanese input in Fedora23</h2>
+
+                <div class="article-content">
+                    <p>First the fix:</p>
+                    <p>Set the following in $HOME/.config/imsettings/xinputrc</p>
+                    <pre class="code-block">export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus</pre>
+                    <p>If the folder $HOME/.config/imsettings doesn't exist, create it first.</p>
+                    <p>And now a bit of background.</p>
+                    <p>I switched for a short time to Ubuntu. My reasoning was that I can give better family support but I switched back to Fedora.</p>
+                    <p>There is a script /etc/X11/xinit/xinitrc.d/50-xinput.sh. This script tries to do some magic and works pretty late in the process of starting your GUI when using the default GDM.</p>
+                    <p>The folder creation part is the place where I guess the script failed for me.</p>
+                    <p>And if that file doesn't get sourced by the script for whatever reason, the script looks up which LANG-variable you have set and compares it to a hardcoded list. And then sets up environment variables depending on your LANG-variable.</p>
+                    <p>If you have set en_US.utf8 like me that means that they get set up in a minimal way which leads to not being able to use an IME. And of course the script doesn't bother logging anything.</p>
+                    <p>Dear Fedora Project, this is too much magic and can fail. Especially since there are multiple places in $HOME where you can potentially set up the three environment variables, not all recommended but possible.</p>
+                </div>
+
+                <p class="article-date">SUNDAY FEBRUARY 28, 2016</p>
+            </article>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2023, NIELS K.</p>
+        </footer>
+    </div>
+</body>
+</html>
+```

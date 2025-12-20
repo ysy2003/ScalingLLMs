@@ -1,0 +1,123 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skycade Message</title>
+    <style>
+        /* Basic reset and font styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #FFFFFF; /* White background as seen in the image */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+        }
+
+        /* Styling for the blue block at the top */
+        .blue-block {
+            background-color: #0000FF; /* Pure blue color */
+            width: 90%; /* Responsive width */
+            max-width: 600px; /* Maximum width for larger screens */
+            height: 300px; /* Fixed height for the blue block */
+            margin-top: 40px; /* Space from the top of the page */
+            margin-bottom: 40px; /* Space between the blue block and the message card */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        /* Styling for the dark gray message card */
+        .message-card {
+            background-color: #36393F; /* Dark gray background color */
+            width: 90%; /* Responsive width */
+            max-width: 600px; /* Maximum width for larger screens */
+            padding: 25px 30px; /* Padding inside the card */
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            color: #B0B0B0; /* Default text color for paragraphs */
+            line-height: 1.6; /* Improved readability for body text */
+            margin-bottom: 40px; /* Space from the bottom of the page */
+            box-sizing: border-box;
+        }
+
+        /* Styling for the main heading inside the card */
+        .message-card h1 {
+            font-size: 1.6em; /* Larger font size for the heading */
+            font-weight: 600; /* Semi-bold font weight */
+            color: #E0E0E0; /* Lighter gray color for the heading */
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        /* Styling for general paragraphs inside the card */
+        .message-card p {
+            font-size: 0.95em; /* Slightly smaller font size for body text */
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 1em; /* Space between paragraphs */
+        }
+
+        /* Remove bottom margin for the very last paragraph to prevent extra space */
+        .message-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Styling for the signature line */
+        .message-card .signature {
+            color: #A0C0C0; /* A subtle blue-gray color for the signature */
+        }
+
+        /* Responsive adjustments for medium-sized screens (e.g., tablets) */
+        @media (max-width: 768px) {
+            .blue-block, .message-card {
+                width: 95%; /* Increase width slightly to use more available space */
+            }
+            .message-card {
+                padding: 20px 25px; /* Slightly reduce padding */
+            }
+            .message-card h1 {
+                font-size: 1.4em; /* Adjust heading font size */
+                margin-bottom: 15px;
+            }
+            .message-card p {
+                font-size: 0.9em; /* Adjust paragraph font size */
+            }
+        }
+
+        /* Responsive adjustments for small screens (e.g., mobile phones) */
+        @media (max-width: 480px) {
+            .blue-block {
+                height: 200px; /* Reduce height of the blue block */
+                margin-top: 20px; /* Reduce top margin */
+                margin-bottom: 20px; /* Reduce space between blocks */
+            }
+            .message-card {
+                padding: 15px 20px; /* Further reduce padding */
+                margin-bottom: 20px; /* Reduce bottom margin */
+            }
+            .message-card h1 {
+                font-size: 1.2em; /* Further adjust heading font size */
+                margin-bottom: 10px;
+            }
+            .message-card p {
+                font-size: 0.85em; /* Further adjust paragraph font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-block"></div>
+    <div class="message-card">
+        <h1>Dear Skycade Players,</h1>
+        <p>We want to extend a heartfelt thank you to all of you for being part of our Minecraft network. It's been an incredible journey filled with many memorable moments, and we couldn't have come this far without each one of you.</p>
+        <p>However, everything has its season, and it's time to say goodbye to our forums. After much deliberation, we've decided to shut down the Skycade forums.</p>
+        <p>Even though our server and forum are closing, the memories we've created together will always remain. We are grateful for all the fun times, challenging games, and the friendships that were formed.</p>
+        <p>Until we meet again in another world, happy gaming!</p>
+        <p>Sincerely,</p>
+        <p class="signature">- The Skycade Team</p>
+    </div>
+</body>
+</html>
+```

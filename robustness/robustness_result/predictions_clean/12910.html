@@ -1,0 +1,516 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook - Crowne Plaza Philadelphia</title>
+    <style>
+        /* General Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Light beige/gray background */
+            color: #444;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            background-color: #fff; /* White background for the main content area */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #f5f5f5; /* Matches body background for the top part */
+            padding-bottom: 20px; /* Space below main nav */
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .top-nav a {
+            margin-left: 15px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            color: #a00050; /* Pink/red hover */
+        }
+
+        .top-nav .active {
+            color: #a00050; /* Pink/red for active link */
+            font-weight: bold;
+        }
+
+        .tagline {
+            text-align: center;
+            font-style: italic;
+            color: #999;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-nav {
+            background-color: #5c003d; /* Dark purple/maroon */
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-nav li {
+            margin: 0 20px;
+        }
+
+        .main-nav a {
+            color: #ccc; /* Light gray */
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #fff;
+        }
+
+        .header-image-placeholder {
+            width: 100%;
+            height: 200px; /* Approximate height */
+            background-color: blue;
+            margin-top: 0; /* No gap between nav and image */
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            display: flex;
+            padding: 40px 20px;
+            gap: 40px; /* Space between left and right columns */
+            background-color: #fff;
+        }
+
+        .guestbook-form-section {
+            flex: 2; /* Takes more space */
+        }
+
+        .guestbook-form-section h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .guestbook-form-section .subtitle {
+            font-size: 18px;
+            color: #a00050; /* Pink/red */
+            margin-bottom: 20px;
+        }
+
+        .guestbook-form-section p {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px; /* Approximate height */
+        }
+
+        .form-group .validation-input {
+            width: 100px; /* Shorter width for validation input */
+        }
+
+        .submit-button {
+            background-color: #5c003d; /* Dark purple/maroon */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-button:hover {
+            background-color: #a00050; /* Pink/red hover */
+        }
+
+        .side-images {
+            flex: 1; /* Takes less space */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .side-image-placeholder {
+            width: 100%;
+            height: 150px; /* Approximate height */
+            background-color: blue;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #5c003d; /* Dark purple/maroon */
+            color: white;
+            padding: 40px 20px;
+            font-size: 13px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            margin-bottom: 30px;
+            gap: 20px; /* Gap between columns */
+        }
+
+        .footer-logo-section {
+            flex: 1;
+            min-width: 200px; /* Ensure it doesn't get too small */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .footer-logo-placeholder {
+            width: 150px; /* Approximate width */
+            height: 80px; /* Approximate height */
+            background-color: blue;
+        }
+
+        .footer-button {
+            background-color: #a00050; /* Pink/red */
+            color: white;
+            padding: 10px 15px;
+            border: 1px solid #a00050;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .footer-button:hover {
+            background-color: #5c003d; /* Dark purple/maroon */
+            border-color: #fff;
+        }
+
+        .footer-nav-columns {
+            display: flex;
+            gap: 40px; /* Space between nav columns */
+            flex: 1.5;
+            min-width: 250px; /* Ensure it doesn't get too small */
+        }
+
+        .footer-nav-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav-column li {
+            margin-bottom: 8px;
+        }
+
+        .footer-nav-column a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav-column a:hover {
+            color: #a00050; /* Pink/red hover */
+        }
+
+        .footer-nav-column .active {
+            color: #a00050; /* Pink/red for active link */
+            font-weight: bold;
+        }
+
+        .footer-contact-info {
+            flex: 1;
+            min-width: 200px; /* Ensure it doesn't get too small */
+            text-align: right;
+        }
+
+        .footer-contact-info p {
+            margin: 0 0 5px 0;
+        }
+
+        .footer-contact-info a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: #a00050; /* Pink/red hover */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #7a2a5e; /* Lighter purple line */
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+        }
+
+        .footer-bottom a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #a00050; /* Pink/red hover */
+        }
+
+        .footer-credit {
+            background-color: #f5f5f5; /* Matches body background */
+            color: #666;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0 10px; /* Add some margin on smaller screens */
+            }
+
+            .top-nav {
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .top-nav a {
+                margin: 0 8px;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-nav li {
+                margin: 5px 10px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .side-images {
+                flex-direction: row; /* Stack horizontally on smaller screens */
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .side-image-placeholder {
+                width: 45%; /* Two images per row */
+                height: 100px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-logo-section,
+            .footer-nav-columns,
+            .footer-contact-info {
+                min-width: unset;
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-nav-columns {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-contact-info {
+                margin-top: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-image-placeholder {
+                height: 150px;
+            }
+
+            .side-image-placeholder {
+                width: 90%; /* One image per row */
+                height: 120px;
+            }
+
+            .guestbook-form-section h1 {
+                font-size: 24px;
+            }
+
+            .guestbook-form-section .subtitle {
+                font-size: 16px;
+            }
+
+            .submit-button {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="top-nav">
+                <a href="#">Home</a>
+                <a href="#">Special Events</a>
+                <a href="#">Area Info</a>
+                <a href="#" class="active">Guestbook</a>
+            </nav>
+            <p class="tagline">Creating Memories that last a Lifetime</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Weddings</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Guestrooms</a></li>
+                </ul>
+            </nav>
+            <div class="header-image-placeholder"></div>
+        </header>
+
+        <main class="content-wrapper">
+            <section class="guestbook-form-section">
+                <h1>Guestbook</h1>
+                <p class="subtitle">Tell us about your experience</p>
+                <p>Here at Crowne Plaza Philadelphia - King of Prussia, we love to hear from our guest's experience. Tell us about your experience with us and we will take your feedback to heart to help with future plans.</p>
+
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">* Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">* Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">* Share Your Experience:</label>
+                        <textarea id="experience" name="experience" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="validation">* For validation, please answer following:<br>8 + 8 =</label>
+                        <input type="text" id="validation" name="validation" class="validation-input" required>
+                    </div>
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </section>
+
+            <aside class="side-images">
+                <div class="side-image-placeholder"></div>
+                <div class="side-image-placeholder"></div>
+                <div class="side-image-placeholder"></div>
+            </aside>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="footer-logo-section">
+                    <div class="footer-logo-placeholder"></div>
+                    <button class="footer-button">Go To Crowne Plaza<br>Philadelphia - King of Prussia</button>
+                </div>
+                <div class="footer-nav-columns">
+                    <div class="footer-nav-column">
+                        <ul>
+                            <li><a href="#">Weddings</a></li>
+                            <li><a href="#">Packages</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Guestrooms</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Special Events</a></li>
+                            <li><a href="#">Area Info</a></li>
+                            <li><a href="#" class="active">Guestbook</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-contact-info">
+                    <p>[ADDRESS REDACTED]</p>
+                    <p>King of Prussia, PA</p>
+                    <p>Toll-Free: [PHONE REDACTED]</p>
+                    <p>[PHONE REDACTED]</p>
+                    <p>E: <a href="mailto:email@redacted.com">[EMAIL REDACTED]</a></p>
+                    <p><a href="#">Like Us On Facebook</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2004 - 2014 <a href="#">Crowne Plaza Philadelphia - King of Prussia</a>. All Rights Reserved.</p>
+                <p>Web Site Designed by <a href="#">AG Marketing Solutions</a></p>
+            </div>
+        </footer>
+    </div>
+    <div class="footer-credit">
+        <p>Crowne Plaza &reg; - Service Mark - Privacy Policy</p>
+        <p>Hotel Managed By PM Hotel Group</p>
+    </div>
+</body>
+</html>
+```

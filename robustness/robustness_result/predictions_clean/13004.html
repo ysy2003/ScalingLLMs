@@ -1,0 +1,265 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex-grow: 1; /* Allow it to grow */
+            min-width: 100px; /* Ensure it doesn't shrink too much */
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 40px;
+            background-color: #0000FF;
+            margin-right: 20px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            font-size: 15px;
+            flex-wrap: wrap; /* Allow nav items to wrap */
+            justify-content: center; /* Center nav items when wrapped */
+            flex-grow: 2; /* Allow nav to take more space */
+        }
+
+        .header-nav a:hover {
+            opacity: 0.7;
+        }
+
+        .cart-info {
+            font-size: 15px;
+            white-space: nowrap; /* Prevent price from breaking */
+            margin-left: auto; /* Push to the right */
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: normal;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-top: 1px solid #eee;
+            background-color: #f8f8f8;
+            margin-top: 80px;
+            flex-wrap: wrap; /* Allow items to wrap */
+        }
+
+        .bigcartel-badge {
+            background-color: #d3d3d3;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #666;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 20px; /* Space from footer nav on larger screens */
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            color: #666;
+            flex-wrap: wrap; /* Allow nav items to wrap */
+            margin-left: auto; /* Push to the right */
+        }
+
+        .footer-nav a:hover {
+            opacity: 0.7;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+                margin-bottom: 15px;
+            }
+
+            .logo-placeholder {
+                margin-right: 0;
+            }
+
+            .cart-info {
+                margin-left: 0;
+            }
+
+            .header-nav {
+                width: 100%;
+                justify-content: space-around;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .main-content {
+                margin: 40px auto;
+                padding: 0 15px;
+            }
+
+            .faq-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .footer {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .bigcartel-badge {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .footer-nav {
+                width: 100%;
+                justify-content: space-around;
+                gap: 15px;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-placeholder"></div>
+            <nav class="header-nav">
+                <a href="#">Collections</a>
+                <a href="#">Meet the Maker</a>
+                <a href="#">Style, My Work</a>
+                <a href="#">Shipping & Terms</a>
+            </nav>
+        </div>
+        <div class="cart-info">
+            0 / $0.00
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="faq-title">F A Q</h1>
+
+        <div class="faq-item">
+            <p class="faq-question">WHEN DO YOU UPDATE YOUR SHOP?</p>
+            <p class="faq-answer">I update my shop when I have items ready. The best way to get notified is to follow me on Instagram.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">PAYMENT</p>
+            <p class="faq-answer">You can pay through PayPal and credit card.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">DO YOU ACCEPT CUSTOMS ORDERS?</p>
+            <p class="faq-answer">Not often. However, email me your ideas and I will see what I can do.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">THE ITEM I WANT IS SOLD OUT, WILL IT BE AVAILABLE AGAIN?</p>
+            <p class="faq-answer">Send me an email, I might get creative and recreate an item.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">WHERE ARE YOU BASED OUT OF?</p>
+            <p class="faq-answer">I live and work on the unceded territory of the Coast Salish peoples, including the territories of the xʷməθkʷəy̓əm (Musqueam), Skwxwú7mesh (Squamish), Stó:lō and Səlílwətaʔ/Selilwitulh (Tsleil-Waututh) Nations. Commonly known as Vancouver, British Columbia.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">HOW DO YOU COME UP WITH IDEAS FOR YOUR PIECES?</p>
+            <p class="faq-answer">I am inspired by the beauty in nature, the animal kingdom, friends and mostly, ideas will pop into my head at 4am.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="bigcartel-badge">bigcartel</div>
+        <nav class="footer-nav">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Back to site</a>
+        </nav>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,383 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Sexuality And Pregnancy</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            color: #007bff; /* Standard blue link color */
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding-bottom: 10px; /* Space below the nav */
+            border-bottom: 1px solid #eee; /* Separator line */
+            max-width: 1200px; /* Match content width */
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .header-logo-placeholder {
+            background-color: #0000ff; /* Blue rectangle */
+            width: 250px; /* Approximate width from image */
+            height: 100px; /* Approximate height from image */
+            margin-right: 20px;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .header-nav-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 10px; /* Align with the top of the blue box */
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border-right: 1px solid #ccc;
+            white-space: nowrap;
+        }
+
+        .top-nav a:last-child {
+            border-right: none;
+        }
+
+        .top-nav a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .sub-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns */
+            gap: 1px; /* Small gap between items */
+            background-color: #ccc; /* Border color for grid items */
+            border: 1px solid #ccc; /* Outer border */
+            font-size: 0.9em;
+        }
+
+        .sub-nav-item {
+            background-color: #fff;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #333;
+            display: block; /* Make the whole area clickable */
+            white-space: nowrap; /* Prevent text wrapping for nav items */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sub-nav-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Main Content Layout */
+        .main-content-wrapper {
+            display: flex;
+            max-width: 1200px; /* Max width for content */
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .sidebar {
+            flex: 0 0 250px; /* Fixed width for sidebar */
+            margin-right: 40px;
+            padding-top: 10px; /* Align with main content heading */
+        }
+
+        .sidebar h2 {
+            font-family: Georgia, serif;
+            font-size: 1.4em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal; /* Looks like normal weight in image */
+        }
+
+        .sidebar ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .sidebar li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .sidebar li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-section {
+            flex-grow: 1;
+            padding-top: 10px;
+        }
+
+        .main-section h1 {
+            font-family: Georgia, serif;
+            font-size: 1.8em;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .main-section h2 {
+            font-family: Georgia, serif;
+            font-size: 1.3em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .main-section p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .main-section a.website-link {
+            display: block; /* Make links appear on new lines */
+            margin-bottom: 5px;
+            font-size: 0.95em;
+            text-decoration: underline;
+            color: #007bff;
+        }
+
+        .main-section a.website-link:hover {
+            text-decoration: none;
+        }
+
+        .return-to-top {
+            display: block;
+            text-align: right;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 0.85em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .return-to-top:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f8f8; /* Light gray background for footer */
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-copyright {
+            flex: 1 1 40%; /* Allow it to grow, but prefer 40% width */
+            text-align: left;
+            margin-right: 20px;
+            line-height: 1.4;
+        }
+
+        .footer-logo-placeholder {
+            background-color: #0000ff; /* Blue rectangle */
+            width: 250px; /* Approximate width from image */
+            height: 100px; /* Approximate height from image */
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .footer-contact-info {
+            flex-basis: 100%; /* Take full width below copyright/logo */
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .footer-contact-item {
+            white-space: nowrap; /* Prevent wrapping for contact items */
+        }
+
+        .footer-address {
+            flex-basis: 100%;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .header {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .header-logo-placeholder {
+                width: 200px;
+                height: 80px;
+            }
+            .sub-nav {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+            }
+            .main-content-wrapper {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+            .sidebar {
+                flex: none;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+                padding-top: 0;
+            }
+            .main-section {
+                padding-top: 0;
+            }
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 15px;
+            }
+            .footer-copyright {
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .footer-logo-placeholder {
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+            .footer-contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-logo-placeholder {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            .header-nav-container {
+                width: 100%;
+                padding-top: 0;
+            }
+            .top-nav {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .top-nav a {
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+            }
+            .top-nav a:last-child {
+                border-bottom: none;
+            }
+            .sub-nav {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+            .footer-contact-info {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo-placeholder"></div>
+        <div class="header-nav-container">
+            <nav class="top-nav">
+                <a href="#home">Home</a>
+                <a href="#quick-facts">22q11.2DS Quick Facts</a>
+            </nav>
+            <nav class="sub-nav">
+                <a href="#patients-families" class="sub-nav-item">Info for Patients and Families</a>
+                <a href="#medical-professionals" class="sub-nav-item">Info for Medical Professionals</a>
+                <a href="#educators" class="sub-nav-item">Info for Educators</a>
+                <a href="#police-officers" class="sub-nav-item">Info for Police Officers</a>
+                <a href="#about-clinic" class="sub-nav-item">About the Clinic</a>
+                <a href="#our-research" class="sub-nav-item">Our Research</a>
+                <a href="#same-name-campaign" class="sub-nav-item">Same Name Campaign</a>
+                <a href="#resources" class="sub-nav-item">Resources</a>
+                <a href="#donate" class="sub-nav-item">Donate</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper">
+        <aside class="sidebar">
+            <h2>In This Section...</h2>
+            <ul>
+                <li><a href="#info-patients-families">Info for Patients and Families</a></li>
+                <li><a href="#covid-19-info">COVID-19 Information</a></li>
+                <li><a href="#what-is-22q">What is 22q? Genetics Q&A</a></li>
+                <li><a href="#how-diagnosed">How is 22q11.2 Deletion Syndrome diagnosed?</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-section">
+            <h1 id="top">Healthy Sexuality And Pregnancy</h1>
+
+            <h2>Websites on Healthy Sexuality</h2>
+            <a href="https://www.sexandu.ca" class="website-link">www.sexandu.ca</a>
+            <p>This website offers information on sexual health for teens, adults, parents, teachers and health professionals.</p>
+            <a href="https://www.teenhealthsource.com" class="website-link">www.teenhealthsource.com</a>
+            <p>This website is a way for young adults to learn more about sexual health and relationships.</p>
+            <a href="#top" class="return-to-top">[Return to top]</a>
+
+            <h2>Websites on Pregnancy</h2>
+            <a href="https://www.toronto.ca/health/pregnancy" class="website-link">www.toronto.ca/health/pregnancy</a>
+            <p>The Pregnancy section of Toronto Public Health's website

@@ -1,0 +1,371 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource on a Network - The Network Encyclopedia</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Header - Top Navigation */
+        .top-nav {
+            background-color: #007bff; /* Blue */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .hamburger-icon {
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #6c757d; /* Dark gray */
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin: 0 0 20px 0;
+            font-weight: 900; /* Extra bold */
+            line-height: 1.1;
+            text-transform: lowercase; /* As seen in image */
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .hero-section .sponsor {
+            font-size: 0.9em;
+        }
+
+        .hero-section .sponsor a {
+            color: #add8e6; /* Light blue */
+            text-decoration: none;
+        }
+
+        .hero-section .sponsor a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .main-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .main-content p {
+            margin-bottom: 20px;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .resource-list li::before {
+            content: '\2B27'; /* Small diamond character */
+            color: #007bff; /* Blue */
+            font-size: 0.8em;
+            margin-right: 10px;
+            line-height: 1.6; /* Align with text */
+            flex-shrink: 0;
+            position: relative;
+            top: 3px; /* Adjust vertical alignment */
+        }
+
+        .resource-list li strong {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .resource-list li div {
+            flex-grow: 1;
+        }
+
+        /* Search Section */
+        .search-section {
+            display: flex;
+            justify-content: center;
+            margin: 60px auto;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        .search-input {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            margin-right: 10px;
+            width: 250px; /* Adjust width as needed */
+            box-sizing: border-box;
+        }
+
+        .search-button {
+            padding: 12px 25px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa; /* Light gray */
+            cursor: pointer;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .search-button:hover {
+            background-color: #e2e6ea;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #212529; /* Very dark gray/black */
+            color: #adb5bd; /* Light gray */
+            padding: 60px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px; /* Minimum width for columns before wrapping */
+            margin: 0 15px 30px 15px; /* Add margin for spacing */
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            font-weight: normal;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            font-size: 0.95em;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-section p {
+                font-size: 1em;
+            }
+
+            .main-content h2 {
+                font-size: 1.7em;
+            }
+
+            .search-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-input {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 80%; /* Make input wider on small screens */
+                max-width: 300px;
+            }
+
+            .search-button {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                margin: 0 0 30px 0;
+                min-width: unset;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-nav-title {
+                font-size: 1.2em;
+            }
+
+            .hero-section {
+                padding: 60px 15px;
+            }
+
+            .hero-section h1 {
+                font-size: 2em;
+            }
+
+            .main-content {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .main-content h2 {
+                font-size: 1.5em;
+            }
+
+            .resource-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .resource-list li::before {
+                margin-bottom: 5px;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="top-nav">
+            <div class="top-nav-title">The Network Encyclopedia</div>
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <section class="hero-section">
+            <h1>resource on a network</h1>
+            <p>Definition of resource on a network in <i>The Network Encyclopedia</i>.</p>
+            <p class="sponsor">Sponsor: <a href="#">Geeky T-Shirt: No, I Will Not Fix Your Computer (Amazon)</a></p>
+        </section>
+    </header>
+
+    <main class="main-content">
+        <h2>What is Resource on a Network?</h2>
+        <p>Any files, applications, or devices on a network that users need access to. Examples of network resources include the following:</p>
+
+        <ul class="resource-list">
+            <li>
+                <div>
+                    <strong>Shared folders and volumes:</strong>
+                    Contain files that users need to access.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Shared printers:</strong>
+                    Allow many users to print to a single print device. You can control access to the printer by using print permissions and by setting priorities and times for accessing printers.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Applications:</strong>
+                    Allow users to access back-end applications (such as databases) using front-end clients. These applications can be standard .exe executables or scripted Web server applications such as those developed using Microsoft Active Server Pages (ASP) technology.
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>Web servers:</strong>
+                    Allow HTML-based documents and applications to be shared and accessed from any platform by using a standard Web browser such as Microsoft Internet Explorer.
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <section class="search-section">
+        <input type="text" class="search-input" placeholder="Search The Encyclo">
+        <button class="search-button">Search</button>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>Encyclopedia</h3>
+            <ul>
+                <li><a href="#">About Us and Contact Info</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Manufacturers</h3>
+            <ul>
+                <li><a href="#">Cisco products</a></li>
+                <li><a href="#">HP</a></li>
+                <li><a href="#">D-Link</a></li>
+                <li><a href="#">DELL</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Technology Trends</h3>
+            <ul>
+                <li><a href="#">Cloud</a></li>
+                <li><a href="#">Virtualization</a></li>
+                <li><a href="#">IPv6</a></li>
+                <li><a href="#">Open Network Environment</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
+```

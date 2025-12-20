@@ -1,4 +1,4 @@
-# HPML Project: Design2Code at Scale: A Framework-Based Comparison of Lightweight Fine-Tuning and Zero-Shot VLMs
+# [Scaling LLM Project] Design2Code at Scale: A Framework-Based Comparison of Lightweight Fine-Tuning and Zero-Shot VLMs
 
 ## Team Information
 
@@ -12,32 +12,48 @@
 
 ## 1. Problem Statement
 
-Describe the task being solved/researched
+How should practitioners choose between general-purpose VLM and specialized fine-tuned models for automatic UI-to-code generation?
 
 ---
 
 ## 2. Model Description
 
-Summarize the model architecture(s) used (e.g., ResNet-18, Transformer). Include:
+We evaluate four Vision-Language Models (VLMs) on design-to-code generation:
 
-- Framework (e.g., PyTorch, TensorFlow)
-- Any custom layers or changes to standard models
-### Metrics Distribution
-![imgs\comparison.png](imgs\comparison.png "Metrics Distribution")
+### Foundation Models (Zero-Shot)
+- **Gemini-2.5-Flash**: Google's multimodal model accessed via API, capable of processing design images and generating HTML/CSS code without task-specific training.
+- **Qwen3-VL-8B-Thinking**: Open-source 8B parameter VLM from Alibaba with enhanced reasoning capabilities, run locally on GPU.
+
+### Fine-tuned Models
+- **Design2Code-18B-v0**: An 18B parameter model fine-tuned specifically on design-to-code tasks, based on CogVLM architecture.
+- **VLM-WebSight**: A VLM fine-tuned on the WebSight dataset for HTML generation from webpage screenshots.
+
+### Framework and Implementation
+- **Framework**: PyTorch 2.8.0, HuggingFace Transformers 4.57.1
+- **Hardware**: NVIDIA A100 GPU (80GB VRAM)
+- **Dataset**: [SALT-NLP/Design2Code-hf](https://huggingface.co/datasets/SALT-NLP/Design2Code-hf) (484 samples)
+
 ---
 
 ## 3. Final Results Summary
 
-Example Table: 
+### Evaluation Results
 
-| Metric               | Value                           |
-| -------------------- | ------------------------------- |
-| Final Top-1 Accuracy | XX.XX%                          |
-| Inference Latency    | XX.XX ms                        |
-| Model Size           | XX MB                           |
-| Peak Memory Use      | XX MB                           |
-| Training Time/Epoch  | XX s                            |
-| Device               | A100, Jetson Nano, M1 Pro, etc. |
+![Results Table](results.png)
+
+| Model | CLIP | IoU | Render Success | Error Rate | Tree Edit Sim | Semantic HTML | Degradation | Consistency | Latency | VRAM/Cost |
+|-------|------|-----|----------------|------------|---------------|---------------|-------------|-------------|---------|-----------|
+| **Gemini-2.5-Flash** | 0.82 | 0.16 | 77.89% | 3.51% | 0.21 | 23.25% | 0.00% | 0.66 | 34.22s | $0.0020/1k |
+| **Qwen3-VL-8B-Thinking** | 0.68 | 0.13 | 96.90% | 1.03% | 0.18 | 27.13% | 21.05% | 0.66 | 153.95s | 17.70 GB |
+| **Design2Code-18B-v0** | 0.77 | 0.12 | 100.00% | 24.17% | 0.16 | 66.56% | 15.56% | 0.72 | 208.26s | 39.44 GB |
+| **VLM-WebSight** | 0.71 | 0.10 | 98.97% | 51.45% | 0.09 | 11.90% | 22.50% | 0.52 | 366.73s | 16.22 GB |
+
+### Key Metrics
+- **Visual Fidelity**: CLIP similarity and IoU between rendered output and reference
+- **Code Correctness**: Render success rate and syntax error rate
+- **Structural Alignment**: DOM tree edit similarity and semantic HTML tag usage
+- **Robustness**: Performance degradation under image perturbations (50 samples)
+- **Computational Efficiency**: Inference latency and memory/cost requirements
 
 ---
 
@@ -49,68 +65,167 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+
+# Install Playwright browsers (required for rendering)
+playwright install chromium
 ```
 
 ---
 
-B. Wandb Dashboard
+### B. Project Structure
 
-View training and evaluation metrics here: Wandb Dashboard Link
-(Replace with actual link)
+```
+Design2code/
+├── metrics/                    # Evaluation metrics implementation
+│   ├── CLIP.py                # Visual fidelity (CLIP similarity)
+│   ├── IOU.py                 # Visual fidelity (IoU)
+│   ├── structural_alignment.py # Tree edit distance & semantic HTML
+│   ├── correctness.py         # Render success & error detection
+│   ├── efficiency.py          # Latency and resource metrics
+│   └── robustness.py          # Degradation rate calculation
+│
+├── gemini/                     # Gemini API integration
+│   ├── gemini.py              # Main Gemini inference script
+│   ├── evaluate_efficiency.py
+│   └── evaluate_structural_alignment.py
+│
+├── design2code-18b-v0/         # Design2Code-18B model evaluation
+│   ├── evaluate_efficiency.py
+│   └── evaluate_structural_alignment.py
+│
+├── run_Qwen&Websight/          # Qwen and WebSight inference scripts
+│   ├── evaluate_qwen.py
+│   └── evaluate_websight.py
+│
+├── eval_Qwen&Websight/         # Evaluation notebooks
+│   ├── run_metric_qwen.ipynb
+│   └── run_metric_websight.ipynb
+│
+├── QwenWebSight_setup/         # Model setup and configuration
+│   ├── model_setup.ipynb
+│   ├── evaluate_models.py
+│   └── requirements.txt
+│
+├── robustness/                 # Robustness testing pipeline
+│   ├── test_robustness.py     # Main robustness test script
+│   ├── test_robustness_gemini.py
+│   ├── test_robustness_design2code18b.py
+│   ├── robustness_analysis.ipynb
+│   └── robustness_results/    # Test results
+│
+├── agent/                      # Automated repair agent
+│   ├── langchain_agent.py
+│   ├── repair_agent.py
+│   └── run_agent.sh
+│
+├── results_Qwen/              # Qwen model predictions (484 samples)
+├── results_WebSight/          # WebSight model predictions (484 samples)
+├── results_Design2Code18B/    # Design2Code predictions (50 samples)
+│
+├── imgs/                      # Visualization images
+├── visualization.ipynb        # Results visualization notebook
+├── dataset.py                 # Dataset loading utilities
+├── prompt.txt                 # Prompt template
+└── requirements.txt           # Python dependencies
+```
 
 ---
 
-### C. Specify for Training or For Inference or if Both 
+### C. Running Inference
 
-To train the model from scratch:
-
+**Qwen3-VL-8B & WebSight:**
 ```bash
-python train.py --config configs/default.yaml
+cd run_Qwen&Websight/
+python evaluate_qwen.py
+python evaluate_websight.py
 ```
 
-To run the Automated Evaluation and Repair Agent:
+**Gemini-2.5-Flash:**
 ```bash
-bash agent/run_agent.sh
+cd gemini/
+python gemini.py
 ```
+
+**Design2Code-18B-v0:**
+See `QwenWebSight_setup/model_setup.ipynb` for model setup instructions.
 
 ---
 
 ### D. Evaluation
 
-To evaluate the trained model:
+Run evaluation metrics on model predictions:
 
 ```bash
-python eval.py --weights checkpoints/best_model.pth
+# Visual Fidelity (CLIP Score)
+python metrics/CLIP.py
+
+# Visual Fidelity (IoU)
+python metrics/IOU.py
+
+# Structural Alignment
+python metrics/structural_alignment.py
+
+# Code Correctness
+python metrics/correctness.py
+
+# Computational Efficiency
+python metrics/efficiency.py
+```
+
+Model-specific evaluation:
+```bash
+# Gemini evaluation
+cd gemini/
+python evaluate_efficiency.py
+python evaluate_structural_alignment.py
+
+# Design2Code-18B evaluation
+cd design2code-18b-v0/
+python evaluate_efficiency.py
+python evaluate_structural_alignment.py
 ```
 
 ---
 
-### E. Quickstart: Minimum Reproducible Result
+### E. Robustness Testing
 
-To reproduce our minimum reported result (e.g., XX.XX% accuracy), run:
+To evaluate model robustness under image perturbations:
 
 ```bash
-# Step 1: Set up environment
-pip install -r requirements.txt
+cd robustness/
 
-# Step 2: Download dataset
-bash scripts/download_dataset.sh  # if applicable
+# Test Qwen model
+python test_robustness.py --model qwen --samples 50
 
-# Step 3: Run training (or skip if checkpoint is provided)
-python train.py --config configs/default.yaml
+# Test WebSight model
+python test_robustness.py --model websight --samples 50
 
-# Step 4: Evaluate
-python eval.py --weights checkpoints/best_model.pth
+# Test Gemini model
+python test_robustness_gemini.py
+
+# Test Design2Code-18B model
+python test_robustness_design2code18b.py
+```
+
+Analysis notebook: `robustness/robustness_analysis.ipynb`
+
+---
+
+### F. Automated Repair Agent
+
+To run the automated evaluation and repair agent:
+
+```bash
+cd agent/
+bash run_agent.sh
 ```
 
 ---
 
-## 5. Notes (up to you)
+## 5. Notes
 
-- All scripts are located in `scripts/`, `train.py`, `eval.py`, and `configs/`.
-- Trained Model are saved in `models/`.
-- Contact information
-
-
-
-
+- All evaluation results are saved in `results_*/` directories
+- The dataset is automatically downloaded from HuggingFace
+- For Gemini API usage, ensure Google Cloud credentials are configured
+- Visualization notebook: `visualization.ipynb`
+- Case study images available in `imgs/` directory

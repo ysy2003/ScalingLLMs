@@ -1,0 +1,310 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ukraine Tours</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Appears to be a sans-serif font */
+            line-height: 1.5;
+            color: #000;
+            background-color: #fff; /* Ensure white background for the page */
+        }
+
+        .container {
+            max-width: 960px; /* Approximate width from the image */
+            margin: 0 auto; /* Center the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow to define content area */
+            background-color: #fff; /* Ensure content area is white */
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #000080; /* Dark blue */
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0 0 5px 0;
+            font-weight: normal; /* Appears not bold */
+        }
+
+        .header p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background-color: #008080; /* Teal */
+            display: flex;
+            justify-content: flex-start; /* Align items to the start */
+            padding: 10px 20px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .header-nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 15px;
+            font-size: 14px;
+            white-space: nowrap; /* Prevent wrapping of nav items */
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Feature Boxes Section */
+        .feature-section {
+            background-color: #008080; /* Teal */
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 15px;
+        }
+
+        .feature-box {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .feature-box .icon-placeholder {
+            width: 30px;
+            height: 30px;
+            background-color: #0000FF; /* Blue */
+            margin-right: 10px;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        /* Main Content Title */
+        .main-content-title {
+            background-color: #000080; /* Dark blue */
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            padding: 20px;
+            overflow: hidden; /* Clear floats */
+        }
+
+        .main-content .image-placeholder {
+            width: 150px; /* Approximate width */
+            height: 200px; /* Approximate height */
+            background-color: #0000FF; /* Blue */
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px; /* Space below image if text wraps */
+        }
+
+        .main-content p {
+            margin-bottom: 1em;
+            font-size: 13px; /* Slightly smaller font size for body text */
+        }
+
+        .main-content a {
+            color: #0000FF; /* Blue */
+            text-decoration: underline;
+        }
+
+        .main-content strong {
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #FFFF00; /* Yellow */
+            padding: 20px;
+            overflow: hidden; /* Clear floats */
+            display: flex; /* Use flexbox for layout */
+            align-items: flex-start; /* Align items to the top */
+            gap: 20px; /* Space between image and text */
+        }
+
+        .contact-section .image-placeholder {
+            width: 150px; /* Same as main content */
+            height: 200px; /* Same as main content */
+            background-color: #0000FF; /* Blue */
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+
+        .contact-info {
+            flex-grow: 1; /* Allow text to take remaining space */
+            font-size: 13px;
+        }
+
+        .contact-info p {
+            margin: 0 0 5px 0;
+        }
+
+        .contact-icons {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .contact-icons .icon-placeholder {
+            width: 25px;
+            height: 25px;
+            background-color: #0000FF; /* Blue */
+            margin-right: 5px;
+        }
+
+        /* Footer Navigation */
+        .footer-nav {
+            background-color: #000080; /* Dark blue */
+            display: flex;
+            justify-content: space-around; /* Distribute items evenly */
+            padding: 10px 20px;
+            flex-wrap: wrap; /* Allow items to wrap */
+        }
+
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Copyright/Reviews Section */
+        .copyright-section {
+            background-color: #ADD8E6; /* Light blue */
+            padding: 10px 20px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap */
+        }
+
+        .review-info {
+            display: flex;
+            align-items: center;
+            margin-right: 10px; /* Space between review and copyright */
+        }
+
+        .review-icons {
+            display: flex;
+            margin-right: 5px;
+        }
+
+        .review-icons .icon-placeholder {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%; /* Default to circle */
+            background-color: #008000; /* Default to green */
+            margin-right: 3px;
+            border: 1px solid #fff; /* White border for green circles */
+            box-sizing: border-box;
+        }
+        .review-icons .icon-placeholder:nth-child(even) {
+            background-color: #fff; /* White square */
+            border-radius: 0; /* Make it square */
+            border: none; /* No border for white squares */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header, .header-nav, .feature-section, .main-content-title, .main-content, .contact-section, .footer-nav, .copyright-section {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .feature-section {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust grid for smaller screens */
+            }
+
+            .main-content .image-placeholder {
+                float: none; /* Remove float for smaller screens */
+                margin-right: 0;
+                margin-bottom: 15px;
+                width: 100%; /* Make image full width */
+                height: 150px; /* Adjust height */
+            }
+
+            .contact-section {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center image when stacked */
+            }
+            .contact-section .image-placeholder {
+                width: 100%; /* Make image full width */
+                height: 150px; /* Adjust height */
+                margin-bottom: 15px; /* Space below image */
+            }
+            .contact-info {
+                text-align: center; /* Center text in contact section */
+            }
+            .contact-icons {
+                justify-content: center; /* Center icons */
+            }
+
+            .footer-nav, .copyright-section {
+                justify-content: center; /* Center items when wrapped */
+                text-align: center;
+            }
+
+            .footer-nav a, .copyright-section div {
+                margin-bottom: 5px; /* Add space between wrapped items */
+            }
+            .review-info {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 20px;
+            }
+            .header p {
+                font-size: 12px;
+            }
+            .header-nav a, .feature-box, .main-content-title, .main-content p, .contact-info p, .footer-nav a, .copyright-section {
+                font-size: 12px;
+            }
+            .feature-box .icon-placeholder {
+                width: 25px;
+                height: 25px;
+            }
+            .contact-icons .icon-placeholder {
+                width: 20px;
+                height: 20px;
+            }
+            .review-icons .icon-placeholder {
+                width: 12px;
+                height: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Special Ukraine Tours<br>Kyiv Tours | Tour Guide</h1>
+            <p>Ukraine Tours with Tour Guide for 105 Percent Satisfaction

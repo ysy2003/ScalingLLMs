@@ -1,0 +1,252 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Oatmeal Chocolate Chip Muffins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8; /* Light background to match the image */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 760px; /* Based on visual estimation from the image */
+            width: 100%;
+            background-color: #fff;
+            padding: 30px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* Top section containing buttons and checkboxes */
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align tops of the two groups */
+            margin-bottom: 25px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 15px; /* Gap between button group and checkbox group when wrapped */
+        }
+
+        /* Go Back and Print buttons */
+        .top-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap; /* Prevent text wrapping inside buttons */
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .print-button {
+            background-color: #555;
+            color: white;
+            border-color: #555;
+        }
+        .print-button:hover {
+            background-color: #444;
+        }
+
+        /* Checkbox group */
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: -10px; /* Pull checkboxes up slightly to match image alignment */
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 5px;
+            transform: scale(1.1); /* Slightly larger checkbox */
+        }
+
+        /* Quantity adjuster */
+        .quantity-adjuster {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 40px;
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+
+        .quantity-button {
+            padding: 5px 10px;
+            min-width: 30px; /* Ensure consistent width for +/- */
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #555;
+            color: white;
+            border-color: #555;
+            border-radius: 3px;
+        }
+        .quantity-button:hover {
+            background-color: #444;
+        }
+
+        .quantity-input {
+            width: 40px;
+            padding: 5px 0;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            -moz-appearance: textfield; /* Hide arrows in Firefox */
+        }
+        .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none; /* Hide arrows in Chrome, Safari */
+            margin: 0;
+        }
+
+        .quantity-text {
+            font-size: 14px;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .size-button-group {
+            display: flex;
+            gap: 0; /* No gap between size buttons */
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            overflow: hidden; /* To make border-radius work on inner buttons */
+        }
+
+        .size-button {
+            padding: 5px 12px;
+            border: none; /* Remove individual borders */
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 0; /* No individual border-radius */
+            white-space: nowrap;
+        }
+
+        .size-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .size-button.active {
+            background-color: #555;
+            color: white;
+        }
+
+        /* Main content styling */
+        h1 {
+            font-size: 28px;
+            font-weight: normal; /* Looks like normal weight in image */
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .description {
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .recipe-details {
+            display: grid;
+            grid-template-columns: auto 1fr; /* Auto width for labels, rest for values */
+            gap: 5px 15px; /* Row gap, column gap */
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .recipe-details dt {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .recipe-details dd {
+            margin-left: 0;
+            color: #555;
+        }
+
+        .recipe-details a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+        }
+
+        .recipe-details a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .notes-section p {
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .notes-section p strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nutrition-facts {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding:

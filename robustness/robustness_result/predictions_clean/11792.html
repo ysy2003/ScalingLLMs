@@ -1,0 +1,228 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABRA LEAH STAMPS...</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffebeb; /* Light pink */
+            color: #333333; /* Dark gray */
+            line-height: 1.5;
+        }
+
+        a {
+            color: #666666; /* Lighter gray for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content wrapper for consistent horizontal padding */
+        .content-wrapper {
+            max-width: 960px; /* Approximate width from image */
+            margin: 0 auto;
+            padding: 0 20px; /* Horizontal padding */
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+            padding-top: 20px; /* Top padding for the header area */
+        }
+
+        .header-left {
+            flex-grow: 1;
+        }
+
+        .header h1 {
+            font-family: Georgia, serif;
+            font-size: 3em; /* Large size */
+            font-weight: normal; /* Looks normal, not bold */
+            margin: 0;
+            line-height: 1;
+        }
+
+        .header .subtitle {
+            font-size: 0.9em;
+            color: #666666;
+            margin-top: 5px;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .header .search-link {
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* Posts Header */
+        .posts-header {
+            background-color: #554f4b; /* Dark olive/brownish gray */
+            color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            max-width: 960px; /* Match content-wrapper width */
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        .posts-header .show-all-link {
+            color: #ffffff;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns */
+            gap: 20px; /* Gap between posts */
+            max-width: 960px; /* Match content-wrapper width */
+            margin: 0 auto;
+            padding: 0 20px; /* Horizontal padding */
+            box-sizing: border-box;
+        }
+
+        .post-card {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .post-card.light-bg {
+            background-color: transparent; /* No explicit background, uses body background */
+            color: #333333;
+        }
+
+        .post-card.dark-bg {
+            background-color: #554f4b; /* Dark olive/brownish gray */
+            color: #ffffff;
+            padding: 30px 20px; /* More padding for dark posts to make them appear taller */
+        }
+
+        .post-image-placeholder {
+            background-color: blue;
+            height: 180px; /* Approximate height from image */
+            margin-bottom: 15px;
+        }
+
+        .post-date {
+            font-size: 0.8em;
+            color: #666666; /* Lighter gray for date */
+            margin-bottom: 5px;
+        }
+
+        .post-card.dark-bg .post-date {
+            color: #cccccc; /* Lighter gray for date on dark background */
+        }
+
+        .post-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            text-transform: uppercase; /* Titles appear uppercase */
+        }
+
+        .post-meta {
+            font-size: 0.8em;
+            color: #666666;
+        }
+
+        .post-card.dark-bg .post-meta {
+            color: #cccccc;
+        }
+
+        .post-meta a {
+            color: inherit; /* Inherit color from parent */
+            text-decoration: none;
+        }
+
+        .post-meta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Older Posts */
+        .older-posts-section {
+            max-width: 960px;
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+            text-align: right;
+            box-sizing: border-box;
+        }
+
+        .older-posts-section .older-posts-link {
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 0.7em;
+            color: #999999; /* Lighter gray */
+            margin-top: 50px;
+            padding-bottom: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+
+            .header-right {
+                margin-top: 10px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+
+            .post-card.dark-bg {
+                padding: 20px; /* Reduce padding on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .posts-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .posts-header span {
+                margin-bottom: 5px; /* Space between text and link when stacked */
+            }
+            .posts-header .show-all-link {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper header-wrapper">
+        <

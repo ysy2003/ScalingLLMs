@@ -1,0 +1,678 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grandma Necklace Locket - Olive Bites Studio</title>
+    <style>
+        /* General Reset & Base Styles */
+        :root {
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+            --button-bg: #333;
+            --button-text: #fff;
+            --header-bg: #fff;
+            --footer-bg: #fff;
+            --blue-placeholder: #0000ff; /* For image placeholders */
+            --font-serif: "Georgia", serif;
+            --font-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans-serif);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+            font-size: 15px; /* Adjusted for visual match */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--light-text-color);
+        }
+
+        .header-left .icon {
+            margin-right: 8px;
+            font-size: 16px; /* Unicode search icon */
+        }
+
+        .header-center .logo {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: normal;
+            color: var(--text-color);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right .social-icons {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .header-right .social-icons a {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 8px;
+            font-size: 12px;
+            color: var(--light-text-color);
+        }
+
+        .header-right .cart-button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            padding: 8px 15px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            margin: 0 18px;
+        }
+
+        .main-nav a {
+            color: var(--light-text-color);
+            position: relative;
+            padding-right: 10px; /* For dropdown indicator */
+        }
+
+        .main-nav a.has-dropdown::after {
+            content: '+'; /* Placeholder for dropdown arrow */
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+        }
+
+        /* Product Section */
+        .product-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .product-breadcrumb {
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--light-text-color);
+        }
+
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .main-image {
+            flex: 4;
+            background-color: var(--blue-placeholder);
+            height: 450px; /* Placeholder height */
+        }
+
+        .thumbnails {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            background-color: var(--blue-placeholder);
+            height: 100px; /* Placeholder height */
+            width: 100%;
+        }
+
+        .product-details {
+            flex: 1.5;
+            min-width: 350px;
+        }
+
+        .product-details h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .product-details .price {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .product-details .brand {
+            font-size: 14px;
+            color: var(--light-text-color);
+            margin-bottom: 20px;
+        }
+
+        .product-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .option-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option-group label {
+            font-size: 14px;
+            width: 60px; /* Align labels */
+            color: var(--light-text-color);
+        }
+
+        .option-group select {
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            font-family: var(--font-sans-serif);
+            font-size: 14px;
+            color: var(--text-color);
+            background-color: #fff;
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.6c-5%200-9.3%201.8-13.2%205.4A17.6%2017.6%200%200%200%200%2082.6c0%204.8%201.8%209.3%205.4%2013.2l128%20128c3.9%203.9%208.4%205.4%2013.2%205.4s9.3-1.8%2013.2-5.4l128-128c3.9-3.9%205.4-8.4%205.4-13.2%200-4.8-1.8-9.3-5.4-13.2z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 10px;
+            padding-right: 25px;
+        }
+
+        .quantity-add {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .quantity-add input[type="number"] {
+            width: 60px;
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            font-family: var(--font-sans-serif);
+            font-size: 14px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .quantity-add .add-to-cart-button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            padding: 10px 25px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-grow: 1;
+        }
+
+        .product-description {
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--light-text-color);
+        }
+
+        .product-description p {
+            margin-bottom: 15px;
+        }
+
+        .product-description h3 {
+            font-size: 15px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-weight: normal;
+        }
+
+        .product-description ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .product-description ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .product-description ul li::before {
+            content: '★'; /* Star icon */
+            position: absolute;
+            left: 0;
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .product-description a {
+            color: var(--text-color);
+            text-decoration: underline;
+        }
+
+        .product-share {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: var(--light-text-color);
+        }
+
+        .product-share .share-label {
+            margin-right: 15px;
+            text-transform: uppercase;
+        }
+
+        .product-share .social-icons a {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 8px;
+            font-size: 12px;
+            color: var(--light-text-color);
+        }
+
+        /* Footer */
+        .footer-top {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 40px 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .footer-top ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-top a {
+            color: var(--light-text-color);
+        }
+
+        .footer-middle {
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        .footer-middle .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-middle .social-icons a {
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 8px;
+            font-size: 14px;
+            color: var(--light-text-color);
+        }
+
+        .newsletter-signup {
+            margin-bottom: 40px;
+        }
+
+        .newsletter-signup p {
+            font-size: 13px;
+            color: var(--light-text-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-right: none;
+            font-family: var(--font-sans-serif);
+            font-size: 14px;
+            width: 280px;
+            max-width: 100%;
+            color: var(--text-color);
+        }
+
+        .newsletter-form button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px; /* Arrow icon */
+            line-height: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--light-text-color);
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .payment-icon {
+            background-color: var(--blue-placeholder);
+            width: 30px;
+            height: 20px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-top, .main-nav, .footer-top {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-left, .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+            .header-right .social-icons {
+                margin-right: 10px;
+            }
+            .header-center .logo {
+                font-size: 28px;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .main-nav li {
+                margin: 0 10px;
+            }
+
+            .product-section {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .product-images {
+                flex-direction: column;
+            }
+            .main-image {
+                height: 300px;
+            }
+            .thumbnails {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .thumbnail {
+                width: 80px;
+                height: 80px;
+            }
+
+            .product-details h1 {
+                font-size: 28px;
+            }
+
+            .quantity-add {
+                flex-direction: column;
+            }
+            .quantity-add input[type="number"] {
+                width: 100%;
+            }
+
+            .footer-top ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top, .main-nav, .footer-top {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .header-center .logo {
+                font-size: 24px;
+            }
+            .header-right .social-icons {
+                display: none; /* Hide social icons on very small screens */
+            }
+            .product-section {
+                padding: 0 15px;
+            }
+            .product-details h1 {
+                font-size: 24px;
+            }
+            .newsletter-form input[type="email"] {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-left">
+                <span class="icon">&#x1F50D;</span> Search
+            </div>
+            <div class="header-center">
+                <a href="#" class="logo">Olive Bites Studio</a>
+            </div>
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"></a>
+                    <a href="#" aria-label="Twitter"></a>
+                    <a href="#" aria-label="Instagram"></a>
+                    <a href="#" aria-label="Pinterest"></a>
+                </div>
+                <button class="cart-button">CART (0)</button>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" class="has-dropdown">SHOP</a></li>
+                <li><a href="#">Let's Chat</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-section">
+        <div class="product-breadcrumb">
+            SEE MORE: UNKNOWN
+        </div>
+        <div class="product-images">
+            <div class="main-image"></div>
+            <div class="thumbnails">
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+            </div>
+        </div>
+        <div class="product-details">
+            <h1>Grandma Necklace Locket</h1>
+            <div class="price">$30.00</div>
+            <div class="brand">Brand Unique, Handmade Recycled Jewelry - Olive Bites Studio</div>
+
+            <div class="product-options">
+                <div class="option-group">
+                    <label for="size">Size</label>
+                    <select id="size" name="size">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="length">Length</label>
+                    <select id="length" name="length">
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="22">22</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="quantity-add">
+                <input type="number" value="1" min="1" aria-label="Quantity">
+                <button class="add-to-cart-button">ADD TO CART</button>
+            </div>
+
+            <div class="product-description">
+                <p>Do you have the world's best grandma? We think you should tell her how you feel!</p>
+                <p>Polarity Lockets are the ORIGINAL magnetic necklace since 2007!</p>
+                <p>My lockets are welded by me with love and propane from recycled steel auto parts - then I collaborate with the most amazing and talented artists from around the world to create something totally unique just for you!</p>
+                <h3>★ ABOUT THE LOCKET:</h3>
+                <ul>
+                    <li>Your locket is fabricated by me from a recycled steel car part</li>
+                    <li>Your locket has multiple magnet lids - 3 NECKLACES IN 1!</li>
+                    <li>Your choice of length stainless steel ballchain</li>
+                    <li>Mirror inside</li>
+                    <li>Locket shown is = 1" size (1.25" also available)</li>
+                    <li>Lids are a multi-use magnet set!</li>
+                    <li>Your satisfaction 100% guaranteed</li>
+                    <li>Your locket ships in gift tin with gift bag and always includes a FREE EXTRA LID!</li>
+                </ul>
+                <p>Please buy with confidence! Your Recycled Magnetic 3 in 1 LOCKET SET By Polarity is 100% SATISFACTION GUARANTEED!</p>
+                <p>Check out my other etsy shop<br><a href="http://uncorked.etsy.com">http://uncorked.etsy.com</a></p>
+                <p>I will gladly combine shipping fees between my two shops</p>
+                <p>My polarity jewelry designs are © 2007-2013, the images on the jewelry are copyrighted by the copyright holders and used here with permission.</p>
+                <p>See all my Polarity Lockets HERE <a href="http://www.polarity.etsy.com">http://www.polarity.etsy.com</a></p>
+            </div>
+
+            <div class="product-share">
+                <span class="share-label">SHARE</span>
+                <div class="social-icons">
+                    <a href="#" aria-label="Share on Facebook"></a>
+                    <a href="#" aria-label="Share on Twitter"></a>
+                    <a href="#" aria-label="Share on Pinterest"></a>
+                    <a href="#" aria-label="Share via Email"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <ul>
+                <li><a href="#">Shop +</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Let's Chat</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+        <div class="footer-middle">
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"></a>
+                <a href="#" aria-label="Twitter"></a>
+                <a href="#" aria-label="Instagram"></a>
+                <a href="#" aria-label="Pinterest"></a>
+            </div>
+            <div class="newsletter-signup">
+                <p>SIGNUP FOR OUR NEWSLETTERS</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email Address" aria-label="Email Address for Newsletter">
+                    <button type="submit" aria-label="Subscribe">&#x2192;</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 Olive Bites Studio. Theme by Clean Themes. Ecommerce Software by Shopify</p>
+            <div class="payment-icons">
+                <div class="payment-icon"></div>
+                <div class="payment-icon"></div>
+                <div class="payment-icon"></div>
+                <div class="payment-icon"></div>
+                <div class="payment-icon"></div>
+                <div class="payment-icon"></div>
+                <div class="payment-icon"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

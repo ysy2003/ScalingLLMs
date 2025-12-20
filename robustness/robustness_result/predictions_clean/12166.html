@@ -1,0 +1,693 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Dictatorship</title>
+    <style>
+        :root {
+            --primary-text-color: #333;
+            --secondary-text-color: #666;
+            --link-color: #007bff;
+            --button-bg-dark: #333;
+            --button-bg-blue: #007bff;
+            --button-hover-blue: #0056b3;
+            --blue-block-color: #0000FF;
+            --border-color: #eee;
+            --max-width: 1000px;
+            --padding-x: 20px;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--padding-x);
+        }
+
+        /* Header Top */
+        .header-top {
+            background-color: #f8f8f8;
+            padding: 10px var(--padding-x);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.85rem;
+            gap: 15px;
+        }
+
+        .header-top a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-top a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            padding: 20px var(--padding-x);
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-nav a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+        }
+
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .main-nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding: 10px 0;
+        }
+
+        .main-nav .dropdown-content a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .main-nav .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .main-nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Book Details Section */
+        .book-details-section {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .book-cover {
+            width: 250px;
+            height: 350px; /* Aspect ratio similar to image */
+            background-color: var(--blue-block-color);
+            flex-shrink: 0;
+        }
+
+        .book-info h1 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+
+        .book-info h2 {
+            font-size: 1.5rem;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+            color: var(--secondary-text-color);
+        }
+
+        .book-info .author {
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .book-info .meta-item {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .book-info .meta-label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .book-info .meta-links a {
+            margin-right: 5px;
+        }
+
+        .price-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .price-button {
+            background-color: var(--button-bg-blue);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .price-button:hover {
+            background-color: var(--button-hover-blue);
+        }
+
+        .price-button .icon {
+            font-size: 1.2em;
+        }
+
+        .alternative-formats {
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+
+        .alternative-formats p {
+            margin-bottom: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .action-button {
+            background-color: var(--button-bg-dark);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .action-button:hover {
+            background-color: #555;
+        }
+
+        .request-links {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .share-this {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .share-this .share-icon {
+            border: 1px solid var(--primary-text-color);
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em;
+        }
+
+        .divider {
+            border-top: 1px solid var(--border-color);
+            margin: 40px 0;
+        }
+
+        /* Description Section */
+        .description-section {
+            padding-bottom: 40px;
+        }
+
+        .description-section .quote {
+            border-left: 4px solid var(--border-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--secondary-text-color);
+        }
+
+        .description-section h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .description-section p {
+            margin-bottom: 15px;
+        }
+
+        .description-section .author-bio {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .description-section .author-bio strong {
+            font-weight: bold;
+        }
+
+        /* You May Also Like Section */
+        .you-may-also-like {
+            padding-top: 40px;
+            padding-bottom: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .you-may-also-like h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .also-like-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .also-like-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .also-like-item .cover-placeholder {
+            width: 150px;
+            height: 200px;
+            background-color: var(--blue-block-color);
+            margin-bottom: 10px;
+        }
+
+        .also-like-item .title {
+            font-size: 0.9rem;
+            line-height: 1.3;
+            color: var(--primary-text-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f8f8;
+            padding: 60px var(--padding-x) 30px var(--padding-x);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--primary-text-color);
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter-signup p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-signup .signup-button {
+            background-color: #ff6600; /* Orange color from image */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .newsletter-signup .signup-button:hover {
+            background-color: #e65c00;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--secondary-text-color);
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social-icons .icon {
+            border: 1px solid var(--secondary-text-color);
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em;
+            color: var(--secondary-text-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-top {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .book-details-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .book-cover {
+                width: 100%;
+                height: 300px; /* Adjust height for smaller screens */
+                margin: 0 auto;
+            }
+
+            .book-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .book-info h2 {
+                font-size: 1.2rem;
+            }
+
+            .price-button {
+                min-width: unset;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .also-like-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .also-like-item .cover-placeholder {
+                width: 120px;
+                height: 160px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header-top {
+                font-size: 0.75rem;
+            }
+
+            .main-nav {
+                font-size: 0.85rem;
+            }
+
+            .book-info h1 {
+                font-size: 1.5rem;
+            }
+
+            .book-info h2 {
+                font-size: 1rem;
+            }
+
+            .description-section h3, .you-may-also-like h3 {
+                font-size: 1.3rem;
+            }
+
+            .also-like-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .also-like-item .cover-placeholder {
+                width: 100px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <a href="#">&#x25A1; SIGN IN</a>
+        <a href="#">&#x25A1; YOUR CART</a>
+        <a href="#">&#x25A1; SEARCH</a>
+    </div>
+
+    <div class="container">
+        <nav class="main-nav">
+            <a href="#">Browse</a>
+            <a href="#">Open Access</a>
+            <a href="#">Requests</a>
+            <div class="dropdown">
+                <a href="#">Publish &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="#">Sub-item 1</a>
+                    <a href="#">Sub-item 2</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="book-details-section">
+            <div class="book-cover"></div>
+            <div class="book-info">
+                <h1>Destination Dictatorship</h1>
+                <h2>The Spectacle of Spain's Tourist Boom and the Reinvention of Difference</h2>
+                <p class="author">By <a href="#">Justin Crumbaugh</a></p>
+
+                <div class="meta-item">
+                    <span class="meta-label">Subjects:</span>
+                    <span class="meta-links">
+                        <a href="#">Spanish Studies</a>,
+                        <a href="#">Cultural Studies</a>,
+                        <a href="#">Film Studies</a>,
+                        <a href="#">Political Communication</a>
+                    </span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Series:</span>
+                    <a href="#">SUNY series in Latin American and Iberian Thought and Culture</a>
+                </div>
+
+                <div class="meta-item">
+                    <span class="meta-label">Paperback:</span> 9781438426662, 173 pages, July 2010
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Hardcover:</span> 9781438426655, 173 pages, October 2009
+                </div>
+
+                <div class="price-options">
+                    <button class="price-button">
+                        <span class="icon">&#x25A1;</span> Paperback $33.95
+                    </button>
+                    <button class="price-button">
+                        <span class="icon">&#x25A1;</span> Hardcover $99.00
+                    </button>
+                </div>
+
+                <div class="alternative-formats">
+                    <p>Alternative formats available from:</p>
+                    <a href="#">RedShelf</a><br>
+                    <a href="#">Google Play</a>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="#" class="action-button">Read Excerpt</a>
+                    <a href="#" class="action-button">View Table of Contents</a>
+                </div>
+
+                <div class="request-links">
+                    <a href="#">Request Desk or Examination Copy</a><br>
+                    <a href="#">Request a Media Review Copy</a>
+                </div>
+
+                <div class="share-this">
+                    SHARE THIS:
+                    <a href="#" class="share-icon">&#x25A1;</a>
+                    <a href="#" class="share-icon">&#x25A1;</a>
+                    <a href="#" class="share-icon">&#x25A1;</a>
+                </div>
+            </div>
+        </main>
+
+        <div class="divider"></div>
+
+        <section class="description-section">
+            <p class="quote">Examines the relationship of Spain's 1960s tourist boom to Franco's right-wing dictatorship.</p>
+
+            <h3>Description</h3>
+            <p>When the right-wing military dictatorship of Francisco Franco decided in 1959 to devalue the Spanish currency and liberalize the economy, the country's already steadily growing tourist industry suddenly ballooned to astounding proportions. Throughout the 1960s, glossy images of high-rise hotels, crowded beaches, and blondes in bikinis flooded public space in Spain as the Franco regime showcased its success.</p>
+            <p class="author-bio"><strong>Justin Crumbaugh</strong> is Assistant Professor of Spanish at Mount Holyoke College.</p>
+        </section>
+
+        <section class="you-may-also-like">
+            <h3>You May Also Like</h3>
+            <div class="also-like-grid">
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Representing Childhood and Atrocity</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Barcelona, City of Comics</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Major Concepts in Spanish Feminist Theory</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Queer Transitions in Contemporary Spanish Culture</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">The Censorship Files</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Despotic Bodies and Transgressive Bodies</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Action and Contemplation</a>
+                </div>
+                <div class="also-like-item">
+                    <div class="cover-placeholder"></div>
+                    <a href="#" class="title">Allegories of Transgression and Transformation</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Books and Journals</h4>
+                    <ul>
+                        <li><a href="#">Journals</a></li>
+                        <li><a href="#">Browse All Books</a></li>
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Forthcoming Titles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>The Press</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Ordering and Customer Service</a></li>
+                        <li><a href="#">Sales Representation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column newsletter-signup">
+                    <h4>Get on the List!</h4>
+                    <p>Join the SUNY Press email list for the latest information on our books and authors, including new releases, events, and special offers.</p>
+                    <a href="#" class="signup-button">Sign Me Up!</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-social-icons">
+                    <a href="#" class="icon">&#x25A1;</a>
+                    <a href="#" class="icon">&#x25A1;</a>
+                    <a href="#" class="icon">&#x25A1;</a>
+                </div>
+                <div class="footer-copyright">
+                    &copy; 2023 SUNY Press | This site is ReaderBound
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```

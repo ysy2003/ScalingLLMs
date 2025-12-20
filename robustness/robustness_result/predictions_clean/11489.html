@@ -1,0 +1,136 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marc & André</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Using common sans-serif font */
+            background-color: #000000; /* Black background */
+            color: #ffffff; /* White text color */
+            min-height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: flex-end; /* Align content to the right */
+            align-items: center; /* Vertically center content */
+            padding-right: 10vw; /* Responsive padding from the right edge */
+            padding-left: 20px; /* Minimum padding on the left for smaller screens */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Container for the text and button */
+        .container {
+            text-align: right; /* Align all inline/inline-block content to the right */
+            max-width: 500px; /* Maximum width for the content block */
+            width: 100%; /* Allow it to shrink on smaller screens */
+        }
+
+        /* Main Heading Styling */
+        .main-heading {
+            font-size: clamp(2rem, 3.5vw, 4rem); /* Responsive font size */
+            line-height: 1.1; /* Tight line spacing */
+            letter-spacing: 0.1em; /* Increased letter spacing */
+            text-transform: uppercase; /* All uppercase */
+            font-weight: 400; /* Regular font weight */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        /* Sub-text Styling */
+        .sub-text {
+            font-size: clamp(0.8rem, 1.2vw, 1.2rem); /* Responsive font size */
+            letter-spacing: 0.05em; /* Slight letter spacing */
+            margin-bottom: 40px; /* Space below sub-text */
+            position: relative; /* For positioning the pseudo-element underline */
+            display: inline-block; /* Allows text-align: right to work on its pseudo-element */
+            padding-bottom: 5px; /* Space for the underline */
+        }
+
+        /* Underline for sub-text using a pseudo-element */
+        .sub-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0; /* Align underline to the right of the text */
+            width: 50px; /* Fixed width for the underline */
+            height: 2px;
+            background-color: #b89a6e; /* Brown/gold color */
+        }
+
+        /* Button Styling */
+        .button {
+            background-color: #b89a6e; /* Brown/gold background color */
+            color: #ffffff; /* White text color */
+            border: none; /* No border */
+            padding: clamp(10px, 1.5vw, 20px) clamp(20px, 3vw, 40px); /* Responsive padding */
+            text-transform: uppercase; /* All uppercase */
+            font-size: clamp(1rem, 1.5vw, 1.5rem); /* Responsive font size */
+            letter-spacing: 0.1em; /* Increased letter spacing */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            font-weight: 600; /* Bolder font weight for the button text */
+            white-space: nowrap; /* Prevent button text from wrapping */
+        }
+
+        /* Button Hover Effect */
+        .button:hover {
+            background-color: #a0855c; /* Slightly darker brown/gold on hover */
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding-right: 5vw; /* Reduce right padding */
+                padding-left: 5vw; /* Reduce left padding */
+            }
+            .main-heading {
+                margin-bottom: 15px; /* Adjust spacing */
+            }
+            .sub-text {
+                margin-bottom: 30px; /* Adjust spacing */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-right: 20px; /* Fixed padding for very small screens */
+                padding-left: 20px;
+            }
+            .main-heading {
+                font-size: clamp(1.5rem, 6vw, 2.5rem); /* Further adjust font size for small screens */
+                line-height: 1.2;
+            }
+            .sub-text {
+                font-size: clamp(0.7rem, 3vw, 1rem);
+            }
+            .button {
+                padding: clamp(8px, 2vw, 15px) clamp(15px, 4vw, 30px); /* Adjust button padding */
+                font-size: clamp(0.9rem, 3.5vw, 1.2rem); /* Adjust button font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-heading">
+            DISCOVER A<br>
+            FASCINATING<br>
+            WORLD OF<br>
+            MARC & ANDRÉ<br>
+            SWIMWEAR<br>
+            & LINGERIE!
+        </h1>
+        <p class="sub-text">take a deep breath and...</p>
+        <button class="button">DIVE</button>
+    </div>
+</body>
+</html>
+```

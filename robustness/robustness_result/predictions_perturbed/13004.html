@@ -1,0 +1,249 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif; /* Closely matches the sans-serif font in the image */
+            color: #444; /* Dark gray text color */
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee; /* Light gray border at the bottom */
+            background-color: #fff;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 10px; /* Space between items when wrapping */
+        }
+
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background-color: #0000FF; /* Blue color from image */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px; /* Space between nav links */
+            flex-grow: 1; /* Allow nav to take available space */
+            justify-content: center; /* Center nav items within their allocated space */
+            flex-wrap: wrap;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 0.9em;
+            white-space: nowrap; /* Prevent links from breaking onto multiple lines */
+        }
+
+        .header-nav a:hover {
+            color: #000;
+        }
+
+        .cart-info {
+            color: #444;
+            font-size: 0.9em;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 60px 20px; /* Vertical padding for main content area */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            letter-spacing: 0.2em; /* Spacing for F A Q to match the image */
+            margin-top: 0;
+            margin-bottom: 60px; /* Space below FAQ title */
+            font-weight: normal; /* The "F A Q" title appears normal weight */
+        }
+
+        .faq-container {
+            max-width: 700px; /* Estimated content width from image */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 0 20px; /* Inner padding to prevent text from touching edges */
+        }
+
+        .faq-item {
+            margin-bottom: 30px; /* Space between individual FAQ items */
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0; /* No margin after the last item */
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 0.5em; /* Space between question and answer */
+            font-size: 0.95em; /* Slightly smaller than default paragraph for questions */
+        }
+
+        .answer {
+            margin-top: 0;
+            font-size: 0.95em; /* Consistent with question text size */
+        }
+
+        /* Footer Styles */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #f8f8f8; /* Light gray background for footer */
+            border-top: 1px solid #eee; /* Light gray border at the top */
+            margin-top: 80px; /* Space above footer */
+            flex-wrap: wrap; /* Allow items to wrap */
+            gap: 10px; /* Space between items when wrapping */
+        }
+
+        .bigcartel-badge {
+            background-color: #e0e0e0; /* Gray background for the badge */
+            color: #666; /* Slightly lighter text color */
+            padding: 5px 10px;
+            border-radius: 3px; /* Slightly rounded corners */
+            font-size: 0.8em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px; /* Space between footer links */
+            flex-grow: 1; /* Allow nav to take available space */
+            justify-content: flex-end; /* Align to the right */
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: #666; /* Slightly lighter text color */
+            font-size: 0.8em;
+            white-space: nowrap;
+        }
+
+        .footer-nav a:hover {
+            color: #333;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header, footer {
+                padding: 15px 20px;
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items horizontally */
+                text-align: center;
+            }
+
+            .header-nav, .footer-nav {
+                justify-content: center; /* Center nav items */
+                width: 100%; /* Take full width */
+                margin-top: 10px; /* Add some space when stacked */
+            }
+
+            .logo-placeholder, .cart-info, .bigcartel-badge {
+                margin-bottom: 10px; /* Add space when items stack */
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 40px;
+            }
+
+            main {
+                padding: 40px 15px;
+            }
+
+            .faq-container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header, footer {
+                padding: 10px 15px;
+            }
+
+            .header-nav a, .cart-info, .footer-nav a, .bigcartel-badge {
+                font-size: 0.8em;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                letter-spacing: 0.15em;
+                margin-bottom: 30px;
+            }
+
+            .question, .answer {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-placeholder"></div>
+        <nav class="header-nav">
+            <a href="#">Collections</a>
+            <a href="#">Meet the Maker</a>
+            <a href="#">Style, My Work</a>
+            <a href="#">Shipping & Terms</a>
+        </nav>
+        <div class="cart-info">0 / $0.00</div>
+    </header>
+
+    <main>
+        <h1>F A Q</h1>
+        <div class="faq-container">
+            <div class="faq-item">
+                <p class="question">WHEN DO YOU UPDATE YOUR SHOP?</p>
+                <p class="answer">I update my shop when I have items ready. The best way to get notified is to follow me on Instagram.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question">PAYMENT</p>
+                <p class="answer">You can pay through PayPal and credit card.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question">DO YOU ACCEPT CUSTOMS ORDERS?</p>
+                <p class="answer">Not often. However, email me your ideas and I will see what I can do.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question">THE ITEM I WANT IS SOLD OUT, WILL IT BE AVAILABLE AGAIN?</p>
+                <p class="answer">Send me an email, I might get creative and recreate an item.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question">WHERE ARE YOU BASED OUT OF?</p>
+                <p class="answer">I live and work on the unceded territory of the Coast Salish peoples, including the territories of the xʷməθkʷəy̓əm (Musqueam), Skwxwú7mesh (Squamish), Stó:lō and Səlilwətaʔ/Selilwitulh (Tsleil-Waututh) Nations. Commonly known as Vancouver, British Columbia.</p>
+            </div>
+            <div class="faq-item">
+                <p class="question">HOW DO YOU COME UP WITH IDEAS FOR YOUR PIECES?</p>
+                <p class="answer">I am inspired by the beauty in nature, the animal kingdom, friends and mostly, ideas will pop into my head at 4am.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="bigcartel-badge">bigcartel</div>
+        <nav class="footer-nav">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Back to site</a>
+        </nav>
+    </footer>
+</body>
+</html>
+```

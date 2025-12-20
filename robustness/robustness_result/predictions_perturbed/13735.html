@@ -1,0 +1,266 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bombay's</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .top-red-bar {
+            background-color: #ff0000;
+            height: 30px; /* Approximate height from image */
+        }
+
+        .shadow-bar {
+            background-color: #f8f8f8; /* Lighter grey to match image */
+            height: 40px; /* Approximate height from image */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Space below header */
+        }
+
+        /* Main Content Layout */
+        .container {
+            display: flex;
+            max-width: 1000px; /* Approximate width of content area */
+            margin: 0 auto;
+            padding: 20px;
+            gap: 40px; /* Space between sidebar and main content */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex-shrink: 0;
+            width: 180px; /* Approximate width */
+            padding-top: 10px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px; /* Space for custom bullet */
+        }
+
+        .sidebar li::before {
+            content: '•'; /* Custom bullet point */
+            color: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar a {
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex-grow: 1;
+            padding-top: 10px;
+        }
+
+        .content h1 {
+            color: #0000ff;
+            font-size: 32px;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ff0000; /* Red underline */
+            display: inline-block; /* To make border-bottom only as wide as text */
+        }
+
+        .content-body {
+            display: flex;
+            gap: 30px; /* Space between text and blue box */
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .text-content {
+            flex-grow: 1;
+            max-width: 500px; /* Limit text width */
+        }
+
+        .text-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .text-content strong {
+            font-weight: bold;
+        }
+
+        .blue-box {
+            background-color: #0000ff;
+            width: 250px; /* Approximate width */
+            height: 200px; /* Approximate height */
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-top: 5px; /* Slight adjustment to align with text */
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding-bottom: 30px;
+        }
+
+        .footer-nav-divider {
+            border-top: 1px solid #ff0000;
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .footer-nav a {
+            color: #ff0000;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .copyright .red-text {
+            color: #ff0000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .sidebar {
+                width: auto;
+                padding-top: 0;
+            }
+
+            .content-body {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .text-content {
+                max-width: 100%;
+            }
+
+            .blue-box {
+                width: 100%;
+                height: 150px; /* Adjust height for smaller screens */
+                margin-top: 0;
+            }
+
+            .footer-nav-divider {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-red-bar {
+                height: 20px;
+            }
+            .shadow-bar {
+                height: 30px;
+            }
+            .content h1 {
+                font-size: 28px;
+            }
+            .text-content p {
+                font-size: 15px;
+            }
+            .footer-nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            .footer-nav {
+                line-height: 1.2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-red-bar"></div>
+        <div class="shadow-bar"></div>
+    </header>
+
+    <main class="container">
+        <aside class="sidebar">
+            <h2>More About Us</h2>
+            <ul>
+                <li><a href="#">Online Ordering</a></li>
+                <li><a href="#">Our App</a></li>
+            </ul>
+        </aside>
+        <section class="content">
+            <h1>About Us</h1>
+            <div class="content-body">
+                <div class="text-content">
+                    <p>Welcome to <strong>Bombay's</strong>, downtown Manhattan's newest Indian Bistro.</p>
+                    <p>If you can't make it to us - no problem -we'll come to you!</p>
+                    <p>Visit an American Masala today - you'll be happy you did!</p>
+                </div>
+                <div class="blue-box"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-nav-divider"></div>
+        <nav class="footer-nav">
+            <a href="#">Home</a> |
+            <a href="#">Menu</a> |
+            <a href="#">Your Order</a> |
+            <a href="#">Your Account</a> |
+            <a href="#">Help</a> |
+            <a href="#">Contact Us</a>
+        </nav>
+        <p class="copyright">Copyright 2015 - 2023 <span class="red-text">Executive Dining Club</span> | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
+```

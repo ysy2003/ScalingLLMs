@@ -1,0 +1,287 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highland Basket Hilt Broadsword</title>
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Main Content Wrapper */
+        .container {
+            max-width: 960px; /* Max width for the main content area */
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in the element's total width */
+        }
+
+        /* Headings */
+        h1, h2 {
+            font-family: Georgia, serif;
+            color: #d4af37; /* Gold color for headings */
+            text-align: center;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 2.8em; /* Adjust font size to match image */
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-top: 80px;
+            margin-bottom: 40px;
+        }
+
+        /* Underline effect for headings */
+        .heading-underline {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 5px; /* Space between text and underline */
+        }
+
+        .heading-underline::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 70%; /* Adjust width of the underline */
+            height: 2px;
+            background-color: #d4af37; /* Gold color */
+        }
+
+        /* Image Placeholders (Blue Boxes) */
+        .image-placeholder {
+            background-color: #0000ff; /* Blue color */
+            width: 100%; /* Full width within its container */
+            height: 400px; /* Fixed height for large images */
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Text Blocks */
+        .text-block {
+            margin-bottom: 50px; /* Space after text block */
+            text-align: left;
+            padding-left: 20px; /* Indent text slightly from the left edge of the container */
+            padding-right: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between gallery items */
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            background-color: #0000ff; /* Blue color */
+            width: 180px; /* Fixed width for gallery items */
+            height: 120px; /* Fixed height for gallery items */
+            box-sizing: border-box;
+        }
+
+        .gallery-label {
+            text-align: center;
+            color: #d4af37; /* Gold color */
+            font-size: 0.9em;
+            margin-top: 20px;
+            margin-bottom: 80px;
+        }
+
+        .gallery-label::before {
+            content: '\25A0'; /* Unicode square character */
+            margin-right: 8px;
+        }
+
+        /* Get in Touch Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center items horizontally */
+            align-items: flex-start; /* Align items to the top */
+            gap: 40px; /* Space between text and image */
+            margin-bottom: 80px;
+        }
+
+        .contact-text {
+            flex: 1; /* Allow text to take available space */
+            min-width: 300px; /* Minimum width for text block */
+            max-width: 500px; /* Max width for text block */
+            text-align: left;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .contact-image-placeholder {
+            background-color: #0000ff; /* Blue color */
+            width: 400px; /* Fixed width for contact image */
+            height: 300px; /* Fixed height for contact image */
+            box-sizing: border-box;
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+
+        .contact-text a {
+            color: #d4af37; /* Gold color for email link */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid #333; /* Darker line for separation */
+            padding: 30px 20px;
+            font-size: 0.85em;
+            color: #b8b8b8; /* Slightly lighter gray for footer text */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px; /* Space between footer columns */
+        }
+
+        .footer-left, .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .image-placeholder {
+                height: 300px; /* Smaller height for images on smaller screens */
+            }
+            .contact-content {
+                flex-direction: column; /* Stack contact text and image */
+                align-items: center; /* Center items when stacked */
+            }
+            .contact-text {
+                max-width: 100%; /* Allow text to take full width */
+                padding-left: 0;
+                padding-right: 0;
+                text-align: center; /* Center text on small screens */
+            }
+            .contact-image-placeholder {
+                width: 100%; /* Full width for contact image */
+                height: 250px; /* Adjust height */
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-left, .footer-right {
+                align-items: center;
+            }
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .image-placeholder {
+                height: 200px;
+            }
+            .gallery-item {
+                width: 150px;
+                height: 100px;
+            }
+            .contact-image-placeholder {
+                height: 200px;
+            }
+            .text-block, .contact-text {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Highland Basket Hilt Broadsword</h1>
+        </header>
+
+        <section class="product-description">
+            <div class="image-placeholder"></div>
+            <p class="text-block">This basket hilt is produced in 4mm thick mild steel, with typical panel styling and patterns of the period.</p>
+
+            <div class="image-placeholder"></div>
+            <p class="text-block">The grip can be made in leather over wood with a wire binding, as illustrated, or ray skin, again with wire binding and collars. The red woolen liner is an optional extra also.</p>
+
+            <div class="image-placeholder"></div>
+            <p class="text-block">The blade on this sword is around 32 inches in length and triple fullered.</p>
+
+            <div class="image-placeholder"></div>
+        </section>
+
+        <section class="gallery">
+            <h2><span class="heading-underline">Gallery</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+            <p class="gallery-label">SWORDS</p>
+        </section>
+
+        <section class="contact">
+            <h2><span class="heading-underline">Get in touch</span></h2>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p>If you have an idea, a sketch or design of your own, or if you would like to commission one of my stock items just get in touch with me at:</p>
+                    <p><a href="mailto:email@redacted.com">[EMAIL REDACTED]</a></p>
+                </div>
+                <div class="contact-image-placeholder"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span>Legal Information</span>
+            <span>Site Map</span>
+        </div>
+        <div class="footer-right">
+            <span>Castle Keep, A Chuibheall, Torrin, Isle of Skye, Scotland IV49 9BA</span>
+            <span>© Castle Keep 2023</span>
+        </div>
+    </footer>
+</body>
+</html>
+```

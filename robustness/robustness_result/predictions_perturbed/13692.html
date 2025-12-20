@@ -1,0 +1,342 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes and Sayings About Wanted</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        .site-header {
+            display: flex;
+            align-items: center;
+            height: 80px; /* Fixed height as per image */
+            background-color: #fff;
+        }
+
+        .header-left-block {
+            background-color: #004080; /* Darker blue for the block */
+            width: 150px; /* Fixed width */
+            height: 100%; /* Takes full height of header */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .header-right-content {
+            display: flex;
+            flex-grow: 1; /* Takes remaining space */
+            justify-content: flex-end; /* Pushes search and nav to the right */
+            align-items: center;
+            padding-right: 40px; /* Padding on the right side of the header content */
+            padding-left: 20px; /* Space between blue block and search */
+        }
+
+        .search-container {
+            margin-right: 40px; /* Space between search and nav */
+        }
+
+        .search-container input {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            border-radius: 4px;
+            width: 200px; /* Fixed width as per image */
+            font-size: 14px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .main-nav a {
+            margin-left: 20px; /* Space between nav items */
+            color: #333;
+            font-size: 15px;
+            white-space: nowrap; /* Prevent nav items from wrapping */
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumbs a {
+            color: #666;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            margin-bottom: 30px;
+        }
+
+        .quote-text {
+            font-size: 22px;
+            color: #007bff; /* Blue color for quotes */
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .quote-tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #666;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            background-color: #f9f9f9;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 40px 0;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .page-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-right: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .page-number.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer-author-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-author-links a {
+            margin: 0 5px;
+            color: #007bff;
+        }
+
+        .footer-copyright a {
+            color: #007bff;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column; /* Stack items */
+                height: auto;
+                padding: 0; /* Remove padding from site-header itself */
+            }
+            .header-left-block {
+                width: 100%; /* Full width */
+                height: 60px; /* Adjust height for mobile */
+                margin-bottom: 15px; /* Space below blue block */
+            }
+            .header-right-content {
+                flex-direction: column; /* Stack search and nav */
+                padding: 0 20px 15px; /* Add padding to the right content area */
+                width: 100%;
+                box-sizing: border-box;
+                justify-content: center; /* Center items when stacked */
+            }
+            .search-container {
+                margin-right: 0; /* Remove margin */
+                margin-bottom: 15px; /* Space below search */
+                width: 100%; /* Allow search to take full width of its container */
+                text-align: center; /* Center the input */
+            }
+            .search-container input {
+                width: 100%; /* Take full width of search-container */
+                max-width: 300px; /* Limit max width */
+            }
+            .main-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+            .main-nav a {
+                margin: 0 10px 10px; /* Adjust margins for stacked nav items */
+            }
+            .page-title {
+                font-size: 24px;
+            }
+            .quote-text {
+                font-size: 18px;
+            }
+            .quote-author {
+                font-size: 14px;
+            }
+            .tag {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+            .pagination {
+                justify-content: center;
+            }
+            .footer-copyright, .footer-author-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-author-links a {
+                margin: 5px 0;
+            }
+            .footer-copyright span, .footer-copyright a {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-left-block"></div>
+        <div class="header-right-content">
+            <div class="search-container">
+                <input type="text" placeholder="Search Quotes">
+            </div>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <a href="#">Topics</a>
+                <a href="#">Author</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="breadcrumbs">
+            <a href="#">QUOTES</a> / <a href="#">TOPICS</a> / <a href="#">WANTED</a>
+        </nav>
+
+        <h1 class="page-title">Quotes and Sayings About Wanted</h1>
+
+        <div class="quote-section">
+            <p class="quote-text">All I ever wanted to be president of was the American League.</p>
+            <p class="quote-author">A. Bartlett Giamatti</p>
+            <div class="quote-tags">
+                <span class="tag">#League Quotes</span>
+                <span class="tag">#President Quotes</span>
+                <span class="tag">#Wanted Quotes</span>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="quote-section">
+            <p class="quote-text">wanted passionately to be a priest.</p>
+            <p class="quote-author">A. N. Wilson</p>
+            <div class="quote-tags">
+                <span class="tag">#Priests Quotes</span>
+                <span class="tag">#Wanted Quotes</span>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="quote-section">
+            <p class="quote-text">wanted to be part of something bigger</p>
+            <p class="quote-author">A. R. Rahman</p>
+            <div class="quote-tags">
+                <span class="tag">#Bigger Quotes</span>
+                <span class="tag">#Wanted Quotes</span>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="quote-section">
+            <p class="quote-text">It's in how you carry yourself. I've always been a very mature person, and I've always known what I wanted.</p>
+            <p class="quote-author">Aaliyah</p>
+            <div class="quote-tags">
+                <span class="tag">#Matter Quotes</span>
+                <span class="tag">#Mature Quotes</span>
+                <span class="tag">#Wanted Quotes</span>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="page-number active">1</a>
+            <a href="#" class="page-number">2</a>
+            <a href="#" class="page-number">3</a>
+            <a href="#" class="page-number">4</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-author-links">
+            <span>AUTHOR:</span>
+            <a href="#">A</a>
+            <a href="#">B</a>
+            <a href="#">C</a>
+        </div>
+        <div class="footer-copyright">
+            <span>Copyright © 2023</span>
+            <a href="#">Inspiring Quotes</a> |
+            <a href="#">Policy</a> |
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
+```

@@ -1,0 +1,182 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Git Repositories</title>
+    <style>
+        /* General Body and Container */
+        body {
+            font-family: Georgia, serif; /* Main body text font */
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f8f8f8; /* Light grey background */
+            display: flex;
+            justify-content: center; /* Center the whole container */
+            min-height: 100vh; /* Full viewport height */
+            color: #333; /* Dark grey for general text */
+            font-size: 16px; /* Base font size */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px; /* Max width for the entire layout */
+            background-color: #fff; /* Ensure background for content area is white */
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            flex: 0 0 220px; /* Fixed width for sidebar */
+            background-color: #f0f0f0; /* Slightly darker grey for sidebar */
+            padding: 30px 20px;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            position: relative; /* For positioning the square icon */
+        }
+
+        .sidebar h3 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar nav a {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-decoration: none;
+            color: #0066cc; /* Blue link color */
+            font-size: 0.95em;
+            display: block;
+            padding: 3px 0;
+        }
+
+        .sidebar nav a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-icon {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.8em;
+            color: #666;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        /* Main Content Area */
+        .content-area {
+            flex-grow: 1;
+            background-color: #fff; /* White background for content */
+            padding: 30px 40px;
+            max-width: 800px; /* Max width for the content itself within the flex space */
+            margin: 0 auto; /* Center content within its flex space */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Shadow for the content area */
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 2em;
+        }
+
+        .header-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline; /* Align text baselines */
+            margin-bottom: 10px; /* Space between this row and h1 */
+        }
+
+        .author-name {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.1em; /* Slightly larger */
+            color: #333;
+            font-weight: bold;
+        }
+
+        .about-links {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .about-links .icon {
+            font-size: 0.7em; /* Smaller square icon */
+            margin-left: 5px;
+        }
+
+        .article-header h1 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 2.4em;
+            margin-top: 0; /* Remove default h1 top margin */
+            margin-bottom: 0.2em; /* Space below h1 */
+            line-height: 1.2;
+            color: #222;
+            font-weight: bold;
+        }
+
+        .post-meta-header {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 0; /* Remove default p top margin */
+            margin-bottom: 1.5em; /* Space below meta info */
+        }
+
+        /* Article Content */
+        article p {
+            margin-bottom: 1em;
+            font-size: 1em;
+        }
+
+        article a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        article a:hover {
+            text-decoration: underline;
+        }
+
+        article h2 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.6em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            color: #222;
+            font-weight: bold;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: #f5f5f5; /* Light grey background for code */
+            border: 1px solid #ddd; /* Light border */
+            padding: 1em 1.2em;
+            margin: 1.5em 0;
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
+            font-size: 0.9em;
+            line-height: 1.4;
+            white-space: pre; /* Preserve whitespace and do not wrap */
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+            color: #333;
+        }
+
+        .code-highlight {

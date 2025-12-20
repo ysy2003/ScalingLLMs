@@ -1,0 +1,355 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4th of July Luminaries</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-controls {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .top-controls button {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #e0e0e0;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .top-controls button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .top-controls button.print {
+            background-color: #555;
+            color: #fff;
+            border-color: #555;
+        }
+
+        .top-controls button.print:hover {
+            background-color: #444;
+        }
+
+        .options-row {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            user-select: none;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            display: none; /* Hide the default checkbox */
+        }
+
+        .checkbox-container .checkmark {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 8px;
+            background-color: #fff;
+            position: relative;
+            top: 1px;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .checkmark {
+            background-color: #555; /* Darker background when checked */
+            border-color: #555;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+            content: '✔'; /* Checkmark character */
+            color: #fff;
+            font-size: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .size-buttons {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .size-buttons button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .size-buttons button:not(:last-child) {
+            border-right: 1px solid #ccc;
+        }
+
+        .size-buttons button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .size-buttons button.active {
+            background-color: #555;
+            color: #fff;
+        }
+
+        .size-buttons button.active:hover {
+            background-color: #444;
+        }
+
+        .recipe-card {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            border: 1px solid #a8dadc; /* Light blue-green border */
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        .recipe-card h1 {
+            font-size: 28px;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .recipe-header-content {
+            display: flex;
+            flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .blue-circle-container {
+            flex-shrink: 0; /* Prevent shrinking */
+            width: 120px; /* Fixed width for the circle */
+            text-align: center;
+            margin-left: auto; /* Pushes it to the right */
+            margin-bottom: 10px; /* Space below on wrap */
+        }
+
+        .blue-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #0000FF;
+            border-radius: 50%;
+            margin: 0 auto 5px auto;
+        }
+
+        .blue-circle-container p.votes {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .recipe-description {
+            flex-grow: 1; /* Allows description to take available space */
+            min-width: 250px; /* Ensure description doesn't get too narrow */
+        }
+
+        .recipe-card p {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .recipe-card p.author {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .recipe-card h2 {
+            font-size: 22px;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .recipe-card ul,
+        .recipe-card ol {
+            margin-left: 20px;
+            padding: 0;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .recipe-card ul li,
+        .recipe-card ol li {
+            margin-bottom: 8px;
+        }
+
+        .footer-text {
+            width: 100%;
+            max-width: 800px;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .top-controls,
+            .options-row,
+            .recipe-card,
+            .footer-text {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .recipe-card {
+                padding: 20px;
+            }
+
+            .recipe-card h1 {
+                font-size: 24px;
+            }
+
+            .recipe-card h2 {
+                font-size: 20px;
+            }
+
+            .recipe-header-content {
+                flex-direction: column; /* Stack elements vertically */
+                align-items: flex-start;
+            }
+
+            .blue-circle-container {
+                margin-left: 0; /* Remove auto margin */
+                margin-right: auto; /* Center or align left */
+                width: auto; /* Allow container to shrink */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .options-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .size-buttons {
+                width: 100%;
+            }
+            .size-buttons button {
+                flex-grow: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-controls">
+        <button class="go-back">Go Back</button>
+        <button class="print">Print</button>
+    </div>
+
+    <div class="options-row">
+        <label class="checkbox-container">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Recipe Image
+        </label>
+        <div class="size-buttons">
+            <button class="size-btn">Smaller</button>
+            <button class="size-btn active">Normal</button>
+            <button class="size-btn">Larger</button>
+        </div>
+    </div>
+
+    <div class="recipe-card">
+        <h1>4th of July Luminaries</h1>
+
+        <div class="recipe-header-content">
+            <div class="recipe-description">
+                <p>Light up your space with these patriotic 4th of July luminaries. Perfect for Memorial Day, Independence Day, Patriot's Day or for all year round!</p>
+                <p class="author">Author: Amanda Formaro</p>
+            </div>
+            <div class="blue-circle-container">
+                <div class="blue-circle"></div>
+                <p class="votes">5 from 5 votes</p>
+            </div>
+        </div>
+
+        <h2>Supplies</h2>
+        <ul>
+            <li>Glass jars</li>
+            <li>Red white and blue acrylic paint</li>
+            <li>White piece of paper</li>
+            <li>Black Sharpie</li>
+        </ul>
+
+        <h2>Instructions</h2>
+        <ol>
+            <li>Draw a star on a piece of paper. Place the drawing underneath a piece of Contact paper.</li>
+            <li>Cut the star out and peel off the backing. Place the star onto the jar and press to make sure that there are no air bubbles and that all corners are pressed down.</li>
+            <li>Paint jar with one coat of acrylic paint and let dry completely.</li>
+            <li>Make sure the paint is dry before peeling the contact paper off. Pipe glitter glue around the star and let dry several hours.</li>
+        </ol>
+    </div>
+
+    <p class="footer-text">
+        This project for 4th of July Luminaries was printed from <a href="https://craftsbyamanda.com" target="_blank">CraftsbyAmanda.com</a> - <a href="https://craftsbyamanda.com/4th-of-july-luminaries/" target="_blank">https://craftsbyamanda.com/4th-of-july-luminaries/</a> and can only be printed for education or personal use.
+    </p>
+</body>
+</html>
+```

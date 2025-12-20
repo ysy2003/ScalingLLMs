@@ -1,0 +1,392 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch 5.8 - File Name Characters</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            color: #333;
+            background-color: #f8f8f8; /* Light background to match the image */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        .header-banner {
+            background-color: #21416B; /* Dark blue from image */
+            color: white;
+            padding: 60px 20px; /* Adjust padding to match visual */
+            text-align: center;
+        }
+
+        .header-banner .version {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .header-banner h1 {
+            font-size: 3em; /* Large heading */
+            line-height: 1.1;
+            margin-bottom: 30px;
+            max-width: 600px; /* Constrain width of heading */
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: bold; /* Matches image */
+        }
+
+        .header-banner .support-button {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 1px solid white;
+            color: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .header-banner .support-button:hover {
+            background-color: white;
+            color: #21416B;
+            text-decoration: none;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto; /* Top/bottom margin, auto for left/right centering */
+            padding: 0 20px; /* Horizontal padding for smaller screens */
+        }
+
+        /* File Name Characters Section */
+        .topic-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee; /* Light gray separator */
+        }
+
+        .topic-header h2 {
+            display: inline;
+            font-size: 1.5em;
+            font-weight: bold; /* Matches image */
+            color: #333;
+            text-transform: uppercase; /* Looks like uppercase in image */
+            letter-spacing: 0.05em;
+        }
+
+        .topic-header .post-count {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.9em;
+            color: #777;
+            margin-left: 10px;
+        }
+
+        /* Alert Box */
+        .alert-box {
+            background-color: #E74C3C; /* Red from image */
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Post Summary */
+        .post-summary {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+
+        .post-summary li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px; /* For bullet point */
+        }
+
+        .post-summary li::before {
+            content: "•"; /* Custom bullet point */
+            color: #777;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .post-summary strong {
+            font-weight: bold;
+        }
+
+        /* Individual Post Styling */
+        .post {
+            display: flex;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee; /* Separator between posts */
+        }
+
+        .post:last-of-type {
+            border-bottom: none; /* No border after the last post */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .post-author-info {
+            flex: 0 0 150px; /* Fixed width for author info */
+            margin-right: 30px;
+            text-align: right;
+        }
+
+        .post-author-info .author-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .post-author-info .author-role {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.85em;
+            color: #777;
+        }
+
+        .post-content {
+            flex: 1; /* Takes remaining space */
+        }
+
+        .post-content p {
+            margin-bottom: 1em;
+        }
+
+        .post-meta {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        .post-meta .hash-link {
+            color: #777; /* Match text color, not a blue link */
+            margin-left: 5px;
+        }
+
+        /* Return to Message Board Link */
+        .return-link-container {
+            text-align: right;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Topic Closed Section */
+        .topic-closed {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .topic-closed h3 {
+            font-size: 1.5em;
+            font-weight: bold; /* Matches image */
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .topic-closed p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-banner {
+                padding: 40px 15px;
+            }
+
+            .header-banner h1 {
+                font-size: 2.2em;
+            }
+
+            .main-content {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+            .topic-header h2 {
+                font-size: 1.3em;
+            }
+
+            .post {
+                flex-direction: column; /* Stack author and content */
+            }
+
+            .post-author-info {
+                flex: none; /* Remove fixed width */
+                width: 100%;
+                text-align: left; /* Align author info to left */
+                margin-right: 0;
+                margin-bottom: 15px; /* Space between author and content */
+            }
+
+            .post-author-info .author-name {
+                font-size: 1.05em;
+            }
+
+            .post-author-info .author-role {
+                display: inline-block; /* Keep role next to name if space allows */
+                margin-left: 10px;
+            }
+
+            .post-content {
+                width: 100%;
+            }
+
+            .post-meta {
+                margin-top: 15px;
+            }
+
+            .return-link-container {
+                text-align: center; /* Center link on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-banner h1 {
+                font-size: 1.8em;
+            }
+
+            .header-banner .support-button {
+                padding: 8px 20px;
+                font-size: 0.8em;
+            }
+
+            .topic-header h2 {
+                font-size: 1.1em;
+            }
+
+            .alert-box {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+
+            .post-summary li {
+                font-size: 0.9em;
+            }
+
+            .post-author-info .author-name {
+                font-size: 1em;
+            }
+
+            .post-author-info .author-role {
+                font-size: 0.8em;
+            }
+
+            .post-content p {
+                font-size: 0.9em;
+            }
+
+            .post-meta {
+                font-size: 0.75em;
+            }
+
+            .topic-closed h3 {
+                font-size: 1.3em;
+            }
+
+            .topic-closed p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-banner">
+        <div class="version">FETCH 5.8</div>
+        <h1>Your best friend for<br>file transfer.</h1>
+        <a href="#" class="support-button">SUPPORT</a>
+    </header>
+
+    <main class="main-content">
+        <section class="topic-header">
+            <h2>FILE NAME CHARACTERS</h2>
+            <span class="post-count">(2 posts)</span>
+        </section>
+
+        <div class="alert-box">
+            This is an archived topic. The information in it is likely to be out-of-date and no longer applicable to current versions of Fetch.
+        </div>
+
+        <ul class="post-summary">
+            <li>Started 21 years ago by <strong>gorenstein</strong></li>
+            <li><strong>Latest reply</strong> 21 years ago from <strong>Jim Matthews</strong></li>
+        </ul>
+
+        <div class="post">
+            <div class="post-author-info">
+                <div class="author-name">gorenstein</div>
+                <div class="author-role">Member</div>
+            </div>
+            <div class="post-content">
+                <p>In uploading files from a Mac to a Windows system, certain characters that are not valid in Windows file names are "escaped". For example a forward slash (/) is converted to %2F.</p>
+                <p>Other such characters go unescaped and cause transfers to fail. Examples are asterisks (*) and double quotes (").</p>
+                <p>Since Fetch is capable of escaping some illegal characters, is there any way to get it to do the others?</p>
+                <p>Also, is there some way to provide a more desireable substitution. For example, I would prefer to have the forward slashes wind up as dashes.</p>
+                <div class="post-meta">
+                    POSTED 21 YEARS AGO <span class="hash-link">#</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-author-info">
+                <div class="author-name">Jim Matthews</div>
+                <div class="author-role">Administrator</div>
+            </div>
+            <div class="post-content">
+                <p>There isn't currently a way to do this, but it's a great suggestion.</p>
+                <p>Thanks,</p>
+                <p>Jim Matthews<br>Fetch Softworks</p>
+                <div class="post-meta">
+                    POSTED 21 YEARS AGO <span class="hash-link">#</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="return-link-container">
+            <a href="#">Return to Message Board</a>
+        </div>
+
+        <section class="topic-closed">
+            <h3>Topic closed</h3>
+            <p>This topic has been closed.</p>
+        </section>
+    </main>
+</body>
+</html>
+```

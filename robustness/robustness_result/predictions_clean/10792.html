@@ -1,0 +1,356 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Articles for Founders</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px; /* Add some padding around the whole page */
+            background-color: #fff; /* Ensure white background */
+            color: #333;
+        }
+
+        /* Main Header */
+        .main-header {
+            width: 100%;
+            text-align: center;
+            color: #aaa; /* Light gray */
+            font-size: 1.2em;
+            margin-top: 60px; /* Space from top of the page */
+            margin-bottom: 40px; /* Space below header */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Container for Centering and Flex Layout */
+        .container {
+            max-width: 960px; /* Approximate total width from image */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            justify-content: center; /* Center content if it doesn't fill max-width */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px; /* Approximate width */
+            margin-right: 40px; /* Space between sidebar and main content */
+            padding-top: 20px; /* Align with main content's top */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .sidebar a {
+            color: #c00; /* Red links */
+            text-decoration: none;
+            display: block; /* Make links block-level for stacking */
+            margin-bottom: 5px;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar .section-title {
+            font-weight: bold;
+            color: #c00; /* Red */
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .info-block {
+            font-size: 0.9em;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+        .sidebar .info-block a {
+            display: inline; /* Keep link inline within paragraph */
+            color: #c00;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1; /* Allow main content to take available space */
+            max-width: 680px; /* Approximate width for main content */
+            padding-top: 20px; /* Align with sidebar's top */
+        }
+
+        .highlight-box {
+            background-color: #ffffe0; /* Light yellow */
+            border: 1px solid #e0e0c0; /* Slightly darker yellow border */
+            padding: 15px;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+
+        .highlight-box a {
+            color: #c00; /* Red link */
+            font-weight: bold; /* GrantTree is bold */
+            text-decoration: none;
+        }
+
+        .highlight-box a:hover {
+            text-decoration: underline;
+        }
+
+        .article-section-title {
+            font-weight: bold;
+            color: #c00; /* Red */
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .article-section-subtitle {
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2em; /* Spacing between paragraphs */
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        .article-content strong {
+            font-weight: bold;
+        }
+
+        .article-content a {
+            color: #c00; /* Red links */
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            margin-left: 0;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.2em;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        .article-footer a {
+            color: #c00;
+            text-decoration: none;
+        }
+
+        .article-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* "More from the library" section */
+        .more-from-library {
+            width: 100%; /* Takes full width below main content and sidebar */
+            margin-top: 50px;
+            text-align: right;
+            font-size: 0.95em;
+        }
+
+        .more-from-library strong {
+            font-weight: bold;
+        }
+
+        .more-from-library ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        .more-from-library li {
+            margin-bottom: 5px;
+        }
+
+        .more-from-library a {
+            color: #c00;
+            text-decoration: none;
+        }
+
+        .more-from-library a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack columns vertically */
+                align-items: center; /* Center items in column layout */
+            }
+
+            .sidebar {
+                width: 100%; /* Sidebar takes full width */
+                margin-right: 0;
+                margin-bottom: 30px; /* Space below sidebar */
+                text-align: center; /* Center sidebar content */
+                padding-top: 0;
+            }
+
+            .sidebar a {
+                display: block; /* Keep them stacked */
+                margin: 0 auto 10px; /* Center and add bottom margin */
+                width: fit-content; /* Shrink to content width for centering */
+            }
+            .sidebar .section-title {
+                display: block;
+                margin: 20px auto 10px; /* Center and add margins */
+                width: fit-content;
+            }
+            .sidebar .info-block {
+                text-align: left; /* Keep text left-aligned within its block */
+                max-width: 300px; /* Limit width for readability */
+                margin: 20px auto; /* Center the block itself */
+            }
+
+            .main-content {
+                width: 100%; /* Main content takes full width */
+                max-width: 600px; /* Limit max width for readability on smaller screens */
+                padding-top: 0;
+            }
+
+            .more-from-library {
+                text-align: center; /* Center the "More from the library" section */
+                margin-top: 40px;
+            }
+            .more-from-library ul {
+                display: inline-block; /* Allow ul to shrink to content width for centering */
+                text-align: left; /* Keep list items left-aligned within the ul */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .main-header {
+                font-size: 1em;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+            .sidebar a, .sidebar .section-title {
+                margin: 0 auto 8px;
+            }
+            .sidebar .info-block {
+                font-size: 0.85em;
+                max-width: 90%;
+            }
+            .highlight-box {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            .article-section-title {
+                font-size: 1em;
+            }
+            .article-content p {
+                font-size: 0.9em;
+            }
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+            .article-footer span {
+                margin-bottom: 5px;
+            }
+            .more-from-library {
+                margin-top: 30px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        daily articles for founders
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <a href="#">all posts</a>
+            <a href="#">latest</a>
+            <div class="section-title">founder's library</div>
+            <div class="info-block">
+                More recent<br>
+                articles of mine<br>
+                can be found on<br>
+                <a href="http://danieltenner.com">danieltenner.com</a>
+            </div>
+            <div class="info-block">
+                Swombat.com is no<br>
+                longer actively<br>
+                maintained, but all<br>
+                the posts here are<br>
+                still available for your<br>
+                use. The original<br>
+                objective was to<br>
+                regularly summarise<br>
+                and comment on the<br>
+                best articles for<br>
+                founders each day, as<br>
+                well as occasionally<br>
+                post our my own<br>
+                thoughts and advice,<br>
+                so that you could<br>
+                read the most useful<br>
+                articles while<br>
+                focusing on building<br>
+                your own startup.
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="highlight-box">
+                Running a startup in the UK (or with a UK subsidiary)? Get<br>
+                in touch with my company, <a href="#">GrantTree</a>. We help with<br>
+                government funding.
+            </div>
+
+            <h2 class="article-section-title">Play/life balance *</h2>
+            <p class="article-section-subtitle">Greg Bayer :</p>
+
+            <div class="article-content">
+                <p>
+                    Working for a startup usually means putting in more hours<br>
+                    than others. Recently, I spent two days on less than 3<br>
+                    hours of sleep in order to push out our new Pulse.me<br>
+                    release.
+                </p>
+                <p>
+                    Chasing after dreams is an essential part of my life. The<br>
+                    feeling of fulfillment I get from doing so makes me a much<br>
+                    happier / more content person, and this in turn positively<br>
+                    affects my relationships.
+                </p>
+                <p>
+                    I've argued before that hours are not a measure of<br>
+                    <a href="#"><strong>productivity</strong></a>, but that's not Greg's claim in this post. He's<br>
+                    saying, quite rightly, that working on your startup is not work,<br>
+                    it's play - and so, unlike working stupid hours on a job,<br>
+                    working stupid hours on a startup is a blessing, not a curse.
+                </p>
+                <p>I'm reminded of an old saying:</p>
+                <blockquote>
+                    <em>Why work for someone else from nine to five for a daily<br>
+                    wage, when you can work twenty-four hours a day for<br>
+                    yourself for free?</em>
+                </blockquote>
+                <p>
+                    So which view is right? <em>is

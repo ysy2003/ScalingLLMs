@@ -1,0 +1,513 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dutch's BrewHouse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1a1a1a;
+            --text-light: #cccccc;
+            --text-dark: #000000;
+            --orange-accent: #ff8c00; /* DarkOrange */
+            --blue-placeholder: #0000ff; /* Blue */
+            --input-bg: #000000;
+            --input-border: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--orange-accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #333; /* Subtle separator */
+        }
+
+        .header-logo {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-item a {
+            font-size: 0.9em;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-item a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--orange-accent);
+        }
+
+        /* Section Headings */
+        .section-heading {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--orange-accent);
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Our Story Section */
+        .our-story-content {
+            padding-bottom: 80px;
+        }
+
+        .blue-placeholder {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            background-color: var(--blue-placeholder);
+            margin: 0 auto 60px auto;
+        }
+
+        .story-subheading {
+            font-size: 1.5em;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .story-paragraph {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1em;
+            line-height: 1.8;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        /* Contact Us Section */
+        .contact-us-section {
+            padding-bottom: 80px;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-form-column,
+        .contact-info-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+        }
+
+        .contact-form-column h3,
+        .contact-info-column h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--input-border);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            border-radius: 3px;
+            resize: vertical;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 15px 20px;
+            background-color: var(--orange-accent);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 3px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-button:hover {
+            background-color: #e67e00; /* Slightly darker orange */
+        }
+
+        .recaptcha-text {
+            font-size: 0.8em;
+            color: #999;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+
+        .recaptcha-text a {
+            color: #999;
+            text-decoration: underline;
+        }
+
+        .recaptcha-text a:hover {
+            color: var(--orange-accent);
+        }
+
+        .contact-info-column p {
+            margin-bottom: 15px;
+            font-size: 1em;
+            color: var(--text-light);
+        }
+
+        .contact-info-column strong {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .contact-info-column .address-line {
+            margin-bottom: 5px;
+        }
+
+        .contact-info-column .phone-number {
+            color: var(--orange-accent);
+            font-weight: 600;
+        }
+
+        .contact-info-column .hours-text {
+            color: var(--orange-accent);
+            font-weight: 600;
+        }
+
+        .get-directions-button {
+            display: block;
+            width: fit-content;
+            padding: 15px 30px;
+            background-color: var(--orange-accent);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 3px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .get-directions-button:hover {
+            background-color: #e67e00;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.9em;
+            color: #999;
+            border-top: 1px solid #333;
+            margin-top: 80px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #999;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange-accent);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+
+            .header-logo {
+                margin-bottom: 15px;
+            }
+
+            .nav-list {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-item a {
+                font-size: 0.85em;
+            }
+
+            .section-heading {
+                font-size: 2.2em;
+                margin-top: 60px;
+                margin-bottom: 30px;
+            }
+
+            .blue-placeholder {
+                height: 300px;
+                margin-bottom: 40px;
+            }
+
+            .story-subheading {
+                font-size: 1.3em;
+                margin-bottom: 20px;
+            }
+
+            .story-paragraph {
+                font-size: 0.95em;
+                padding: 0 15px;
+            }
+
+            .contact-content {
+                flex-direction: column;
+                gap: 40px;
+                padding: 0 15px;
+            }
+
+            .contact-form-column,
+            .contact-info-column {
+                max-width: 100%;
+            }
+
+            .contact-form-column h3,
+            .contact-info-column h3 {
+                font-size: 1.3em;
+            }
+
+            .get-directions-button {
+                margin-top: 40px;
+            }
+
+            .footer {
+                padding: 40px 20px;
+                margin-top: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo {
+                font-size: 1em;
+            }
+
+            .nav-list {
+                gap: 15px;
+            }
+
+            .nav-item a {
+                font-size: 0.8em;
+            }
+
+            .section-heading {
+                font-size: 1.8em;
+                margin-top: 40px;
+                margin-bottom: 20px;
+            }
+
+            .blue-placeholder {
+                height: 200px;
+                margin-bottom: 30px;
+            }
+
+            .story-subheading {
+                font-size: 1.1em;
+            }
+
+            .story-paragraph {
+                font-size: 0.9em;
+            }
+
+            .contact-form-column h3,
+            .contact-info-column h3 {
+                font-size: 1.1em;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 0.9em;
+            }
+
+            .submit-button,
+            .get-directions-button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .recaptcha-text {
+                font-size: 0.75em;
+            }
+
+            .footer {
+                font-size: 0.8em;
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header container">
+        <div class="header-logo">DUTCH'S BREWHOUSE</div>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#">HOME</a></li>
+                <li class="nav-item"><a href="#" class="active">ABOUT US</a></li>
+                <li class="nav-item"><a href="#">MENU</a></li>
+                <li class="nav-item"><a href="#">SNAPS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="our-story-section">
+            <h1 class="section-heading">OUR STORY</h1>
+            <div class="our-story-content">
+                <div class="blue-placeholder"></div>
+                <h2 class="story-subheading">Just so you know</h2>
+                <p class="story-paragraph">
+                    Dutch's BrewHouse came about from sitting out at our backyard tiki bar entertaining friends. Over the years the Tiki bar became "Dutch's Tiki Bar."
+                    A year or so went by and it hit me while trying to find a good place to get a craft beer with my brother in Bixby Knolls. I wanted to find a place that would be cool to hang out at that wasn't a big restaurant chain.
+                    thinking that I should just open up a brewpub- the kind I would hang out at. I thought since I love craft beer and love brewing craft beer, why not open a place where people could brew beer and come and enjoy a good craft beer with great food while relaxing with friends and neighbors.
+                </p>
+            </div>
+        </section>
+
+        <section class="social-section">
+            <h1 class="section-heading">SOCIAL</h1>
+            <!-- No content specified for social section beyond the heading -->
+        </section>
+
+        <section class="contact-us-section">
+            <h1 class="section-heading">CONTACT US</h1>
+            <div class="container contact-content">
+                <div class="contact-form-column">
+                    <h3>Drop us a line!</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">SEND</button>
+                    </form>
+                    <p class="recaptcha-text">
+                        This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+                    </p>
+                </div>
+                <div class="contact-info-column">
+                    <h3>Better yet, see us in person!</h3>
+                    <p>We love our customers, so feel free to visit during normal business hours.</p>
+                    <p><strong>Dutch's BrewHouse</strong></p>
+                    <p class="address-line">4244 Atlantic Avenue, Long Beach, California 90807, United States</p>
+                    <p class="phone-number">[PHONE REDACTED]</p>
+                    <p><strong>Hours</strong></p>
+                    <p>Open today <span class="hours-text">04:30 pm - 10:00 pm</span></p>
+                </div>
+            </div>
+            <button class="get-directions-button">GET DIRECTIONS</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Copyright © 2023 Dutch's BrewHouse - All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Eat</a> - <a href="#">Drink</a> - <a href="#">Brew</a> - <a href="#">Bixby</a>
+        </div>
+    </footer>
+</body>
+</html>
+```

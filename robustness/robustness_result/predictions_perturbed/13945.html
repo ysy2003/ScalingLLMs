@@ -1,0 +1,138 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabe Charbonneau</title>
+    <style>
+        /* Universal box-sizing for consistent layout */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #42b8a7; /* Teal/turquoise background color from image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure body takes full viewport height for vertical centering */
+            color: #333; /* Dark gray for general text */
+            text-align: center;
+            padding: 20px; /* Padding around the content for smaller screens */
+        }
+
+        .container {
+            max-width: 500px; /* Max width for the content block */
+            width: 100%; /* Allow container to take full width on smaller screens */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally within the column */
+            gap: 20px; /* Space between major elements (avatar, name, description, links, footer) */
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #0000ff; /* Bright blue color for the avatar */
+            border-radius: 50%; /* Makes it a perfect circle */
+            flex-shrink: 0; /* Prevent avatar from shrinking */
+        }
+
+        .name {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            margin: 0; /* Remove default margin */
+        }
+
+        .description {
+            font-size: 1.1em;
+            color: #444; /* Slightly lighter dark gray for description */
+            margin: 0; /* Remove default margin */
+            line-height: 1.4;
+        }
+
+        .links {
+            width: 100%; /* Links container takes full width of its parent */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between individual buttons */
+            margin-top: 10px; /* Additional space above the first button */
+        }
+
+        .button {
+            display: block; /* Make anchor tags behave like blocks */
+            background-color: #ffae1a; /* Orange button background color from image */
+            color: #333; /* Dark gray text color for buttons */
+            text-decoration: none; /* Remove underline from links */
+            padding: 15px 20px;
+            border-radius: 8px; /* Rounded corners for buttons */
+            font-size: 1.1em;
+            font-weight: 600; /* Slightly bold text */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+        }
+
+        .button:hover {
+            background-color: #ff9900; /* Slightly darker orange on hover */
+        }
+
+        .footer-text {
+            font-size: 1em;
+            color: #333;
+            margin-top: 10px; /* Additional space above footer text */
+            line-height: 1.4;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px; /* Reduce overall padding on smaller screens */
+            }
+            .container {
+                gap: 15px; /* Reduce gap between elements */
+            }
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
+            .name {
+                font-size: 1.5em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .links {
+                gap: 10px; /* Reduce gap between buttons */
+            }
+            .button {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+            .footer-text {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar"></div>
+        <h1 class="name">Gabe Charbonneau</h1>
+        <p class="description">Physician entrepreneur disrupting the healthcare status quo</p>
+
+        <div class="links">
+            <a href="#" class="button">Join Medicine Forward! →</a>
+            <a href="#" class="button">Burnout Warriors</a>
+            <a href="#" class="button">Check burnout risk (2-min)</a>
+            <a href="#" class="button">Download SwiftWire EHR macro app (free & open source)</a>
+        </div>
+
+        <p class="footer-text">On a mission to ↑ compassion & flourishing for everyone❤</p>
+    </div>
+</body>
+</html>
+```

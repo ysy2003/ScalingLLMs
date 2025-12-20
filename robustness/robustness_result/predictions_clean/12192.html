@@ -1,0 +1,163 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLUNK - Dictionary Definition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global styles */
+        :root {
+            --primary-blue: #3366cc;
+            --light-bg: #eef2f7;
+            --dark-text: #333;
+            --light-text: #fff;
+            --source-text-color: #a0a0a0;
+            --ad-blue: #0000ff;
+            --ad-yellow: #ffcc00;
+            --border-color: #ccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--primary-blue);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            width: 90%;
+            display: flex;
+            justify-content: flex-end; /* Align search bar to the right */
+        }
+
+        .search-bar {
+            display: flex;
+            border-radius: 3px;
+            overflow: hidden;
+            background-color: #fff;
+            width: 250px; /* Adjust width as needed */
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 8px 10px;
+            flex-grow: 1;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: var(--primary-blue);
+            font-size: 1rem;
+        }
+
+        .search-bar button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff; /* Main content background */
+            border-radius: 5px;
+            overflow: hidden; /* To contain any floated elements or border-radius */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            min-width: 0; /* Allow content to shrink */
+        }
+
+        .sidebar {
+            width: 300px; /* Fixed width for sidebar */
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            padding: 30px;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        /* Word Definition Header */
+        .word-definition-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .word-definition-header h1 .pronunciation {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #666;
+            margin-left: 10px;
+        }
+
+        .word-definition-header h1 .copy-icon {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .definitions-of-word {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 3px;
+        }
+
+        .definitions-of-word h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+
+        .definitions-of-word hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin-bottom: 15px;
+        }
+
+        .definitions-of-word ul {
+            list-style: none;
+        }
+
+        .definitions-of-word ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align

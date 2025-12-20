@@ -1,0 +1,396 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGF Members Invited To Attend Open Houses</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header - Top Section */
+        .header-top {
+            background-color: #0000FF; /* Blue */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 15px; /* Space between elements when wrapping */
+        }
+
+        .logo-placeholder {
+            width: 200px; /* Approximate width from image */
+            height: 80px; /* Approximate height from image */
+            background-color: #0000FF; /* Same as background, effectively transparent */
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-left: auto; /* Push social icons and search to the right */
+            flex-shrink: 0;
+        }
+
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #0000FF; /* Blue */
+            border: 1px solid #fff; /* White border */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff; /* Placeholder for icon */
+            font-size: 14px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            width: 180px; /* Adjust as needed */
+        }
+
+        /* Header - Navigation Section */
+        .header-nav {
+            background-color: #F26522; /* Orange */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px; /* Space between nav items */
+        }
+
+        .header-nav a {
+            color: #fff;
+            font-weight: bold;
+            font-size: 15px;
+            text-transform: uppercase;
+            padding: 5px 0; /* Vertical padding for click area */
+            white-space: nowrap; /* Prevent wrapping of nav items */
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px; /* Approximate content width */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #666666; /* Darker grey */
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: normal; /* Looks like normal weight in image */
+        }
+
+        .share-this {
+            color: #F26522; /* Orange */
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block; /* Make it take full width */
+        }
+
+        .main-content p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .main-content h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .event-list {
+            list-style: none; /* Remove default bullet */
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .event-list li {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px; /* Space for custom bullet */
+        }
+
+        .event-list li::before {
+            content: '•'; /* Custom bullet point */
+            color: #333;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .event-list li strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .event-details {
+            margin-top: 5px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .event-details span {
+            display: block; /* Each detail on a new line */
+            margin-bottom: 3px;
+        }
+
+        .event-details span strong {
+            font-weight: bold;
+            min-width: 60px; /* Align the colons */
+            display: inline-block;
+        }
+
+        .event-details em {
+            font-style: italic;
+        }
+
+        .main-content .final-paragraph {
+            font-size: 15px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .main-content .final-paragraph a {
+            color: #F26522; /* Orange */
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333333; /* Dark grey */
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-nav {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between nav items */
+        }
+
+        .footer-nav a {
+            color: #fff;
+            font-weight: normal;
+            padding: 0 5px;
+            white-space: nowrap;
+        }
+
+        .footer-nav span {
+            color: #fff;
+            margin: 0 5px;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .social-icons {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-container {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-input {
+                width: 100%;
+                max-width: 300px; /* Limit search input width */
+            }
+
+            .header-nav {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px 10px;
+            }
+
+            .header-nav a {
+                text-align: center;
+                padding: 5px 0;
+            }
+
+            .main-content h1 {
+                font-size: 28px;
+            }
+
+            .main-content {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            .event-list li {
+                padding-left: 15px;
+            }
+
+            .event-list li::before {
+                left: -5px; /* Adjust bullet position */
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .footer-nav span {
+                display: none; /* Hide separators on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-top {
+                padding: 10px;
+            }
+            .logo-placeholder {
+                width: 150px;
+                height: 60px;
+            }
+            .social-icon {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+            .search-input {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            .header-nav a {
+                font-size: 13px;
+            }
+            .main-content h1 {
+                font-size: 24px;
+            }
+            .main-content p, .event-details, .final-paragraph {
+                font-size: 14px;
+            }
+            .main-content h2 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo-placeholder"></div>
+            <div class="social-icons">
+                <div class="social-icon"></div>
+                <div class="social-icon"></div>
+                <div class="social-icon"></div>
+                <div class="social-icon"></div>
+                <div class="social-icon"></div>
+            </div>
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search...">
+            </div>
+        </div>
+        <nav class="header-nav">
+            <a href="#">Programs</a>
+            <a href="#">Calendar Of Events</a>
+            <a href="#">Courses</a>
+            <a href="#">Membership</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>AGF Members Invited To Attend Open Houses On April 13 & May 10</h1>
+
+        <a href="#" class="share-this">Share this</a>
+
+        <p>The Alberta Gymnastics Federation (AGF) recognizes that the past year has been particularly challenging for the gymnastics community. These challenges have ranged from; high profile coaching misconduct cases in Canada and the United States, to growing demands on sporting organizations to undergo reforms that ensure systems are in place to prioritize athlete safety and wellbeing, to rising insurance costs and trampoline restrictions that have directly impacted club operations.</p>
+
+        <p>The AGF Board of Directors is hosting two Open Houses during the upcoming Provincial Championship competitions in Calgary and Edmonton to provide more information, hear from our members, and facilitate discussion. Topics to be covered will include insurance and risk management, Safe Sport initiatives, discipline, and finances.</p>
+
+        <h2>AGF Open Houses</h2>
+
+        <ul class="event-list">
+            <li>
+                <strong>Artistic & Acrobatic Provincial Championships (Edmonton)</strong>
+                <div class="event-details">
+                    <span><strong>Date:</strong> Saturday, April 13, 2019</span>
+                    <span><strong>Time:</strong> 11 a.m.</span>
+                    <span><strong>Location:</strong> [ADDRESS REDACTED] located along the upstairs running track overseeing the competition gym.</span>
+                </div>
+                <div class="event-details">
+                    <span><strong>Special Guest:</strong> Ian Moss, CEO of Gymnastics Canada</span>
+                </div>
+            </li>
+            <li>
+                <strong>Trampoline & Tumbling Provincial Championships (Calgary)</strong>
+                <div class="event-details">
+                    <span><strong>Date:</strong> Friday, May 10, 2019</span>
+                    <span><strong>Time:</strong> Tentatively 5 p.m.</span>
+                    <span><strong>Location:</strong> [ADDRESS REDACTED] or at a facility nearby.</span>
+                    <span><em>*Time and Location will be confirmed closer to the competition date and signage will be posted at the competition venue.</em></span>
+                </div>
+            </li>
+        </ul>
+
+        <p class="final-paragraph">All AGF members 18 years of age or older are encouraged to attend including; coaches, club administrators, judges, athletes, and parents. <a href="#">found here</a>.</p>
+    </main>
+
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="#">Programs</a>
+            <span>|</span>
+            <a href="#">Calendar Of Events</a>
+            <span>|</span>
+            <a href="#">Courses</a>
+            <span>|</span>
+            <a href="#">Memberships</a>
+        </nav>
+        <p class="footer-copyright">&copy; 2023 All Rights Reserved Alberta Gymnastics Federation</p>
+    </footer>
+</body>
+</html>
+```
