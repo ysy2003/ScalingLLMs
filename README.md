@@ -41,13 +41,6 @@ We evaluate four Vision-Language Models (VLMs) on design-to-code generation:
 
 ![Results Table](results.png)
 
-| Model | CLIP | IoU | Render Success | Error Rate | Tree Edit Sim | Semantic HTML | Degradation | Consistency | Latency | VRAM/Cost |
-|-------|------|-----|----------------|------------|---------------|---------------|-------------|-------------|---------|-----------|
-| **Gemini-2.5-Flash** | 0.82 | 0.16 | 77.89% | 3.51% | 0.21 | 23.25% | 0.00% | 0.66 | 34.22s | $0.0020/1k |
-| **Qwen3-VL-8B-Thinking** | 0.68 | 0.13 | 96.90% | 1.03% | 0.18 | 27.13% | 21.05% | 0.66 | 153.95s | 17.70 GB |
-| **Design2Code-18B-v0** | 0.77 | 0.12 | 100.00% | 24.17% | 0.16 | 66.56% | 15.56% | 0.72 | 208.26s | 39.44 GB |
-| **VLM-WebSight** | 0.71 | 0.10 | 98.97% | 51.45% | 0.09 | 11.90% | 22.50% | 0.52 | 366.73s | 16.22 GB |
-
 ### Key Metrics
 - **Visual Fidelity**: CLIP similarity and IoU between rendered output and reference
 - **Code Correctness**: Render success rate and syntax error rate
