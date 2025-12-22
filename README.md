@@ -1,5 +1,7 @@
 # [Scaling LLM Project] Design2Code at Scale: A Framework-Based Comparison of Lightweight Fine-Tuning and Zero-Shot VLMs
 
+> **📦 [Dataset Release](https://github.com/jiayiichen/Design2Code-Predictions)** | **📝 [Blog Post](blog.md)**
+
 ## Team Information
 
 - **Team Name**: Design2Code at Scale
